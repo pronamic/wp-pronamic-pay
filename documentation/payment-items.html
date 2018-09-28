@@ -1,0 +1,2305 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+		<title>Pronamic Pay - Payment Items</title>
+	</head>
+
+	<body>
+		<h1>Pronamic Pay - Payment Items</h1>
+
+		<table class="table table-sm table-striped table-hover">
+			<thead>
+				<tr>
+					<th scope="col">Component</th>
+
+					
+						<th scope="col">
+							Adyen <a href="https://docs.adyen.com/developers/api-reference/common-api#address"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							Ingenico <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/create.html#payments-create-request-example"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							Klarna <a href="https://developers.klarna.com/en/nl/kpm/checkout-api#address-structure"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							Mollie <a href="https://docs.mollie.com/guides/common-data-types#address-object"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							MultiSafepay <a href="https://github.com/wp-pay-gateways/multisafepay"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							OmniKassa 2.0 <a href="https://github.com/wp-pay-gateways/omnikassa-2/blob/master/documentation/handleiding-api-koppeling-rabo-smartpin-en_29970886.pdf"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							PayPal <a href="https://developer.paypal.com/docs/api/payments/v1/#definitions"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							Pay.nl <a href="https://www.pay.nl/docs/developers.php"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							Sisow <a href="https://www.sisow.nl/implementatie-api"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							Easy Digital Downloads <a href="https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.9.7/includes/admin/reporting/class-export-payments.php"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							Gravity Forms <a href="https://github.com/wp-premium/gravityforms/blob/2.3.2/includes/fields/class-gf-field-address.php#L48-L52"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							MemberPress <a href="https://github.com/wp-premium/memberpress-business/blob/1.3.36/app/models/MeprUser.php#L1296-L1317"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							Restrict Content Pro <a href="https://github.com/restrictcontentpro/restrict-content"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							WooCommerce						</th>
+
+					
+						<th scope="col">
+							Google Analytics <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/ecommerce"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							MailChimp <a href="https://developer.mailchimp.com/documentation/mailchimp/reference/ecommerce/stores/carts/lines/"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							Apple Pay <a href="https://developer.apple.com/documentation/apple_pay_on_the_web/applepaylineitem"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							Schema.org <a href="https://schema.org/OrderItem"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+						<th scope="col">
+							Payment Request API <a href="https://www.w3.org/TR/payment-request/#dom-paymentitem"><i class="fas fa-info-circle"></i></a>						</th>
+
+					
+				</tr>
+			</thead>
+
+			<tbody>
+				
+				
+					<tr>
+						<th scope="row">
+							ID						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>id</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Item id"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>id</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="A short, localized description of the line item."></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+						
+							<td>
+								<code>id</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The transaction ID. This ID is what links items to the transactions to which they belong. (e.g. 1234)"></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+						
+							<td>
+								<code>id</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="A unique identifier for the cart line item."></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Number						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>orderItemNumber</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The identifier of the order item"></i>							</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Reference						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							SKU <a href="https://en.wikipedia.org/wiki/Stock_keeping_unit"><i class="fas fa-info-circle"></i></a>						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>sku</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Specifies the SKU or item code. (e.g. SKU47)"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Name						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>name</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Item name"></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>name</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The item name. (e.g. Fluffy Pink Bunnies)"></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Label						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>label</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="A short, localized description of the line item."></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>label</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="A human-readable description of the item. The user agent may display this to the user."></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Description						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>description</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Item description"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Quantity						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>quantity</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="number: 1-2147483647"></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>quantity</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The number of units purchased in the transaction. If a non-integer value is passed into this field (e.g. 1.5), it will be rounded to the closest integer value."></i>							</td>
+
+						
+							<td>
+								<code>quantity</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The quantity of a cart line item."></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>orderQuantity</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The number of the item ordered. If the property is not set, assume the quantity is one."></i>							</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Price						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>price</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The individual, unit, price for each item. (e.g. 11.99)"></i>							</td>
+
+						
+							<td>
+								<code>price</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The price of a cart line item."></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Amount						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>amount</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The amount in cents, including VAT, of the item each, see below for more details."></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>amount</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The monetary amount of the line item."></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>amount</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="A PaymentCurrencyAmount containing the monetary amount for the item."></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Currency						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Tax						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>tax</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The VAT of the item each, see below for more details"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Tax Amount						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Tax Class						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Tax Percentage						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							VAT						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							VAT Category						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>vatCategory</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The VAT category of the product. The values refer to the different rates that are used in the Netherlands: 1 = High (currently 21%), 2 = Low (currently 6%), 3 = Zero (0%), 4 = None (exempt from VAT)"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Shipping						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Type						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>type</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="A value that indicates whether the line item is final or pending."></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							URL						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Image URL						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Status						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>orderItemStatus</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The current status of the order item."></i>							</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Stock						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Discount						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Pending						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>pending</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="A boolean. When set to true it means that the amount member is not final. This is commonly used to show items such as shipping or tax amounts that depend upon selection of shipping address or shipping option. User agents MAY indicate pending fields in the user interface for the payment request."></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Category						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>category</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Product category: PHYSICAL or DIGITAL"></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>category</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The category to which the item belongs (e.g. Party Toys)"></i>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+			</tbody>
+		</table>
+
+		<h2>Links</h2>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Title</th>
+					<th scope="col">URL</th>
+					<th scope="col">Description</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>
+						Payment Request API - `PaymentItem` dictionary
+					</td>
+					<td>
+						<a href="https://www.w3.org/TR/payment-request/#dom-paymentitem">https://www.w3.org/TR/payment-request/#dom-paymentitem</a>						
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+		<script type="text/javascript">
+			jQuery( document ).ready( function( $ ) {
+				$( '[data-toggle="tooltip"]' ).tooltip();
+			} );
+		</script>
+	</body>
+</html>
