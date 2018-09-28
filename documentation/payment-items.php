@@ -21,8 +21,18 @@ $components = array(
 	'tax_amount'     => 'Tax Amount',
 	'tax_class'      => 'Tax Class',
 	'tax_percentage' => 'Tax Percentage',
-	'vat'            => 'VAT',
-	'vat_category'   => 'VAT Category',
+	'vat'            => array(
+		'label' => 'VAT',
+		'link'  => 'https://euvatrates.com/rates.json',
+	),
+	'vat_code'       => array(
+		'label' => 'VAT Code',
+		'link'  => 'https://euvatrates.com/rates.json',
+	),
+	'vat_category'   => array(
+		'label' => 'VAT Category',
+		'link'  => 'https://euvatrates.com/rates.json',
+	),
 	'shipping'       => 'Shipping',
 	'type'           => 'Type',
 	'url'            => 'URL',
@@ -32,6 +42,7 @@ $components = array(
 	'discount'       => 'Discount',
 	'pending'        => 'Pending',
 	'category'       => 'Category',
+	'discount'       => 'Discount',
 );
 
 $sources = array(
@@ -130,7 +141,37 @@ $sources = array(
 		'label'      => 'Pay.nl',
 		'link'       => 'https://www.pay.nl/docs/developers.php',
 		'components' => array(
-
+			'id'  => array(
+				'name'        => 'productId',
+				'type'        => 'integer',
+				'description' => 'Het interne product id binnen uw systeem',
+			),
+			'description' => array(
+				'name'        => 'description',
+				'type'        => 'string',
+				'description' => 'Omschrijving van het bestelde product',
+			),
+			'price'  => array(
+				'name'        => 'price',
+				'type'        => 'integer',
+				'description' => 'Productprijs in centen, dus €3,50 is 350',
+			),
+			'quantity'  => array(
+				'name'        => 'quantity',
+				'type'        => 'integer',
+				'description' => 'Aantal bestelde producten met het betreffende product id',
+			),
+			'vat_code'  => array(
+				'name'        => 'vatCode',
+				'type'        => 'string',
+				'description' => 'BTW code, mogelijke waarden: H: high, N: zero, L: low',
+			),
+			'vat_percentage'  => array(
+				'name'        => 'vatPercentage',
+			),
+			'discount'        => array(
+				'name'        => 'discount',
+			),
 		),
 	),
 	'sisow' => array(
@@ -374,7 +415,10 @@ $sources = array(
 
 									if ( is_array( $component ) ) {
 										$name     = $component['name'];
-										$tip      = $component['description'];
+
+										if ( array_key_exists( 'description', $component ) ) {
+											$tip = $component['description'];
+										}
 
 										if ( array_key_exists( 'optional', $component ) ) {
 											$optional = $component['optional'];
