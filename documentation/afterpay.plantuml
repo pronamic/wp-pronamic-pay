@@ -1,0 +1,86 @@
+@startuml
+
+namespace Pronamic\WordPress\Pay {
+	class Payment {
+		#id : string
+		..
+		#source : string
+		#source_id : string
+		..
+		#currency : string
+		#amount : float
+		#payment_method : string
+		..
+		#iban : string
+		#bic : string
+		--
+		+get_items() : array
+	}
+
+	class PaymentItem {
+		#id : string
+		#sku : string
+		#name : string
+		#description : string
+		#quantity : int
+		#price : float
+		#currency : string
+		#tax : float
+		#tax_class : string
+		#tax_percentage : float
+		#shipping : float
+		#type : string
+		#url : string
+		#image_url : string
+		#status : string
+		#stock : ?
+		#discount : float
+	}
+
+	class Contact {
+		#gender : string
+		#birth_date : \DateTime
+		..
+		#email : string
+		#phone : string
+		..
+		#ip_address : string
+		#user_agent: string
+		..
+		#language : string
+		#locale : string
+	}
+
+	Contact *-- "1" ContactName : name
+
+	class ContactName {
+		#prefix : string
+		#first_name : string
+		#middle_name : string
+		#last_name : string
+		#suffix : string
+	}
+
+	class Address {
+		#email : string
+		#company : string
+		#coc : string
+		#address_1 : string
+		#address_2 : string
+		#zip : string
+		#city : string
+		#region : string
+		#country : string
+		#country_code : string
+		#phone : string
+	}
+
+	Address *-- "1" ContactName : name
+
+	Payment *-- "1" Contact : contact
+	Payment *-- "1" Address : billing
+	Payment *-- "1" Address : shipping
+	Payment *-- "0..*" PaymentItem : items
+}
+
+@enduml

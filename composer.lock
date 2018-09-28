@@ -4,8 +4,128 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a92127966494005b7a86e49e03c60d0f",
+    "content-hash": "e24b1f6d0fc39eb4203847899dc8d4b7",
     "packages": [
+        {
+            "name": "composer/installers",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "^4.8.36"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Thelia",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "time": "2018-08-27T06:10:37+00:00"
+        },
         {
             "name": "icepay/icepay",
             "version": "2.4.0",
@@ -188,6 +308,45 @@
                 "GPL-3.0-or-later"
             ],
             "time": "2018-08-16T09:03:49+00:00"
+        },
+        {
+            "name": "viison/address-splitter",
+            "version": "0.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/VIISON/AddressSplitting.git",
+                "reference": "6f5acd7d37641392f4fc1cf126d2cbfdd2f33946"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/VIISON/AddressSplitting/zipball/6f5acd7d37641392f4fc1cf126d2cbfdd2f33946",
+                "reference": "6f5acd7d37641392f4fc1cf126d2cbfdd2f33946",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "VIISON\\AddressSplitter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "VIISON GmbH",
+                    "email": "contact@viison.com"
+                }
+            ],
+            "description": "Tries to split an address line into street name, house number and other additional information like building, apartment information etc.",
+            "time": "2018-03-05T10:46:06+00:00"
         },
         {
             "name": "wp-pay-extensions/appthemes",
@@ -442,16 +601,16 @@
         },
         {
             "name": "wp-pay-extensions/event-espresso",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/event-espresso.git",
-                "reference": "39ac109af983eb0fafdfaf266b57f9aa3ad5e0ff"
+                "reference": "99a02f9800d4b63c0a480ad2e87aec11872e6ead"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso/zipball/39ac109af983eb0fafdfaf266b57f9aa3ad5e0ff",
-                "reference": "39ac109af983eb0fafdfaf266b57f9aa3ad5e0ff",
+                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso/zipball/99a02f9800d4b63c0a480ad2e87aec11872e6ead",
+                "reference": "99a02f9800d4b63c0a480ad2e87aec11872e6ead",
                 "shasum": ""
             },
             "require": {
@@ -505,7 +664,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-08-28T17:37:13+00:00"
+            "time": "2018-09-28T06:56:39+00:00"
         },
         {
             "name": "wp-pay-extensions/event-espresso-legacy",
@@ -700,16 +859,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "0fa95b7142eb42313845ba9d06865786ae908a6e"
+                "reference": "fcc04ae37efd2e8e7e9dda12b6e6e47d253fb62c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/0fa95b7142eb42313845ba9d06865786ae908a6e",
-                "reference": "0fa95b7142eb42313845ba9d06865786ae908a6e",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/fcc04ae37efd2e8e7e9dda12b6e6e47d253fb62c",
+                "reference": "fcc04ae37efd2e8e7e9dda12b6e6e47d253fb62c",
                 "shasum": ""
             },
             "require": {
@@ -761,7 +920,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-09-12T19:02:03+00:00"
+            "time": "2018-09-28T08:25:10+00:00"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -2277,16 +2436,16 @@
         },
         {
             "name": "wp-pay-gateways/omnikassa-2",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/omnikassa-2.git",
-                "reference": "8b5318b885eb9d757fe1ba14c05db36ea21e530b"
+                "reference": "99a7532a97535518d5427c64b0e4a5b4fc617960"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/8b5318b885eb9d757fe1ba14c05db36ea21e530b",
-                "reference": "8b5318b885eb9d757fe1ba14c05db36ea21e530b",
+                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/99a7532a97535518d5427c64b0e4a5b4fc617960",
+                "reference": "99a7532a97535518d5427c64b0e4a5b4fc617960",
                 "shasum": ""
             },
             "require": {
@@ -2339,7 +2498,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-09-17T07:32:43+00:00"
+            "time": "2018-09-28T07:34:03+00:00"
         },
         {
             "name": "wp-pay-gateways/pay-nl",
@@ -2535,22 +2694,24 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "0f8675a06896f32428c9796173cd861da431b1fa"
+                "reference": "86aa474a6a2d51371225f10c60c2efa3f7f17fb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/0f8675a06896f32428c9796173cd861da431b1fa",
-                "reference": "0f8675a06896f32428c9796173cd861da431b1fa",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/86aa474a6a2d51371225f10c60c2efa3f7f17fb4",
+                "reference": "86aa474a6a2d51371225f10c60c2efa3f7f17fb4",
                 "shasum": ""
             },
             "require": {
+                "composer/installers": "^1.6",
                 "php": "^5.3",
                 "pronamic/wp-datetime": "^1.0",
-                "pronamic/wp-money": "^1.1"
+                "pronamic/wp-money": "^1.1",
+                "viison/address-splitter": "^0.3.2"
             },
             "require-dev": {
                 "johnpbloch/wordpress": "^4.9",
@@ -2600,7 +2761,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-09-14T10:18:46+00:00"
+            "time": "2018-09-28T06:43:35+00:00"
         }
     ],
     "packages-dev": [

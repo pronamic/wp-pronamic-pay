@@ -1,5 +1,6 @@
 {
 	"name": "pronamic/wp-pronamic-ideal",
+	"type": "wordpress-plugin",
 	"description": "The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.",
 	"keywords": ["pronamic", "ideal", "wordpress", "pay"],
 	"homepage": "https://github.com/pronamic/wp-pronamic-ideal",
@@ -49,6 +50,9 @@
 	},
 	"require": {
 		"php": "^5.3",
+
+		"composer/installers": "^1.6",
+
 		"icepay/icepay": "~2.4.0",
 
 		"pronamic/wp-datetime": "^1.0",
@@ -106,5 +110,51 @@
 		"wimg/php-compatibility": "^8.1",
 		"johnpbloch/wordpress": "^4.9",
 		"wp-phpunit/wp-phpunit": "^4.9"
+	},
+	"scripts": {
+		"php-lint-plugin": "find -L . -type f -path ./.git -prune -o -path ./deploy -prune -o -path ./node_modules -prune -o -path ./repositories -prune -o -path ./vendor -prune -o -path ./wordpress -prune -o -path ./wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
+		"php-lint-wp-pay": "find -L ./repositories/ -type f -name .git -prune -o -name node_modules -prune -o -name vendor -prune -o -name wordpress -prune -o -name wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
+		"make-pot": "wp pronamic i18n make-pot . languages/pronamic_ideal.pot --slug='pronamic-ideal'",
+		"update-po": "find languages/*.po -type f -exec msgmerge --update {} languages/pronamic_ideal.pot \\;",
+		"generate-readme-txt": "php src/readme-txt/readme.php > readme.txt",
+		"generate-readme-md": "php src/readme-md/README.php > README.md",
+		"generate-readme": [
+			"@generate-readme-txt",
+			"@generate-readme-md"
+		],
+		"generate-changelog-md": "php src/changelog-md/CHANGELOG.php > CHANGELOG.md",
+		"generate-changelog": [
+			"@generate-readme-txt",
+			"@generate-changelog-md"
+		],
+		"build-latest": [
+			"rm -r deploy/latest",
+			"mkdir deploy/latest",
+			"rsync --recursive --delete --exclude-from=src/deploy-ignore.txt ./ ./deploy/latest/",
+			"composer install --working-dir deploy/latest --no-dev --prefer-dist",
+			"rm deploy/latest/vendor/*/*/.gitignore",
+			"rm deploy/latest/vendor/*/*/.scrutinizer.yml",
+			"rm deploy/latest/vendor/*/*/.travis.yml",
+			"rm deploy/latest/vendor/*/*/composer.lock",
+			"rm deploy/latest/vendor/*/*/Gruntfile.js",
+			"rm deploy/latest/vendor/*/*/package.json",
+			"rm deploy/latest/vendor/*/*/package-lock.json",
+			"rm deploy/latest/vendor/*/*/phpcs.xml.dist",
+			"rm deploy/latest/vendor/*/*/phpmd.ruleset.xml",
+			"rm deploy/latest/vendor/*/*/phpunit.xml.dist",
+			"rm deploy/latest/vendor/*/*/yarn.lock",
+			"rm -r deploy/latest/vendor/*/*/documentation",
+			"rm -r deploy/latest/vendor/*/*/tests",
+			"rm -r deploy/latest/vendor/bin"
+		],
+		"deploy-latest": [
+			"@build-latest",
+			"svn update deploy/wp-svn",
+			"rsync --recursive --delete ./deploy/latest/ ./deploy/wp-svn/trunk/",
+			"svn status ./deploy/wp-svn/trunk/",
+			"svn status ./deploy/wp-svn/trunk/ | grep '^!' | cut -c 9- | xargs -d '\n' -i svn delete {}@",
+			"svn status ./deploy/wp-svn/trunk/ | grep '^?' | cut -c 9- | xargs -d '\n' -i svn add {}@",
+			"svn commit ./deploy/wp-svn/trunk/ -m 'Update'"
+		]
 	}
 }

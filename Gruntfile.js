@@ -140,6 +140,15 @@ module.exports = function( grunt ) {
 
 		// Shell.
 		shell: {
+			// Make POT.
+			makepot: {
+				command: 'wp pronamic i18n make-pot . languages/pronamic_ideal.pot --slug="pronamic-ideal"'
+			},
+
+			msgmerge: {
+				command: 'find languages/*.po -type f -exec msgmerge --update {} languages/pronamic_ideal.pot \\;'
+			},
+
 			// PlantUML.
 			plantuml: {
 				command: 'plantuml ./documentation/*.plantuml'
@@ -238,6 +247,7 @@ module.exports = function( grunt ) {
 					'!phpcs.xml.dist',
 					'!CHANGELOG.md',
 					'!README.md',
+					'!wp-cli.yml',
 					'!build/**',
 					'!deploy/**',
 					'!etc/**',
@@ -376,11 +386,13 @@ module.exports = function( grunt ) {
 					'deploy/latest/vendor/pronamic/*/phpcs.xml.dist',
 					'deploy/latest/vendor/pronamic/*/phpmd.ruleset.xml',
 					'deploy/latest/vendor/pronamic/*/phpunit.xml.dist',
+					'deploy/latest/vendor/pronamic/*/yarn.lock',
 					'deploy/latest/vendor/wp-pay*/*/bin/**',
 					'deploy/latest/vendor/wp-pay*/*/documentation',
 					'deploy/latest/vendor/wp-pay*/*/test/**',
 					'deploy/latest/vendor/wp-pay*/*/tests/**',
 					'deploy/latest/vendor/wp-pay*/*/.gitignore',
+					'deploy/latest/vendor/wp-pay*/*/.scrutinizer.yml',
 					'deploy/latest/vendor/wp-pay*/*/.travis.yml',
 					'deploy/latest/vendor/wp-pay*/*/composer.lock',
 					'deploy/latest/vendor/wp-pay*/*/Gruntfile.js',
@@ -389,7 +401,8 @@ module.exports = function( grunt ) {
 					'deploy/latest/vendor/wp-pay*/*/phpcs.ruleset.xml',
 					'deploy/latest/vendor/wp-pay*/*/phpcs.xml.dist',
 					'deploy/latest/vendor/wp-pay*/*/phpmd.ruleset.xml',
-					'deploy/latest/vendor/wp-pay*/*/phpunit.xml.dist'
+					'deploy/latest/vendor/wp-pay*/*/phpunit.xml.dist',
+					'deploy/latest/vendor/wp-pay*/*/yarn.lock'
 				]
 			},
 			deploy_wp_content: {
@@ -489,7 +502,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'assets', [ 'sasslint', 'sass', 'postcss', 'copy:scripts', 'copy:assets', 'copy:other' ] );
 	grunt.registerTask( 'min', [ 'uglify', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
-	grunt.registerTask( 'pot', [ 'build_latest', 'makepot', 'copy:pot_to_dev' ] );
+	grunt.registerTask( 'pot', [ 'shell:makepot', 'shell:msgmerge' ] );
 
 	grunt.registerTask( 'build_docs', [
 		'shell:readme_txt',

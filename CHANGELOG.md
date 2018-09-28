@@ -8,6 +8,21 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changed
 
+## [5.4.2] - 2018-09-28
+
+### Changed
+- Updated WordPress pay core library from 2.0.7 to version 2.0.8.
+  - Updated Tippy.js from 2.6.0 to 3.0.2.
+
+### Fixed
+- Updated WordPress pay OmniKassa 2 library from 2.0.3 to version 2.0.4.
+  - Remove unused `use` statements.
+- Updated WordPress pay Event Espresso library from 2.1.0 to version 2.1.1.
+  - Use updated iDEAL gateway class name.
+  - Use cards icon as default icon for Pronamic payment method too.
+- Updated WordPress pay Gravity Forms library from 2.1.2 to version 2.1.3.
+  - Trigger events for field on change.
+
 ## [5.4.1] - 2018-09-17
 
 ### Fixed
@@ -1801,7 +1816,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.2...HEAD
+[5.4.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.1...5.4.2
 [5.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.0...5.4.1
 [5.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.3.0...5.4.0
 [5.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.2.0...5.3.0
