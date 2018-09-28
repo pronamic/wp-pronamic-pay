@@ -111,9 +111,6 @@ jQuery( document ).ready( function( $ ) {
 		}
 
 		tippyInstance = tippy.one( {
-			attributes: {
-				title: text
-			},
 			getBoundingClientRect: function() {
 				return {
 					width: 0,
@@ -127,6 +124,7 @@ jQuery( document ).ready( function( $ ) {
 			clientHeight: 0,
 			clientWidth: 0
 		}, {
+			content: text,
 			placement: 'right'
 		} );
 
