@@ -15,12 +15,17 @@ $components = array(
 	'description'    => 'Description',
 	'quantity'       => 'Quantity',
 	'price'          => 'Price',
+	'net_price'      => 'Net Price',
+	'total'          => 'Total',
+	'subtotal'       => 'Subtotal',
+	'net_total'      => 'Net Total',
 	'amount'         => 'Amount',
 	'currency'       => 'Currency',
 	'tax'            => 'Tax',
 	'tax_amount'     => 'Tax Amount',
 	'tax_class'      => 'Tax Class',
 	'tax_percentage' => 'Tax Percentage',
+	'tax_rate'       => 'Tax Rate',
 	'vat'            => array(
 		'label' => 'VAT',
 		'link'  => 'https://euvatrates.com/rates.json',
@@ -43,6 +48,7 @@ $components = array(
 	'pending'        => 'Pending',
 	'category'       => 'Category',
 	'discount'       => 'Discount',
+	'product_id'     => 'Product ID',
 );
 
 $sources = array(
@@ -132,7 +138,7 @@ $sources = array(
 	),
 	'paypal' => array(
 		'label'      => 'PayPal',
-		'link'       => 'https://developer.paypal.com/docs/api/payments/v1/#definitions',
+		'link'       => 'https://developer.paypal.com/docs/api/payments/v1/#definition-item',
 		'components' => array(
 
 		),
@@ -178,7 +184,38 @@ $sources = array(
 		'label'      => 'Sisow',
 		'link'       => 'https://www.sisow.nl/implementatie-api',
 		'components' => array(
-
+			'id'  => array(
+				'name'        => 'product_id_x',
+				'description' => 'Product code',
+			),
+			'description'  => array(
+				'name'        => 'product_description_x',
+				'description' => 'Omschrijving van het product',
+			),
+			'quantity'  => array(
+				'name'        => 'product_quantity_x',
+				'description' => 'Aantal besteld',
+			),
+			'net_price'  => array(
+				'name'        => 'product_netprice_x',
+				'description' => 'Netto prijs van het product',
+			),
+			'total'  => array(
+				'name'        => 'product_total_x',
+				'description' => 'Totaal bedrag van de orderregel inclusief BTW',
+			),
+			'net_total'  => array(
+				'name'        => 'product_nettotal_x',
+				'description' => 'Totaal bedrag van de orderregel exclusief BTW',
+			),
+			'tax'  => array(
+				'name'        => 'product_tax_x',
+				'description' => 'BTW bedrag in centen van de orderregel',
+			),
+			'tax_rate'  => array(
+				'name'        => 'product_taxrate_x',
+				'description' => 'BTW percentage (21% doorgeven als 2100)',
+			),
 		),
 	),
 	'easy-digital-downloads' => array(
@@ -211,9 +248,79 @@ $sources = array(
 	),
 	'woocommerce' => array(
 		'label'      => 'WooCommerce',
-		'link'       => '',
+		'links'      => array(
+			'https://github.com/woocommerce/woocommerce/blob/master/includes/class-wc-order-item.php',
+			'https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/api/legacy/v1/class-wc-api-orders.php#L98-L234'
+		),
 		'components' => array(
-
+			'id'  => array(
+				'name'        => 'id',
+			),
+			'subtotal'  => array(
+				'name'        => 'subtotal',
+				'description' => array(
+					'Get line subtotal - this is the cost before discount.',
+					'wc_format_decimal( $order->get_line_subtotal( $item ), 2 )',
+					'public function get_line_subtotal( $item, $inc_tax = false, $round = true )',
+				),
+				'links'       => array(
+					'https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/api/legacy/v1/class-wc-api-orders.php#L181',
+					'https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/abstracts/abstract-wc-order.php#L1511-L1533',
+				),
+			),
+			'total'  => array(
+				'name'        => 'total',
+				'description' => array(
+					'Calculate line total - useful for gateways.',
+					'wc_format_decimal( $order->get_line_total( $item ), 2 )',
+					'public function get_line_total( $item, $inc_tax = false, $round = true )',
+				),
+				'links'       => array(
+					'https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/api/legacy/v1/class-wc-api-orders.php#L182',
+					'https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/abstracts/abstract-wc-order.php#L1559-L1579',
+				),
+			),
+			'total_tax'  => array(
+				'name'        => 'total_tax',
+				'description' => array(
+					'Get line tax - useful for gateways.',
+					'wc_format_decimal( $order->get_line_tax( $item ), 2 )',
+					'public function get_line_tax( $item )',
+					'public function get_total_tax( $context = \'view\' )',
+				),
+				'links'       => array(
+					'https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/api/legacy/v1/class-wc-api-orders.php#L183',
+					'https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/abstracts/abstract-wc-order.php#L1599-L1607',
+					'https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/abstracts/abstract-wc-order.php#L363-L371',
+				),
+			),
+			'price'  => array(
+				'name'        => 'price',
+				'description' => array(
+					'Calculate item cost - useful for gateways.',
+					'wc_format_decimal( $order->get_item_total( $item ), 2 )',
+					'public function get_item_total( $item, $inc_tax = false, $round = true )',
+				),
+				'links'       => array(
+					'https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/api/legacy/v1/class-wc-api-orders.php#L184',
+					'https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/abstracts/abstract-wc-order.php#L1535-L1557',
+				),
+			),
+			'quantity'  => array(
+				'name'        => 'quantity',
+			),
+			'tax_class'  => array(
+				'name'        => 'tax_class',
+			),
+			'name'  => array(
+				'name'        => 'name',
+			),
+			'product_id'  => array(
+				'name'        => 'product_id',
+			),
+			'sku'  => array(
+				'name'        => 'sku',
+			),
 		),
 	),
 	'google-analytics' => array(
@@ -327,6 +434,28 @@ $sources = array(
 	),
 );
 
+function print_link( $array ) {
+	$links = array();
+
+	if ( array_key_exists( 'links', $array ) ) {
+		$links = $array['links'];
+	}
+
+	if ( array_key_exists( 'link', $array ) ) {
+		$links[] = $array['link'];
+	}
+
+	$html = array();
+
+	foreach ( $links as $link ) {
+		$html[] = sprintf(
+			'<a href="%s"><i class="fas fa-info-circle"></i></a>',
+			$link
+		);
+	}
+
+	echo implode( ' ', $html );
+}
 
 ?>
 <!doctype html>
@@ -360,14 +489,9 @@ $sources = array(
 
 							echo $source['label'];
 
-							if ( $source['link'] ) {
-								echo ' ';
+							echo ' ';
 
-								printf(
-									'<a href="%s"><i class="fas fa-info-circle"></i></a>',
-									$source['link']
-								);
-							}
+							print_link( $source );
 
 							?>
 						</th>
@@ -387,12 +511,10 @@ $sources = array(
 
 							if ( is_array( $data ) ) {
 								echo $data['label'];
+
 								echo ' ';
 
-								printf(
-									'<a href="%s"><i class="fas fa-info-circle"></i></a>',
-									$data['link']
-								);
+								print_link( $data );
 							} else {
 								echo $data;
 							}
@@ -417,7 +539,10 @@ $sources = array(
 										$name     = $component['name'];
 
 										if ( array_key_exists( 'description', $component ) ) {
-											$tip = $component['description'];
+											$description = $component['description'];
+											$description = is_array( $description ) ? $description : array( $description );
+
+											$tip = implode( "\r\n", $description );
 										}
 
 										if ( array_key_exists( 'optional', $component ) ) {
@@ -467,6 +592,10 @@ $sources = array(
 											$warning
 										);
 									}
+
+									echo ' ';
+
+									print_link( $component );
 								}
 
 								?>
