@@ -194,7 +194,11 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 		</td>
 	</tr>
 
-	<?php if ( 0 !== $payment->get_order_items()->count() ) : ?>
+	<?php 
+
+	$items = $payment->get_order_items();
+
+	if ( null !== $items ) : ?>
 
 		<tr>
 			<th scope="row">
@@ -213,7 +217,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 					<tbody>
 
-						<?php foreach ( $payment->get_order_items() as $item ) : ?>
+						<?php foreach ( $items as $item ) : ?>
 
 							<?php
 
@@ -237,25 +241,26 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 	<?php endif; ?>
 
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Contact', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
+	<?php if ( null !== $payment->get_customer() ) : ?>
 
-			echo wp_kses(
-				nl2br( $payment->get_customer() ),
-				array(
-					'br' => array(),
-				)
-			);
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Customer', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
 
-			?>
-		</td>
-	</tr>
+				if ( null !== $payment->get_customer()->get_name() ) {
+					echo esc_html( $payment->get_customer()->get_name() );
+				}
 
-	<?php if ( null !== $payment->get_billing_address()->get_json() ) : ?>
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php if ( null !== $payment->get_billing_address() ) : ?>
 
 		<tr>
 			<th scope="row">
@@ -277,7 +282,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 	<?php endif; ?>
 
-	<?php if ( null !== $payment->get_shipping_address()->get_json() ) : ?>
+	<?php if ( null !== $payment->get_shipping_address() ) : ?>
 
 		<tr>
 			<th scope="row">
@@ -299,24 +304,90 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 	<?php endif; ?>
 
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Consumer', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
+	<?php
 
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_name', true ) );
-			echo '<br />';
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true ) );
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true ) );
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true ) );
-			echo '<br />';
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_city', true ) );
+	$account_holder = get_post_meta( $post_id, '_pronamic_payment_consumer_name', true );
 
-			?>
-		</td>
-	</tr>
+	if ( ! empty( $account_holder ) ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Account Holder', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $account_holder ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php
+
+	$account_holder_city = get_post_meta( $post_id, '_pronamic_payment_consumer_city', true );
+
+	if ( ! empty( $account_holder_city ) ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Account Holder City', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $account_holder_city ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php
+
+	$iban = get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true );
+
+	if ( ! empty( $iban ) ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php
+
+				printf(
+					'<abbr title="%s">%s</abbr>',
+					esc_attr( _x( 'International Bank Account Number', 'IBAN abbreviation title', 'pronamic_ideal' ) ),
+					esc_html__( 'IBAN', 'pronamic_ideal' )
+				);
+
+				?>
+			</th>
+			<td>
+				<?php echo esc_html( $iban ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php
+
+	$bic = get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true );
+
+	if ( ! empty( $bic ) ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php
+
+				printf(
+					'<abbr title="%s">%s</abbr>',
+					esc_attr( _x( 'Bank Identifier Code', 'BIC abbreviation title', 'pronamic_ideal' ) ),
+					esc_html__( 'BIC', 'pronamic_ideal' )
+				);
+
+				?>
+			</th>
+			<td>
+				<?php echo esc_html( $bic ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<tr>
 		<th scope="row">
 			<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>
