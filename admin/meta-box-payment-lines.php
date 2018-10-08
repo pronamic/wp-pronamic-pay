@@ -30,6 +30,7 @@ if ( empty( $lines ) ) : ?>
 				<th scope="col"><?php esc_html_e( 'Description', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Unit Price', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Quantity', 'pronamic_ideal' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Total Discount', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Total Amount', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Total Tax', 'pronamic_ideal' ); ?></th>
 			</tr>
@@ -50,6 +51,19 @@ if ( empty( $lines ) ) : ?>
 					}, $lines->get_array() );
 
 					echo esc_html( array_sum( $quantities ) );
+
+					?>
+				</td>
+				<td>
+					<?php
+
+					$values = array_map( function( $line ) {
+						if ( null !== $line->get_total_discount() ) {
+							return $line->get_total_discount()->get_amount();
+						}
+					}, $lines->get_array() );
+
+					echo esc_html( array_sum( $values ) );
 
 					?>
 				</td>
@@ -101,6 +115,15 @@ if ( empty( $lines ) ) : ?>
 						?>
 					</td>
 					<td><?php echo esc_html( $line->get_quantity() ); ?></td>
+					<td>
+						<?php
+
+						if ( null !== $line->get_total_discount() ) {
+							echo esc_html( $line->get_total_discount()->format_i18n() );
+						}
+
+						?>
+					</td>
 					<td>
 						<?php
 
