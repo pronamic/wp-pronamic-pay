@@ -213,50 +213,6 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 	<?php endif; ?>
 
-	<?php if ( null !== $payment->get_billing_address() ) : ?>
-
-		<tr>
-			<th scope="row">
-				<?php esc_html_e( 'Billing Address', 'pronamic_ideal' ); ?>
-			</th>
-			<td>
-				<?php
-
-				echo wp_kses(
-					nl2br( $payment->get_billing_address() ),
-					array(
-						'br' => array(),
-					)
-				);
-
-				?>
-			</td>
-		</tr>
-
-	<?php endif; ?>
-
-	<?php if ( null !== $payment->get_shipping_address() ) : ?>
-
-		<tr>
-			<th scope="row">
-				<?php esc_html_e( 'Shipping Address', 'pronamic_ideal' ); ?>
-			</th>
-			<td>
-				<?php
-
-				echo wp_kses(
-					nl2br( $payment->get_shipping_address() ),
-					array(
-						'br' => array(),
-					)
-				);
-
-				?>
-			</td>
-		</tr>
-
-	<?php endif; ?>
-
 	<?php
 
 	$account_holder = get_post_meta( $post_id, '_pronamic_payment_consumer_name', true );
