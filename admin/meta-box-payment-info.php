@@ -341,13 +341,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 	<?php endif; ?>
 
-<<<<<<< HEAD
-=======
-			?>
-		</td>
-	</tr>
-
-	<?php if ( method_exists( $payment, 'get_billing_address' ) && null !== $payment->get_billing_address() ) : ?>
+	<?php if ( null !== $payment->get_billing_address() ) : ?>
 
 		<tr>
 			<th scope="row">
@@ -366,7 +360,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 	<?php endif; ?>
 
-	<?php if ( method_exists( $payment, 'get_shipping_address' ) && null !== $payment->get_shipping_address() ) : ?>
+	<?php if ( null !== $payment->get_shipping_address() ) : ?>
 
 		<tr>
 			<th scope="row">
@@ -385,7 +379,6 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 	<?php endif; ?>
 
->>>>>>> develop
 	<tr>
 		<th scope="row">
 			<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>
