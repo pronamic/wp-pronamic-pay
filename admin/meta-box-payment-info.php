@@ -194,53 +194,6 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 		</td>
 	</tr>
 
-	<?php 
-
-	$items = $payment->get_order_items();
-
-	if ( null !== $items ) : ?>
-
-		<tr>
-			<th scope="row">
-				<?php esc_html_e( 'Order Items', 'pronamic_ideal' ); ?>
-			</th>
-			<td>
-				<table>
-					<thead>
-						<tr>
-							<th><?php esc_html_e( 'Item ID', 'pronamic_ideal' ); ?></th>
-							<th><?php esc_html_e( 'Description', 'pronamic_ideal' ); ?></th>
-							<th><?php esc_html_e( 'Quantity', 'pronamic_ideal' ); ?></th>
-							<th><?php esc_html_e( 'Price', 'pronamic_ideal' ); ?></th>
-						</tr>
-					</thead>
-
-					<tbody>
-
-						<?php foreach ( $items as $item ) : ?>
-
-							<?php
-
-							$amount = new Money( $item->get_price(), $payment->get_currency() );
-
-							?>
-
-							<tr>
-								<td><?php echo esc_html( $item->get_id() ); ?></td>
-								<td><?php echo esc_html( $item->get_description() ); ?></td>
-								<td><?php echo esc_html( $item->get_quantity() ); ?></td>
-								<td><?php echo esc_html( $amount->format_i18n() ); ?></td>
-							</tr>
-
-						<?php endforeach; ?>
-
-					</tbody>
-				</table>
-			</td>
-		</tr>
-
-	<?php endif; ?>
-
 	<?php if ( null !== $payment->get_customer() ) : ?>
 
 		<tr>
