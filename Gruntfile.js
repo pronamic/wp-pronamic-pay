@@ -8,7 +8,7 @@ module.exports = function( grunt ) {
 
 		// PHPLint
 		phplint: {
-			core: [
+			plugin: [
 				'**/*.php',
 				'!build/**',
 				'!deploy/**',
@@ -95,32 +95,26 @@ module.exports = function( grunt ) {
 					'_nx_noop:1,2,3c,4d'
 				]
 			},
-			files: {
-				src:  [
+			plugin: {
+				src: [
 					'**/*.php',
 					'!build/**',
 					'!deploy/**',
 					'!node_modules/**',
-					'!tests/**',
+					'!repositories/**',
+					'!vendor/**',
 					'!wordpress/**',
 					'!wp-content/**'
 				],
 				expand: true
-			}
-		},
-
-		// Make POT.
-		makepot: {
-			target: {
-				options: {
-					cwd: 'deploy/latest',
-					domainPath: 'languages',
-					type: 'wp-plugin',
-					mainFile: 'pronamic-ideal.php',
-					exclude: [ 'vendor/pronamic/.*' ],
-					updatePoFiles: true,
-					updateTimestamp: false
-				}
+			},
+			wp_pay: {
+				src: [
+					'vendor/wp-pay/**/*.php',
+					'vendor/wp-pay-gateways/**/*.php',
+					'vendor/wp-pay-extensions/**/*.php'
+				],
+				expand: true
 			}
 		},
 
@@ -140,14 +134,18 @@ module.exports = function( grunt ) {
 
 		// Shell.
 		shell: {
+			// Make POT.
+			makepot: {
+				command: 'wp pronamic i18n make-pot . languages/pronamic_ideal.pot --slug="pronamic-ideal"'
+			},
+
+			msgmerge: {
+				command: 'find languages/*.po -type f -exec msgmerge --update {} languages/pronamic_ideal.pot \\;'
+			},
+
 			// PlantUML.
 			plantuml: {
 				command: 'plantuml ./documentation/*.plantuml'
-			},
-
-			// WordPress test environment.
-			test: {
-				command: 'bash tests/setup.sh'
 			},
 
 			// Generate readme.txt.
@@ -163,14 +161,6 @@ module.exports = function( grunt ) {
 			// Generate CHANGELOG.md.
 			changelog_md: {
 				command: 'php src/changelog-md/CHANGELOG.php > CHANGELOG.md'
-			},
-
-			// Composer.
-			deploy: {
-				command: [
-					'cd deploy/latest',
-					'composer install --no-dev --prefer-dist'
-				].join( '&&' )
 			}
 		},
 
@@ -223,52 +213,6 @@ module.exports = function( grunt ) {
 						dest: 'other/'
 					}
 				]
-			},
-			deploy: {
-				expand: true,
-				src: [
-					'**',
-					'!composer.lock',
-					'!Gruntfile.js',
-					'!package.json',
-					'!package-lock.json',
-					'!phpdoc.dist.xml',
-					'!phpunit.xml',
-					'!phpunit.xml.dist',
-					'!phpcs.xml.dist',
-					'!CHANGELOG.md',
-					'!README.md',
-					'!build/**',
-					'!deploy/**',
-					'!etc/**',
-					'!documentation/**',
-					'!node_modules/**',
-					'!repositories/**',
-					'!src/**',
-					'!tests/**',
-					'!vendor/**',
-					'!wordpress/**',
-					'!wp-content/**'
-				],
-				dest: 'deploy/latest/'
-			},
-			pot_to_dev: {
-				expand: true,
-				cwd: 'deploy/latest/languages/',
-				src: '**',
-				dest: 'languages/'
-			}
-		},
-
-		// Composer.
-		composer : {
-			options : {
-
-			},
-			some_target: {
-            	options : {
-                	cwd: 'deploy/latest'
-				}
 			}
 		},
 
@@ -356,110 +300,10 @@ module.exports = function( grunt ) {
 					'images',
 					'js'
 				]
-			},
-			deploy: {
-				src: [ 'deploy/latest' ]
-			},
-			deploy_composer: {
-				src: [
-					'deploy/latest/vendor/pronamic/*/bin/**',
-					'deploy/latest/vendor/pronamic/*/documentation',
-					'deploy/latest/vendor/pronamic/*/test/**',
-					'deploy/latest/vendor/pronamic/*/tests/**',
-					'deploy/latest/vendor/pronamic/*/.gitignore',
-					'deploy/latest/vendor/pronamic/*/.travis.yml',
-					'deploy/latest/vendor/pronamic/*/composer.lock',
-					'deploy/latest/vendor/pronamic/*/Gruntfile.js',
-					'deploy/latest/vendor/pronamic/*/package.json',
-					'deploy/latest/vendor/pronamic/*/package-lock.json',
-					'deploy/latest/vendor/pronamic/*/phpcs.ruleset.xml',
-					'deploy/latest/vendor/pronamic/*/phpcs.xml.dist',
-					'deploy/latest/vendor/pronamic/*/phpmd.ruleset.xml',
-					'deploy/latest/vendor/pronamic/*/phpunit.xml.dist',
-					'deploy/latest/vendor/wp-pay*/*/bin/**',
-					'deploy/latest/vendor/wp-pay*/*/documentation',
-					'deploy/latest/vendor/wp-pay*/*/test/**',
-					'deploy/latest/vendor/wp-pay*/*/tests/**',
-					'deploy/latest/vendor/wp-pay*/*/.gitignore',
-					'deploy/latest/vendor/wp-pay*/*/.travis.yml',
-					'deploy/latest/vendor/wp-pay*/*/composer.lock',
-					'deploy/latest/vendor/wp-pay*/*/Gruntfile.js',
-					'deploy/latest/vendor/wp-pay*/*/package.json',
-					'deploy/latest/vendor/wp-pay*/*/package-lock.json',
-					'deploy/latest/vendor/wp-pay*/*/phpcs.ruleset.xml',
-					'deploy/latest/vendor/wp-pay*/*/phpcs.xml.dist',
-					'deploy/latest/vendor/wp-pay*/*/phpmd.ruleset.xml',
-					'deploy/latest/vendor/wp-pay*/*/phpunit.xml.dist'
-				]
-			},
-			deploy_wp_content: {
-				src: [
-					'deploy/latest/wp-content'
-				]
-			}
-		},
-
-		// Compress.
-		compress: {
-			deploy: {
-				options: {
-					archive: 'deploy/archives/<%= pkg.name %>.<%= pkg.version %>.zip'
-				},
-				expand: true,
-				cwd: 'deploy/latest',
-				src: ['**/*'],
-				dest: '<%= pkg.name %>/'
-			}
-		},
-
-		// Git checkout.
-		gitcheckout: {
-			tag: {
-				options: {
-					branch: 'tags/<%= pkg.version %>'
-				}
-			},
-			develop: {
-				options: {
-					branch: 'develop'
-				}
-			}
-		},
-
-		// S3.
-		aws_s3: {
-			options: {
-				region: 'eu-central-1'
-			},
-			deploy: {
-				options: {
-					bucket: 'downloads.pronamic.eu',
-					differential: true
-				},
-				files: [
-					{
-						expand: true,
-						cwd: 'deploy/archives/',
-						src: '<%= pkg.name %>.<%= pkg.version %>.zip',
-						dest: 'plugins/<%= pkg.name %>/'
-					}
-				]
 			}
 		},
 		
-		// WordPress deploy.
-		rt_wp_deploy: {
-			app: {
-				options: {
-					svnUrl: 'http://plugins.svn.wordpress.org/<%= pkg.name %>/',
-					svnDir: 'deploy/wp-svn',
-					svnUsername: 'pronamic',
-					deployDir: 'deploy/latest',
-					version: '<%= pkg.version %>'
-				}
-			}
-		},
-
+		// Webfont.
 		webfont: {
 			icons: {
 				src: 'src/fonts/images/*.svg',
@@ -489,7 +333,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'assets', [ 'sasslint', 'sass', 'postcss', 'copy:scripts', 'copy:assets', 'copy:other' ] );
 	grunt.registerTask( 'min', [ 'uglify', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
-	grunt.registerTask( 'pot', [ 'build_latest', 'makepot', 'copy:pot_to_dev' ] );
+	grunt.registerTask( 'pot', [ 'checktextdomain', 'shell:makepot', 'shell:msgmerge' ] );
 
 	grunt.registerTask( 'build_docs', [
 		'shell:readme_txt',
@@ -503,35 +347,10 @@ module.exports = function( grunt ) {
 		'min'
 	] );
 
-	grunt.registerTask( 'build_latest', [
-		'clean:deploy',
-		'copy:deploy',
-		'shell:deploy',
-		'clean:deploy_composer',
-		'clean:deploy_wp_content'
-	] );
-
-	grunt.registerTask( 'deploy', [
+	grunt.registerTask( 'build', [
 		'default',
 		'build_docs',
 		'build_assets',
-		'build_latest',
-		'makepot',
-		'copy:pot_to_dev',
-		'compress:deploy'
-	] );
-
-	grunt.registerTask( 'wp-deploy', [
-		'gitcheckout:tag',
-		'deploy',
-		'rt_wp_deploy',
-		'gitcheckout:develop'
-	] );
-	
-	grunt.registerTask( 's3-deploy', [
-		'gitcheckout:tag',
-		'deploy',
-		'aws_s3:deploy',
-		'gitcheckout:develop'
+		'pot'
 	] );
 };

@@ -375,9 +375,12 @@
 		$( '.pronamic-pay-tabs' ).pronamicPayTabs();
 
 		// Tooltip
-		tippy( '.pronamic-pay-tip', {
-			arrow: true,
-			theme: 'pronamic-pay'
+		$( '.pronamic-pay-tip' ).each( function() {
+			tippy( this, {
+				content: $( this ).attr( 'title' ),
+				arrow: true,
+				theme: 'pronamic-pay'
+			} );
 		} );
 	} );
 } )( jQuery );

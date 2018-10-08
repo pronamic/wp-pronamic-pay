@@ -1,5 +1,5 @@
 /*!
-* Tippy.js v2.6.0
+* Tippy.js v3.0.2
 * (c) 2017-2018 atomiks
 * MIT
 */
@@ -9,371 +9,9 @@
 	(global.tippy = factory());
 }(this, (function () { 'use strict';
 
-var styles = ".tippy-touch{cursor:pointer!important}.tippy-notransition{transition:none!important}.tippy-popper{max-width:350px;-webkit-perspective:700px;perspective:700px;z-index:9999;outline:0;transition-timing-function:cubic-bezier(.165,.84,.44,1);pointer-events:none;line-height:1.4}.tippy-popper[data-html]{max-width:96%;max-width:calc(100% - 20px)}.tippy-popper[x-placement^=top] .tippy-backdrop{border-radius:40% 40% 0 0}.tippy-popper[x-placement^=top] .tippy-roundarrow{bottom:-8px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.tippy-popper[x-placement^=top] .tippy-arrow{border-top:7px solid #333;border-right:7px solid transparent;border-left:7px solid transparent;bottom:-7px;margin:0 6px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-backdrop{-webkit-transform-origin:0 90%;transform-origin:0 90%}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(-50%,25%);transform:scale(6) translate(-50%,25%);opacity:1}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1) translate(-50%,25%);transform:scale(1) translate(-50%,25%);opacity:0}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}.tippy-popper[x-placement^=top] [data-animation=perspective]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px) rotateX(0);transform:translateY(-10px) rotateX(0)}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) rotateX(90deg);transform:translateY(0) rotateX(90deg)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px) scale(1);transform:translateY(-10px) scale(1)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) scale(0);transform:translateY(0) scale(0)}.tippy-popper[x-placement^=bottom] .tippy-backdrop{border-radius:0 0 30% 30%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow{top:-8px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(0);transform:rotate(0)}.tippy-popper[x-placement^=bottom] .tippy-arrow{border-bottom:7px solid #333;border-right:7px solid transparent;border-left:7px solid transparent;top:-7px;margin:0 6px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-backdrop{-webkit-transform-origin:0 -90%;transform-origin:0 -90%}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(-50%,-125%);transform:scale(6) translate(-50%,-125%);opacity:1}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1) translate(-50%,-125%);transform:scale(1) translate(-50%,-125%);opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateY(10px) rotateX(0);transform:translateY(10px) rotateX(0)}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) rotateX(-90deg);transform:translateY(0) rotateX(-90deg)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateY(10px) scale(1);transform:translateY(10px) scale(1)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) scale(0);transform:translateY(0) scale(0)}.tippy-popper[x-placement^=left] .tippy-backdrop{border-radius:50% 0 0 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow{right:-16px;-webkit-transform-origin:33.33333333% 50%;transform-origin:33.33333333% 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(90deg);transform:rotate(90deg)}.tippy-popper[x-placement^=left] .tippy-arrow{border-left:7px solid #333;border-top:7px solid transparent;border-bottom:7px solid transparent;right:-7px;margin:3px 0;-webkit-transform-origin:0 50%;transform-origin:0 50%}.tippy-popper[x-placement^=left] .tippy-backdrop{-webkit-transform-origin:100% 0;transform-origin:100% 0}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(40%,-50%);transform:scale(6) translate(40%,-50%);opacity:1}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1.5) translate(40%,-50%);transform:scale(1.5) translate(40%,-50%);opacity:0}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}.tippy-popper[x-placement^=left] [data-animation=perspective]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px) rotateY(0);transform:translateX(-10px) rotateY(0)}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) rotateY(-90deg);transform:translateX(0) rotateY(-90deg)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px) scale(1);transform:translateX(-10px) scale(1)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) scale(0);transform:translateX(0) scale(0)}.tippy-popper[x-placement^=right] .tippy-backdrop{border-radius:0 50% 50% 0}.tippy-popper[x-placement^=right] .tippy-roundarrow{left:-16px;-webkit-transform-origin:66.66666666% 50%;transform-origin:66.66666666% 50%}.tippy-popper[x-placement^=right] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.tippy-popper[x-placement^=right] .tippy-arrow{border-right:7px solid #333;border-top:7px solid transparent;border-bottom:7px solid transparent;left:-7px;margin:3px 0;-webkit-transform-origin:100% 50%;transform-origin:100% 50%}.tippy-popper[x-placement^=right] .tippy-backdrop{-webkit-transform-origin:-100% 0;transform-origin:-100% 0}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(-140%,-50%);transform:scale(6) translate(-140%,-50%);opacity:1}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1.5) translate(-140%,-50%);transform:scale(1.5) translate(-140%,-50%);opacity:0}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}.tippy-popper[x-placement^=right] [data-animation=perspective]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateX(10px) rotateY(0);transform:translateX(10px) rotateY(0)}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) rotateY(90deg);transform:translateX(0) rotateY(90deg)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateX(10px) scale(1);transform:translateX(10px) scale(1)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) scale(0);transform:translateX(0) scale(0)}.tippy-tooltip{position:relative;color:#fff;border-radius:4px;font-size:.9rem;padding:.3rem .6rem;text-align:center;will-change:transform;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#333}.tippy-tooltip[data-size=small]{padding:.2rem .4rem;font-size:.75rem}.tippy-tooltip[data-size=large]{padding:.4rem .8rem;font-size:1rem}.tippy-tooltip[data-animatefill]{overflow:hidden;background-color:transparent}.tippy-tooltip[data-animatefill] .tippy-content{transition:-webkit-clip-path cubic-bezier(.46,.1,.52,.98);transition:clip-path cubic-bezier(.46,.1,.52,.98);transition:clip-path cubic-bezier(.46,.1,.52,.98),-webkit-clip-path cubic-bezier(.46,.1,.52,.98)}.tippy-tooltip[data-interactive],.tippy-tooltip[data-interactive] path{pointer-events:auto}.tippy-tooltip[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.53,2,.36,.85)}.tippy-tooltip[data-inertia][data-state=hidden]{transition-timing-function:ease}.tippy-arrow,.tippy-roundarrow{position:absolute;width:0;height:0}.tippy-roundarrow{width:24px;height:8px;fill:#333;pointer-events:none}.tippy-backdrop{position:absolute;will-change:transform;background-color:#333;border-radius:50%;width:26%;left:50%;top:50%;z-index:-1;transition:all cubic-bezier(.46,.1,.52,.98);-webkit-backface-visibility:hidden;backface-visibility:hidden}.tippy-backdrop:after{content:\"\";float:left;padding-top:100%}body:not(.tippy-touch) .tippy-tooltip[data-animatefill][data-state=visible] .tippy-content{-webkit-clip-path:ellipse(100% 100% at 50% 50%);clip-path:ellipse(100% 100% at 50% 50%)}body:not(.tippy-touch) .tippy-tooltip[data-animatefill][data-state=hidden] .tippy-content{-webkit-clip-path:ellipse(5% 50% at 50% 50%);clip-path:ellipse(5% 50% at 50% 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=right] .tippy-tooltip[data-animatefill][data-state=visible] .tippy-content{-webkit-clip-path:ellipse(135% 100% at 0 50%);clip-path:ellipse(135% 100% at 0 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=right] .tippy-tooltip[data-animatefill][data-state=hidden] .tippy-content{-webkit-clip-path:ellipse(40% 100% at 0 50%);clip-path:ellipse(40% 100% at 0 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=left] .tippy-tooltip[data-animatefill][data-state=visible] .tippy-content{-webkit-clip-path:ellipse(135% 100% at 100% 50%);clip-path:ellipse(135% 100% at 100% 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=left] .tippy-tooltip[data-animatefill][data-state=hidden] .tippy-content{-webkit-clip-path:ellipse(40% 100% at 100% 50%);clip-path:ellipse(40% 100% at 100% 50%)}@media (max-width:360px){.tippy-popper{max-width:96%;max-width:calc(100% - 20px)}}";
+var styles = ".tippy-iOS{cursor:pointer!important}.tippy-notransition{transition:none!important}.tippy-popper{-webkit-perspective:700px;perspective:700px;z-index:9999;outline:0;transition-timing-function:cubic-bezier(.165,.84,.44,1);pointer-events:none;line-height:1.4}.tippy-popper[x-placement^=top] .tippy-backdrop{border-radius:40% 40% 0 0}.tippy-popper[x-placement^=top] .tippy-roundarrow{bottom:-8px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.tippy-popper[x-placement^=top] .tippy-arrow{border-top:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;bottom:-7px;margin:0 6px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-backdrop{-webkit-transform-origin:0 90%;transform-origin:0 90%}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(-50%,25%);transform:scale(6) translate(-50%,25%);opacity:1}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1) translate(-50%,25%);transform:scale(1) translate(-50%,25%);opacity:0}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}.tippy-popper[x-placement^=top] [data-animation=perspective]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px) rotateX(0);transform:translateY(-10px) rotateX(0)}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) rotateX(60deg);transform:translateY(0) rotateX(60deg)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px) scale(1);transform:translateY(-10px) scale(1)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) scale(.5);transform:translateY(0) scale(.5)}.tippy-popper[x-placement^=bottom] .tippy-backdrop{border-radius:0 0 30% 30%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow{top:-8px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(0);transform:rotate(0)}.tippy-popper[x-placement^=bottom] .tippy-arrow{border-bottom:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;top:-7px;margin:0 6px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-backdrop{-webkit-transform-origin:0 -90%;transform-origin:0 -90%}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(-50%,-125%);transform:scale(6) translate(-50%,-125%);opacity:1}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1) translate(-50%,-125%);transform:scale(1) translate(-50%,-125%);opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateY(10px) rotateX(0);transform:translateY(10px) rotateX(0)}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) rotateX(-60deg);transform:translateY(0) rotateX(-60deg)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateY(10px) scale(1);transform:translateY(10px) scale(1)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) scale(.5);transform:translateY(0) scale(.5)}.tippy-popper[x-placement^=left] .tippy-backdrop{border-radius:50% 0 0 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow{right:-16px;-webkit-transform-origin:33.33333333% 50%;transform-origin:33.33333333% 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(90deg);transform:rotate(90deg)}.tippy-popper[x-placement^=left] .tippy-arrow{border-left:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;right:-7px;margin:3px 0;-webkit-transform-origin:0 50%;transform-origin:0 50%}.tippy-popper[x-placement^=left] .tippy-backdrop{-webkit-transform-origin:100% 0;transform-origin:100% 0}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(40%,-50%);transform:scale(6) translate(40%,-50%);opacity:1}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1.5) translate(40%,-50%);transform:scale(1.5) translate(40%,-50%);opacity:0}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}.tippy-popper[x-placement^=left] [data-animation=perspective]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px) rotateY(0);transform:translateX(-10px) rotateY(0)}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) rotateY(-60deg);transform:translateX(0) rotateY(-60deg)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px) scale(1);transform:translateX(-10px) scale(1)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) scale(.5);transform:translateX(0) scale(.5)}.tippy-popper[x-placement^=right] .tippy-backdrop{border-radius:0 50% 50% 0}.tippy-popper[x-placement^=right] .tippy-roundarrow{left:-16px;-webkit-transform-origin:66.66666666% 50%;transform-origin:66.66666666% 50%}.tippy-popper[x-placement^=right] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.tippy-popper[x-placement^=right] .tippy-arrow{border-right:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;left:-7px;margin:3px 0;-webkit-transform-origin:100% 50%;transform-origin:100% 50%}.tippy-popper[x-placement^=right] .tippy-backdrop{-webkit-transform-origin:-100% 0;transform-origin:-100% 0}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(-140%,-50%);transform:scale(6) translate(-140%,-50%);opacity:1}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1.5) translate(-140%,-50%);transform:scale(1.5) translate(-140%,-50%);opacity:0}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}.tippy-popper[x-placement^=right] [data-animation=perspective]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateX(10px) rotateY(0);transform:translateX(10px) rotateY(0)}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) rotateY(60deg);transform:translateX(0) rotateY(60deg)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateX(10px) scale(1);transform:translateX(10px) scale(1)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) scale(.5);transform:translateX(0) scale(.5)}.tippy-tooltip{position:relative;color:#fff;border-radius:4px;font-size:.9rem;padding:.3rem .6rem;max-width:350px;text-align:center;will-change:transform;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#333}.tippy-tooltip[data-size=small]{padding:.2rem .4rem;font-size:.75rem}.tippy-tooltip[data-size=large]{padding:.4rem .8rem;font-size:1rem}.tippy-tooltip[data-animatefill]{overflow:hidden;background-color:transparent}.tippy-tooltip[data-interactive],.tippy-tooltip[data-interactive] path{pointer-events:auto}.tippy-tooltip[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.53,2,.36,.85)}.tippy-tooltip[data-inertia][data-state=hidden]{transition-timing-function:ease}.tippy-arrow,.tippy-roundarrow{position:absolute;width:0;height:0}.tippy-roundarrow{width:24px;height:8px;fill:#333;pointer-events:none}.tippy-backdrop{position:absolute;will-change:transform;background-color:#333;border-radius:50%;width:26%;left:50%;top:50%;z-index:-1;transition:all cubic-bezier(.46,.1,.52,.98);-webkit-backface-visibility:hidden;backface-visibility:hidden}.tippy-backdrop:after{content:\"\";float:left;padding-top:100%}.tippy-backdrop+.tippy-content{transition-property:opacity}.tippy-backdrop+.tippy-content[data-state=visible]{opacity:1}.tippy-backdrop+.tippy-content[data-state=hidden]{opacity:0}@media (max-width:360px){.tippy-popper{max-width:96%;max-width:calc(100% - 20px)}}";
 
-var version = "2.6.0";
-
-var isBrowser = typeof window !== 'undefined';
-
-var isIE = isBrowser && /MSIE |Trident\//.test(navigator.userAgent);
-
-var browser = {};
-
-if (isBrowser) {
-  browser.supported = 'requestAnimationFrame' in window;
-  browser.supportsTouch = 'ontouchstart' in window;
-  browser.usingTouch = false;
-  browser.dynamicInputDetection = true;
-  browser.iOS = /iPhone|iPad|iPod/.test(navigator.platform) && !window.MSStream;
-  browser.onUserInputChange = function () {};
-}
-
-/**
- * Selector constants used for grabbing elements
- */
-var selectors = {
-  POPPER: '.tippy-popper',
-  TOOLTIP: '.tippy-tooltip',
-  CONTENT: '.tippy-content',
-  BACKDROP: '.tippy-backdrop',
-  ARROW: '.tippy-arrow',
-  ROUND_ARROW: '.tippy-roundarrow',
-  REFERENCE: '[data-tippy]'
-};
-
-var defaults = {
-  placement: 'top',
-  livePlacement: true,
-  trigger: 'mouseenter focus',
-  animation: 'shift-away',
-  html: false,
-  animateFill: true,
-  arrow: false,
-  delay: [0, 20],
-  duration: [350, 300],
-  interactive: false,
-  interactiveBorder: 2,
-  theme: 'dark',
-  size: 'regular',
-  distance: 10,
-  offset: 0,
-  hideOnClick: true,
-  multiple: false,
-  followCursor: false,
-  inertia: false,
-  updateDuration: 350,
-  sticky: false,
-  appendTo: function appendTo() {
-    return document.body;
-  },
-  zIndex: 9999,
-  touchHold: false,
-  performance: false,
-  dynamicTitle: false,
-  flip: true,
-  flipBehavior: 'flip',
-  arrowType: 'sharp',
-  arrowTransform: '',
-  maxWidth: '',
-  target: null,
-  allowTitleHTML: true,
-  popperOptions: {},
-  createPopperInstanceOnInit: false,
-  onShow: function onShow() {},
-  onShown: function onShown() {},
-  onHide: function onHide() {},
-  onHidden: function onHidden() {}
-};
-
-/**
- * The keys of the defaults object for reducing down into a new object
- * Used in `getIndividualOptions()`
- */
-var defaultsKeys = browser.supported && Object.keys(defaults);
-
-/**
- * Determines if a value is an object literal
- * @param {*} value
- * @return {Boolean}
- */
-function isObjectLiteral(value) {
-  return {}.toString.call(value) === '[object Object]';
-}
-
-/**
- * Ponyfill for Array.from
- * @param {*} value
- * @return {Array}
- */
-function toArray(value) {
-  return [].slice.call(value);
-}
-
-/**
- * Returns an array of elements based on the selector input
- * @param {String|Element|Element[]|NodeList|Object} selector
- * @return {Element[]}
- */
-function getArrayOfElements(selector) {
-  if (selector instanceof Element || isObjectLiteral(selector)) {
-    return [selector];
-  }
-
-  if (selector instanceof NodeList) {
-    return toArray(selector);
-  }
-
-  if (Array.isArray(selector)) {
-    return selector;
-  }
-
-  try {
-    return toArray(document.querySelectorAll(selector));
-  } catch (_) {
-    return [];
-  }
-}
-
-/**
- * Polyfills needed props/methods for a virtual reference object
- * NOTE: in v3.0 this will be pure
- * @param {Object} reference
- */
-function polyfillVirtualReferenceProps(reference) {
-  reference.refObj = true;
-  reference.attributes = reference.attributes || {};
-  reference.setAttribute = function (key, val) {
-    reference.attributes[key] = val;
-  };
-  reference.getAttribute = function (key) {
-    return reference.attributes[key];
-  };
-  reference.removeAttribute = function (key) {
-    delete reference.attributes[key];
-  };
-  reference.hasAttribute = function (key) {
-    return key in reference.attributes;
-  };
-  reference.addEventListener = function () {};
-  reference.removeEventListener = function () {};
-  reference.classList = {
-    classNames: {},
-    add: function add(key) {
-      return reference.classList.classNames[key] = true;
-    },
-    remove: function remove(key) {
-      delete reference.classList.classNames[key];
-      return true;
-    },
-    contains: function contains(key) {
-      return key in reference.classList.classNames;
-    }
-  };
-}
-
-/**
- * Returns the supported prefixed property - only `webkit` is needed, `moz`, `ms` and `o` are obsolete
- * @param {String} property
- * @return {String} - browser supported prefixed property
- */
-function prefix(property) {
-  var prefixes = ['', 'webkit'];
-  var upperProp = property.charAt(0).toUpperCase() + property.slice(1);
-
-  for (var i = 0; i < prefixes.length; i++) {
-    var _prefix = prefixes[i];
-    var prefixedProp = _prefix ? _prefix + upperProp : property;
-    if (typeof document.body.style[prefixedProp] !== 'undefined') {
-      return prefixedProp;
-    }
-  }
-
-  return null;
-}
-
-/**
- * Creates a div element
- * @return {Element}
- */
-function div() {
-  return document.createElement('div');
-}
-
-/**
- * Creates a popper element then returns it
- * @param {Number} id - the popper id
- * @param {String} title - the tooltip's `title` attribute
- * @param {Object} options - individual options
- * @return {Element} - the popper element
- */
-function createPopperElement(id, title, options) {
-  var popper = div();
-  popper.setAttribute('class', 'tippy-popper');
-  popper.setAttribute('role', 'tooltip');
-  popper.setAttribute('id', 'tippy-' + id);
-  popper.style.zIndex = options.zIndex;
-  popper.style.maxWidth = options.maxWidth;
-
-  var tooltip = div();
-  tooltip.setAttribute('class', 'tippy-tooltip');
-  tooltip.setAttribute('data-size', options.size);
-  tooltip.setAttribute('data-animation', options.animation);
-  tooltip.setAttribute('data-state', 'hidden');
-  options.theme.split(' ').forEach(function (t) {
-    tooltip.classList.add(t + '-theme');
-  });
-
-  var content = div();
-  content.setAttribute('class', 'tippy-content');
-
-  if (options.arrow) {
-    var arrow = div();
-    arrow.style[prefix('transform')] = options.arrowTransform;
-
-    if (options.arrowType === 'round') {
-      arrow.classList.add('tippy-roundarrow');
-      arrow.innerHTML = '<svg viewBox="0 0 24 8" xmlns="http://www.w3.org/2000/svg"><path d="M3 8s2.021-.015 5.253-4.218C9.584 2.051 10.797 1.007 12 1c1.203-.007 2.416 1.035 3.761 2.782C19.012 8.005 21 8 21 8H3z"/></svg>';
-    } else {
-      arrow.classList.add('tippy-arrow');
-    }
-
-    tooltip.appendChild(arrow);
-  }
-
-  if (options.animateFill) {
-    // Create animateFill circle element for animation
-    tooltip.setAttribute('data-animatefill', '');
-    var backdrop = div();
-    backdrop.classList.add('tippy-backdrop');
-    backdrop.setAttribute('data-state', 'hidden');
-    tooltip.appendChild(backdrop);
-  }
-
-  if (options.inertia) {
-    // Change transition timing function cubic bezier
-    tooltip.setAttribute('data-inertia', '');
-  }
-
-  if (options.interactive) {
-    tooltip.setAttribute('data-interactive', '');
-  }
-
-  var html = options.html;
-  if (html) {
-    var templateId = void 0;
-
-    if (html instanceof Element) {
-      content.appendChild(html);
-      templateId = '#' + (html.id || 'tippy-html-template');
-    } else {
-      // trick linters: https://github.com/atomiks/tippyjs/issues/197
-      content[true && 'innerHTML'] = document.querySelector(html)[true && 'innerHTML'];
-      templateId = html;
-    }
-
-    popper.setAttribute('data-html', '');
-    tooltip.setAttribute('data-template-id', templateId);
-
-    if (options.interactive) {
-      popper.setAttribute('tabindex', '-1');
-    }
-  } else {
-    content[options.allowTitleHTML ? 'innerHTML' : 'textContent'] = title;
-  }
-
-  tooltip.appendChild(content);
-  popper.appendChild(tooltip);
-
-  return popper;
-}
-
-/**
- * Creates a trigger by adding the necessary event listeners to the reference element
- * @param {String} eventType - the custom event specified in the `trigger` setting
- * @param {Element} reference
- * @param {Object} handlers - the handlers for each event
- * @param {Object} options
- * @return {Array} - array of listener objects
- */
-function createTrigger(eventType, reference, handlers, options) {
-  var onTrigger = handlers.onTrigger,
-      onMouseLeave = handlers.onMouseLeave,
-      onBlur = handlers.onBlur,
-      onDelegateShow = handlers.onDelegateShow,
-      onDelegateHide = handlers.onDelegateHide;
-
-  var listeners = [];
-
-  if (eventType === 'manual') return listeners;
-
-  var on = function on(eventType, handler) {
-    reference.addEventListener(eventType, handler);
-    listeners.push({ event: eventType, handler: handler });
-  };
-
-  if (!options.target) {
-    on(eventType, onTrigger);
-
-    if (browser.supportsTouch && options.touchHold) {
-      on('touchstart', onTrigger);
-      on('touchend', onMouseLeave);
-    }
-    if (eventType === 'mouseenter') {
-      on('mouseleave', onMouseLeave);
-    }
-    if (eventType === 'focus') {
-      on(isIE ? 'focusout' : 'blur', onBlur);
-    }
-  } else {
-    if (browser.supportsTouch && options.touchHold) {
-      on('touchstart', onDelegateShow);
-      on('touchend', onDelegateHide);
-    }
-    if (eventType === 'mouseenter') {
-      on('mouseover', onDelegateShow);
-      on('mouseout', onDelegateHide);
-    }
-    if (eventType === 'focus') {
-      on('focusin', onDelegateShow);
-      on('focusout', onDelegateHide);
-    }
-    if (eventType === 'click') {
-      on('click', onDelegateShow);
-    }
-  }
-
-  return listeners;
-}
-
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-var createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-
-
-
-
-
-
+var version = "3.0.2";
 
 var _extends = Object.assign || function (target) {
   for (var i = 1; i < arguments.length; i++) {
@@ -389,91 +27,59 @@ var _extends = Object.assign || function (target) {
   return target;
 };
 
-/**
- * Returns an object of settings to override global settings
- * @param {Element} reference
- * @param {Object} instanceOptions
- * @return {Object} - individual options
- */
-function getIndividualOptions(reference, instanceOptions) {
-  var options = defaultsKeys.reduce(function (acc, key) {
-    var val = reference.getAttribute('data-tippy-' + key.toLowerCase()) || instanceOptions[key];
+var Defaults = {
+  a11y: true,
+  content: '',
+  placement: 'top',
+  livePlacement: true,
+  trigger: 'mouseenter focus',
+  hideOnClick: true,
+  animation: 'shift-away',
+  animateFill: true,
+  arrow: false,
+  delay: [0, 20],
+  duration: [325, 275],
+  interactive: false,
+  interactiveBorder: 2,
+  interactiveDebounce: 0,
+  theme: 'dark',
+  size: 'regular',
+  distance: 10,
+  offset: 0,
+  multiple: false,
+  followCursor: false,
+  inertia: false,
+  updateDuration: 200,
+  sticky: false,
+  appendTo: function appendTo() {
+    return document.body;
+  },
+  zIndex: 9999,
+  touchHold: false,
+  performance: false,
+  flip: true,
+  flipBehavior: 'flip',
+  arrowType: 'sharp',
+  arrowTransform: '',
+  target: '',
+  allowHTML: true,
+  showOnInit: false,
+  popperOptions: {},
+  lazy: true,
+  touch: true,
+  wait: null,
+  shouldPopperHideOnBlur: function shouldPopperHideOnBlur() {
+    return true;
+  },
+  onShow: function onShow() {},
+  onShown: function onShown() {},
+  onHide: function onHide() {},
+  onHidden: function onHidden() {}
+};
 
-    // Convert strings to booleans
-    if (val === 'false') val = false;
-    if (val === 'true') val = true;
-
-    // Convert number strings to true numbers
-    if (isFinite(val) && !isNaN(parseFloat(val))) {
-      val = parseFloat(val);
-    }
-
-    // Convert array strings to actual arrays
-    if (key !== 'target' && typeof val === 'string' && val.trim().charAt(0) === '[') {
-      val = JSON.parse(val);
-    }
-
-    acc[key] = val;
-
-    return acc;
-  }, {});
-
-  return _extends({}, instanceOptions, options);
-}
-
-/**
- * Evaluates/modifies the options object for appropriate behavior
- * @param {Element|Object} reference
- * @param {Object} options
- * @return {Object} modified/evaluated options
- */
-function evaluateOptions(reference, options) {
-  // animateFill is disabled if an arrow is true
-  if (options.arrow) {
-    options.animateFill = false;
-  }
-
-  if (options.appendTo && typeof options.appendTo === 'function') {
-    options.appendTo = options.appendTo();
-  }
-
-  if (typeof options.html === 'function') {
-    options.html = options.html(reference);
-  }
-
-  return options;
-}
-
-/**
- * Returns inner elements of the popper element
- * @param {Element} popper
- * @return {Object}
- */
-function getInnerElements(popper) {
-  var select = function select(s) {
-    return popper.querySelector(s);
-  };
-  return {
-    tooltip: select(selectors.TOOLTIP),
-    backdrop: select(selectors.BACKDROP),
-    content: select(selectors.CONTENT),
-    arrow: select(selectors.ARROW) || select(selectors.ROUND_ARROW)
-  };
-}
-
-/**
- * Removes the title from an element, setting `data-original-title`
- * appropriately
- * @param {Element} el
- */
-function removeTitle(el) {
-  var title = el.getAttribute('title');
-  // Only set `data-original-title` attr if there is a title
-  if (title) {
-    el.setAttribute('data-original-title', title);
-  }
-  el.removeAttribute('title');
-}
+var setDefaults = function setDefaults(partialDefaults) {
+  Defaults = _extends({}, Defaults, partialDefaults);
+};
 
 /**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
@@ -499,12 +105,12 @@ function removeTitle(el) {
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-var isBrowser$1 = typeof window !== 'undefined' && typeof document !== 'undefined';
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
 
 var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
 var timeoutDuration = 0;
 for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
-  if (isBrowser$1 && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
+  if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
     timeoutDuration = 1;
     break;
   }
@@ -537,7 +143,7 @@ function taskDebounce(fn) {
   };
 }
 
-var supportsMicroTasks = isBrowser$1 && window.Promise;
+var supportsMicroTasks = isBrowser && window.Promise;
 
 /**
 * Create a debounced version of a method, that's asynchronously deferred
@@ -627,8 +233,8 @@ function getScrollParent(element) {
   return getScrollParent(getParentNode(element));
 }
 
-var isIE11 = isBrowser$1 && !!(window.MSInputMethodContext && document.documentMode);
-var isIE10 = isBrowser$1 && /MSIE 10/.test(navigator.userAgent);
+var isIE11 = isBrowser && !!(window.MSInputMethodContext && document.documentMode);
+var isIE10 = isBrowser && /MSIE 10/.test(navigator.userAgent);
 
 /**
  * Determines if the browser is Internet Explorer
@@ -637,7 +243,7 @@ var isIE10 = isBrowser$1 && /MSIE 10/.test(navigator.userAgent);
  * @param {Number} version to check
  * @returns {Boolean} isIE
  */
-function isIE$1(version) {
+function isIE(version) {
   if (version === 11) {
     return isIE11;
   }
@@ -659,7 +265,7 @@ function getOffsetParent(element) {
     return document.documentElement;
   }
 
-  var noOffsetParent = isIE$1(10) ? document.body : null;
+  var noOffsetParent = isIE(10) ? document.body : null;
 
   // NOTE: 1 DOM access here
   var offsetParent = element.offsetParent;
@@ -814,13 +420,13 @@ function getBordersSize(styles, axis) {
 }
 
 function getSize(axis, body, html, computedStyle) {
-  return Math.max(body['offset' + axis], body['scroll' + axis], html['client' + axis], html['offset' + axis], html['scroll' + axis], isIE$1(10) ? parseInt(html['offset' + axis]) + parseInt(computedStyle['margin' + (axis === 'Height' ? 'Top' : 'Left')]) + parseInt(computedStyle['margin' + (axis === 'Height' ? 'Bottom' : 'Right')]) : 0);
+  return Math.max(body['offset' + axis], body['scroll' + axis], html['client' + axis], html['offset' + axis], html['scroll' + axis], isIE(10) ? parseInt(html['offset' + axis]) + parseInt(computedStyle['margin' + (axis === 'Height' ? 'Top' : 'Left')]) + parseInt(computedStyle['margin' + (axis === 'Height' ? 'Bottom' : 'Right')]) : 0);
 }
 
 function getWindowSizes(document) {
   var body = document.body;
   var html = document.documentElement;
-  var computedStyle = isIE$1(10) && getComputedStyle(html);
+  var computedStyle = isIE(10) && getComputedStyle(html);
 
   return {
     height: getSize('Height', body, html, computedStyle),
@@ -909,7 +515,7 @@ function getBoundingClientRect(element) {
   // considered in DOM in some circumstances...
   // This isn't reproducible in IE10 compatibility mode of IE11
   try {
-    if (isIE$1(10)) {
+    if (isIE(10)) {
       rect = element.getBoundingClientRect();
       var scrollTop = getScroll(element, 'top');
       var scrollLeft = getScroll(element, 'left');
@@ -954,7 +560,7 @@ function getBoundingClientRect(element) {
 function getOffsetRectRelativeToArbitraryNode(children, parent) {
   var fixedPosition = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
-  var isIE10 = isIE$1(10);
+  var isIE10 = isIE(10);
   var isHTML = parent.nodeName === 'HTML';
   var childrenRect = getBoundingClientRect(children);
   var parentRect = getBoundingClientRect(parent);
@@ -1053,7 +659,7 @@ function isFixed(element) {
 
 function getFixedPositionOffsetParent(element) {
   // This check is needed to avoid errors in case one of the elements isn't defined for any reason
-  if (!element || !element.parentElement || isIE$1()) {
+  if (!element || !element.parentElement || isIE()) {
     return document.documentElement;
   }
   var el = element.parentElement;
@@ -2784,7 +2390,7 @@ var modifiers = {
  * @static
  * @memberof Popper
  */
-var Defaults = {
+var Defaults$1 = {
   /**
    * Popper's placement.
    * @prop {Popper.placements} placement='bottom'
@@ -2997,27 +2603,586 @@ var Popper = function () {
 
 Popper.Utils = (typeof window !== 'undefined' ? window : global).PopperUtils;
 Popper.placements = placements;
-Popper.Defaults = Defaults;
+Popper.Defaults = Defaults$1;
+
+var Selectors = {
+  POPPER: '.tippy-popper',
+  TOOLTIP: '.tippy-tooltip',
+  CONTENT: '.tippy-content',
+  BACKDROP: '.tippy-backdrop',
+  ARROW: '.tippy-arrow',
+  ROUND_ARROW: '.tippy-roundarrow'
+};
 
 /**
- * Triggers document reflow.
- * Use void because some minifiers or engines think simply accessing the property
- * is unnecessary.
- * @param {Element} popper
+ * Firefox extensions doesn't allow 'innerHTML' to be set but we can trick it
+ * + aid for minifiers not to remove the trick
  */
-function reflow(popper) {
+var FF_EXTENSION_TRICK = { x: true
+
+  /**
+   * Determines if the runtime is a browser
+   */
+};var isBrowser$1 = typeof window !== 'undefined';
+
+/**
+ * Determines if the browser is supported
+ */
+var isBrowserSupported = isBrowser$1 && 'MutationObserver' in window;
+
+/**
+ * Injects a string of CSS styles to the style node in the document head
+ */
+var injectCSS = function injectCSS(css) {
+  if (isBrowserSupported) {
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    style.innerHTML = css;
+    document.head.insertBefore(style, document.head.firstChild);
+  }
+};
+
+/**
+ * Ponyfill for Array.from; converts iterable values to an array
+ */
+var toArray$1 = function toArray$$1(value) {
+  return [].slice.call(value);
+};
+
+/**
+ * Sets the content of a tooltip
+ */
+var setContent = function setContent(contentEl, props) {
+  if (props.content instanceof Element) {
+    setInnerHTML(contentEl, '');
+    contentEl.appendChild(props.content);
+  } else {
+    contentEl[props.allowHTML ? 'innerHTML' : 'textContent'] = props.content;
+  }
+};
+
+/**
+ * Determines if an element can receive focus
+ */
+var elementCanReceiveFocus = function elementCanReceiveFocus(el) {
+  return el instanceof Element ? matches.call(el, 'a[href],area[href],button,details,input,textarea,select,iframe,[tabindex]') && !el.hasAttribute('disabled') : true;
+};
+
+/**
+ * Applies a transition duration to a list of elements
+ */
+var applyTransitionDuration = function applyTransitionDuration(els, value) {
+  els.filter(Boolean).forEach(function (el) {
+    el.style.transitionDuration = value + 'ms';
+  });
+};
+
+/**
+ * Returns the child elements of a popper element
+ */
+var getChildren = function getChildren(popper) {
+  var select = function select(s) {
+    return popper.querySelector(s);
+  };
+  return {
+    tooltip: select(Selectors.TOOLTIP),
+    backdrop: select(Selectors.BACKDROP),
+    content: select(Selectors.CONTENT),
+    arrow: select(Selectors.ARROW) || select(Selectors.ROUND_ARROW)
+  };
+};
+
+/**
+ * Determines if a value is a plain object
+ */
+var isPlainObject = function isPlainObject(value) {
+  return {}.toString.call(value) === '[object Object]';
+};
+
+/**
+ * Creates and returns a div element
+ */
+var div = function div() {
+  return document.createElement('div');
+};
+
+/**
+ * Sets the innerHTML of an element while tricking linters & minifiers
+ */
+var setInnerHTML = function setInnerHTML(el, html) {
+  el[FF_EXTENSION_TRICK.x && 'innerHTML'] = html instanceof Element ? html[FF_EXTENSION_TRICK.x && 'innerHTML'] : html;
+};
+
+/**
+ * Returns an array of elements based on the value
+ */
+var getArrayOfElements = function getArrayOfElements(value) {
+  if (value instanceof Element || isPlainObject(value)) {
+    return [value];
+  }
+  if (value instanceof NodeList) {
+    return toArray$1(value);
+  }
+  if (Array.isArray(value)) {
+    return value;
+  }
+
+  try {
+    return toArray$1(document.querySelectorAll(value));
+  } catch (e) {
+    return [];
+  }
+};
+
+/**
+ * Determines if a value is numeric
+ */
+var isNumeric$1 = function isNumeric(value) {
+  return !isNaN(value) && !isNaN(parseFloat(value));
+};
+
+/**
+ * Returns a value at a given index depending on if it's an array or number
+ */
+var getValue = function getValue(value, index, defaultValue) {
+  if (Array.isArray(value)) {
+    var v = value[index];
+    return v == null ? defaultValue : v;
+  }
+  return value;
+};
+
+/**
+ * Creates an arrow element and returns it
+ */
+var createArrowElement = function createArrowElement(arrowType) {
+  var arrow = div();
+  if (arrowType === 'round') {
+    arrow.className = 'tippy-roundarrow';
+    setInnerHTML(arrow, '<svg viewBox="0 0 24 8" xmlns="http://www.w3.org/2000/svg"><path d="M3 8s2.021-.015 5.253-4.218C9.584 2.051 10.797 1.007 12 1c1.203-.007 2.416 1.035 3.761 2.782C19.012 8.005 21 8 21 8H3z"/></svg>');
+  } else {
+    arrow.className = 'tippy-arrow';
+  }
+  return arrow;
+};
+
+/**
+ * Creates a backdrop element and returns it
+ */
+var createBackdropElement = function createBackdropElement() {
+  var backdrop = div();
+  backdrop.className = 'tippy-backdrop';
+  backdrop.setAttribute('data-state', 'hidden');
+  return backdrop;
+};
+
+/**
+ * Adds interactive attributes
+ */
+var addInteractive = function addInteractive(popper, tooltip) {
+  popper.setAttribute('tabindex', '-1');
+  tooltip.setAttribute('data-interactive', '');
+};
+
+/**
+ * Removes interactive attributes
+ */
+var removeInteractive = function removeInteractive(popper, tooltip) {
+  popper.removeAttribute('tabindex');
+  tooltip.removeAttribute('data-interactive');
+};
+
+/**
+ * Adds inertia attribute
+ */
+var addInertia = function addInertia(tooltip) {
+  tooltip.setAttribute('data-inertia', '');
+};
+
+/**
+ * Removes inertia attribute
+ */
+var removeInertia = function removeInertia(tooltip) {
+  tooltip.removeAttribute('data-inertia');
+};
+
+/**
+ * Constructs the popper element and returns it
+ */
+var createPopperElement = function createPopperElement(id, props) {
+  var popper = div();
+  popper.className = 'tippy-popper';
+  popper.setAttribute('role', 'tooltip');
+  popper.id = 'tippy-' + id;
+  popper.style.zIndex = props.zIndex;
+
+  var tooltip = div();
+  tooltip.className = 'tippy-tooltip';
+  tooltip.setAttribute('data-size', props.size);
+  tooltip.setAttribute('data-animation', props.animation);
+  tooltip.setAttribute('data-state', 'hidden');
+  props.theme.split(' ').forEach(function (t) {
+    tooltip.classList.add(t + '-theme');
+  });
+
+  var content = div();
+  content.className = 'tippy-content';
+  content.setAttribute('data-state', 'hidden');
+
+  if (props.interactive) {
+    addInteractive(popper, tooltip);
+  }
+
+  if (props.arrow) {
+    tooltip.appendChild(createArrowElement(props.arrowType));
+  }
+
+  if (props.animateFill) {
+    tooltip.appendChild(createBackdropElement());
+    tooltip.setAttribute('data-animatefill', '');
+  }
+
+  if (props.inertia) {
+    tooltip.setAttribute('data-inertia', '');
+  }
+
+  setContent(content, props);
+
+  tooltip.appendChild(content);
+  popper.appendChild(tooltip);
+
+  popper.addEventListener('focusout', function (e) {
+    if (e.relatedTarget && popper._tippy && !closestCallback(e.relatedTarget, function (el) {
+      return el === popper;
+    }) && popper._tippy.props.shouldPopperHideOnBlur(e)) {
+      popper._tippy.hide();
+    }
+  });
+
+  return popper;
+};
+
+/**
+ * Updates the popper element based on the new props
+ */
+var updatePopperElement = function updatePopperElement(popper, prevProps, nextProps) {
+  var _getChildren = getChildren(popper),
+      tooltip = _getChildren.tooltip,
+      content = _getChildren.content,
+      backdrop = _getChildren.backdrop,
+      arrow = _getChildren.arrow;
+
+  popper.style.zIndex = nextProps.zIndex;
+  tooltip.setAttribute('data-size', nextProps.size);
+  tooltip.setAttribute('data-animation', nextProps.animation);
+
+  if (prevProps.content !== nextProps.content) {
+    setContent(content, nextProps);
+  }
+
+  // animateFill
+  if (!prevProps.animateFill && nextProps.animateFill) {
+    tooltip.appendChild(createBackdropElement());
+    tooltip.setAttribute('data-animatefill', '');
+  } else if (prevProps.animateFill && !nextProps.animateFill) {
+    tooltip.removeChild(backdrop);
+    tooltip.removeAttribute('data-animatefill');
+  }
+
+  // arrow
+  if (!prevProps.arrow && nextProps.arrow) {
+    tooltip.appendChild(createArrowElement(nextProps.arrowType));
+  } else if (prevProps.arrow && !nextProps.arrow) {
+    tooltip.removeChild(arrow);
+  }
+
+  // arrowType
+  if (prevProps.arrow && nextProps.arrow && prevProps.arrowType !== nextProps.arrowType) {
+    tooltip.replaceChild(createArrowElement(nextProps.arrowType), arrow);
+  }
+
+  // interactive
+  if (!prevProps.interactive && nextProps.interactive) {
+    addInteractive(popper, tooltip);
+  } else if (prevProps.interactive && !nextProps.interactive) {
+    removeInteractive(popper, tooltip);
+  }
+
+  // inertia
+  if (!prevProps.inertia && nextProps.inertia) {
+    addInertia(tooltip);
+  } else if (prevProps.inertia && !nextProps.inertia) {
+    removeInertia(tooltip);
+  }
+
+  // theme
+  if (prevProps.theme !== nextProps.theme) {
+    prevProps.theme.split(' ').forEach(function (theme) {
+      tooltip.classList.remove(theme + '-theme');
+    });
+    nextProps.theme.split(' ').forEach(function (theme) {
+      tooltip.classList.add(theme + '-theme');
+    });
+  }
+};
+
+/**
+ * Hides all visible poppers on the document
+ */
+var hideAllPoppers = function hideAllPoppers(excludeTippy) {
+  toArray$1(document.querySelectorAll(Selectors.POPPER)).forEach(function (popper) {
+    var tip = popper._tippy;
+    if (tip && tip.props.hideOnClick === true && (!excludeTippy || popper !== excludeTippy.popper)) {
+      tip.hide();
+    }
+  });
+};
+
+/**
+ * Returns an object of optional props from data-tippy-* attributes
+ */
+var getDataAttributeOptions = function getDataAttributeOptions(reference) {
+  return Object.keys(Defaults).reduce(function (acc, key) {
+    var valueAsString = (reference.getAttribute('data-tippy-' + key) || '').trim();
+
+    if (!valueAsString) {
+      return acc;
+    }
+
+    if (valueAsString === 'true') {
+      acc[key] = true;
+    } else if (valueAsString === 'false') {
+      acc[key] = false;
+    } else if (isNumeric$1(valueAsString)) {
+      acc[key] = Number(valueAsString);
+    } else if (key !== 'target' && valueAsString[0] === '[') {
+      acc[key] = JSON.parse(valueAsString);
+    } else {
+      acc[key] = valueAsString;
+    }
+
+    return acc;
+  }, {});
+};
+
+/**
+ * Polyfills the virtual reference (plain object) with needed props
+ * Mutating because DOM elements are mutated, adds _tippy property
+ */
+var polyfillVirtualReferenceProps = function polyfillVirtualReferenceProps(virtualReference) {
+  var polyfills = {
+    isVirtual: true,
+    attributes: virtualReference.attributes || {},
+    setAttribute: function setAttribute(key, value) {
+      virtualReference.attributes[key] = value;
+    },
+    getAttribute: function getAttribute(key) {
+      return virtualReference.attributes[key];
+    },
+    removeAttribute: function removeAttribute(key) {
+      delete virtualReference.attributes[key];
+    },
+    hasAttribute: function hasAttribute(key) {
+      return key in virtualReference.attributes;
+    },
+    addEventListener: function addEventListener() {},
+    removeEventListener: function removeEventListener() {},
+
+    classList: {
+      classNames: {},
+      add: function add(key) {
+        virtualReference.classList.classNames[key] = true;
+      },
+      remove: function remove(key) {
+        delete virtualReference.classList.classNames[key];
+      },
+      contains: function contains(key) {
+        return key in virtualReference.classList.classNames;
+      }
+    }
+  };
+
+  for (var key in polyfills) {
+    virtualReference[key] = polyfills[key];
+  }
+
+  return virtualReference;
+};
+
+/**
+ * Ponyfill for Element.prototype.matches
+ */
+var matches = function () {
+  if (isBrowser$1) {
+    var e = Element.prototype;
+    return e.matches || e.matchesSelector || e.webkitMatchesSelector || e.mozMatchesSelector || e.msMatchesSelector;
+  }
+}();
+
+/**
+ * Ponyfill for Element.prototype.closest
+ */
+var closest = function closest(element, parentSelector) {
+  return (Element.prototype.closest || function (selector) {
+    var el = this;
+    while (el) {
+      if (matches.call(el, selector)) return el;
+      el = el.parentElement;
+    }
+  }).call(element, parentSelector);
+};
+
+/**
+ * Works like Element.prototype.closest, but uses a callback instead
+ */
+var closestCallback = function closestCallback(element, callback) {
+  while (element) {
+    if (callback(element)) return element;
+    element = element.parentElement;
+  }
+};
+
+/**
+ * Focuses an element while preventing a scroll jump if it's not within the viewport
+ */
+var focus = function focus(el) {
+  var x = window.scrollX || window.pageXOffset;
+  var y = window.scrollY || window.pageYOffset;
+  el.focus();
+  scroll(x, y);
+};
+
+/**
+ * Triggers reflow
+ */
+var reflow = function reflow(popper) {
   void popper.offsetHeight;
-}
+};
 
 /**
- * Wrapper util for popper position updating.
- * Updates the popper's position and invokes the callback on update.
- * Hackish workaround until Popper 2.0's update() becomes sync.
- * @param {Popper} popperInstance
- * @param {Function} callback: to run once popper's position was updated
- * @param {Boolean} updateAlreadyCalled: was scheduleUpdate() already called?
+ * Transforms the x/y axis ased on the placement
  */
-function updatePopperPosition(popperInstance, callback, updateAlreadyCalled) {
+var transformAxisBasedOnPlacement = function transformAxisBasedOnPlacement(axis, isVertical) {
+  return (isVertical ? axis : {
+    X: 'Y',
+    Y: 'X'
+  }[axis]) || '';
+};
+
+/**
+ * Transforms the scale/translate numbers based on the placement
+ */
+var transformNumbersBasedOnPlacement = function transformNumbersBasedOnPlacement(type, numbers, isVertical, isReverse) {
+  /**
+   * Avoid destructuring because a large boilerplate function is generated
+   * by Babel
+   */
+  var a = numbers[0];
+  var b = numbers[1];
+
+  if (!a && !b) {
+    return '';
+  }
+
+  var transforms = {
+    scale: function () {
+      if (!b) {
+        return '' + a;
+      } else {
+        return isVertical ? a + ', ' + b : b + ', ' + a;
+      }
+    }(),
+    translate: function () {
+      if (!b) {
+        return isReverse ? -a + 'px' : a + 'px';
+      } else {
+        if (isVertical) {
+          return isReverse ? a + 'px, ' + -b + 'px' : a + 'px, ' + b + 'px';
+        } else {
+          return isReverse ? -b + 'px, ' + a + 'px' : b + 'px, ' + a + 'px';
+        }
+      }
+    }()
+  };
+
+  return transforms[type];
+};
+
+/**
+ * Returns the axis for a CSS function (translate or scale)
+ */
+var getTransformAxis = function getTransformAxis(str, cssFunction) {
+  var match = str.match(new RegExp(cssFunction + '([XY])'));
+  return match ? match[1] : '';
+};
+
+/**
+ * Returns the numbers given to the CSS function
+ */
+var getTransformNumbers = function getTransformNumbers(str, regex) {
+  var match = str.match(regex);
+  return match ? match[1].split(',').map(parseFloat) : [];
+};
+
+var TRANSFORM_NUMBER_RE = {
+  translate: /translateX?Y?\(([^)]+)\)/,
+  scale: /scaleX?Y?\(([^)]+)\)/
+
+  /**
+   * Computes the arrow's transform so that it is correct for any placement
+   */
+};var computeArrowTransform = function computeArrowTransform(arrow, arrowTransform) {
+  var placement = getPopperPlacement(closest(arrow, Selectors.POPPER));
+  var isVertical = placement === 'top' || placement === 'bottom';
+  var isReverse = placement === 'right' || placement === 'bottom';
+
+  var matches = {
+    translate: {
+      axis: getTransformAxis(arrowTransform, 'translate'),
+      numbers: getTransformNumbers(arrowTransform, TRANSFORM_NUMBER_RE.translate)
+    },
+    scale: {
+      axis: getTransformAxis(arrowTransform, 'scale'),
+      numbers: getTransformNumbers(arrowTransform, TRANSFORM_NUMBER_RE.scale)
+    }
+  };
+
+  var computedTransform = arrowTransform.replace(TRANSFORM_NUMBER_RE.translate, 'translate' + transformAxisBasedOnPlacement(matches.translate.axis, isVertical) + '(' + transformNumbersBasedOnPlacement('translate', matches.translate.numbers, isVertical, isReverse) + ')').replace(TRANSFORM_NUMBER_RE.scale, 'scale' + transformAxisBasedOnPlacement(matches.scale.axis, isVertical) + '(' + transformNumbersBasedOnPlacement('scale', matches.scale.numbers, isVertical, isReverse) + ')');
+
+  arrow.style[prefix('transform')] = computedTransform;
+};
+
+/**
+ * Sets the visibility state of a popper so it can begin to transition in or out
+ */
+var setVisibilityState = function setVisibilityState(els, type) {
+  els.filter(Boolean).forEach(function (el) {
+    el.setAttribute('data-state', type);
+  });
+};
+
+/**
+ * Prefixes a CSS property with the one supported by the browser
+ */
+var prefix = function prefix(property) {
+  var prefixes = ['', 'webkit'];
+  var upperProp = property[0].toUpperCase() + property.slice(1);
+
+  for (var i = 0; i < prefixes.length; i++) {
+    var _prefix = prefixes[i];
+    var prefixedProp = _prefix ? _prefix + upperProp : property;
+    if (typeof document.body.style[prefixedProp] !== 'undefined') {
+      return prefixedProp;
+    }
+  }
+
+  return null;
+};
+
+/**
+ * Update's a popper's position and runs a callback onUpdate; wrapper for async updates
+ */
+var updatePopperPosition = function updatePopperPosition(popperInstance, callback, updateAlreadyCalled) {
   var popper = popperInstance.popper,
       options = popperInstance.options;
 
@@ -3025,7 +3190,9 @@ function updatePopperPosition(popperInstance, callback, updateAlreadyCalled) {
   var onUpdate = options.onUpdate;
 
   options.onCreate = options.onUpdate = function () {
-    reflow(popper), callback && callback(), onUpdate();
+    reflow(popper);
+    callback && callback();
+    onUpdate();
     options.onCreate = onCreate;
     options.onUpdate = onUpdate;
   };
@@ -3033,1246 +3200,1119 @@ function updatePopperPosition(popperInstance, callback, updateAlreadyCalled) {
   if (!updateAlreadyCalled) {
     popperInstance.scheduleUpdate();
   }
-}
+};
 
 /**
- * Returns the core placement ('top', 'bottom', 'left', 'right') of a popper
- * @param {Element} popper
- * @return {String}
+ * Defers a function's execution until the call stack has cleared
  */
-function getPopperPlacement(popper) {
-  return popper.getAttribute('x-placement').replace(/-.+/, '');
-}
+var defer = function defer(fn) {
+  setTimeout(fn, 1);
+};
 
 /**
- * Determines if the mouse's cursor is outside the interactive border
- * @param {MouseEvent} event
- * @param {Element} popper
- * @param {Object} options
- * @return {Boolean}
+ * Determines if the mouse cursor is outside of the popper's interactive border
+ * region
  */
-function cursorIsOutsideInteractiveBorder(event, popper, options) {
-  if (!popper.getAttribute('x-placement')) return true;
+var isCursorOutsideInteractiveBorder = function isCursorOutsideInteractiveBorder(popperPlacement, popperRect, event, props) {
+  if (!popperPlacement) {
+    return true;
+  }
 
   var x = event.clientX,
       y = event.clientY;
-  var interactiveBorder = options.interactiveBorder,
-      distance = options.distance;
+  var interactiveBorder = props.interactiveBorder,
+      distance = props.distance;
 
 
-  var rect = popper.getBoundingClientRect();
-  var placement = getPopperPlacement(popper);
-  var borderWithDistance = interactiveBorder + distance;
+  var exceedsTop = popperRect.top - y > (popperPlacement === 'top' ? interactiveBorder + distance : interactiveBorder);
 
-  var exceeds = {
-    top: rect.top - y > interactiveBorder,
-    bottom: y - rect.bottom > interactiveBorder,
-    left: rect.left - x > interactiveBorder,
-    right: x - rect.right > interactiveBorder
-  };
+  var exceedsBottom = y - popperRect.bottom > (popperPlacement === 'bottom' ? interactiveBorder + distance : interactiveBorder);
 
-  switch (placement) {
-    case 'top':
-      exceeds.top = rect.top - y > borderWithDistance;
-      break;
-    case 'bottom':
-      exceeds.bottom = y - rect.bottom > borderWithDistance;
-      break;
-    case 'left':
-      exceeds.left = rect.left - x > borderWithDistance;
-      break;
-    case 'right':
-      exceeds.right = x - rect.right > borderWithDistance;
-      break;
+  var exceedsLeft = popperRect.left - x > (popperPlacement === 'left' ? interactiveBorder + distance : interactiveBorder);
+
+  var exceedsRight = x - popperRect.right > (popperPlacement === 'right' ? interactiveBorder + distance : interactiveBorder);
+
+  return exceedsTop || exceedsBottom || exceedsLeft || exceedsRight;
+};
+
+/**
+ * Returns the distance offset, taking into account the default offset due to
+ * the transform: translate() rule in CSS
+ */
+var getOffsetDistanceInPx = function getOffsetDistanceInPx(distance, defaultDistance) {
+  return -(distance - defaultDistance) + 'px';
+};
+
+/**
+ * Returns the popper's placement, ignoring shifting (top-start, etc)
+ */
+var getPopperPlacement = function getPopperPlacement(popper) {
+  var fullPlacement = popper.getAttribute('x-placement');
+  return fullPlacement ? fullPlacement.split('-')[0] : '';
+};
+
+/**
+ * Evaluates props
+ */
+var evaluateProps = function evaluateProps(reference, props) {
+  var out = _extends({}, props, props.performance ? {} : getDataAttributeOptions(reference));
+
+  if (out.arrow) {
+    out.animateFill = false;
   }
 
-  return exceeds.top || exceeds.bottom || exceeds.left || exceeds.right;
-}
+  if (typeof out.appendTo === 'function') {
+    out.appendTo = props.appendTo(reference);
+  }
+
+  if (typeof out.content === 'function') {
+    out.content = props.content(reference);
+  }
+
+  return out;
+};
 
 /**
- * Transforms the `arrowTransform` numbers based on the placement axis
- * @param {String} type 'scale' or 'translate'
- * @param {Number[]} numbers
- * @param {Boolean} isVertical
- * @param {Boolean} isReverse
- * @return {String}
+ * Add/remove transitionend listener from tooltip
  */
-function transformNumbersBasedOnPlacementAxis(type, numbers, isVertical, isReverse) {
-  if (!numbers.length) return '';
-
-  var transforms = {
-    scale: function () {
-      if (numbers.length === 1) {
-        return '' + numbers[0];
-      } else {
-        return isVertical ? numbers[0] + ', ' + numbers[1] : numbers[1] + ', ' + numbers[0];
-      }
-    }(),
-    translate: function () {
-      if (numbers.length === 1) {
-        return isReverse ? -numbers[0] + 'px' : numbers[0] + 'px';
-      } else {
-        if (isVertical) {
-          return isReverse ? numbers[0] + 'px, ' + -numbers[1] + 'px' : numbers[0] + 'px, ' + numbers[1] + 'px';
-        } else {
-          return isReverse ? -numbers[1] + 'px, ' + numbers[0] + 'px' : numbers[1] + 'px, ' + numbers[0] + 'px';
-        }
-      }
-    }()
-  };
-
-  return transforms[type];
-}
+var toggleTransitionEndListener = function toggleTransitionEndListener(tooltip, action, listener) {
+  tooltip[action + 'EventListener']('transitionend', listener);
+};
 
 /**
- * Transforms the `arrowTransform` x or y axis based on the placement axis
- * @param {String} axis 'X', 'Y', ''
- * @param {Boolean} isVertical
- * @return {String}
+ * Debounce utility
  */
-function transformAxis(axis, isVertical) {
-  if (!axis) return '';
-  var map = {
-    X: 'Y',
-    Y: 'X'
-  };
-  return isVertical ? axis : map[axis];
-}
+var debounce$1 = function debounce(fn, ms) {
+  var timeoutId = void 0;
+  return function () {
+    var _this = this,
+        _arguments = arguments;
 
-/**
- * Computes and applies the necessary arrow transform
- * @param {Element} popper
- * @param {Element} arrow
- * @param {String} arrowTransform
- */
-function computeArrowTransform(popper, arrow, arrowTransform) {
-  var placement = getPopperPlacement(popper);
-  var isVertical = placement === 'top' || placement === 'bottom';
-  var isReverse = placement === 'right' || placement === 'bottom';
-
-  var getAxis = function getAxis(re) {
-    var match = arrowTransform.match(re);
-    return match ? match[1] : '';
-  };
-
-  var getNumbers = function getNumbers(re) {
-    var match = arrowTransform.match(re);
-    return match ? match[1].split(',').map(parseFloat) : [];
-  };
-
-  var re = {
-    translate: /translateX?Y?\(([^)]+)\)/,
-    scale: /scaleX?Y?\(([^)]+)\)/
-  };
-
-  var matches = {
-    translate: {
-      axis: getAxis(/translate([XY])/),
-      numbers: getNumbers(re.translate)
-    },
-    scale: {
-      axis: getAxis(/scale([XY])/),
-      numbers: getNumbers(re.scale)
-    }
-  };
-
-  var computedTransform = arrowTransform.replace(re.translate, 'translate' + transformAxis(matches.translate.axis, isVertical) + '(' + transformNumbersBasedOnPlacementAxis('translate', matches.translate.numbers, isVertical, isReverse) + ')').replace(re.scale, 'scale' + transformAxis(matches.scale.axis, isVertical) + '(' + transformNumbersBasedOnPlacementAxis('scale', matches.scale.numbers, isVertical, isReverse) + ')');
-
-  arrow.style[prefix('transform')] = computedTransform;
-}
-
-/**
- * Returns the distance taking into account the default distance due to
- * the transform: translate setting in CSS
- * @param {Number} distance
- * @return {String}
- */
-function getOffsetDistanceInPx(distance) {
-  return -(distance - defaults.distance) + 'px';
-}
-
-var matches = {};
-
-if (isBrowser) {
-  var e = Element.prototype;
-  matches = e.matches || e.matchesSelector || e.webkitMatchesSelector || e.mozMatchesSelector || e.msMatchesSelector || function (s) {
-    var matches = (this.document || this.ownerDocument).querySelectorAll(s);
-    var i = matches.length;
-    while (--i >= 0 && matches.item(i) !== this) {} // eslint-disable-line no-empty
-    return i > -1;
-  };
-}
-
-var matches$1 = matches;
-
-/**
- * Ponyfill to get the closest parent element
- * @param {Element} element - child of parent to be returned
- * @param {String} parentSelector - selector to match the parent if found
- * @return {Element}
- */
-function closest(element, parentSelector) {
-  var fn = Element.prototype.closest || function (selector) {
-    var el = this;
-    while (el) {
-      if (matches$1.call(el, selector)) {
-        return el;
-      }
-      el = el.parentElement;
-    }
-  };
-
-  return fn.call(element, parentSelector);
-}
-
-/**
- * Returns the value taking into account the value being either a number or array
- * @param {Number|Array} value
- * @param {Number} index
- * @return {Number}
- */
-function getValue(value, index) {
-  return Array.isArray(value) ? value[index] : value;
-}
-
-/**
- * Sets the visibility state of an element for transition to begin
- * @param {Element[]} els - array of elements
- * @param {String} type - 'visible' or 'hidden'
- */
-function setVisibilityState(els, type) {
-  els.forEach(function (el) {
-    if (!el) return;
-    el.setAttribute('data-state', type);
-  });
-}
-
-/**
- * Sets the transition property to each element
- * @param {Element[]} els - Array of elements
- * @param {String} value
- */
-function applyTransitionDuration(els, value) {
-  els.filter(Boolean).forEach(function (el) {
-    el.style[prefix('transitionDuration')] = value + 'ms';
-  });
-}
-
-/**
- * Focuses an element while preventing a scroll jump if it's not entirely within the viewport
- * @param {Element} el
- */
-function focus(el) {
-  var x = window.scrollX || window.pageXOffset;
-  var y = window.scrollY || window.pageYOffset;
-  el.focus();
-  scroll(x, y);
-}
-
-var key = {};
-var store = function store(data) {
-  return function (k) {
-    return k === key && data;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function () {
+      return fn.apply(_this, _arguments);
+    }, ms);
   };
 };
 
-var Tippy = function () {
-  function Tippy(config) {
-    classCallCheck(this, Tippy);
+var nav = isBrowser$1 ? navigator : {};
+var win = isBrowser$1 ? window : {};
+var isIE$1 = /MSIE |Trident\//.test(nav.userAgent);
+var isIOS = /iPhone|iPad|iPod/.test(nav.platform) && !win.MSStream;
+var supportsTouch = 'ontouchstart' in win;
+var isUsingTouch = false;
 
-    for (var _key in config) {
-      this[_key] = config[_key];
+var onDocumentTouch = function onDocumentTouch() {
+  if (isUsingTouch) {
+    return;
+  }
+
+  isUsingTouch = true;
+
+  if (isIOS) {
+    document.body.classList.add('tippy-iOS');
+  }
+
+  if (window.performance) {
+    document.addEventListener('mousemove', onDocumentMouseMove);
+  }
+};
+
+var lastMouseMoveTime = 0;
+var onDocumentMouseMove = function onDocumentMouseMove() {
+  var now = performance.now();
+
+  // Chrome 60+ is 1 mousemove per animation frame, use 20ms time difference
+  if (now - lastMouseMoveTime < 20) {
+    isUsingTouch = false;
+    document.removeEventListener('mousemove', onDocumentMouseMove);
+    if (!isIOS) {
+      document.body.classList.remove('tippy-iOS');
+    }
+  }
+
+  lastMouseMoveTime = now;
+};
+
+var onDocumentClick = function onDocumentClick(_ref) {
+  var target = _ref.target;
+
+  // Simulated events dispatched on the document
+  if (!(target instanceof Element)) {
+    return hideAllPoppers();
+  }
+
+  // Clicked on an interactive popper
+  var popper = closest(target, Selectors.POPPER);
+  if (popper && popper._tippy && popper._tippy.props.interactive) {
+    return;
+  }
+
+  // Clicked on a reference
+  var reference = closestCallback(target, function (el) {
+    return el._tippy && el._tippy.reference === el;
+  });
+  if (reference) {
+    var tip = reference._tippy;
+    var isClickTrigger = tip.props.trigger.indexOf('click') > -1;
+
+    if (isUsingTouch || isClickTrigger) {
+      return hideAllPoppers(tip);
     }
 
-    this.state = {
-      destroyed: false,
-      visible: false,
-      enabled: true
-    };
+    if (tip.props.hideOnClick !== true || isClickTrigger) {
+      return;
+    }
 
-    this._ = store({
-      mutationObservers: []
+    tip.clearDelayTimeouts();
+  }
+
+  hideAllPoppers();
+};
+
+var onWindowBlur = function onWindowBlur() {
+  var _document = document,
+      activeElement = _document.activeElement;
+
+  if (activeElement && activeElement.blur && activeElement._tippy) {
+    activeElement.blur();
+  }
+};
+
+var onWindowResize = function onWindowResize() {
+  toArray$1(document.querySelectorAll(Selectors.POPPER)).forEach(function (popper) {
+    var tippyInstance = popper._tippy;
+    if (!tippyInstance.props.livePlacement) {
+      tippyInstance.popperInstance.scheduleUpdate();
+    }
+  });
+};
+
+/**
+ * Adds the needed global event listeners
+ */
+function bindEventListeners(useCapture) {
+  document.addEventListener('click', onDocumentClick, useCapture);
+  document.addEventListener('touchstart', onDocumentTouch);
+  window.addEventListener('blur', onWindowBlur);
+  window.addEventListener('resize', onWindowResize);
+
+  if (!supportsTouch && (navigator.maxTouchPoints || navigator.msMaxTouchPoints)) {
+    document.addEventListener('pointerdown', onDocumentTouch);
+  }
+}
+
+var idCounter = 1;
+
+function createTippy(reference, collectionProps) {
+  var props = evaluateProps(reference, collectionProps);
+
+  // If the reference shouldn't have multiple tippys, return null early
+  if (!props.multiple && reference._tippy) {
+    return null;
+  }
+
+  /* ======================= 🔒 Private members 🔒 ======================= */
+  var popperMutationObserver = null;
+  var lastTriggerEvent = {};
+  var lastMouseMoveEvent = null;
+  var showTimeoutId = 0;
+  var hideTimeoutId = 0;
+  var isPreparingToShow = false;
+  var transitionEndListener = function transitionEndListener() {};
+  var listeners = [];
+  var referenceJustProgrammaticallyFocused = false;
+  var firstPopperInstanceInit = false;
+  var debouncedOnMouseMove = props.interactiveDebounce > 0 ? debounce$1(onMouseMove, props.interactiveDebounce) : onMouseMove;
+
+  /* ======================= 🔑 Public members 🔑 ======================= */
+  var id = idCounter++;
+
+  var popper = createPopperElement(id, props);
+
+  var popperChildren = getChildren(popper);
+
+  var state = {
+    isEnabled: true,
+    isVisible: false,
+    isDestroyed: false
+  };
+
+  var popperInstance = null;
+
+  // 🌟 tippy instance
+  var tip = {
+    // properties
+    id: id,
+    reference: reference,
+    popper: popper,
+    popperChildren: popperChildren,
+    popperInstance: popperInstance,
+    props: props,
+    state: state,
+    // methods
+    clearDelayTimeouts: clearDelayTimeouts,
+    set: set$$1,
+    setContent: setContent$$1,
+    show: show,
+    hide: hide,
+    enable: enable,
+    disable: disable,
+    destroy: destroy
+  };
+
+  addTriggersToReference();
+
+  reference.addEventListener('click', onReferenceClick);
+
+  if (!props.lazy) {
+    tip.popperInstance = createPopperInstance();
+    tip.popperInstance.disableEventListeners();
+  }
+
+  if (props.showOnInit) {
+    /**
+     * Firefox has a bug where the tooltip will be placed incorrectly due to
+     * strange layout on load, `setTimeout` gives the layout time to adjust
+     * properly
+     */
+    setTimeout(prepareShow, 20);
+  }
+
+  // Ensure the reference element can receive focus (and is not a delegate)
+  if (props.a11y && !props.target && !elementCanReceiveFocus(reference)) {
+    reference.setAttribute('tabindex', '0');
+  }
+
+  // Install shortcuts
+  reference._tippy = tip;
+  popper._tippy = tip;
+
+  return tip;
+
+  /* ======================= 🔒 Private methods 🔒 ======================= */
+  /**
+   * If the reference was clicked, it also receives focus
+   */
+  function onReferenceClick() {
+    defer(function () {
+      referenceJustProgrammaticallyFocused = false;
     });
   }
 
   /**
-   * Enables the tooltip to allow it to show or hide
-   * @memberof Tippy
-   * @public
+   * Positions the virtual reference near the mouse cursor
    */
-
-
-  createClass(Tippy, [{
-    key: 'enable',
-    value: function enable() {
-      this.state.enabled = true;
-    }
-
-    /**
-     * Disables the tooltip from showing or hiding, but does not destroy it
-     * @memberof Tippy
-     * @public
-     */
-
-  }, {
-    key: 'disable',
-    value: function disable() {
-      this.state.enabled = false;
-    }
-
-    /**
-     * Shows the tooltip
-     * @param {Number} duration in milliseconds
-     * @memberof Tippy
-     * @public
-     */
-
-  }, {
-    key: 'show',
-    value: function show(duration) {
-      var _this = this;
-
-      if (this.state.destroyed || !this.state.enabled) return;
-
-      var popper = this.popper,
-          reference = this.reference,
-          options = this.options;
-
-      var _getInnerElements = getInnerElements(popper),
-          tooltip = _getInnerElements.tooltip,
-          backdrop = _getInnerElements.backdrop,
-          content = _getInnerElements.content;
-
-      // If the `dynamicTitle` option is true, the instance is allowed
-      // to be created with an empty title. Make sure that the tooltip
-      // content is not empty before showing it
-
-
-      if (options.dynamicTitle && !reference.getAttribute('data-original-title')) {
-        return;
-      }
-
-      // Do not show tooltip if reference contains 'disabled' attribute. FF fix for #221
-      if (reference.hasAttribute('disabled')) return;
-
-      // Destroy tooltip if the reference element is no longer on the DOM
-      if (!reference.refObj && !document.documentElement.contains(reference)) {
-        this.destroy();
-        return;
-      }
-
-      options.onShow.call(popper, this);
-
-      duration = getValue(duration !== undefined ? duration : options.duration, 0);
-
-      // Prevent a transition when popper changes position
-      applyTransitionDuration([popper, tooltip, backdrop], 0);
-
-      popper.style.visibility = 'visible';
-      this.state.visible = true;
-
-      _mount.call(this, function () {
-        if (!_this.state.visible) return;
-
-        if (!_hasFollowCursorBehavior.call(_this)) {
-          // FIX: Arrow will sometimes not be positioned correctly. Force another update.
-          _this.popperInstance.scheduleUpdate();
-        }
-
-        // Set initial position near the cursor
-        if (_hasFollowCursorBehavior.call(_this)) {
-          _this.popperInstance.disableEventListeners();
-          var delay = getValue(options.delay, 0);
-          var lastTriggerEvent = _this._(key).lastTriggerEvent;
-          if (lastTriggerEvent) {
-            _this._(key).followCursorListener(delay && _this._(key).lastMouseMoveEvent ? _this._(key).lastMouseMoveEvent : lastTriggerEvent);
-          }
-        }
-
-        // Re-apply transition durations
-        applyTransitionDuration([tooltip, backdrop, backdrop ? content : null], duration);
-
-        if (backdrop) {
-          getComputedStyle(backdrop)[prefix('transform')];
-        }
-
-        if (options.interactive) {
-          reference.classList.add('tippy-active');
-        }
-
-        if (options.sticky) {
-          _makeSticky.call(_this);
-        }
-
-        setVisibilityState([tooltip, backdrop], 'visible');
-
-        _onTransitionEnd.call(_this, duration, function () {
-          if (!options.updateDuration) {
-            tooltip.classList.add('tippy-notransition');
-          }
-
-          if (options.interactive) {
-            focus(popper);
-          }
-
-          reference.setAttribute('aria-describedby', 'tippy-' + _this.id);
-
-          options.onShown.call(popper, _this);
-        });
-      });
-    }
-
-    /**
-     * Hides the tooltip
-     * @param {Number} duration in milliseconds
-     * @memberof Tippy
-     * @public
-     */
-
-  }, {
-    key: 'hide',
-    value: function hide(duration) {
-      var _this2 = this;
-
-      if (this.state.destroyed || !this.state.enabled) return;
-
-      var popper = this.popper,
-          reference = this.reference,
-          options = this.options;
-
-      var _getInnerElements2 = getInnerElements(popper),
-          tooltip = _getInnerElements2.tooltip,
-          backdrop = _getInnerElements2.backdrop,
-          content = _getInnerElements2.content;
-
-      options.onHide.call(popper, this);
-
-      duration = getValue(duration !== undefined ? duration : options.duration, 1);
-
-      if (!options.updateDuration) {
-        tooltip.classList.remove('tippy-notransition');
-      }
-
-      if (options.interactive) {
-        reference.classList.remove('tippy-active');
-      }
-
-      popper.style.visibility = 'hidden';
-      this.state.visible = false;
-
-      applyTransitionDuration([tooltip, backdrop, backdrop ? content : null], duration);
-
-      setVisibilityState([tooltip, backdrop], 'hidden');
-
-      if (options.interactive && options.trigger.indexOf('click') > -1) {
-        focus(reference);
-      }
-
-      _onTransitionEnd.call(this, duration, function () {
-        if (_this2.state.visible || !options.appendTo.contains(popper)) return;
-
-        if (!_this2._(key).isPreparingToShow) {
-          document.removeEventListener('mousemove', _this2._(key).followCursorListener);
-          _this2._(key).lastMouseMoveEvent = null;
-        }
-
-        if (_this2.popperInstance) {
-          _this2.popperInstance.disableEventListeners();
-        }
-
-        reference.removeAttribute('aria-describedby');
-
-        options.appendTo.removeChild(popper);
-
-        options.onHidden.call(popper, _this2);
-      });
-    }
-
-    /**
-     * Destroys the tooltip instance
-     * @param {Boolean} destroyTargetInstances - relevant only when destroying delegates
-     * @memberof Tippy
-     * @public
-     */
-
-  }, {
-    key: 'destroy',
-    value: function destroy() {
-      var _this3 = this;
-
-      var destroyTargetInstances = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-      if (this.state.destroyed) return;
-
-      // Ensure the popper is hidden
-      if (this.state.visible) {
-        this.hide(0);
-      }
-
-      this.listeners.forEach(function (listener) {
-        _this3.reference.removeEventListener(listener.event, listener.handler);
-      });
-
-      // Restore title
-      if (this.title) {
-        this.reference.setAttribute('title', this.title);
-      }
-
-      delete this.reference._tippy;
-
-      var attributes = ['data-original-title', 'data-tippy', 'data-tippy-delegate'];
-      attributes.forEach(function (attr) {
-        _this3.reference.removeAttribute(attr);
-      });
-
-      if (this.options.target && destroyTargetInstances) {
-        toArray(this.reference.querySelectorAll(this.options.target)).forEach(function (child) {
-          return child._tippy && child._tippy.destroy();
-        });
-      }
-
-      if (this.popperInstance) {
-        this.popperInstance.destroy();
-      }
-
-      this._(key).mutationObservers.forEach(function (observer) {
-        observer.disconnect();
-      });
-
-      this.state.destroyed = true;
-    }
-  }]);
-  return Tippy;
-}();
-
-/**
- * ------------------------------------------------------------------------
- * Private methods
- * ------------------------------------------------------------------------
- * Standalone functions to be called with the instance's `this` context to make
- * them truly private and not accessible on the prototype
- */
-
-/**
- * Determines if the tooltip instance has followCursor behavior
- * @return {Boolean}
- * @memberof Tippy
- * @private
- */
-function _hasFollowCursorBehavior() {
-  var lastTriggerEvent = this._(key).lastTriggerEvent;
-  return this.options.followCursor && !browser.usingTouch && lastTriggerEvent && lastTriggerEvent.type !== 'focus';
-}
-
-/**
- * Creates the Tippy instance for the child target of the delegate container
- * @param {Event} event
- * @memberof Tippy
- * @private
- */
-function _createDelegateChildTippy(event) {
-  var targetEl = closest(event.target, this.options.target);
-  if (targetEl && !targetEl._tippy) {
-    var title = targetEl.getAttribute('title') || this.title;
-    if (title) {
-      targetEl.setAttribute('title', title);
-      tippy(targetEl, _extends({}, this.options, { target: null }));
-      _enter.call(targetEl._tippy, event);
-    }
-  }
-}
-
-/**
- * Method used by event listeners to invoke the show method, taking into account delays and
- * the `wait` option
- * @param {Event} event
- * @memberof Tippy
- * @private
- */
-function _enter(event) {
-  var _this4 = this;
-
-  var options = this.options;
-
-
-  _clearDelayTimeouts.call(this);
-
-  if (this.state.visible) return;
-
-  // Is a delegate, create Tippy instance for the child target
-  if (options.target) {
-    _createDelegateChildTippy.call(this, event);
-    return;
-  }
-
-  this._(key).isPreparingToShow = true;
-
-  if (options.wait) {
-    options.wait.call(this.popper, this.show.bind(this), event);
-    return;
-  }
-
-  // If the tooltip has a delay, we need to be listening to the mousemove as soon as the trigger
-  // event is fired so that it's in the correct position upon mount.
-  if (_hasFollowCursorBehavior.call(this)) {
-    if (!this._(key).followCursorListener) {
-      _setFollowCursorListener.call(this);
-    }
-
-    var _getInnerElements3 = getInnerElements(this.popper),
-        arrow = _getInnerElements3.arrow;
-
-    if (arrow) arrow.style.margin = '0';
-    document.addEventListener('mousemove', this._(key).followCursorListener);
-  }
-
-  var delay = getValue(options.delay, 0);
-
-  if (delay) {
-    this._(key).showTimeout = setTimeout(function () {
-      _this4.show();
-    }, delay);
-  } else {
-    this.show();
-  }
-}
-
-/**
- * Method used by event listeners to invoke the hide method, taking into account delays
- * @memberof Tippy
- * @private
- */
-function _leave() {
-  var _this5 = this;
-
-  _clearDelayTimeouts.call(this);
-
-  if (!this.state.visible) return;
-
-  this._(key).isPreparingToShow = false;
-
-  var delay = getValue(this.options.delay, 1);
-
-  if (delay) {
-    this._(key).hideTimeout = setTimeout(function () {
-      if (_this5.state.visible) {
-        _this5.hide();
-      }
-    }, delay);
-  } else {
-    this.hide();
-  }
-}
-
-/**
- * Returns relevant listeners for the instance
- * @return {Object} of listeners
- * @memberof Tippy
- * @private
- */
-function _getEventListeners() {
-  var _this6 = this;
-
-  var onTrigger = function onTrigger(event) {
-    if (!_this6.state.enabled) return;
-
-    var shouldStopEvent = browser.supportsTouch && browser.usingTouch && ['mouseenter', 'mouseover', 'focus'].indexOf(event.type) > -1;
-
-    if (shouldStopEvent && _this6.options.touchHold) return;
-
-    _this6._(key).lastTriggerEvent = event;
-
-    // Toggle show/hide when clicking click-triggered tooltips
-    if (event.type === 'click' && _this6.options.hideOnClick !== 'persistent' && _this6.state.visible) {
-      _leave.call(_this6);
-    } else {
-      _enter.call(_this6, event);
-    }
-  };
-
-  var onMouseLeave = function onMouseLeave(event) {
-    if (['mouseleave', 'mouseout'].indexOf(event.type) > -1 && browser.supportsTouch && browser.usingTouch && _this6.options.touchHold) return;
-
-    if (_this6.options.interactive) {
-      var hide = _leave.bind(_this6);
-
-      var onMouseMove = function onMouseMove(event) {
-        var referenceCursorIsOver = closest(event.target, selectors.REFERENCE);
-        var cursorIsOverPopper = closest(event.target, selectors.POPPER) === _this6.popper;
-        var cursorIsOverReference = referenceCursorIsOver === _this6.reference;
-
-        if (cursorIsOverPopper || cursorIsOverReference) return;
-
-        if (cursorIsOutsideInteractiveBorder(event, _this6.popper, _this6.options)) {
-          document.body.removeEventListener('mouseleave', hide);
-          document.removeEventListener('mousemove', onMouseMove);
-
-          _leave.call(_this6, onMouseMove);
-        }
-      };
-
-      document.body.addEventListener('mouseleave', hide);
-      document.addEventListener('mousemove', onMouseMove);
+  function positionVirtualReferenceNearCursor(event) {
+    var _lastMouseMoveEvent = lastMouseMoveEvent = event,
+        clientX = _lastMouseMoveEvent.clientX,
+        clientY = _lastMouseMoveEvent.clientY;
+
+    if (!tip.popperInstance) {
       return;
     }
 
-    _leave.call(_this6);
-  };
+    var rect = tip.reference.getBoundingClientRect();
+    var followCursor = tip.props.followCursor;
 
-  var onBlur = function onBlur(event) {
-    if (event.target !== _this6.reference || browser.usingTouch) return;
+    var isHorizontal = followCursor === 'horizontal';
+    var isVertical = followCursor === 'vertical';
 
-    if (_this6.options.interactive) {
-      if (!event.relatedTarget) return;
-      if (closest(event.relatedTarget, selectors.POPPER)) return;
-    }
-
-    _leave.call(_this6);
-  };
-
-  var onDelegateShow = function onDelegateShow(event) {
-    if (closest(event.target, _this6.options.target)) {
-      _enter.call(_this6, event);
-    }
-  };
-
-  var onDelegateHide = function onDelegateHide(event) {
-    if (closest(event.target, _this6.options.target)) {
-      _leave.call(_this6);
-    }
-  };
-
-  return {
-    onTrigger: onTrigger,
-    onMouseLeave: onMouseLeave,
-    onBlur: onBlur,
-    onDelegateShow: onDelegateShow,
-    onDelegateHide: onDelegateHide
-  };
-}
-
-/**
- * Creates and returns a new popper instance
- * @return {Popper}
- * @memberof Tippy
- * @private
- */
-function _createPopperInstance() {
-  var _this7 = this;
-
-  var popper = this.popper,
-      reference = this.reference,
-      options = this.options;
-
-  var _getInnerElements4 = getInnerElements(popper),
-      tooltip = _getInnerElements4.tooltip;
-
-  var popperOptions = options.popperOptions;
-
-  var arrowSelector = options.arrowType === 'round' ? selectors.ROUND_ARROW : selectors.ARROW;
-  var arrow = tooltip.querySelector(arrowSelector);
-
-  var config = _extends({
-    placement: options.placement
-  }, popperOptions || {}, {
-    modifiers: _extends({}, popperOptions ? popperOptions.modifiers : {}, {
-      arrow: _extends({
-        element: arrowSelector
-      }, popperOptions && popperOptions.modifiers ? popperOptions.modifiers.arrow : {}),
-      flip: _extends({
-        enabled: options.flip,
-        padding: options.distance + 5 /* 5px from viewport boundary */
-        , behavior: options.flipBehavior
-      }, popperOptions && popperOptions.modifiers ? popperOptions.modifiers.flip : {}),
-      offset: _extends({
-        offset: options.offset
-      }, popperOptions && popperOptions.modifiers ? popperOptions.modifiers.offset : {})
-    }),
-    onCreate: function onCreate() {
-      tooltip.style[getPopperPlacement(popper)] = getOffsetDistanceInPx(options.distance);
-
-      if (arrow && options.arrowTransform) {
-        computeArrowTransform(popper, arrow, options.arrowTransform);
-      }
-    },
-    onUpdate: function onUpdate() {
-      var styles = tooltip.style;
-      styles.top = '';
-      styles.bottom = '';
-      styles.left = '';
-      styles.right = '';
-      styles[getPopperPlacement(popper)] = getOffsetDistanceInPx(options.distance);
-
-      if (arrow && options.arrowTransform) {
-        computeArrowTransform(popper, arrow, options.arrowTransform);
-      }
-    }
-  });
-
-  _addMutationObserver.call(this, {
-    target: popper,
-    callback: function callback() {
-      _this7.popperInstance.update();
-    },
-    options: {
-      childList: true,
-      subtree: true,
-      characterData: true
-    }
-  });
-
-  return new Popper(reference, popper, config);
-}
-
-/**
- * Appends the popper element to the DOM, updating or creating the popper instance
- * @param {Function} callback
- * @memberof Tippy
- * @private
- */
-function _mount(callback) {
-  var options = this.options;
-
-
-  if (!this.popperInstance) {
-    this.popperInstance = _createPopperInstance.call(this);
-    if (!options.livePlacement) {
-      this.popperInstance.disableEventListeners();
-    }
-  } else {
-    this.popperInstance.scheduleUpdate();
-    if (options.livePlacement && !_hasFollowCursorBehavior.call(this)) {
-      this.popperInstance.enableEventListeners();
-    }
-  }
-
-  // If the instance previously had followCursor behavior, it will be positioned incorrectly
-  // if triggered by `focus` afterwards - update the reference back to the real DOM element
-  if (!_hasFollowCursorBehavior.call(this)) {
-    var _getInnerElements5 = getInnerElements(this.popper),
-        arrow = _getInnerElements5.arrow;
-
-    if (arrow) arrow.style.margin = '';
-    this.popperInstance.reference = this.reference;
-  }
-
-  updatePopperPosition(this.popperInstance, callback, true);
-
-  if (!options.appendTo.contains(this.popper)) {
-    options.appendTo.appendChild(this.popper);
-  }
-}
-
-/**
- * Clears the show and hide delay timeouts
- * @memberof Tippy
- * @private
- */
-function _clearDelayTimeouts() {
-  var _ref = this._(key),
-      showTimeout = _ref.showTimeout,
-      hideTimeout = _ref.hideTimeout;
-
-  clearTimeout(showTimeout);
-  clearTimeout(hideTimeout);
-}
-
-/**
- * Sets the mousemove event listener function for `followCursor` option
- * @memberof Tippy
- * @private
- */
-function _setFollowCursorListener() {
-  var _this8 = this;
-
-  this._(key).followCursorListener = function (event) {
-    var _$lastMouseMoveEvent = _this8._(key).lastMouseMoveEvent = event,
-        clientX = _$lastMouseMoveEvent.clientX,
-        clientY = _$lastMouseMoveEvent.clientY;
-
-    if (!_this8.popperInstance) return;
-
-    _this8.popperInstance.reference = {
+    tip.popperInstance.reference = {
       getBoundingClientRect: function getBoundingClientRect() {
         return {
           width: 0,
           height: 0,
-          top: clientY,
-          left: clientX,
-          right: clientX,
-          bottom: clientY
+          top: isHorizontal ? rect.top : clientY,
+          bottom: isHorizontal ? rect.bottom : clientY,
+          left: isVertical ? rect.left : clientX,
+          right: isVertical ? rect.right : clientX
         };
       },
       clientWidth: 0,
       clientHeight: 0
     };
 
-    _this8.popperInstance.scheduleUpdate();
-  };
-}
-
-/**
- * Updates the popper's position on each animation frame
- * @memberof Tippy
- * @private
- */
-function _makeSticky() {
-  var _this9 = this;
-
-  var applyTransitionDuration$$1 = function applyTransitionDuration$$1() {
-    _this9.popper.style[prefix('transitionDuration')] = _this9.options.updateDuration + 'ms';
-  };
-
-  var removeTransitionDuration = function removeTransitionDuration() {
-    _this9.popper.style[prefix('transitionDuration')] = '';
-  };
-
-  var updatePosition = function updatePosition() {
-    if (_this9.popperInstance) {
-      _this9.popperInstance.update();
-    }
-
-    applyTransitionDuration$$1();
-
-    if (_this9.state.visible) {
-      requestAnimationFrame(updatePosition);
-    } else {
-      removeTransitionDuration();
-    }
-  };
-
-  updatePosition();
-}
-
-/**
- * Adds a mutation observer to an element and stores it in the instance
- * @param {Object}
- * @memberof Tippy
- * @private
- */
-function _addMutationObserver(_ref2) {
-  var target = _ref2.target,
-      callback = _ref2.callback,
-      options = _ref2.options;
-
-  if (!window.MutationObserver) return;
-
-  var observer = new MutationObserver(callback);
-  observer.observe(target, options);
-
-  this._(key).mutationObservers.push(observer);
-}
-
-/**
- * Fires the callback functions once the CSS transition ends for `show` and `hide` methods
- * @param {Number} duration
- * @param {Function} callback - callback function to fire once transition completes
- * @memberof Tippy
- * @private
- */
-function _onTransitionEnd(duration, callback) {
-  // Make callback synchronous if duration is 0
-  if (!duration) {
-    return callback();
+    tip.popperInstance.scheduleUpdate();
   }
 
-  var _getInnerElements6 = getInnerElements(this.popper),
-      tooltip = _getInnerElements6.tooltip;
-
-  var toggleListeners = function toggleListeners(action, listener) {
-    if (!listener) return;
-    tooltip[action + 'EventListener']('transition' in document.body.style ? 'transitionend' : 'webkitTransitionEnd', listener);
-  };
-
-  var listener = function listener(e) {
-    if (e.target === tooltip) {
-      toggleListeners('remove', listener);
-      callback();
-    }
-  };
-
-  toggleListeners('remove', this._(key).transitionendListener);
-  toggleListeners('add', listener);
-
-  this._(key).transitionendListener = listener;
-}
-
-var idCounter = 1;
-
-/**
- * Creates tooltips for each reference element
- * @param {Element[]} els
- * @param {Object} config
- * @return {Tippy[]} Array of Tippy instances
- */
-function createTooltips(els, config) {
-  return els.reduce(function (acc, reference) {
-    var id = idCounter;
-
-    var options = evaluateOptions(reference, config.performance ? config : getIndividualOptions(reference, config));
-
-    var title = reference.getAttribute('title');
-
-    // Don't create an instance when:
-    // * the `title` attribute is falsy (null or empty string), and
-    // * it's not a delegate for tooltips, and
-    // * there is no html template specified, and
-    // * `dynamicTitle` option is false
-    if (!title && !options.target && !options.html && !options.dynamicTitle) {
-      return acc;
-    }
-
-    // Delegates should be highlighted as different
-    reference.setAttribute(options.target ? 'data-tippy-delegate' : 'data-tippy', '');
-
-    removeTitle(reference);
-
-    var popper = createPopperElement(id, title, options);
-
-    var tippy = new Tippy({
-      id: id,
-      reference: reference,
-      popper: popper,
-      options: options,
-      title: title,
-      popperInstance: null
-    });
-
-    if (options.createPopperInstanceOnInit) {
-      tippy.popperInstance = _createPopperInstance.call(tippy);
-      tippy.popperInstance.disableEventListeners();
-    }
-
-    var listeners = _getEventListeners.call(tippy);
-    tippy.listeners = options.trigger.trim().split(' ').reduce(function (acc, eventType) {
-      return acc.concat(createTrigger(eventType, reference, listeners, options));
-    }, []);
-
-    // Update tooltip content whenever the title attribute on the reference changes
-    if (options.dynamicTitle) {
-      _addMutationObserver.call(tippy, {
-        target: reference,
-        callback: function callback() {
-          var _getInnerElements = getInnerElements(popper),
-              content = _getInnerElements.content;
-
-          var title = reference.getAttribute('title');
-          if (title) {
-            content[options.allowTitleHTML ? 'innerHTML' : 'textContent'] = tippy.title = title;
-            removeTitle(reference);
-          }
-        },
-
-        options: {
-          attributes: true
-        }
-      });
-    }
-
-    // Shortcuts
-    reference._tippy = tippy;
-    popper._tippy = tippy;
-    popper._reference = reference;
-
-    acc.push(tippy);
-
-    idCounter++;
-
-    return acc;
-  }, []);
-}
-
-/**
- * Hides all poppers
- * @param {Tippy} excludeTippy - tippy to exclude if needed
- */
-function hideAllPoppers(excludeTippy) {
-  var poppers = toArray(document.querySelectorAll(selectors.POPPER));
-
-  poppers.forEach(function (popper) {
-    var tippy = popper._tippy;
-    if (!tippy) return;
-
-    var options = tippy.options;
-
-
-    if ((options.hideOnClick === true || options.trigger.indexOf('focus') > -1) && (!excludeTippy || popper !== excludeTippy.popper)) {
-      tippy.hide();
-    }
-  });
-}
-
-/**
- * Adds the needed event listeners
- */
-function bindEventListeners(useCapture) {
-  var onDocumentTouch = function onDocumentTouch() {
-    if (browser.usingTouch) return;
-
-    browser.usingTouch = true;
-
-    if (browser.iOS) {
-      document.body.classList.add('tippy-touch');
-    }
-
-    if (browser.dynamicInputDetection && window.performance) {
-      document.addEventListener('mousemove', onDocumentMouseMove);
-    }
-
-    browser.onUserInputChange('touch');
-  };
-
-  var onDocumentMouseMove = function () {
-    var time = void 0;
-
-    return function () {
-      var now = performance.now();
-
-      // Chrome 60+ is 1 mousemove per animation frame, use 20ms time difference
-      if (now - time < 20) {
-        browser.usingTouch = false;
-        document.removeEventListener('mousemove', onDocumentMouseMove);
-        if (!browser.iOS) {
-          document.body.classList.remove('tippy-touch');
-        }
-        browser.onUserInputChange('mouse');
+  /**
+   * Creates the tippy instance for a delegate when it's been triggered
+   */
+  function createDelegateChildTippy(event) {
+    var targetEl = closest(event.target, tip.props.target);
+    if (targetEl && !targetEl._tippy) {
+      var content = tip.props.content;
+      if (content) {
+        createTippy(targetEl, _extends({}, tip.props, {
+          content: content,
+          target: '',
+          showOnInit: true
+        }));
+        prepareShow(event);
       }
-
-      time = now;
-    };
-  }();
-
-  var onDocumentClick = function onDocumentClick(event) {
-    // Simulated events dispatched on the document
-    if (!(event.target instanceof Element)) {
-      return hideAllPoppers();
     }
+  }
 
-    var reference = closest(event.target, selectors.REFERENCE);
-    var popper = closest(event.target, selectors.POPPER);
+  /**
+   * Setup before show() is invoked (delays, etc.)
+   */
+  function prepareShow(event) {
+    clearDelayTimeouts();
 
-    if (popper && popper._tippy && popper._tippy.options.interactive) {
+    if (tip.state.isVisible) {
       return;
     }
 
-    if (reference && reference._tippy) {
-      var options = reference._tippy.options;
+    // Is a delegate, create an instance for the child target
+    if (tip.props.target) {
+      return createDelegateChildTippy(event);
+    }
 
-      var isClickTrigger = options.trigger.indexOf('click') > -1;
-      var isMultiple = options.multiple;
+    isPreparingToShow = true;
 
-      // Hide all poppers except the one belonging to the element that was clicked
-      if (!isMultiple && browser.usingTouch || !isMultiple && isClickTrigger) {
-        return hideAllPoppers(reference._tippy);
+    if (tip.props.wait) {
+      return tip.props.wait(tip, event);
+    }
+
+    /**
+     * If the tooltip has a delay, we need to be listening to the mousemove as
+     * soon as the trigger event is fired so that it's in the correct position
+     * upon mount
+     */
+    if (hasFollowCursorBehavior()) {
+      if (popperChildren.arrow) {
+        popperChildren.arrow.style.margin = '0';
       }
+      document.addEventListener('mousemove', positionVirtualReferenceNearCursor);
+    }
 
-      if (options.hideOnClick !== true || isClickTrigger) {
+    var delay = getValue(tip.props.delay, 0, Defaults.delay);
+
+    if (delay) {
+      showTimeoutId = setTimeout(function () {
+        show();
+      }, delay);
+    } else {
+      show();
+    }
+  }
+
+  /**
+   * Setup before hide() is invoked (delays, etc.)
+   */
+  function prepareHide() {
+    clearDelayTimeouts();
+
+    if (!tip.state.isVisible) {
+      return removeFollowCursorListener();
+    }
+
+    isPreparingToShow = false;
+
+    var delay = getValue(tip.props.delay, 1, Defaults.delay);
+
+    if (delay) {
+      hideTimeoutId = setTimeout(function () {
+        if (tip.state.isVisible) {
+          hide();
+        }
+      }, delay);
+    } else {
+      hide();
+    }
+  }
+
+  /**
+   * Removes the follow cursor listener
+   */
+  function removeFollowCursorListener() {
+    document.removeEventListener('mousemove', positionVirtualReferenceNearCursor);
+    lastMouseMoveEvent = null;
+  }
+
+  /**
+   * Cleans up old listeners
+   */
+  function cleanupOldMouseMoveListeners() {
+    document.body.removeEventListener('mouseleave', prepareHide);
+    document.removeEventListener('mousemove', debouncedOnMouseMove);
+  }
+
+  /**
+   * Event listener invoked upon trigger
+   */
+  function onTrigger(event) {
+    if (!tip.state.isEnabled) {
+      return;
+    }
+
+    var shouldStopEvent = supportsTouch && isUsingTouch && ['mouseenter', 'mouseover', 'focus'].indexOf(event.type) > -1;
+
+    if (shouldStopEvent && tip.props.touchHold) {
+      return;
+    }
+
+    if (!tip.state.isVisible) {
+      lastTriggerEvent = event;
+    }
+
+    // Toggle show/hide when clicking click-triggered tooltips
+    if (event.type === 'click' && tip.props.hideOnClick !== false && tip.state.isVisible) {
+      prepareHide();
+    } else {
+      prepareShow(event);
+    }
+  }
+
+  /**
+   * Event listener used for interactive tooltips to detect when they should hide
+   */
+  function onMouseMove(event) {
+    var referenceTheCursorIsOver = closestCallback(event.target, function (el) {
+      return el._tippy;
+    });
+
+    var isCursorOverPopper = closest(event.target, Selectors.POPPER) === tip.popper;
+    var isCursorOverReference = referenceTheCursorIsOver === tip.reference;
+
+    if (isCursorOverPopper || isCursorOverReference) {
+      return;
+    }
+
+    if (isCursorOutsideInteractiveBorder(getPopperPlacement(tip.popper), tip.popper.getBoundingClientRect(), event, tip.props)) {
+      cleanupOldMouseMoveListeners();
+      prepareHide();
+    }
+  }
+
+  /**
+   * Event listener invoked upon mouseleave
+   */
+  function onMouseLeave(event) {
+    if (['mouseleave', 'mouseout'].indexOf(event.type) > -1 && supportsTouch && isUsingTouch && tip.props.touchHold) {
+      return;
+    }
+
+    if (tip.props.interactive) {
+      document.body.addEventListener('mouseleave', prepareHide);
+      document.addEventListener('mousemove', debouncedOnMouseMove);
+      return;
+    }
+
+    prepareHide();
+  }
+
+  /**
+   * Event listener invoked upon blur
+   */
+  function onBlur(event) {
+    if (event.target !== tip.reference || isUsingTouch) {
+      return;
+    }
+
+    if (tip.props.interactive) {
+      if (!event.relatedTarget) {
+        return;
+      }
+      if (closest(event.relatedTarget, Selectors.POPPER)) {
         return;
       }
     }
 
-    hideAllPoppers();
-  };
+    prepareHide();
+  }
 
-  var onWindowBlur = function onWindowBlur() {
-    var _document = document,
-        el = _document.activeElement;
-
-    if (el && el.blur && matches$1.call(el, selectors.REFERENCE)) {
-      el.blur();
+  /**
+   * Event listener invoked when a child target is triggered
+   */
+  function onDelegateShow(event) {
+    if (closest(event.target, tip.props.target)) {
+      prepareShow(event);
     }
-  };
+  }
 
-  var onWindowResize = function onWindowResize() {
-    toArray(document.querySelectorAll(selectors.POPPER)).forEach(function (popper) {
-      var tippyInstance = popper._tippy;
-      if (tippyInstance && !tippyInstance.options.livePlacement) {
-        tippyInstance.popperInstance.scheduleUpdate();
+  /**
+   * Event listener invoked when a child target should hide
+   */
+  function onDelegateHide(event) {
+    if (closest(event.target, tip.props.target)) {
+      prepareHide();
+    }
+  }
+
+  /**
+   * Creates the popper instance for the tip
+   */
+  function createPopperInstance() {
+    var tooltip = tip.popperChildren.tooltip;
+    var popperOptions = tip.props.popperOptions;
+
+
+    var arrowSelector = Selectors[tip.props.arrowType === 'round' ? 'ROUND_ARROW' : 'ARROW'];
+    var arrow = tooltip.querySelector(arrowSelector);
+
+    var config = _extends({
+      placement: tip.props.placement
+    }, popperOptions || {}, {
+      modifiers: _extends({}, popperOptions ? popperOptions.modifiers : {}, {
+        arrow: _extends({
+          element: arrowSelector
+        }, popperOptions && popperOptions.modifiers ? popperOptions.modifiers.arrow : {}),
+        flip: _extends({
+          enabled: tip.props.flip,
+          padding: tip.props.distance + 5 /* 5px from viewport boundary */
+          , behavior: tip.props.flipBehavior
+        }, popperOptions && popperOptions.modifiers ? popperOptions.modifiers.flip : {}),
+        offset: _extends({
+          offset: tip.props.offset
+        }, popperOptions && popperOptions.modifiers ? popperOptions.modifiers.offset : {})
+      }),
+      onCreate: function onCreate() {
+        tooltip.style[getPopperPlacement(tip.popper)] = getOffsetDistanceInPx(tip.props.distance, Defaults.distance);
+
+        if (arrow && tip.props.arrowTransform) {
+          computeArrowTransform(arrow, tip.props.arrowTransform);
+        }
+      },
+      onUpdate: function onUpdate() {
+        var styles = tooltip.style;
+        styles.top = '';
+        styles.bottom = '';
+        styles.left = '';
+        styles.right = '';
+        styles[getPopperPlacement(tip.popper)] = getOffsetDistanceInPx(tip.props.distance, Defaults.distance);
+
+        if (arrow && tip.props.arrowTransform) {
+          computeArrowTransform(arrow, tip.props.arrowTransform);
+        }
       }
     });
-  };
 
-  document.addEventListener('click', onDocumentClick, useCapture);
-  document.addEventListener('touchstart', onDocumentTouch);
-  window.addEventListener('blur', onWindowBlur);
-  window.addEventListener('resize', onWindowResize);
+    /**
+     * Ensure the popper's position stays correct if its dimensions change.
+     * Use .update() over .scheduleUpdate() so there is no 1 frame flash
+     * due to async update.
+     */
+    var observer = new MutationObserver(function () {
+      tip.popperInstance.update();
+    });
+    observer.observe(tip.popper, { childList: true, subtree: true });
+    if (popperMutationObserver) {
+      popperMutationObserver.disconnect();
+    }
+    popperMutationObserver = observer;
 
-  if (!browser.supportsTouch && (navigator.maxTouchPoints || navigator.msMaxTouchPoints)) {
-    document.addEventListener('pointerdown', onDocumentTouch);
+    // fixes https://github.com/atomiks/tippyjs/issues/193
+    if (!firstPopperInstanceInit) {
+      firstPopperInstanceInit = true;
+      tip.popper.addEventListener('mouseenter', function (event) {
+        if (tip.props.interactive && tip.state.isVisible && lastTriggerEvent.type === 'mouseenter') {
+          prepareShow(event);
+        }
+      });
+      tip.popper.addEventListener('mouseleave', function (event) {
+        if (tip.props.interactive && lastTriggerEvent.type === 'mouseenter' && tip.props.interactiveDebounce === 0 && isCursorOutsideInteractiveBorder(getPopperPlacement(tip.popper), tip.popper.getBoundingClientRect(), event, tip.props)) {
+          prepareHide();
+        }
+      });
+    }
+
+    return new Popper(tip.reference, tip.popper, config);
+  }
+
+  /**
+   * Mounts the tooltip to the DOM
+   */
+  function mount(onceUpdated) {
+    if (!tip.popperInstance) {
+      tip.popperInstance = createPopperInstance();
+      if (!tip.props.livePlacement) {
+        tip.popperInstance.disableEventListeners();
+      }
+    } else {
+      tip.popperInstance.scheduleUpdate();
+      if (tip.props.livePlacement && !hasFollowCursorBehavior()) {
+        tip.popperInstance.enableEventListeners();
+      }
+    }
+
+    /**
+     * If the instance previously had followCursor behavior, it will be
+     * positioned incorrectly if triggered by `focus` afterwards.
+     * Update the reference back to the real DOM element
+     */
+    tip.popperInstance.reference = tip.reference;
+    if (hasFollowCursorBehavior()) {
+      if (tip.popperChildren.arrow) {
+        tip.popperChildren.arrow.style.margin = '';
+      }
+    }
+
+    updatePopperPosition(tip.popperInstance, onceUpdated, true);
+
+    if (!tip.props.appendTo.contains(tip.popper)) {
+      tip.props.appendTo.appendChild(tip.popper);
+    }
+  }
+
+  /**
+   * Determines if the instance is in `followCursor` mode
+   */
+  function hasFollowCursorBehavior() {
+    return tip.props.followCursor && !isUsingTouch && lastTriggerEvent.type !== 'focus';
+  }
+
+  /**
+   * Updates the tooltip's position on each animation frame + timeout
+   */
+  function makeSticky() {
+    var updatePosition = function updatePosition() {
+      applyTransitionDuration([tip.popper], tip.props.updateDuration);
+
+      if (tip.popperInstance) {
+        tip.popperInstance.scheduleUpdate();
+      }
+
+      if (tip.state.isVisible) {
+        requestAnimationFrame(function () {
+          defer(updatePosition);
+        });
+      } else {
+        applyTransitionDuration([tip.popper], 0);
+      }
+    };
+
+    updatePosition();
+  }
+
+  /**
+   * Invokes a callback once the tooltip has fully transitioned out
+   */
+  function onTransitionedOut(duration, callback) {
+    onTransitionEnd(duration, function () {
+      if (!tip.state.isVisible && tip.props.appendTo.contains(tip.popper)) {
+        callback();
+      }
+    });
+  }
+
+  /**
+   * Invokes a callback once the tooltip has fully transitioned in
+   */
+  function onTransitionedIn(duration, callback) {
+    onTransitionEnd(duration, callback);
+  }
+
+  /**
+   * Invokes a callback once the tooltip's CSS transition ends
+   */
+  function onTransitionEnd(duration, callback) {
+    // Make callback synchronous if duration is 0
+    if (duration === 0) {
+      return callback();
+    }
+
+    var tooltip = tip.popperChildren.tooltip;
+
+
+    var listener = function listener(e) {
+      if (e.target === tooltip) {
+        toggleTransitionEndListener(tooltip, 'remove', listener);
+        callback();
+      }
+    };
+
+    toggleTransitionEndListener(tooltip, 'remove', transitionEndListener);
+    toggleTransitionEndListener(tooltip, 'add', listener);
+
+    transitionEndListener = listener;
+  }
+
+  /**
+   * Adds an event listener to the reference
+   */
+  function on(eventType, handler, acc) {
+    tip.reference.addEventListener(eventType, handler);
+    acc.push({ eventType: eventType, handler: handler });
+  }
+
+  /**
+   * Adds event listeners to the reference based on the `trigger` prop
+   */
+  function addTriggersToReference() {
+    listeners = tip.props.trigger.trim().split(' ').reduce(function (acc, eventType) {
+      if (eventType === 'manual') {
+        return acc;
+      }
+
+      if (!props.target) {
+        on(eventType, onTrigger, acc);
+        switch (eventType) {
+          case 'mouseenter':
+            on('mouseleave', onMouseLeave, acc);
+            break;
+          case 'focus':
+            on(isIE$1 ? 'focusout' : 'blur', onBlur, acc);
+            break;
+        }
+      } else {
+        switch (eventType) {
+          case 'mouseenter':
+            on('mouseover', onDelegateShow, acc);
+            on('mouseout', onDelegateHide, acc);
+            break;
+          case 'focus':
+            on('focusin', onDelegateShow, acc);
+            on('focusout', onDelegateHide, acc);
+            break;
+          case 'click':
+            on(eventType, onDelegateShow, acc);
+            break;
+        }
+      }
+
+      return acc;
+    }, []);
+  }
+
+  /**
+   * Removes event listeners from the reference
+   */
+  function removeTriggersFromReference() {
+    listeners.forEach(function (_ref) {
+      var eventType = _ref.eventType,
+          handler = _ref.handler;
+
+      tip.reference.removeEventListener(eventType, handler);
+    });
+  }
+
+  /* ======================= 🔑 Public methods 🔑 ======================= */
+  /**
+   * Enables the instance to allow it to show or hide
+   */
+  function enable() {
+    tip.state.isEnabled = true;
+  }
+
+  /**
+   * Disables the instance to disallow it to show or hide
+   */
+  function disable() {
+    tip.state.isEnabled = false;
+  }
+
+  /**
+   * Clears pending timeouts related to the `delay` prop if any
+   */
+  function clearDelayTimeouts() {
+    clearTimeout(showTimeoutId);
+    clearTimeout(hideTimeoutId);
+  }
+
+  /**
+   * Sets new props for the instance and redraws the tooltip
+   */
+  function set$$1(options) {
+    var prevProps = tip.props;
+    var nextProps = evaluateProps(tip.reference, _extends({}, tip.props, options, {
+      performance: true
+    }));
+    nextProps.performance = options.performance || prevProps.performance;
+    tip.props = nextProps;
+
+    if ('trigger' in options) {
+      removeTriggersFromReference();
+      addTriggersToReference();
+    }
+
+    if ('interactiveDebounce' in options) {
+      cleanupOldMouseMoveListeners();
+      debouncedOnMouseMove = debounce$1(onMouseMove, options.interactiveDebounce);
+    }
+
+    updatePopperElement(tip.popper, prevProps, nextProps);
+    tip.popperChildren = getChildren(tip.popper);
+    tip.popperInstance = createPopperInstance();
+    if (!tip.state.isVisible) {
+      tip.popperInstance.disableEventListeners();
+    }
+  }
+
+  /**
+   * Shortcut for .set({ content: newContent })
+   */
+  function setContent$$1(content) {
+    set$$1({ content: content });
+  }
+
+  /**
+   * Shows the tooltip
+   */
+  function show() {
+    var duration = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : getValue(tip.props.duration, 0, Defaults.duration[0]);
+
+    if (tip.state.isDestroyed || !tip.state.isEnabled || isUsingTouch && !tip.props.touch) {
+      return;
+    }
+
+    // Destroy tooltip if the reference element is no longer on the DOM
+    if (!tip.reference.isVirtual && !document.documentElement.contains(tip.reference)) {
+      return destroy();
+    }
+
+    // Do not show tooltip if the reference element has a `disabled` attribute
+    if (tip.reference.hasAttribute('disabled')) {
+      return;
+    }
+
+    // If the reference was just programmatically focused for accessibility reasons
+    if (referenceJustProgrammaticallyFocused) {
+      referenceJustProgrammaticallyFocused = false;
+      return;
+    }
+
+    if (tip.props.onShow(tip) === false) {
+      return;
+    }
+
+    tip.popper.style.visibility = 'visible';
+    tip.state.isVisible = true;
+
+    // Prevent a transition if the popper is at the opposite placement
+    applyTransitionDuration([tip.popper, tip.popperChildren.tooltip, tip.popperChildren.backdrop], 0);
+
+    mount(function () {
+      if (!tip.state.isVisible) {
+        return;
+      }
+
+      if (!hasFollowCursorBehavior()) {
+        // Arrow will sometimes not be positioned correctly. Force another update.
+        tip.popperInstance.scheduleUpdate();
+      }
+
+      // Set initial position near the cursor
+      if (hasFollowCursorBehavior()) {
+        tip.popperInstance.disableEventListeners();
+        var delay = getValue(tip.props.delay, 0, Defaults.delay);
+        if (lastTriggerEvent.type) {
+          positionVirtualReferenceNearCursor(delay && lastMouseMoveEvent ? lastMouseMoveEvent : lastTriggerEvent);
+        }
+      }
+
+      applyTransitionDuration([tip.popperChildren.tooltip, tip.popperChildren.backdrop], duration);
+      if (tip.popperChildren.backdrop) {
+        applyTransitionDuration([tip.popperChildren.content], duration * 1.05);
+      }
+
+      if (tip.props.interactive) {
+        tip.reference.classList.add('tippy-active');
+      }
+
+      if (tip.props.sticky) {
+        makeSticky();
+      }
+
+      setVisibilityState([tip.popperChildren.tooltip, tip.popperChildren.backdrop, tip.popperChildren.content], 'visible');
+
+      onTransitionedIn(duration, function () {
+        if (tip.props.updateDuration === 0) {
+          tip.popperChildren.tooltip.classList.add('tippy-notransition');
+        }
+
+        if (tip.props.interactive && lastTriggerEvent.type === 'focus') {
+          focus(tip.popper);
+        }
+
+        tip.reference.setAttribute('aria-describedby', tip.popper.id);
+
+        tip.props.onShown(tip);
+      });
+    });
+  }
+
+  /**
+   * Hides the tooltip
+   */
+  function hide() {
+    var duration = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : getValue(tip.props.duration, 1, Defaults.duration[1]);
+
+    if (tip.state.isDestroyed || !tip.state.isEnabled) {
+      return;
+    }
+
+    if (tip.props.onHide(tip) === false) {
+      return;
+    }
+
+    if (tip.props.updateDuration === 0) {
+      tip.popperChildren.tooltip.classList.remove('tippy-notransition');
+    }
+
+    if (tip.props.interactive) {
+      tip.reference.classList.remove('tippy-active');
+    }
+
+    tip.popper.style.visibility = 'hidden';
+    tip.state.isVisible = false;
+
+    applyTransitionDuration([tip.popperChildren.tooltip, tip.popperChildren.backdrop], duration);
+    if (tip.popperChildren.backdrop) {
+      applyTransitionDuration([tip.popperChildren.content], duration * 1.05);
+    }
+
+    setVisibilityState([tip.popperChildren.tooltip, tip.popperChildren.backdrop, tip.popperChildren.content], 'hidden');
+
+    if (tip.props.interactive && !referenceJustProgrammaticallyFocused && lastTriggerEvent.type === 'focus') {
+      referenceJustProgrammaticallyFocused = true;
+      focus(tip.reference);
+    }
+
+    onTransitionedOut(duration, function () {
+      if (!isPreparingToShow) {
+        removeFollowCursorListener();
+      }
+
+      tip.reference.removeAttribute('aria-describedby');
+
+      tip.popperInstance.disableEventListeners();
+
+      tip.props.appendTo.removeChild(tip.popper);
+
+      tip.props.onHidden(tip);
+    });
+  }
+
+  /**
+   * Destroys the tooltip
+   */
+  function destroy(destroyTargetInstances) {
+    if (tip.state.isDestroyed) {
+      return;
+    }
+
+    // Ensure the popper is hidden
+    if (tip.state.isVisible) {
+      hide(0);
+    }
+
+    removeTriggersFromReference();
+
+    tip.reference.removeEventListener('click', onReferenceClick);
+
+    delete tip.reference._tippy;
+
+    if (tip.props.target && destroyTargetInstances) {
+      toArray$1(tip.reference.querySelectorAll(tip.props.target)).forEach(function (child) {
+        return child._tippy && child._tippy.destroy();
+      });
+    }
+
+    if (tip.popperInstance) {
+      tip.popperInstance.destroy();
+    }
+
+    if (popperMutationObserver) {
+      popperMutationObserver.disconnect();
+    }
+
+    tip.state.isDestroyed = true;
   }
 }
 
 var eventListenersBound = false;
 var useCapture = false;
 
-/**
- * Exported module
- * @param {String|Element|Element[]|NodeList|Object} selector
- * @param {Object} options
- * @param {Boolean} one - create one tooltip
- * @return {Object}
- */
-function tippy(selector, options, one) {
-  if (browser.supported && !eventListenersBound) {
+function tippy(targets, options, one) {
+  if (!eventListenersBound) {
     bindEventListeners(useCapture);
     eventListenersBound = true;
   }
 
-  if (isObjectLiteral(selector)) {
-    polyfillVirtualReferenceProps(selector);
+  // Throw an error if the user supplied an invalid option
+  for (var key in options || {}) {
+    if (!(key in Defaults)) {
+      throw Error('[tippy]: `' + key + '` is not a valid option');
+    }
   }
 
-  options = _extends({}, defaults, options);
+  var props = _extends({}, Defaults, options);
 
-  var references = getArrayOfElements(selector);
+  /**
+   * If they are specifying a virtual positioning reference, we need to polyfill
+   * some native DOM props
+   */
+  if (isPlainObject(targets)) {
+    polyfillVirtualReferenceProps(targets);
+  }
+
+  var references = getArrayOfElements(targets);
   var firstReference = references[0];
 
+  var instances = (one && firstReference ? [firstReference] : references).reduce(function (acc, reference) {
+    var tip = reference && createTippy(reference, props);
+    if (tip) {
+      acc.push(tip);
+    }
+    return acc;
+  }, []);
+
   return {
-    selector: selector,
-    options: options,
-    tooltips: browser.supported ? createTooltips(one && firstReference ? [firstReference] : references, options) : [],
+    targets: targets,
+    props: props,
+    instances: instances,
     destroyAll: function destroyAll() {
-      this.tooltips.forEach(function (tooltip) {
-        return tooltip.destroy();
+      this.instances.forEach(function (instance) {
+        instance.destroy();
       });
-      this.tooltips = [];
+      this.instances = [];
     }
   };
 }
 
+/**
+ * Static props
+ */
 tippy.version = version;
-tippy.browser = browser;
-tippy.defaults = defaults;
-tippy.one = function (selector, options) {
-  return tippy(selector, options, true).tooltips[0];
+tippy.defaults = Defaults;
+
+/**
+ * Static methods
+ */
+tippy.one = function (targets, options) {
+  return tippy(targets, options, true).instances[0];
+};
+tippy.setDefaults = function (partialDefaults) {
+  setDefaults(partialDefaults);
+  tippy.defaults = Defaults;
 };
 tippy.disableAnimations = function () {
-  defaults.updateDuration = defaults.duration = 0;
-  defaults.animateFill = false;
+  tippy.setDefaults({
+    duration: 0,
+    updateDuration: 0,
+    animateFill: false
+  });
 };
+tippy.hideAllPoppers = hideAllPoppers;
 tippy.useCapture = function () {
   useCapture = true;
 };
 
 /**
- * Injects CSS styles to document head
- * @param {String} css
+ * Auto-init tooltips for elements with a `data-tippy="..."` attribute
  */
-function injectCSS() {
-  var css = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-  if (isBrowser && browser.supported) {
-    var head = document.head || document.querySelector('head');
-    var style = document.createElement('style');
-    style.type = 'text/css';
-    head.insertBefore(style, head.firstChild);
-
-    if (style.styleSheet) {
-      style.styleSheet.cssText = css;
-    } else {
-      style.appendChild(document.createTextNode(css));
+var autoInit = function autoInit() {
+  toArray$1(document.querySelectorAll('[data-tippy]')).forEach(function (el) {
+    var content = el.getAttribute('data-tippy');
+    if (content) {
+      tippy(el, { content: content });
     }
-  }
+  });
+};
+if (isBrowser$1) {
+  setTimeout(autoInit);
 }
 
 injectCSS(styles);
@@ -4280,3 +4320,4 @@ injectCSS(styles);
 return tippy;
 
 })));
+//# sourceMappingURL=tippy.all.js.map
