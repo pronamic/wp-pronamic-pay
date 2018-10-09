@@ -48,9 +48,12 @@ if ( empty( $lines ) ) : ?>
 				<td>
 					<?php
 
-					$quantities = array_map( function( $line ) {
-						return $line->get_quantity();
-					}, $lines->get_array() );
+					$quantities = array_map(
+						function ( $line ) {
+							return $line->get_quantity();
+						},
+						$lines->get_array()
+					);
 
 					echo esc_html( array_sum( $quantities ) );
 
@@ -59,11 +62,14 @@ if ( empty( $lines ) ) : ?>
 				<td>
 					<?php
 
-					$values = array_map( function( $line ) {
-						if ( null !== $line->get_total_discount() ) {
-							return $line->get_total_discount()->get_amount();
-						}
-					}, $lines->get_array() );
+					$values = array_map(
+						function ( $line ) {
+							if ( null !== $line->get_discount_amount() ) {
+								return $line->get_discount_amount()->get_amount();
+							}
+						},
+						$lines->get_array()
+					);
 
 					echo esc_html( array_sum( $values ) );
 
@@ -72,11 +78,14 @@ if ( empty( $lines ) ) : ?>
 				<td>
 					<?php
 
-					$values = array_map( function( $line ) {
-						if ( null !== $line->get_total_amount() ) {
-							return $line->get_total_amount()->get_amount();
-						}
-					}, $lines->get_array() );
+					$values = array_map(
+						function ( $line ) {
+							if ( null !== $line->get_total_amount() ) {
+								return $line->get_total_amount()->get_amount();
+							}
+						},
+						$lines->get_array()
+					);
 
 					echo esc_html( array_sum( $values ) );
 
@@ -85,11 +94,14 @@ if ( empty( $lines ) ) : ?>
 				<td>
 					<?php
 
-					$values = array_map( function( $line ) {
-						if ( null !== $line->get_total_tax() ) {
-							return $line->get_total_tax()->get_amount();
-						}
-					}, $lines->get_array() );
+					$values = array_map(
+						function ( $line ) {
+							if ( null !== $line->get_tax_amount() ) {
+								return $line->get_tax_amount()->get_amount();
+							}
+						},
+						$lines->get_array()
+					);
 
 					echo esc_html( array_sum( $values ) );
 
@@ -122,7 +134,7 @@ if ( empty( $lines ) ) : ?>
 					<td>
 						<?php
 
-						$url = $line->get_url();
+						$url = $line->get_product_url();
 
 						if ( empty( $url ) ) {
 							echo esc_html( $line->get_name() );
@@ -150,8 +162,8 @@ if ( empty( $lines ) ) : ?>
 					<td>
 						<?php
 
-						if ( null !== $line->get_total_discount() ) {
-							echo esc_html( $line->get_total_discount()->format_i18n() );
+						if ( null !== $line->get_discount_amount() ) {
+							echo esc_html( $line->get_discount_amount()->format_i18n() );
 						}
 
 						?>
@@ -168,8 +180,8 @@ if ( empty( $lines ) ) : ?>
 					<td>
 						<?php
 
-						if ( null !== $line->get_total_tax() ) {
-							echo esc_html( $line->get_total_tax()->format_i18n() );
+						if ( null !== $line->get_tax_amount() ) {
+							echo esc_html( $line->get_tax_amount()->format_i18n() );
 						}
 
 						?>
