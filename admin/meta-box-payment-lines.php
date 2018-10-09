@@ -34,7 +34,7 @@ if ( empty( $lines ) ) : ?>
 
 					printf(
 						'<span class="pronamic-pay-tip" title="%s">%s</span>',
-						esc_attr__( 'Unit price including tax.', 'pronamic_ideal' ),
+						esc_attr__( 'Unit price without discount including tax.', 'pronamic_ideal' ),
 						esc_html__( 'Unit Price', 'pronamic_ideal' )
 					);
 
@@ -57,7 +57,7 @@ if ( empty( $lines ) ) : ?>
 
 					printf(
 						'<span class="pronamic-pay-tip" title="%s">%s</span>',
-						esc_attr__( 'Total amount including tax.', 'pronamic_ideal' ),
+						esc_attr__( 'Total amount with discount including tax.', 'pronamic_ideal' ),
 						esc_html__( 'Total Amount', 'pronamic_ideal' )
 					);
 
