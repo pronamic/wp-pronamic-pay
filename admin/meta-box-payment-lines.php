@@ -26,6 +26,7 @@ if ( empty( $lines ) ) : ?>
 			<tr>
 				<th scope="col"><?php esc_html_e( 'ID', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'SKU', 'pronamic_ideal' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Image', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Name', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Description', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Unit Price', 'pronamic_ideal' ); ?></th>
@@ -38,6 +39,7 @@ if ( empty( $lines ) ) : ?>
 
 		<tfoot>
 			<tr>
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -103,7 +105,37 @@ if ( empty( $lines ) ) : ?>
 				<tr>
 					<td><?php echo esc_html( $line->get_id() ); ?></td>
 					<td><?php echo esc_html( $line->get_sku() ); ?></td>
-					<td><?php echo esc_html( $line->get_name() ); ?></td>
+					<td>
+						<?php
+
+						$image_url = $line->get_image_url();
+
+						if ( ! empty( $image_url ) ) {
+							printf(
+								'<img src="%s" alt="" />',
+								esc_url( $image_url )
+							);
+						}
+
+						?>
+					</td>
+					<td>
+						<?php
+
+						$url = $line->get_url();
+
+						if ( empty( $url ) ) {
+							echo esc_html( $line->get_name() );
+						} else {
+							printf(
+								'<a href="%s">%s<a/>',
+								esc_url( $url ),
+								esc_html( $line->get_name() )
+							);
+						}
+
+						?>
+					</td>
 					<td><?php echo esc_html( $line->get_description() ); ?></td>
 					<td>
 						<?php
