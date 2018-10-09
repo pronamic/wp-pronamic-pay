@@ -181,7 +181,11 @@ if ( empty( $lines ) ) : ?>
 						<?php
 
 						if ( null !== $line->get_tax_amount() ) {
-							echo esc_html( $line->get_tax_amount()->format_i18n() );
+							printf(
+								'<span class="pronamic-pay-tip" title="%s">%s</span>',
+								esc_attr( number_format_i18n( $line->get_tax_percentage() ) . '%' ),
+								esc_html( $line->get_tax_amount()->format_i18n() )
+							);
 						}
 
 						?>
