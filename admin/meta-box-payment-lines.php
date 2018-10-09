@@ -48,9 +48,12 @@ if ( empty( $lines ) ) : ?>
 				<td>
 					<?php
 
-					$quantities = array_map( function( $line ) {
-						return $line->get_quantity();
-					}, $lines->get_array() );
+					$quantities = array_map(
+						function( $line ) {
+								return $line->get_quantity();
+						},
+						$lines->get_array()
+					);
 
 					echo esc_html( array_sum( $quantities ) );
 
@@ -59,11 +62,14 @@ if ( empty( $lines ) ) : ?>
 				<td>
 					<?php
 
-					$values = array_map( function( $line ) {
-						if ( null !== $line->get_discount_amount() ) {
-							return $line->get_discount_amount()->get_amount();
-						}
-					}, $lines->get_array() );
+					$values = array_map(
+						function( $line ) {
+							if ( null !== $line->get_discount_amount() ) {
+								return $line->get_discount_amount()->get_amount();
+							}
+						},
+						$lines->get_array()
+					);
 
 					echo esc_html( array_sum( $values ) );
 
@@ -72,11 +78,14 @@ if ( empty( $lines ) ) : ?>
 				<td>
 					<?php
 
-					$values = array_map( function( $line ) {
-						if ( null !== $line->get_total_amount() ) {
-							return $line->get_total_amount()->get_amount();
-						}
-					}, $lines->get_array() );
+					$values = array_map(
+						function( $line ) {
+							if ( null !== $line->get_total_amount() ) {
+								return $line->get_total_amount()->get_amount();
+							}
+						},
+						$lines->get_array()
+					);
 
 					echo esc_html( array_sum( $values ) );
 
@@ -85,11 +94,14 @@ if ( empty( $lines ) ) : ?>
 				<td>
 					<?php
 
-					$values = array_map( function( $line ) {
-						if ( null !== $line->get_tax_amount() ) {
-							return $line->get_tax_amount()->get_amount();
-						}
-					}, $lines->get_array() );
+					$values = array_map(
+						function( $line ) {
+							if ( null !== $line->get_tax_amount() ) {
+								return $line->get_tax_amount()->get_amount();
+							}
+						},
+						$lines->get_array()
+					);
 
 					echo esc_html( array_sum( $values ) );
 
