@@ -29,10 +29,40 @@ if ( empty( $lines ) ) : ?>
 				<th scope="col"><?php esc_html_e( 'Image', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Name', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Description', 'pronamic_ideal' ); ?></th>
-				<th scope="col"><?php esc_html_e( 'Unit Price', 'pronamic_ideal' ); ?></th>
+				<th scope="col">
+					<?php
+
+					printf(
+						'<span class="pronamic-pay-tip" title="%s">%s</span>',
+						esc_attr__( 'Unit price including tax.', 'pronamic_ideal' ),
+						esc_html__( 'Unit Price', 'pronamic_ideal' )
+					);
+
+					?>
+				</th>
 				<th scope="col"><?php esc_html_e( 'Quantity', 'pronamic_ideal' ); ?></th>
-				<th scope="col"><?php esc_html_e( 'Total Discount', 'pronamic_ideal' ); ?></th>
-				<th scope="col"><?php esc_html_e( 'Total Amount', 'pronamic_ideal' ); ?></th>
+				<th scope="col">
+					<?php
+
+					printf(
+						'<span class="pronamic-pay-tip" title="%s">%s</span>',
+						esc_attr__( 'Total discount.', 'pronamic_ideal' ),
+						esc_html__( 'Discount', 'pronamic_ideal' )
+					);
+
+					?>
+				</th>
+				<th scope="col">
+					<?php
+
+					printf(
+						'<span class="pronamic-pay-tip" title="%s">%s</span>',
+						esc_attr__( 'Total amount including tax.', 'pronamic_ideal' ),
+						esc_html__( 'Total Amount', 'pronamic_ideal' )
+					);
+
+					?>
+				</th>
 				<th scope="col"><?php esc_html_e( 'Total Tax', 'pronamic_ideal' ); ?></th>
 			</tr>
 		</thead>
