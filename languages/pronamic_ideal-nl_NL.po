@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-10-08T17:52:36+00:00\n"
-"PO-Revision-Date: 2018-10-08 19:59+0200\n"
+"POT-Creation-Date: 2018-10-09T17:48:06+00:00\n"
+"PO-Revision-Date: 2018-10-09 19:51+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -324,7 +324,7 @@ msgid "Icon"
 msgstr "Icoon"
 
 #: admin/methods-wp-admin.php:18 admin/tab-extensions.php:24
-#: admin/meta-box-payment-lines.php:29
+#: admin/meta-box-payment-lines.php:30
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:379
 msgid "Name"
 msgstr "Naam"
@@ -346,12 +346,12 @@ msgstr "ID"
 
 #: admin/meta-box-subscription-info.php:43
 #: admin/meta-box-payment-subscription.php:36
-#: admin/meta-box-payment-info.php:54 admin/meta-box-payment-lines.php:30
+#: admin/meta-box-payment-info.php:54 admin/meta-box-payment-lines.php:31
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:281
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:184
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:245
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:149
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:157
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:163
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:114
 msgid "Description"
 msgstr "Beschrijving"
@@ -402,17 +402,17 @@ msgstr "Consument"
 
 #: admin/meta-box-subscription-info.php:206
 #: admin/meta-box-payment-subscription.php:72
-#: admin/meta-box-payment-info.php:391
+#: admin/meta-box-payment-info.php:340
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:267
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:180
 msgid "Source"
 msgstr "Bron"
 
-#: admin/meta-box-subscription-info.php:221 admin/meta-box-payment-info.php:406
+#: admin/meta-box-subscription-info.php:221 admin/meta-box-payment-info.php:355
 msgid "Period"
 msgstr "Periode"
 
-#: admin/meta-box-subscription-info.php:229 admin/meta-box-payment-info.php:414
+#: admin/meta-box-subscription-info.php:229 admin/meta-box-payment-info.php:363
 msgid "Level"
 msgstr "Niveau"
 
@@ -778,7 +778,7 @@ msgstr "Bestelling ID"
 msgid "Transaction ID"
 msgstr "Transactie ID"
 
-#: admin/meta-box-payment-info.php:85 admin/meta-box-payment-info.php:427
+#: admin/meta-box-payment-info.php:85 admin/meta-box-payment-info.php:376
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:88
 msgid "Purchase ID"
 msgstr "Aankoop ID"
@@ -802,59 +802,59 @@ msgstr "Redirect URL"
 msgid "Customer"
 msgstr "Klant"
 
-#: admin/meta-box-payment-info.php:220 admin/meta-box-payment-info.php:354
-msgid "Billing Address"
-msgstr "Factuuradres"
-
-#: admin/meta-box-payment-info.php:242 admin/meta-box-payment-info.php:373
-msgid "Shipping Address"
-msgstr "Verzendadres"
-
-#: admin/meta-box-payment-info.php:268
+#: admin/meta-box-payment-info.php:224
 msgid "Account Holder"
 msgstr "Rekeninghouder"
 
-#: admin/meta-box-payment-info.php:285
+#: admin/meta-box-payment-info.php:241
 msgid "Account Holder City"
 msgstr "Rekeninghouder plaats"
 
-#: admin/meta-box-payment-info.php:306
+#: admin/meta-box-payment-info.php:262
 msgctxt "IBAN abbreviation title"
 msgid "International Bank Account Number"
 msgstr "International Bank Account Number"
 
-#: admin/meta-box-payment-info.php:307
+#: admin/meta-box-payment-info.php:263
 msgid "IBAN"
 msgstr "IBAN"
 
-#: admin/meta-box-payment-info.php:331
+#: admin/meta-box-payment-info.php:287
 msgctxt "BIC abbreviation title"
 msgid "Bank Identifier Code"
 msgstr "Bank Identifier Code"
 
-#: admin/meta-box-payment-info.php:332
+#: admin/meta-box-payment-info.php:288
 msgid "BIC"
 msgstr "BIC"
 
-#: admin/meta-box-payment-info.php:435
+#: admin/meta-box-payment-info.php:304
+msgid "Billing Address"
+msgstr "Factuuradres"
+
+#: admin/meta-box-payment-info.php:323
+msgid "Shipping Address"
+msgstr "Verzendadres"
+
+#: admin/meta-box-payment-info.php:384
 msgid "Session ID"
 msgstr "Sessie ID"
 
-#: admin/meta-box-payment-info.php:448
+#: admin/meta-box-payment-info.php:397
 msgid "User ID"
 msgstr "Gebruiker ID"
 
-#: admin/meta-box-payment-info.php:456
+#: admin/meta-box-payment-info.php:405
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:431
 msgid "Subscription ID"
 msgstr "Abonnement ID"
 
-#: admin/meta-box-payment-info.php:469
+#: admin/meta-box-payment-info.php:418
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:470
 msgid "User Agent"
 msgstr "User agent"
 
-#: admin/meta-box-payment-info.php:477
+#: admin/meta-box-payment-info.php:426
 msgid "IP Address"
 msgstr "IP-adres"
 
@@ -1235,19 +1235,39 @@ msgstr "Geen betalingsregels gevonden."
 msgid "SKU"
 msgstr "SKU"
 
-#: admin/meta-box-payment-lines.php:31
+#: admin/meta-box-payment-lines.php:29
+msgid "Image"
+msgstr "Afbeelding"
+
+#: admin/meta-box-payment-lines.php:37
+msgid "Unit price without discount including tax."
+msgstr "Eenheidsprijs zonder korting inclusief belasting."
+
+#: admin/meta-box-payment-lines.php:38
 msgid "Unit Price"
 msgstr "Eenheidsprijs"
 
-#: admin/meta-box-payment-lines.php:32
+#: admin/meta-box-payment-lines.php:43
 msgid "Quantity"
 msgstr "Aantal"
 
-#: admin/meta-box-payment-lines.php:33
+#: admin/meta-box-payment-lines.php:49
+msgid "Total discount."
+msgstr "Totale korting."
+
+#: admin/meta-box-payment-lines.php:50
+msgid "Discount"
+msgstr "Korting"
+
+#: admin/meta-box-payment-lines.php:60
+msgid "Total amount with discount including tax."
+msgstr "Totaalbedrag met korting inclusief belasting."
+
+#: admin/meta-box-payment-lines.php:61
 msgid "Total Amount"
 msgstr "Totaalbedrag"
 
-#: admin/meta-box-payment-lines.php:34
+#: admin/meta-box-payment-lines.php:66
 msgid "Total Tax"
 msgstr "Totale belasting"
 
@@ -1412,7 +1432,7 @@ msgstr "E-mailadres"
 msgid "Payment Info"
 msgstr "Betalingsinformatie"
 
-#: templates/form.php:181 vendor/wp-pay/core/src/Plugin.php:938
+#: templates/form.php:181 vendor/wp-pay/core/src/Plugin.php:944
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:434
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:257
 #: vendor/wp-pay-extensions/give/src/Gateway.php:132
@@ -2113,7 +2133,7 @@ msgstr "KBC/CBC-Betaalknop"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:270
 msgid "Klarna Pay Later"
-msgstr ""
+msgstr "Klarna achteraf betalen"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:271
 msgid "Maestro"
@@ -2210,20 +2230,20 @@ msgstr "— Selecteer configuratie —"
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
-#: vendor/wp-pay/core/src/Plugin.php:935
+#: vendor/wp-pay/core/src/Plugin.php:941
 msgid "Completed"
 msgstr "Voltooid"
 
-#: vendor/wp-pay/core/src/Plugin.php:936
+#: vendor/wp-pay/core/src/Plugin.php:942
 msgid "Canceled"
 msgstr "Geannuleerd"
 
-#: vendor/wp-pay/core/src/Plugin.php:937
+#: vendor/wp-pay/core/src/Plugin.php:943
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:433
 msgid "Expired"
 msgstr "Verlopen"
 
-#: vendor/wp-pay/core/src/Plugin.php:939
+#: vendor/wp-pay/core/src/Plugin.php:945
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:233
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:139
 msgid "Unknown"
@@ -4606,38 +4626,38 @@ msgstr "Easy Digital Downloads bestelling %s"
 
 #. translators: %s: gateway admin label
 #. translators: %s: admin label
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:135
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:141
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Gateway.php:115
 msgid "%s Settings"
 msgstr "%s instellingen"
 
 #. translators: %s: gateway admin label
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:137
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:143
 msgid "Configure the %s settings"
 msgstr "Configureer de %s instellingen"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:142
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:148
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Gateway.php:148
 msgid "Gateway Configuration"
 msgstr "Betalingsgateway configuratie"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:149
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:155
 msgid "Checkout Label"
 msgstr "Afrekenen label"
 
 #. translators: %s: <code>{edd_cart_details_name}</code>
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:163
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:169
 msgid "Default: %s"
 msgstr "Standaard: %s"
 
 #. translators: %s: <code>{edd_cart_details_name}</code>
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:165
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:171
 msgid "Available Tags: %s"
 msgstr "Beschikbare tags: %s"
 
 #. translators: %s: payment data JSON
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:259
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:344
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:265
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:391
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Gateway.php:223
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Gateway.php:245
 #: vendor/wp-pay-extensions/give/src/Gateway.php:159
@@ -4646,8 +4666,8 @@ msgid "Payment Error"
 msgstr "Betalingsfout"
 
 #. translators: %s: payment data JSON
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:259
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:344
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:265
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:391
 msgid ""
 "Payment creation failed before sending buyer to the payment provider. "
 "Payment data: %s"
@@ -4656,7 +4676,7 @@ msgstr ""
 "naar de betaalprovider. Betalingsinformatie: %s"
 
 #. translators: %s: payment id
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:372
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:419
 msgid "Payment %s pending."
 msgstr "Betaling %s in afwachting."
 
