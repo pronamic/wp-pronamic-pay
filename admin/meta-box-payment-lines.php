@@ -60,8 +60,8 @@ if ( empty( $lines ) ) : ?>
 					<?php
 
 					$values = array_map( function( $line ) {
-						if ( null !== $line->get_total_discount() ) {
-							return $line->get_total_discount()->get_amount();
+						if ( null !== $line->get_discount_amount() ) {
+							return $line->get_discount_amount()->get_amount();
 						}
 					}, $lines->get_array() );
 
@@ -86,8 +86,8 @@ if ( empty( $lines ) ) : ?>
 					<?php
 
 					$values = array_map( function( $line ) {
-						if ( null !== $line->get_total_tax() ) {
-							return $line->get_total_tax()->get_amount();
+						if ( null !== $line->get_tax_amount() ) {
+							return $line->get_tax_amount()->get_amount();
 						}
 					}, $lines->get_array() );
 
@@ -112,7 +112,7 @@ if ( empty( $lines ) ) : ?>
 
 						if ( ! empty( $image_url ) ) {
 							printf(
-								'<img src="%s" alt="" />',
+								'<img src="%s" alt="" width="50" height="50" />',
 								esc_url( $image_url )
 							);
 						}
@@ -122,14 +122,14 @@ if ( empty( $lines ) ) : ?>
 					<td>
 						<?php
 
-						$url = $line->get_url();
+						$product_url = $line->get_product_url();
 
-						if ( empty( $url ) ) {
+						if ( empty( $product_url ) ) {
 							echo esc_html( $line->get_name() );
 						} else {
 							printf(
 								'<a href="%s">%s<a/>',
-								esc_url( $url ),
+								esc_url( $product_url ),
 								esc_html( $line->get_name() )
 							);
 						}
@@ -150,8 +150,8 @@ if ( empty( $lines ) ) : ?>
 					<td>
 						<?php
 
-						if ( null !== $line->get_total_discount() ) {
-							echo esc_html( $line->get_total_discount()->format_i18n() );
+						if ( null !== $line->get_discount_amount() ) {
+							echo esc_html( $line->get_discount_amount()->format_i18n() );
 						}
 
 						?>
@@ -168,8 +168,8 @@ if ( empty( $lines ) ) : ?>
 					<td>
 						<?php
 
-						if ( null !== $line->get_total_tax() ) {
-							echo esc_html( $line->get_total_tax()->format_i18n() );
+						if ( null !== $line->get_tax_amount() ) {
+							echo esc_html( $line->get_tax_amount()->format_i18n() );
 						}
 
 						?>
