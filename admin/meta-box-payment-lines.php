@@ -10,8 +10,7 @@
 
 namespace Pronamic\WordPress\Pay;
 
-use Pronamic\WordPress\DateTime\DateTime;
-use Pronamic\WordPress\DateTime\DateTimeZone;
+use Pronamic\WordPress\Money\Money;
 
 if ( empty( $lines ) ) : ?>
 
@@ -101,7 +100,9 @@ if ( empty( $lines ) ) : ?>
 						$lines->get_array()
 					);
 
-					echo esc_html( array_sum( $values ) );
+					$discount_amount = new Money( array_sum( $values ), $payment->get_currency() );
+
+					echo esc_html( $discount_amount );
 
 					?>
 				</td>
@@ -117,7 +118,9 @@ if ( empty( $lines ) ) : ?>
 						$lines->get_array()
 					);
 
-					echo esc_html( array_sum( $values ) );
+					$total_amount = new Money( array_sum( $values ), $payment->get_currency() );
+
+					echo esc_html( $total_amount );
 
 					?>
 				</td>
@@ -133,7 +136,9 @@ if ( empty( $lines ) ) : ?>
 						$lines->get_array()
 					);
 
-					echo esc_html( array_sum( $values ) );
+					$tax_amount = new Money( array_sum( $values ), $payment->get_currency() );
+
+					echo esc_html( $tax_amount );
 
 					?>
 				</td>
