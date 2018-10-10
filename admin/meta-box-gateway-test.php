@@ -120,18 +120,18 @@ require Plugin::$dirname . '/views/errors.php';
 		<?php
 
 		$options = array(
-			''         => __( '— Select Repeat —', 'pronamic_ideal' ),
-			'daily'    => __( 'Daily', 'pronamic_ideal' ),
-			'weekly'   => __( 'Weekly', 'pronamic_ideal' ),
-			'monthly'  => __( 'Monthly', 'pronamic_ideal' ),
-			'annually' => __( 'Annually', 'pronamic_ideal' ),
+			''  => __( '— Select Repeat —', 'pronamic_ideal' ),
+			'D' => __( 'Daily', 'pronamic_ideal' ),
+			'W' => __( 'Weekly', 'pronamic_ideal' ),
+			'M' => __( 'Monthly', 'pronamic_ideal' ),
+			'Y' => __( 'Annually', 'pronamic_ideal' ),
 		);
 
 		$options_interval_suffix = array(
-			'daily'    => __( 'days', 'pronamic_ideal' ),
-			'weekly'   => __( 'weeks', 'pronamic_ideal' ),
-			'monthly'  => __( 'months', 'pronamic_ideal' ),
-			'annually' => __( 'year', 'pronamic_ideal' ),
+			'D' => __( 'days', 'pronamic_ideal' ),
+			'W' => __( 'weeks', 'pronamic_ideal' ),
+			'M' => __( 'months', 'pronamic_ideal' ),
+			'Y' => __( 'year', 'pronamic_ideal' ),
 		);
 
 		?>
