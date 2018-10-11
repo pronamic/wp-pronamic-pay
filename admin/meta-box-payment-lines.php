@@ -111,8 +111,8 @@ if ( empty( $lines ) ) : ?>
 
 					$values = array_map(
 						function( $line ) {
-							if ( null !== $line->get_total_amount() ) {
-								return $line->get_total_amount()->get_amount();
+							if ( null !== $line->get_total_amount_excluding_tax() ) {
+								return $line->get_total_amount_excluding_tax()->get_amount();
 							}
 						},
 						$lines->get_array()
@@ -187,9 +187,30 @@ if ( empty( $lines ) ) : ?>
 					<td>
 						<?php
 
-						if ( null !== $line->get_unit_price() ) {
-							echo esc_html( $line->get_unit_price()->format_i18n() );
+						$tip  = array();
+						$text = '';
+
+						if ( null !== $line->get_unit_price_excluding_tax() ) {
+							$text = $line->get_unit_price_excluding_tax()->format_i18n();
+
+							$tip[] = sprintf(
+								__( 'Exclusive tax: %s', 'pronamic_ideal' ),
+								$text
+							);
 						}
+
+						if ( null !== $line->get_unit_price_including_tax() ) {
+							$tip[] = sprintf(
+								__( 'Inclusive tax: %s', 'pronamic_ideal' ),
+								$line->get_unit_price_including_tax()->format_i18n()
+							);
+						}
+
+						printf(
+							'<span class="pronamic-pay-tip" title="%s">%s</span>',
+							esc_attr( implode( '<br />', $tip ) ),
+							esc_html( $text )
+						);
 
 						?>
 					</td>
@@ -206,9 +227,31 @@ if ( empty( $lines ) ) : ?>
 					<td>
 						<?php
 
-						if ( null !== $line->get_total_amount() ) {
-							echo esc_html( $line->get_total_amount()->format_i18n() );
+						$tip  = array();
+						$text = '';
+
+						if ( null !== $line->get_total_amount_excluding_tax() ) {
+							$text = $line->get_total_amount_excluding_tax()->format_i18n();
+
+							$tip[] = sprintf(
+								__( 'Exclusive tax: %s', 'pronamic_ideal' ),
+								$text
+							);
 						}
+
+						if ( null !== $line->get_total_amount_including_tax() ) {
+							$tip[] = sprintf(
+								__( 'Inclusive tax: %s', 'pronamic_ideal' ),
+								$line->get_total_amount_including_tax()->format_i18n()
+							);
+						}
+
+
+						printf(
+							'<span class="pronamic-pay-tip" title="%s">%s</span>',
+							esc_attr( implode( '<br />', $tip ) ),
+							esc_html( $text )
+						);
 
 						?>
 					</td>
