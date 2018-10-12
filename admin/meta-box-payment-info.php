@@ -434,5 +434,18 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 			</td>
 		</tr>
 
+		<?php if ( null !== $payment->get_version() ) : ?>
+
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'Version', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<?php echo esc_html( $payment->get_version() ); ?>
+				</td>
+			</tr>
+
+		<?php endif ?>
+
 	<?php endif; ?>
 </table>
