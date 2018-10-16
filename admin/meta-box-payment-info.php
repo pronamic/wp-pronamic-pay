@@ -203,7 +203,24 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 				<?php
 
 				if ( null !== $payment->get_customer()->get_name() ) {
-					echo esc_html( $payment->get_customer()->get_name() );
+					echo esc_html( $payment->get_customer()->get_name() ) . '<br />';
+				}
+
+				if ( null !== $payment->get_customer()->get_birth_date() ) {
+					echo esc_html( $payment->get_customer()->get_birth_date()->format_i18n( 'D j M Y' ) ) . '<br />';
+				}
+
+				if ( null !== $payment->get_customer()->get_gender() ) {
+					switch ( $payment->get_customer()->get_gender() ) {
+						case 'F':
+							echo esc_html( __( 'Female', 'pronamic_ideal' ) );
+
+							break;
+						case 'M':
+							echo esc_html( __( 'Male', 'pronamic_ideal' ) );
+
+							break;
+					}
 				}
 
 				?>
