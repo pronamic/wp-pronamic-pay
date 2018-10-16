@@ -8,7 +8,6 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\Core\PaymentMethods;
 
 $post_id = get_the_ID();
