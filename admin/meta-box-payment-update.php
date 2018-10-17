@@ -13,6 +13,8 @@ use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 
 $states = PaymentPostType::get_payment_states();
 
+$payment = get_pronamic_payment( get_the_ID() );
+
 // WordPress by default doesn't allow `post_author` values of `0`, that's why we use a dash (`-`).
 // @see https://github.com/WordPress/WordPress/blob/4.9.5/wp-admin/includes/post.php#L56-L64.
 $post_author = get_post_field( 'post_author' );
@@ -64,11 +66,36 @@ $post_author = empty( $post_author ) ? '-' : $post_author;
 		);
 
 		printf(
-			'<a class="button" href="%s">%s</a>',
+			'<p><a class="button" href="%s">%s</a></p>',
 			esc_url( $check_status_nonce_url ),
 			esc_html__( 'Check status', 'pronamic_ideal' )
 		);
+	}
 
+	/**
+	 * Send to Google Analytics button.
+	 */
+	$can_track = pronamic_pay_plugin()->google_analytics_ecommerce->valid_payment( $payment );
+
+	if ( $can_track ) {
+		// Only show button for payments that can be tracked.
+		$track_nonce_url = wp_nonce_url(
+			add_query_arg(
+				array(
+					'post'                  => $post->ID,
+					'action'                => 'edit',
+					'pronamic_pay_ga_track' => true,
+				),
+				admin_url( 'post.php' )
+			),
+			'pronamic_payment_ga_track_' . $post->ID
+		);
+
+		printf(
+			'<p><a class="button" href="%s">%s</a></p>',
+			esc_url( $track_nonce_url ),
+			esc_html__( 'Send to Google Analytics', 'pronamic_ideal' )
+		);
 	}
 
 	?>

@@ -368,6 +368,39 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 		</td>
 	</tr>
 
+	<?php
+
+	$ga_tracked = $payment->get_ga_tracked();
+
+	$ga_property_id = get_option( 'pronamic_pay_google_analytics_property' );
+
+	?>
+
+	<?php if ( $ga_tracked || ! empty( $ga_property_id ) ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Google Analytics', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				if ( $ga_tracked ) :
+
+					esc_html_e( 'Ecommerce conversion tracked', 'pronamic_ideal' );
+
+				else :
+
+					esc_html_e( 'Ecommerce conversion not tracked', 'pronamic_ideal' );
+
+				endif;
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<?php if ( 's2member' === $payment->get_source() ) : ?>
 
 		<tr>
