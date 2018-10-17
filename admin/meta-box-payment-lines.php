@@ -20,259 +20,273 @@ if ( empty( $lines ) ) : ?>
 
 <?php else : ?>
 
-	<table class="pronamic-pay-table widefat">
-		<thead>
-			<tr>
-				<th scope="col"><?php esc_html_e( 'ID', 'pronamic_ideal' ); ?></th>
-				<th scope="col"><?php esc_html_e( 'SKU', 'pronamic_ideal' ); ?></th>
-				<th scope="col"><?php esc_html_e( 'Image', 'pronamic_ideal' ); ?></th>
-				<th scope="col"><?php esc_html_e( 'Name', 'pronamic_ideal' ); ?></th>
-				<th scope="col"><?php esc_html_e( 'Description', 'pronamic_ideal' ); ?></th>
-				<th scope="col">
-					<?php
-
-					printf(
-						'<span class="pronamic-pay-tip" title="%s">%s</span>',
-						esc_attr__( 'Unit price without discount including tax.', 'pronamic_ideal' ),
-						esc_html__( 'Unit Price', 'pronamic_ideal' )
-					);
-
-					?>
-				</th>
-				<th scope="col"><?php esc_html_e( 'Quantity', 'pronamic_ideal' ); ?></th>
-				<th scope="col">
-					<?php
-
-					printf(
-						'<span class="pronamic-pay-tip" title="%s">%s</span>',
-						esc_attr__( 'Total discount.', 'pronamic_ideal' ),
-						esc_html__( 'Discount', 'pronamic_ideal' )
-					);
-
-					?>
-				</th>
-				<th scope="col">
-					<?php
-
-					printf(
-						'<span class="pronamic-pay-tip" title="%s">%s</span>',
-						esc_attr__( 'Total amount with discount including tax.', 'pronamic_ideal' ),
-						esc_html__( 'Total Amount', 'pronamic_ideal' )
-					);
-
-					?>
-				</th>
-				<th scope="col"><?php esc_html_e( 'Total Tax', 'pronamic_ideal' ); ?></th>
-			</tr>
-		</thead>
-
-		<tfoot>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>
-					<?php
-
-					$quantities = array_map(
-						function( $line ) {
-								return $line->get_quantity();
-						},
-						$lines->get_array()
-					);
-
-					echo esc_html( array_sum( $quantities ) );
-
-					?>
-				</td>
-				<td>
-					<?php
-
-					$values = array_map(
-						function( $line ) {
-							if ( null !== $line->get_discount_amount() ) {
-								return $line->get_discount_amount()->get_amount();
-							}
-						},
-						$lines->get_array()
-					);
-
-					$discount_amount = new Money( array_sum( $values ), $payment->get_currency() );
-
-					echo esc_html( $discount_amount );
-
-					?>
-				</td>
-				<td>
-					<?php
-
-					$values = array_map(
-						function( $line ) {
-							if ( null !== $line->get_total_amount_excluding_tax() ) {
-								return $line->get_total_amount_excluding_tax()->get_amount();
-							}
-						},
-						$lines->get_array()
-					);
-
-					$total_amount = new Money( array_sum( $values ), $payment->get_currency() );
-
-					echo esc_html( $total_amount );
-
-					?>
-				</td>
-				<td>
-					<?php
-
-					$values = array_map(
-						function( $line ) {
-							if ( null !== $line->get_tax_amount() ) {
-								return $line->get_tax_amount()->get_amount();
-							}
-						},
-						$lines->get_array()
-					);
-
-					$tax_amount = new Money( array_sum( $values ), $payment->get_currency() );
-
-					echo esc_html( $tax_amount );
-
-					?>
-				</td>
-			</tr>
-		</tfoot>
-
-		<tbody>
-
-			<?php foreach ( $lines as $line ) : ?>
-
+	<div class="pronamic-pay-table-responsive">
+		<table class="pronamic-pay-table widefat">
+			<thead>
 				<tr>
-					<td><?php echo esc_html( $line->get_id() ); ?></td>
-					<td><?php echo esc_html( $line->get_sku() ); ?></td>
-					<td>
+					<th scope="col"><?php esc_html_e( 'ID', 'pronamic_ideal' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'SKU', 'pronamic_ideal' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Image', 'pronamic_ideal' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Name', 'pronamic_ideal' ); ?></th>
+					<th scope="col">
 						<?php
-
-						$image_url = $line->get_image_url();
-
-						if ( ! empty( $image_url ) ) {
-							printf(
-								'<img src="%s" alt="" width="50" height="50" />',
-								esc_url( $image_url )
-							);
-						}
-
-						?>
-					</td>
-					<td>
-						<?php
-
-						$product_url = $line->get_product_url();
-
-						if ( empty( $product_url ) ) {
-							echo esc_html( $line->get_name() );
-						} else {
-							printf(
-								'<a href="%s">%s<a/>',
-								esc_url( $product_url ),
-								esc_html( $line->get_name() )
-							);
-						}
-
-						?>
-					</td>
-					<td><?php echo esc_html( $line->get_description() ); ?></td>
-					<td>
-						<?php
-
-						$tip  = array();
-						$text = '';
-
-						if ( null !== $line->get_unit_price_excluding_tax() ) {
-							$text = $line->get_unit_price_excluding_tax()->format_i18n();
-
-							$tip[] = sprintf(
-								__( 'Exclusive tax: %s', 'pronamic_ideal' ),
-								$text
-							);
-						}
-
-						if ( null !== $line->get_unit_price_including_tax() ) {
-							$tip[] = sprintf(
-								__( 'Inclusive tax: %s', 'pronamic_ideal' ),
-								$line->get_unit_price_including_tax()->format_i18n()
-							);
-						}
 
 						printf(
 							'<span class="pronamic-pay-tip" title="%s">%s</span>',
-							esc_attr( implode( '<br />', $tip ) ),
-							esc_html( $text )
+							esc_attr__( 'Unit price without discount including tax.', 'pronamic_ideal' ),
+							esc_html__( 'Unit Price', 'pronamic_ideal' )
 						);
 
 						?>
-					</td>
-					<td><?php echo esc_html( $line->get_quantity() ); ?></td>
-					<td>
+					</th>
+					<th scope="col"><?php esc_html_e( 'Quantity', 'pronamic_ideal' ); ?></th>
+					<th scope="col">
 						<?php
-
-						if ( null !== $line->get_discount_amount() ) {
-							echo esc_html( $line->get_discount_amount()->format_i18n() );
-						}
-
-						?>
-					</td>
-					<td>
-						<?php
-
-						$tip  = array();
-						$text = '';
-
-						if ( null !== $line->get_total_amount_excluding_tax() ) {
-							$text = $line->get_total_amount_excluding_tax()->format_i18n();
-
-							$tip[] = sprintf(
-								__( 'Exclusive tax: %s', 'pronamic_ideal' ),
-								$text
-							);
-						}
-
-						if ( null !== $line->get_total_amount_including_tax() ) {
-							$tip[] = sprintf(
-								__( 'Inclusive tax: %s', 'pronamic_ideal' ),
-								$line->get_total_amount_including_tax()->format_i18n()
-							);
-						}
-
 
 						printf(
 							'<span class="pronamic-pay-tip" title="%s">%s</span>',
-							esc_attr( implode( '<br />', $tip ) ),
-							esc_html( $text )
+							esc_attr__( 'Total discount.', 'pronamic_ideal' ),
+							esc_html__( 'Discount', 'pronamic_ideal' )
 						);
+
+						?>
+					</th>
+					<th scope="col">
+						<?php
+
+						printf(
+							'<span class="pronamic-pay-tip" title="%s">%s</span>',
+							esc_attr__( 'Total amount with discount including tax.', 'pronamic_ideal' ),
+							esc_html__( 'Total Amount', 'pronamic_ideal' )
+						);
+
+						?>
+					</th>
+					<th scope="col"><?php esc_html_e( 'Total Tax', 'pronamic_ideal' ); ?></th>
+				</tr>
+			</thead>
+
+			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+						<?php
+
+						$quantities = array_map(
+							function( $line ) {
+									return $line->get_quantity();
+							},
+							$lines->get_array()
+						);
+
+						echo esc_html( array_sum( $quantities ) );
 
 						?>
 					</td>
 					<td>
 						<?php
 
-						if ( null !== $line->get_tax_amount() ) {
-							printf(
-								'<span class="pronamic-pay-tip" title="%s">%s</span>',
-								esc_attr( number_format_i18n( $line->get_tax_percentage() ) . '%' ),
-								esc_html( $line->get_tax_amount()->format_i18n() )
-							);
-						}
+						$values = array_map(
+							function( $line ) {
+								if ( null !== $line->get_discount_amount() ) {
+									return $line->get_discount_amount()->get_amount();
+								}
+							},
+							$lines->get_array()
+						);
+
+						$discount_amount = new Money( array_sum( $values ), $payment->get_currency() );
+
+						echo esc_html( $discount_amount );
+
+						?>
+					</td>
+					<td>
+						<?php
+
+						$values = array_map(
+							function( $line ) {
+								if ( null !== $line->get_total_amount_excluding_tax() ) {
+									return $line->get_total_amount_excluding_tax()->get_amount();
+								}
+							},
+							$lines->get_array()
+						);
+
+						$total_amount = new Money( array_sum( $values ), $payment->get_currency() );
+
+						echo esc_html( $total_amount );
+
+						?>
+					</td>
+					<td>
+						<?php
+
+						$values = array_map(
+							function( $line ) {
+								if ( null !== $line->get_tax_amount() ) {
+									return $line->get_tax_amount()->get_amount();
+								}
+							},
+							$lines->get_array()
+						);
+
+						$tax_amount = new Money( array_sum( $values ), $payment->get_currency() );
+
+						echo esc_html( $tax_amount );
 
 						?>
 					</td>
 				</tr>
+			</tfoot>
 
-			<?php endforeach; ?>
+			<tbody>
 
-		</tbody>
-	</table>
+				<?php foreach ( $lines as $line ) : ?>
+
+					<tr>
+						<td><?php echo esc_html( $line->get_id() ); ?></td>
+						<td><?php echo esc_html( $line->get_sku() ); ?></td>
+						<td>
+							<?php
+
+							$image_url = $line->get_image_url();
+
+							if ( ! empty( $image_url ) ) {
+								printf(
+									'<img src="%s" alt="" width="50" height="50" />',
+									esc_url( $image_url )
+								);
+							}
+
+							?>
+						</td>
+						<td>
+							<?php
+
+							$product_url = $line->get_product_url();
+
+							$description = $line->get_description();
+
+							$classes = array();
+
+							if ( ! empty( $classes ) ) {
+								$classes[] = 'pronamic-pay-tip';
+							}
+
+							if ( empty( $product_url ) ) {
+								printf(
+									'<span class="pronamic-pay-tip" title="%s">%s</span>',
+									esc_attr( $line->get_description() ),
+									esc_attr( implode( ' ', $classes ) ),
+									esc_html( $line->get_name() )
+								);
+							} else {
+								printf(
+									'<a href="%s" class="%s" title="%s">%s<a/>',
+									esc_url( $product_url ),
+									esc_attr( implode( ' ', $classes ) ),
+									esc_attr( $line->get_description() ),
+									esc_html( $line->get_name() )
+								);
+							}
+
+							?>
+						</td>
+						<td>
+							<?php
+
+							$tip  = array();
+							$text = '';
+
+							if ( null !== $line->get_unit_price_excluding_tax() ) {
+								$text = $line->get_unit_price_excluding_tax()->format_i18n();
+
+								$tip[] = sprintf(
+									__( 'Exclusive tax: %s', 'pronamic_ideal' ),
+									$text
+								);
+							}
+
+							if ( null !== $line->get_unit_price_including_tax() ) {
+								$tip[] = sprintf(
+									__( 'Inclusive tax: %s', 'pronamic_ideal' ),
+									$line->get_unit_price_including_tax()->format_i18n()
+								);
+							}
+
+							printf(
+								'<span class="pronamic-pay-tip" title="%s">%s</span>',
+								esc_attr( implode( '<br />', $tip ) ),
+								esc_html( $text )
+							);
+
+							?>
+						</td>
+						<td><?php echo esc_html( $line->get_quantity() ); ?></td>
+						<td>
+							<?php
+
+							if ( null !== $line->get_discount_amount() ) {
+								echo esc_html( $line->get_discount_amount()->format_i18n() );
+							}
+
+							?>
+						</td>
+						<td>
+							<?php
+
+							$tip  = array();
+							$text = '';
+
+							if ( null !== $line->get_total_amount_excluding_tax() ) {
+								$text = $line->get_total_amount_excluding_tax()->format_i18n();
+
+								$tip[] = sprintf(
+									__( 'Exclusive tax: %s', 'pronamic_ideal' ),
+									$text
+								);
+							}
+
+							if ( null !== $line->get_total_amount_including_tax() ) {
+								$tip[] = sprintf(
+									__( 'Inclusive tax: %s', 'pronamic_ideal' ),
+									$line->get_total_amount_including_tax()->format_i18n()
+								);
+							}
+
+
+							printf(
+								'<span class="pronamic-pay-tip" title="%s">%s</span>',
+								esc_attr( implode( '<br />', $tip ) ),
+								esc_html( $text )
+							);
+
+							?>
+						</td>
+						<td>
+							<?php
+
+							if ( null !== $line->get_tax_amount() ) {
+								printf(
+									'<span class="pronamic-pay-tip" title="%s">%s</span>',
+									esc_attr( number_format_i18n( $line->get_tax_percentage() ) . '%' ),
+									esc_html( $line->get_tax_amount()->format_i18n() )
+								);
+							}
+
+							?>
+						</td>
+					</tr>
+
+				<?php endforeach; ?>
+
+			</tbody>
+		</table>
+	</div>
 
 <?php endif; ?>
