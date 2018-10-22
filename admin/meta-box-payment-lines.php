@@ -172,27 +172,34 @@ if ( empty( $lines ) ) : ?>
 
 							$description = $line->get_description();
 
-							$classes = array();
+							if ( ! empty( $product_url ) ) {
+								// Product URL with or without description.
+								$title = $line->get_name();
 
-							if ( ! empty( $classes ) ) {
-								$classes[] = 'pronamic-pay-tip';
-							}
+								$classes = array();
 
-							if ( empty( $product_url ) ) {
+								if ( ! empty( $description ) ) {
+									$title     = $line->get_description();
+									$classes[] = 'pronamic-pay-tip';
+								}
+
 								printf(
-									'<span class="pronamic-pay-tip" title="%s">%s</span>',
-									esc_attr( $line->get_description() ),
+									'<a class="%1$s" href="%2$s" title="%3$s">%4$s<a/>',
 									esc_attr( implode( ' ', $classes ) ),
+									esc_url( $line->get_product_url() ),
+									esc_attr( $title ),
+									esc_html( $line->get_name() )
+								);
+							} elseif ( ! empty( $description ) ) {
+								// Description without product URL.
+								printf(
+									'<span class="pronamic-pay-tip" title="%1$s">%2$s</span>',
+									esc_attr( $line->get_description() ),
 									esc_html( $line->get_name() )
 								);
 							} else {
-								printf(
-									'<a href="%s" class="%s" title="%s">%s<a/>',
-									esc_url( $product_url ),
-									esc_attr( implode( ' ', $classes ) ),
-									esc_attr( $line->get_description() ),
-									esc_html( $line->get_name() )
-								);
+								// No description and no product URL.
+								echo esc_html( $line->get_name() );
 							}
 
 							?>
