@@ -11,8 +11,8 @@
 /**
  * Execute changes made in Pronamic Pay 3.7.0
  *
- * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
- * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/updates/woocommerce-update-2.2.php
+ * @link https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
+ * @link https://github.com/woothemes/woocommerce/blob/2.3.13/includes/updates/woocommerce-update-2.2.php
  * @since 3.7.0
  */
 

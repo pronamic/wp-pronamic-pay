@@ -216,7 +216,7 @@ use Pronamic\WordPress\DateTime\DateTimeZone;
 			<td>
 				<?php
 
-				// @see http://codex.wordpress.org/Function_Reference/bloginfo#Show_Character_Set
+				// @link http://codex.wordpress.org/Function_Reference/bloginfo#Show_Character_Set
 				if ( 0 === strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) ) {
 					echo '✓';
 				} else {
@@ -273,7 +273,7 @@ use Pronamic\WordPress\DateTime\DateTimeZone;
 					echo esc_html( OPENSSL_VERSION_TEXT );
 				}
 
-				// @see https://www.openssl.org/docs/crypto/OPENSSL_VERSION_NUMBER.html
+				// @link https://www.openssl.org/docs/crypto/OPENSSL_VERSION_NUMBER.html
 				$version_required = 0x000908000;
 
 				?>
