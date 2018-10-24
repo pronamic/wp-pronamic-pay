@@ -99,7 +99,7 @@ if ( empty( $lines ) ) : ?>
 							$lines->get_array()
 						);
 
-						$discount_amount = new Money( array_sum( $values ), $payment->get_currency() );
+						$discount_amount = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency()->get_alphabetic_code() );
 
 						echo esc_html( $discount_amount );
 
@@ -117,7 +117,7 @@ if ( empty( $lines ) ) : ?>
 							$lines->get_array()
 						);
 
-						$total_amount = new Money( array_sum( $values ), $payment->get_currency() );
+						$total_amount = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency()->get_alphabetic_code() );
 
 						echo esc_html( $total_amount );
 
@@ -135,7 +135,7 @@ if ( empty( $lines ) ) : ?>
 							$lines->get_array()
 						);
 
-						$tax_amount = new Money( array_sum( $values ), $payment->get_currency() );
+						$tax_amount = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency()->get_alphabetic_code() );
 
 						echo esc_html( $tax_amount );
 
