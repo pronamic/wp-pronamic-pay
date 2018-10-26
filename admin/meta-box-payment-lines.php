@@ -214,6 +214,7 @@ if ( empty( $lines ) ) : ?>
 								$text = $line->get_unit_price_excluding_tax()->format_i18n();
 
 								$tip[] = sprintf(
+									/* translators: %s: unit price excluding tax */
 									__( 'Exclusive tax: %s', 'pronamic_ideal' ),
 									$text
 								);
@@ -221,6 +222,7 @@ if ( empty( $lines ) ) : ?>
 
 							if ( null !== $line->get_unit_price_including_tax() ) {
 								$tip[] = sprintf(
+									/* translators: %s: unit price including tax */
 									__( 'Inclusive tax: %s', 'pronamic_ideal' ),
 									$line->get_unit_price_including_tax()->format_i18n()
 								);
@@ -254,6 +256,7 @@ if ( empty( $lines ) ) : ?>
 								$text = $line->get_total_amount_excluding_tax()->format_i18n();
 
 								$tip[] = sprintf(
+									/* translators: %s: total amount excluding tax */
 									__( 'Exclusive tax: %s', 'pronamic_ideal' ),
 									$text
 								);
@@ -261,6 +264,7 @@ if ( empty( $lines ) ) : ?>
 
 							if ( null !== $line->get_total_amount_including_tax() ) {
 								$tip[] = sprintf(
+									/* translators: %s: total amount including tax */
 									__( 'Inclusive tax: %s', 'pronamic_ideal' ),
 									$line->get_total_amount_including_tax()->format_i18n()
 								);
