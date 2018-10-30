@@ -8,8 +8,9 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-use Pronamic\WordPress\Pay\Plugin;
+use Pronamic\WordPress\Pay\Core\PaymentMethods;
 use Pronamic\WordPress\Pay\Payments\PaymentPostType;
+use Pronamic\WordPress\Pay\Plugin;
 
 $states = PaymentPostType::get_payment_states();
 
@@ -44,16 +45,16 @@ $post_author = empty( $post_author ) ? '-' : $post_author;
 
 	<?php
 
-	/**
-	 * Check status button.
-	 */
 	$config_id = get_post_meta( $post->ID, '_pronamic_payment_config_id', true );
 
 	$gateway = Plugin::get_gateway( $config_id );
 
+	/**
+	 * Check status button.
+	 */
 	if ( $gateway && $gateway->supports( 'payment_status_request' ) ) {
 		// Only show button if gateway exists and status check is supported.
-		$check_status_nonce_url = wp_nonce_url(
+		$action_url = wp_nonce_url(
 			add_query_arg(
 				array(
 					'post'                      => $post->ID,
@@ -67,8 +68,68 @@ $post_author = empty( $post_author ) ? '-' : $post_author;
 
 		printf(
 			'<p><a class="button" href="%s">%s</a></p>',
-			esc_url( $check_status_nonce_url ),
+			esc_url( $action_url ),
 			esc_html__( 'Check status', 'pronamic_ideal' )
+		);
+	}
+
+	/**
+	 * Create invoice for reserved payment.
+	 */
+	if ( $gateway && $gateway->supports( 'reservation_payments' ) && 'payment_reserved' === get_post_status( $post->ID ) ) {
+		// Only show button if gateway exists and reservation payments are supported.
+		$action_url = wp_nonce_url(
+			add_query_arg(
+				array(
+					'post'                        => $post->ID,
+					'action'                      => 'edit',
+					'pronamic_pay_create_invoice' => true,
+				),
+				admin_url( 'post.php' )
+			),
+			'pronamic_payment_create_invoice_' . $post->ID
+		);
+
+		$link_text = sprintf(
+			/* translators: %s: payment method name */
+			__( 'Create %1$s invoice', 'pronamic_ideal' ),
+			PaymentMethods::get_name( $payment->get_method() )
+		);
+
+		printf(
+			'<p><a class="button" href="%s">%s</a></p>',
+			esc_url( $action_url ),
+			esc_html( $link_text )
+		);
+	}
+
+	/**
+	 * Cancel payment reservations.
+	 */
+	if ( $gateway && $gateway->supports( 'reservation_payments' ) && 'payment_reserved' === get_post_status( $post->ID ) ) {
+		// Only show button if gateway exists and reservation payments are supported.
+		$action_url = wp_nonce_url(
+			add_query_arg(
+				array(
+					'post'                            => $post->ID,
+					'action'                          => 'edit',
+					'pronamic_pay_cancel_reservation' => true,
+				),
+				admin_url( 'post.php' )
+			),
+			'pronamic_payment_cancel_reservation_' . $post->ID
+		);
+
+		$link_text = sprintf(
+			/* translators: %s: payment method name */
+			__( 'Cancel %1$s reservation', 'pronamic_ideal' ),
+			PaymentMethods::get_name( $payment->get_method() )
+		);
+
+		printf(
+			'<p><a class="button" href="%s">%s</a></p>',
+			esc_url( $action_url ),
+			esc_html( $link_text )
 		);
 	}
 
@@ -79,7 +140,7 @@ $post_author = empty( $post_author ) ? '-' : $post_author;
 
 	if ( $can_track ) {
 		// Only show button for payments that can be tracked.
-		$track_nonce_url = wp_nonce_url(
+		$action_url = wp_nonce_url(
 			add_query_arg(
 				array(
 					'post'                  => $post->ID,
@@ -93,7 +154,7 @@ $post_author = empty( $post_author ) ? '-' : $post_author;
 
 		printf(
 			'<p><a class="button" href="%s">%s</a></p>',
-			esc_url( $track_nonce_url ),
+			esc_url( $action_url ),
 			esc_html__( 'Send to Google Analytics', 'pronamic_ideal' )
 		);
 	}
