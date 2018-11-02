@@ -248,6 +248,7 @@ function pronamic_pay_gateway_integrations() {
 				$integration->provider      = 'postcode.nl';
 				$integration->product_url   = 'https://services.postcode.nl/ideal';
 				$integration->dashboard_url = 'https://services.postcode.nl/ideal';
+				$integration->deprecated    = true;
 			},
 		),
 
