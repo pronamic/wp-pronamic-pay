@@ -11,7 +11,7 @@
 /**
  * Execute changes made in Pronamic Pay 2.0.0
  *
- * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
+ * @link https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
  * @since 2.0.0
  */
 
@@ -452,10 +452,10 @@ while ( $have_payments ) {
 
 $options = array(
 	// EventEspresso
-	// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/EventEspresso/IDeal/AddOn.php#L72
+	// @link https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/EventEspresso/IDeal/AddOn.php#L72
 	'pronamic_ideal_event_espresso_configuration_id' => 'pronamic_pay_ideal_event_espreso_config_id',
 	// Jigoshop
-	// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/Jigoshop/IDeal/IDealGateway.php#L62
+	// @link https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/Jigoshop/IDeal/IDealGateway.php#L62
 	'jigoshop_pronamic_ideal_enabled'                => 'pronamic_pay_ideal_jigoshop_enabled',
 	'jigoshop_pronamic_ideal_title'                  => 'pronamic_pay_ideal_jigoshop_title',
 	'jigoshop_pronamic_ideal_description'            => 'pronamic_pay_ideal_jigoshop_description',
@@ -463,10 +463,10 @@ $options = array(
 	// Membership
 	'pronamic_ideal_membership_chosen_configuration' => 'pronamic_pay_ideal_membership_config_id',
 	// s2Member
-	// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/S2Member/Bridge/Settings.php#L52
+	// @link https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/S2Member/Bridge/Settings.php#L52
 	'pronamic_ideal_s2member_chosen_configuration'   => 'pronamic_pay_ideal_s2member_config_id',
 	// WP e-Commerce
-	// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php#L35
+	// @link https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php#L35
 	'pronamic_ideal_wpsc_configuration_id'           => 'pronamic_pay_ideal_wpsc_config_id',
 );
 
@@ -485,10 +485,10 @@ foreach ( $options as $key_old => $key_new ) {
 //////////////////////////////////////////////////
 
 // Shopp
-// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/Shopp/IDeal/GatewayModule.php#L72
+// @link https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/Shopp/IDeal/GatewayModule.php#L72
 $shopp_meta_table = $wpdb->prefix . 'shopp_meta';
 
-// @see http://cube3x.com/2013/04/how-to-check-if-table-exists-in-wordpress-database/
+// @link http://cube3x.com/2013/04/how-to-check-if-table-exists-in-wordpress-database/
 if ( $shopp_meta_table === $wpdb->get_var( "SHOW TABLES LIKE '$shopp_meta_table';" ) ) { // WPCS: unprepared SQL ok.
 	$query = "SELECT id, value FROM $shopp_meta_table WHERE type = 'setting' AND name = 'Pronamic_Shopp_IDeal_GatewayModule';";
 
@@ -516,7 +516,7 @@ if ( $shopp_meta_table === $wpdb->get_var( "SHOW TABLES LIKE '$shopp_meta_table'
 }
 
 // WooCommerce
-// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WooCommerce/IDeal/IDealGateway.php#L42
+// @link https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WooCommerce/IDeal/IDealGateway.php#L42
 $settings = get_option( 'woocommerce_pronamic_ideal_settings' );
 
 if ( is_array( $settings ) && isset( $settings['configuration_id'] ) ) {
