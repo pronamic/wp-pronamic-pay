@@ -496,5 +496,35 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 		<?php endif ?>
 
+		<?php if ( null !== $payment->get_mode() ) : ?>
+
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'Mode', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<?php
+
+					switch ( $payment->get_mode() ) {
+						case 'live':
+							esc_html_e( 'Live', 'pronamic_ideal' );
+
+							break;
+						case 'test':
+							esc_html_e( 'Test', 'pronamic_ideal' );
+
+							break;
+						default:
+							echo esc_html( $payment->get_mode() );
+
+							break;
+					}
+
+					?>
+				</td>
+			</tr>
+
+		<?php endif ?>
+
 	<?php endif; ?>
 </table>
