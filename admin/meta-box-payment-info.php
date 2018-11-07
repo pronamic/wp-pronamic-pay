@@ -63,7 +63,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 		<td>
 			<?php
 
-			echo esc_html( $payment->get_amount()->format_i18n() );
+			echo esc_html( $payment->get_total_amount()->format_i18n() );
 
 			?>
 		</td>

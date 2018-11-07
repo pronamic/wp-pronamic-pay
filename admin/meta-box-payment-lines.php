@@ -99,7 +99,7 @@ if ( empty( $lines ) ) : ?>
 							$lines->get_array()
 						);
 
-						$discount_amount = new Money( array_sum( $values ), $payment->get_currency() );
+						$discount_amount = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency()->get_alphabetic_code() );
 
 						echo esc_html( $discount_amount );
 
@@ -117,7 +117,7 @@ if ( empty( $lines ) ) : ?>
 							$lines->get_array()
 						);
 
-						$total_amount = new Money( array_sum( $values ), $payment->get_currency() );
+						$total_amount = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency()->get_alphabetic_code() );
 
 						echo esc_html( $total_amount );
 
@@ -135,7 +135,7 @@ if ( empty( $lines ) ) : ?>
 							$lines->get_array()
 						);
 
-						$tax_amount = new Money( array_sum( $values ), $payment->get_currency() );
+						$tax_amount = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency()->get_alphabetic_code() );
 
 						echo esc_html( $tax_amount );
 
@@ -172,27 +172,34 @@ if ( empty( $lines ) ) : ?>
 
 							$description = $line->get_description();
 
-							$classes = array();
+							if ( ! empty( $product_url ) ) {
+								// Product URL with or without description.
+								$title = $line->get_name();
 
-							if ( ! empty( $classes ) ) {
-								$classes[] = 'pronamic-pay-tip';
-							}
+								$classes = array();
 
-							if ( empty( $product_url ) ) {
+								if ( ! empty( $description ) ) {
+									$title     = $line->get_description();
+									$classes[] = 'pronamic-pay-tip';
+								}
+
 								printf(
-									'<span class="pronamic-pay-tip" title="%s">%s</span>',
-									esc_attr( $line->get_description() ),
+									'<a class="%1$s" href="%2$s" title="%3$s">%4$s<a/>',
 									esc_attr( implode( ' ', $classes ) ),
+									esc_url( $line->get_product_url() ),
+									esc_attr( $title ),
+									esc_html( $line->get_name() )
+								);
+							} elseif ( ! empty( $description ) ) {
+								// Description without product URL.
+								printf(
+									'<span class="pronamic-pay-tip" title="%1$s">%2$s</span>',
+									esc_attr( $line->get_description() ),
 									esc_html( $line->get_name() )
 								);
 							} else {
-								printf(
-									'<a href="%s" class="%s" title="%s">%s<a/>',
-									esc_url( $product_url ),
-									esc_attr( implode( ' ', $classes ) ),
-									esc_attr( $line->get_description() ),
-									esc_html( $line->get_name() )
-								);
+								// No description and no product URL.
+								echo esc_html( $line->get_name() );
 							}
 
 							?>
@@ -207,6 +214,7 @@ if ( empty( $lines ) ) : ?>
 								$text = $line->get_unit_price_excluding_tax()->format_i18n();
 
 								$tip[] = sprintf(
+									/* translators: %s: unit price excluding tax */
 									__( 'Exclusive tax: %s', 'pronamic_ideal' ),
 									$text
 								);
@@ -214,6 +222,7 @@ if ( empty( $lines ) ) : ?>
 
 							if ( null !== $line->get_unit_price_including_tax() ) {
 								$tip[] = sprintf(
+									/* translators: %s: unit price including tax */
 									__( 'Inclusive tax: %s', 'pronamic_ideal' ),
 									$line->get_unit_price_including_tax()->format_i18n()
 								);
@@ -247,6 +256,7 @@ if ( empty( $lines ) ) : ?>
 								$text = $line->get_total_amount_excluding_tax()->format_i18n();
 
 								$tip[] = sprintf(
+									/* translators: %s: total amount excluding tax */
 									__( 'Exclusive tax: %s', 'pronamic_ideal' ),
 									$text
 								);
@@ -254,6 +264,7 @@ if ( empty( $lines ) ) : ?>
 
 							if ( null !== $line->get_total_amount_including_tax() ) {
 								$tip[] = sprintf(
+									/* translators: %s: total amount including tax */
 									__( 'Inclusive tax: %s', 'pronamic_ideal' ),
 									$line->get_total_amount_including_tax()->format_i18n()
 								);
