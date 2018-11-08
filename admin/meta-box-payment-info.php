@@ -9,6 +9,7 @@
  */
 
 use Pronamic\WordPress\Pay\Core\PaymentMethods;
+use Pronamic\WordPress\Pay\Gender;
 
 $post_id = get_the_ID();
 
@@ -203,29 +204,59 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 				<?php
 
 				if ( null !== $payment->get_customer()->get_name() ) {
-					echo esc_html( $payment->get_customer()->get_name() ) . '<br />';
-				}
-
-				if ( null !== $payment->get_customer()->get_birth_date() ) {
-					echo esc_html( $payment->get_customer()->get_birth_date()->format_i18n( 'D j M Y' ) ) . '<br />';
-				}
-
-				if ( null !== $payment->get_customer()->get_gender() ) {
-					switch ( $payment->get_customer()->get_gender() ) {
-						case 'F':
-							echo esc_html( __( 'Female', 'pronamic_ideal' ) );
-
-							break;
-						case 'M':
-							echo esc_html( __( 'Male', 'pronamic_ideal' ) );
-
-							break;
-					}
+					echo esc_html( $payment->get_customer()->get_name() );
 				}
 
 				?>
 			</td>
 		</tr>
+
+		<?php if ( null !== $payment->get_customer()->get_birth_date() ) : ?>
+
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'Date of birth', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<?php
+
+					echo esc_html( $payment->get_customer()->get_birth_date()->format_i18n( 'D j M Y' ) )
+
+					?>
+				</td>
+			</tr>
+
+		<?php endif; ?>
+
+		<?php if ( null !== $payment->get_customer()->get_gender() ) : ?>
+
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'Gender', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<?php
+
+					switch ( $payment->get_customer()->get_gender() ) {
+						case Gender::FEMALE:
+							echo esc_html( __( 'Female', 'pronamic_ideal' ) );
+
+							break;
+						case Gender::MALE:
+							echo esc_html( __( 'Male', 'pronamic_ideal' ) );
+
+							break;
+						case Gender::OTHER:
+							echo esc_html( __( 'Other', 'pronamic_ideal' ) );
+
+							break;
+					}
+
+					?>
+				</td>
+			</tr>
+
+		<?php endif; ?>
 
 	<?php endif; ?>
 
