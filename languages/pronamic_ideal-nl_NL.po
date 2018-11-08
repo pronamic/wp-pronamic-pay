@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2018-11-07T15:39:57+00:00\n"
-"PO-Revision-Date: 2018-11-07 16:42+0100\n"
+"PO-Revision-Date: 2018-11-08 12:00+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -352,13 +352,13 @@ msgstr "Klant"
 #: vendor/wp-pay/core/src/Core/Gateway.php:588
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:707
 msgid "Female"
-msgstr ""
+msgstr "Vrouw"
 
 #: admin/meta-box-payment-info.php:220
 #: vendor/wp-pay/core/src/Core/Gateway.php:589
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:708
 msgid "Male"
-msgstr ""
+msgstr "Man"
 
 #: admin/meta-box-payment-info.php:241
 msgid "Account Holder"
@@ -403,9 +403,8 @@ msgid "Source"
 msgstr "Bron"
 
 #: admin/meta-box-payment-info.php:383
-#, fuzzy
 msgid "Google Analytics"
-msgstr "Google Analytics tracking-ID"
+msgstr "Google Analytics"
 
 #: admin/meta-box-payment-info.php:390
 msgid "Ecommerce conversion tracked"
@@ -551,7 +550,7 @@ msgstr ""
 #. translators: %s: payment method name
 #: admin/meta-box-payment-update.php:125
 msgid "Cancel %1$s reservation"
-msgstr ""
+msgstr "Annuleer %1$s reservering"
 
 #: admin/meta-box-payment-update.php:158
 #, fuzzy
@@ -1758,23 +1757,20 @@ msgid "Payment status updated."
 msgstr "Betalingsstatus is bijgewerkt."
 
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:147
-#, fuzzy
 msgid "Invoice created."
-msgstr "Factuurnummer"
+msgstr "Factuur aangemaakt."
 
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:152
 msgid "Invoice could not be created."
 msgstr ""
 
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:167
-#, fuzzy
 msgid "Reservation cancelled."
-msgstr "%s abonnement geannuleerd."
+msgstr "Reservering geannuleerd."
 
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:172
-#, fuzzy
 msgid "Reservation could not be cancelled."
-msgstr "Het abonnement kan niet worden vernieuwd."
+msgstr "Reservering kon niet worden geannuleerd."
 
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:186
 msgid ""
@@ -2046,18 +2042,17 @@ msgstr "Kies het type creditcard"
 #: vendor/wp-pay/core/src/Core/Gateway.php:581
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:704
 msgid "Gender"
-msgstr ""
+msgstr "Geslacht"
 
 #: vendor/wp-pay/core/src/Core/Gateway.php:587
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:706
-#, fuzzy
 msgid "— Select gender —"
-msgstr "— Selecteer veld —"
+msgstr "— Selecteer geslacht —"
 
 #: vendor/wp-pay/core/src/Core/Gateway.php:620
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:720
 msgid "Date of birth"
-msgstr ""
+msgstr "Geboortedatum"
 
 #: vendor/wp-pay/core/src/Core/IDealPaymentMethod.php:29
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:257
@@ -2388,7 +2383,7 @@ msgstr "In afwachting"
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:124
 msgctxt "Payment status"
 msgid "Reserved"
-msgstr ""
+msgstr "Gereserveerd"
 
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:91
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:137
@@ -2445,11 +2440,10 @@ msgstr[1] "In afwachting <span class=\"count\">(%s)</span>"
 
 #. translators: %s: count value
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:130
-#, fuzzy
 msgid "Reserved <span class=\"count\">(%s)</span>"
 msgid_plural "Reserved <span class=\"count\">(%s)</span>"
-msgstr[0] "Terugbetaald <span class=\"count\">(%s)</span>"
-msgstr[1] "Terugbetaald <span class=\"count\">(%s)</span>"
+msgstr[0] "Gereserveerd <span class=\"count\">(%s)</span>"
+msgstr[1] "Gereserveerd <span class=\"count\">(%s)</span>"
 
 #. translators: %s: count value
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:143
@@ -4563,7 +4557,6 @@ msgid ""
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:709
-#, fuzzy
 msgid "Other"
 msgstr "Anders"
 
