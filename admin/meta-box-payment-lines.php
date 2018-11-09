@@ -1,6 +1,6 @@
 <?php
 /**
- * Meta Box Payment Notes
+ * Meta Box Payment Lines
  *
  * @author    Pronamic <info@pronamic.eu>
  * @copyright 2005-2018 Pronamic
