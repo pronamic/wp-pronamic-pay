@@ -126,7 +126,7 @@ if ( empty( $lines ) ) : ?>
 							),
 						);
 
-						if ( $payment->get_total_amount()->get_tax_amount() > 0 ) {
+						if ( $payment->get_total_amount()->has_tax() ) {
 							$values = array_map(
 								function ( PaymentLine $line ) {
 									return $line->get_total_amount()->get_including_tax()->get_amount();
@@ -241,7 +241,7 @@ if ( empty( $lines ) ) : ?>
 								),
 							);
 
-							if ( $line->get_unit_price()->get_tax_amount() > 0 ) {
+							if ( $line->get_unit_price()->has_tax() ) {
 								$tip[] = sprintf(
 								    /* translators: %s: unit price including tax */
 									__( 'Inclusive tax: %s', 'pronamic_ideal' ),
@@ -278,7 +278,7 @@ if ( empty( $lines ) ) : ?>
 								),
 							);
 
-							if ( $line->get_total_amount()->get_tax_amount() > 0 ) {
+							if ( $line->get_total_amount()->has_tax() ) {
 								$tip[] = sprintf(
     								/* translators: %s: total amount including tax */
 									__( 'Inclusive tax: %s', 'pronamic_ideal' ),
