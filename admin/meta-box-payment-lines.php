@@ -120,7 +120,7 @@ if ( empty( $lines ) ) : ?>
 
 						$tip = array(
 							sprintf(
-							/* translators: %s: unit price excluding tax */
+							    /* translators: %s: unit price excluding tax */
 								__( 'Exclusive tax: %s', 'pronamic_ideal' ),
 								$total_exclusive
 							),
@@ -137,7 +137,7 @@ if ( empty( $lines ) ) : ?>
 							$total_inclusive = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency()->get_alphabetic_code() );
 
 							$tip[] = sprintf(
-							/* translators: %s: unit price including tax */
+							    /* translators: %s: unit price including tax */
 								__( 'Inclusive tax: %s', 'pronamic_ideal' ),
 								$total_inclusive
 							);
@@ -297,10 +297,10 @@ if ( empty( $lines ) ) : ?>
 						<td>
 							<?php
 
-                            $tax_amount = new Money(
-                                    $line->get_total_amount()->get_tax_amount(),
-                                    $line->get_total_amount()->get_currency()->get_alphabetic_code()
-                            );
+							$tax_amount = new Money(
+								$line->get_total_amount()->get_tax_amount(),
+								$line->get_total_amount()->get_currency()->get_alphabetic_code()
+							);
 
 							printf(
 								'<span class="pronamic-pay-tip" title="%s">%s</span>',
