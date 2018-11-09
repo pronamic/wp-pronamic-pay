@@ -78,7 +78,7 @@ if ( empty( $lines ) ) : ?>
 						<?php
 
 						$quantities = array_map(
-							function( $line ) {
+							function( PaymentLine $line ) {
 									return $line->get_quantity();
 							},
 							$lines->get_array()
@@ -92,7 +92,7 @@ if ( empty( $lines ) ) : ?>
 						<?php
 
 						$values = array_map(
-							function( $line ) {
+							function( PaymentLine $line ) {
 								if ( null !== $line->get_discount_amount() ) {
 									return $line->get_discount_amount()->get_amount();
 								}
@@ -110,7 +110,7 @@ if ( empty( $lines ) ) : ?>
 						<?php
 
 						$values = array_map(
-							function ( $line ) {
+							function ( PaymentLine $line ) {
 								return $line->get_total_amount()->get_excluding_tax()->get_amount();
 							},
 							$lines->get_array()
@@ -128,7 +128,7 @@ if ( empty( $lines ) ) : ?>
 
 						if ( $payment->get_total_amount()->get_tax_amount() > 0 ) {
 							$values = array_map(
-								function ( $line ) {
+								function ( PaymentLine $line ) {
 									return $line->get_total_amount()->get_including_tax()->get_amount();
 								},
 								$lines->get_array()
