@@ -234,27 +234,31 @@ if ( empty( $lines ) ) : ?>
 						<td>
 							<?php
 
-							$tip = array(
-								sprintf(
-									/* translators: %s: unit price excluding tax */
-									__( 'Exclusive tax: %s', 'pronamic_ideal' ),
-									$line->get_unit_price()->get_excluding_tax()
-								),
-							);
+							if ( null !== $line->get_unit_price() ) {
 
-							if ( $line->get_unit_price()->has_tax() ) {
-								$tip[] = sprintf(
-									/* translators: %s: unit price including tax */
-									__( 'Inclusive tax: %s', 'pronamic_ideal' ),
-									$line->get_unit_price()->get_including_tax()
+								$tip = array(
+									sprintf(
+										/* translators: %s: unit price excluding tax */
+										__( 'Exclusive tax: %s', 'pronamic_ideal' ),
+										$line->get_unit_price()->get_excluding_tax()
+									),
 								);
-							}
 
-							printf(
-								'<span class="pronamic-pay-tip" title="%s">%s</span>',
-								esc_attr( implode( '<br />', $tip ) ),
-								esc_html( $line->get_unit_price()->get_excluding_tax() )
-							);
+								if ( $line->get_unit_price()->has_tax() ) {
+									$tip[] = sprintf(
+										/* translators: %s: unit price including tax */
+										__( 'Inclusive tax: %s', 'pronamic_ideal' ),
+										$line->get_unit_price()->get_including_tax()
+									);
+								}
+
+								printf(
+									'<span class="pronamic-pay-tip" title="%s">%s</span>',
+									esc_attr( implode( '<br />', $tip ) ),
+									esc_html( $line->get_unit_price()->get_excluding_tax() )
+								);
+
+							}
 
 							?>
 						</td>
