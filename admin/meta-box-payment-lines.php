@@ -11,6 +11,7 @@
 namespace Pronamic\WordPress\Pay;
 
 use Pronamic\WordPress\Money\Money;
+use Pronamic\WordPress\Pay\Payments\Payment;
 use Pronamic\WordPress\Pay\Payments\PaymentLine;
 
 if ( empty( $lines ) ) : ?>
@@ -120,7 +121,7 @@ if ( empty( $lines ) ) : ?>
 
 						$tip = array(
 							sprintf(
-							    /* translators: %s: unit price excluding tax */
+								/* translators: %s: unit price excluding tax */
 								__( 'Exclusive tax: %s', 'pronamic_ideal' ),
 								$total_exclusive
 							),
@@ -137,7 +138,7 @@ if ( empty( $lines ) ) : ?>
 							$total_inclusive = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency()->get_alphabetic_code() );
 
 							$tip[] = sprintf(
-							    /* translators: %s: unit price including tax */
+								/* translators: %s: unit price including tax */
 								__( 'Inclusive tax: %s', 'pronamic_ideal' ),
 								$total_inclusive
 							);
@@ -235,7 +236,7 @@ if ( empty( $lines ) ) : ?>
 
 							$tip = array(
 								sprintf(
-								    /* translators: %s: unit price excluding tax */
+									/* translators: %s: unit price excluding tax */
 									__( 'Exclusive tax: %s', 'pronamic_ideal' ),
 									$line->get_unit_price()->get_excluding_tax()
 								),
@@ -243,7 +244,7 @@ if ( empty( $lines ) ) : ?>
 
 							if ( $line->get_unit_price()->has_tax() ) {
 								$tip[] = sprintf(
-								    /* translators: %s: unit price including tax */
+									/* translators: %s: unit price including tax */
 									__( 'Inclusive tax: %s', 'pronamic_ideal' ),
 									$line->get_unit_price()->get_including_tax()
 								);
@@ -272,7 +273,7 @@ if ( empty( $lines ) ) : ?>
 
 							$tip = array(
 								sprintf(
-    								/* translators: %s: total amount excluding tax */
+									/* translators: %s: total amount excluding tax */
 									__( 'Exclusive tax: %s', 'pronamic_ideal' ),
 									$line->get_total_amount()->get_excluding_tax()
 								),
@@ -280,17 +281,17 @@ if ( empty( $lines ) ) : ?>
 
 							if ( $line->get_total_amount()->has_tax() ) {
 								$tip[] = sprintf(
-    								/* translators: %s: total amount including tax */
+									/* translators: %s: total amount including tax */
 									__( 'Inclusive tax: %s', 'pronamic_ideal' ),
 									$line->get_total_amount()->get_including_tax()
 								);
 							}
 
-                            printf(
-                                '<span class="pronamic-pay-tip" title="%s">%s</span>',
-                                esc_attr( implode( '<br />', $tip ) ),
-                                esc_html( $line->get_total_amount()->get_excluding_tax() )
-                            );
+							printf(
+								'<span class="pronamic-pay-tip" title="%s">%s</span>',
+								esc_attr( implode( '<br />', $tip ) ),
+								esc_html( $line->get_total_amount()->get_excluding_tax() )
+							);
 
 							?>
 						</td>
