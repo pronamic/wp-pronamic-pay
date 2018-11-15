@@ -307,11 +307,19 @@ if ( empty( $lines ) ) : ?>
 								$line->get_total_amount()->get_currency()->get_alphabetic_code()
 							);
 
-							printf(
-								'<span class="pronamic-pay-tip" title="%s">%s</span>',
-								esc_attr( number_format_i18n( $line->get_total_amount()->get_tax_percentage() ) . '%' ),
-								esc_html( $tax_amount )
-							);
+							if ( null === $line->get_total_amount()->get_tax_percentage() ) {
+
+								echo esc_html( $tax_amount );
+
+							} else {
+
+								printf(
+									'<span class="pronamic-pay-tip" title="%s">%s</span>',
+									esc_attr( number_format_i18n( $line->get_total_amount()->get_tax_percentage() ) . '%' ),
+									esc_html( $tax_amount )
+								);
+
+							}
 
 							?>
 						</td>
