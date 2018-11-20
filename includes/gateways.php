@@ -132,7 +132,7 @@ function pronamic_pay_gateway_integrations() {
 			'class'    => '\Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration',
 			'callback' => function( AbstractIntegration $integration ) {
 				$integration->set_id( 'ideal-simulator-ideal-basic' );
-				$integration->set_name( 'iDEAL Simulator - iDEAL Lite / Basic' );
+				$integration->set_name( 'iDEAL Simulator - iDEAL Basic' );
 
 				$integration->provider = 'ideal-simulator';
 			},
@@ -143,7 +143,7 @@ function pronamic_pay_gateway_integrations() {
 			'class'    => '\Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration',
 			'callback' => function( AbstractIntegration $integration ) {
 				$integration->set_id( 'ideal-simulator-ideal-advanced-v3' );
-				$integration->set_name( 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)' );
+				$integration->set_name( 'iDEAL Simulator - iDEAL Professional / Advanced' );
 
 				$integration->provider    = 'ideal-simulator';
 				$integration->product_url = 'https://www.ideal-checkout.nl/support/ideal-simulator';
