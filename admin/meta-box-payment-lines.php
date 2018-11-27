@@ -95,13 +95,13 @@ if ( empty( $lines ) ) : ?>
 						$values = array_map(
 							function( PaymentLine $line ) {
 								if ( null !== $line->get_discount_amount() ) {
-									return $line->get_discount_amount()->get_amount();
+									return $line->get_discount_amount()->get_value();
 								}
 							},
 							$lines->get_array()
 						);
 
-						$discount_amount = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency()->get_alphabetic_code() );
+						$discount_amount = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency() );
 
 						echo esc_html( $discount_amount );
 
@@ -112,12 +112,12 @@ if ( empty( $lines ) ) : ?>
 
 						$values = array_map(
 							function ( PaymentLine $line ) {
-								return $line->get_total_amount()->get_excluding_tax()->get_amount();
+								return $line->get_total_amount()->get_excluding_tax()->get_value();
 							},
 							$lines->get_array()
 						);
 
-						$total_exclusive = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency()->get_alphabetic_code() );
+						$total_exclusive = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency() );
 
 						$tip = array(
 							sprintf(
@@ -130,12 +130,12 @@ if ( empty( $lines ) ) : ?>
 						if ( $payment->get_total_amount()->has_tax() ) {
 							$values = array_map(
 								function ( PaymentLine $line ) {
-									return $line->get_total_amount()->get_including_tax()->get_amount();
+									return $line->get_total_amount()->get_including_tax()->get_value();
 								},
 								$lines->get_array()
 							);
 
-							$total_inclusive = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency()->get_alphabetic_code() );
+							$total_inclusive = new Money( array_sum( $values ), $payment->get_total_amount()->get_currency() );
 
 							$tip[] = sprintf(
 								/* translators: %s: unit price including tax */
@@ -302,10 +302,7 @@ if ( empty( $lines ) ) : ?>
 						<td>
 							<?php
 
-							$tax_amount = new Money(
-								$line->get_total_amount()->get_tax_amount(),
-								$line->get_total_amount()->get_currency()->get_alphabetic_code()
-							);
+							$tax_amount = $line->get_total_amount()->get_tax_amount();
 
 							if ( null === $line->get_total_amount()->get_tax_percentage() ) {
 
