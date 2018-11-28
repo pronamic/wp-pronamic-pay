@@ -156,7 +156,7 @@ if ( empty( $lines ) ) : ?>
 
 						$values = array_map(
 							function( PaymentLine $line ) {
-								return $line->get_total_amount()->get_tax_amount();
+								return $line->get_total_amount()->get_tax_value();
 							},
 							$lines->get_array()
 						);
