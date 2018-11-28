@@ -11,7 +11,6 @@
 namespace Pronamic\WordPress\Pay;
 
 use Pronamic\WordPress\Money\Money;
-use Pronamic\WordPress\Pay\Payments\Payment;
 use Pronamic\WordPress\Pay\Payments\PaymentLine;
 
 if ( empty( $lines ) ) : ?>
