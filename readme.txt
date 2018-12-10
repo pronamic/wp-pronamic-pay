@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 4.7
-Tested up to: 4.9.5
+Tested up to: 5.0
 Requires PHP: 5.3
 Stable tag: 5.5.0
 
@@ -12,18 +12,19 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 
 == Description ==
 
-Pronamic Pay is the best plugin available to accept payments through iDEAL in WordPress. iDEAL is the most popular payment method in the Netherlands, so if you want to start with e-commerce in the Dutch market: you’ll need iDEAL. The plugin supports the Bancontact payment method too, which is commonly used in Belgium. With over 100,000 downloads, the plugin has proven itself as a reliable WordPress solution to use for your payments.
+Pronamic Pay is the best plugin available to accept payments through iDEAL, Bancontact, Sofort and credit cards in WordPress. iDEAL is the most popular payment method in the Netherlands, so if you want to start with e-commerce in the Dutch market: you’ll need iDEAL. The plugin supports the Bancontact payment method too, which is commonly used in Belgium. With over 175,000 downloads, the plugin has proven itself as a reliable WordPress solution to use for your payments.
 
 = Key Benefits =
 
-*   Quickly add and edit payment provider configurations.
-*   Easily execute required iDEAL tests with custom amounts.
-*   Automatic status updates in WordPress of webshop orders.
+*   Supports a wide variety of payment providers.
+*   Seamless integration with popular e-commerce and form builder plugins.
+*   Automatically updates payment status of orders in WordPress.
+*   Easily manage (multiple) payment provider configurations.
 *   Continually updated to support the latest e-commerce plugins.
 *   Built-in generation of required security certificates.
 *   Works with all popular WordPress e-commerce plugins.
 *   Easily switch between different payment providers.
-*   Reliable payment solution, with over 100,000 downloads.
+*   Reliable payment solution, with over 175,000 downloads.
 
 = Support WordPress e-commerce plugins =
 
@@ -224,17 +225,17 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 
 = Requirements =
 
-The Pronamic Pay plugin extends WordPress extensions with the iDEAL payment method. To offer the iDEAL payment method to the vistors of your WordPress website you also require one of these extensions. Normally this is an e-commerce or forms plugin. 
+The Pronamic Pay plugin extends WordPress extensions with payment methods such as iDEAL, Bancontact, Sofort and credit cards. To offer the payment methods to the vistors of your WordPress website you also require one of these e-commerce or form builder extensions.
 
 = Automatic installation =
 
-Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of Pronamic iDEAL, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
+Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of Pronamic Pay, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
 
-In the search field type “Pronamic iDEAL” and click Search Plugins. Once you’ve found our iDEAL plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.
+In the search field type “Pronamic Pay” and click Search Plugins. Once you’ve found the plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.
 
 = Manual installation =
 
-The manual installation method involves downloading our iDEAL plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex contains [instructions on how to do this here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+The manual installation method involves downloading the plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex contains [instructions on how to do this](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
 
 = Updating =
 
