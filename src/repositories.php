@@ -86,8 +86,16 @@ foreach ( $organisations as $organisation => $repositories ) {
 			$command = 'git pull';
 		}
 
-		if ( isset( $argv[1], $argv[2] ) && in_array( $argv[1], array( 'git', 'composer', 'npm' ), true ) ) {
-			$command = sprintf( '%s %s', $argv[1], $argv[2] );
+		if ( isset( $argv[1] ) && 'log' === $argv[1] ) {
+			$command = 'git --no-pager log $(git describe --tags --abbrev=0)..HEAD --oneline';
+		}
+
+		if ( isset( $argv[1] ) && in_array( $argv[1], array( 'git', 'grunt', 'composer', 'npm', 'ncu' ), true ) ) {
+			if ( isset( $argv[2] ) ) {
+				$command = sprintf( '%s %s', $argv[ 1 ], $argv[ 2 ] );
+			} else {
+				$command = sprintf( '%s', $argv[ 1 ] );
+			}
 		}
 
 		if ( null !== $command ) {
