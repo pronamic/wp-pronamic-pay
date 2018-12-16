@@ -1,3 +1,22 @@
+build:
+  environment:
+    variables:
+      WP_TESTS_DB_NAME: 'wp_phpunit_tests'
+      WP_TESTS_DB_USER: 'root'
+      WP_TESTS_DB_PASS: ''
+      WP_TESTS_DB_HOST: 'localhost'
+  project_setup:
+    before:
+      - mysql -e "CREATE DATABASE wp_phpunit_tests"
+  nodes:
+    coverage:
+      tests:
+        override:
+          - command: ./vendor/bin/phpunit
+            coverage:
+              file: build/logs/clover.xml
+              format: clover
+
 filter:
   excluded_paths:
     # Exclude `assets` folder, it only contains external libraries.
@@ -13,6 +32,9 @@ checks:
       name: WordPress
     code_rating: true
     duplication: true
+
+build_failure_conditions:
+  - 'issues.label("bug").exists'
 
 coding_style:
     php:
