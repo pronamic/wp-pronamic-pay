@@ -2,7 +2,7 @@
 /**
  * Admin View: Notice - Update
  *
- * @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/admin/views/html-notice-update.php
+ * @link https://github.com/woothemes/woocommerce/blob/2.4.3/includes/admin/views/html-notice-update.php
  *
  * @author    Pronamic <info@pronamic.eu>
  * @copyright 2005-2018 Pronamic

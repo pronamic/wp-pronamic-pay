@@ -9,7 +9,7 @@
  */
 
 use Pronamic\WordPress\Pay\Core\PaymentMethods;
-use Pronamic\WordPress\Pay\Util;
+use Pronamic\WordPress\Pay\Gender;
 
 $post_id = get_the_ID();
 
@@ -64,7 +64,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 		<td>
 			<?php
 
-			echo esc_html( $payment->get_amount()->format_i18n() );
+			echo esc_html( $payment->get_total_amount()->format_i18n() );
 
 			?>
 		</td>
@@ -193,62 +193,162 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 			?>
 		</td>
 	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'First Name', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
 
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_first_name', true ) );
+	<?php if ( null !== $payment->get_customer() ) : ?>
 
-			?>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Last Name', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Customer', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
 
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_last_name', true ) );
+				if ( null !== $payment->get_customer()->get_name() ) {
+					echo esc_html( $payment->get_customer()->get_name() );
+				}
 
-			?>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Email', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
+				?>
+			</td>
+		</tr>
 
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_email', true ) );
+		<?php if ( null !== $payment->get_customer()->get_birth_date() ) : ?>
 
-			?>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Consumer', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'Date of birth', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<?php
 
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_name', true ) );
-			echo '<br />';
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true ) );
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true ) );
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true ) );
-			echo '<br />';
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_city', true ) );
+					echo esc_html( $payment->get_customer()->get_birth_date()->format_i18n( 'D j M Y' ) )
 
-			?>
-		</td>
-	</tr>
+					?>
+				</td>
+			</tr>
 
-	<?php if ( method_exists( $payment, 'get_billing_address' ) && null !== $payment->get_billing_address() ) : ?>
+		<?php endif; ?>
+
+		<?php if ( null !== $payment->get_customer()->get_gender() ) : ?>
+
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'Gender', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<?php
+
+					switch ( $payment->get_customer()->get_gender() ) {
+						case Gender::FEMALE:
+							echo esc_html( __( 'Female', 'pronamic_ideal' ) );
+
+							break;
+						case Gender::MALE:
+							echo esc_html( __( 'Male', 'pronamic_ideal' ) );
+
+							break;
+						case Gender::OTHER:
+							echo esc_html( __( 'Other', 'pronamic_ideal' ) );
+
+							break;
+					}
+
+					?>
+				</td>
+			</tr>
+
+		<?php endif; ?>
+
+	<?php endif; ?>
+
+	<?php
+
+	$account_holder = get_post_meta( $post_id, '_pronamic_payment_consumer_name', true );
+
+	if ( ! empty( $account_holder ) ) :
+	?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Account Holder', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $account_holder ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php
+
+	$account_holder_city = get_post_meta( $post_id, '_pronamic_payment_consumer_city', true );
+
+	if ( ! empty( $account_holder_city ) ) :
+	?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Account Holder City', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $account_holder_city ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php
+
+	$iban = get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true );
+
+	if ( ! empty( $iban ) ) :
+	?>
+
+		<tr>
+			<th scope="row">
+				<?php
+
+				printf(
+					'<abbr title="%s">%s</abbr>',
+					esc_attr( _x( 'International Bank Account Number', 'IBAN abbreviation title', 'pronamic_ideal' ) ),
+					esc_html__( 'IBAN', 'pronamic_ideal' )
+				);
+
+				?>
+			</th>
+			<td>
+				<?php echo esc_html( $iban ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php
+
+	$bic = get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true );
+
+	if ( ! empty( $bic ) ) :
+	?>
+
+		<tr>
+			<th scope="row">
+				<?php
+
+				printf(
+					'<abbr title="%s">%s</abbr>',
+					esc_attr( _x( 'Bank Identifier Code', 'BIC abbreviation title', 'pronamic_ideal' ) ),
+					esc_html__( 'BIC', 'pronamic_ideal' )
+				);
+
+				?>
+			</th>
+			<td>
+				<?php echo esc_html( $bic ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php if ( null !== $payment->get_billing_address() ) : ?>
 
 		<tr>
 			<th scope="row">
@@ -267,7 +367,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 	<?php endif; ?>
 
-	<?php if ( method_exists( $payment, 'get_shipping_address' ) && null !== $payment->get_shipping_address() ) : ?>
+	<?php if ( null !== $payment->get_shipping_address() ) : ?>
 
 		<tr>
 			<th scope="row">
@@ -298,6 +398,39 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 			?>
 		</td>
 	</tr>
+
+	<?php
+
+	$ga_tracked = $payment->get_ga_tracked();
+
+	$ga_property_id = get_option( 'pronamic_pay_google_analytics_property' );
+
+	?>
+
+	<?php if ( $ga_tracked || ! empty( $ga_property_id ) ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Google Analytics', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				if ( $ga_tracked ) :
+
+					esc_html_e( 'Ecommerce conversion tracked', 'pronamic_ideal' );
+
+				else :
+
+					esc_html_e( 'Ecommerce conversion not tracked', 'pronamic_ideal' );
+
+				endif;
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
 
 	<?php if ( 's2member' === $payment->get_source() ) : ?>
 
@@ -380,6 +513,49 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 				<?php echo esc_html( $payment->user_ip ); ?>
 			</td>
 		</tr>
+
+		<?php if ( null !== $payment->get_version() ) : ?>
+
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'Version', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<?php echo esc_html( $payment->get_version() ); ?>
+				</td>
+			</tr>
+
+		<?php endif ?>
+
+		<?php if ( null !== $payment->get_mode() ) : ?>
+
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'Mode', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<?php
+
+					switch ( $payment->get_mode() ) {
+						case 'live':
+							esc_html_e( 'Live', 'pronamic_ideal' );
+
+							break;
+						case 'test':
+							esc_html_e( 'Test', 'pronamic_ideal' );
+
+							break;
+						default:
+							echo esc_html( $payment->get_mode() );
+
+							break;
+					}
+
+					?>
+				</td>
+			</tr>
+
+		<?php endif ?>
 
 	<?php endif; ?>
 </table>

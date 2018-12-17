@@ -25,6 +25,7 @@
     <rule ref="PHPCompatibility">
 		<!-- https://github.com/WordPress/WordPress/blob/4.9.8/wp-includes/compat.php#L355-L359 -->
 		<exclude name="PHPCompatibility.PHP.NewConstants.json_pretty_printFound" />
+		<exclude name="PHPCompatibility.Constants.NewConstants.json_pretty_printFound" />
 	</rule>
 
 	<rule ref="WordPress">

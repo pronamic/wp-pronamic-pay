@@ -162,7 +162,7 @@ amounts will be shown. You need to test all these amounts before your live accou
 esc_html_e(
 	'To actually use the configuration to receive payments, you need to configure your e-commerce
 plugin. Many popular e-commerce plugins are supported. These plugins usually have their own payment settings
-page, where you choose which configuration to use in the payment methods that are provided by the Pronamic iDEAL plugin.',
+page, where you choose which configuration to use in the payment methods that are provided by the Pronamic Pay plugin.',
 	'pronamic_ideal'
 );
 
