@@ -33,13 +33,13 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 	*	**WordPress.org:** [https://wordpress.org/plugins/charitable/](https://wordpress.org/plugins/charitable/)
 	*	**GitHub:** [https://github.com/Charitable/Charitable](https://github.com/Charitable/Charitable)
 	*	**Requires at least:** 1.3
-	*	**Tested up to:** 1.4.0
+	*	**Tested up to:** 1.6.7
 *	[Easy Digital Downloads](https://easydigitaldownloads.com/)
 	*	**Author:** [Pippin Williamson](http://pippinsplugins.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/easy-digital-downloads/](http://wordpress.org/plugins/easy-digital-downloads/)
 	*	**GitHub:** [https://github.com/easydigitaldownloads/Easy-Digital-Downloads](https://github.com/easydigitaldownloads/Easy-Digital-Downloads)
 	*	**Requires at least:** 1.8.6
-	*	**Tested up to:** 2.6.6
+	*	**Tested up to:** 2.9.9
 *	[Event Espresso 3](http://eventespresso.com/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-legacy](https://github.com/eventespresso/event-espresso-legacy)
 	*	**Requires at least:** 3.1.24
@@ -48,31 +48,31 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 	*	**WordPress.org:** [http://wordpress.org/plugins/event-espresso-free/](http://wordpress.org/plugins/event-espresso-free/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 3.1.29.1.L
-	*	**Tested up to:** 3.1.35.L
+	*	**Tested up to:** 3.1.37.12.L
 *	[Event Espresso 4](http://eventespresso.com/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 4.4.7.p
-	*	**Tested up to:** 4.9.7.p
+	*	**Tested up to:** 4.9.76.p
 *	[Event Espresso 4 Decaf](http://eventespresso.com/)
 	*	**WordPress.org:** [https://wordpress.org/plugins/event-espresso-decaf/](https://wordpress.org/plugins/event-espresso-decaf/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 4.4.4.decaf
-	*	**Tested up to:** 4.4.4.decaf
+	*	**Tested up to:** 4.9.75.decaf
 *	[Formidable Forms](https://formidableforms.com/)
 	*	**WordPress.org:** [https://wordpress.org/plugins/formidable/](https://wordpress.org/plugins/formidable/)
 	*	**GitHub:** [https://github.com/Strategy11/formidable-forms](https://github.com/Strategy11/formidable-forms)
 	*	**Requires at least:** 2.0.22
-	*	**Tested up to:** 2.0.22
+	*	**Tested up to:** 2.05.06
 *	[Give](https://givewp.com/)
 	*	**WordPress.org:** [https://wordpress.org/plugins/give/](https://wordpress.org/plugins/give/)
 	*	**GitHub:** [https://github.com/WordImpress/Give](https://github.com/WordImpress/Give)
 	*	**Requires at least:** 1.3.6
-	*	**Tested up to:** 1.5.2
+	*	**Tested up to:** 2.3.0
 *	[Gravity Forms](http://www.gravityforms.com/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
-	*	**Requires at least:** 1.6
-	*	**Tested up to:** 2.2.1.2
+	*	**Requires at least:** 1.9
+	*	**Tested up to:** 2.4.3
 *	[Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityformsaweber](https://github.com/gravityforms/gravityformsaweber)
@@ -87,33 +87,33 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityformsmailchimp](https://github.com/gravityforms/gravityformsmailchimp)
 	*	**Requires at least:** 2.4.1
-	*	**Tested up to:** 2.4.1
+	*	**Tested up to:** 4.1
 *	[Gravity Forms User Registration Add-On](http://www.gravityforms.com/add-ons/user-registration/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityformsmailchimp](https://github.com/gravityforms/gravityformsmailchimp)
 	*	**Requires at least:** 1.8
-	*	**Tested up to:** 1.8
+	*	**Tested up to:** 3.9.2
 *	[Gravity Forms Zapier Add-On](http://www.gravityforms.com/add-ons/zapier/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityformszapier](https://github.com/gravityforms/gravityformszapier)
 	*	**Requires at least:** 1.4.2
-	*	**Tested up to:** 1.4.2
+	*	**Tested up to:** 2.1
 *	[iThemes Exchange](http://ithemes.com/exchange/)
 	*	**Author:** [iThemes](http://ithemes.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/ithemes-exchange/](http://wordpress.org/plugins/ithemes-exchange/)
 	*	**GitHub:** [https://github.com/wp-plugins/ithemes-exchange](https://github.com/wp-plugins/ithemes-exchange)
 	*	**Requires at least:** 1.7.14
-	*	**Tested up to:** 1.35.9
+	*	**Tested up to:** 1.36.5
 *	[Jigoshop](https://www.jigoshop.com/)
 	*	**Author:** [Jigoshop](https://www.jigoshop.com/)
 	*	**WordPress.org:** [https://wordpress.org/plugins/jigoshop/](https://wordpress.org/plugins/jigoshop/)
 	*	**GitHub:** [https://github.com/jigoshop/jigoshop](https://github.com/jigoshop/jigoshop)
 	*	**Requires at least:** 1.1
-	*	**Tested up to:** 1.12
+	*	**Tested up to:** 1.18.4
 *	[MemberPress](https://www.memberpress.com/)
 	*	**Author:** [Caseproof, LLC](http://www.caseproof.com/)
 	*	**Requires at least:** 1.2.4
-	*	**Tested up to:** 1.2.4
+	*	**Tested up to:** 1.3.36
 *	[Membership 2](http://wordpress.org/plugins/membership/)
 	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
@@ -129,7 +129,7 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 	*	**WordPress.org:** [http://wordpress.org/plugins/s2member/](http://wordpress.org/plugins/s2member/)
 	*	**GitHub:** [https://github.com/WebSharks/s2Member](https://github.com/WebSharks/s2Member)
 	*	**Requires at least:** 130816
-	*	**Tested up to:** 160801
+	*	**Tested up to:** 170722
 *	[Shopp](https://shopplugin.net/)
 	*	**Author:** [Ingenesis Limited](http://ingenesis.net/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/shopp/](http://wordpress.org/plugins/shopp/)
@@ -141,7 +141,7 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 	*	**WordPress.org:** [http://wordpress.org/plugins/woocommerce/](http://wordpress.org/plugins/woocommerce/)
 	*	**GitHub:** [https://github.com/woothemes/woocommerce](https://github.com/woothemes/woocommerce)
 	*	**Requires at least:** 2.1.0
-	*	**Tested up to:** 3.0.6
+	*	**Tested up to:** 3.5.2
 *	[WP e-Commerce](http://getshopped.org/)
 	*	**Author:** [Instinct Entertainment](http://instinct.co.nz/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/wp-e-commerce/](http://wordpress.org/plugins/wp-e-commerce/)
@@ -157,7 +157,7 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 *	[ClassiPress](http://www.appthemes.com/themes/classipress/)
 	*	**Author:** [AppThemes](http://www.appthemes.com/)
 	*	**Requires at least:** 3.3.1
-	*	**Tested up to:** 3.3.3
+	*	**Tested up to:** 3.5.3
 *	[JobRoller](http://www.appthemes.com/themes/jobroller/)
 	*	**Author:** [AppThemes](http://www.appthemes.com/)
 	*	**Tested up to:** 1.7.1
@@ -282,7 +282,77 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
-= 5.5.0 - 2018-11-12 =
+= 5.5.0 - 2018-12-17 =
+*	Updated WordPress pay core library from 2.0.8 to version 2.1.0.
+	*	Store payment data as JSON.
+	*	Added support for payment lines.
+	*	Added support for customer data in payment.
+	*	Added support for billing and shipping address in payment.
+	*	Added support for AfterPay anc Capayable payment methods.
+	*	Added new WordPress 5.0 post type labels.
+	*	Removed unused payment processing status.
+	*	Updated Tippy.js to version 3.3.0.
+*	Updated WordPress pay AppThemes library from 2.0.1 to version 2.0.2.
+*	Updated WordPress pay Charitable library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay ClassiPress library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay Easy Digital Downloads library from 2.0.1 to version 2.0.2.
+	*	Added support for payment lines.
+	*	Added Billink and Capayable gateways.
+*	Updated WordPress pay Event Espresso (legacy) library from 2.0.0 to version 2.1.0.
+	*	Fixed processing status updates.
+	*	Added source information filters.
+*	Updated WordPress pay Formidable Forms library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay Give library from 2.0.0 to version 2.0.1.
+	*	Fixed using default gateway setting.
+*	Updated WordPress pay Gravity Forms library from 2.1.3 to version 2.1.5.
+	*	Fixed unintended use of synchronized payment date setting for fixed intervals.
+	*	Fixed delayed feed action for Gravity Forms Zapier add-on.
+	*	Fixed fatal error when sending renewal notices.
+	*	Fixed delayed feed actions for free payments.
+*	Updated WordPress pay iThemes Exchange library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay Jigoshop library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay MemberPress library from 2.0.3 to version 2.0.4.
+	*	Added support for trials with the same length as subscription period.
+	*	Improve upgrading/downgrading subscriptions.
+*	Updated WordPress pay Membership library from 2.0.1 to version 2.0.2.
+*	Updated WordPress pay Restrict Content Pro library from 2.1.0 to version 2.1.1.
+	*	Use correct initial amount.
+	*	Fixed duplicate renewal.
+*	Updated WordPress pay s2Member library from 2.0.0 to version 2.0.1.
+	*	Renamed menu item from 'iDEAL' to 'Pay'.
+*	Updated WordPress pay Shopp library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay WooCommerce library from 2.0.1 to version 2.0.2.
+	*	Added AfterPay, Capayable, Focum and Klarna Pay Later payment methods.
+	*	Renamed Capayable to new brand name In3.
+	*	Added support for payment lines, shipping, billing and customer data.
+*	Updated WordPress pay WP e-Commerce library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay Buckaroo library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay Shopp library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay EMS e-Commerce library from 2.0.0 to version 2.0.1.
+	*	Fix using advanced order ID setting.
+*	Updated WordPress pay ICEPAY library from 2.0.0 to version 2.0.1.
+	*	Fixed "Fatal error: Uncaught Exception: MerchantID not valid" in test meta box.
+*	Updated WordPress pay iDEAL Advanced v3 library from 2.0.1 to version 2.0.2.
+*	Updated WordPress pay iDEAL Basic library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay ING Kassa Compleet library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay Mollie library from 2.0.4 to version 2.0.5.
+	*	Set gateway mode based on API key.
+*	Updated WordPress pay Mollie iDEAL library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay MultiSafepay library from 2.0.2 to version 2.0.3.
+*	Updated WordPress pay Nocks library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay Ogone library from 2.0.0 to version 2.0.1.
+*	Updated WordPress pay OmniKassa library from 2.0.0 to version 2.0.1.
+	*	Marked library as deprecated.
+*	Updated WordPress pay OmniKassa 2.0 library from 2.0.4 to version 2.1.1.
+	*	Added support for payment lines, shipping, billing and customer data.
+	*	Improved signature handling.
+*	Updated WordPress pay Pay.nl library from 2.0.0 to version 2.0.1.
+	*	Added support for payment lines, shipping, billing and customer data.
+	*	Added support for AfterPay, Focum, In3 and Klarna Pay Later.
+*	Updated WordPress pay Sisow library from 2.0.0 to version 2.0.1.
+	*	Added support for payment lines, shipping, billing and customer data.
+	*	Added support for Billink and Capayable.
+*	Updated WordPress pay TargetPay library from 2.0.0 to version 2.0.1.
 
 = 5.4.2 - 2018-09-28 =
 *	Updated WordPress pay core library from 2.0.7 to version 2.0.8.
