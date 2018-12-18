@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay v5.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-12-13T11:14:51+00:00\n"
-"PO-Revision-Date: 2018-12-13 14:52+0100\n"
+"POT-Creation-Date: 2018-12-18T08:46:37+00:00\n"
+"PO-Revision-Date: 2018-12-18 10:07+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: de_DE\n"
@@ -909,7 +909,7 @@ msgstr "IP-Adresse"
 
 #: admin/meta-box-payment-info.php:521 admin/tab-documentation.php:621
 msgid "Version"
-msgstr "Version: %s"
+msgstr "Version"
 
 #: admin/meta-box-payment-info.php:534
 #: vendor/wp-pay/core/src/Admin/GatewaySettings.php:99
@@ -1593,6 +1593,21 @@ msgstr "Akzeptieren Zahlung von iDEAL"
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:255
 msgid "Configuration"
 msgstr "Konfiguration"
+
+#. translators: 1: http://www.wpupdatephp.com/update/, 2: _blank
+#: pronamic-ideal.php:39
+msgid ""
+"Unfortunately the Pronamic Pay plugin will no longer work correctly in PHP "
+"versions older than 5.3. Read more information about <a href=\"%1$s\" target="
+"\"%2$s\">how you can update</a>."
+msgstr ""
+"Leider funktioniert das Pronamic Pay Plugin in PHP Versionen älter als 5.3 "
+"nicht mehr korrekt. Lesen Sie mehr darüber, <a href=\"%1$s\" target=\"%2$s"
+"\">wie Sie aktualisieren können</a>."
+
+#: pronamic-ideal.php:40
+msgid "http://www.wpupdatephp.com/update/"
+msgstr ""
 
 #: vendor/wp-pay/core/src/GatewayPostType.php:54
 #: vendor/wp-pay/core/src/GatewayPostType.php:56

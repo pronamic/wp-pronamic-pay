@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay v5.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-12-13T11:14:51+00:00\n"
-"PO-Revision-Date: 2018-12-13 13:31+0100\n"
+"POT-Creation-Date: 2018-12-18T08:46:37+00:00\n"
+"PO-Revision-Date: 2018-12-18 10:07+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -551,7 +551,7 @@ msgid ""
 "\"_blank\">Increasing memory allocated to PHP</a>"
 msgstr ""
 "We adviseren om het geheugenlimiet in te stellen op minimaal 64MB. Zie: <a "
-"href=\"%s\">Verhoog aan PHP toegewezen geheugen</a>"
+"href=\"%s\" target=\"_blank\">Verhoog aan PHP toegewezen geheugen</a>"
 
 #: admin/tab-system_status.php:211
 msgid "Character Set"
@@ -1588,6 +1588,21 @@ msgstr "Accepteer betaling via iDEAL"
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:255
 msgid "Configuration"
 msgstr "Configuratie"
+
+#. translators: 1: http://www.wpupdatephp.com/update/, 2: _blank
+#: pronamic-ideal.php:39
+msgid ""
+"Unfortunately the Pronamic Pay plugin will no longer work correctly in PHP "
+"versions older than 5.3. Read more information about <a href=\"%1$s\" target="
+"\"%2$s\">how you can update</a>."
+msgstr ""
+"Helaas zal de Pronamic Pay plugin niet langer correct functioneren op PHP "
+"versies lager dan 5.3. Lees meer over <a href=\"%1$s\" target=\"%2$s\">hoe "
+"je kunt bijwerken</a>."
+
+#: pronamic-ideal.php:40
+msgid "http://www.wpupdatephp.com/update/"
+msgstr "http://www.wpupdatephp.com/update/"
 
 #: vendor/wp-pay/core/src/GatewayPostType.php:54
 #: vendor/wp-pay/core/src/GatewayPostType.php:56
