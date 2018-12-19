@@ -8,6 +8,89 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changed
 
+## [5.5.1] - 2018-12-19
+
+### Changed
+- Updated WordPress pay OmniKassa 2.0 library from 2.1.1 to version 2.1.2.
+  - Limit order item name to 50 characters.
+- Updated WordPress pay WooCommerce library from 2.0.2 to version 2.0.4.
+  - Fixed WooCommerce admin products table not listing all products.
+  - Improved retrieving WooCommerce checkout fields.
+
+## [5.5.0] - 2018-12-17
+
+### Changed
+- Updated WordPress pay core library from 2.0.8 to version 2.1.0.
+  - Store payment data as JSON.
+  - Added support for payment lines.
+  - Added support for customer data in payment.
+  - Added support for billing and shipping address in payment.
+  - Added support for AfterPay anc Capayable payment methods.
+  - Added new WordPress 5.0 post type labels.
+  - Removed unused payment processing status.
+  - Updated Tippy.js to version 3.3.0.
+- Updated WordPress pay AppThemes library from 2.0.1 to version 2.0.2.
+- Updated WordPress pay Charitable library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay ClassiPress library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay Easy Digital Downloads library from 2.0.1 to version 2.0.2.
+  - Added support for payment lines.
+  - Added Billink and Capayable gateways.
+- Updated WordPress pay Event Espresso (legacy) library from 2.0.0 to version 2.1.0.
+  - Fixed processing status updates.
+  - Added source information filters.
+- Updated WordPress pay Formidable Forms library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay Give library from 2.0.0 to version 2.0.1.
+  - Fixed using default gateway setting.
+- Updated WordPress pay Gravity Forms library from 2.1.3 to version 2.1.5.
+  - Fixed unintended use of synchronized payment date setting for fixed intervals.
+  - Fixed delayed feed action for Gravity Forms Zapier add-on.
+  - Fixed fatal error when sending renewal notices.
+  - Fixed delayed feed actions for free payments.
+- Updated WordPress pay iThemes Exchange library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay Jigoshop library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay MemberPress library from 2.0.3 to version 2.0.4.
+  - Added support for trials with the same length as subscription period.
+  - Improve upgrading/downgrading subscriptions.
+- Updated WordPress pay Membership library from 2.0.1 to version 2.0.2.
+- Updated WordPress pay Restrict Content Pro library from 2.1.0 to version 2.1.1.
+  - Use correct initial amount.
+  - Fixed duplicate renewal.
+- Updated WordPress pay s2Member library from 2.0.0 to version 2.0.1.
+  - Renamed menu item from 'iDEAL' to 'Pay'.
+- Updated WordPress pay Shopp library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay WooCommerce library from 2.0.1 to version 2.0.2.
+  - Added AfterPay, Capayable, Focum and Klarna Pay Later payment methods.
+  - Renamed Capayable to new brand name In3.
+  - Added support for payment lines, shipping, billing and customer data.
+- Updated WordPress pay WP e-Commerce library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay Buckaroo library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay Shopp library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay EMS e-Commerce library from 2.0.0 to version 2.0.1.
+  - Fix using advanced order ID setting.
+- Updated WordPress pay ICEPAY library from 2.0.0 to version 2.0.1.
+  - Fixed "Fatal error: Uncaught Exception: MerchantID not valid" in test meta box.
+- Updated WordPress pay iDEAL Advanced v3 library from 2.0.1 to version 2.0.2.
+- Updated WordPress pay iDEAL Basic library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay ING Kassa Compleet library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay Mollie library from 2.0.4 to version 2.0.5.
+  - Set gateway mode based on API key.
+- Updated WordPress pay Mollie iDEAL library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay MultiSafepay library from 2.0.2 to version 2.0.3.
+- Updated WordPress pay Nocks library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay Ogone library from 2.0.0 to version 2.0.1.
+- Updated WordPress pay OmniKassa library from 2.0.0 to version 2.0.1.
+  - Marked library as deprecated.
+- Updated WordPress pay OmniKassa 2.0 library from 2.0.4 to version 2.1.1.
+  - Added support for payment lines, shipping, billing and customer data.
+  - Improved signature handling.
+- Updated WordPress pay Pay.nl library from 2.0.0 to version 2.0.1.
+  - Added support for payment lines, shipping, billing and customer data.
+  - Added support for AfterPay, Focum, In3 and Klarna Pay Later.
+- Updated WordPress pay Sisow library from 2.0.0 to version 2.0.1.
+  - Added support for payment lines, shipping, billing and customer data.
+  - Added support for Billink and Capayable.
+- Updated WordPress pay TargetPay library from 2.0.0 to version 2.0.1.
+
 ## [5.4.2] - 2018-09-28
 
 ### Changed
@@ -1816,7 +1899,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.1...HEAD
+[5.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.0...5.5.1
+[5.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.2...5.5.0
 [5.4.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.1...5.4.2
 [5.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.0...5.4.1
 [5.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.3.0...5.4.0
