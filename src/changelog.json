@@ -11,6 +11,36 @@
 		]
 	},
 	{
+		"version": "5.5.1",
+		"date": "2018-12-19",
+		"changes": [
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay core library from 2.1.0 to version 2.1.1.",
+						"changes": [
+							"Fixed incomplete payment customer from legacy meta."
+						]
+					},
+					{
+						"description": "Updated WordPress pay OmniKassa 2.0 library from 2.1.1 to version 2.1.2.",
+						"changes": [
+							"Limit order item name to 50 characters."
+						]
+					},
+					{
+						"description": "Updated WordPress pay WooCommerce library from 2.0.2 to version 2.0.4.",
+						"changes": [
+							"Fixed WooCommerce admin products table not listing all products.",
+							"Improved retrieving WooCommerce checkout fields."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "5.5.0",
 		"date": "2018-12-17",
 		"changes": [
