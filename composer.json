@@ -101,15 +101,17 @@
 		"wp-pay-extensions/wp-e-commerce": "^2.0"
 	},
 	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
 		"php-coveralls/php-coveralls": "^1.0",
+		"phpcompatibility/php-compatibility": "^9.1",
+		"phpcompatibility/phpcompatibility-wp": "^2.0",
 		"phpmd/phpmd": "^2.4",
 		"phpunit/phpunit": "^4.8",
 		"phpunit/phpunit-selenium": "^2.0",
+		"roots/wordpress": "^5.0",
 		"squizlabs/php_codesniffer": "^2.9",
-		"wp-coding-standards/wpcs": "^1.0",
-		"wimg/php-compatibility": "^9.0",
-		"johnpbloch/wordpress": "^4.9",
-		"wp-phpunit/wp-phpunit": "^4.9"
+		"wp-coding-standards/wpcs": "^1.2",
+		"wp-phpunit/wp-phpunit": "^5.0"
 	},
 	"scripts": {
 		"php-lint-plugin": "find -L . -type f -path ./.git -prune -o -path ./deploy -prune -o -path ./node_modules -prune -o -path ./repositories -prune -o -path ./vendor -prune -o -path ./wordpress -prune -o -path ./wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
@@ -126,35 +128,6 @@
 		"generate-changelog": [
 			"@generate-readme-txt",
 			"@generate-changelog-md"
-		],
-		"build-latest": [
-			"rm -r deploy/latest",
-			"mkdir deploy/latest",
-			"rsync --recursive --delete --exclude-from=src/deploy-ignore.txt ./ ./deploy/latest/",
-			"composer install --working-dir deploy/latest --no-dev --prefer-dist",
-			"rm deploy/latest/vendor/*/*/.gitignore",
-			"rm deploy/latest/vendor/*/*/.scrutinizer.yml",
-			"rm deploy/latest/vendor/*/*/.travis.yml",
-			"rm deploy/latest/vendor/*/*/composer.lock",
-			"rm deploy/latest/vendor/*/*/Gruntfile.js",
-			"rm deploy/latest/vendor/*/*/package.json",
-			"rm deploy/latest/vendor/*/*/package-lock.json",
-			"rm deploy/latest/vendor/*/*/phpcs.xml.dist",
-			"rm deploy/latest/vendor/*/*/phpmd.ruleset.xml",
-			"rm deploy/latest/vendor/*/*/phpunit.xml.dist",
-			"rm deploy/latest/vendor/*/*/yarn.lock",
-			"rm -r deploy/latest/vendor/*/*/documentation",
-			"rm -r deploy/latest/vendor/*/*/tests",
-			"rm -r deploy/latest/vendor/bin"
-		],
-		"deploy-latest": [
-			"@build-latest",
-			"svn update deploy/wp-svn",
-			"rsync --recursive --delete ./deploy/latest/ ./deploy/wp-svn/trunk/",
-			"svn status ./deploy/wp-svn/trunk/",
-			"svn status ./deploy/wp-svn/trunk/ | grep '^!' | cut -c 9- | xargs -d '\n' -i svn delete {}@",
-			"svn status ./deploy/wp-svn/trunk/ | grep '^?' | cut -c 9- | xargs -d '\n' -i svn add {}@",
-			"svn commit ./deploy/wp-svn/trunk/ -m 'Update'"
 		]
 	}
 }
