@@ -14,6 +14,7 @@ $organisations = array(
 	),
 	'wp-pay-gateways'   => array(
 		'common',
+		'adyen',
 		'buckaroo',
 		'ems-e-commerce',
 		'icepay',

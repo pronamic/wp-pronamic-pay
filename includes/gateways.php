@@ -78,6 +78,9 @@ function pronamic_pay_gateway_integrations() {
 			},
 		),
 
+		// Adyen.
+		'\Pronamic\WordPress\Pay\Gateways\Adyen\Integration',
+
 		// Buckaroo.
 		'\Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration',
 
