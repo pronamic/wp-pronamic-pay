@@ -2,6 +2,7 @@
 
 global $pronamic_pay_errors;
 
+use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\Core\PaymentMethods;
 use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Util;
@@ -54,17 +55,15 @@ if ( $gateway ) : ?>
 
 								$input_id = 'pronamic-pay-amount-' . esc_attr( $amount );
 
-								$decimals = ( $amount % 100 > 0 ? 2 : 0 );
-
-								$amount_formatted = number_format( ( $amount / 100 ), $decimals, pronamic_pay_get_decimal_separator(), pronamic_pay_get_thousands_separator() );
+								$money = new Money( $amount / 100 );
 
 								?>
 
 								<div>
-									<input class="pronamic-pay-amount-input pronamic-pay-input" id="<?php echo esc_attr( $input_id ); ?>" name="pronamic_pay_amount" type="radio" required="required" value="<?php echo esc_attr( $amount ); ?>" />
+									<input class="pronamic-pay-amount-input pronamic-pay-input" id="<?php echo esc_attr( $input_id ); ?>" name="pronamic_pay_amount" type="radio" required="required" value="<?php echo esc_attr( sprintf( '%F', $amount ) ); ?>" />
 									<label for="<?php echo esc_attr( $input_id ); ?>">
 										<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
-										<span class="pronamic-pay-amount-value"><?php echo esc_html( $amount_formatted ); ?></span>
+										<span class="pronamic-pay-amount-value"><?php echo esc_html( $money->format_i18n() ); ?></span>
 									</label>
 								</div>
 
