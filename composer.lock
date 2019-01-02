@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eba06517bbc17e7482c4998f14bce251",
+    "content-hash": "18d1d3722eb45e290b59abc93d2cfdf7",
     "packages": [
         {
             "name": "composer/installers",
@@ -1563,6 +1563,74 @@
                 "wp-e-commerce"
             ],
             "time": "2018-12-12T09:02:28+00:00"
+        },
+        {
+            "name": "wp-pay-gateways/adyen",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/adyen.git",
+                "reference": "19513eadd63be1004b4d26ee0607c7241872ed29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/adyen/zipball/19513eadd63be1004b4d26ee0607c7241872ed29",
+                "reference": "19513eadd63be1004b4d26ee0607c7241872ed29",
+                "shasum": ""
+            },
+            "require": {
+                "justinrainbow/json-schema": "^5.2",
+                "php": "^5.3",
+                "pronamic/wp-money": "^1.2",
+                "wp-pay/core": "^2.1"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "phpcompatibility/phpcompatibility-wp": "^2.0",
+                "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
+                "roots/wordpress": "^5.0",
+                "squizlabs/php_codesniffer": "^2.7",
+                "wp-coding-standards/wpcs": "^1.1",
+                "wp-phpunit/wp-phpunit": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Gateways\\Adyen\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Adyen driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/gateways/adyen/",
+            "keywords": [
+                "adyen",
+                "gateway",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2019-01-02T10:00:43+00:00"
         },
         {
             "name": "wp-pay-gateways/buckaroo",
@@ -4936,9 +5004,18 @@
             "time": "2019-01-10T10:32:31+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.0.0-dev",
+            "alias_normalized": "1.0.0.0-dev",
+            "version": "dev-develop",
+            "package": "wp-pay-gateways/adyen"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-gateways/adyen": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
