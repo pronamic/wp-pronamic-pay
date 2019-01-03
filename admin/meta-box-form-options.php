@@ -97,7 +97,7 @@ wp_nonce_field( 'pronamic_pay_save_form_options', 'pronamic_pay_nonce' );
 				$value = '';
 
 				if ( $amount ) {
-					$money = new Money(  );
+					$money = new Money();
 
 					$value = number_format_i18n( $amount / 100, 2 );
 				}
