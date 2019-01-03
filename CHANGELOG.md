@@ -8,9 +8,19 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changed
 
+## [5.5.2] - 2019-01-03
+
+### Changed
+- Updated WordPress pay core library from 2.1.1 to version 2.1.2.
+  - Fixed empty payments and subscriptions list tables with 'All' filter since WordPress 5.0.2.
+- Updated WordPress pay OmniKassa 2.0 library from 2.1.2 to version 2.1.3.
+  - Improved error handling.
+
 ## [5.5.1] - 2018-12-19
 
 ### Changed
+- Updated WordPress pay core library from 2.1.0 to version 2.1.1.
+  - Fixed incomplete payment customer from legacy meta.
 - Updated WordPress pay OmniKassa 2.0 library from 2.1.1 to version 2.1.2.
   - Limit order item name to 50 characters.
 - Updated WordPress pay WooCommerce library from 2.0.2 to version 2.0.4.
@@ -1899,7 +1909,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.2...HEAD
+[5.5.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.1...5.5.2
 [5.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.0...5.5.1
 [5.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.2...5.5.0
 [5.4.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.1...5.4.2
