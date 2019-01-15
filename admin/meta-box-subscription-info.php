@@ -40,6 +40,24 @@ $subscription = get_pronamic_subscription( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php esc_html_e( 'Status', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$status_object = get_post_status_object( get_post_status( $post_id ) );
+
+			if ( isset( $status_object, $status_object->label ) ) {
+				echo esc_html( $status_object->label );
+			} else {
+				echo '—';
+			}
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php esc_html_e( 'Description', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
