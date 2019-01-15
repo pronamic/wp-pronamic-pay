@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77012ff2b9134f34968e6ea4090a332e",
+    "content-hash": "d6ef1c92cfc088b4e150a1ca8def5e6c",
     "packages": [
         {
             "name": "composer/installers",
@@ -161,23 +161,23 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "5.2.7",
+            "version": "5.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "8560d4314577199ba51bf2032f02cd1315587c23"
+                "reference": "dcb6e1006bb5fd1e392b4daa68932880f37550d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/8560d4314577199ba51bf2032f02cd1315587c23",
-                "reference": "8560d4314577199ba51bf2032f02cd1315587c23",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/dcb6e1006bb5fd1e392b4daa68932880f37550d4",
+                "reference": "dcb6e1006bb5fd1e392b4daa68932880f37550d4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.1",
+                "friendsofphp/php-cs-fixer": "~2.2.20",
                 "json-schema/json-schema-test-suite": "1.2.0",
                 "phpunit/phpunit": "^4.8.35"
             },
@@ -223,7 +223,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2018-02-14T22:26:30+00:00"
+            "time": "2019-01-14T23:55:14+00:00"
         },
         {
             "name": "pronamic/wp-datetime",
@@ -2708,16 +2708,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "2.1.2",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "79390ca1ab1b6236c6d5e91ded8c44be8103f3a5"
+                "reference": "711a59c03c5a1bf44eb4a5e90659b2708ddbbca0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/79390ca1ab1b6236c6d5e91ded8c44be8103f3a5",
-                "reference": "79390ca1ab1b6236c6d5e91ded8c44be8103f3a5",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/711a59c03c5a1bf44eb4a5e90659b2708ddbbca0",
+                "reference": "711a59c03c5a1bf44eb4a5e90659b2708ddbbca0",
                 "shasum": ""
             },
             "require": {
@@ -2729,11 +2729,11 @@
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-                "johnpbloch/wordpress": "^5.0",
                 "php-coveralls/php-coveralls": "^1.0",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
                 "phpmd/phpmd": "^2.4",
                 "phpunit/phpunit": "^4.5",
+                "roots/wordpress": "^5.0",
                 "squizlabs/php_codesniffer": "^2.9",
                 "wimg/php-compatibility": "^9.0",
                 "wp-coding-standards/wpcs": "^1.2",
@@ -2777,7 +2777,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-01-03T10:24:46+00:00"
+            "time": "2019-01-15T13:26:59+00:00"
         }
     ],
     "packages-dev": [
@@ -3099,16 +3099,16 @@
         },
         {
             "name": "phpcompatibility/php-compatibility",
-            "version": "9.1.0",
+            "version": "9.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "a898db5410e365eeb658c63a76bd08d211769321"
+                "reference": "2b63c5d284ab8857f7b1d5c240ddb507a6b2293c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/a898db5410e365eeb658c63a76bd08d211769321",
-                "reference": "a898db5410e365eeb658c63a76bd08d211769321",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/2b63c5d284ab8857f7b1d5c240ddb507a6b2293c",
+                "reference": "2b63c5d284ab8857f7b1d5c240ddb507a6b2293c",
                 "shasum": ""
             },
             "require": {
@@ -3153,7 +3153,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-12-16T19:16:39+00:00"
+            "time": "2018-12-30T23:16:27+00:00"
         },
         {
             "name": "phpcompatibility/phpcompatibility-paragonie",
@@ -3921,16 +3921,16 @@
         },
         {
             "name": "roots/wordpress",
-            "version": "5.0.2",
+            "version": "5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress.git",
-                "reference": "5.0.2"
+                "reference": "5.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.0.2",
-                "reference": "5.0.2",
+                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.0.3",
+                "reference": "5.0.3",
                 "shasum": null
             },
             "require": {
@@ -3955,7 +3955,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2018-12-19T23:37:27+00:00"
+            "time": "2019-01-09T18:28:14+00:00"
         },
         {
             "name": "roots/wordpress-core-installer",
@@ -4887,16 +4887,16 @@
         },
         {
             "name": "wp-phpunit/wp-phpunit",
-            "version": "5.0.2",
+            "version": "5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-phpunit/wp-phpunit.git",
-                "reference": "7a485dc6679beaf61bdeac88ba471b519739e061"
+                "reference": "a5fed721528ffe75d5730537e48333eed6e5eee4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-phpunit/wp-phpunit/zipball/7a485dc6679beaf61bdeac88ba471b519739e061",
-                "reference": "7a485dc6679beaf61bdeac88ba471b519739e061",
+                "url": "https://api.github.com/repos/wp-phpunit/wp-phpunit/zipball/a5fed721528ffe75d5730537e48333eed6e5eee4",
+                "reference": "a5fed721528ffe75d5730537e48333eed6e5eee4",
                 "shasum": ""
             },
             "type": "library",
@@ -4926,12 +4926,21 @@
                 "test",
                 "wordpress"
             ],
-            "time": "2018-12-07T10:16:54+00:00"
+            "time": "2019-01-10T10:32:31+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "2.1",
+            "alias_normalized": "2.1.0.0",
+            "version": "dev-develop",
+            "package": "wp-pay/core"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay/core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
