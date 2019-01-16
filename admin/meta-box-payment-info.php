@@ -298,6 +298,24 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 	<?php
 
+	$account_number = get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true );
+
+	if ( ! empty( $account_number ) ) :
+	?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Account Number', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $account_number ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php
+
 	$iban = get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true );
 
 	if ( ! empty( $iban ) ) :
