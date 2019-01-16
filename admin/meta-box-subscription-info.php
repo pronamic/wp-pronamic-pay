@@ -219,6 +219,30 @@ $subscription = get_pronamic_subscription( $post_id );
 			?>
 		</td>
 	</tr>
+
+	<?php if ( ! empty( $subscription->user_id ) ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'User', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				$user_id = $subscription->user_id;
+
+				printf(
+					'<a href="%s">%s</a>',
+					esc_url( get_edit_user_link( $user_id ) ),
+					esc_html( $user_id )
+				);
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<tr>
 		<th scope="row">
 			<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>

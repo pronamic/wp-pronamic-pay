@@ -258,6 +258,29 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 		<?php endif; ?>
 
+		<?php if ( null !== $payment->get_customer()->get_user_id() ) : ?>
+
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'User', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<?php
+
+					$user_id = $payment->get_customer()->get_user_id();
+
+					printf(
+						'<a href="%s">%s</a>',
+						esc_url( get_edit_user_link( $user_id ) ),
+						esc_html( $user_id )
+					);
+
+					?>
+				</td>
+			</tr>
+
+		<?php endif; ?>
+
 	<?php endif; ?>
 
 	<?php
