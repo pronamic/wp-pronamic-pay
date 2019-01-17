@@ -64,7 +64,7 @@ if ( $subscription ) : ?>
 			<td>
 				<?php
 
-				echo esc_html( $subscription->get_amount()->format_i18n() );
+				echo esc_html( $subscription->get_total_amount()->format_i18n() );
 
 				?>
 			</td>

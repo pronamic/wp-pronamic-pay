@@ -87,23 +87,18 @@ $subscription = get_pronamic_subscription( $post_id );
 		<td>
 			<?php
 
-			if ( current_user_can( 'edit_post', $post_id ) && apply_filters( 'pronamic_pay_subscription_amount_editable_' . $subscription->get_source(), false ) ) :
+			if ( current_user_can( 'edit_post', $post_id ) && apply_filters( 'pronamic_pay_subscription_amount_editable_' . $subscription->get_source(), false ) ) {
+				echo esc_html( $subscription->get_total_amount()->get_currency()->get_symbol() );
 
-				echo esc_html( $subscription->get_amount()->get_currency()->get_symbol() );
+				$amount = $subscription->get_total_amount()->format_i18n( '%2$s' );
 
-				$amount = $subscription->get_amount()->format_i18n( '%2$s' );
-
-				?>
-
-				<input type="text" name="_pronamic_subscription_amount" value="<?php echo esc_attr( $amount ); ?>" size="12" />
-
-				<?php
-
-			else :
-
-				echo esc_html( $subscription->get_amount()->format_i18n() );
-
-			endif;
+				printf(
+					'<input type="text" name="pronamic_subscription_amount" value="%s" size="12" />',
+					esc_attr( $amount )
+				);
+			} else {
+				echo esc_html( $subscription->get_total_amount()->format_i18n() );
+			}
 
 			?>
 		</td>
