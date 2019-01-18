@@ -271,4 +271,41 @@ $subscription = get_pronamic_subscription( $post_id );
 		</tr>
 
 	<?php endif; ?>
+
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Cancel URL', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$url = $subscription->get_cancel_url();
+
+			printf(
+				'<a href="%s">%s</a>',
+				esc_attr( $url ),
+				esc_html( $url )
+			);
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Renewal URL', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$url = $subscription->get_renewal_url();
+
+			printf(
+				'<a href="%s">%s</a>',
+				esc_attr( $url ),
+				esc_html( $url )
+			);
+
+			?>
+		</td>
+	</tr>
 </table>
