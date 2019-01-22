@@ -128,6 +128,12 @@
 		"generate-changelog": [
 			"@generate-readme-txt",
 			"@generate-changelog-md"
+		],
+		"build": [
+		    "@generate-readme",
+		    "@generate-changelog",
+		    "@make-pot",
+		    "@update-po"
 		]
 	}
 }
