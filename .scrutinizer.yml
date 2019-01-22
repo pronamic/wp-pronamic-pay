@@ -8,6 +8,9 @@ build:
   project_setup:
     before:
       - mysql -e "CREATE DATABASE wp_phpunit_tests"
+  dependencies:
+    override:
+      - composer install --ignore-platform-reqs --no-interaction
   nodes:
     coverage:
       tests:

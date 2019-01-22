@@ -3,10 +3,12 @@
  * Meta Box Form Options
  *
  * @author    Pronamic <info@pronamic.eu>
- * @copyright 2005-2018 Pronamic
+ * @copyright 2005-2019 Pronamic
  * @license   GPL-3.0-or-later
  * @package   Pronamic\WordPress\Pay
  */
+
+use Pronamic\WordPress\Money\Money;
 
 wp_nonce_field( 'pronamic_pay_save_form_options', 'pronamic_pay_nonce' );
 
@@ -92,10 +94,12 @@ wp_nonce_field( 'pronamic_pay_save_form_options', 'pronamic_pay_nonce' );
 			$choices[] = '';
 
 			foreach ( $choices as $i => $amount ) {
-				if ( ! empty( $amount ) ) {
-					$decimals = ( $amount % 100 > 0 ? 2 : 0 );
+				$value = '';
 
-					$amount = number_format( ( $amount / 100 ), $decimals, pronamic_pay_get_decimal_separator(), pronamic_pay_get_thousands_separator() );
+				if ( $amount ) {
+					$money = new Money();
+
+					$value = number_format_i18n( $amount / 100, 2 );
 				}
 
 				printf(
@@ -106,7 +110,7 @@ wp_nonce_field( 'pronamic_pay_save_form_options', 'pronamic_pay_nonce' );
 					</div>',
 					esc_attr( $i ),
 					esc_attr( $i ),
-					esc_attr( $amount )
+					esc_attr( $value )
 				);
 			}
 			?>

@@ -348,8 +348,8 @@ module.exports = function( grunt ) {
 	] );
 
 	grunt.registerTask( 'build', [
-		'default',
 		'build_docs',
+		'default',
 		'build_assets',
 		'pot'
 	] );

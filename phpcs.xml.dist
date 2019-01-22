@@ -1,14 +1,19 @@
 <?xml version="1.0"?>
 
 <ruleset name="Pronamic Pay">
-	<config name="installed_paths" value="../../wp-coding-standards/wpcs,../../wimg/php-compatibility" />
-
 	<config name="minimum_supported_wp_version" value="4.7" />
 
-	<config name="testVersion" value="5.3-99.0" />
+	<config name="testVersion" value="5.3-" />
+
+	<file>.</file>
+
+	<arg name="colors"/>
+	<arg name="extensions" value="php" />
+	<arg value="sp" />
 
 	<exclude-pattern>assets/*</exclude-pattern>
 	<exclude-pattern>css/*</exclude-pattern>
+	<exclude-pattern>deploy/*</exclude-pattern>
 	<exclude-pattern>documentation/*</exclude-pattern>
 	<exclude-pattern>fonts/*</exclude-pattern>
 	<exclude-pattern>html/*</exclude-pattern>
@@ -20,13 +25,9 @@
 	<exclude-pattern>other/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>wordpress/*</exclude-pattern>
-	<exclude-pattern>wp-content/*</exclude-pattern>
+	<exclude-pattern type="relative">^/wp-content/*</exclude-pattern>
 
-    <rule ref="PHPCompatibility">
-		<!-- https://github.com/WordPress/WordPress/blob/4.9.8/wp-includes/compat.php#L355-L359 -->
-		<exclude name="PHPCompatibility.PHP.NewConstants.json_pretty_printFound" />
-		<exclude name="PHPCompatibility.Constants.NewConstants.json_pretty_printFound" />
-	</rule>
+	<rule ref="PHPCompatibilityWP" />
 
 	<rule ref="WordPress">
 		<exclude name="WordPress.DB.DirectDatabaseQuery.DirectQuery" />

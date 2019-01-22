@@ -3,7 +3,7 @@
  * Meta Box Payment Info
  *
  * @author    Pronamic <info@pronamic.eu>
- * @copyright 2005-2018 Pronamic
+ * @copyright 2005-2019 Pronamic
  * @license   GPL-3.0-or-later
  * @package   Pronamic\WordPress\Pay
  */
@@ -258,6 +258,29 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 		<?php endif; ?>
 
+		<?php if ( null !== $payment->get_customer()->get_user_id() ) : ?>
+
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'User', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<?php
+
+					$user_id = $payment->get_customer()->get_user_id();
+
+					printf(
+						'<a href="%s">%s</a>',
+						esc_url( get_edit_user_link( $user_id ) ),
+						esc_html( $user_id )
+					);
+
+					?>
+				</td>
+			</tr>
+
+		<?php endif; ?>
+
 	<?php endif; ?>
 
 	<?php
@@ -291,6 +314,24 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 			</th>
 			<td>
 				<?php echo esc_html( $account_holder_city ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php
+
+	$account_number = get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true );
+
+	if ( ! empty( $account_number ) ) :
+	?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Account Number', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $account_number ); ?>
 			</td>
 		</tr>
 

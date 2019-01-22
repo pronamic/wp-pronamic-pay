@@ -3,7 +3,7 @@
  * Meta Box Subscription Info
  *
  * @author    Pronamic <info@pronamic.eu>
- * @copyright 2005-2018 Pronamic
+ * @copyright 2005-2019 Pronamic
  * @license   GPL-3.0-or-later
  * @package   Pronamic\WordPress\Pay
  */
@@ -40,6 +40,24 @@ $subscription = get_pronamic_subscription( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php esc_html_e( 'Status', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$status_object = get_post_status_object( get_post_status( $post_id ) );
+
+			if ( isset( $status_object, $status_object->label ) ) {
+				echo esc_html( $status_object->label );
+			} else {
+				echo '—';
+			}
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php esc_html_e( 'Description', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
@@ -69,23 +87,18 @@ $subscription = get_pronamic_subscription( $post_id );
 		<td>
 			<?php
 
-			if ( current_user_can( 'edit_post', $post_id ) && apply_filters( 'pronamic_pay_subscription_amount_editable_' . $subscription->get_source(), false ) ) :
+			if ( current_user_can( 'edit_post', $post_id ) && apply_filters( 'pronamic_pay_subscription_amount_editable_' . $subscription->get_source(), false ) ) {
+				echo esc_html( $subscription->get_total_amount()->get_currency()->get_symbol() );
 
-				echo esc_html( $subscription->get_amount()->get_currency()->get_symbol() );
+				$amount = $subscription->get_total_amount()->format_i18n( '%2$s' );
 
-				$amount = $subscription->get_amount()->format_i18n( '%2$s' );
-
-				?>
-
-				<input type="text" name="_pronamic_subscription_amount" value="<?php echo esc_attr( $amount ); ?>" size="12" />
-
-				<?php
-
-			else :
-
-				echo esc_html( $subscription->get_amount()->format_i18n() );
-
-			endif;
+				printf(
+					'<input type="text" name="pronamic_subscription_amount" value="%s" size="12" />',
+					esc_attr( $amount )
+				);
+			} else {
+				echo esc_html( $subscription->get_total_amount()->format_i18n() );
+			}
 
 			?>
 		</td>
@@ -201,6 +214,30 @@ $subscription = get_pronamic_subscription( $post_id );
 			?>
 		</td>
 	</tr>
+
+	<?php if ( ! empty( $subscription->user_id ) ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'User', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				$user_id = $subscription->user_id;
+
+				printf(
+					'<a href="%s">%s</a>',
+					esc_url( get_edit_user_link( $user_id ) ),
+					esc_html( $user_id )
+				);
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<tr>
 		<th scope="row">
 			<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>
@@ -234,4 +271,41 @@ $subscription = get_pronamic_subscription( $post_id );
 		</tr>
 
 	<?php endif; ?>
+
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Cancel URL', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$url = $subscription->get_cancel_url();
+
+			printf(
+				'<a href="%s">%s</a>',
+				esc_attr( $url ),
+				esc_html( $url )
+			);
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Renewal URL', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$url = $subscription->get_renewal_url();
+
+			printf(
+				'<a href="%s">%s</a>',
+				esc_attr( $url ),
+				esc_html( $url )
+			);
+
+			?>
+		</td>
+	</tr>
 </table>

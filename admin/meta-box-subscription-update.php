@@ -3,7 +3,7 @@
  * Meta Box Subscription Update
  *
  * @author    Pronamic <info@pronamic.eu>
- * @copyright 2005-2018 Pronamic
+ * @copyright 2005-2019 Pronamic
  * @license   GPL-3.0-or-later
  * @package   Pronamic\WordPress\Pay
  */
@@ -23,7 +23,7 @@ $post_author = empty( $post_author ) ? '-' : $post_author;
 <div class="pronamic-pay-inner">
 	<p>
 		<label for="pronamic-subscription-status">Status:&nbsp;</label>
-		<select id="pronamic-subscription-status" name="post_status" class="medium-text">
+		<select id="pronamic-subscription-status" name="pronamic_subscription_post_status" class="medium-text">
 			<?php
 
 			foreach ( $states as $status => $label ) {

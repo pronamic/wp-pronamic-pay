@@ -13,6 +13,7 @@ $organisations = array(
 		'core',
 	),
 	'wp-pay-gateways'   => array(
+		'adyen',
 		'common',
 		'buckaroo',
 		'ems-e-commerce',

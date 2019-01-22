@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77012ff2b9134f34968e6ea4090a332e",
+    "content-hash": "eba06517bbc17e7482c4998f14bce251",
     "packages": [
         {
             "name": "composer/installers",
@@ -161,23 +161,23 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "5.2.7",
+            "version": "5.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "8560d4314577199ba51bf2032f02cd1315587c23"
+                "reference": "dcb6e1006bb5fd1e392b4daa68932880f37550d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/8560d4314577199ba51bf2032f02cd1315587c23",
-                "reference": "8560d4314577199ba51bf2032f02cd1315587c23",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/dcb6e1006bb5fd1e392b4daa68932880f37550d4",
+                "reference": "dcb6e1006bb5fd1e392b4daa68932880f37550d4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.1",
+                "friendsofphp/php-cs-fixer": "~2.2.20",
                 "json-schema/json-schema-test-suite": "1.2.0",
                 "phpunit/phpunit": "^4.8.35"
             },
@@ -223,7 +223,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2018-02-14T22:26:30+00:00"
+            "time": "2019-01-14T23:55:14+00:00"
         },
         {
             "name": "pronamic/wp-datetime",
@@ -864,16 +864,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "70b26107fce56be0e912eed06e5780844596d7c8"
+                "reference": "548d03c4a9d18af171c38d8c3aad7c7a1477aa84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/70b26107fce56be0e912eed06e5780844596d7c8",
-                "reference": "70b26107fce56be0e912eed06e5780844596d7c8",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/548d03c4a9d18af171c38d8c3aad7c7a1477aa84",
+                "reference": "548d03c4a9d18af171c38d8c3aad7c7a1477aa84",
                 "shasum": ""
             },
             "require": {
@@ -881,14 +881,16 @@
                 "wp-pay/core": "^2.0"
             },
             "require-dev": {
-                "johnpbloch/wordpress": "^4.9",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
                 "php-coveralls/php-coveralls": "^1.0",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "phpcompatibility/phpcompatibility-wp": "^2.0",
                 "phpmd/phpmd": "^2.4",
                 "phpunit/phpunit": "^4.8",
+                "roots/wordpress": "^5.0",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wimg/php-compatibility": "^8.1",
-                "wp-coding-standards/wpcs": "^1.1",
-                "wp-phpunit/wp-phpunit": "^4.9",
+                "wp-coding-standards/wpcs": "^1.2",
+                "wp-phpunit/wp-phpunit": "^5.0",
                 "wp-premium/gravityforms": "^2.3"
             },
             "type": "library",
@@ -925,7 +927,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-12-13T11:04:53+00:00"
+            "time": "2019-01-21T09:52:25+00:00"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -992,16 +994,16 @@
         },
         {
             "name": "wp-pay-extensions/jigoshop",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/jigoshop.git",
-                "reference": "974343dc23ddcf85bf097c65721974fa1e4dc5ca"
+                "reference": "bb77b234c27ca069e6a4957c48e40103d6b3ae6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/jigoshop/zipball/974343dc23ddcf85bf097c65721974fa1e4dc5ca",
-                "reference": "974343dc23ddcf85bf097c65721974fa1e4dc5ca",
+                "url": "https://api.github.com/repos/wp-pay-extensions/jigoshop/zipball/bb77b234c27ca069e6a4957c48e40103d6b3ae6f",
+                "reference": "bb77b234c27ca069e6a4957c48e40103d6b3ae6f",
                 "shasum": ""
             },
             "require": {
@@ -1009,11 +1011,17 @@
                 "wp-pay/core": "^2.0"
             },
             "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "jigoshop/jigoshop": "1.18.3",
                 "php-coveralls/php-coveralls": "^1.0",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "phpcompatibility/phpcompatibility-wp": "^2.0",
                 "phpmd/phpmd": "^2.4",
                 "phpunit/phpunit": "^4.8",
+                "roots/wordpress": "^5.0",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wp-coding-standards/wpcs": "^1.2",
+                "wp-phpunit/wp-phpunit": "^5.0"
             },
             "type": "library",
             "autoload": {
@@ -1049,20 +1057,20 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-12-12T13:17:01+00:00"
+            "time": "2019-01-17T15:39:31+00:00"
         },
         {
             "name": "wp-pay-extensions/memberpress",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/memberpress.git",
-                "reference": "585f02946625cf25b172668d9a6bda2d124c6b43"
+                "reference": "cec04e851f7c2242d3b32211b6eeca7194dbf00d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/memberpress/zipball/585f02946625cf25b172668d9a6bda2d124c6b43",
-                "reference": "585f02946625cf25b172668d9a6bda2d124c6b43",
+                "url": "https://api.github.com/repos/wp-pay-extensions/memberpress/zipball/cec04e851f7c2242d3b32211b6eeca7194dbf00d",
+                "reference": "cec04e851f7c2242d3b32211b6eeca7194dbf00d",
                 "shasum": ""
             },
             "require": {
@@ -1077,7 +1085,7 @@
                 "phpunit/phpunit": "^4.8",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wimg/php-compatibility": "^8.1",
-                "wp-coding-standards/wpcs": "^1.0",
+                "wp-coding-standards/wpcs": "^1.2",
                 "wp-phpunit/wp-phpunit": "^4.9",
                 "wp-premium/memberpress-basic": "^1.3"
             },
@@ -1115,7 +1123,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-12-12T08:24:06+00:00"
+            "time": "2019-01-21T15:08:49+00:00"
         },
         {
             "name": "wp-pay-extensions/membership",
@@ -1245,16 +1253,16 @@
         },
         {
             "name": "wp-pay-extensions/restrict-content-pro",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/restrict-content-pro.git",
-                "reference": "219b6a5d02e07671f4127260f4985968ddab3912"
+                "reference": "069a8bf015faff21061a659e202be11b518e7b23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/restrict-content-pro/zipball/219b6a5d02e07671f4127260f4985968ddab3912",
-                "reference": "219b6a5d02e07671f4127260f4985968ddab3912",
+                "url": "https://api.github.com/repos/wp-pay-extensions/restrict-content-pro/zipball/069a8bf015faff21061a659e202be11b518e7b23",
+                "reference": "069a8bf015faff21061a659e202be11b518e7b23",
                 "shasum": ""
             },
             "require": {
@@ -1308,7 +1316,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-12-10T19:26:06+00:00"
+            "time": "2019-01-18T07:52:08+00:00"
         },
         {
             "name": "wp-pay-extensions/s2member",
@@ -2057,16 +2065,16 @@
         },
         {
             "name": "wp-pay-gateways/mollie",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "25af549525b35d8df0c99fff0ea4177e5e3ce500"
+                "reference": "272cf6758875d71d8258f57b098a3081e412ebf7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/25af549525b35d8df0c99fff0ea4177e5e3ce500",
-                "reference": "25af549525b35d8df0c99fff0ea4177e5e3ce500",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/272cf6758875d71d8258f57b098a3081e412ebf7",
+                "reference": "272cf6758875d71d8258f57b098a3081e412ebf7",
                 "shasum": ""
             },
             "require": {
@@ -2119,7 +2127,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-12-10T19:50:54+00:00"
+            "time": "2019-01-18T08:14:07+00:00"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",
@@ -2443,34 +2451,33 @@
         },
         {
             "name": "wp-pay-gateways/omnikassa-2",
-            "version": "2.1.3",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/omnikassa-2.git",
-                "reference": "7ec0575ce0fefd42d70cffbcde9fc18d8284a73f"
+                "reference": "73baf0cd6e19046db1a3d69e53448f6696884758"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/7ec0575ce0fefd42d70cffbcde9fc18d8284a73f",
-                "reference": "7ec0575ce0fefd42d70cffbcde9fc18d8284a73f",
+                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/73baf0cd6e19046db1a3d69e53448f6696884758",
+                "reference": "73baf0cd6e19046db1a3d69e53448f6696884758",
                 "shasum": ""
             },
             "require": {
                 "justinrainbow/json-schema": "^5.2",
                 "php": "^5.3",
-                "pronamic/wp-money": "^1.1",
-                "wp-pay-gateways/common": "^2.0",
+                "pronamic/wp-money": "^1.2",
                 "wp-pay/core": "^2.1"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-                "johnpbloch/wordpress": "^5.0",
                 "php-coveralls/php-coveralls": "^1.0",
+                "phpcompatibility/php-compatibility": "^9.0",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
                 "phpmd/phpmd": "^2.2.3",
                 "phpunit/phpunit": "^4.5",
+                "roots/wordpress": "^5.0",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wimg/php-compatibility": "^9.0",
                 "wp-coding-standards/wpcs": "^1.1",
                 "wp-phpunit/wp-phpunit": "^5.0"
             },
@@ -2508,7 +2515,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-01-03T10:13:32+00:00"
+            "time": "2019-01-21T10:33:32+00:00"
         },
         {
             "name": "wp-pay-gateways/pay-nl",
@@ -2708,16 +2715,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "79390ca1ab1b6236c6d5e91ded8c44be8103f3a5"
+                "reference": "565f49b12438b0862d9453b6afbc037406a01159"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/79390ca1ab1b6236c6d5e91ded8c44be8103f3a5",
-                "reference": "79390ca1ab1b6236c6d5e91ded8c44be8103f3a5",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/565f49b12438b0862d9453b6afbc037406a01159",
+                "reference": "565f49b12438b0862d9453b6afbc037406a01159",
                 "shasum": ""
             },
             "require": {
@@ -2729,11 +2736,11 @@
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-                "johnpbloch/wordpress": "^5.0",
                 "php-coveralls/php-coveralls": "^1.0",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
                 "phpmd/phpmd": "^2.4",
                 "phpunit/phpunit": "^4.5",
+                "roots/wordpress": "^5.0",
                 "squizlabs/php_codesniffer": "^2.9",
                 "wimg/php-compatibility": "^9.0",
                 "wp-coding-standards/wpcs": "^1.2",
@@ -2777,10 +2784,76 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-01-03T10:24:46+00:00"
+            "time": "2019-01-21T15:54:40+00:00"
         }
     ],
     "packages-dev": [
+        {
+            "name": "dealerdirect/phpcodesniffer-composer-installer",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer.git",
+                "reference": "e749410375ff6fb7a040a68878c656c2e610b132"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/e749410375ff6fb7a040a68878c656c2e610b132",
+                "reference": "e749410375ff6fb7a040a68878c656c2e610b132",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": "^5.3|^7",
+                "squizlabs/php_codesniffer": "^2|^3"
+            },
+            "require-dev": {
+                "composer/composer": "*",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "sensiolabs/security-checker": "^4.1.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Franck Nijhof",
+                    "email": "franck.nijhof@dealerdirect.com",
+                    "homepage": "http://www.frenck.nl",
+                    "role": "Developer / IT Manager"
+                }
+            ],
+            "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
+            "homepage": "http://www.dealerdirect.com",
+            "keywords": [
+                "PHPCodeSniffer",
+                "PHP_CodeSniffer",
+                "code quality",
+                "codesniffer",
+                "composer",
+                "installer",
+                "phpcs",
+                "plugin",
+                "qa",
+                "quality",
+                "standard",
+                "standards",
+                "style guide",
+                "stylecheck",
+                "tests"
+            ],
+            "time": "2018-10-26T13:21:45+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
@@ -2932,85 +3005,6 @@
             "time": "2015-03-18T18:23:50+00:00"
         },
         {
-            "name": "johnpbloch/wordpress",
-            "version": "4.9.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "9cd9b6d8364860a36fd02b088e2fea270f7f531d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/9cd9b6d8364860a36fd02b088e2fea270f7f531d",
-                "reference": "9cd9b6d8364860a36fd02b088e2fea270f7f531d",
-                "shasum": ""
-            },
-            "require": {
-                "johnpbloch/wordpress-core": "4.9.9",
-                "johnpbloch/wordpress-core-installer": "^1.0",
-                "php": ">=5.3.2"
-            },
-            "type": "package",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "WordPress Community",
-                    "homepage": "http://wordpress.org/about/"
-                }
-            ],
-            "description": "WordPress is web software you can use to create a beautiful website or blog.",
-            "homepage": "http://wordpress.org/",
-            "keywords": [
-                "blog",
-                "cms",
-                "wordpress"
-            ],
-            "time": "2018-12-13T03:42:59+00:00"
-        },
-        {
-            "name": "johnpbloch/wordpress-core",
-            "version": "4.9.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "3f6081c514707ad25153b9acb90f022cd122d759"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/3f6081c514707ad25153b9acb90f022cd122d759",
-                "reference": "3f6081c514707ad25153b9acb90f022cd122d759",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "provide": {
-                "wordpress/core-implementation": "4.9.9"
-            },
-            "type": "wordpress-core",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "WordPress Community",
-                    "homepage": "http://wordpress.org/about/"
-                }
-            ],
-            "description": "WordPress is web software you can use to create a beautiful website or blog.",
-            "homepage": "http://wordpress.org/",
-            "keywords": [
-                "blog",
-                "cms",
-                "wordpress"
-            ],
-            "time": "2018-12-13T03:42:54+00:00"
-        },
-        {
             "name": "pdepend/pdepend",
             "version": "2.2.0",
             "source": {
@@ -3109,6 +3103,164 @@
                 "test"
             ],
             "time": "2017-12-06T23:17:56+00:00"
+        },
+        {
+            "name": "phpcompatibility/php-compatibility",
+            "version": "9.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
+                "reference": "2b63c5d284ab8857f7b1d5c240ddb507a6b2293c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/2b63c5d284ab8857f7b1d5c240ddb507a6b2293c",
+                "reference": "2b63c5d284ab8857f7b1d5c240ddb507a6b2293c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3",
+                "squizlabs/php_codesniffer": "^2.3 || ^3.0.2"
+            },
+            "conflict": {
+                "squizlabs/php_codesniffer": "2.6.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.5 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "suggest": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically.",
+                "roave/security-advisories": "dev-master || Helps prevent installing dependencies with known security issues."
+            },
+            "type": "phpcodesniffer-standard",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/PHPCompatibility/PHPCompatibility/graphs/contributors"
+                },
+                {
+                    "name": "Wim Godden",
+                    "homepage": "https://github.com/wimg",
+                    "role": "lead"
+                },
+                {
+                    "name": "Juliette Reinders Folmer",
+                    "homepage": "https://github.com/jrfnl",
+                    "role": "lead"
+                }
+            ],
+            "description": "A set of sniffs for PHP_CodeSniffer that checks for PHP cross-version compatibility.",
+            "homepage": "http://techblog.wimgodden.be/tag/codesniffer/",
+            "keywords": [
+                "compatibility",
+                "phpcs",
+                "standards"
+            ],
+            "time": "2018-12-30T23:16:27+00:00"
+        },
+        {
+            "name": "phpcompatibility/phpcompatibility-paragonie",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPCompatibility/PHPCompatibilityParagonie.git",
+                "reference": "9160de79fcd683b5c99e9c4133728d91529753ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibilityParagonie/zipball/9160de79fcd683b5c99e9c4133728d91529753ea",
+                "reference": "9160de79fcd683b5c99e9c4133728d91529753ea",
+                "shasum": ""
+            },
+            "require": {
+                "phpcompatibility/php-compatibility": "^9.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4"
+            },
+            "suggest": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4 || This Composer plugin will sort out the PHP_CodeSniffer 'installed_paths' automatically.",
+                "roave/security-advisories": "dev-master || Helps prevent installing dependencies with known security issues."
+            },
+            "type": "phpcodesniffer-standard",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Wim Godden",
+                    "role": "lead"
+                },
+                {
+                    "name": "Juliette Reinders Folmer",
+                    "role": "lead"
+                }
+            ],
+            "description": "A set of rulesets for PHP_CodeSniffer to check for PHP cross-version compatibility issues in projects, while accounting for polyfills provided by the Paragonie polyfill libraries.",
+            "homepage": "http://phpcompatibility.com/",
+            "keywords": [
+                "compatibility",
+                "paragonie",
+                "phpcs",
+                "polyfill",
+                "standards"
+            ],
+            "time": "2018-12-16T19:10:44+00:00"
+        },
+        {
+            "name": "phpcompatibility/phpcompatibility-wp",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPCompatibility/PHPCompatibilityWP.git",
+                "reference": "cb303f0067cd5b366a41d4fb0e254fb40ff02efd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibilityWP/zipball/cb303f0067cd5b366a41d4fb0e254fb40ff02efd",
+                "reference": "cb303f0067cd5b366a41d4fb0e254fb40ff02efd",
+                "shasum": ""
+            },
+            "require": {
+                "phpcompatibility/php-compatibility": "^9.0",
+                "phpcompatibility/phpcompatibility-paragonie": "^1.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3"
+            },
+            "suggest": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3 || This Composer plugin will sort out the PHP_CodeSniffer 'installed_paths' automatically.",
+                "roave/security-advisories": "dev-master || Helps prevent installing dependencies with known security issues."
+            },
+            "type": "phpcodesniffer-standard",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Wim Godden",
+                    "role": "lead"
+                },
+                {
+                    "name": "Juliette Reinders Folmer",
+                    "role": "lead"
+                }
+            ],
+            "description": "A ruleset for PHP_CodeSniffer to check for PHP cross-version compatibility issues in projects, while accounting for polyfills provided by WordPress.",
+            "homepage": "http://phpcompatibility.com/",
+            "keywords": [
+                "compatibility",
+                "phpcs",
+                "standards",
+                "wordpress"
+            ],
+            "time": "2018-10-07T18:31:37+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -3773,6 +3925,44 @@
                 "psr-3"
             ],
             "time": "2018-11-20T15:27:04+00:00"
+        },
+        {
+            "name": "roots/wordpress",
+            "version": "5.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WordPress/WordPress.git",
+                "reference": "5.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.0.3",
+                "reference": "5.0.3",
+                "shasum": null
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "roots/wordpress-core-installer": ">=1.0.0"
+            },
+            "type": "wordpress-core",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "WordPress Community",
+                    "homepage": "http://wordpress.org/about/"
+                }
+            ],
+            "description": "WordPress is web software you can use to create a beautiful website or blog.",
+            "homepage": "http://wordpress.org/",
+            "keywords": [
+                "blog",
+                "cms",
+                "wordpress"
+            ],
+            "time": "2019-01-09T18:28:14+00:00"
         },
         {
             "name": "roots/wordpress-core-installer",
@@ -4660,65 +4850,6 @@
             "time": "2015-07-26T08:59:42+00:00"
         },
         {
-            "name": "wimg/php-compatibility",
-            "version": "9.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "2b63c5d284ab8857f7b1d5c240ddb507a6b2293c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/2b63c5d284ab8857f7b1d5c240ddb507a6b2293c",
-                "reference": "2b63c5d284ab8857f7b1d5c240ddb507a6b2293c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3",
-                "squizlabs/php_codesniffer": "^2.3 || ^3.0.2"
-            },
-            "conflict": {
-                "squizlabs/php_codesniffer": "2.6.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.5 || ^5.0 || ^6.0 || ^7.0"
-            },
-            "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically.",
-                "roave/security-advisories": "dev-master || Helps prevent installing dependencies with known security issues."
-            },
-            "type": "phpcodesniffer-standard",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Contributors",
-                    "homepage": "https://github.com/PHPCompatibility/PHPCompatibility/graphs/contributors"
-                },
-                {
-                    "name": "Wim Godden",
-                    "homepage": "https://github.com/wimg",
-                    "role": "lead"
-                },
-                {
-                    "name": "Juliette Reinders Folmer",
-                    "homepage": "https://github.com/jrfnl",
-                    "role": "lead"
-                }
-            ],
-            "description": "A set of sniffs for PHP_CodeSniffer that checks for PHP cross-version compatibility.",
-            "homepage": "http://techblog.wimgodden.be/tag/codesniffer/",
-            "keywords": [
-                "compatibility",
-                "phpcs",
-                "standards"
-            ],
-            "abandoned": "phpcompatibility/php-compatibility",
-            "time": "2018-12-30T23:16:27+00:00"
-        },
-        {
             "name": "wp-coding-standards/wpcs",
             "version": "1.2.1",
             "source": {
@@ -4763,16 +4894,16 @@
         },
         {
             "name": "wp-phpunit/wp-phpunit",
-            "version": "4.9.9",
+            "version": "5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-phpunit/wp-phpunit.git",
-                "reference": "08fd9f66c2d19ed37abae59a1046664a253ab4bb"
+                "reference": "a5fed721528ffe75d5730537e48333eed6e5eee4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-phpunit/wp-phpunit/zipball/08fd9f66c2d19ed37abae59a1046664a253ab4bb",
-                "reference": "08fd9f66c2d19ed37abae59a1046664a253ab4bb",
+                "url": "https://api.github.com/repos/wp-phpunit/wp-phpunit/zipball/a5fed721528ffe75d5730537e48333eed6e5eee4",
+                "reference": "a5fed721528ffe75d5730537e48333eed6e5eee4",
                 "shasum": ""
             },
             "type": "library",
@@ -4802,7 +4933,7 @@
                 "test",
                 "wordpress"
             ],
-            "time": "2018-12-13T10:19:20+00:00"
+            "time": "2019-01-10T10:32:31+00:00"
         }
     ],
     "aliases": [],

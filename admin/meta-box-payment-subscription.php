@@ -3,7 +3,7 @@
  * Meta Box Payment Subscription
  *
  * @author    Pronamic <info@pronamic.eu>
- * @copyright 2005-2018 Pronamic
+ * @copyright 2005-2019 Pronamic
  * @license   GPL-3.0-or-later
  * @package   Pronamic\WordPress\Pay
  */
@@ -33,6 +33,24 @@ if ( $subscription ) : ?>
 		</tr>
 		<tr>
 			<th scope="row">
+				<?php esc_html_e( 'Status', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				$status_object = get_post_status_object( get_post_status( $subscription->post->ID ) );
+
+				if ( isset( $status_object, $status_object->label ) ) {
+					echo esc_html( $status_object->label );
+				} else {
+					echo '—';
+				}
+
+				?>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
 				<?php esc_html_e( 'Description', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
@@ -46,7 +64,7 @@ if ( $subscription ) : ?>
 			<td>
 				<?php
 
-				echo esc_html( $subscription->get_amount()->format_i18n() );
+				echo esc_html( $subscription->get_total_amount()->format_i18n() );
 
 				?>
 			</td>
