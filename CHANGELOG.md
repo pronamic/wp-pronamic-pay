@@ -8,6 +8,64 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changed
 
+## [5.5.3] - 2019-01-22
+
+### Changed
+- Updated WordPress pay core library from 2.1.2 to version 2.1.3.
+  - Fixed empty payment and subscription customer names.
+  - Fixed missing user ID in payment customer.
+  - Updated storing payments and subscriptions.
+  - Allow manual subscription renewal also for gateways which support auto renewal.
+- Updated WordPress pay Gravity Forms library from 2.1.5 to version 2.1.6.
+  - Fixed fatal error in Gravity Forms recurring payments if plugin is not activated.
+  - Fixed issue with prorating amount when synchronized payment dates are not enabled.
+  - Enabled placeholder setting for issuers and payment methods field.
+  - Added extra field map options.
+  - Added support for payment lines.
+- Updated WordPress pay Jigoshop library from 2.0.1 to version 2.0.2.
+  - Fixed "Fatal error: Uncaught Error: Call to undefined method jigoshop::get_option()".
+- Updated WordPress pay MemberPress library from 2.0.4 to version 2.0.5.
+  - Added admin Pronamic subscription column to MemberPress subscriptions overview.
+  - Updated payment and subscription creation.
+- Updated WordPress pay Restrict Content Pro library from 2.1.1 to version 2.1.2.
+  - Added support for subscription cancellation.
+  - Update member auto renewal setting for first payment too.
+  - Use Restrict Content Pro success page return URL only for successful payments.
+  - Prevent using direct debit recurring payment methods for non-expiring subscriptions.
+- Updated WordPress pay Mollie library from 2.0.5 to version 2.0.6.
+  - Name is not required anymore when creating a new Mollie customer.
+- Updated WordPress pay OmniKassa 2.0 library from 2.1.3 to version 2.1.4.
+  - Workaround for OmniKassa 2.0 bug in order item names with special characters.
+
+## [5.5.3] - 2019-01-22
+
+### Changed
+- Updated WordPress pay core library from 2.1.2 to version 2.1.3.
+  - Fixed empty payment and subscription customer names.
+  - Fixed missing user ID in payment customer.
+  - Updated storing payments and subscriptions.
+  - Allow manual subscription renewal also for gateways which support auto renewal.
+- Updated WordPress pay Gravity Forms library from 2.1.5 to version 2.1.6.
+  - Fixed fatal error in Gravity Forms recurring payments if plugin is not activated.
+  - Fixed issue with prorating amount when synchronized payment dates are not enabled.
+  - Enabled placeholder setting for issuers and payment methods field.
+  - Added extra field map options.
+  - Added support for payment lines.
+- Updated WordPress pay Jigoshop library from 2.0.1 to version 2.0.2.
+  - Fixed "Fatal error: Uncaught Error: Call to undefined method jigoshop::get_option()".
+- Updated WordPress pay MemberPress library from 2.0.4 to version 2.0.5.
+  - Added admin Pronamic subscription column to MemberPress subscriptions overview.
+  - Updated payment and subscription creation.
+- Updated WordPress pay Restrict Content Pro library from 2.1.1 to version 2.1.2.
+  - Added support for subscription cancellation.
+  - Update member auto renewal setting for first payment too.
+  - Use Restrict Content Pro success page return URL only for successful payments.
+  - Prevent using direct debit recurring payment methods for non-expiring subscriptions.
+- Updated WordPress pay Mollie library from 2.0.5 to version 2.0.6.
+  - Name is not required anymore when creating a new Mollie customer.
+- Updated WordPress pay OmniKassa 2.0 library from 2.1.3 to version 2.1.4.
+  - Workaround for OmniKassa 2.0 bug in order item names with special characters.
+
 ## [5.5.2] - 2019-01-03
 
 ### Changed
@@ -1909,7 +1967,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.3...HEAD
+[5.5.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.3...5.5.3
+[5.5.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.2...5.5.3
 [5.5.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.1...5.5.2
 [5.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.0...5.5.1
 [5.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.2...5.5.0
