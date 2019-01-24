@@ -282,6 +282,12 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 5.5.4 - 2019-01-24 =
+*	Updated WordPress pay MemberPress library from 2.0.5 to version 2.0.6.
+	*	Fixed fatal error due to Gateway class not found when processing status updates.
+*	Updated WordPress pay Restrict Content Pro library from 2.1.2 to version 2.1.3.
+	*	Use taxed money object for subscripption amount.
+
 = 5.5.3 - 2019-01-22 =
 *	Updated WordPress pay core library from 2.1.2 to version 2.1.3.
 	*	Fixed empty payment and subscription customer names.
