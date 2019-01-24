@@ -8,6 +8,19 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changed
 
+## [5.5.4] - 2019-01-24
+
+### Changed
+- Updated WordPress pay core library from 2.1.3 to version 2.1.4.
+- Updated WordPress pay MemberPress library from 2.0.5 to version 2.0.6.
+  - Fixed fatal error Gateway not found when processing status updates.
+- Updated WordPress pay Restrict Content Pro library from 2.1.2 to version 2.1.3.
+  - Use taxed money object for subscripption amount.
+- Updated WordPress pay ICEPAY library from 2.0.1 to version 2.0.2.
+  - Improved setting required country and language.
+- Updated WordPress pay OmniKassa 2.0 library from 2.1.4 to version 2.1.5.
+  - Workaround for OmniKassa 2.0 bug in order item name length.
+
 ## [5.5.3] - 2019-01-22
 
 ### Changed
@@ -1938,7 +1951,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.3...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.4...HEAD
+[5.5.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.3...5.5.4
 [5.5.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.2...5.5.3
 [5.5.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.1...5.5.2
 [5.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.0...5.5.1
