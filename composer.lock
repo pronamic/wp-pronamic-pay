@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18d1d3722eb45e290b59abc93d2cfdf7",
+    "content-hash": "6228cea40db265d82f996d123f91b0eb",
     "packages": [
         {
             "name": "composer/installers",
@@ -1570,19 +1570,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/adyen.git",
-                "reference": "19513eadd63be1004b4d26ee0607c7241872ed29"
+                "reference": "f08fef06cb2c8956836dfad4c1f7b433d2fa960c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/adyen/zipball/19513eadd63be1004b4d26ee0607c7241872ed29",
-                "reference": "19513eadd63be1004b4d26ee0607c7241872ed29",
+                "url": "https://api.github.com/repos/wp-pay-gateways/adyen/zipball/f08fef06cb2c8956836dfad4c1f7b433d2fa960c",
+                "reference": "f08fef06cb2c8956836dfad4c1f7b433d2fa960c",
                 "shasum": ""
             },
             "require": {
                 "justinrainbow/json-schema": "^5.2",
                 "php": "^5.3",
                 "pronamic/wp-money": "^1.2",
-                "wp-pay/core": "^2.1"
+                "wp-pay/core": "dev-develop as 2.1"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
@@ -1630,7 +1630,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-01-02T10:00:43+00:00"
+            "time": "2019-01-08T23:27:25+00:00"
         },
         {
             "name": "wp-pay-gateways/buckaroo",
@@ -2783,16 +2783,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "2.1.4",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "38ccd110e3ce42294d9e91a016638bac33370736"
+                "reference": "ec7ecdcaa8fecf3331cd9727dee2e745bec2d599"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/38ccd110e3ce42294d9e91a016638bac33370736",
-                "reference": "38ccd110e3ce42294d9e91a016638bac33370736",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/ec7ecdcaa8fecf3331cd9727dee2e745bec2d599",
+                "reference": "ec7ecdcaa8fecf3331cd9727dee2e745bec2d599",
                 "shasum": ""
             },
             "require": {
@@ -5006,14 +5006,21 @@
     ],
     "aliases": [
         {
-            "alias": "1.0.0-dev",
-            "alias_normalized": "1.0.0.0-dev",
+            "alias": "2.1",
+            "alias_normalized": "2.1.0.0",
+            "version": "dev-develop",
+            "package": "wp-pay/core"
+        },
+        {
+            "alias": "1.0",
+            "alias_normalized": "1.0.0.0",
             "version": "dev-develop",
             "package": "wp-pay-gateways/adyen"
         }
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "wp-pay/core": 20,
         "wp-pay-gateways/adyen": 20
     },
     "prefer-stable": false,
