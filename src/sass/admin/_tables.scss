@@ -88,3 +88,31 @@
 		width: 1em;
 	}
 }
+
+@media only screen and (max-width: 782px) {
+	.wp-list-table {
+		tr.type-pronamic_payment:not(.inline-edit-row):not(.no-items) {
+			td:not(.column-primary) {
+				&.column-pronamic_payment_status,
+				&.column-pronamic_payment_subscription,
+				&.column-pronamic_subscription_status {
+					display: table-cell;
+
+					&::before {
+						display: none;
+					}
+				}
+			}
+
+			&.is-expanded {
+				td:not(.hidden) {
+					&.column-pronamic_payment_status,
+					&.column-pronamic_payment_subscription,
+					&.column-pronamic_subscription_status {
+						display: table-cell !important;
+					}
+				}
+			}
+		}
+	}
+}
