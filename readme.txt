@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 5.0
 Requires PHP: 5.3
-Stable tag: 5.5.4
+Stable tag: 5.5.5
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -281,6 +281,20 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.5.5 - 2019-02-04 =
+*	Added Handelsbanken issuer icons.
+*	Updated WordPress pay core library from 2.1.4 to version 2.1.5.
+	*	Fixed fatal error PaymentInfo expecting taxed money.
+	*	Improved responsive admin tables for payments and subscriptions.
+*	Updated WordPress pay Gravity Forms library from 2.1.6 to version 2.1.7.
+	*	Fixed empty country code for unknown countries.
+*	Updated WordPress pay MemberPress library from 2.0.6 to version 2.0.7.
+	*	Fixed "Given country code not ISO 3166-1 alpha-2 value".
+*	Updated WordPress pay OmniKassa 2.0 library from 2.1.5 to version 2.1.6.
+	*	Removed workaround for order item name length, Rabobank has resolved the issue.
+*	Updated WordPress pay Pay.nl library from 2.0.1 to version 2.0.2.
+	*	Fixed error 'invalid paymentProfileId' if no payment method was specified.
 
 = 5.5.4 - 2019-01-24 =
 *	Updated WordPress pay core library from 2.1.3 to version 2.1.4.
