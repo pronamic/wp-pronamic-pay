@@ -326,6 +326,17 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
   width: 1em;
 }
 
+@media only screen and (max-width: 782px) {
+  .wp-list-table tr.type-pronamic_payment:not(.inline-edit-row):not(.no-items) td:not(.column-primary).column-pronamic_payment_status, .wp-list-table tr.type-pronamic_payment:not(.inline-edit-row):not(.no-items) td:not(.column-primary).column-pronamic_payment_subscription, .wp-list-table tr.type-pronamic_payment:not(.inline-edit-row):not(.no-items) td:not(.column-primary).column-pronamic_subscription_status {
+    display: table-cell;
+  }
+  .wp-list-table tr.type-pronamic_payment:not(.inline-edit-row):not(.no-items) td:not(.column-primary).column-pronamic_payment_status::before, .wp-list-table tr.type-pronamic_payment:not(.inline-edit-row):not(.no-items) td:not(.column-primary).column-pronamic_payment_subscription::before, .wp-list-table tr.type-pronamic_payment:not(.inline-edit-row):not(.no-items) td:not(.column-primary).column-pronamic_subscription_status::before {
+    display: none;
+  }
+  .wp-list-table tr.type-pronamic_payment:not(.inline-edit-row):not(.no-items).is-expanded td:not(.hidden).column-pronamic_payment_status, .wp-list-table tr.type-pronamic_payment:not(.inline-edit-row):not(.no-items).is-expanded td:not(.hidden).column-pronamic_payment_subscription, .wp-list-table tr.type-pronamic_payment:not(.inline-edit-row):not(.no-items).is-expanded td:not(.hidden).column-pronamic_subscription_status {
+    display: table-cell !important;
+  }
+}
 .pronamic-pay-tabs-items {
   border-bottom: 1px solid #e5e5e5;
   display: block;

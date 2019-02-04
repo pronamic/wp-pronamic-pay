@@ -11,6 +11,54 @@
 		]
 	},
 	{
+		"version": "5.5.5",
+		"date": "2019-02-04",
+		"changes": [
+			{
+				"name": "Added",
+				"changes": [
+					"Added Handelsbanken issuer icons."
+				]
+			},
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay core library from 2.1.4 to version 2.1.5.",
+						"changes": [
+							"Fixed fatal error PaymentInfo expecting taxed money.",
+							"Improved responsive admin tables for payments and subscriptions."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library from 2.1.6 to version 2.1.7.",
+						"changes": [
+							"Fixed empty country code for unknown countries."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MemberPress library from 2.0.6 to version 2.0.7.",
+						"changes": [
+							"Fixed \"Given country code not ISO 3166-1 alpha-2 value\"."
+						]
+					},
+					{
+						"description": "Updated WordPress pay OmniKassa 2.0 library from 2.1.5 to version 2.1.6.",
+						"changes": [
+							"Removed workaround for order item name length, Rabobank has resolved the issue."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Pay.nl library from 2.0.1 to version 2.0.2.",
+						"changes": [
+							"Fixed error 'invalid paymentProfileId' if no payment method was specified."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "5.5.4",
 		"date": "2019-01-24",
 		"changes": [
