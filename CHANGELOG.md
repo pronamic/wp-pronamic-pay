@@ -8,6 +8,24 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changed
 
+## [5.5.5] - 2019-02-04
+
+### Added
+- Added Handelsbanken issuer icons.
+
+### Fixed
+- Updated WordPress pay core library from 2.1.4 to version 2.1.5.
+  - Fixed fatal error PaymentInfo expecting taxed money.
+  - Improved responsive admin tables for payments and subscriptions.
+- Updated WordPress pay Gravity Forms library from 2.1.6 to version 2.1.7.
+  - Fixed empty country code for unknown countries.
+- Updated WordPress pay MemberPress library from 2.0.6 to version 2.0.7.
+  - Fixed "Given country code not ISO 3166-1 alpha-2 value".
+- Updated WordPress pay OmniKassa 2.0 library from 2.1.5 to version 2.1.6.
+  - Removed workaround for order item name length, Rabobank has resolved the issue.
+- Updated WordPress pay Pay.nl library from 2.0.1 to version 2.0.2.
+  - Fixed error 'invalid paymentProfileId' if no payment method was specified.
+
 ## [5.5.4] - 2019-01-24
 
 ### Changed
@@ -1951,7 +1969,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.4...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.5...HEAD
+[5.5.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.4...5.5.5
 [5.5.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.3...5.5.4
 [5.5.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.2...5.5.3
 [5.5.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.1...5.5.2
