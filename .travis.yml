@@ -41,6 +41,7 @@ jobs:
     - php: hhvm
     - php: nightly
     - env: PHPMD=1
+    - env: PHPSTAN=1
     - env: PSALM=1
 
 cache:
