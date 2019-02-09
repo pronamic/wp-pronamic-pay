@@ -57,7 +57,7 @@ before_install:
   - mysql -e 'CREATE DATABASE wp_phpunit_tests;'
   # Remove Xdebug for a huge performance increase:
   - |
-    if [ -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
+    if [ "$COVERAGE" !== "1" && -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
       phpenv config-rm xdebug.ini
     else
       echo "xdebug.ini does not exist"
