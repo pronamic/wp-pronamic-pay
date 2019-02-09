@@ -60,8 +60,6 @@
 
 		"wp-pay/core": "^2.1",
 
-		"wp-pay-gateways/common": "^2.0",
-
 		"wp-pay-gateways/buckaroo": "^2.0",
 		"wp-pay-gateways/ems-e-commerce": "^2.0",
 		"wp-pay-gateways/icepay": "^2.0",
@@ -101,8 +99,8 @@
 		"wp-pay-extensions/wp-e-commerce": "^2.0"
 	},
 	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-		"php-coveralls/php-coveralls": "^1.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+		"php-coveralls/php-coveralls": "^1.1",
 		"phpcompatibility/php-compatibility": "^9.1",
 		"phpcompatibility/phpcompatibility-wp": "^2.0",
 		"phpmd/phpmd": "^2.4",
@@ -114,6 +112,12 @@
 		"wp-phpunit/wp-phpunit": "^5.0"
 	},
 	"scripts": {
+		"coveralls": "vendor/bin/coveralls -v",
+		"phpcbf":"vendor/bin/phpcbf",
+		"phpcs": "vendor/bin/phpcs -s -v",
+		"phplint": "ls src/**/*.php tests/**/*.php | xargs -n 1 -P 4 php -l",
+		"phpmd": "vendor/bin/phpmd src,tests text phpmd.ruleset.xml --suffixes php",
+		"phpunit": "vendor/bin/phpunit",
 		"php-lint-plugin": "find -L . -type f -path ./.git -prune -o -path ./deploy -prune -o -path ./node_modules -prune -o -path ./repositories -prune -o -path ./vendor -prune -o -path ./wordpress -prune -o -path ./wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
 		"php-lint-wp-pay": "find -L ./repositories/ -type f -name .git -prune -o -name node_modules -prune -o -name vendor -prune -o -name wordpress -prune -o -name wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
 		"make-pot": "wp pronamic i18n make-pot . languages/pronamic_ideal.pot --slug='pronamic-ideal'",
