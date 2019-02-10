@@ -115,7 +115,7 @@
 		"coveralls": "vendor/bin/coveralls -v",
 		"phpcbf":"vendor/bin/phpcbf",
 		"phpcs": "vendor/bin/phpcs -s -v",
-		"phplint": "ls src/**/*.php tests/**/*.php | xargs -n 1 -P 4 php -l",
+		"phplint": "find src tests -name '*.php' | xargs -n 1 -P 4 php -l",
 		"phpmd": "vendor/bin/phpmd src,tests text phpmd.ruleset.xml --suffixes php",
 		"phpunit": "vendor/bin/phpunit",
 		"php-lint-plugin": "find -L . -type f -path ./.git -prune -o -path ./deploy -prune -o -path ./node_modules -prune -o -path ./repositories -prune -o -path ./vendor -prune -o -path ./wordpress -prune -o -path ./wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
