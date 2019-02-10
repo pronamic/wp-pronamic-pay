@@ -83,7 +83,7 @@ install:
   # Install Composer packages.
   - composer install
   # Test on specific WordPress version.
-  - composer require --dev --update-with-dependencies roots/wordpress:${WP_VERSION} wp-phpunit/wp-phpunit:${WP_VERSION}
+  - composer require --dev --update-with-dependencies roots/wordpress:^${WP_VERSION} wp-phpunit/wp-phpunit:^${WP_VERSION}
   # List available packages.
   - composer show
 
