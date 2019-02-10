@@ -16,8 +16,8 @@ module.exports = function( grunt ) {
 				'!node_modules/**',
 				'!repositories/**',
 				'!vendor/**',
-				'!wp-content/**',
-				'!wordpress/**'
+				'!wordpress/**',
+				'!wp-content/**'
 			],
 			wp_pay: [
 				'vendor/wp-pay/**/*.php',
