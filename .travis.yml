@@ -12,13 +12,13 @@ env:
 jobs:
   include:
     - php: 7.2
-      env: WP_VERSION=5.0 COVERAGE=1 PHPCS=1
+      env: WP_VERSION=^5.0 COVERAGE=1 PHPCS=1
     - php: 7.2
-      env: WP_VERSION=4.9
+      env: WP_VERSION=^4.9
     - php: 7.2
-      env: WP_VERSION=4.8
+      env: WP_VERSION=^4.8
     - php: 7.2
-      env: WP_VERSION=4.7
+      env: WP_VERSION=^4.7
     - php: 7.2
       env: WP_MULTISITE=1
     - php: 7.2
@@ -83,7 +83,7 @@ install:
   # Install Composer packages.
   - composer install
   # Test on specific WordPress version.
-  - composer require --dev --update-with-dependencies roots/wordpress:^${WP_VERSION} wp-phpunit/wp-phpunit:^${WP_VERSION}
+  - composer require --dev --update-with-dependencies roots/wordpress:${WP_VERSION} wp-phpunit/wp-phpunit:${WP_VERSION}
   # List available packages.
   - composer show
 
