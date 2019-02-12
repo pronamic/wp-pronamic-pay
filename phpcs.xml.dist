@@ -54,6 +54,16 @@
 		<exclude-pattern>admin/*.php</exclude-pattern>
 	</rule>
 
+    <rule ref="Squiz.PHP.EmbeddedPhp.ContentBeforeOpen">
+        <exclude-pattern>src/readme-md/extensions.php</exclude-pattern>
+        <exclude-pattern>src/readme-md/gateways.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.PHP.EmbeddedPhp.ContentAfterEnd">
+        <exclude-pattern>src/readme-md/extensions.php</exclude-pattern>
+        <exclude-pattern>src/readme-md/gateways.php</exclude-pattern>
+    </rule>
+
 	<rule ref="WordPress.DB.DirectDatabaseQuery.SchemaChange">
 		<exclude-pattern>uninstall.php</exclude-pattern>
 	</rule>

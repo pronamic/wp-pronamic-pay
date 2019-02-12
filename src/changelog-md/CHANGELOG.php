@@ -1,24 +1,45 @@
 <?php
+/**
+ * Changelog.
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2019 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 header( 'Content-Type: text/plain' );
 
 $data      = file_get_contents( __DIR__ . '/../changelog.json' );
 $changelog = json_decode( $data );
 
+/**
+ * Render changes.
+ *
+ * @param array $changes Changes.
+ * @param int   $level   Level.
+ */
 function render_changes( $changes, $level = 0 ) {
 	$indent = $level * 2;
 
+	// Changes string.
 	if ( is_string( $changes ) ) {
-		echo str_repeat( ' ', $indent ), '- ', $changes, "\r\n";
-	} elseif ( is_array( $changes ) ) {
+		echo esc_html( str_repeat( ' ', $indent ) ), '- ', esc_html( $changes ), "\r\n";
+	}
+
+	// Changes array.
+	if ( is_array( $changes ) ) {
 		foreach ( $changes as $change ) {
 			render_changes( $change, $level );
 		}
-	} elseif ( is_object( $changes ) ) {
+	}
+
+	// Changes object.
+	if ( is_object( $changes ) ) {
 		if ( isset( $changes->name ) ) {
 			// Changes group.
 			echo "\r\n";
-			echo '### ', $changes->name, "\r\n";
+			echo esc_html( '### ', $changes->name ), "\r\n";
 
 			if ( isset( $changes->changes ) ) {
 				render_changes( $changes->changes, $level );
@@ -46,9 +67,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 foreach ( $changelog as $log ) {
 	if ( 'Unreleased' === $log->version ) {
-		echo '## [', $log->version, '][unreleased]', "\r\n";
+		echo esc_html( '## [', $log->version, '][unreleased]' ), "\r\n";
 	} else {
-		echo '## [', $log->version, '] - ', $log->date, "\r\n";
+		echo esc_html( '## [', $log->version, '] - ', $log->date ), "\r\n";
 	}
 
 	render_changes( $log->changes );
@@ -63,9 +84,18 @@ foreach ( $collection as $log ) {
 		$prev = $collection->getInnerIterator()->current();
 
 		if ( 'Unreleased' === $log->version ) {
-			echo '[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', 'HEAD', "\r\n";
+			printf(
+				'[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/%s...HEAD',
+				esc_html( $prev->version )
+			);
 		} else {
-			echo '[', $log->version, ']: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', $log->version, "\r\n";
+			printf(
+				'[%1$s]: https://github.com/pronamic/wp-pronamic-ideal/compare/%2$s...%1$s',
+				esc_html( $log->version ),
+				esc_html( $prev->version )
+			);
 		}
+
+		echo "\r\n";
 	}
 }
