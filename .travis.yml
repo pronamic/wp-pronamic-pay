@@ -57,10 +57,8 @@ before_install:
   - mysql -e 'CREATE DATABASE wp_phpunit_tests;'
   # Remove Xdebug for a huge performance increase:
   - |
-    if [ "$COVERAGE" !== "1" && -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
+    if [ "$COVERAGE" != "1" && -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
       phpenv config-rm xdebug.ini
-    else
-      echo "xdebug.ini does not exist"
     fi
   # Raise PHP memory limit to 2048MB
   - echo 'memory_limit = 2048M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
