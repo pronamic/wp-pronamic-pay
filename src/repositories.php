@@ -1,4 +1,12 @@
 <?php
+/**
+ * Repositories.
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2019 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 $working_dir      = getcwd();
 $project_dir      = dirname( __DIR__ );
@@ -14,7 +22,6 @@ $organisations = array(
 	),
 	'wp-pay-gateways'   => array(
 		'adyen',
-		'common',
 		'buckaroo',
 		'ems-e-commerce',
 		'icepay',
@@ -93,9 +100,9 @@ foreach ( $organisations as $organisation => $repositories ) {
 
 		if ( isset( $argv[1] ) && in_array( $argv[1], array( 'git', 'grunt', 'composer', 'npm', 'ncu' ), true ) ) {
 			if ( isset( $argv[2] ) ) {
-				$command = sprintf( '%s %s', $argv[ 1 ], $argv[ 2 ] );
+				$command = sprintf( '%s %s', $argv[1], $argv[2] );
 			} else {
-				$command = sprintf( '%s', $argv[ 1 ] );
+				$command = sprintf( '%s', $argv[1] );
 			}
 		}
 

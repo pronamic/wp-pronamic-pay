@@ -16,8 +16,8 @@ $changelog = json_decode( $data );
 /**
  * Render changes.
  *
- * @param array $changes Changes.
- * @param int   $level   Level.
+ * @param string|array|object $changes Changes.
+ * @param int                 $level   Level.
  */
 function render_changes( $changes, $level = 0 ) {
 	$indent = $level * 2;
@@ -39,7 +39,7 @@ function render_changes( $changes, $level = 0 ) {
 		if ( isset( $changes->name ) ) {
 			// Changes group.
 			echo "\r\n";
-			echo esc_html( '### ', $changes->name ), "\r\n";
+			echo '### ', $changes->name, "\r\n";
 
 			if ( isset( $changes->changes ) ) {
 				render_changes( $changes->changes, $level );
@@ -67,9 +67,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 foreach ( $changelog as $log ) {
 	if ( 'Unreleased' === $log->version ) {
-		echo esc_html( '## [', $log->version, '][unreleased]' ), "\r\n";
+		echo '## [', $log->version, '][unreleased]', "\r\n";
 	} else {
-		echo esc_html( '## [', $log->version, '] - ', $log->date ), "\r\n";
+		echo '## [', $log->version, '] - ', $log->date, "\r\n";
 	}
 
 	render_changes( $log->changes );
@@ -86,13 +86,13 @@ foreach ( $collection as $log ) {
 		if ( 'Unreleased' === $log->version ) {
 			printf(
 				'[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/%s...HEAD',
-				esc_html( $prev->version )
+				$prev->version
 			);
 		} else {
 			printf(
 				'[%1$s]: https://github.com/pronamic/wp-pronamic-ideal/compare/%2$s...%1$s',
-				esc_html( $log->version ),
-				esc_html( $prev->version )
+				$log->version,
+				$prev->version
 			);
 		}
 

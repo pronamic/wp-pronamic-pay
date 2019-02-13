@@ -50,9 +50,25 @@
 		<exclude-pattern>src/*.php</exclude-pattern>
 	</rule>
 
+	<rule ref="PHPCompatibility.FunctionDeclarations.NewClosure.ClassRefFound">
+		<exclude-pattern>src/i18n-make-pot.php</exclude-pattern>
+	</rule>
+
+	<rule ref="PHPCompatibility.FunctionDeclarations.NewClosure.ThisFound">
+		<exclude-pattern>src/i18n-make-pot.php</exclude-pattern>
+	</rule>
+
+	<rule ref="PHPCompatibility.FunctionDeclarations.NewClosure.ThisFoundOutsideClass">
+		<exclude-pattern>src/i18n-make-pot.php</exclude-pattern>
+	</rule>
+
 	<rule ref="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
 		<exclude-pattern>admin/*.php</exclude-pattern>
 	</rule>
+
+    <rule ref="Squiz.Commenting.FileComment.Missing">
+        <exclude-pattern>src/readme-txt/description-long.php</exclude-pattern>
+    </rule>
 
     <rule ref="Squiz.PHP.EmbeddedPhp.ContentBeforeOpen">
         <exclude-pattern>src/readme-md/extensions.php</exclude-pattern>
@@ -84,7 +100,7 @@
 		<exclude-pattern>includes/updates/update-2.0.0.php</exclude-pattern>
 	</rule>
 
-	<rule ref="WordPress.XSS.EscapeOutput.OutputNotEscaped">
+	<rule ref="WordPress.Security.EscapeOutput.OutputNotEscaped">
 		<exclude-pattern>src/*.php</exclude-pattern>
 	</rule>
 </ruleset>
