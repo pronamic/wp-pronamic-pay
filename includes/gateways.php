@@ -19,48 +19,6 @@ use Pronamic\WordPress\Pay\Gateways\Common\AbstractIntegration;
  */
 function pronamic_pay_gateway_integrations() {
 	return array(
-		// ABN AMRO iDEAL Easy.
-		array(
-			'class'    => '\Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandardEasy\Integration',
-			'callback' => function( AbstractIntegration $integration ) {
-				$integration->set_id( 'abnamro-ideal-easy' );
-				$integration->set_name( 'ABN AMRO - iDEAL Easy' );
-
-				$integration->provider      = 'abnamro';
-				$integration->url           = 'https://internetkassa.abnamro.nl/';
-				$integration->product_url   = 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/';
-				$integration->dashboard_url = 'https://internetkassa.abnamro.nl/';
-			},
-		),
-
-		// ABN AMRO - iDEAL Only Kassa.
-		array(
-			'class'    => '\Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration',
-			'callback' => function( AbstractIntegration $integration ) {
-				$integration->set_id( 'abnamro-ideal-only-kassa' );
-				$integration->set_name( 'ABN AMRO - iDEAL Only Kassa' );
-
-				$integration->provider      = 'abnamro';
-				$integration->url           = 'https://internetkassa.abnamro.nl/';
-				$integration->product_url   = 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/';
-				$integration->dashboard_url = 'https://internetkassa.abnamro.nl/';
-			},
-		),
-
-		// ABN AMRO - Internetkassa.
-		array(
-			'class'    => '\Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration',
-			'callback' => function( AbstractIntegration $integration ) {
-				$integration->set_id( 'abnamro-internetkassa' );
-				$integration->set_name( 'ABN AMRO - Internetkassa' );
-
-				$integration->provider      = 'abnamro';
-				$integration->url           = 'https://internetkassa.abnamro.nl/';
-				$integration->product_url   = 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/';
-				$integration->dashboard_url = 'https://internetkassa.abnamro.nl/';
-			},
-		),
-
 		// ABN AMRO - iDEAL Zelfbouw (v3).
 		array(
 			'class'    => '\Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration',
