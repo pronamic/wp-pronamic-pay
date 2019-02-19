@@ -536,6 +536,25 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 	<?php endif; ?>
 
+	<?php
+
+	$ogone_alias = $payment->get_meta( 'ogone_alias' );
+
+	?>
+
+	<?php if ( ! empty( $ogone_alias ) ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Ingenico Alias', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $ogone_alias ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<?php if ( PRONAMIC_PAY_DEBUG ) : ?>
 
 		<tr>
