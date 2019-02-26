@@ -35,6 +35,12 @@ body {
 	h1 {
 		margin: 0;
 	}
+
+	&:after {
+		content: "";
+		clear: both;
+		display: table;
+	}
 }
 
 hr {
