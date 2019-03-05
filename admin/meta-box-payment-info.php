@@ -21,6 +21,10 @@ $post_type = 'pronamic_payment';
 
 $payment = get_pronamic_payment( $post_id );
 
+if ( null === $payment ) {
+	return;
+}
+
 $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 ?>
