@@ -10,12 +10,10 @@
 
 ?>
 <div class="wrap">
-	<h1 class="wp-heading-inline"><?php echo esc_html( get_admin_page_title() ); ?></h1>
-
-	<hr class="wp-header-end">
+	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
 	<div id="dashboard-widgets-wrap">
-		<div id="dashboard-widgets" class="metabox-holder columns-2">
+		<div id="dashboard-widgets" class="metabox-holder">
 			<div id="postbox-container-1" class="postbox-container">
 				<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 
@@ -52,16 +50,25 @@
 								<div id="dashboard_recent_drafts">
 									<table class="wp-list-table widefat fixed striped posts">
 
-										<tr>
+										<tr class="type-<?php echo esc_attr( $payments_post_type ); ?>">
 
 											<?php
 
 											foreach ( $columns as $column ) :
 												$custom_column = sprintf( '%1$s_%2$s', $payments_post_type, $column );
 
+												// Column classes.
+												$classes = array(
+													sprintf( 'column-%s', $custom_column ),
+												);
+
+												if ( 'pronamic_payment_title' === $custom_column ) :
+													$classes[] = 'column-primary';
+												endif;
+
 												printf(
-													'<th class="column-%1$s">%2$s</th>',
-													esc_attr( $custom_column ),
+													'<th class="%1$s">%2$s</th>',
+													esc_attr( implode( ' ', $classes ) ),
 													wp_kses_post( $column_titles[ $custom_column ] )
 												);
 
@@ -73,7 +80,7 @@
 
 										<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-											<tr>
+											<tr class="type-<?php echo esc_attr( $payments_post_type ); ?>">
 												<?php
 
 												$post_id = get_the_ID();
@@ -89,9 +96,14 @@
 														'column-' . $custom_column,
 													);
 
+													if ( 'pronamic_payment_title' === $custom_column ) {
+														$classes[] = 'column-primary';
+													}
+
 													printf(
-														'<td class="%s">',
-														esc_attr( implode( ' ', $classes ) )
+														'<td class="%1$s" data-colname="%2$s">',
+														esc_attr( implode( ' ', $classes ) ),
+														esc_html( $column_titles[ $custom_column ] )
 													);
 
 													// Do custom column action.
@@ -100,6 +112,15 @@
 														$custom_column,
 														$post_id
 													);
+
+													if ( 'pronamic_payment_title' === $custom_column ) :
+
+														printf(
+															'<button type = "button" class="toggle-row" ><span class="screen-reader-text">%1$s</span ></button>',
+															esc_html( __( 'Show more details', 'pronamic_ideal' ) )
+														);
+
+													endif;
 
 													echo '</td>';
 
