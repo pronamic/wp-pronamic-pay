@@ -18,6 +18,22 @@
 				<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 
 					<div class="postbox">
+						<h2 class="hndle"><span><?php esc_html_e( 'Pronamic Pay Status', 'pronamic_ideal' ); ?></span>
+						</h2>
+
+						<div class="inside">
+							<?php
+
+							pronamic_pay_plugin()->admin->dashboard->status_widget();
+
+							?>
+						</div>
+					</div>
+				</div>
+
+				<div id="normal-sortables" class="meta-box-sortables ui-sortable">
+
+					<div class="postbox">
 						<h2 class="hndle"><span><?php esc_html_e( 'Latest Payments', 'pronamic_ideal' ); ?></span></h2>
 
 						<div class="inside">
@@ -247,12 +263,13 @@
 							?>
 						</div>
 					</div>
+
+					<?php require 'pronamic.php'; ?>
+
 				</div>
 			</div>
 
 			<div class="clear"></div>
 		</div>
 	</div>
-
-	<?php require 'pronamic.php'; ?>
 </div>
