@@ -66,7 +66,7 @@
 		this.initTabs = function() {
 			$.each(elements.sectionHeaders, function ( i, elm ) {
 				var item = $( elm );
-				var title = item.find( 'h4' ).text();
+				var title = item.find( 'h4' ).html();
 				var settingsClasses = item.parents( 'div' )[0].className;
 
 				elements.tabItems.append(

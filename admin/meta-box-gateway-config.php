@@ -158,7 +158,7 @@ bind_providers_and_gateways();
 					<div class="pronamic-pay-tab-block gateway-config-section-header">
 						<?php if ( ! empty( $section['title'] ) ) : ?>
 
-							<h4 class="pronamic-pay-cloack"><?php echo esc_html( $section['title'] ); ?></h4>
+							<h4 class="pronamic-pay-cloack"><?php echo $section['title']; // WPCS: XSS ok. ?></h4>
 
 						<?php endif; ?>
 
