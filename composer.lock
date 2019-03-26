@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6abbfc91ad880dcd90c1427b62abe7c",
+    "content-hash": "43aba6e83e8409b245be10d9a41df283",
     "packages": [
         {
             "name": "composer/installers",
@@ -269,34 +269,34 @@
         },
         {
             "name": "pronamic/wp-money",
-            "version": "1.2.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-money.git",
-                "reference": "28b508d7ae573728c3104b183d124e80e549963c"
+                "reference": "b31760fd8842e2aed90ededd7569cb4955b2cd22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-money/zipball/28b508d7ae573728c3104b183d124e80e549963c",
-                "reference": "28b508d7ae573728c3104b183d124e80e549963c",
+                "url": "https://api.github.com/repos/pronamic/wp-money/zipball/b31760fd8842e2aed90ededd7569cb4955b2cd22",
+                "reference": "b31760fd8842e2aed90ededd7569cb4955b2cd22",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-                "johnpbloch/wordpress": "^5.0",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
                 "koodimonni-language/de_de": "*",
                 "koodimonni-language/fr_fr": "*",
                 "koodimonni-language/nl_nl": "*",
                 "php-coveralls/php-coveralls": "^1.1",
+                "phpcompatibility/php-compatibility": "^9.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
                 "phpmd/phpmd": "^2.4",
                 "phpunit/phpunit": "^4.8",
+                "roots/wordpress": "^5.0",
                 "squizlabs/php_codesniffer": "^2.9",
                 "vlucas/phpdotenv": "^2.0",
-                "wimg/php-compatibility": "^9.0",
                 "wp-coding-standards/wpcs": "^1.2",
                 "wp-phpunit/wp-phpunit": "^5.0"
             },
@@ -310,7 +310,8 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2018-12-10T18:41:41+00:00"
+            "description": "WordPress Money library.",
+            "time": "2019-03-08T13:49:12+00:00"
         },
         {
             "name": "viison/address-splitter",
@@ -1570,17 +1571,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/adyen.git",
-                "reference": "7824feae6fb32d3a307bf80b7ddf57c503fb04df"
+                "reference": "86dd3b2024ed36b64b106ba402ddc1487d281b9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/adyen/zipball/7824feae6fb32d3a307bf80b7ddf57c503fb04df",
-                "reference": "7824feae6fb32d3a307bf80b7ddf57c503fb04df",
+                "url": "https://api.github.com/repos/wp-pay-gateways/adyen/zipball/86dd3b2024ed36b64b106ba402ddc1487d281b9f",
+                "reference": "86dd3b2024ed36b64b106ba402ddc1487d281b9f",
                 "shasum": ""
             },
             "require": {
+                "ext-intl": "*",
                 "justinrainbow/json-schema": "^5.2",
                 "php": "^5.3",
+                "pronamic/wp-money": "dev-develop as 1.3",
                 "wp-pay/core": "dev-develop as 2.1"
             },
             "require-dev": {
@@ -1629,7 +1632,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-03-05T15:58:38+00:00"
+            "time": "2019-03-26T09:17:05+00:00"
         },
         {
             "name": "wp-pay-gateways/buckaroo",
@@ -2786,12 +2789,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "f1c4472ad27ef30959f3eac1c2c47a161c8c6ccb"
+                "reference": "da9dc2b585910053841449bb475bf4b2a98b2a75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/f1c4472ad27ef30959f3eac1c2c47a161c8c6ccb",
-                "reference": "f1c4472ad27ef30959f3eac1c2c47a161c8c6ccb",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/da9dc2b585910053841449bb475bf4b2a98b2a75",
+                "reference": "da9dc2b585910053841449bb475bf4b2a98b2a75",
                 "shasum": ""
             },
             "require": {
@@ -2851,7 +2854,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-03-05T13:26:01+00:00"
+            "time": "2019-03-14T14:36:01+00:00"
         }
     ],
     "packages-dev": [
@@ -3880,7 +3883,6 @@
                 "mock",
                 "xunit"
             ],
-            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
@@ -3996,17 +3998,15 @@
         },
         {
             "name": "roots/wordpress",
-            "version": "5.1",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress.git",
-                "reference": "5.1"
+                "reference": "5.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.1",
-                "reference": "5.1",
-                "shasum": null
+                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.1.1"
             },
             "require": {
                 "php": ">=5.3.2",
@@ -4020,17 +4020,17 @@
             "authors": [
                 {
                     "name": "WordPress Community",
-                    "homepage": "http://wordpress.org/about/"
+                    "homepage": "https://wordpress.org/about/"
                 }
             ],
             "description": "WordPress is web software you can use to create a beautiful website or blog.",
-            "homepage": "http://wordpress.org/",
+            "homepage": "https://wordpress.org/",
             "keywords": [
                 "blog",
                 "cms",
                 "wordpress"
             ],
-            "time": "2019-02-22T00:57:46+00:00"
+            "time": "2019-03-13T14:18:06+00:00"
         },
         {
             "name": "roots/wordpress-core-installer",
@@ -4962,7 +4962,7 @@
         },
         {
             "name": "wp-phpunit/wp-phpunit",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-phpunit/wp-phpunit.git",
@@ -5006,6 +5006,12 @@
     ],
     "aliases": [
         {
+            "alias": "1.3",
+            "alias_normalized": "1.3.0.0",
+            "version": "dev-develop",
+            "package": "pronamic/wp-money"
+        },
+        {
             "alias": "2.1.0",
             "alias_normalized": "2.1.0.0",
             "version": "dev-develop",
@@ -5020,6 +5026,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "pronamic/wp-money": 20,
         "wp-pay/core": 20,
         "wp-pay-gateways/adyen": 20
     },
