@@ -31,7 +31,7 @@
   display: block;
   margin: 0;
   padding: 1em;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   transition-property: border, box-shadow, padding;
 }
 .pronamci-pay-chart-legend li.completed-count {
@@ -88,7 +88,7 @@
   font-size: 12px;
   padding: 9px 12px;
   position: relative;
-  transition: color ease .5s;
+  transition: color ease 0.5s;
 }
 .pronamic-pay-status-list li a strong {
   color: #0073aa;
@@ -124,7 +124,7 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
   width: 100%;
 }
 
-.pronamic-pay-form-control-file-button [type='file'] {
+.pronamic-pay-form-control-file-button [type=file] {
   border: 0;
   clip: rect(0, 0, 0, 0);
   margin: -1px;
@@ -144,7 +144,7 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
 .pronamic-pay-icon::after {
   content: "";
   display: block;
-  font-family: 'Pronamic Pay Icons';
+  font-family: "Pronamic Pay Icons";
   position: absolute;
   top: 0;
   left: 0;
@@ -205,7 +205,7 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
 }
 .pronamic-pay-payment-methods li .pronamic-pay-icon {
   display: inline-block;
-  padding-right: .8em;
+  padding-right: 0.8em;
 }
 .pronamic-pay-payment-methods li .pronamic-pay-icon::after {
   color: #ededed;
@@ -390,7 +390,7 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
 }
 @media only screen and (max-width: 782px) {
   .pronamic-pay-tab .form-table th,
-  .pronamic-pay-tab .form-table td {
+.pronamic-pay-tab .form-table td {
     padding: 11px;
   }
 }
