@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 5.1
 Requires PHP: 5.3
-Stable tag: 5.5.5
+Stable tag: 5.6.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -281,6 +281,8 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.6.0 - 2019-04-01 =
 
 = 5.5.5 - 2019-02-04 =
 *	Added Handelsbanken issuer icons.
