@@ -24,7 +24,7 @@ function render_changes( $changes, $level = 0 ) {
 
 	// Changes string.
 	if ( is_string( $changes ) ) {
-		echo esc_html( str_repeat( ' ', $indent ) ), '- ', esc_html( $changes ), "\r\n";
+		echo str_repeat( ' ', $indent ), '- ', $changes, "\r\n";
 	}
 
 	// Changes array.

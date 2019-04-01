@@ -283,6 +283,44 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 == Changelog ==
 
 = 5.6.0 - 2019-04-01 =
+*	Updated WordPress pay core library from 2.1.5 to version 2.1.6.
+	*	Updated Tippy.js to version 3.4.1.
+	*	Introduced a `$payment->get_edit_payment_url()` function to easy retrieve the edit payment URL.
+	*	Introduced a `$payment->get_status_label()` function to retrieve easier a user friendly (translated) status label.
+	*	Renamed status check event to `pronamic_pay_payment_status_check` without seconds argument and with different delays for recurring payments.
+	*	Added space between HTML attributes when converting from array.
+	*	Allow transaction ID to be null.
+	*	Retrieving payments will now check on payment post type.
+	*	Introduced Country, HouseNumber and Region classes.
+	*	Simplify payment redirect (Ogone DirectLink answer moved to gateway).
+	*	Added key query argument to pay redirect URL.
+	*	Link recurring icon to subscription post edit.
+	*	Add support for payment redirect with custom views.
+	*	Register style pronamic-pay-redirect in plugin.
+	*	Removed ABN AMRO iDEAL Easy, iDEAL Only Kassa and Internetkassa gateways.
+	*	Keep main admin menu item active when editing payments/subscriptions/gateways/forms.
+	*	Added pronamic_pay_gateways filter.
+	*	Show Adyen and EMS gateway IDs in custom column.
+	*	Fixed empty admin reports.
+*	Updated WordPress pay Easy Digital Downloads library from 2.0.2 to version 2.0.3.
+	*	Always empty cart for completed payments.
+	*	Simplified adding gateways and payment method icons.
+	*	Fixed "The call to edd_record_gateway_error() has too many arguments" error.
+*	Updated WordPress pay WooCommerce library from 2.0.4 to version 2.0.5.
+	*	Improved order notes and payment status updates.
+	*	Added/updated gateway icons.
+	*	More DRY gateway setup.
+*	Updated WordPress pay WP eCommerce library from 2.0.1 to version 2.0.2.
+	*	Added support for additional payment data like customer, adresses, payment lines, etc.
+	*	Added gateway for AfterPay, Bancontact, Bank Transfer, Credit Card, Focum, Giropay, Maestro, PayPal and SOFORT.
+*	Updated WordPress pay Buckaroo library from 2.0.1 to version 2.0.2.
+	*	Improved Buckaroo push response handling when payment was not found.
+	*	Added missing PHP namespace alias usage Pronamic\WordPress\Pay\Core\Server.
+*	Updated WordPress pay Ingenico library from 2.0.1 to version 2.0.2.
+	*	Moved custom payment redirect from plugin to gateway.
+	*	Make use of payment `get_pay_redirect_url()` method.
+	*	Added initial support for Ogone alias creation.
+	*	Added HTML/CSS classes to TP parameter settings field.
 
 = 5.5.5 - 2019-02-04 =
 *	Added Handelsbanken issuer icons.
