@@ -16,6 +16,10 @@ $states = PaymentPostType::get_payment_states();
 
 $payment = get_pronamic_payment( get_the_ID() );
 
+if ( null === $payment ) {
+	return;
+}
+
 // WordPress by default doesn't allow `post_author` values of `0`, that's why we use a dash (`-`).
 // @link https://github.com/WordPress/WordPress/blob/4.9.5/wp-admin/includes/post.php#L56-L64.
 $post_author = get_post_field( 'post_author' );

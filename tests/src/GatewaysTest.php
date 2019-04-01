@@ -16,8 +16,6 @@ namespace Pronamic\WordPress\Pay;
  * @author Reüel van der Steege
  * @version 1.0.0
  */
-namespace Pronamic\WordPress\Pay;
-
 class GatewaysTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * Test for gateway integrations array.

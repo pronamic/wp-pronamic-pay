@@ -1,20 +1,41 @@
 <?php
+/**
+ * Changelog.
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2019 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 header( 'Content-Type: text/plain' );
 
 $data      = file_get_contents( __DIR__ . '/../changelog.json' );
 $changelog = json_decode( $data );
 
+/**
+ * Render changes.
+ *
+ * @param string|array|object $changes Changes.
+ * @param int                 $level   Level.
+ */
 function render_changes( $changes, $level = 0 ) {
 	$indent = $level * 2;
 
+	// Changes string.
 	if ( is_string( $changes ) ) {
 		echo str_repeat( ' ', $indent ), '- ', $changes, "\r\n";
-	} elseif ( is_array( $changes ) ) {
+	}
+
+	// Changes array.
+	if ( is_array( $changes ) ) {
 		foreach ( $changes as $change ) {
 			render_changes( $change, $level );
 		}
-	} elseif ( is_object( $changes ) ) {
+	}
+
+	// Changes object.
+	if ( is_object( $changes ) ) {
 		if ( isset( $changes->name ) ) {
 			// Changes group.
 			echo "\r\n";
@@ -63,9 +84,18 @@ foreach ( $collection as $log ) {
 		$prev = $collection->getInnerIterator()->current();
 
 		if ( 'Unreleased' === $log->version ) {
-			echo '[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', 'HEAD', "\r\n";
+			printf(
+				'[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/%s...HEAD',
+				$prev->version
+			);
 		} else {
-			echo '[', $log->version, ']: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', $log->version, "\r\n";
+			printf(
+				'[%1$s]: https://github.com/pronamic/wp-pronamic-ideal/compare/%2$s...%1$s',
+				$log->version,
+				$prev->version
+			);
 		}
+
+		echo "\r\n";
 	}
 }

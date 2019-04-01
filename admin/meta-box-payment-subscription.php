@@ -18,6 +18,10 @@ if ( empty( $post_id ) ) {
 
 $payment = get_pronamic_payment( $post_id );
 
+if ( null === $payment ) {
+	return;
+}
+
 $subscription = $payment->get_subscription();
 
 if ( $subscription ) : ?>

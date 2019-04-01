@@ -1,4 +1,12 @@
 <?php
+/**
+ * Readme gateways.
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2019 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 $data = file_get_contents( __DIR__ . '/../providers.json' );
 $data = json_decode( $data );
@@ -12,15 +20,17 @@ $data     = file_get_contents( __DIR__ . '/../gateways.json' );
 $gateways = json_decode( $data );
 
 foreach ( $gateways as $gateway ) {
-	if ( isset( $providers[ $gateway->provider ] ) ) {
-		$provider = $providers[ $gateway->provider ];
-
-		if ( ! isset( $provider->gateways ) ) {
-			$provider->gateways = array();
-		}
-
-		$provider->gateways[ $gateway->slug ] = $gateway;
+	if ( ! isset( $providers[ $gateway->provider ] ) ) {
+		continue;
 	}
+
+	$provider = $providers[ $gateway->provider ];
+
+	if ( ! isset( $provider->gateways ) ) {
+		$provider->gateways = array();
+	}
+
+	$provider->gateways[ $gateway->slug ] = $gateway;
 }
 
 ?>

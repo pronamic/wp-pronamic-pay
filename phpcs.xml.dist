@@ -19,13 +19,16 @@
 	<exclude-pattern>html/*</exclude-pattern>
 	<exclude-pattern>images/*</exclude-pattern>
 	<exclude-pattern>includes/updates/*</exclude-pattern>
+	<exclude-pattern>index.php</exclude-pattern>
 	<exclude-pattern>js/*</exclude-pattern>
 	<exclude-pattern>languages/*</exclude-pattern>
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>other/*</exclude-pattern>
+	<exclude-pattern>repositories/*</exclude-pattern>
+	<exclude-pattern>tests/bootstrap.php</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>wordpress/*</exclude-pattern>
-	<exclude-pattern type="relative">^/wp-content/*</exclude-pattern>
+	<exclude-pattern type="relative">^wp-content/*</exclude-pattern>
 
 	<rule ref="PHPCompatibilityWP" />
 
@@ -48,9 +51,35 @@
 		<exclude-pattern>src/*.php</exclude-pattern>
 	</rule>
 
+	<rule ref="PHPCompatibility.FunctionDeclarations.NewClosure.ClassRefFound">
+		<exclude-pattern>src/i18n-make-pot.php</exclude-pattern>
+	</rule>
+
+	<rule ref="PHPCompatibility.FunctionDeclarations.NewClosure.ThisFound">
+		<exclude-pattern>src/i18n-make-pot.php</exclude-pattern>
+	</rule>
+
+	<rule ref="PHPCompatibility.FunctionDeclarations.NewClosure.ThisFoundOutsideClass">
+		<exclude-pattern>src/i18n-make-pot.php</exclude-pattern>
+	</rule>
+
 	<rule ref="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
 		<exclude-pattern>admin/*.php</exclude-pattern>
 	</rule>
+
+    <rule ref="Squiz.Commenting.FileComment.Missing">
+        <exclude-pattern>src/readme-txt/description-long.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.PHP.EmbeddedPhp.ContentBeforeOpen">
+        <exclude-pattern>src/readme-md/extensions.php</exclude-pattern>
+        <exclude-pattern>src/readme-md/gateways.php</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.PHP.EmbeddedPhp.ContentAfterEnd">
+        <exclude-pattern>src/readme-md/extensions.php</exclude-pattern>
+        <exclude-pattern>src/readme-md/gateways.php</exclude-pattern>
+    </rule>
 
 	<rule ref="WordPress.DB.DirectDatabaseQuery.SchemaChange">
 		<exclude-pattern>uninstall.php</exclude-pattern>
@@ -72,7 +101,7 @@
 		<exclude-pattern>includes/updates/update-2.0.0.php</exclude-pattern>
 	</rule>
 
-	<rule ref="WordPress.XSS.EscapeOutput.OutputNotEscaped">
+	<rule ref="WordPress.Security.EscapeOutput.OutputNotEscaped">
 		<exclude-pattern>src/*.php</exclude-pattern>
 	</rule>
 </ruleset>
