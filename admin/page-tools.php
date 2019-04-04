@@ -23,7 +23,7 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 ?>
 
 <div class="wrap">
-	<h1 class="nav-tab-wrapper">
+	<nav class="nav-tab-wrapper wp-clearfix" aria-label="<?php esc_attr_e( 'Secondary menu', 'pronamic_ideal' ); ?>">
 		<?php
 
 		foreach ( $tabs as $tab => $title ) {
@@ -50,7 +50,7 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 		}
 
 		?>
-	</h1>
+	</nav>
 
 	<hr class="wp-header-end">
 
