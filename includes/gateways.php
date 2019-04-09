@@ -183,47 +183,6 @@ function pronamic_pay_gateway_integrations() {
 		// Pay.nl.
 		'\Pronamic\WordPress\Pay\Gateways\PayNL\Integration',
 
-		// Paytor.
-		array(
-			'class'    => '\Pronamic\WordPress\Pay\Gateways\Mollie\Integration',
-			'callback' => function( AbstractIntegration $integration ) {
-				$integration->set_id( 'paytor' );
-				$integration->set_name( 'Paytor' );
-
-				$integration->provider    = 'paytor';
-				$integration->url         = 'http://paytor.com/';
-				$integration->product_url = 'http://paytor.com/';
-			},
-		),
-
-		// Postcode iDEAL.
-		array(
-			'class'    => '\Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration',
-			'callback' => function( AbstractIntegration $integration ) {
-				$integration->set_id( 'postcode-ideal' );
-				$integration->set_name( 'Postcode iDEAL' );
-
-				$integration->provider      = 'postcode.nl';
-				$integration->product_url   = 'https://services.postcode.nl/ideal';
-				$integration->dashboard_url = 'https://services.postcode.nl/ideal';
-				$integration->deprecated    = true;
-			},
-		),
-
-		// Qantani (new platform).
-		array(
-			'class'    => '\Pronamic\WordPress\Pay\Gateways\Mollie\Integration',
-			'callback' => function( AbstractIntegration $integration ) {
-				$integration->set_id( 'qantani-mollie' );
-				$integration->set_name( __( 'Qantani (new platform)', 'pronamic_ideal' ) );
-
-				$integration->provider      = 'qantani';
-				$integration->url           = 'https://www.qantani.com/';
-				$integration->product_url   = 'https://www.qantani.com/tarieven/';
-				$integration->dashboard_url = 'https://www.qantani.eu/';
-			},
-		),
-
 		// Rabobank - iDEAL Professional (v3).
 		array(
 			'class'    => '\Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration',
