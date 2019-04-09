@@ -14,7 +14,7 @@
 	 *
 	 * @return WPBlock        Block if registered successfully, otherwise "undefined".
 	 */
-	blocks.registerBlockType( 'pronamic-pay/payment-button', {
+	blocks.registerBlockType( 'pronamic-pay/fixed-price-payment-button', {
 		title: pronamic_fixed_price_payment_button.title,
 		icon: 'money',
 		category: 'common',
@@ -55,7 +55,7 @@
 
 				// Server side render.
 				el( ServerSideRender, {
-					block: 'pronamic-pay/payment-button',
+					block: 'pronamic-pay/fixed-price-payment-button',
 					attributes: props.attributes
 				} )
 			);
