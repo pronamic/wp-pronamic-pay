@@ -76,14 +76,6 @@ $pronamic_pay_providers = array(
 		'name' => 'Pay.nl',
 		'url'  => 'https://www.pay.nl/',
 	),
-	'paytor'            => array(
-		'name' => 'Paytor',
-		'url'  => 'http://www.paytor.com/',
-	),
-	'postcode.nl'       => array(
-		'name' => 'Postcode.nl',
-		'url'  => 'https://www.postcode.nl/',
-	),
 	'rabobank'          => array(
 		'name' => 'Rabobank',
 		'url'  => 'https://www.rabobank.nl/',
@@ -97,10 +89,5 @@ $pronamic_pay_providers = array(
 		'name'          => 'TargetPay',
 		'url'           => 'https://www.targetpay.com/',
 		'affiliate_url' => 'https://www.targetpay.com/quickreg/85315',
-	),
-	'qantani'           => array(
-		'name'          => 'Qantani',
-		'url'           => 'https://www.qantani.com/',
-		'affiliate_url' => 'https://www.qantani.com/?referrer=pronamic',
 	),
 );

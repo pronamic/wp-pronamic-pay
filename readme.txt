@@ -206,10 +206,6 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 	*	Ingenico/Ogone - OrderStandard
 *	[Pay.nl](https://www.pay.nl/)
 	*	Pay.nl
-*	[Paytor](http://www.paytor.com/)
-	*	Paytor
-*	[Postcode.nl](https://www.postcode.nl/)
-	*	Postcode iDEAL
 *	[Rabobank](https://www.rabobank.nl/)
 	*	Rabobank - OmniKassa
 	*	Rabobank - iDEAL Professional - v3
@@ -217,8 +213,6 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 	*	Sisow
 *	[TargetPay](https://www.targetpay.com/)
 	*	TargetPay - iDEAL
-*	[Qantani](https://www.qantani.com/)
-	*	Qantani (new platform)
 
 
 == Installation ==
