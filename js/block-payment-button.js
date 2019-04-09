@@ -1,3 +1,4 @@
+/* globals pronamic_fixed_price_payment_button */
 ( function ( blocks, components, editor, element ) {
 	var el = element.createElement;
 	var Fragment = element.Fragment;
@@ -21,8 +22,7 @@
 		// Attributes.
 		attributes: {
 			amount: {
-				type: 'string',
-				default: '0'
+				type: 'string'
 			}
 		},
 
@@ -55,7 +55,7 @@
 
 				// Server side render.
 				el( ServerSideRender, {
-					block: "pronamic-pay/payment-button",
+					block: 'pronamic-pay/payment-button',
 					attributes: props.attributes
 				} )
 			);
