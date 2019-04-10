@@ -12,16 +12,9 @@ global $pronamic_pay_errors;
 
 use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\Core\PaymentMethods;
+use Pronamic\WordPress\Pay\Forms\FormPostType;
 use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Util;
-
-$config_id = get_post_meta( $id, '_pronamic_payment_form_config_id', true );
-
-$button_text = get_post_meta( $id, '_pronamic_payment_form_button_text', true );
-$button_text = empty( $button_text ) ? __( 'Pay Now', 'pronamic_ideal' ) : $button_text;
-
-$amount_method  = get_post_meta( $id, '_pronamic_payment_form_amount_method', true );
-$amount_choices = get_post_meta( $id, '_pronamic_payment_form_amount_choices', true );
 
 $methods_with_choices = array(
 	\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_ONLY,
@@ -40,9 +33,9 @@ if ( $gateway ) : ?>
 
 	<div class="pronamic-pay-form-wrap">
 
-		<?php if ( ! is_singular( 'pronamic_pay_form' ) ) : ?>
+		<?php if ( ! is_singular( 'pronamic_pay_form' ) && ! empty( $title ) ) : ?>
 
-			<h2 class="pronamic-pay-form-title"><?php echo esc_html( get_the_title( $id ) ); ?></h2>
+			<h2 class="pronamic-pay-form-title"><?php echo esc_html( $title ); ?></h2>
 
 		<?php endif; ?>
 
@@ -57,7 +50,7 @@ if ( $gateway ) : ?>
 				<div class="pronamic-pay-amount pronamic-pay-form-row-wide">
 					<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
 
-							<?php foreach ( $amount_choices as $amount ) : ?>
+							<?php foreach ( $amounts as $amount ) : ?>
 
 								<?php
 
@@ -67,13 +60,13 @@ if ( $gateway ) : ?>
 
 								?>
 
-								<div>
-									<input class="pronamic-pay-amount-input pronamic-pay-input" id="<?php echo esc_attr( $input_id ); ?>" name="pronamic_pay_amount" type="radio" required="required" value="<?php echo esc_attr( sprintf( '%F', $amount ) ); ?>" />
-									<label for="<?php echo esc_attr( $input_id ); ?>">
-										<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
-										<span class="pronamic-pay-amount-value"><?php echo esc_html( $money->format_i18n() ); ?></span>
-									</label>
-								</div>
+							<div>
+								<input class="pronamic-pay-amount-input pronamic-pay-input" id="<?php echo esc_attr( $input_id ); ?>" name="pronamic_pay_amount" type="radio" required="required" value="<?php echo esc_attr( sprintf( '%F', $amount ) ); ?>" />
+								<label for="<?php echo esc_attr( $input_id ); ?>">
+									<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
+									<span class="pronamic-pay-amount-value"><?php echo esc_html( $money->format_i18n() ); ?></span>
+								</label>
+							</div>
 
 							<?php endforeach; ?>
 
@@ -198,6 +191,12 @@ if ( $gateway ) : ?>
 				<?php wp_nonce_field( 'pronamic_pay', 'pronamic_pay_nonce' ); ?>
 
 				<input type="hidden" name="pronamic_pay_form_id" value="<?php echo esc_attr( $id ); ?>" />
+
+				<?php if ( FormPostType::AMOUNT_METHOD_INPUT_FIXED === $amount_method ) : ?>
+
+					<input type="hidden" name="pronamic_pay_amount" value="<?php echo esc_attr( array_shift( $amounts ) ); ?>" />
+
+				<?php endif; ?>
 
 				<input type="submit" class="pronamic-pay-submit pronamic-pay-btn" id="pronamic-pay-purchase-button" name="pronamic_pay" value="<?php echo esc_attr( $button_text ); ?>" />
 			</div>
