@@ -24,45 +24,6 @@
  */
 
 /**
- * Dependency-checking.
- */
-function pronamic_pay_deactivate() {
-	deactivate_plugins( plugin_basename( __FILE__ ) );
-}
-
-/**
- * Function to block activation of the plugin.
- */
-function pronamic_pay_block_activation() {
-	$message = sprintf(
-		/* translators: 1: http://www.wpupdatephp.com/update/, 2: _blank */
-		__( 'Unfortunately the Pronamic Pay plugin will no longer work correctly in PHP versions older than 5.3. Read more information about <a href="%1$s" target="%2$s">how you can update</a>.', 'pronamic_ideal' ),
-		esc_attr__( 'http://www.wpupdatephp.com/update/', 'pronamic_ideal' ),
-		esc_attr( '_blank' )
-	);
-
-	wp_die(
-		wp_kses(
-			$message,
-			array(
-				'a' => array(
-					'href'   => true,
-					'target' => true,
-				),
-			)
-		)
-	);
-}
-
-if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
-	register_activation_hook( __FILE__, 'pronamic_pay_block_activation' );
-
-	add_action( 'admin_init', 'pronamic_pay_deactivate' );
-
-	return;
-}
-
-/**
  * Autoload.
  */
 if ( ! defined( 'PRONAMIC_PAY_DEBUG' ) ) {
