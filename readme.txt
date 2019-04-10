@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurrin
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 4.7
 Tested up to: 5.1
-Requires PHP: 5.3
+Requires PHP: 5.6
 Stable tag: 5.6.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
