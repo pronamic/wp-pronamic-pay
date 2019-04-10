@@ -141,7 +141,7 @@ $subscription = get_pronamic_subscription( $post_id );
 	// Show end date if frequency is limited.
 	if ( ! empty( $frequency ) ) :
 
-	?>
+		?>
 
 		<tr>
 			<th scope="row">
@@ -165,7 +165,7 @@ $subscription = get_pronamic_subscription( $post_id );
 	// Show next payment date if subscription is not cancelled or completed.
 	if ( ! in_array( $subscription->get_status(), array( Statuses::CANCELLED, Statuses::COMPLETED ), true ) ) :
 
-	?>
+		?>
 
 		<tr>
 			<th scope="row">

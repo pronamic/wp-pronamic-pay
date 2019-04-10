@@ -292,7 +292,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 	$account_holder = get_post_meta( $post_id, '_pronamic_payment_consumer_name', true );
 
 	if ( ! empty( $account_holder ) ) :
-	?>
+		?>
 
 		<tr>
 			<th scope="row">
@@ -310,7 +310,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 	$account_holder_city = get_post_meta( $post_id, '_pronamic_payment_consumer_city', true );
 
 	if ( ! empty( $account_holder_city ) ) :
-	?>
+		?>
 
 		<tr>
 			<th scope="row">
@@ -328,7 +328,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 	$account_number = get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true );
 
 	if ( ! empty( $account_number ) ) :
-	?>
+		?>
 
 		<tr>
 			<th scope="row">
@@ -346,7 +346,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 	$iban = get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true );
 
 	if ( ! empty( $iban ) ) :
-	?>
+		?>
 
 		<tr>
 			<th scope="row">
@@ -372,7 +372,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 	$bic = get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true );
 
 	if ( ! empty( $bic ) ) :
-	?>
+		?>
 
 		<tr>
 			<th scope="row">
