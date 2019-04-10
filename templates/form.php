@@ -33,7 +33,7 @@ if ( $gateway ) : ?>
 
 	<div class="pronamic-pay-form-wrap">
 
-		<?php if ( ! is_singular( 'pronamic_pay_form' ) ) : ?>
+		<?php if ( ! is_singular( 'pronamic_pay_form' ) && ! empty( $title ) ) : ?>
 
 			<h2 class="pronamic-pay-form-title"><?php echo esc_html( $title ); ?></h2>
 
