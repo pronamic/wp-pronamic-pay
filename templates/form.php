@@ -40,96 +40,92 @@ if ( $gateway ) : ?>
 		<?php endif; ?>
 
 		<form id="pronamic-pay-form-<?php echo esc_attr( $id ); ?>" class="pronamic-pay-form" method="post">
-			<?php if ( FormPostType::AMOUNT_METHOD_INPUT_FIXED !== $amount_method ) : ?>
+			<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
 
-				<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
+			<fieldset>
+				<legend><?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?></legend>
 
-				<fieldset>
-					<legend><?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?></legend>
+			<?php endif; ?>
 
-				<?php endif; ?>
+				<div class="pronamic-pay-amount pronamic-pay-form-row-wide">
+					<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
 
-					<div class="pronamic-pay-amount pronamic-pay-form-row-wide">
-						<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
+							<?php foreach ( $amounts as $amount ) : ?>
 
-								<?php foreach ( $amounts as $amount ) : ?>
+								<?php
 
-									<?php
+								$input_id = 'pronamic-pay-amount-' . esc_attr( $amount );
 
-									$input_id = 'pronamic-pay-amount-' . esc_attr( $amount );
+								$money = new Money( $amount / 100 );
 
-									$money = new Money( $amount / 100 );
+								?>
 
-									?>
+							<div>
+								<input class="pronamic-pay-amount-input pronamic-pay-input" id="<?php echo esc_attr( $input_id ); ?>" name="pronamic_pay_amount" type="radio" required="required" value="<?php echo esc_attr( sprintf( '%F', $amount ) ); ?>" />
+								<label for="<?php echo esc_attr( $input_id ); ?>">
+									<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
+									<span class="pronamic-pay-amount-value"><?php echo esc_html( $money->format_i18n() ); ?></span>
+								</label>
+							</div>
+
+							<?php endforeach; ?>
+
+							<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT === $amount_method ) : ?>
 
 								<div>
-									<input class="pronamic-pay-amount-input pronamic-pay-input" id="<?php echo esc_attr( $input_id ); ?>" name="pronamic_pay_amount" type="radio" required="required" value="<?php echo esc_attr( sprintf( '%F', $amount ) ); ?>" />
-									<label for="<?php echo esc_attr( $input_id ); ?>">
+									<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount-other" name="pronamic_pay_amount" type="radio" required="required" value="other" />
+									<label for="pronamic-pay-amount-other">
 										<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
-										<span class="pronamic-pay-amount-value"><?php echo esc_html( $money->format_i18n() ); ?></span>
+										<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount_other" type="text" placeholder="" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
 									</label>
 								</div>
 
-								<?php endforeach; ?>
+							<?php endif; ?>
 
-								<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT === $amount_method ) : ?>
+					<?php endif; ?>
 
-									<div>
-										<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount-other" name="pronamic_pay_amount" type="radio" required="required" value="other" />
-										<label for="pronamic-pay-amount-other">
-											<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
-											<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount_other" type="text" placeholder="" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
-										</label>
-									</div>
+					<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_INPUT_ONLY === $amount_method ) : ?>
 
-								<?php endif; ?>
+						<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
+						<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount" type="text" placeholder="" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
 
-						<?php endif; ?>
+					<?php endif; ?>
+				</div>
 
-						<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_INPUT_ONLY === $amount_method ) : ?>
+			<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
 
-							<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
-							<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount" type="text" placeholder="" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
-
-						<?php endif; ?>
-					</div>
-
-				<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
-
-				</fieldset>
-
-				<?php endif; ?>
-
-				<fieldset>
-					<legend><?php esc_html_e( 'Personal Info', 'pronamic_ideal' ); ?></legend>
-
-					<p class="pronamic-pay-form-row pronamic-pay-form-row-first">
-						<label class="pronamic-pay-label" for="pronamic-pay-first-name">
-							<?php esc_html_e( 'First Name', 'pronamic_ideal' ); ?> <span class="pronamic-pay-required-indicator">*</span>
-						</label>
-
-						<input class="pronamic-pay-input pronamic-pay-required" type="text" name="pronamic_pay_first_name" placeholder="<?php esc_attr_e( 'First Name', 'pronamic_ideal' ); ?>" id="pronamic-pay-first-name" required="required" value="" />
-					</p>
-
-					<p class="pronamic-pay-form-row pronamic-pay-form-row-last">
-						<label class="pronamic-pay-label" for="pronamic-pay-last-name">
-							<?php esc_html_e( 'Last Name', 'pronamic_ideal' ); ?>
-						</label>
-
-						<input class="pronamic-pay-input" type="text" name="pronamic_pay_last_name" id="pronamic-pay-last-name" placeholder="<?php esc_attr_e( 'Last Name', 'pronamic_ideal' ); ?>" value="" />
-					</p>
-
-					<p class="pronamic-pay-form-row pronamic-pay-form-row-wide">
-						<label class="pronamic-pay-label" for="pronamic-pay-email">
-							<?php esc_html_e( 'Email Address', 'pronamic_ideal' ); ?>
-							<span class="pronamic-pay-required-indicator">*</span>
-						</label>
-
-						<input class="pronamic-pay-input required" type="email" name="pronamic_pay_email" placeholder="<?php esc_attr_e( 'Email Address', 'pronamic_ideal' ); ?>" id="pronamic-pay-email" required="required" value="" />
-					</p>
-				</fieldset>
+			</fieldset>
 
 			<?php endif; ?>
+
+			<fieldset>
+				<legend><?php esc_html_e( 'Personal Info', 'pronamic_ideal' ); ?></legend>
+
+				<p class="pronamic-pay-form-row pronamic-pay-form-row-first">
+					<label class="pronamic-pay-label" for="pronamic-pay-first-name">
+						<?php esc_html_e( 'First Name', 'pronamic_ideal' ); ?> <span class="pronamic-pay-required-indicator">*</span>
+					</label>
+
+					<input class="pronamic-pay-input pronamic-pay-required" type="text" name="pronamic_pay_first_name" placeholder="<?php esc_attr_e( 'First Name', 'pronamic_ideal' ); ?>" id="pronamic-pay-first-name" required="required" value="" />
+				</p>
+
+				<p class="pronamic-pay-form-row pronamic-pay-form-row-last">
+					<label class="pronamic-pay-label" for="pronamic-pay-last-name">
+						<?php esc_html_e( 'Last Name', 'pronamic_ideal' ); ?>
+					</label>
+
+					<input class="pronamic-pay-input" type="text" name="pronamic_pay_last_name" id="pronamic-pay-last-name" placeholder="<?php esc_attr_e( 'Last Name', 'pronamic_ideal' ); ?>" value="" />
+				</p>
+
+				<p class="pronamic-pay-form-row pronamic-pay-form-row-wide">
+					<label class="pronamic-pay-label" for="pronamic-pay-email">
+						<?php esc_html_e( 'Email Address', 'pronamic_ideal' ); ?>
+						<span class="pronamic-pay-required-indicator">*</span>
+					</label>
+
+					<input class="pronamic-pay-input required" type="email" name="pronamic_pay_email" placeholder="<?php esc_attr_e( 'Email Address', 'pronamic_ideal' ); ?>" id="pronamic-pay-email" required="required" value="" />
+				</p>
+			</fieldset>
 
 			<?php
 
