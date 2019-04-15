@@ -8,6 +8,17 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changed
 
+## [5.6.1] - 2019-04-15
+
+### Fixed
+- Updated WordPress pay Ninja Forms library from 1.0.0 to version 1.0.1.
+  - Fix form builder not loading due to removed 'pricing' field type section since Ninja Forms 3.4.6.
+  - Workaround Ninja Forms not passing plugin default currency setting correctly.
+- Updated WordPress pay WooCommerce library from 2.0.5 to version 2.0.6.
+  - Fix accidentally adding 'Pronamic' to checkout button text.
+  - Fix fatal error in checkout settings with WooCommerce Subscriptions.
+  - Fix incorrectly filtering available checkout gateways with WooCommerce Subscriptions.
+
 ## [5.6.0] - 2019-04-01
 
 ### Changed
@@ -2011,7 +2022,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.1...HEAD
+[5.6.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.0...5.6.1
 [5.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.5...5.6.0
 [5.5.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.4...5.5.5
 [5.5.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.3...5.5.4
