@@ -124,6 +124,12 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 	*	**GitHub:** [https://github.com/pronamic-wpmudev/membership-premium](https://github.com/pronamic-wpmudev/membership-premium)
 	*	**Requires at least:** 3.4.6
 	*	**Tested up to:** 3.5.1.3
+*	[Ninja Forms](https://wordpress.org/plugins/ninja-forms/)
+	*	**Author:** [The WP Ninjas](http://ninjaforms.com/)
+	*	**WordPress.org:** [https://wordpress.org/plugins/ninja-forms/](https://wordpress.org/plugins/ninja-forms/)
+	*	**GitHub:** [https://github.com/wpninjas/ninja-forms](https://github.com/wpninjas/ninja-forms)
+	*	**Requires at least:** 3.3.15
+	*	**Tested up to:** 3.4.9
 *	[s2Member®](http://www.s2member.com/)
 	*	**Author:** [WebSharks, Inc.](http://www.websharks-inc.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/s2member/](http://wordpress.org/plugins/s2member/)
