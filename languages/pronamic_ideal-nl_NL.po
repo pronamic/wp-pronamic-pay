@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay v5.5.5\n"
+"Project-Id-Version: Pronamic Pay v5.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2019-03-29T10:58:35+00:00\n"
+"POT-Creation-Date: 2019-04-15T13:28:08+00:00\n"
 "PO-Revision-Date: 2019-03-29 13:03+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -21,6 +21,7 @@ msgstr ""
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:178
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:121
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:49
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:59
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentAction.php:33
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:85
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:234
@@ -43,6 +44,7 @@ msgstr ""
 #. Author of the plugin
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:99
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:100
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:117
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:213
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:83
@@ -398,8 +400,8 @@ msgstr "Vervaldatum"
 msgid "Consumer"
 msgstr "Consument"
 
-#: admin/meta-box-subscription-info.php:222
-#: admin/meta-box-payment-info.php:269 admin/meta-box-notes.php:35
+#: admin/meta-box-subscription-info.php:222 admin/meta-box-payment-info.php:269
+#: admin/meta-box-notes.php:35
 msgid "User"
 msgstr "Gebruiker"
 
@@ -411,13 +413,11 @@ msgstr "Gebruiker"
 msgid "Source"
 msgstr "Bron"
 
-#: admin/meta-box-subscription-info.php:258
-#: admin/meta-box-payment-info.php:484
+#: admin/meta-box-subscription-info.php:258 admin/meta-box-payment-info.php:484
 msgid "Period"
 msgstr "Periode"
 
-#: admin/meta-box-subscription-info.php:266
-#: admin/meta-box-payment-info.php:492
+#: admin/meta-box-subscription-info.php:266 admin/meta-box-payment-info.php:492
 msgid "Level"
 msgstr "Niveau"
 
@@ -690,8 +690,7 @@ msgstr ""
 msgid "Start tour"
 msgstr "Start rondleiding"
 
-#: admin/pointer-forms.php:12
-#: vendor/wp-pay/core/src/Forms/FormPostType.php:101
+#: admin/pointer-forms.php:12 vendor/wp-pay/core/src/Forms/FormPostType.php:101
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:103
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:114
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:594
@@ -4678,29 +4677,29 @@ msgstr "Shopp bestelling"
 msgid "Transaction Description"
 msgstr "Transactiebeschrijving"
 
-#: vendor/wp-pay-extensions/ninjaforms/src/PaymentData.php:179
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentData.php:187
 msgid "Submission"
 msgstr "Inzending"
 
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:114
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:154
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:132
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:172
 msgid "Ninja Forms"
 msgstr "Ninja Forms"
 
 #. translators: %s: payment source id
 #. translators: %s: source id
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:135
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:153
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:200
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:259
 msgid "Entry #%s"
 msgstr "Inzending #%s"
 
 #. translators: %s: payment source id
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:139
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:157
 msgid "#%s"
 msgstr "#%s"
 
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:165
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:183
 msgid "Ninja Forms Entry"
 msgstr "Ninja Forms inzending"
 

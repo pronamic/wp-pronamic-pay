@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 5.1
 Requires PHP: 5.6
-Stable tag: 5.6.0
+Stable tag: 5.6.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -124,6 +124,12 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 	*	**GitHub:** [https://github.com/pronamic-wpmudev/membership-premium](https://github.com/pronamic-wpmudev/membership-premium)
 	*	**Requires at least:** 3.4.6
 	*	**Tested up to:** 3.5.1.3
+*	[Ninja Forms](https://wordpress.org/plugins/ninja-forms/)
+	*	**Author:** [The WP Ninjas](http://ninjaforms.com/)
+	*	**WordPress.org:** [https://wordpress.org/plugins/ninja-forms/](https://wordpress.org/plugins/ninja-forms/)
+	*	**GitHub:** [https://github.com/wpninjas/ninja-forms](https://github.com/wpninjas/ninja-forms)
+	*	**Requires at least:** 3.3.15
+	*	**Tested up to:** 3.4.9
 *	[s2Member®](http://www.s2member.com/)
 	*	**Author:** [WebSharks, Inc.](http://www.websharks-inc.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/s2member/](http://wordpress.org/plugins/s2member/)
@@ -275,6 +281,15 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.6.1 - 2019-04-15 =
+*	Updated WordPress pay Ninja Forms library from 1.0.0 to version 1.0.1.
+	*	Fix form builder not loading due to removed 'pricing' field type section since Ninja Forms 3.4.6.
+	*	Workaround Ninja Forms not passing plugin default currency setting correctly.
+*	Updated WordPress pay WooCommerce library from 2.0.5 to version 2.0.6.
+	*	Fix accidentally adding 'Pronamic' to checkout button text.
+	*	Fix fatal error in checkout settings with WooCommerce Subscriptions.
+	*	Fix incorrectly filtering available checkout gateways with WooCommerce Subscriptions.
 
 = 5.6.0 - 2019-04-01 =
 *	Updated WordPress pay core library from 2.1.5 to version 2.1.6.

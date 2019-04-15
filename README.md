@@ -73,6 +73,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](http://www.caseproof.com/) |  |  | `1.2.4` | `1.3.36` |
 | [Membership 2](http://wordpress.org/plugins/membership/) | [WPMUDEV.org](http://www.wpmudev.org/) | [WordPress.org](http://wordpress.org/plugins/membership/) |  | `3.4.4.1` | `4.0.0.7` |
 | [Membership Premium](https://premium.wpmudev.org/project/membership/) | [WPMUDEV.org](http://www.wpmudev.org/) |  | [GitHub](https://github.com/pronamic-wpmudev/membership-premium) | `3.4.6` | `3.5.1.3` |
+| [Ninja Forms](https://wordpress.org/plugins/ninja-forms/) | [The WP Ninjas](http://ninjaforms.com/) | [WordPress.org](https://wordpress.org/plugins/ninja-forms/) | [GitHub](https://github.com/wpninjas/ninja-forms) | `3.3.15` | `3.4.9` |
 | [s2Member®](http://www.s2member.com/) | [WebSharks, Inc.](http://www.websharks-inc.com/) | [WordPress.org](http://wordpress.org/plugins/s2member/) | [GitHub](https://github.com/WebSharks/s2Member) | `130816` | `170722` |
 | [Shopp](https://shopplugin.net/) | [Ingenesis Limited](http://ingenesis.net/) | [WordPress.org](http://wordpress.org/plugins/shopp/) | [GitHub](https://github.com/ingenesis/shopp) | `1.1` | `1.3.5` |
 | [WooCommerce](http://www.woothemes.com/woocommerce/) | [WooThemes](http://www.woothemes.com/) | [WordPress.org](http://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woothemes/woocommerce) | `2.3.0` | `3.5.2` |
