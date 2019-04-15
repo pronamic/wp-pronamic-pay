@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay v5.5.5\n"
+"Project-Id-Version: Pronamic Pay v5.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2019-03-29T10:58:35+00:00\n"
-"PO-Revision-Date: 2019-02-04 13:19+0100\n"
+"POT-Creation-Date: 2019-04-15T13:28:08+00:00\n"
+"PO-Revision-Date: 2019-04-15 15:44+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: de_DE\n"
@@ -20,6 +20,7 @@ msgstr ""
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:178
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:121
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:49
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:59
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentAction.php:33
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:85
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:234
@@ -42,6 +43,7 @@ msgstr ""
 #. Author of the plugin
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:99
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:100
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:117
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:213
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:83
@@ -923,7 +925,7 @@ msgstr "Abonnementnummer"
 
 #: admin/meta-box-payment-info.php:553
 msgid "Ingenico Alias"
-msgstr ""
+msgstr "Ingenico Alias"
 
 #: admin/meta-box-payment-info.php:566
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:639
@@ -1014,9 +1016,8 @@ msgid "Latest Payments"
 msgstr "Letzte Zahlungen"
 
 #: admin/page-dashboard.php:136
-#, fuzzy
 msgid "Show more details"
-msgstr "Zeige Details…"
+msgstr "Mehr Details anzeigen"
 
 #: admin/page-dashboard.php:158
 msgid "No pending payments found."
@@ -3452,25 +3453,27 @@ msgstr "Parametervariable"
 
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:265
 msgid "Alias"
-msgstr ""
+msgstr "Alias"
 
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:267
 msgid "Enable alias registration"
-msgstr ""
+msgstr "Alias-Registrierung aktivieren"
 
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:268
 msgid ""
 "Enable alias creation as reference for batch payments. Requires the Alias "
 "Manager option (`REQ1`) to be enabled for the Ingenico account."
 msgstr ""
+"Alias-Erstellung aktivieren als Referenz für Sammelzahlungen. Erfordert dass "
+"die Alias Manager-Option (`REQ1`) für das Ingenico-Konto aktiviert wird."
 
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:277
 msgid "Alias Usage"
-msgstr ""
+msgstr "Alias Einsatz"
 
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:285
 msgid "Description on payment page of how aliases are used."
-msgstr ""
+msgstr "Beschreibung auf der Zahlungsseite, wie Aliase verwendet werden."
 
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:294
 msgid "Template Page"
@@ -3851,63 +3854,60 @@ msgid "EMS e-Commerce transaction data in response message:"
 msgstr "EMS-E-Commerce-Transaktionsdaten in Antwortnachricht:"
 
 #: vendor/wp-pay-gateways/adyen/views/checkout.php:18
-#, fuzzy
 msgid "Checkout"
-msgstr "Kasse-Label"
+msgstr "Kasse"
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:55
-#, fuzzy
 msgid "Gateway configuration ID."
-msgstr "Gateway-Konfiguration"
+msgstr "Gateway-Konfiguration ID."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:59
 msgid "Payload."
-msgstr ""
+msgstr "Nutzlast."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:63
 msgid "Result code."
-msgstr ""
+msgstr "Ergebniscode."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:67
 msgid "Result text."
-msgstr ""
+msgstr "Ergebnistext."
 
 #. translators: %s: Gateway configuration ID
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:93
 msgid "Could not found gateway with ID `%s`."
-msgstr ""
+msgstr "Gateway konnte nicht gefunden werden mit ID `%s`."
 
 #. translators: %s: Gateway configuration ID
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:105
 msgid "Could not found client in gateway with ID `%s`."
-msgstr ""
+msgstr "Konnte keinen Client in Gateway mit ID `%s` finden."
 
 #. translators: %s: Adyen merchant reference
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:127
 msgid "Could not found payment with ID `%s`."
-msgstr ""
+msgstr "Zahlung konnte nicht gefunden werden mit ID `%s`."
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:39
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:138
 #: vendor/wp-pay-gateways/adyen/src/PaymentResultHelper.php:37
 #: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:112
 msgid "Adyen"
-msgstr ""
+msgstr "Adyen"
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:68
-#, fuzzy
 msgctxt "adyen"
 msgid "Merchant Account"
-msgstr "Merchant ID"
+msgstr "Handelskonto"
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:72
 msgid ""
 "The merchant account identifier, with which you want to process the "
 "transaction"
 msgstr ""
+"Der Händlerkonto-Kennzeichen, mit dem Sie die Transaktion bearbeiten wollen"
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:80
-#, fuzzy
 msgctxt "adyen"
 msgid "API Key"
 msgstr "API Schlüssel"
@@ -3919,25 +3919,24 @@ msgstr "API-Schlüssel wie im Dashboard des Zahlungsanbieters angegeben"
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:88
 msgid "Adyen documentation: \"How to get the API key\"."
-msgstr ""
+msgstr "Adyen-Dokumentation: \"How to get the API key\"."
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:97
 msgctxt "adyen"
 msgid "API Live URL Prefix"
-msgstr ""
+msgstr "API Live URL Prefix"
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:101
-#, fuzzy
 msgid ""
 "The unique prefix for the live API URL, as mentioned at <strong>Account » "
 "API URLs</strong> in the Adyen dashboard"
 msgstr ""
-"Layoutcode wie unter <strong>Unterkonten</strong> im TargetPay-Dashboard "
-"angegeben."
+"Das einzigartige Präfix für die Live-API-URL, wie es bei <strong>Account » "
+"API-URLs</strong> im Adyen-Dashboard erwähnt wird."
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:105
 msgid "Adyen documentation: \"Live URL prefix\"."
-msgstr ""
+msgstr "Adyen-Dokumentation: \"Live URL prefix\"."
 
 #. translators: %s: Adyen
 #. translators: %s: ING Kassa Compleet
@@ -3951,59 +3950,55 @@ msgstr ""
 "Aktualisierungen des Transaktionsstatus zu erhalten."
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:151
-#, fuzzy
 msgid "SSL Version"
-msgstr "MySQL Version"
+msgstr "SSL Version"
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:153
 msgid "Choose the SSL Version of your server on the Adyen Customer Area."
-msgstr ""
+msgstr "Wählen Sie die SSL-Version Ihres Servers im Adyen-Kundenbereich."
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:165
-#, fuzzy
 msgctxt "adyen notification"
 msgid "Method"
 msgstr "Methode"
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:167
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 #: vendor/wp-pay-gateways/adyen/src/Settings.php:174
-#, fuzzy
 msgid "Authentication"
-msgstr "Autorisierungs-ID"
+msgstr "Authentifizierung"
 
 #. translators: %s: payment provider name
 #: vendor/wp-pay-gateways/adyen/src/PaymentResultHelper.php:36
-#, fuzzy
 msgid "Verified payment result."
-msgstr "Fehlgeschlagenen Zahlung"
+msgstr "Überprüfte Zahlungsresultat."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:98
-#, fuzzy
 msgid "Adyen Notification Authentication"
-msgstr "Identifikation für die Transaktion"
+msgstr "Adyen-Benachrichtigungsauthentifizierung"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:105
-#, fuzzy
 msgid "User Name"
-msgstr "Kunden Name"
+msgstr "Benutzername"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:116
-#, fuzzy
 msgid "Password"
-msgstr "API Benutzer Passwort"
+msgstr "Passwort"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:134
 msgid ""
 "Set the user name and password below and in the webhook authentication "
 "settings in the Adyen dashboard for increased security (recommended)."
 msgstr ""
+"Setzen Sie den Benutzernamen und das Passwort unten und in den Webhook-"
+"Authentifizierungseinstellungen im Adyen-Dashboard für mehr Sicherheit "
+"(empfohlen)."
 
 #: vendor/wp-pay-gateways/adyen/src/Gateway.php:277
 msgid "Error getting payment result:"
-msgstr ""
+msgstr "Fehler beim Erhalten des Zahlungsergebnisses:"
 
 #. translators: %s: item index
 #: vendor/wp-pay-gateways/adyen/src/PaymentRequestHelper.php:95
@@ -4691,29 +4686,29 @@ msgstr "Shopp Bestellung"
 msgid "Transaction Description"
 msgstr "Transaktionsbeschreibung"
 
-#: vendor/wp-pay-extensions/ninjaforms/src/PaymentData.php:179
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentData.php:187
 msgid "Submission"
 msgstr "Vorschlag"
 
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:114
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:154
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:132
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:172
 msgid "Ninja Forms"
 msgstr "Ninja Forms"
 
 #. translators: %s: payment source id
 #. translators: %s: source id
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:135
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:153
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:200
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:259
 msgid "Entry #%s"
 msgstr "Eintrag #%s"
 
 #. translators: %s: payment source id
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:139
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:157
 msgid "#%s"
 msgstr "#%s"
 
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:165
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:183
 msgid "Ninja Forms Entry"
 msgstr "Ninja Forms Eintritt"
 
@@ -4934,16 +4929,16 @@ msgstr "Vorbehaltene Zahlung storniert"
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:440
 msgid "<a href=\"%1$s\">Payment #%2$s</a> via \"%3$s\" updated to \"%4$s\"."
 msgstr ""
+"<a href=\"%1$s\">Zahlung #%2$s</a> über \"%3$s\" aktualisiert zu \"%4$s\"."
 
 #. translators: 1: payment URL, 2: payment ID
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:462
-#, fuzzy
 msgid ""
 "Create an invoice at payment gateway for <a href=\"%1$s\">payment #%2$s</a> "
 "after processing the order."
 msgstr ""
-"Erstellen Sie eine Rechnung am Zahlungsportal für %1$s nach der Bearbeitung "
-"der Bestellung."
+"Erstellen Sie eine Rechnung am Zahlungsportal für <a href=\"%1$s\">Zahlung #"
+"%2$s</a> nach Abwicklung der Bestellung."
 
 #. translators: %s: WooCommerce
 #. translators: %s: MemberPress
@@ -6071,39 +6066,32 @@ msgstr "Charitable Spende"
 
 #. translators: %s: order id
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Gateways/Gateway.php:181
-#, fuzzy
 msgid "WP eCommerce order %s"
-msgstr "WooCommerce Bestellung %s"
+msgstr "WP eCommerce Bestellung %s"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:80
-#, fuzzy
 msgid "Pronamic - AfterPay"
-msgstr "Pronamic Pay"
+msgstr "Pronamic - AfterPay"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:85
-#, fuzzy
 msgid "Pronamic - Bancontact"
-msgstr "Pronamic Pay Status"
+msgstr "Pronamic - Bancontact"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:90
-#, fuzzy
 msgid "Pronamic - Bank Transfer"
-msgstr "Banküberweisung"
+msgstr "Pronamic - Banküberweisung"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:95
-#, fuzzy
 msgid "Pronamic - Credit Card"
-msgstr "Kreditkarte"
+msgstr "Pronamic - Kreditkarte"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:100
-#, fuzzy
 msgid "Pronamic - Focum"
-msgstr "Pronamic - %s"
+msgstr "Pronamic - Focum"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:105
-#, fuzzy
 msgid "Pronamic - Giropay"
-msgstr "Pronamic Pay"
+msgstr "Pronamic - Giropay"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:110
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:57
@@ -6111,19 +6099,16 @@ msgid "Pronamic - iDEAL"
 msgstr "Pronamic - iDEAL"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:116
-#, fuzzy
 msgid "Pronamic - Maestro"
-msgstr "Pronamic - %s"
+msgstr "Pronamic - Maestro"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:121
-#, fuzzy
 msgid "Pronamic - PayPal"
-msgstr "Pronamic Pay"
+msgstr "Pronamic - PayPal"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:126
-#, fuzzy
 msgid "Pronamic - SOFORT"
-msgstr "Pronamic - %s"
+msgstr "Pronamic - SOFORT"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:283
 msgid "WP e-Commerce"
