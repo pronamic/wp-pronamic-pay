@@ -31,11 +31,6 @@ jobs:
     - php: 7.1
     - php: 7.0
     - php: 5.6
-    - php: 5.5
-    - php: 5.4
-    - php: 5.3
-      dist: precise
-      env: TRAVIS_DIST_PRECISE=1
     - php: nightly
     - php: hhvm
   allow_failures:
@@ -52,8 +47,6 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
-  # Install latest version of Node.js (https://github.com/creationix/nvm).
-  - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then nvm install node; fi
   # Create database for PHPUnit tests.
   - mysql -e 'CREATE DATABASE wp_phpunit_tests;'
   # Remove Xdebug for a huge performance increase:
