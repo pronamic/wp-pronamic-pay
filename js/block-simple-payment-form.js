@@ -14,7 +14,7 @@
 	 *
 	 * @return WPBlock        Block if registered successfully, otherwise "undefined".
 	 */
-	blocks.registerBlockType('pronamic-pay/simple-payment-form', {
+	blocks.registerBlockType( 'pronamic-pay/simple-payment-form', {
 		title: pronamic_simple_payment_form.title,
 		icon: 'money',
 		category: 'common',
