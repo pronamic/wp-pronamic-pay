@@ -21,7 +21,7 @@ $methods_with_choices = array(
 	\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT,
 );
 
-$gateway = Plugin::get_gateway( $config_id );
+$gateway = Plugin::get_gateway( $settings['config_id'] );
 
 $amount_value = '';
 
@@ -33,14 +33,14 @@ if ( $gateway ) : ?>
 
 	<div class="pronamic-pay-form-wrap">
 
-		<?php if ( ! is_singular( 'pronamic_pay_form' ) && ! empty( $title ) ) : ?>
+		<?php if ( ! is_singular( 'pronamic_pay_form' ) && ! empty( $settings['title'] ) ) : ?>
 
-			<h2 class="pronamic-pay-form-title"><?php echo esc_html( $title ); ?></h2>
+			<h2 class="pronamic-pay-form-title"><?php echo esc_html( $settings['title'] ); ?></h2>
 
 		<?php endif; ?>
 
 		<form id="pronamic-pay-form-<?php echo esc_attr( $id ); ?>" class="pronamic-pay-form" method="post">
-			<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
+			<?php if ( in_array( $settings['amount_method'], $methods_with_choices, true ) ) : ?>
 
 			<fieldset>
 				<legend><?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?></legend>
@@ -48,9 +48,9 @@ if ( $gateway ) : ?>
 			<?php endif; ?>
 
 				<div class="pronamic-pay-amount pronamic-pay-form-row-wide">
-					<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
+					<?php if ( in_array( $settings['amount_method'], $methods_with_choices, true ) ) : ?>
 
-							<?php foreach ( $amounts as $amount ) : ?>
+							<?php foreach ( $settings['amounts'] as $amount ) : ?>
 
 								<?php
 
@@ -70,7 +70,7 @@ if ( $gateway ) : ?>
 
 							<?php endforeach; ?>
 
-							<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT === $amount_method ) : ?>
+							<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT === $settings['amount_method'] ) : ?>
 
 								<div>
 									<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount-other" name="pronamic_pay_amount" type="radio" required="required" value="other" />
@@ -84,7 +84,7 @@ if ( $gateway ) : ?>
 
 					<?php endif; ?>
 
-					<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_INPUT_ONLY === $amount_method ) : ?>
+					<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_INPUT_ONLY === $settings['amount_method'] ) : ?>
 
 						<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
 						<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount" type="text" placeholder="" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
@@ -92,7 +92,7 @@ if ( $gateway ) : ?>
 					<?php endif; ?>
 				</div>
 
-			<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
+			<?php if ( in_array( $settings['amount_method'], $methods_with_choices, true ) ) : ?>
 
 			</fieldset>
 
@@ -192,13 +192,13 @@ if ( $gateway ) : ?>
 
 				<input type="hidden" name="pronamic_pay_form_id" value="<?php echo esc_attr( $id ); ?>" />
 
-				<?php if ( FormPostType::AMOUNT_METHOD_INPUT_FIXED === $amount_method ) : ?>
+				<?php if ( FormPostType::AMOUNT_METHOD_INPUT_FIXED === $settings['amount_method'] ) : ?>
 
-					<input type="hidden" name="pronamic_pay_amount" value="<?php echo esc_attr( array_shift( $amounts ) ); ?>" />
+					<input type="hidden" name="pronamic_pay_amount" value="<?php echo esc_attr( array_shift( $settings['amounts'] ) ); ?>" />
 
 				<?php endif; ?>
 
-				<input type="submit" class="pronamic-pay-submit pronamic-pay-btn" id="pronamic-pay-purchase-button" name="pronamic_pay" value="<?php echo esc_attr( $button_text ); ?>" />
+				<input type="submit" class="pronamic-pay-submit pronamic-pay-btn" id="pronamic-pay-purchase-button" name="pronamic_pay" value="<?php echo esc_attr( $settings['button_text'] ); ?>" />
 			</div>
 		</form>
 	</div>
