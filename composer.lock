@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d123f4495b977fec1e7efe5fa03bd927",
+    "content-hash": "c7a38f27e7f77dd27ac5238443e1ceaf",
     "packages": [
         {
             "name": "composer/installers",
@@ -2809,35 +2809,36 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "2.1.6",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "289b871123e19257cb3c16e4e8d7c770fcb297c2"
+                "reference": "42a77f7546f22dee44e182e4116fcaba757b3683"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/289b871123e19257cb3c16e4e8d7c770fcb297c2",
-                "reference": "289b871123e19257cb3c16e4e8d7c770fcb297c2",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/42a77f7546f22dee44e182e4116fcaba757b3683",
+                "reference": "42a77f7546f22dee44e182e4116fcaba757b3683",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "^1.6",
-                "php": "^5.3",
+                "php": ">=5.6.0",
                 "pronamic/wp-datetime": "^1.0",
                 "pronamic/wp-money": "^1.2",
                 "viison/address-splitter": "^0.3.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
+                "phpmd/phpmd": "^2.6",
+                "phpunit/phpunit": "^5.7",
                 "roots/wordpress": "^5.1",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-cli/wp-cli": "^2.1",
+                "wp-coding-standards/wpcs": "^2.1",
                 "wp-phpunit/wp-phpunit": "^5.1"
             },
             "type": "library",
@@ -2878,7 +2879,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-03-28T09:07:03+00:00"
+            "time": "2019-05-06T12:52:43+00:00"
         }
     ],
     "packages-dev": [
@@ -5090,7 +5091,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -5154,7 +5155,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -5226,7 +5227,7 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -5282,16 +5283,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "dee85a9148399cdb2731603802842bcfd8afe5ab"
+                "reference": "be0feb3fa202aedfd8d1956f2dafd563fb13acbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/dee85a9148399cdb2731603802842bcfd8afe5ab",
-                "reference": "dee85a9148399cdb2731603802842bcfd8afe5ab",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/be0feb3fa202aedfd8d1956f2dafd563fb13acbf",
+                "reference": "be0feb3fa202aedfd8d1956f2dafd563fb13acbf",
                 "shasum": ""
             },
             "require": {
@@ -5349,11 +5350,11 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2019-04-16T11:13:42+00:00"
+            "time": "2019-04-20T15:32:49+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -5520,7 +5521,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -5569,7 +5570,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -5766,9 +5767,18 @@
             "time": "2019-02-22T10:51:01+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "2.1",
+            "alias_normalized": "2.1.0.0",
+            "version": "dev-develop",
+            "package": "wp-pay/core"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay/core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
