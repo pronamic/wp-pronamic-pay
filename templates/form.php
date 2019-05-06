@@ -13,6 +13,7 @@ global $pronamic_pay_errors;
 use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\Core\PaymentMethods;
 use Pronamic\WordPress\Pay\Forms\FormPostType;
+use Pronamic\WordPress\Pay\Forms\FormsSource;
 use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Util;
 
@@ -39,7 +40,7 @@ if ( $gateway ) : ?>
 
 		<?php endif; ?>
 
-		<form id="pronamic-pay-form-<?php echo esc_attr( $id ); ?>" class="pronamic-pay-form" method="post">
+		<form id="<?php echo esc_attr( $settings['html_id'] ); ?>" class="pronamic-pay-form" method="post">
 			<?php if ( in_array( $settings['amount_method'], $methods_with_choices, true ) ) : ?>
 
 			<fieldset>
@@ -190,7 +191,22 @@ if ( $gateway ) : ?>
 			<div class="pronamic-pay-submit-button-wrap pronamic-pay-clearfix">
 				<?php wp_nonce_field( 'pronamic_pay', 'pronamic_pay_nonce' ); ?>
 
-				<input type="hidden" name="pronamic_pay_form_id" value="<?php echo esc_attr( $id ); ?>" />
+				<?php
+
+				$fields = array(
+					'pronamic_pay_source'    => $settings['source'],
+					'pronamic_pay_source_id' => $settings['source_id'],
+				);
+
+				// Add config ID when needed.
+				if ( FormsSource::PAYMENT_FORM !== $settings['source'] ) {
+					$fields['pronamic_pay_config_id'] = $settings['config_id'];
+				}
+
+				/* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */
+				echo Util::html_hidden_fields( $fields );
+
+				?>
 
 				<?php if ( FormPostType::AMOUNT_METHOD_INPUT_FIXED === $settings['amount_method'] ) : ?>
 
