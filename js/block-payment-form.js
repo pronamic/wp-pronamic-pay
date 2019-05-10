@@ -3,6 +3,8 @@
 	var el = element.createElement;
 	var Fragment = element.Fragment;
 	var InspectorControls = editor.InspectorControls;
+	var Button = components.Button;
+	var Placeholder = components.Placeholder;
 	var TextControl = components.TextControl;
 	var ServerSideRender = components.ServerSideRender;
 
@@ -35,6 +37,7 @@
 		// Edit.
 		edit: function ( props ) {
 			var amount = props.attributes.amount;
+			var hasSettingsSet = props.attributes && parseInt( amount ) > 0;
 
 			function onChangeAmount( updatedAmount ) {
 				props.setAttributes( { amount: updatedAmount } );
@@ -53,8 +56,35 @@
 					)
 				),
 
+				// Setup required props.
+				! hasSettingsSet &&
+				el( Placeholder, {
+						label: pronamic_payment_form.title,
+						icon: 'money'
+					},
+					el( Fragment, null,
+						el( TextControl, {
+							label: pronamic_payment_form.label_amount,
+							onChange: function ( value ) {
+							},
+							onBlur: function () {
+								onChangeAmount( event.target.value );
+							}
+						} ),
+						el( 'div',
+							{
+								style: { width: '100%' }
+							},
+							el( Button,
+								{ isPrimary: true },
+								el( Fragment, null, pronamic_payment_form.label_add_form )
+							)
+						)
+					)
+				),
+
 				// Server side render.
-				el( ServerSideRender, {
+				hasSettingsSet && el( ServerSideRender, {
 					block: 'pronamic-pay/payment-form',
 					attributes: props.attributes
 				} )
