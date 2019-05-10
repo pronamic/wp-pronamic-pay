@@ -1,4 +1,4 @@
-/* globals pronamic_simple_payment_form */
+/* globals pronamic_payment_form */
 ( function ( blocks, components, editor, element ) {
 	var el = element.createElement;
 	var Fragment = element.Fragment;
@@ -7,15 +7,15 @@
 	var ServerSideRender = components.ServerSideRender;
 
 	/**
-	 * Register simple payment form block type.
+	 * Register payment form block type.
 	 *
 	 * @param string name     Block name.
 	 * @param object settings Block settings.
 	 *
 	 * @return WPBlock        Block if registered successfully, otherwise "undefined".
 	 */
-	blocks.registerBlockType( 'pronamic-pay/simple-payment-form', {
-		title: pronamic_simple_payment_form.title,
+	blocks.registerBlockType( 'pronamic-pay/payment-form', {
+		title: pronamic_payment_form.title,
 		icon: 'money',
 		category: 'common',
 
@@ -46,7 +46,7 @@
 				el( InspectorControls, null,
 					el( Fragment, null,
 						el( TextControl, {
-							label: pronamic_simple_payment_form.label_amount,
+							label: pronamic_payment_form.label_amount,
 							value: amount,
 							onChange: onChangeAmount
 						} )
@@ -55,7 +55,7 @@
 
 				// Server side render.
 				el( ServerSideRender, {
-					block: 'pronamic-pay/simple-payment-form',
+					block: 'pronamic-pay/payment-form',
 					attributes: props.attributes
 				} )
 			);
