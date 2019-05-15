@@ -11,6 +11,64 @@
 		]
 	},
 	{
+		"version": "5.6.2",
+		"date": "2019-05-15",
+		"changes": [
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Adyen library from 1.0.0 to version 1.0.1.",
+						"changes": [
+							"Remove path from origin URL in payment session request.",
+							"Fix API live URL prefix setting not saved."
+						]
+					},
+					{
+						"description": "Updated WordPress pay ICEPAY library from 2.0.2 to version 2.0.3.",
+						"changes": [
+							"Set country from billing address."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Easy Digital Downloads library from 2.0.3 to version 2.0.4.",
+						"changes": [
+							"Improve emptying cart for completed payments."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Formidable Forms library from 2.0.1 to version 2.0.2.",
+						"changes": [
+							"Improve support for AJAX enabled forms."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library from 2.1.7 to version 2.1.8.",
+						"changes": [
+							"Fix payment method field options deselected when saving from form settings subviews.",
+							"Update entry payment status when subscription is manually activated.",
+							"Disable asynchronous feed processing for delayed actions."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MemberPress library from 2.0.7 to version 2.0.8.",
+						"changes": [
+							"Fix subscription source ID bug.",
+							"Add more payment method icons.",
+							"Add capabilities to Direct Debit Bancontact/iDEAL/Sofort gateways."
+						]
+					},
+					{
+						"description": "Updated WordPress pay s2Member library from 2.0.1 to version 2.0.2.",
+						"changes": [
+							"Set subscription `total amount` instead of `amount`."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "5.6.1",
 		"date": "2019-04-15",
 		"changes": [

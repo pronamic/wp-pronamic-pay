@@ -8,6 +8,29 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changed
 
+## [5.6.2] - 2019-05-15
+
+### Fixed
+- Updated WordPress pay Adyen library from 1.0.0 to version 1.0.1.
+  - Remove path from origin URL in payment session request.
+  - Fix API live URL prefix setting not saved.
+- Updated WordPress pay ICEPAY library from 2.0.2 to version 2.0.3.
+  - Set country from billing address.
+- Updated WordPress pay Easy Digital Downloads library from 2.0.3 to version 2.0.4.
+  - Improve emptying cart for completed payments.
+- Updated WordPress pay Formidable Forms library from 2.0.1 to version 2.0.2.
+  - Improve support for AJAX enabled forms.
+- Updated WordPress pay Gravity Forms library from 2.1.7 to version 2.1.8.
+  - Fix payment method field options deselected when saving from form settings subviews.
+  - Update entry payment status when subscription is manually activated.
+  - Disable asynchronous feed processing for delayed actions.
+- Updated WordPress pay MemberPress library from 2.0.7 to version 2.0.8.
+  - Fix subscription source ID bug.
+  - Add more payment method icons.
+  - Add capabilities to Direct Debit Bancontact/iDEAL/Sofort gateways.
+- Updated WordPress pay s2Member library from 2.0.1 to version 2.0.2.
+  - Set subscription `total amount` instead of `amount`.
+
 ## [5.6.1] - 2019-04-15
 
 ### Fixed
@@ -2022,7 +2045,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.2...HEAD
+[5.6.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.1...5.6.2
 [5.6.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.0...5.6.1
 [5.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.5...5.6.0
 [5.5.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.4...5.5.5
