@@ -12,7 +12,7 @@ env:
 jobs:
   include:
     - php: 7.3
-      env: WP_VERSION=^5.0 COVERAGE=1 PHPCS=1
+      env: WP_VERSION=^5.0 COVERAGE=1 PHPCS=1 PHPCPD=1
     - php: 7.2
       env: WP_VERSION=^4.9
     - php: 7.2
@@ -71,6 +71,8 @@ before_install:
   - if [ "$PHPSTAN" == "1" ]; then composer global require phpstan/phpstan; fi
   # Psalm
   - if [ "$PSALM" == "1" ]; then composer global require vimeo/psalm; fi
+  # PHP Copy/Paste Detector
+  - if [ "$PHPCPD" == "1" ]; then composer global require sebastian/phpcpd; fi
 
 install:
   # Install Grunt command line interface (https://github.com/gruntjs/grunt-cli).
@@ -99,6 +101,8 @@ script:
   - if [ "$PHPSTAN" == "1" ]; then phpstan analyze; fi
   # Psalm
   - if [ "$PSALM" == "1" ]; then psalm; fi
+  # PHP Copy/Paste Detector
+  - if [ "$PHPCPD" == "1" ]; then phpcpd; fi
 
 after_success:
   - if [ "$COVERAGE" == "1" ]; then composer run-script coveralls; fi
