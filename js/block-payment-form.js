@@ -1,21 +1,23 @@
-/* globals pronamic_fixed_price_payment_button */
+/* globals pronamic_payment_form */
 ( function ( blocks, components, editor, element ) {
 	var el = element.createElement;
 	var Fragment = element.Fragment;
 	var InspectorControls = editor.InspectorControls;
+	var Button = components.Button;
+	var Placeholder = components.Placeholder;
 	var TextControl = components.TextControl;
 	var ServerSideRender = components.ServerSideRender;
 
 	/**
-	 * Register payment button block type.
+	 * Register payment form block type.
 	 *
 	 * @param string name     Block name.
 	 * @param object settings Block settings.
 	 *
 	 * @return WPBlock        Block if registered successfully, otherwise "undefined".
 	 */
-	blocks.registerBlockType( 'pronamic-pay/fixed-price-payment-button', {
-		title: pronamic_fixed_price_payment_button.title,
+	blocks.registerBlockType( 'pronamic-pay/payment-form', {
+		title: pronamic_payment_form.title,
 		icon: 'money',
 		category: 'common',
 
@@ -35,9 +37,10 @@
 		// Edit.
 		edit: function ( props ) {
 			var amount = props.attributes.amount;
+			var hasSettingsSet = props.attributes && parseInt( amount ) > 0;
 
 			function onChangeAmount( updatedAmount ) {
-			    props.setAttributes( { amount: updatedAmount } );
+				props.setAttributes( { amount: updatedAmount } );
 			}
 
 			return el( Fragment, null,
@@ -46,16 +49,43 @@
 				el( InspectorControls, null,
 					el( Fragment, null,
 						el( TextControl, {
-							label: pronamic_fixed_price_payment_button.label_amount,
+							label: pronamic_payment_form.label_amount,
 							value: amount,
 							onChange: onChangeAmount
 						} )
 					)
 				),
 
+				// Setup required props.
+				! hasSettingsSet &&
+				el( Placeholder, {
+						label: pronamic_payment_form.title,
+						icon: 'money'
+					},
+					el( Fragment, null,
+						el( TextControl, {
+							label: pronamic_payment_form.label_amount,
+							onChange: function ( value ) {
+							},
+							onBlur: function () {
+								onChangeAmount( event.target.value );
+							}
+						} ),
+						el( 'div',
+							{
+								style: { width: '100%' }
+							},
+							el( Button,
+								{ isPrimary: true },
+								el( Fragment, null, pronamic_payment_form.label_add_form )
+							)
+						)
+					)
+				),
+
 				// Server side render.
-				el( ServerSideRender, {
-					block: 'pronamic-pay/fixed-price-payment-button',
+				hasSettingsSet && el( ServerSideRender, {
+					block: 'pronamic-pay/payment-form',
 					attributes: props.attributes
 				} )
 			);
