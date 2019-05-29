@@ -1,2 +1,0 @@
-<% if (iconsStyles) { %>/* Icons */<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-$ppi-<%= glyphs[glyphIdx] %>: "\<%= codepoints[glyphIdx] %>";<% } %><% } %>

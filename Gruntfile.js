@@ -64,16 +64,6 @@ module.exports = function( grunt ) {
 			]
 		},
 
-		// Sass Lint.
-		sasslint: {
-			options: {
-				configFile: '.sass-lint.yml'
-			},
-			target: [
-				'src/sass/**/*.scss'
-			]
-		},
-		
 		// Check textdomain errors.
 		checktextdomain: {
 			options:{
@@ -166,41 +156,17 @@ module.exports = function( grunt ) {
 
 		// Copy.
 		copy: {
-			scripts: {
+			images: {
 				files: [
-					{ // JS.
+					{ // images.
 						expand: true,
-						cwd: 'src/js/',
-						src: '**',
-						dest: 'js/'
-					}
-				]
-			},
-			assets: {
-				files: [
-					{ // Flot - http://www.flotcharts.org/.
-						expand: true,
-						cwd: 'node_modules/Flot/',
+						cwd: 'src/images/',
 						src: [
-							'jquery.flot.js',
-							'jquery.flot.time.js',
-							'jquery.flot.resize.js'
+							'**/*'
 						],
-						dest: 'assets/flot'
-					},
-					{ // accounting.js - http://openexchangerates.github.io/accounting.js/.
-						expand: true,
-						cwd: 'node_modules/accounting/',
-						src: 'accounting.js',
-						dest: 'assets/accounting'
-					},
-					{ // Tippy.js - https://atomiks.github.io/tippyjs/.
-						expand: true,
-						cwd: 'node_modules/tippy.js/dist',
-						src: 'tippy.all.js',
-						dest: 'assets/tippy.js'
+						dest: 'images/'
 					}
-				]
+                ]
 			},
 			other: {
 				files: [
@@ -216,122 +182,18 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// SASS.
-		sass: {
-			options: {
-				style: 'expanded'
-			},
-			build: {
-				files: [ {
-					expand: true,
-					cwd: 'src/sass',
-					src: '*.scss',
-					dest: 'src/css',
-					ext: '.css'
-				} ]
-			}
-		},
-
-		// PostCSS.
-		postcss: {
-			options: {
-				map: false
-			},
-			prefix: {
-				options: {
-					processors: [
-						require( 'autoprefixer' )(),
-						require( 'postcss-eol' )()
-					]
-				},
-				files: [ {
-					expand: true,
-					cwd: 'src/css/',
-					src: '*.css',
-					dest: 'css/'
-				} ]
-			},
-			min: {
-				options: {
-					processors: [
-						require( 'cssnano' )(),
-						require( 'postcss-eol' )()
-					]
-				},
-				files: [ {
-					expand: true,
-					cwd: 'css/',
-					src: [
-						'*.css',
-						'!*.min.css'
-					],
-					dest: 'css/',
-					ext: '.min.css'
-				} ]
-			}
-		},
-
-		// Uglify.
-		uglify: {
-			scripts: {
-				files: {
-					// Pronamic Pay.
-					'js/admin.min.js': 'src/js/admin.js',
-					'js/admin-reports.min.js': 'src/js/admin-reports.js',
-					'js/admin-tour.min.js': 'src/js/admin-tour.js',
-					// Accounting.
-					'assets/accounting/accounting.min.js': 'assets/accounting/accounting.js',
-					// Flot.
-					'assets/flot/jquery.flot.min.js': 'assets/flot/jquery.flot.js',
-					'assets/flot/jquery.flot.resize.min.js': 'assets/flot/jquery.flot.resize.js',
-					'assets/flot/jquery.flot.time.min.js': 'assets/flot/jquery.flot.time.js',
-					// Tippy.js.
-					'assets/tippy.js/tippy.all.min.js': 'assets/tippy.js/tippy.all.js'
-				}
-			}
-		},
-
 		// Clean.
 		clean: {
-			assets: {
-				src: [
-					'assets',
-					'css',
-					'images',
-					'js'
-				]
-			}
-		},
-		
-		// Webfont.
-		webfont: {
-			icons: {
-				src: 'src/fonts/images/*.svg',
-				dest: 'fonts',
-				options: {
-					font: 'pronamic-pay-icons',
-					fontFamilyName: 'Pronamic Pay Icons',
-					normalize: true,
-					stylesheets: [ 'css' ],
-					templateOptions: {
-						baseClass: 'pronamic-pay-icon',
-						classPrefix: 'pronamic-pay-icon-'
-					},
-					types: [ 'eot', 'woff2', 'woff', 'ttf', 'svg' ],
-					fontHeight: 768,
-					customOutputs: [ {
-						template: 'src/fonts/templates/variables.scss',
-						dest: 'src/fonts/_variables.scss'
-					} ]
-				}
+			images: {
+				src: [ 'images' ]
 			}
 		}
 	} );
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpcs', 'phpunit' ] );
-	grunt.registerTask( 'assets', [ 'sasslint', 'sass', 'postcss', 'copy:scripts', 'copy:assets', 'copy:other' ] );
-	grunt.registerTask( 'min', [ 'uglify', 'imagemin' ] );
+	grunt.registerTask( 'assets', [ 'copy:images', 'copy:other' ] );
+	grunt.registerTask( 'min', [ 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'checktextdomain', 'shell:makepot', 'shell:msgmerge' ] );
 
@@ -342,7 +204,7 @@ module.exports = function( grunt ) {
 	] );
 
 	grunt.registerTask( 'build_assets', [
-		'clean:assets',
+		'clean:images',
 		'assets',
 		'min'
 	] );
