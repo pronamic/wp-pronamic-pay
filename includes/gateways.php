@@ -163,7 +163,7 @@ function pronamic_pay_gateway_integrations() {
 		),
 
 		// MultiSafePay - Connect.
-		'\Pronamic\WordPress\Pay\Gateways\MultiSafepay\Connect\Integration',
+		'\Pronamic\WordPress\Pay\Gateways\MultiSafepay\Integration',
 
 		// Nocks.
 		'\Pronamic\WordPress\Pay\Gateways\Nocks\Integration',
