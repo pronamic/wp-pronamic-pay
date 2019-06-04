@@ -85,17 +85,6 @@ function pronamic_pay_gateway_integrations() {
 		// ICEPAY.
 		'\Pronamic\WordPress\Pay\Gateways\Icepay\Integration',
 
-		// iDEAL Simulator - iDEAL Lite / Basic.
-		array(
-			'class'    => '\Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration',
-			'callback' => function( AbstractIntegration $integration ) {
-				$integration->set_id( 'ideal-simulator-ideal-basic' );
-				$integration->set_name( 'iDEAL Simulator - iDEAL Basic' );
-
-				$integration->provider = 'ideal-simulator';
-			},
-		),
-
 		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3).
 		array(
 			'class'    => '\Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration',
