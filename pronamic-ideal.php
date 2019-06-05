@@ -81,15 +81,18 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			// ABN AMRO - iDEAL Zelfbouw (v3).
 			new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 				array(
-					'id'            => 'abnamro-ideal-zelfbouw-v3',
-					'name'          => 'ABN AMRO - iDEAL Zelfbouw (v3)',
-					'provider'      => 'abnamro',
-					'url'           => 'https://abnamro.ideal-payment.de/',
-					'product_url'   => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
-					'dashboard_url' => array(
+					'id'               => 'abnamro-ideal-zelfbouw-v3',
+					'name'             => 'ABN AMRO - iDEAL Zelfbouw (v3)',
+					'provider'         => 'abnamro',
+					'url'              => 'https://abnamro.ideal-payment.de/',
+					'product_url'      => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
+					'dashboard_url'    => array(
 						'test' => 'https://abnamro-test.ideal-payment.de/',
 						'live' => 'https://abnamro.ideal-payment.de/',
 					),
+					'aquirer_url'      => 'https://abnamro.ideal-payment.de/ideal/iDEALv3',
+					'aquirer_test_url' => 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3',
+					'certificates'     => array(),
 				)
 			),
 			// Buckaroo.
@@ -114,6 +117,9 @@ if ( PRONAMIC_PAY_DEBUG ) {
 						'test' => 'https://myideal.test.db.com/',
 						'live' => 'https://myideal.db.com/',
 					),
+					'aquirer_url'      => 'https://myideal.db.com/ideal/iDealv3',
+					'aquirer_test_url' => null,
+					'certificates'     => array(),
 				)
 			),
 			// EMS - eCommerce.
@@ -132,10 +138,13 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3).
 			new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 				array(
-					'id'          => 'ideal-simulator-ideal-advanced-v3',
-					'name'        => 'iDEAL Simulator - iDEAL Professional / Advanced',
-					'provider'    => 'ideal-simulator',
-					'product_url' => 'https://www.ideal-checkout.nl/support/ideal-simulator',
+					'id'               => 'ideal-simulator-ideal-advanced-v3',
+					'name'             => 'iDEAL Simulator - iDEAL Professional / Advanced',
+					'provider'         => 'ideal-simulator',
+					'product_url'      => 'https://www.ideal-checkout.nl/support/ideal-simulator',
+					'aquirer_url'      => 'https://www.ideal-checkout.nl/simulator/',
+					'aquirer_test_url' => null,
+					'certificates'     => array(),
 				)
 			),
 			// ING - iDEAL Basic.
@@ -149,6 +158,8 @@ if ( PRONAMIC_PAY_DEBUG ) {
 						'test' => 'https://idealtest.secure-ing.com/',
 						'live' => 'https://ideal.secure-ing.com/',
 					),
+					'aquirer_url'      => 'https://ideal.secure-ing.com/ideal/mpiPayInitIng.do',
+					'aquirer_test_url' => 'https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do',
 				)
 			),
 			// ING - iDEAL Advanced (v3).
@@ -162,6 +173,9 @@ if ( PRONAMIC_PAY_DEBUG ) {
 						'test' => 'https://idealtest.secure-ing.com/',
 						'live' => 'https://ideal.secure-ing.com/',
 					),
+					'aquirer_url'      => 'https://ideal.secure-ing.com/ideal/iDEALv3',
+					'aquirer_test_url' => 'https://idealtest.secure-ing.com/ideal/iDEALv3',
+					'certificates'     => array(),
 				)
 			),
 			// ING - Kassa Compleet.
@@ -173,11 +187,13 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			// Mollie - iDEAL Basic.
 			new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
 				array(
-					'id'            => 'mollie-ideal-basic',
-					'name'          => 'Mollie - iDEAL Basic',
-					'provider'      => 'mollie',
-					'dashboard_url' => 'http://www.mollie.nl/beheer/',
-					'deprecated'    => true,
+					'id'               => 'mollie-ideal-basic',
+					'name'             => 'Mollie - iDEAL Basic',
+					'provider'         => 'mollie',
+					'dashboard_url'    => 'http://www.mollie.nl/beheer/',
+					'deprecated'       => true,
+					'aquirer_url'      => 'https://secure.mollie.nl/xml/idealAcquirer/lite/',
+					'aquirer_test_url' => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/',
 				)
 			),
 			// MultiSafePay - Connect.
@@ -197,14 +213,17 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			// Rabobank - iDEAL Professional (v3).
 			new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 				array(
-					'id'            => 'rabobank-ideal-professional-v3',
-					'name'          => 'Rabobank - iDEAL Professional (v3)',
-					'provider'      => 'rabobank',
-					'product_url'   => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
-					'dashboard_url' => array(
+					'id'               => 'rabobank-ideal-professional-v3',
+					'name'             => 'Rabobank - iDEAL Professional (v3)',
+					'provider'         => 'rabobank',
+					'product_url'      => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
+					'dashboard_url'    => array(
 						'test' => 'https://idealtest.rabobank.nl/',
 						'live' => 'https://ideal.rabobank.nl/',
 					),
+					'aquirer_url'      => 'https://ideal.rabobank.nl/ideal/iDEALv3',
+					'aquirer_test_url' => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
+					'certificates'     => array(),
 				)
 			),
 			// Sisow.
@@ -212,12 +231,14 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			// Sisow - iDEAL Basic.
 			new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
 				array(
-					'id'            => 'sisow-ideal-basic',
-					'name'          => 'Sisow - iDEAL Basic',
-					'provider'      => 'sisow',
-					'url'           => 'https://www.sisow.nl/',
-					'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
-					'deprecated'    => true,
+					'id'               => 'sisow-ideal-basic',
+					'name'             => 'Sisow - iDEAL Basic',
+					'provider'         => 'sisow',
+					'url'              => 'https://www.sisow.nl/',
+					'dashboard_url'    => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
+					'deprecated'       => true,
+					'aquirer_url'      => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx',
+					'aquirer_test_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test',
 				)
 			),
 			// TargetPay.
