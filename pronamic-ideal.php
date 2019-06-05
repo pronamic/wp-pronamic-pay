@@ -80,9 +80,9 @@ if ( PRONAMIC_PAY_DEBUG ) {
 		'gateways'   => array(
 			// ABN AMRO - iDEAL Zelfbouw (v3).
 			new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-				'abnamro-ideal-zelfbouw-v3',
-				'ABN AMRO - iDEAL Zelfbouw (v3)',
 				array(
+					'id'            => 'abnamro-ideal-zelfbouw-v3',
+					'name'          => 'ABN AMRO - iDEAL Zelfbouw (v3)',
 					'provider'      => 'abnamro',
 					'url'           => 'https://abnamro.ideal-payment.de/',
 					'product_url'   => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
@@ -96,18 +96,18 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(),
 			// Deutsche Bank - iDEAL via Ogone.
 			new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandardEasy\Integration(
-				'deutschebank-ideal-via-ogone',
-				'Deutsche Bank - iDEAL via Ogone',
 				array(
+					'id'          => 'deutschebank-ideal-via-ogone',
+					'name'        => 'Deutsche Bank - iDEAL via Ogone',
 					'provider'    => 'deutschebank',
 					'product_url' => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
 				)
 			),
 			// Deutsche Bank - iDEAL Expert (v3).
 			new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-				'deutschebank-ideal-expert-v3',
-				'Deutsche Bank - iDEAL Expert (v3)',
 				array(
+					'id'            => 'deutschebank-ideal-expert-v3',
+					'name'          => 'Deutsche Bank - iDEAL Expert (v3)',
 					'provider'      => 'deutschebank',
 					'product_url'   => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
 					'dashboard_url' => array(
@@ -120,9 +120,9 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			new \Pronamic\WordPress\Pay\Gateways\EMS\ECommerce\Integration(),
 			// Fibonacci ORANGE.
 			new \Pronamic\WordPress\Pay\Gateways\Icepay\Integration(
-				'fibonacciorange',
-				'Fibonacci ORANGE',
 				array(
+					'id'          => 'fibonacciorange',
+					'name'        => 'Fibonacci ORANGE',
 					'provider'    => 'fibonacciorange',
 					'product_url' => 'http://www.fibonacciorange.nl/',
 				)
@@ -131,18 +131,18 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			new \Pronamic\WordPress\Pay\Gateways\Icepay\Integration(),
 			// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3).
 			new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-				'ideal-simulator-ideal-advanced-v3',
-				'iDEAL Simulator - iDEAL Professional / Advanced',
 				array(
+					'id'          => 'ideal-simulator-ideal-advanced-v3',
+					'name'        => 'iDEAL Simulator - iDEAL Professional / Advanced',
 					'provider'    => 'ideal-simulator',
 					'product_url' => 'https://www.ideal-checkout.nl/support/ideal-simulator',
 				)
 			),
 			// ING - iDEAL Basic.
 			new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
-				'ing-ideal-basic',
-				'ING - iDEAL Basic',
 				array(
+					'id'            => 'ing-ideal-basic',
+					'name'          => 'ING - iDEAL Basic',					
 					'provider'      => 'ing',
 					'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
 					'dashboard_url' => array(
@@ -153,9 +153,9 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			),
 			// ING - iDEAL Advanced (v3).
 			new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-				'ing-ideal-advanced-v3',
-				'ING - iDEAL Advanced (v3)',
 				array(
+					'id'            => 'ing-ideal-advanced-v3',
+					'name'          => 'ING - iDEAL Advanced (v3)',
 					'provider'      => 'ing',
 					'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
 					'dashboard_url' => array(
@@ -172,9 +172,9 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			new \Pronamic\WordPress\Pay\Gateways\MollieIDeal\Integration(),
 			// Mollie - iDEAL Basic.
 			new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
-				'mollie-ideal-basic',
-				'Mollie - iDEAL Basic',
 				array(
+					'id'            => 'mollie-ideal-basic',
+					'name'          => 'Mollie - iDEAL Basic',
 					'provider'      => 'mollie',
 					'dashboard_url' => 'http://www.mollie.nl/beheer/',
 					'deprecated'    => true,
@@ -196,9 +196,9 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			new \Pronamic\WordPress\Pay\Gateways\PayNL\Integration(),
 			// Rabobank - iDEAL Professional (v3).
 			new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-				'rabobank-ideal-professional-v3',
-				'Rabobank - iDEAL Professional (v3)',
 				array(
+					'id'            => 'rabobank-ideal-professional-v3',
+					'name'          => 'Rabobank - iDEAL Professional (v3)',
 					'provider'      => 'rabobank',
 					'product_url'   => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
 					'dashboard_url' => array(
@@ -211,9 +211,9 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			new \Pronamic\WordPress\Pay\Gateways\Sisow\Integration(),
 			// Sisow - iDEAL Basic.
 			new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
-				'sisow-ideal-basic',
-				'Sisow - iDEAL Basic',
 				array(
+					'id'            => 'sisow-ideal-basic',
+					'name'          => 'Sisow - iDEAL Basic',
 					'provider'      => 'sisow',
 					'url'           => 'https://www.sisow.nl/',
 					'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
