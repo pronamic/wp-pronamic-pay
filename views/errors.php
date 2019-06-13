@@ -10,6 +10,6 @@
 
 global $pronamic_ideal_errors;
 
-foreach ( $pronamic_ideal_errors as $error ) {
+foreach ( $pronamic_ideal_errors as $pay_error ) {
 	include 'error.php';
 }

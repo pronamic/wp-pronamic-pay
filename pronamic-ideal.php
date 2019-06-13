@@ -34,12 +34,12 @@ if ( PRONAMIC_PAY_DEBUG ) {
 	foreach ( glob( __DIR__ . '/repositories/wp-pay/*/vendor/composer/autoload_files.php' ) as $file ) {
 		$files = require $file;
 
-		foreach ( $files as $identifier => $path ) {
+		foreach ( $files as $identifier => $filepath ) {
 			if ( ! empty( $GLOBALS['__composer_autoload_files'][ $identifier ] ) ) {
 				continue;
 			}
 
-			require $path;
+			require $filepath;
 
 			$GLOBALS['__composer_autoload_files'][ $identifier ] = true;
 		}
@@ -58,13 +58,13 @@ if ( PRONAMIC_PAY_DEBUG ) {
 			continue;
 		}
 
-		foreach ( $object->autoload as $type => $map ) {
-			if ( 'psr-4' !== $type ) {
+		foreach ( $object->autoload as $autoload_type => $classmap ) {
+			if ( 'psr-4' !== $autoload_type ) {
 				continue;
 			}
 
-			foreach ( $map as $prefix => $path ) {
-				$loader->addPsr4( $prefix, dirname( $file ) . '/' . $path, true );
+			foreach ( $classmap as $prefix => $filepath ) {
+				$loader->addPsr4( $prefix, dirname( $file ) . '/' . $filepath, true );
 			}
 		}
 	}
@@ -138,11 +138,11 @@ add_filter(
 		// Deutsche Bank - iDEAL Expert (v3).
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'            => 'deutschebank-ideal-expert-v3',
-				'name'          => 'Deutsche Bank - iDEAL Expert (v3)',
-				'provider'      => 'deutschebank',
-				'product_url'   => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
-				'dashboard_url' => array(
+				'id'               => 'deutschebank-ideal-expert-v3',
+				'name'             => 'Deutsche Bank - iDEAL Expert (v3)',
+				'provider'         => 'deutschebank',
+				'product_url'      => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
+				'dashboard_url'    => array(
 					'test' => 'https://myideal.test.db.com/',
 					'live' => 'https://myideal.db.com/',
 				),
@@ -184,11 +184,11 @@ add_filter(
 		// ING - iDEAL Basic.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
 			array(
-				'id'            => 'ing-ideal-basic',
-				'name'          => 'ING - iDEAL Basic',					
-				'provider'      => 'ing',
-				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'dashboard_url' => array(
+				'id'               => 'ing-ideal-basic',
+				'name'             => 'ING - iDEAL Basic',
+				'provider'         => 'ing',
+				'product_url'      => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'dashboard_url'    => array(
 					'test' => 'https://idealtest.secure-ing.com/',
 					'live' => 'https://ideal.secure-ing.com/',
 				),
@@ -200,11 +200,11 @@ add_filter(
 		// ING - iDEAL Advanced (v3).
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'            => 'ing-ideal-advanced-v3',
-				'name'          => 'ING - iDEAL Advanced (v3)',
-				'provider'      => 'ing',
-				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'dashboard_url' => array(
+				'id'               => 'ing-ideal-advanced-v3',
+				'name'             => 'ING - iDEAL Advanced (v3)',
+				'provider'         => 'ing',
+				'product_url'      => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'dashboard_url'    => array(
 					'test' => 'https://idealtest.secure-ing.com/',
 					'live' => 'https://ideal.secure-ing.com/',
 				),
