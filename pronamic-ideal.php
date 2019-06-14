@@ -125,16 +125,6 @@ add_filter(
 		// Buckaroo.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration();
 
-		// Deutsche Bank - iDEAL via Ogone.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandardEasy\Integration(
-			array(
-				'id'          => 'deutschebank-ideal-via-ogone',
-				'name'        => 'Deutsche Bank - iDEAL via Ogone',
-				'provider'    => 'deutschebank',
-				'product_url' => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
-			)
-		);
-
 		// Deutsche Bank - iDEAL Expert (v3).
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
