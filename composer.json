@@ -117,7 +117,7 @@
 		"php-lint-plugin": "find -L . -type f -path ./.git -prune -o -path ./deploy -prune -o -path ./node_modules -prune -o -path ./repositories -prune -o -path ./vendor -prune -o -path ./wordpress -prune -o -path ./wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
 		"php-lint-wp-pay": "find -L ./repositories/ -type f -name .git -prune -o -name node_modules -prune -o -name vendor -prune -o -name wordpress -prune -o -name wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
 		"make-pot": "wp pronamic i18n make-pot . languages/pronamic_ideal.pot --slug='pronamic-ideal'",
-		"update-po": "find languages/*.po -type f -exec msgmerge --update {} languages/pronamic_ideal.pot \\;",
+		"update-po": "find languages/*.po -type f -exec msgmerge --update --backup=off {} languages/pronamic_ideal.pot \\;",
 		"generate-readme-txt": "php src/readme-txt/readme.php > readme.txt",
 		"generate-readme-md": "php src/readme-md/README.php > README.md",
 		"generate-readme": [
