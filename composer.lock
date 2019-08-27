@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e81b2e1d080b1cd75d3a098ed30b031",
+    "content-hash": "16879804be279c061951e5c100874f69",
     "packages": [
         {
             "name": "composer/installers",
@@ -360,20 +360,20 @@
         },
         {
             "name": "wp-pay-extensions/appthemes",
-            "version": "dev-develop",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/appthemes.git",
-                "reference": "ad1016603aa6447b4d169d9e298cffb36da290ed"
+                "reference": "f242768cbcfb3a606cfa1ba8f7caf82c5bfa572f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/appthemes/zipball/ad1016603aa6447b4d169d9e298cffb36da290ed",
-                "reference": "ad1016603aa6447b4d169d9e298cffb36da290ed",
+                "url": "https://api.github.com/repos/wp-pay-extensions/appthemes/zipball/f242768cbcfb3a606cfa1ba8f7caf82c5bfa572f",
+                "reference": "f242768cbcfb3a606cfa1ba8f7caf82c5bfa572f",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
+                "php": ">=5.6.20",
                 "wp-pay/core": "^2.1"
             },
             "require-dev": {
@@ -381,12 +381,12 @@
                 "php-coveralls/php-coveralls": "^1.1",
                 "phpcompatibility/php-compatibility": "^9.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -400,16 +400,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "AppThemes driver for the WordPress payment processing library.",
@@ -422,38 +422,38 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-05-28T12:05:31+00:00"
+            "time": "2019-08-26T09:07:10+00:00"
         },
         {
             "name": "wp-pay-extensions/charitable",
-            "version": "dev-develop",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/charitable.git",
-                "reference": "be18ce2b76abb4a78b12412846ccbcb3fdadc9f3"
+                "reference": "67ea5e5e213c7f46866604d2c5aaf708d413c273"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/charitable/zipball/be18ce2b76abb4a78b12412846ccbcb3fdadc9f3",
-                "reference": "be18ce2b76abb4a78b12412846ccbcb3fdadc9f3",
+                "url": "https://api.github.com/repos/wp-pay-extensions/charitable/zipball/67ea5e5e213c7f46866604d2c5aaf708d413c273",
+                "reference": "67ea5e5e213c7f46866604d2c5aaf708d413c273",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
+                "php": ">=5.6.20",
                 "wp-pay/core": "^2.1"
             },
             "require-dev": {
                 "charitable/charitable": "^1.6",
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -467,16 +467,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "Charitable driver for the WordPress payment processing library.",
@@ -489,37 +489,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-05-28T12:05:18+00:00"
+            "time": "2019-08-26T09:13:50+00:00"
         },
         {
             "name": "wp-pay-extensions/classipress",
-            "version": "dev-develop",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/classipress.git",
-                "reference": "64cbe86d7e51b2487f92eea14d8bf01b36bce363"
+                "reference": "7248ab97faee1905cca21c8f41c0948b9c6acf8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/64cbe86d7e51b2487f92eea14d8bf01b36bce363",
-                "reference": "64cbe86d7e51b2487f92eea14d8bf01b36bce363",
+                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/7248ab97faee1905cca21c8f41c0948b9c6acf8f",
+                "reference": "7248ab97faee1905cca21c8f41c0948b9c6acf8f",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -533,16 +533,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "ClassiPress driver for the WordPress payment processing library.",
@@ -555,38 +555,38 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-05-28T12:05:07+00:00"
+            "time": "2019-08-26T09:20:28+00:00"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
-            "version": "dev-develop",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/easy-digital-downloads.git",
-                "reference": "07e856cbd66cd597b3d74d1a31269c5a3a70be25"
+                "reference": "283b10b91556a6f24d4747d33ae5105fb1d58673"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/07e856cbd66cd597b3d74d1a31269c5a3a70be25",
-                "reference": "07e856cbd66cd597b3d74d1a31269c5a3a70be25",
+                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/283b10b91556a6f24d4747d33ae5105fb1d58673",
+                "reference": "283b10b91556a6f24d4747d33ae5105fb1d58673",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
                 "easydigitaldownloads/easy-digital-downloads": "^2.9",
-                "php-coveralls/php-coveralls": "^1.1",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -600,16 +600,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "Easy Digital Downloads driver for the WordPress payment processing library.",
@@ -625,37 +625,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-06-04T10:32:08+00:00"
+            "time": "2019-08-26T09:25:42+00:00"
         },
         {
             "name": "wp-pay-extensions/event-espresso",
-            "version": "dev-develop",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/event-espresso.git",
-                "reference": "7ba9cc5edef97fe7ae9703bdf22baad331090931"
+                "reference": "e27461cb0fb81b5f54e68bd15f26cd2d6d219948"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso/zipball/7ba9cc5edef97fe7ae9703bdf22baad331090931",
-                "reference": "7ba9cc5edef97fe7ae9703bdf22baad331090931",
+                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso/zipball/e27461cb0fb81b5f54e68bd15f26cd2d6d219948",
+                "reference": "e27461cb0fb81b5f54e68bd15f26cd2d6d219948",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
+                "php": ">=5.6.20",
                 "wp-pay/core": "^2.1"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -669,16 +669,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "Event Espresso driver for the WordPress payment processing library.",
@@ -694,37 +694,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-05-28T12:04:55+00:00"
+            "time": "2019-08-26T09:30:20+00:00"
         },
         {
             "name": "wp-pay-extensions/event-espresso-legacy",
-            "version": "dev-develop",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/event-espresso-legacy.git",
-                "reference": "de0f9745881ec1b8c78522d3f96e33653ecbd5bc"
+                "reference": "0ff8a37ecc528fc4e3c5c989936e44d8e6428e3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso-legacy/zipball/de0f9745881ec1b8c78522d3f96e33653ecbd5bc",
-                "reference": "de0f9745881ec1b8c78522d3f96e33653ecbd5bc",
+                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso-legacy/zipball/0ff8a37ecc528fc4e3c5c989936e44d8e6428e3a",
+                "reference": "0ff8a37ecc528fc4e3c5c989936e44d8e6428e3a",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -738,16 +738,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "Event Espresso (legacy 3.1) driver for the WordPress payment processing library.",
@@ -764,37 +764,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-05-28T12:04:44+00:00"
+            "time": "2019-08-26T09:34:50+00:00"
         },
         {
             "name": "wp-pay-extensions/formidable-forms",
-            "version": "dev-develop",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/formidable-forms.git",
-                "reference": "b4522cb832f73e00bdbaa757c0d2ac2372282d64"
+                "reference": "0ef997ff916cdf8009dc5aa7398e53bfe98b39c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/formidable-forms/zipball/b4522cb832f73e00bdbaa757c0d2ac2372282d64",
-                "reference": "b4522cb832f73e00bdbaa757c0d2ac2372282d64",
+                "url": "https://api.github.com/repos/wp-pay-extensions/formidable-forms/zipball/0ef997ff916cdf8009dc5aa7398e53bfe98b39c2",
+                "reference": "0ef997ff916cdf8009dc5aa7398e53bfe98b39c2",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -808,16 +808,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "Formidable Forms driver for the WordPress payment processing library.",
@@ -831,37 +831,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-06-13T08:29:51+00:00"
+            "time": "2019-08-26T09:38:24+00:00"
         },
         {
             "name": "wp-pay-extensions/give",
-            "version": "dev-develop",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/give.git",
-                "reference": "aa872337755e2f3f88d6dfd8b54edfcb4a9633b5"
+                "reference": "d82cd0b934261c3c97e42ae0623876773f9031cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/give/zipball/aa872337755e2f3f88d6dfd8b54edfcb4a9633b5",
-                "reference": "aa872337755e2f3f88d6dfd8b54edfcb4a9633b5",
+                "url": "https://api.github.com/repos/wp-pay-extensions/give/zipball/d82cd0b934261c3c97e42ae0623876773f9031cf",
+                "reference": "d82cd0b934261c3c97e42ae0623876773f9031cf",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
+                "php": ">=5.6.20",
                 "wp-pay/core": "^2.1"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -875,16 +875,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "Give driver for the WordPress payment processing library.",
@@ -897,37 +897,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-05-28T12:05:48+00:00"
+            "time": "2019-08-26T09:43:38+00:00"
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "dev-develop",
+            "version": "2.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "a7862ca619513db95c1361c195d3b38d98eb8c05"
+                "reference": "b76faf3fdd3a68d151aff6359869b200e87200ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/a7862ca619513db95c1361c195d3b38d98eb8c05",
-                "reference": "a7862ca619513db95c1361c195d3b38d98eb8c05",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/b76faf3fdd3a68d151aff6359869b200e87200ff",
+                "reference": "b76faf3fdd3a68d151aff6359869b200e87200ff",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.1",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0",
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2",
                 "wp-premium/gravityforms": "^2.3"
             },
             "type": "library",
@@ -964,37 +964,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-25T13:34:16+00:00"
+            "time": "2019-08-26T09:59:06+00:00"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
-            "version": "dev-develop",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/ithemes-exchange.git",
-                "reference": "105c51bc2ae09428fbd7615f4650deb7dcc372d3"
+                "reference": "a310e7604b11f0f16cfb44a8374e8f5a09841714"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/ithemes-exchange/zipball/105c51bc2ae09428fbd7615f4650deb7dcc372d3",
-                "reference": "105c51bc2ae09428fbd7615f4650deb7dcc372d3",
+                "url": "https://api.github.com/repos/wp-pay-extensions/ithemes-exchange/zipball/a310e7604b11f0f16cfb44a8374e8f5a09841714",
+                "reference": "a310e7604b11f0f16cfb44a8374e8f5a09841714",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -1008,16 +1008,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "iThemes Exchange driver for the WordPress payment processing library.",
@@ -1031,38 +1031,38 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-05-28T12:04:48+00:00"
+            "time": "2019-08-26T10:02:23+00:00"
         },
         {
             "name": "wp-pay-extensions/jigoshop",
-            "version": "dev-develop",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/jigoshop.git",
-                "reference": "58e7fe3242acc378d605987394ee0101232ee472"
+                "reference": "fe80baf13d8b7d4b623fabd3a96c3fa11507a55a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/jigoshop/zipball/58e7fe3242acc378d605987394ee0101232ee472",
-                "reference": "58e7fe3242acc378d605987394ee0101232ee472",
+                "url": "https://api.github.com/repos/wp-pay-extensions/jigoshop/zipball/fe80baf13d8b7d4b623fabd3a96c3fa11507a55a",
+                "reference": "fe80baf13d8b7d4b623fabd3a96c3fa11507a55a",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
                 "jigoshop/jigoshop": "1.18.3",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -1076,16 +1076,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "Jigoshop driver for the WordPress payment processing library.",
@@ -1098,37 +1098,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-05-28T12:05:37+00:00"
+            "time": "2019-08-26T10:06:39+00:00"
         },
         {
             "name": "wp-pay-extensions/memberpress",
-            "version": "dev-develop",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/memberpress.git",
-                "reference": "33097ee7f41a9f537bdfc0d74bfd4dc274460363"
+                "reference": "4592c2c6dc897dce0626a4463bb36056a90bab72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/memberpress/zipball/33097ee7f41a9f537bdfc0d74bfd4dc274460363",
-                "reference": "33097ee7f41a9f537bdfc0d74bfd4dc274460363",
+                "url": "https://api.github.com/repos/wp-pay-extensions/memberpress/zipball/4592c2c6dc897dce0626a4463bb36056a90bab72",
+                "reference": "4592c2c6dc897dce0626a4463bb36056a90bab72",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0",
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2",
                 "wp-premium/memberpress-basic": "^1.3"
             },
             "type": "library",
@@ -1143,16 +1143,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "MemberPress driver for the WordPress payment processing library.",
@@ -1165,37 +1165,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-18T13:17:37+00:00"
+            "time": "2019-08-26T10:15:49+00:00"
         },
         {
             "name": "wp-pay-extensions/membership",
-            "version": "dev-develop",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/membership.git",
-                "reference": "70c9f5bb0c2d241ad1fdbe54234eeecb26edb38a"
+                "reference": "bc1a8bfd82ac6d668eb9bb5dfc3391163bde6456"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/membership/zipball/70c9f5bb0c2d241ad1fdbe54234eeecb26edb38a",
-                "reference": "70c9f5bb0c2d241ad1fdbe54234eeecb26edb38a",
+                "url": "https://api.github.com/repos/wp-pay-extensions/membership/zipball/bc1a8bfd82ac6d668eb9bb5dfc3391163bde6456",
+                "reference": "bc1a8bfd82ac6d668eb9bb5dfc3391163bde6456",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -1209,16 +1209,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "Membership driver for the WordPress payment processing library.",
@@ -1231,37 +1231,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-05-28T12:05:21+00:00"
+            "time": "2019-08-26T10:26:23+00:00"
         },
         {
             "name": "wp-pay-extensions/ninjaforms",
-            "version": "dev-develop",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/ninjaforms.git",
-                "reference": "2b7e51104f643e62d78c95e9bd7e59dbbd739d93"
+                "reference": "6dfc2eefb129c1eadf716a64f56182b76278b043"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/ninjaforms/zipball/2b7e51104f643e62d78c95e9bd7e59dbbd739d93",
-                "reference": "2b7e51104f643e62d78c95e9bd7e59dbbd739d93",
+                "url": "https://api.github.com/repos/wp-pay-extensions/ninjaforms/zipball/6dfc2eefb129c1eadf716a64f56182b76278b043",
+                "reference": "6dfc2eefb129c1eadf716a64f56182b76278b043",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0",
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2",
                 "wpninjas/ninja-forms": "^3.3"
             },
             "type": "library",
@@ -1297,33 +1297,33 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-22T10:07:20+00:00"
+            "time": "2019-08-26T10:32:57+00:00"
         },
         {
             "name": "wp-pay-extensions/restrict-content-pro",
-            "version": "dev-develop",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/restrict-content-pro.git",
-                "reference": "90a76016f9a9a7f8eb2d56a3c0d9890f96b27b41"
+                "reference": "8b73c010491a1d85cd1ee2295f9251ee2de32b89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/restrict-content-pro/zipball/90a76016f9a9a7f8eb2d56a3c0d9890f96b27b41",
-                "reference": "90a76016f9a9a7f8eb2d56a3c0d9890f96b27b41",
+                "url": "https://api.github.com/repos/wp-pay-extensions/restrict-content-pro/zipball/8b73c010491a1d85cd1ee2295f9251ee2de32b89",
+                "reference": "8b73c010491a1d85cd1ee2295f9251ee2de32b89",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.20",
                 "pronamic/wp-money": "^1.2",
-                "wp-pay/core": "dev-develop as 2.2"
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
                 "php-coveralls/php-coveralls": "^2.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
+                "phpmd/phpmd": "^2.7",
                 "phpunit/phpunit": "^5.7 || ^6.0",
                 "restrictcontentpro/restrict-content": "2.2.3",
                 "roots/wordpress": "^5.2",
@@ -1367,305 +1367,33 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-23T07:19:59+00:00"
+            "time": "2019-08-26T10:37:50+00:00"
         },
         {
             "name": "wp-pay-extensions/s2member",
-            "version": "dev-develop",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/s2member.git",
-                "reference": "d8aea7e55f404a56323de0a8c442bb8cf0822477"
+                "reference": "8dd5f35894fad430cc7386d9f916106e6f053310"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/s2member/zipball/d8aea7e55f404a56323de0a8c442bb8cf0822477",
-                "reference": "d8aea7e55f404a56323de0a8c442bb8cf0822477",
+                "url": "https://api.github.com/repos/wp-pay-extensions/s2member/zipball/8dd5f35894fad430cc7386d9f916106e6f053310",
+                "reference": "8dd5f35894fad430cc7386d9f916106e6f053310",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
-                "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Pronamic\\WordPress\\Pay\\Extensions\\S2Member\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
-                }
-            ],
-            "description": "s2Member driver for the WordPress payment processing library.",
-            "homepage": "http://www.wp-pay.org/extensions/s2member/",
-            "keywords": [
-                "extension",
-                "pay",
-                "pronamic",
-                "s2member",
-                "wordpress",
-                "wp"
-            ],
-            "time": "2019-07-17T12:29:48+00:00"
-        },
-        {
-            "name": "wp-pay-extensions/shopp",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wp-pay-extensions/shopp.git",
-                "reference": "5eaa4d65620cd3fe21a22c216113b801d512e61d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/shopp/zipball/5eaa4d65620cd3fe21a22c216113b801d512e61d",
-                "reference": "5eaa4d65620cd3fe21a22c216113b801d512e61d",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "ingenesis/shopp": "1.4",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
-                "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Pronamic\\WordPress\\Pay\\Extensions\\Shopp\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
-                }
-            ],
-            "description": "Shopp driver for the WordPress payment processing library.",
-            "homepage": "http://www.wp-pay.org/extensions/shopp/",
-            "keywords": [
-                "extension",
-                "pay",
-                "pronamic",
-                "shopp",
-                "wordpress",
-                "wp"
-            ],
-            "time": "2019-05-28T12:05:47+00:00"
-        },
-        {
-            "name": "wp-pay-extensions/woocommerce",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wp-pay-extensions/woocommerce.git",
-                "reference": "7056d194aee88fa60d14e94e8fa8da962acdc0da"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/7056d194aee88fa60d14e94e8fa8da962acdc0da",
-                "reference": "7056d194aee88fa60d14e94e8fa8da962acdc0da",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
-                "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.1",
-                "squizlabs/php_codesniffer": "^2.9",
-                "woocommerce/woocommerce": "^3.5",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.1",
-                "wp-premium/woocommerce-subscriptions": "2.4.7"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Pronamic\\WordPress\\Pay\\Extensions\\WooCommerce\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
-                }
-            ],
-            "description": "WooCommerce driver for the WordPress payment processing library.",
-            "homepage": "http://www.wp-pay.org/extensions/woocommerce/",
-            "keywords": [
-                "extension",
-                "pay",
-                "pronamic",
-                "woocommerce",
-                "wordpress",
-                "wp"
-            ],
-            "time": "2019-07-18T13:17:39+00:00"
-        },
-        {
-            "name": "wp-pay-extensions/wp-e-commerce",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wp-pay-extensions/wp-e-commerce.git",
-                "reference": "87ab9dd36f27c288003eb06062052fb3ef52daa5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/wp-e-commerce/zipball/87ab9dd36f27c288003eb06062052fb3ef52daa5",
-                "reference": "87ab9dd36f27c288003eb06062052fb3ef52daa5",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
-                "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-e-commerce/wp-e-commerce": "^3.14",
-                "wp-phpunit/wp-phpunit": "^5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Pronamic\\WordPress\\Pay\\Extensions\\WPeCommerce\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
-                }
-            ],
-            "description": "WP eCommerce driver for the WordPress payment processing library.",
-            "homepage": "http://www.wp-pay.org/extensions/wp-e-commerce/",
-            "keywords": [
-                "extension",
-                "pay",
-                "pronamic",
-                "wordpress",
-                "wp",
-                "wp-e-commerce"
-            ],
-            "time": "2019-05-28T12:04:59+00:00"
-        },
-        {
-            "name": "wp-pay-gateways/adyen",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wp-pay-gateways/adyen.git",
-                "reference": "49409143130be89467ffc02d6b0e2c0e24f7fc70"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/adyen/zipball/49409143130be89467ffc02d6b0e2c0e24f7fc70",
-                "reference": "49409143130be89467ffc02d6b0e2c0e24f7fc70",
-                "shasum": ""
-            },
-            "require": {
-                "ext-intl": "*",
-                "justinrainbow/json-schema": "^5.2",
                 "php": ">=5.6.20",
-                "pronamic/wp-money": "^1.2",
-                "wp-pay/core": "dev-develop as 2.2"
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-                "overtrue/phplint": "^1.1",
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.6",
-                "phpunit/phpunit": "^5.7",
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
                 "roots/wordpress": "^5.2",
                 "squizlabs/php_codesniffer": "^3.4",
                 "wp-coding-standards/wpcs": "^2.1",
@@ -1674,7 +1402,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Pronamic\\WordPress\\Pay\\Gateways\\Adyen\\": "src/"
+                    "Pronamic\\WordPress\\Pay\\Extensions\\S2Member\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1695,6 +1423,278 @@
                     "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
+            "description": "s2Member driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/s2member/",
+            "keywords": [
+                "extension",
+                "pay",
+                "pronamic",
+                "s2member",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2019-08-26T11:13:04+00:00"
+        },
+        {
+            "name": "wp-pay-extensions/shopp",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/shopp.git",
+                "reference": "13ba0d20aa6c7c6ca71b61cad54480c7231b8218"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/shopp/zipball/13ba0d20aa6c7c6ca71b61cad54480c7231b8218",
+                "reference": "13ba0d20aa6c7c6ca71b61cad54480c7231b8218",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+                "ingenesis/shopp": "1.4",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
+                "phpcompatibility/phpcompatibility-wp": "^2.0",
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\Shopp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
+                },
+                {
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
+                }
+            ],
+            "description": "Shopp driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/shopp/",
+            "keywords": [
+                "extension",
+                "pay",
+                "pronamic",
+                "shopp",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2019-08-26T11:22:21+00:00"
+        },
+        {
+            "name": "wp-pay-extensions/woocommerce",
+            "version": "2.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/woocommerce.git",
+                "reference": "08f9ab06a8f98d9ae8caff674142d85441c290bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/08f9ab06a8f98d9ae8caff674142d85441c290bb",
+                "reference": "08f9ab06a8f98d9ae8caff674142d85441c290bb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
+                "phpcompatibility/phpcompatibility-wp": "^2.0",
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "woocommerce/woocommerce": "^3.5",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2",
+                "wp-premium/woocommerce-subscriptions": "2.4.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\WooCommerce\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
+                },
+                {
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
+                }
+            ],
+            "description": "WooCommerce driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/woocommerce/",
+            "keywords": [
+                "extension",
+                "pay",
+                "pronamic",
+                "woocommerce",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2019-08-26T11:27:36+00:00"
+        },
+        {
+            "name": "wp-pay-extensions/wp-e-commerce",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/wp-e-commerce.git",
+                "reference": "1d2ef83a87b442963eeede305dba7b795aa6f23a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/wp-e-commerce/zipball/1d2ef83a87b442963eeede305dba7b795aa6f23a",
+                "reference": "1d2ef83a87b442963eeede305dba7b795aa6f23a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
+                "phpcompatibility/phpcompatibility-wp": "^2.0",
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-e-commerce/wp-e-commerce": "^3.14",
+                "wp-phpunit/wp-phpunit": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\WPeCommerce\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
+                },
+                {
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
+                }
+            ],
+            "description": "WP eCommerce driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/wp-e-commerce/",
+            "keywords": [
+                "extension",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp",
+                "wp-e-commerce"
+            ],
+            "time": "2019-08-26T11:30:24+00:00"
+        },
+        {
+            "name": "wp-pay-gateways/adyen",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/adyen.git",
+                "reference": "7779d7edbe102ce8c7b90e1683370551b02f1195"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/adyen/zipball/7779d7edbe102ce8c7b90e1683370551b02f1195",
+                "reference": "7779d7edbe102ce8c7b90e1683370551b02f1195",
+                "shasum": ""
+            },
+            "require": {
+                "ext-intl": "*",
+                "justinrainbow/json-schema": "^5.2",
+                "php": ">=5.6.0",
+                "pronamic/wp-money": "^1.2",
+                "wp-pay/core": "^2.1"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "overtrue/phplint": "^1.1",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.1",
+                "phpcompatibility/phpcompatibility-wp": "^2.0",
+                "phpmd/phpmd": "^2.6",
+                "phpunit/phpunit": "^5.7",
+                "roots/wordpress": "^5.1",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Gateways\\Adyen\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
+                },
+                {
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
+                }
+            ],
             "description": "Adyen driver for the WordPress payment processing library.",
             "homepage": "http://www.wp-pay.org/gateways/adyen/",
             "keywords": [
@@ -1705,37 +1705,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-08-13T07:21:12+00:00"
+            "time": "2019-05-15T12:23:35+00:00"
         },
         {
             "name": "wp-pay-gateways/buckaroo",
-            "version": "dev-develop",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/buckaroo.git",
-                "reference": "d335407f34b2db7793f49010e2139ce1c226f90d"
+                "reference": "73c4ae4e4335d48fd3aefd580f2a9f3bd7141f2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/buckaroo/zipball/d335407f34b2db7793f49010e2139ce1c226f90d",
-                "reference": "d335407f34b2db7793f49010e2139ce1c226f90d",
+                "url": "https://api.github.com/repos/wp-pay-gateways/buckaroo/zipball/73c4ae4e4335d48fd3aefd580f2a9f3bd7141f2e",
+                "reference": "73c4ae4e4335d48fd3aefd580f2a9f3bd7141f2e",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -1749,16 +1749,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "Buckaroo driver for the WordPress payment processing library.",
@@ -1771,37 +1771,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-18T11:14:06+00:00"
+            "time": "2019-08-27T06:47:54+00:00"
         },
         {
             "name": "wp-pay-gateways/ems-e-commerce",
-            "version": "dev-develop",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ems-e-commerce.git",
-                "reference": "02f8b3d222579852a892ae90b765b96144544a0a"
+                "reference": "8b7351e37d9de8bb092a663d95dd15778d790b21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ems-e-commerce/zipball/02f8b3d222579852a892ae90b765b96144544a0a",
-                "reference": "02f8b3d222579852a892ae90b765b96144544a0a",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ems-e-commerce/zipball/8b7351e37d9de8bb092a663d95dd15778d790b21",
+                "reference": "8b7351e37d9de8bb092a663d95dd15778d790b21",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -1815,16 +1815,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "EMS e-Commerce Gateway driver for the WordPress payment processing library.",
@@ -1837,34 +1837,34 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-15T10:00:23+00:00"
+            "time": "2019-08-27T06:55:22+00:00"
         },
         {
             "name": "wp-pay-gateways/icepay",
-            "version": "dev-develop",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/icepay.git",
-                "reference": "68dc7532c676ddfca8c83924ba085fc2ed6d4f88"
+                "reference": "16d5567af612ec0cc15d083722021a0a88ee6e2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/icepay/zipball/68dc7532c676ddfca8c83924ba085fc2ed6d4f88",
-                "reference": "68dc7532c676ddfca8c83924ba085fc2ed6d4f88",
+                "url": "https://api.github.com/repos/wp-pay-gateways/icepay/zipball/16d5567af612ec0cc15d083722021a0a88ee6e2f",
+                "reference": "16d5567af612ec0cc15d083722021a0a88ee6e2f",
                 "shasum": ""
             },
             "require": {
                 "icepay/icepay": "~2.4.0",
                 "php": ">=5.6.20",
-                "wp-pay/core": "dev-develop as 2.1"
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.6",
-                "phpunit/phpunit": "^5.7",
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
                 "roots/wordpress": "^5.2",
                 "squizlabs/php_codesniffer": "^3.4",
                 "wp-coding-standards/wpcs": "^2.1",
@@ -1905,37 +1905,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-22T14:56:10+00:00"
+            "time": "2019-08-27T06:59:29+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal",
-            "version": "dev-develop",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal.git",
-                "reference": "c233f578d873ac0b0065ef2aac6be21fc6c3744a"
+                "reference": "36f99d049d80cfc3e5e012f249e70a01cf30e427"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal/zipball/c233f578d873ac0b0065ef2aac6be21fc6c3744a",
-                "reference": "c233f578d873ac0b0065ef2aac6be21fc6c3744a",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal/zipball/36f99d049d80cfc3e5e012f249e70a01cf30e427",
+                "reference": "36f99d049d80cfc3e5e012f249e70a01cf30e427",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -1957,40 +1957,40 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-06-13T07:26:04+00:00"
+            "time": "2019-08-27T07:03:17+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal-advanced-v3",
-            "version": "dev-develop",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-advanced-v3.git",
-                "reference": "adc0dc740c8d6c3ebfe159544a9968864241713d"
+                "reference": "44b23a1ae677ea5fd0870887d3206c0ba62f1b24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/adc0dc740c8d6c3ebfe159544a9968864241713d",
-                "reference": "adc0dc740c8d6c3ebfe159544a9968864241713d",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/44b23a1ae677ea5fd0870887d3206c0ba62f1b24",
+                "reference": "44b23a1ae677ea5fd0870887d3206c0ba62f1b24",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-openssl": "*",
-                "php": "^5.3",
+                "php": ">=5.6.20",
                 "wp-pay-gateways/ideal": "^2.0",
-                "wp-pay/core": "^2.1"
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -2028,38 +2028,38 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-22T10:08:14+00:00"
+            "time": "2019-08-27T07:15:44+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal-basic",
-            "version": "dev-develop",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-basic.git",
-                "reference": "fbc193b5309b2d622b79437e4f6476f9ed8f98e3"
+                "reference": "5d5a5b247738d0332f26f830d9fe65e2bfdf66b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/fbc193b5309b2d622b79437e4f6476f9ed8f98e3",
-                "reference": "fbc193b5309b2d622b79437e4f6476f9ed8f98e3",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/5d5a5b247738d0332f26f830d9fe65e2bfdf66b7",
+                "reference": "5d5a5b247738d0332f26f830d9fe65e2bfdf66b7",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
+                "php": ">=5.6.20",
                 "wp-pay-gateways/ideal": "^2.0",
-                "wp-pay/core": "^2.1"
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -2073,16 +2073,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "iDEAL Basic driver for the WordPress payment processing library.",
@@ -2096,37 +2096,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-15T10:00:27+00:00"
+            "time": "2019-08-27T07:20:22+00:00"
         },
         {
             "name": "wp-pay-gateways/ing-kassa-compleet",
-            "version": "dev-develop",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ing-kassa-compleet.git",
-                "reference": "69a50e73b8c9fab68ed9f4f9d675af0d18272dad"
+                "reference": "3a892ca07154515cc0f77e7e6bff186c3b6b7d1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ing-kassa-compleet/zipball/69a50e73b8c9fab68ed9f4f9d675af0d18272dad",
-                "reference": "69a50e73b8c9fab68ed9f4f9d675af0d18272dad",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ing-kassa-compleet/zipball/3a892ca07154515cc0f77e7e6bff186c3b6b7d1b",
+                "reference": "3a892ca07154515cc0f77e7e6bff186c3b6b7d1b",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -2140,16 +2140,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "ING Kassa Compleet driver for the WordPress payment processing library.",
@@ -2164,34 +2164,34 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-18T11:14:35+00:00"
+            "time": "2019-08-27T12:38:52+00:00"
         },
         {
             "name": "wp-pay-gateways/mollie",
-            "version": "dev-develop",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "2d78967176e8c5ed3b690c78b23770e03e7787bf"
+                "reference": "4fb2a3eaa817b422c1441c545c3d63313b46d77b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/2d78967176e8c5ed3b690c78b23770e03e7787bf",
-                "reference": "2d78967176e8c5ed3b690c78b23770e03e7787bf",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/4fb2a3eaa817b422c1441c545c3d63313b46d77b",
+                "reference": "4fb2a3eaa817b422c1441c545c3d63313b46d77b",
                 "shasum": ""
             },
             "require": {
                 "justinrainbow/json-schema": "^5.2",
                 "php": ">=5.6.20",
-                "wp-pay/core": "dev-develop as 2.1"
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.6",
-                "phpunit/phpunit": "^5.7",
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
                 "roots/wordpress": "^5.2",
                 "squizlabs/php_codesniffer": "^3.4",
                 "wp-coding-standards/wpcs": "^2.1",
@@ -2231,7 +2231,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-22T14:05:52+00:00"
+            "time": "2019-08-27T12:43:36+00:00"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",
@@ -2239,29 +2239,29 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie-ideal.git",
-                "reference": "82f2fbb129a7dffdc06806c35252e56af3850b60"
+                "reference": "a223d4086f143801697283a9278b11ea33aa43a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie-ideal/zipball/82f2fbb129a7dffdc06806c35252e56af3850b60",
-                "reference": "82f2fbb129a7dffdc06806c35252e56af3850b60",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie-ideal/zipball/a223d4086f143801697283a9278b11ea33aa43a1",
+                "reference": "a223d4086f143801697283a9278b11ea33aa43a1",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -2275,16 +2275,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "[DEPRECATED] Mollie iDEAL driver for the WordPress payment processing library.",
@@ -2299,38 +2299,38 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-18T11:16:01+00:00"
+            "time": "2019-08-27T12:47:15+00:00"
         },
         {
             "name": "wp-pay-gateways/multisafepay",
-            "version": "dev-develop",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/multisafepay.git",
-                "reference": "a23a3e99994d901013a63f633dd75465049beb98"
+                "reference": "90f63b48b75b5516cfa85b0d41e19453232e7803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay/zipball/a23a3e99994d901013a63f633dd75465049beb98",
-                "reference": "a23a3e99994d901013a63f633dd75465049beb98",
+                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay/zipball/90f63b48b75b5516cfa85b0d41e19453232e7803",
+                "reference": "90f63b48b75b5516cfa85b0d41e19453232e7803",
                 "shasum": ""
             },
             "require": {
                 "ext-simplexml": "*",
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -2344,16 +2344,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "MultiSafepay driver for the WordPress payment processing library.",
@@ -2367,37 +2367,37 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-18T11:16:11+00:00"
+            "time": "2019-08-27T13:25:37+00:00"
         },
         {
             "name": "wp-pay-gateways/nocks",
-            "version": "dev-develop",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/nocks.git",
-                "reference": "4a7b68130843d5f922cecba01ddba5305b894844"
+                "reference": "1c3e9c26a6be3defbafc4e34d6d95411ae5928eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/nocks/zipball/4a7b68130843d5f922cecba01ddba5305b894844",
-                "reference": "4a7b68130843d5f922cecba01ddba5305b894844",
+                "url": "https://api.github.com/repos/wp-pay-gateways/nocks/zipball/1c3e9c26a6be3defbafc4e34d6d95411ae5928eb",
+                "reference": "1c3e9c26a6be3defbafc4e34d6d95411ae5928eb",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -2433,38 +2433,38 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-24T08:58:29+00:00"
+            "time": "2019-08-27T13:31:01+00:00"
         },
         {
             "name": "wp-pay-gateways/ogone",
-            "version": "dev-develop",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "9c1c27eeabd356a48f2ed2c1318040ea8723fe7a"
+                "reference": "60caf13d43ce58866f16c96479292e565a852388"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/9c1c27eeabd356a48f2ed2c1318040ea8723fe7a",
-                "reference": "9c1c27eeabd356a48f2ed2c1318040ea8723fe7a",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/60caf13d43ce58866f16c96479292e565a852388",
+                "reference": "60caf13d43ce58866f16c96479292e565a852388",
                 "shasum": ""
             },
             "require": {
                 "ext-simplexml": "*",
-                "php": "^5.3",
-                "wp-pay/core": "^2.1"
+                "php": ">=5.6.20",
+                "wp-pay/core": "^2.2"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpcompatibility/php-compatibility": "^9.1",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpcompatibility/php-compatibility": "^9.2",
                 "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "roots/wordpress": "^5.0",
-                "squizlabs/php_codesniffer": "^2.9",
-                "wp-coding-standards/wpcs": "^1.2",
-                "wp-phpunit/wp-phpunit": "^5.0"
+                "phpmd/phpmd": "^2.7",
+                "phpunit/phpunit": "^5.7 || ^6.0",
+                "roots/wordpress": "^5.2",
+                "squizlabs/php_codesniffer": "^3.4",
+                "wp-coding-standards/wpcs": "^2.1",
+                "wp-phpunit/wp-phpunit": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -2478,16 +2478,16 @@
             ],
             "authors": [
                 {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
+                    "name": "Pronamic",
+                    "role": "Company",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/"
                 },
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
+                    "name": "Remco Tolsma",
+                    "role": "Developer",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/"
                 }
             ],
             "description": "Ingenico/Ogone driver for the WordPress payment processing library.",
@@ -2501,7 +2501,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-07-18T11:16:29+00:00"
+            "time": "2019-08-27T13:38:08+00:00"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -2838,16 +2838,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "dev-develop",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "0fa1f190fb3c371a9fbf7184431407f68a9f1dab"
+                "reference": "2a6a3ff2671546fb06a9c8c3389ef9dd728134be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/0fa1f190fb3c371a9fbf7184431407f68a9f1dab",
-                "reference": "0fa1f190fb3c371a9fbf7184431407f68a9f1dab",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/2a6a3ff2671546fb06a9c8c3389ef9dd728134be",
+                "reference": "2a6a3ff2671546fb06a9c8c3389ef9dd728134be",
                 "shasum": ""
             },
             "require": {
@@ -2909,7 +2909,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-08-26T08:36:52+00:00"
+            "time": "2019-08-26T08:36:51+00:00"
         }
     ],
     "packages-dev": [
@@ -3428,13 +3428,13 @@
                 },
                 {
                     "name": "Wim Godden",
-                    "homepage": "https://github.com/wimg",
-                    "role": "lead"
+                    "role": "lead",
+                    "homepage": "https://github.com/wimg"
                 },
                 {
                     "name": "Juliette Reinders Folmer",
-                    "homepage": "https://github.com/jrfnl",
-                    "role": "lead"
+                    "role": "lead",
+                    "homepage": "https://github.com/jrfnl"
                 }
             ],
             "description": "A set of sniffs for PHP_CodeSniffer that checks for PHP cross-version compatibility.",
@@ -5127,16 +5127,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.4.30",
+            "version": "v3.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "623fd6be3e5d4112d667003488c8c3ec12b66f62"
+                "reference": "24a60c0d7ad98a0fa5d1f892e9286095a389404f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/623fd6be3e5d4112d667003488c8c3ec12b66f62",
-                "reference": "623fd6be3e5d4112d667003488c8c3ec12b66f62",
+                "url": "https://api.github.com/repos/symfony/config/zipball/24a60c0d7ad98a0fa5d1f892e9286095a389404f",
+                "reference": "24a60c0d7ad98a0fa5d1f892e9286095a389404f",
                 "shasum": ""
             },
             "require": {
@@ -5187,20 +5187,20 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2019-07-17T15:23:18+00:00"
+            "time": "2019-08-26T07:52:57+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v3.4.30",
+            "version": "v3.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "12940f20a816c978860fa4925b3f1bbb27e9ac46"
+                "reference": "4510f04e70344d70952566e4262a0b11df39cb10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/12940f20a816c978860fa4925b3f1bbb27e9ac46",
-                "reference": "12940f20a816c978860fa4925b3f1bbb27e9ac46",
+                "url": "https://api.github.com/repos/symfony/console/zipball/4510f04e70344d70952566e4262a0b11df39cb10",
+                "reference": "4510f04e70344d70952566e4262a0b11df39cb10",
                 "shasum": ""
             },
             "require": {
@@ -5259,20 +5259,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-07-24T14:46:41+00:00"
+            "time": "2019-08-26T07:52:58+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v3.4.30",
+            "version": "v3.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "bc977cb2681d75988ab2d53d14c4245c6c04f82f"
+                "reference": "0b600300918780001e2821db77bc28b677794486"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/bc977cb2681d75988ab2d53d14c4245c6c04f82f",
-                "reference": "bc977cb2681d75988ab2d53d14c4245c6c04f82f",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/0b600300918780001e2821db77bc28b677794486",
+                "reference": "0b600300918780001e2821db77bc28b677794486",
                 "shasum": ""
             },
             "require": {
@@ -5315,20 +5315,20 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2019-07-23T08:39:19+00:00"
+            "time": "2019-08-20T13:31:17+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v3.4.30",
+            "version": "v3.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "ade939fe83d5ec5fcaa98628dc42d83232c8eb41"
+                "reference": "2709bc2978ceb90f5180181f777f8a09125f2d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/ade939fe83d5ec5fcaa98628dc42d83232c8eb41",
-                "reference": "ade939fe83d5ec5fcaa98628dc42d83232c8eb41",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/2709bc2978ceb90f5180181f777f8a09125f2d89",
+                "reference": "2709bc2978ceb90f5180181f777f8a09125f2d89",
                 "shasum": ""
             },
             "require": {
@@ -5386,20 +5386,20 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2019-07-19T11:52:08+00:00"
+            "time": "2019-08-26T16:07:57+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.4.30",
+            "version": "v3.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "70adda061ef83bb7def63a17953dc41f203308a7"
+                "reference": "00e3a6ddd723b8bcfe4f2a1b6f82b98eeeb51516"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/70adda061ef83bb7def63a17953dc41f203308a7",
-                "reference": "70adda061ef83bb7def63a17953dc41f203308a7",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/00e3a6ddd723b8bcfe4f2a1b6f82b98eeeb51516",
+                "reference": "00e3a6ddd723b8bcfe4f2a1b6f82b98eeeb51516",
                 "shasum": ""
             },
             "require": {
@@ -5436,7 +5436,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-23T09:29:17+00:00"
+            "time": "2019-08-20T13:31:17+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -5557,16 +5557,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.30",
+            "version": "v3.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "2a651c2645c10bbedd21170771f122d935e0dd58"
+                "reference": "c0c27e38f8accb452f830a4ec8e8ac94b6ec864a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/2a651c2645c10bbedd21170771f122d935e0dd58",
-                "reference": "2a651c2645c10bbedd21170771f122d935e0dd58",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/c0c27e38f8accb452f830a4ec8e8ac94b6ec864a",
+                "reference": "c0c27e38f8accb452f830a4ec8e8ac94b6ec864a",
                 "shasum": ""
             },
             "require": {
@@ -5602,20 +5602,20 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T09:39:14+00:00"
+            "time": "2019-08-06T13:24:37+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.30",
+            "version": "v3.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "051d045c684148060ebfc9affb7e3f5e0899d40b"
+                "reference": "3dc414b7db30695bae671a1d86013d03f4ae9834"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/051d045c684148060ebfc9affb7e3f5e0899d40b",
-                "reference": "051d045c684148060ebfc9affb7e3f5e0899d40b",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/3dc414b7db30695bae671a1d86013d03f4ae9834",
+                "reference": "3dc414b7db30695bae671a1d86013d03f4ae9834",
                 "shasum": ""
             },
             "require": {
@@ -5661,7 +5661,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2019-07-24T13:01:31+00:00"
+            "time": "2019-08-20T13:31:17+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -5807,193 +5807,7 @@
             "alias": "2.0",
             "alias_normalized": "2.0.0.0",
             "version": "dev-develop",
-            "package": "wp-pay-extensions/appthemes"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/charitable"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/classipress"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/easy-digital-downloads"
-        },
-        {
-            "alias": "2.1",
-            "alias_normalized": "2.1.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/event-espresso"
-        },
-        {
-            "alias": "2.1",
-            "alias_normalized": "2.1.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/event-espresso-legacy"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/formidable-forms"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/give"
-        },
-        {
-            "alias": "2.1",
-            "alias_normalized": "2.1.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/gravityforms"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/ithemes-exchange"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/jigoshop"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/memberpress"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/membership"
-        },
-        {
-            "alias": "1.0",
-            "alias_normalized": "1.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/ninjaforms"
-        },
-        {
-            "alias": "2.1",
-            "alias_normalized": "2.1.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/restrict-content-pro"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/s2member"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/shopp"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/woocommerce"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/wp-e-commerce"
-        },
-        {
-            "alias": "1.0",
-            "alias_normalized": "1.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/adyen"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/buckaroo"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/ems-e-commerce"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/icepay"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/ideal"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/ideal-advanced-v3"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/ideal-basic"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/ing-kassa-compleet"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/mollie"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
             "package": "wp-pay-gateways/mollie-ideal"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/multisafepay"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/nocks"
-        },
-        {
-            "alias": "2.0",
-            "alias_normalized": "2.0.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/ogone"
         },
         {
             "alias": "2.0",
@@ -6024,54 +5838,16 @@
             "alias_normalized": "2.0.0.0",
             "version": "dev-develop",
             "package": "wp-pay-gateways/targetpay"
-        },
-        {
-            "alias": "2.1",
-            "alias_normalized": "2.1.0.0",
-            "version": "dev-develop",
-            "package": "wp-pay/core"
         }
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "wp-pay-extensions/appthemes": 20,
-        "wp-pay-extensions/charitable": 20,
-        "wp-pay-extensions/classipress": 20,
-        "wp-pay-extensions/easy-digital-downloads": 20,
-        "wp-pay-extensions/event-espresso": 20,
-        "wp-pay-extensions/event-espresso-legacy": 20,
-        "wp-pay-extensions/formidable-forms": 20,
-        "wp-pay-extensions/give": 20,
-        "wp-pay-extensions/gravityforms": 20,
-        "wp-pay-extensions/ithemes-exchange": 20,
-        "wp-pay-extensions/jigoshop": 20,
-        "wp-pay-extensions/memberpress": 20,
-        "wp-pay-extensions/membership": 20,
-        "wp-pay-extensions/ninjaforms": 20,
-        "wp-pay-extensions/restrict-content-pro": 20,
-        "wp-pay-extensions/s2member": 20,
-        "wp-pay-extensions/shopp": 20,
-        "wp-pay-extensions/woocommerce": 20,
-        "wp-pay-extensions/wp-e-commerce": 20,
-        "wp-pay-gateways/adyen": 20,
-        "wp-pay-gateways/buckaroo": 20,
-        "wp-pay-gateways/ems-e-commerce": 20,
-        "wp-pay-gateways/icepay": 20,
-        "wp-pay-gateways/ideal": 20,
-        "wp-pay-gateways/ideal-advanced-v3": 20,
-        "wp-pay-gateways/ideal-basic": 20,
-        "wp-pay-gateways/ing-kassa-compleet": 20,
-        "wp-pay-gateways/mollie": 20,
         "wp-pay-gateways/mollie-ideal": 20,
-        "wp-pay-gateways/multisafepay": 20,
-        "wp-pay-gateways/nocks": 20,
-        "wp-pay-gateways/ogone": 20,
         "wp-pay-gateways/omnikassa": 20,
         "wp-pay-gateways/omnikassa-2": 20,
         "wp-pay-gateways/pay-nl": 20,
         "wp-pay-gateways/sisow": 20,
-        "wp-pay-gateways/targetpay": 20,
-        "wp-pay/core": 20
+        "wp-pay-gateways/targetpay": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
