@@ -12,7 +12,61 @@
 			{
 				"name": "Changed",
 				"changes": [
-
+					{
+						"description": "Updated WordPress pay Formidable Forms library to version 2.0.3.",
+						"changes": [
+							"Improved Formidable Forms v4 compatibility."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MemberPress library to version 2.0.9.",
+						"changes": [
+							"Fix incorrect subscription frequency.",
+							"No longer start up follow-up payments for paused subscriptions."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Restrict Content Pro library to version 2.1.4.",
+						"changes": [
+							"Fixed support for Restrict Content Pro 3.0."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Adyen library to version 1.0.2.",
+						"changes": [
+							"Set country from billing address.",
+							"Added action `pronamic_pay_adyen_checkout_head`.",
+							"Added `pronamic_pay_adyen_config_object` filter and improved documentation."
+						]
+					},
+					{
+						"description": "Updated WordPress pay ICEPAY library to version 2.0.4.",
+						"changes": [
+							"Force language `NL` for unsupported languages (i.e. `EN` for iDEAL).",
+							"Only force language if payment method is set."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Sisow library to version 2.0.2.",
+						"changes": [
+							"Get available payment methods for merchant from Sisow account.",
+							"Transform status `Reversed` to WordPress Pay status `Refunded`."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Nocks library to version 2.0.2.",
+						"changes": [
+							"Do not use removed `set_slug()` method."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Mollie library to version 2.0.2.",
+						"changes": [
+							"Updated to Mollie API v2, with multicurrency support.",
+							"Added EPS payment method.",
+							"Added filter for subscription 'Next Payment Delivery Date'."
+						]
+					}
 				]
 			},
 			{
