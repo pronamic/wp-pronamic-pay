@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic Pay v5.6.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2019-08-28T12:45:40+00:00\n"
-"PO-Revision-Date: 2019-08-28 15:08+0200\n"
+"PO-Revision-Date: 2019-08-28 16:50+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -1759,9 +1759,8 @@ msgstr "PayPal"
 
 #. translators: %s: Restrict Content Pro
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:302
-#, fuzzy
 msgid "Subscription activated by %s."
-msgstr "Abonnement geactiveerd door %s"
+msgstr "Abonnement geactiveerd door %s."
 
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:303
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:311
@@ -1776,21 +1775,18 @@ msgstr "Restrict Content Pro"
 
 #. translators: %s: Restrict Content Pro
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:310
-#, fuzzy
 msgid "Subscription canceled by %s."
-msgstr "Abonnement geannuleerd door %s"
+msgstr "Abonnement geannuleerd door %s."
 
 #. translators: %s: Restrict Content Pro
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:319
-#, fuzzy
 msgid "Subscription expired by %s."
-msgstr "Abonnement in afwachting door %s"
+msgstr "Abonnement verlopen door %s."
 
 #. translators: %s: Restrict Content Pro
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:328
-#, fuzzy
 msgid "Subscription pending by %s."
-msgstr "Abonnement in afwachting door %s"
+msgstr "Abonnement in afwachting door %s."
 
 #. translators: %s: source id
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:469
@@ -2793,13 +2789,12 @@ msgid "Notification URL"
 msgstr "Notificatie URL"
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:104
-#, fuzzy
 msgid ""
 "The Notification URL as sent with each transaction to receive automatic "
 "payment status updates on."
 msgstr ""
-"De Webhook URL die wordt meegestuurd met elke transactie om de automatische "
-"transactie status update op te ontvangen."
+"De notificatie URL die wordt meegestuurd met elke transactie om de "
+"automatische betalingsstatus updates op te ontvangen."
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:35
 msgid "EMS"
@@ -3510,13 +3505,12 @@ msgid "Form Action URL"
 msgstr "Formulier actie URL"
 
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:152
-#, fuzzy
 msgid ""
 "With this setting you can override the default Ingenico e-Commerce form "
 "action URL to the payment processing page."
 msgstr ""
-"Met deze instelling kun je de standaard Ogone e-Commerce formulier actie URL "
-"naar de betaalpagina overschrijven."
+"Met deze instelling kun je de standaard Ingenico e-Commerce formulier actie "
+"URL naar de betaalpagina overschrijven."
 
 #. translators: %s: <code>ORDERID</code>
 #. translators: %s: <code>PARAMVAR</code>
@@ -4340,13 +4334,12 @@ msgstr "Formulier toevoegen"
 
 #: vendor/wp-pay/core/src/Blocks/BlocksModule.php:133
 msgid "Unable to process payments with default gateway."
-msgstr ""
+msgstr "Kan betalingen niet verwerken met standaard gateway."
 
 #: vendor/wp-pay/core/src/Blocks/BlocksModule.php:159
 #: vendor/wp-pay/core/src/Blocks/BlocksModule.php:191
-#, fuzzy
 msgid "Payment Form Block"
-msgstr "Betalingsformulier"
+msgstr "Betalingsformulier blok"
 
 #: vendor/wp-pay/core/src/Core/Gateway.php:386
 msgctxt "Payment method field"
@@ -5034,7 +5027,6 @@ msgstr "Mislukt"
 
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionPostType.php:104
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionPostType.php:174
-#, fuzzy
 msgctxt "Subscription status"
 msgid "On Hold"
 msgstr "In de wacht"
@@ -5199,12 +5191,11 @@ msgstr "Live"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-settings.php:34
 msgid "Feedback"
-msgstr ""
+msgstr "Terugkoppeling"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-settings.php:42
-#, fuzzy
 msgid "Supported Payment Methods"
-msgstr "Ondersteunde betalingsgateways"
+msgstr "Ondersteunde betaalmethoden"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-settings.php:56
 msgid "Webhook Status"
@@ -5215,6 +5206,8 @@ msgid ""
 "Processing gateway transaction feedback in the background requires "
 "additional configuration."
 msgstr ""
+"Verwerken van gateway transactie terugkoppeling op de achtergrond vereist "
+"extra configuratie."
 
 #: vendor/wp-pay/core/views/meta-box-gateway-test.php:23
 msgid ""
@@ -5291,12 +5284,11 @@ msgstr "Op %s"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:17
 msgid "This gateway does not support webhook logging."
-msgstr ""
+msgstr "Deze gateway ondersteunt geen webhook registratie."
 
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:27
-#, fuzzy
 msgid "No webhook request processed yet."
-msgstr "Webhook aangeroepen door %s."
+msgstr "Nog geen webhook verzoek verwerkt."
 
 #. translators: 1: formatted date, 2: payment edit url, 3: payment id
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:49
@@ -5304,19 +5296,19 @@ msgid ""
 "Last webhook request processed on %1$s for <a href=\"%2$s\" title=\"Payment "
 "%3$s\">payment #%3$s</a>."
 msgstr ""
+"Laatste webhook verzoek verwerkt op %1$s voor <a href=\"%2$s\" title="
+"\"Betaling %3$s\">betaling #%3$s</a>."
 
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:53
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:64
-#, fuzzy
 msgctxt "full datetime format"
 msgid "l j F Y \\a\\t H:i"
 msgstr "D j M Y \\o\\m H:i"
 
 #. translators: 1: formatted date, 2: payment edit url, 3: payment id
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:60
-#, fuzzy
 msgid "Last webhook request processed on %1$s."
-msgstr "Webhook aangeroepen door %s."
+msgstr "Laatste webhook verzoek verwerkt op %1$s."
 
 #: vendor/wp-pay/core/views/meta-box-notes.php:26
 msgid "No notes found."
@@ -5591,7 +5583,13 @@ msgid_plural ""
 "The webhook URL to receive automatic payment status updates seems to have "
 "changed for the %1$s configurations. Please check your settings."
 msgstr[0] ""
+"De webhook URL voor het ontvangen van automatische betalingsstatus updates "
+"lijkt te zijn gewijzigd voor de %1$s configuratie. Controleer je "
+"instellingen."
 msgstr[1] ""
+"De webhook URL voor het ontvangen van automatische betalingsstatus updates "
+"lijkt te zijn gewijzigd voor de %1$s configuraties. Controleer je "
+"instellingen."
 
 #. translators: %s: Plugin version number
 #: vendor/wp-pay/core/views/page-about.php:31
@@ -5683,7 +5681,7 @@ msgstr "Extensies"
 
 #: vendor/wp-pay/core/views/page-tools.php:25
 msgid "Secondary menu"
-msgstr ""
+msgstr "Secundair menu"
 
 #: vendor/wp-pay/core/views/pointer-dashboard.php:15
 msgid ""
