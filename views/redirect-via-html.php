@@ -47,7 +47,8 @@
 
 				<?php
 
-				echo $this->get_form_html( $payment, $auto_submit ); // WPCS: XSS ok.
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo $this->get_form_html( $payment, $auto_submit );
 
 				?>
 			</div>

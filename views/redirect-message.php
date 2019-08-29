@@ -26,7 +26,8 @@
 				<p>
 					<?php
 
-					echo wpautop( $redirect_message ); // WPCS: XSS ok.
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo wpautop( $redirect_message );
 
 					?>
 				</p>

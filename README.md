@@ -44,13 +44,10 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - DirectLink |
 | [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - OrderStandard |
 | [Pay.nl](https://www.pay.nl/) | Pay.nl |
-| [Paytor](http://www.paytor.com/) | Paytor |
-| [Postcode.nl](https://www.postcode.nl/) | Postcode iDEAL |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - OmniKassa |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - iDEAL Professional - v3 |
 | [Sisow](https://www.sisow.nl/) | Sisow |
 | [TargetPay](https://www.targetpay.com/) | TargetPay - iDEAL |
-| [Qantani](https://www.qantani.com/) | Qantani (new platform) |
 
 
 ## Extensions

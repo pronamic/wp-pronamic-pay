@@ -8,25 +8,25 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-if ( is_wp_error( $error ) ) : ?>
+if ( is_wp_error( $pay_error ) ) : ?>
 
 	<div class="error">
 		<?php
 
-		foreach ( $error->get_error_codes() as $code ) {
+		foreach ( $pay_error->get_error_codes() as $code ) {
 			?>
 			<dl>
 				<dt><?php esc_html_e( 'Code', 'pronamic_ideal' ); ?></dt>
 				<dd><?php echo esc_html( $code ); ?></dd>
 
 				<dt><?php esc_html_e( 'Message', 'pronamic_ideal' ); ?></dt>
-				<dd><?php echo esc_html( $error->get_error_message( $code ) ); ?></dd>
+				<dd><?php echo esc_html( $pay_error->get_error_message( $code ) ); ?></dd>
 			</dl>
 
 			<?php
 
 			if ( 'ideal_advanced_v3_error' === $code ) {
-				$ideal_error = $error->get_error_data( $code );
+				$ideal_error = $pay_error->get_error_data( $code );
 
 				if ( $ideal_error instanceof \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Error ) :
 

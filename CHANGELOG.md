@@ -6,7 +6,37 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [5.7.0] - 2019-08-26
+
 ### Changed
+- Updated WordPress pay Formidable Forms library to version 2.0.3.
+  - Improved Formidable Forms v4 compatibility.
+- Updated WordPress pay MemberPress library to version 2.0.9.
+  - Fix incorrect subscription frequency.
+  - No longer start up follow-up payments for paused subscriptions.
+- Updated WordPress pay Restrict Content Pro library to version 2.1.4.
+  - Fixed support for Restrict Content Pro 3.0.
+- Updated WordPress pay Adyen library to version 1.0.2.
+  - Set country from billing address.
+  - Added action `pronamic_pay_adyen_checkout_head`.
+  - Added `pronamic_pay_adyen_config_object` filter and improved documentation.
+- Updated WordPress pay ICEPAY library to version 2.0.4.
+  - Force language `NL` for unsupported languages (i.e. `EN` for iDEAL).
+  - Only force language if payment method is set.
+- Updated WordPress pay Sisow library to version 2.0.2.
+  - Get available payment methods for merchant from Sisow account.
+  - Transform status `Reversed` to WordPress Pay status `Refunded`.
+- Updated WordPress pay Nocks library to version 2.0.2.
+  - Do not use removed `set_slug()` method.
+- Updated WordPress pay Mollie library to version 2.0.2.
+  - Updated to Mollie API v2, with multicurrency support.
+  - Added EPS payment method.
+  - Added filter for subscription 'Next Payment Delivery Date'.
+
+### Removed
+- Removed Paytor integration, still supported via the Mollie gateway. For more information see https://www.wp-pay.org/paytor-disappeared-now-part-of-mollie/.
+- Removed Qantani (new platform) integration, still supported via the Mollie gateway.
+- Removed Postcode.nl integration, for more information see https://github.com/wp-pay-gateways/postcode-ideal/blob/master/DEPRECATED.md.
 
 ## [5.6.2] - 2019-05-15
 
@@ -2045,7 +2075,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.0...HEAD
+[5.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.2...5.7.0
 [5.6.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.1...5.6.2
 [5.6.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.0...5.6.1
 [5.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.5.5...5.6.0

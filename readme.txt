@@ -4,8 +4,8 @@ Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurrin
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 4.7
 Tested up to: 5.2
-Requires PHP: 5.3
-Stable tag: 5.6.2
+Requires PHP: 5.6
+Stable tag: 5.7.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -212,10 +212,6 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 	*	Ingenico/Ogone - OrderStandard
 *	[Pay.nl](https://www.pay.nl/)
 	*	Pay.nl
-*	[Paytor](http://www.paytor.com/)
-	*	Paytor
-*	[Postcode.nl](https://www.postcode.nl/)
-	*	Postcode iDEAL
 *	[Rabobank](https://www.rabobank.nl/)
 	*	Rabobank - OmniKassa
 	*	Rabobank - iDEAL Professional - v3
@@ -223,8 +219,6 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 	*	Sisow
 *	[TargetPay](https://www.targetpay.com/)
 	*	TargetPay - iDEAL
-*	[Qantani](https://www.qantani.com/)
-	*	Qantani (new platform)
 
 
 == Installation ==
@@ -287,6 +281,34 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.7.0 - 2019-08-26 =
+*	Updated WordPress pay Formidable Forms library to version 2.0.3.
+	*	Improved Formidable Forms v4 compatibility.
+*	Updated WordPress pay MemberPress library to version 2.0.9.
+	*	Fix incorrect subscription frequency.
+	*	No longer start up follow-up payments for paused subscriptions.
+*	Updated WordPress pay Restrict Content Pro library to version 2.1.4.
+	*	Fixed support for Restrict Content Pro 3.0.
+*	Updated WordPress pay Adyen library to version 1.0.2.
+	*	Set country from billing address.
+	*	Added action `pronamic_pay_adyen_checkout_head`.
+	*	Added `pronamic_pay_adyen_config_object` filter and improved documentation.
+*	Updated WordPress pay ICEPAY library to version 2.0.4.
+	*	Force language `NL` for unsupported languages (i.e. `EN` for iDEAL).
+	*	Only force language if payment method is set.
+*	Updated WordPress pay Sisow library to version 2.0.2.
+	*	Get available payment methods for merchant from Sisow account.
+	*	Transform status `Reversed` to WordPress Pay status `Refunded`.
+*	Updated WordPress pay Nocks library to version 2.0.2.
+	*	Do not use removed `set_slug()` method.
+*	Updated WordPress pay Mollie library to version 2.0.2.
+	*	Updated to Mollie API v2, with multicurrency support.
+	*	Added EPS payment method.
+	*	Added filter for subscription 'Next Payment Delivery Date'.
+*	Removed Paytor integration, still supported via the Mollie gateway. For more information see https://www.wp-pay.org/paytor-disappeared-now-part-of-mollie/.
+*	Removed Qantani (new platform) integration, still supported via the Mollie gateway.
+*	Removed Postcode.nl integration, for more information see https://github.com/wp-pay-gateways/postcode-ideal/blob/master/DEPRECATED.md.
 
 = 5.6.2 - 2019-05-15 =
 *	Updated WordPress pay Adyen library from 1.0.0 to version 1.0.1.

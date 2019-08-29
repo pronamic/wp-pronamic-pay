@@ -31,12 +31,6 @@
 			"role": "Designer"
 		}
 	],
-	"autoload": {
-		"files": [
-			"includes/gateways.php",
-			"includes/providers.php"
-		]
-	},
 	"repositories": [
 		{
 			"type": "composer",
@@ -45,40 +39,16 @@
 	],
 	"config": {
 		"platform": {
-			"php": "5.3.3"
-		}
+			"php": "5.6.20"
+		},
+		"sort-packages": true
 	},
 	"require": {
-		"php": "^5.3",
-
-		"composer/installers": "^1.6",
-
+		"php": ">=5.6.20",
+		"composer/installers": "^1.7",
 		"icepay/icepay": "~2.4.0",
-
-		"pronamic/wp-datetime": "^1.0",
+		"pronamic/wp-datetime": "^1.1",
 		"pronamic/wp-money": "^1.2",
-
-		"wp-pay/core": "^2.1",
-
-		"wp-pay-gateways/adyen": "^1.0",
-		"wp-pay-gateways/buckaroo": "^2.0",
-		"wp-pay-gateways/ems-e-commerce": "^2.0",
-		"wp-pay-gateways/icepay": "^2.0",
-		"wp-pay-gateways/ideal": "^2.0",
-		"wp-pay-gateways/ideal-advanced-v3": "^2.0",
-		"wp-pay-gateways/ideal-basic": "^2.0",
-		"wp-pay-gateways/ing-kassa-compleet": "^2.0",
-		"wp-pay-gateways/mollie": "^2.0",
-		"wp-pay-gateways/mollie-ideal": "^2.0",
-		"wp-pay-gateways/multisafepay": "^2.0",
-		"wp-pay-gateways/nocks": "^2.0",
-		"wp-pay-gateways/ogone": "^2.0",
-		"wp-pay-gateways/omnikassa": "^2.0",
-		"wp-pay-gateways/omnikassa-2": "^2.1",
-		"wp-pay-gateways/pay-nl": "^2.0",
-		"wp-pay-gateways/sisow": "^2.0",
-		"wp-pay-gateways/targetpay": "^2.0",
-
 		"wp-pay-extensions/appthemes": "^2.0",
 		"wp-pay-extensions/charitable": "^2.0",
 		"wp-pay-extensions/classipress": "^2.0",
@@ -97,32 +67,51 @@
 		"wp-pay-extensions/s2member": "^2.0",
 		"wp-pay-extensions/shopp": "^2.0",
 		"wp-pay-extensions/woocommerce": "^2.0",
-		"wp-pay-extensions/wp-e-commerce": "^2.0"
+		"wp-pay-extensions/wp-e-commerce": "^2.0",
+		"wp-pay-gateways/adyen": "^1.0",
+		"wp-pay-gateways/buckaroo": "^2.0",
+		"wp-pay-gateways/ems-e-commerce": "^2.0",
+		"wp-pay-gateways/icepay": "^2.0",
+		"wp-pay-gateways/ideal": "^2.0",
+		"wp-pay-gateways/ideal-advanced-v3": "^2.0",
+		"wp-pay-gateways/ideal-basic": "^2.0",
+		"wp-pay-gateways/ing-kassa-compleet": "^2.0",
+		"wp-pay-gateways/mollie": "^2.0",
+		"wp-pay-gateways/mollie-ideal": "^2.0",
+		"wp-pay-gateways/multisafepay": "^2.0",
+		"wp-pay-gateways/nocks": "^2.0",
+		"wp-pay-gateways/ogone": "^2.0",
+		"wp-pay-gateways/omnikassa": "^2.0",
+		"wp-pay-gateways/omnikassa-2": "^2.1",
+		"wp-pay-gateways/pay-nl": "^2.0",
+		"wp-pay-gateways/sisow": "^2.0",
+		"wp-pay-gateways/targetpay": "^2.0",
+		"wp-pay/core": "^2.2"
 	},
 	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-		"php-coveralls/php-coveralls": "^1.1",
-		"phpcompatibility/php-compatibility": "^9.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+		"php-coveralls/php-coveralls": "^2.1",
+		"phpcompatibility/php-compatibility": "^9.2",
 		"phpcompatibility/phpcompatibility-wp": "^2.0",
-		"phpmd/phpmd": "^2.4",
-		"phpunit/phpunit": "^4.8",
-		"phpunit/phpunit-selenium": "^2.0",
-		"roots/wordpress": "^5.0",
-		"squizlabs/php_codesniffer": "^2.9",
-		"wp-coding-standards/wpcs": "^1.2",
-		"wp-phpunit/wp-phpunit": "^5.0"
+		"phpmd/phpmd": "^2.7",
+		"phpunit/phpunit": "^5.7",
+		"phpunit/phpunit-selenium": "^3.0",
+		"roots/wordpress": "^5.2",
+		"squizlabs/php_codesniffer": "^3.4",
+		"wp-coding-standards/wpcs": "^2.1",
+		"wp-phpunit/wp-phpunit": "^5.2"
 	},
 	"scripts": {
-		"coveralls": "vendor/bin/coveralls -v",
+		"coveralls": "vendor/bin/php-coveralls -v",
 		"phpcbf":"vendor/bin/phpcbf",
 		"phpcs": "vendor/bin/phpcs -s -v",
 		"phplint": "find src tests -name '*.php' | xargs -n 1 -P 4 php -l",
 		"phpmd": "vendor/bin/phpmd src,tests text phpmd.ruleset.xml --suffixes php",
-		"phpunit": "vendor/bin/phpunit",
+		"phpunit": "vendor/bin/phpunit --colors=always",
 		"php-lint-plugin": "find -L . -type f -path ./.git -prune -o -path ./deploy -prune -o -path ./node_modules -prune -o -path ./repositories -prune -o -path ./vendor -prune -o -path ./wordpress -prune -o -path ./wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
 		"php-lint-wp-pay": "find -L ./repositories/ -type f -name .git -prune -o -name node_modules -prune -o -name vendor -prune -o -name wordpress -prune -o -name wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
 		"make-pot": "wp pronamic i18n make-pot . languages/pronamic_ideal.pot --slug='pronamic-ideal'",
-		"update-po": "find languages/*.po -type f -exec msgmerge --update {} languages/pronamic_ideal.pot \\;",
+		"update-po": "find languages/*.po -type f -exec msgmerge --update --backup=off {} languages/pronamic_ideal.pot \\;",
 		"generate-readme-txt": "php src/readme-txt/readme.php > readme.txt",
 		"generate-readme-md": "php src/readme-md/README.php > README.md",
 		"generate-readme": [
