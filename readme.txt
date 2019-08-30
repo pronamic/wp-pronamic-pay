@@ -283,6 +283,8 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 == Changelog ==
 
 = 5.7.1 - 2019-08-30 =
+*	Updated WordPress pay core library to version 2.2.2.
+	*	Improved backwards compatibility for `pronamic_pay_gateways` filter.
 *	Updated WordPress pay Gravity Forms library to version 2.1.10.
 	*	Fix possible error with subscriptions "Uncaught Exception: DatePeriod::__construct(): This constructor accepts either...".
 	*	Improve GF Nested Forms compatibility.
