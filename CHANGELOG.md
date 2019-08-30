@@ -6,6 +6,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [5.7.2] - 2019-08-30
+
+### Fixed
+- Updated WordPress pay core library to version 2.2.3.
+  - Fix not loading gateways.
+
 ## [5.7.1] - 2019-08-30
 
 ### Fixed
@@ -2086,7 +2092,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.2...HEAD
+[5.7.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.1...5.7.2
 [5.7.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.0...5.7.1
 [5.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.2...5.7.0
 [5.6.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.1...5.6.2
