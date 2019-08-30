@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 5.7.2
+Stable tag: 5.7.3
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -281,6 +281,12 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.7.3 - 2019-08-30 =
+*	Updated WordPress pay Sisow library to version 2.0.3.
+	*	Fix possible error with tax request parameters.
+*	Updated WordPress pay iDEAL Advanced v3 library to version 2.0.4.
+	*	Removed 'Show details...' toggle link in settings.
 
 = 5.7.2 - 2019-08-30 =
 *	Updated WordPress pay core library to version 2.2.3.

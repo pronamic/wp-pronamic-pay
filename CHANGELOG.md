@@ -6,6 +6,14 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [5.7.3] - 2019-08-30
+
+### Fixed
+- Updated WordPress pay Sisow library to version 2.0.3.
+  - Fix possible error with tax request parameters.
+- Updated WordPress pay iDEAL Advanced v3 library to version 2.0.4.
+  - Removed 'Show details...' toggle link in settings.
+
 ## [5.7.2] - 2019-08-30
 
 ### Fixed
@@ -2092,7 +2100,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.3...HEAD
+[5.7.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.2...5.7.3
 [5.7.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.1...5.7.2
 [5.7.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.0...5.7.1
 [5.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.2...5.7.0
