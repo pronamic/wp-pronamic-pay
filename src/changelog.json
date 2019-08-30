@@ -6,6 +6,36 @@
 		]
 	},
 	{
+		"version": "5.7.1",
+		"date": "2019-08-30",
+		"changes": [
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay core library to version 2.2.2.",
+						"changes": [
+							"Improved backwards compatibility for `pronamic_pay_gateways` filter."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 2.1.10.",
+						"changes": [
+							"Fix possible error with subscriptions \"Uncaught Exception: DatePeriod::__construct(): This constructor accepts either...\".",
+							"Improve GF Nested Forms compatibility."
+						]
+					},
+					{
+						"description": "Updated WordPress pay WooCommerce library to version 2.0.8.",
+						"changes": [
+							"Fix error \"`DatePeriod::__construct()`: The recurrence count '0' is invalid. Needs to be > 0\"."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "5.7.0",
 		"date": "2019-08-26",
 		"changes": [

@@ -4,7 +4,7 @@
  * Plugin URI: https://www.pronamic.eu/plugins/pronamic-ideal/
  * Description: The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
  *
- * Version: 5.7.0
+ * Version: 5.7.1
  * Requires at least: 4.7
  *
  * Author: Pronamic
@@ -76,7 +76,7 @@ if ( PRONAMIC_PAY_DEBUG ) {
 \Pronamic\WordPress\Pay\Plugin::instance(
 	array(
 		'file'       => __FILE__,
-		'version'    => '5.7.0',
+		'version'    => '5.7.1',
 		'extensions' => array(
 			'\Pronamic\WordPress\Pay\Extensions\Charitable\Extension::bootstrap',
 			'\Pronamic\WordPress\Pay\Extensions\Give\Extension::bootstrap',

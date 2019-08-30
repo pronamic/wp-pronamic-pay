@@ -6,6 +6,17 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [5.7.1] - 2019-08-30
+
+### Fixed
+- Updated WordPress pay core library to version 2.2.2.
+  - Improved backwards compatibility for `pronamic_pay_gateways` filter.
+- Updated WordPress pay Gravity Forms library to version 2.1.10.
+  - Fix possible error with subscriptions "Uncaught Exception: DatePeriod::__construct(): This constructor accepts either...".
+  - Improve GF Nested Forms compatibility.
+- Updated WordPress pay WooCommerce library to version 2.0.8.
+  - Fix error "`DatePeriod::__construct()`: The recurrence count '0' is invalid. Needs to be > 0".
+
 ## [5.7.0] - 2019-08-26
 
 ### Changed
@@ -2075,7 +2086,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.1...HEAD
+[5.7.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.0...5.7.1
 [5.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.2...5.7.0
 [5.6.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.1...5.6.2
 [5.6.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.6.0...5.6.1

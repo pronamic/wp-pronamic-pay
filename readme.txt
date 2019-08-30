@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 5.7.0
+Stable tag: 5.7.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -281,6 +281,15 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.7.1 - 2019-08-30 =
+*	Updated WordPress pay core library to version 2.2.2.
+	*	Improved backwards compatibility for `pronamic_pay_gateways` filter.
+*	Updated WordPress pay Gravity Forms library to version 2.1.10.
+	*	Fix possible error with subscriptions "Uncaught Exception: DatePeriod::__construct(): This constructor accepts either...".
+	*	Improve GF Nested Forms compatibility.
+*	Updated WordPress pay WooCommerce library to version 2.0.8.
+	*	Fix error "`DatePeriod::__construct()`: The recurrence count '0' is invalid. Needs to be > 0".
 
 = 5.7.0 - 2019-08-26 =
 *	Updated WordPress pay Formidable Forms library to version 2.0.3.
