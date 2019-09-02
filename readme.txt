@@ -282,6 +282,12 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 5.7.4 - 2019-09-02 =
+*	Updated WordPress pay Gravity Forms library to version 2.1.11.
+	*	Fix entry payment fulfillment.
+*	Updated WordPress pay MemberPress library to version 2.0.10.
+	*	Fix error "`DatePeriod::__construct()`: The recurrence count '0' is invalid. Needs to be > 0".
+
 = 5.7.3 - 2019-08-30 =
 *	Updated WordPress pay Sisow library to version 2.0.3.
 	*	Fix possible error with tax request parameters.
