@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea4ae609808381e412e9dd305636ae0c",
+    "content-hash": "6c9e94d5608c84fe663cf86d7b8dfe2a",
     "packages": [
         {
             "name": "composer/installers",
@@ -2632,16 +2632,16 @@
         },
         {
             "name": "wp-pay-gateways/omnikassa-2",
-            "version": "2.1.7",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/omnikassa-2.git",
-                "reference": "4d20cd0ca8d47e6d434264c65dd2e923506e02ec"
+                "reference": "38005b01d6ae339397a6aa78f4724709284a7621"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/4d20cd0ca8d47e6d434264c65dd2e923506e02ec",
-                "reference": "4d20cd0ca8d47e6d434264c65dd2e923506e02ec",
+                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/38005b01d6ae339397a6aa78f4724709284a7621",
+                "reference": "38005b01d6ae339397a6aa78f4724709284a7621",
                 "shasum": ""
             },
             "require": {
@@ -2657,6 +2657,7 @@
                 "phpmd/phpmd": "^2.7",
                 "phpunit/phpunit": "^5.7 || ^6.0",
                 "roots/wordpress": "^5.2",
+                "slevomat/coding-standard": "^5.0",
                 "squizlabs/php_codesniffer": "^3.4",
                 "wp-coding-standards/wpcs": "^2.1",
                 "wp-phpunit/wp-phpunit": "^5.2"
@@ -2674,15 +2675,15 @@
             "authors": [
                 {
                     "name": "Pronamic",
-                    "role": "Company",
                     "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/"
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
                 },
                 {
                     "name": "Remco Tolsma",
-                    "role": "Developer",
                     "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/"
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
                 }
             ],
             "description": "OmniKassa 2.0 driver for the WordPress payment processing library.",
@@ -2695,7 +2696,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2019-08-28T11:52:14+00:00"
+            "time": "2019-09-05T14:39:01+00:00"
         },
         {
             "name": "wp-pay-gateways/pay-nl",
@@ -4532,16 +4533,15 @@
         },
         {
             "name": "roots/wordpress",
-            "version": "5.2.2",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress.git",
-                "reference": "5.2.2"
+                "reference": "5.2.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.2.2",
-                "reference": "5.2.2"
+                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.2.3"
             },
             "require": {
                 "php": ">=5.3.2",
@@ -4565,7 +4565,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2019-06-18T17:53:14+00:00"
+            "time": "2019-09-04T22:41:56+00:00"
         },
         {
             "name": "roots/wordpress-core-installer",
@@ -5822,16 +5822,16 @@
         },
         {
             "name": "wp-phpunit/wp-phpunit",
-            "version": "5.2.2",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-phpunit/wp-phpunit.git",
-                "reference": "1fbf26019bfe81173769cbd07c43676c70ce8424"
+                "reference": "2d5b0eba3c3b677f6bf67f0e56141aef56d86c6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-phpunit/wp-phpunit/zipball/1fbf26019bfe81173769cbd07c43676c70ce8424",
-                "reference": "1fbf26019bfe81173769cbd07c43676c70ce8424",
+                "url": "https://api.github.com/repos/wp-phpunit/wp-phpunit/zipball/2d5b0eba3c3b677f6bf67f0e56141aef56d86c6e",
+                "reference": "2d5b0eba3c3b677f6bf67f0e56141aef56d86c6e",
                 "shasum": ""
             },
             "type": "library",
@@ -5861,12 +5861,21 @@
                 "test",
                 "wordpress"
             ],
-            "time": "2019-05-27T15:22:56+00:00"
+            "time": "2019-09-05T12:32:54+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "2.1.10",
+            "alias_normalized": "2.1.10.0",
+            "version": "dev-develop",
+            "package": "wp-pay-gateways/omnikassa-2"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-gateways/omnikassa-2": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
