@@ -3,15 +3,15 @@ msgstr ""
 "Project-Id-Version: Pronamic Pay v5.7.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2019-08-30T14:32:42+00:00\n"
-"PO-Revision-Date: 2019-09-02 16:50+0200\n"
-"Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
+"PO-Revision-Date: 2019-09-06 16:10+0200\n"
+"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Plugin Name of the plugin
@@ -643,13 +643,12 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:116
 msgid "Notifications"
-msgstr "Notificaties"
+msgstr "Meldingen"
 
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:125
 msgid "Hold email notifications until payment is received."
 msgstr ""
-"Stel het versturen van e-mail notificaties uit totdat de betaling ontvangen "
-"is."
+"Stel het versturen van e-mailmeldingen uit totdat de betaling ontvangen is."
 
 #: vendor/wp-pay-extensions/give/src/Extension.php:184
 msgid "Give"
@@ -1139,28 +1138,27 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:280
 msgid "Send Notifications Delay"
-msgstr "Uitgestelde notificaties"
+msgstr "Uitgestelde meldingen"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:282
 msgid ""
 "Notifications for which sending will be delayed until the payment has been "
 "received."
 msgstr ""
-"Notificaties waarvoor het versturen zal worden uitgesteld totdat de betaling "
+"Meldingen waarvoor het versturen zal worden uitgesteld totdat de betaling "
 "ontvangen is."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:286
 msgid "Delay sending notifications until payment has been received."
-msgstr ""
-"Stel het versturen van notificaties uit totdat de betaling ontvangen is."
+msgstr "Stel het versturen van meldingen uit totdat de betaling ontvangen is."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:347
 msgid "Admin notification"
-msgstr "Beheerder notificatie"
+msgstr "Beheerder melding"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:354
 msgid "User notification"
-msgstr "Gebruiker notificatie"
+msgstr "Gebruiker melding"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:368
 msgid "Delay actions"
@@ -2395,7 +2393,7 @@ msgstr "live"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:103
 msgid "Adyen Notification Authentication"
-msgstr "Adyen notificatie authenticatie"
+msgstr "Adyen melding authenticatie"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:110
 msgid "User Name"
@@ -2503,11 +2501,11 @@ msgstr "Authenticatie"
 
 #: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:80
 msgid "Sorry, you are not allowed to post Adyen notifications."
-msgstr "Sorry, je hebt geen toestemming om Adyen notificaties te plaatsen."
+msgstr "Sorry, je hebt geen toestemming om Adyen meldingen te plaatsen."
 
 #: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:97
 msgid "Cannot parse JSON notification."
-msgstr "Kan JSON notificatie niet verwerken."
+msgstr "Kan JSON-melding niet verwerken."
 
 #. translators: %s: payment provider name
 #. translators: %s: Buckaroo
@@ -2786,15 +2784,15 @@ msgstr "De EMS e-Commerce %s parameter."
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:99
 msgid "Notification URL"
-msgstr "Notificatie URL"
+msgstr "Melding URL"
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:104
 msgid ""
 "The Notification URL as sent with each transaction to receive automatic "
 "payment status updates on."
 msgstr ""
-"De notificatie URL die wordt meegestuurd met elke transactie om de "
-"automatische betalingsstatus updates op te ontvangen."
+"De melding URL die wordt meegestuurd met elke transactie om de automatische "
+"betalingsstatus updates op te ontvangen."
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:35
 msgid "EMS"
@@ -3080,15 +3078,15 @@ msgstr ""
 
 #: vendor/wp-pay-gateways/ideal-basic/src/Integration.php:77
 msgid "XML Notification URL"
-msgstr "XML-notificatie URL"
+msgstr "XML-melding URL"
 
 #: vendor/wp-pay-gateways/ideal-basic/src/Integration.php:90
 msgid ""
 "Copy the XML notification URL to the payment provider dashboard to receive "
 "automatic transaction status updates."
 msgstr ""
-"Kopieer de XML-notificatie URL naar het dashboard van de betalingsprovider "
-"om automatische transactie status updates te ontvangen."
+"Kopieer de XML-melding URL naar het dashboard van de betalingsprovider om "
+"automatische transactie status updates te ontvangen."
 
 #: vendor/wp-pay-gateways/ideal-basic/src/Listener.php:37
 msgid "iDEAL Basic"
