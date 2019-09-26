@@ -18,7 +18,7 @@
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
 
-## Gateways
+## Supported payment providers
 
 | Provider | Name |
 | -------- | ---- |
@@ -45,7 +45,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [TargetPay](https://www.targetpay.com/) | TargetPay - iDEAL |
 
 
-## Extensions
+## Supported WordPress e-commerce extensions
 
 | Name | Author | WordPress.org | GitHub | Requires at least | Tested up to |
 | ---- | ------ | ------------- | ------ | ----------------- | ------------ |
@@ -82,9 +82,10 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 
 ## Installation
 
-Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your 
-WordPress installation and then activate the Plugin from Plugins page.
-
+Extract the zip file and just drop the contents in the `/wp-content/plugins/` directory of your
+WordPress installation and activate the plugin from the Plugins page. Next, create a new configuration
+with the account details for your payment service provider account and enable the payment method in
+one of the supported e-commerce plugins.
 
 ## Are there any known plugin conflicts?
 
