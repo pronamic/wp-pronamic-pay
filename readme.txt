@@ -29,165 +29,45 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 = Support WordPress e-commerce plugins =
 
 *	[Charitable](https://www.wpcharitable.com/)
-	*	**Author:** [Studio 164a](http://164a.com/)
-	*	**WordPress.org:** [https://wordpress.org/plugins/charitable/](https://wordpress.org/plugins/charitable/)
-	*	**GitHub:** [https://github.com/Charitable/Charitable](https://github.com/Charitable/Charitable)
-	*	**Requires at least:** 1.3
-	*	**Tested up to:** 1.6.7
 *	[Easy Digital Downloads](https://easydigitaldownloads.com/)
-	*	**Author:** [Pippin Williamson](http://pippinsplugins.com/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/easy-digital-downloads/](http://wordpress.org/plugins/easy-digital-downloads/)
-	*	**GitHub:** [https://github.com/easydigitaldownloads/Easy-Digital-Downloads](https://github.com/easydigitaldownloads/Easy-Digital-Downloads)
-	*	**Requires at least:** 1.8.6
-	*	**Tested up to:** 2.9.9
-*	[Event Espresso 3](http://eventespresso.com/)
-	*	**GitHub:** [https://github.com/eventespresso/event-espresso-legacy](https://github.com/eventespresso/event-espresso-legacy)
-	*	**Requires at least:** 3.1.24
-	*	**Tested up to:** 3.1.35.P
-*	[Event Espresso 3 Lite](http://eventespresso.com/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/event-espresso-free/](http://wordpress.org/plugins/event-espresso-free/)
-	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
-	*	**Requires at least:** 3.1.29.1.L
-	*	**Tested up to:** 3.1.37.12.L
-*	[Event Espresso 4](http://eventespresso.com/)
-	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
-	*	**Requires at least:** 4.4.7.p
-	*	**Tested up to:** 4.9.76.p
-*	[Event Espresso 4 Decaf](http://eventespresso.com/)
-	*	**WordPress.org:** [https://wordpress.org/plugins/event-espresso-decaf/](https://wordpress.org/plugins/event-espresso-decaf/)
-	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
-	*	**Requires at least:** 4.4.4.decaf
-	*	**Tested up to:** 4.9.75.decaf
+*	[Event Espresso 3](https://eventespresso.com/)
+*	[Event Espresso 3 Lite](https://eventespresso.com/)
+*	[Event Espresso 4](https://eventespresso.com/)
+*	[Event Espresso 4 Decaf](https://eventespresso.com/)
 *	[Formidable Forms](https://formidableforms.com/)
-	*	**WordPress.org:** [https://wordpress.org/plugins/formidable/](https://wordpress.org/plugins/formidable/)
-	*	**GitHub:** [https://github.com/Strategy11/formidable-forms](https://github.com/Strategy11/formidable-forms)
-	*	**Requires at least:** 2.0.22
-	*	**Tested up to:** 2.05.06
 *	[Give](https://givewp.com/)
-	*	**WordPress.org:** [https://wordpress.org/plugins/give/](https://wordpress.org/plugins/give/)
-	*	**GitHub:** [https://github.com/WordImpress/Give](https://github.com/WordImpress/Give)
-	*	**Requires at least:** 1.3.6
-	*	**Tested up to:** 2.3.0
-*	[Gravity Forms](http://www.gravityforms.com/)
-	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
-	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
-	*	**Requires at least:** 1.9
-	*	**Tested up to:** 2.4.3
-*	[Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/)
-	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
-	*	**GitHub:** [https://github.com/gravityforms/gravityformsaweber](https://github.com/gravityforms/gravityformsaweber)
-	*	**Requires at least:** 1.4.2
-	*	**Tested up to:** 1.4.2
-*	[Gravity Forms Campaign Monitor Add-On](http://www.gravityforms.com/add-ons/campaign-monitor/)
-	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
-	*	**GitHub:** [https://github.com/gravityforms/gravityformscampaignmonitor](https://github.com/gravityforms/gravityformscampaignmonitor)
-	*	**Requires at least:** 2.5.1
-	*	**Tested up to:** 2.5.1
-*	[Gravity Forms MailChimp Add-On](http://www.gravityforms.com/add-ons/mailchimp/)
-	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
-	*	**GitHub:** [https://github.com/gravityforms/gravityformsmailchimp](https://github.com/gravityforms/gravityformsmailchimp)
-	*	**Requires at least:** 2.4.1
-	*	**Tested up to:** 4.1
-*	[Gravity Forms User Registration Add-On](http://www.gravityforms.com/add-ons/user-registration/)
-	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
-	*	**GitHub:** [https://github.com/gravityforms/gravityformsmailchimp](https://github.com/gravityforms/gravityformsmailchimp)
-	*	**Requires at least:** 1.8
-	*	**Tested up to:** 3.9.2
-*	[Gravity Forms Zapier Add-On](http://www.gravityforms.com/add-ons/zapier/)
-	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
-	*	**GitHub:** [https://github.com/gravityforms/gravityformszapier](https://github.com/gravityforms/gravityformszapier)
-	*	**Requires at least:** 1.4.2
-	*	**Tested up to:** 2.1
-*	[iThemes Exchange](http://ithemes.com/exchange/)
-	*	**Author:** [iThemes](http://ithemes.com/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/ithemes-exchange/](http://wordpress.org/plugins/ithemes-exchange/)
-	*	**GitHub:** [https://github.com/wp-plugins/ithemes-exchange](https://github.com/wp-plugins/ithemes-exchange)
-	*	**Requires at least:** 1.7.14
-	*	**Tested up to:** 1.36.5
+*	[Gravity Forms](https://www.gravityforms.com/)
+*	[Gravity Forms AWeber Add-On](https://www.gravityforms.com/add-ons/aweber/)
+*	[Gravity Forms Campaign Monitor Add-On](https://www.gravityforms.com/add-ons/campaign-monitor/)
+*	[Gravity Forms MailChimp Add-On](https://www.gravityforms.com/add-ons/mailchimp/)
+*	[Gravity Forms User Registration Add-On](https://www.gravityforms.com/add-ons/user-registration/)
+*	[Gravity Forms Zapier Add-On](https://www.gravityforms.com/add-ons/zapier/)
+*	[iThemes Exchange](https://ithemes.com/exchange/)
 *	[Jigoshop](https://www.jigoshop.com/)
-	*	**Author:** [Jigoshop](https://www.jigoshop.com/)
-	*	**WordPress.org:** [https://wordpress.org/plugins/jigoshop/](https://wordpress.org/plugins/jigoshop/)
-	*	**GitHub:** [https://github.com/jigoshop/jigoshop](https://github.com/jigoshop/jigoshop)
-	*	**Requires at least:** 1.1
-	*	**Tested up to:** 1.18.4
 *	[MemberPress](https://www.memberpress.com/)
-	*	**Author:** [Caseproof, LLC](http://www.caseproof.com/)
-	*	**Requires at least:** 1.2.4
-	*	**Tested up to:** 1.3.36
-*	[Membership 2](http://wordpress.org/plugins/membership/)
-	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
-	*	**Requires at least:** 3.4.4.1
-	*	**Tested up to:** 4.0.0.7
+*	[Membership 2](https://wordpress.org/plugins/membership/)
 *	[Membership Premium](https://premium.wpmudev.org/project/membership/)
-	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
-	*	**GitHub:** [https://github.com/pronamic-wpmudev/membership-premium](https://github.com/pronamic-wpmudev/membership-premium)
-	*	**Requires at least:** 3.4.6
-	*	**Tested up to:** 3.5.1.3
-*	[Ninja Forms](https://wordpress.org/plugins/ninja-forms/)
-	*	**Author:** [The WP Ninjas](http://ninjaforms.com/)
-	*	**WordPress.org:** [https://wordpress.org/plugins/ninja-forms/](https://wordpress.org/plugins/ninja-forms/)
-	*	**GitHub:** [https://github.com/wpninjas/ninja-forms](https://github.com/wpninjas/ninja-forms)
-	*	**Requires at least:** 3.3.15
-	*	**Tested up to:** 3.4.9
-*	[s2Member®](http://www.s2member.com/)
-	*	**Author:** [WebSharks, Inc.](http://www.websharks-inc.com/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/s2member/](http://wordpress.org/plugins/s2member/)
-	*	**GitHub:** [https://github.com/WebSharks/s2Member](https://github.com/WebSharks/s2Member)
-	*	**Requires at least:** 130816
-	*	**Tested up to:** 170722
+*	[Ninja Forms](https://ninjaforms.com/)
+*	[s2Member®](https://s2member.com/)
 *	[Shopp](https://shopplugin.net/)
-	*	**Author:** [Ingenesis Limited](http://ingenesis.net/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/shopp/](http://wordpress.org/plugins/shopp/)
-	*	**GitHub:** [https://github.com/ingenesis/shopp](https://github.com/ingenesis/shopp)
-	*	**Requires at least:** 1.1
-	*	**Tested up to:** 1.3.5
-*	[WooCommerce](http://www.woothemes.com/woocommerce/)
-	*	**Author:** [WooThemes](http://www.woothemes.com/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/woocommerce/](http://wordpress.org/plugins/woocommerce/)
-	*	**GitHub:** [https://github.com/woothemes/woocommerce](https://github.com/woothemes/woocommerce)
-	*	**Requires at least:** 2.3.0
-	*	**Tested up to:** 3.5.2
-*	[WP e-Commerce](http://getshopped.org/)
-	*	**Author:** [Instinct Entertainment](http://instinct.co.nz/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/wp-e-commerce/](http://wordpress.org/plugins/wp-e-commerce/)
-	*	**GitHub:** [https://github.com/wp-e-commerce/WP-e-Commerce](https://github.com/wp-e-commerce/WP-e-Commerce)
-	*	**Requires at least:** 3.8.12.1
-	*	**Tested up to:** 3.11.3
-*	[Crowdfunding by Astoundify](http://wordpress.org/plugins/appthemer-crowdfunding/)
-	*	**Author:** [Astoundify](http://www.astoundify.com/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/appthemer-crowdfunding/](http://wordpress.org/plugins/appthemer-crowdfunding/)
-	*	**GitHub:** [https://github.com/astoundify/crowdfunding/](https://github.com/astoundify/crowdfunding/)
-	*	**Requires at least:** 1.8.2
-	*	**Tested up to:** 1.8.2
-*	[ClassiPress](http://www.appthemes.com/themes/classipress/)
-	*	**Author:** [AppThemes](http://www.appthemes.com/)
-	*	**Requires at least:** 3.3.1
-	*	**Tested up to:** 3.5.3
-*	[JobRoller](http://www.appthemes.com/themes/jobroller/)
-	*	**Author:** [AppThemes](http://www.appthemes.com/)
-	*	**Tested up to:** 1.7.1
-*	[Vantage](http://www.appthemes.com/themes/vantage/)
-	*	**Author:** [AppThemes](http://www.appthemes.com/)
-	*	**Tested up to:** 1.3.2
-*	[Campaignify](http://www.astoundify.com/)
-	*	**Author:** [Astoundify](http://www.astoundify.com/)
-	*	**Tested up to:** 1.5
+*	[WooCommerce](https://woocommerce.com/)
+*	[WP e-Commerce](https://wpecommerce.org/)
+*	[Crowdfunding by Astoundify](https://wordpress.org/plugins/appthemer-crowdfunding/)
+*	[ClassiPress](https://www.appthemes.com/themes/classipress/)
+*	[JobRoller](https://www.appthemes.com/themes/jobroller/)
+*	[Vantage](https://www.appthemes.com/themes/vantage/)
+*	[Campaignify](https://astoundify.com/)
 
 = Support payment providers =
 
 *	[ABN AMRO](https://www.abnamro.nl/)
-	*	ABN AMRO - iDEAL Easy
-	*	ABN AMRO - iDEAL Only Kassa
-	*	ABN AMRO - iDEAL Zelfbouw - v3
-	*	ABN AMRO - Internetkassa
-*	[Buckaroo](https://www.buckaroo.nl/)
+	*	ABN AMRO - iDEAL Zelfbouw (v3)
+*	[Adyen](https://www.adyen.com/)
+	*	Adyen
+*	[Buckaroo](https://buckaroo.nl/)
 	*	Buckaroo - HTML
 *	[Deutsche Bank](https://deutschebank.nl/)
-	*	Deutsche Bank - iDEAL via Ogone
-	*	Deutsche Bank - iDEAL Expert - v3
-*	[Easy iDeal](http://www.easy-ideal.com/)
-	*	Easy iDeal - iDEAL
+	*	Deutsche Bank - iDEAL Expert (v3)
 *	[European Merchant Services](https://emspay.nl/)
 	*	EMS - e-Commerce
 *	[Fibonacci ORANGE](http://www.fibonacciorange.nl/)
@@ -195,10 +75,10 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 *	[ICEPAY](https://icepay.nl/)
 	*	ICEPAY
 *	[iDEAL Simulator](https://www.ideal-simulator.nl/)
-	*	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3
+	*	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
 *	[ING](https://www.ing.nl/)
 	*	ING - iDEAL Basic
-	*	ING - iDEAL Advanced - v3
+	*	ING - iDEAL Advanced (v3)
 	*	ING - Kassa Compleet
 *	[Mollie](https://www.mollie.nl/)
 	*	Mollie
@@ -207,14 +87,13 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL, Banc
 *	[Nocks](https://www.nocks.com/)
 	*	Nocks
 *	[Ingenico/Ogone](https://payment-services.ingenico.com/)
-	*	Ingenico/Ogone - Easy
 	*	Ingenico/Ogone - DirectLink
 	*	Ingenico/Ogone - OrderStandard
 *	[Pay.nl](https://www.pay.nl/)
 	*	Pay.nl
 *	[Rabobank](https://www.rabobank.nl/)
 	*	Rabobank - OmniKassa
-	*	Rabobank - iDEAL Professional - v3
+	*	Rabobank - iDEAL Professional (v3)
 *	[Sisow](https://www.sisow.nl/)
 	*	Sisow
 *	[TargetPay](https://www.targetpay.com/)
