@@ -24,13 +24,11 @@ if ( is_a( $this, 'Pronamic\WordPress\Pay\PayException' ) ) : ?>
 
 			?>
 
-			<?php if ( current_user_can( 'manage_options' ) && ! empty( $data ) ) : ?>
+			<?php if ( PRONAMIC_PAY_DEBUG && current_user_can( 'manage_options' ) && ! empty( $data ) ) : ?>
 
 				<dt><?php esc_html_e( 'Data', 'pronamic_ideal' ); ?></dt>
 				<dd>
-					<pre>
-						<?php print_r( $this->get_data() ); ?>
-					</pre>
+					<pre><?php print_r( $this->get_data() ); ?></pre>
 				</dd>
 
 			<?php endif; ?>
