@@ -60,45 +60,33 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 
 = Supported payment providers =
 
-*	[ABN AMRO](https://www.abnamro.nl/)
-	*	ABN AMRO - iDEAL Zelfbouw (v3)
-*	[Adyen](https://www.adyen.com/)
-	*	Adyen
-*	[Buckaroo](https://buckaroo.nl/)
-	*	Buckaroo - HTML
-*	[Deutsche Bank](https://deutschebank.nl/)
-	*	Deutsche Bank - iDEAL Expert (v3)
-*	[European Merchant Services](https://emspay.nl/)
-	*	EMS - e-Commerce
-*	[Fibonacci ORANGE](http://www.fibonacciorange.nl/)
-	*	Fibonacci ORANGE
-*	[ICEPAY](https://icepay.nl/)
-	*	ICEPAY
-*	[iDEAL Simulator](https://www.ideal-simulator.nl/)
-	*	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
-*	[ING](https://www.ing.nl/)
-	*	ING - iDEAL Basic
-	*	ING - iDEAL Advanced (v3)
-	*	ING - Kassa Compleet
-*	[Mollie](https://www.mollie.nl/)
-	*	Mollie
-*	[MultiSafepay](https://www.multisafepay.com/)
-	*	MultiSafepay - Connect
-*	[Nocks](https://www.nocks.com/)
-	*	Nocks
-*	[Ingenico/Ogone](https://payment-services.ingenico.com/)
-	*	Ingenico/Ogone - DirectLink
-	*	Ingenico/Ogone - OrderStandard
-*	[Pay.nl](https://www.pay.nl/)
-	*	Pay.nl
-*	[Rabobank](https://www.rabobank.nl/)
-	*	Rabobank - OmniKassa
-	*	Rabobank - iDEAL Professional (v3)
-*	[Sisow](https://www.sisow.nl/)
-	*	Sisow
-*	[TargetPay](https://www.targetpay.com/)
-	*	TargetPay - iDEAL
+*	ABN AMRO - iDEAL Zelfbouw (v3)
+*	Adyen
+*	Buckaroo - HTML
+*	Deutsche Bank - iDEAL Expert (v3)
+*	EMS - e-Commerce
+*	Fibonacci ORANGE
+*	ICEPAY
+*	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
+*	ING - iDEAL Basic
+*	ING - iDEAL Advanced (v3)
+*	ING - Kassa Compleet
+*	Mollie
+*	MultiSafepay - Connect
+*	Nocks
+*	Ingenico/Ogone - DirectLink
+*	Ingenico/Ogone - OrderStandard
+*	Pay.nl
+*	Rabobank - OmniKassa 2.0
+*	Rabobank - iDEAL Professional (v3)
+*	Sisow
+*	TargetPay - iDEAL
 
+= Premium payment providers =
+
+*	Adyen
+
+Premium payment providers require a [Pro license](https://www.pronamic.eu/plugins/pronamic-ideal/).
 
 == Installation ==
 
