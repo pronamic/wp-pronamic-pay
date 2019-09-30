@@ -51,6 +51,8 @@ function render_changes( $changes, $level = 0 ) {
 	}
 }
 
+$i = 1;
+
 foreach ( $changelog as $log ) {
 	if ( 'Unreleased' === $log->version ) {
 		continue;
@@ -61,4 +63,13 @@ foreach ( $changelog as $log ) {
 	render_changes( $log->changes );
 
 	echo "\r\n";
+
+	// Limit to last 5 logs.
+	$i++;
+
+	if ( $i > 5 ) {
+		break;
+	}
 }
+
+echo '[See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-ideal/changelog/)';
