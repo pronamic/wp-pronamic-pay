@@ -76,6 +76,9 @@ if ( PRONAMIC_PAY_DEBUG ) {
 \Pronamic\WordPress\Pay\Plugin::instance(
 	array(
 		'file'       => __FILE__,
+		'options'    => array(
+			'about_page_file' => __DIR__ . '/admin/page-about.php',
+		),
 		'extensions' => array(
 			'\Pronamic\WordPress\Pay\Extensions\Charitable\Extension::bootstrap',
 			'\Pronamic\WordPress\Pay\Extensions\Give\Extension::bootstrap',
