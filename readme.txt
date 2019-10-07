@@ -89,6 +89,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 
 Premium payment providers require a [Pro license](https://www.pronamic.eu/plugins/pronamic-ideal/).
 
+
 == Installation ==
 
 = Requirements =
@@ -150,6 +151,56 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 5.8.0 - 2019-10-07 =
+*	Updated WordPress pay core library to version 2.2.4.
+	*	Updated `viison/address-splitter` library to version `0.3.3`.
+	*	Move tools to site health debug information and status tests.
+	*	Read plugin version from plugin file header.
+	*	Catch money parser exception for test payments.
+	*	Sepereated `Statuses` class in `PaymentStatus` and `SubscriptionStatus` class.
+	*	Require `edit_payments` capability for payments related meta boxes on dashboard page.
+	*	Set menu page capability to minimum required capability based on submenu pages.
+	*	Only redirect to about page if not already viewed.
+	*	Removed Google +1 button.
+	*	Order payments by ascending date (fixes last payment as result in `Subscription::get_first_payment()`).
+	*	Added new WordPress Pay icon.
+	*	Added start, end, expiry, next payment (delivery) date to payment/subscription JSON.
+	*	Introduced a custom REST API route for payments and subscriptions.
+	*	Fixed handling settings field `filter` array.
+	*	Catch and handle error when parsing input value to money object fails (i.e. empty string).
+	*	Improved getting first subscription payment.
+*	Updated WordPress pay Adyen library to version 1.0.4.
+	*	Improved some exception messages.
+*	Updated WordPress pay ICEPAY library to version 2.0.5.
+	*	Added support for Klarna (Directebank) payment method.
+	*	Update ICEPAY library version from 2.4.0 to 2.5.3.
+*	Updated WordPress pay iDEAL Basic library to version 2.0.4.
+	*	Fixed setting `deprecated` based on passed arguments.
+*	Updated WordPress pay Mollie library to version 2.0.8.
+	*	Added response data to error for unexpected response code.
+	*	Moved next payment delivery date filter from gateway to integration class.
+	*	Throw exception when Mollie response is not what we expect.
+*	Updated WordPress pay OmniKassa 2.0 library to version 2.1.9.
+	*	Use line 1 as street if address splitting failed (i.e. no house number given).
+	*	Improved support for merchantOrderId = AN (Strictly)..Max 24 field.
+*	Updated WordPress pay Gravity Forms library to version 2.1.12.
+	*	Improved RTL support in 'Synchronized payment date' settings fields.
+	*	Fixed loading extension in multisite when plugin is network activated and Gravity Forms is activated per site.
+*	Updated WordPress pay MemberPress library to version 2.0.11.
+	*	Fixed showing lifetime columns on MemberPress subscriptions page if plugin is loaded before MemberPress.
+*	Updated WordPress pay Restrict Content Pro library to version 2.1.5.
+	*	Restrict Content Pro 3.0 is required.
+	*	Renew membership during `pronamic_pay_new_payment` routine and update membership expiration date and status on cancelled/expired/failed payment status update.
+*	Updated WordPress pay s2Member library to version 2.0.4.
+	*	Send user first and last name to list servers.
+	*	Added s2Member plugin dependency.
+	*	Added support for list server opt-in.
+*	Updated WordPress pay WooCommerce library to version 2.0.9.
+	*	Only update order status if order payment method is a WordPress Pay gateway.
+	*	No longer disable 'Direct Debit' gateways when WooCommerce subscriptions is active and cart has no subscriptions [read more](https://github.com/wp-pay-extensions/woocommerce#conditional-payment-gateways).
+	*	Changed redirect URL for cancelled and expired payments from cancel order to order pay URL.
+	*	Allow payment gateway selection for order pay URL.
+
 = 5.7.4 - 2019-09-02 =
 *	Updated WordPress pay Gravity Forms library to version 2.1.11.
 	*	Fix entry payment fulfillment.
@@ -174,34 +225,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Improve GF Nested Forms compatibility.
 *	Updated WordPress pay WooCommerce library to version 2.0.8.
 	*	Fix error "`DatePeriod::__construct()`: The recurrence count '0' is invalid. Needs to be > 0".
-
-= 5.7.0 - 2019-08-26 =
-*	Updated WordPress pay Formidable Forms library to version 2.0.3.
-	*	Improved Formidable Forms v4 compatibility.
-*	Updated WordPress pay MemberPress library to version 2.0.9.
-	*	Fix incorrect subscription frequency.
-	*	No longer start up follow-up payments for paused subscriptions.
-*	Updated WordPress pay Restrict Content Pro library to version 2.1.4.
-	*	Fixed support for Restrict Content Pro 3.0.
-*	Updated WordPress pay Adyen library to version 1.0.2.
-	*	Set country from billing address.
-	*	Added action `pronamic_pay_adyen_checkout_head`.
-	*	Added `pronamic_pay_adyen_config_object` filter and improved documentation.
-*	Updated WordPress pay ICEPAY library to version 2.0.4.
-	*	Force language `NL` for unsupported languages (i.e. `EN` for iDEAL).
-	*	Only force language if payment method is set.
-*	Updated WordPress pay Sisow library to version 2.0.2.
-	*	Get available payment methods for merchant from Sisow account.
-	*	Transform status `Reversed` to WordPress Pay status `Refunded`.
-*	Updated WordPress pay Nocks library to version 2.0.2.
-	*	Do not use removed `set_slug()` method.
-*	Updated WordPress pay Mollie library to version 2.0.2.
-	*	Updated to Mollie API v2, with multicurrency support.
-	*	Added EPS payment method.
-	*	Added filter for subscription 'Next Payment Delivery Date'.
-*	Removed Paytor integration, still supported via the Mollie gateway. For more information see https://www.wp-pay.org/paytor-disappeared-now-part-of-mollie/.
-*	Removed Qantani (new platform) integration, still supported via the Mollie gateway.
-*	Removed Postcode.nl integration, for more information see https://github.com/wp-pay-gateways/postcode-ideal/blob/master/DEPRECATED.md.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-ideal/changelog/)
 
