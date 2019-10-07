@@ -15,16 +15,24 @@ if ( ! defined( 'WPINC' ) ) {
 ?>
 <div class="feature-section two-col has-2-columns is-fullwidth">
 	<div class="col column">
-		<h3><?php esc_html_e( 'Recurring payments for MemberPress', 'pronamic_ideal' ); ?></h3>
+		<h3><?php esc_html_e( 'New Logo', 'pronamic_ideal' ); ?></h3>
 
 		<p>
 			<?php
 
 			esc_html_e(
-				'We do our best to bring recurring payments support to as many plugins as possible. After plugins such
-as Gravity Forms and WooCommerce Subscriptions, this functionality can now also be used with MemberPress. The plugin
-provides the ability to offer memberships to your visitors and the subscription amount can now be charged automatically.
-Recurring payments are only supported with payment provider Mollie for now.',
+				'With the newest 5.8 version of Pronamic Pay we’re introducing a totally new brand identity. Just as our Pronamic logo we’re using the letter ‘P’, from Pay, as a recognition point. Our new colors yellow and blue are supporting the sector. Yellow stands for prosperity and gold. Blue stands for safety and our Dutch roots.',
+				'pronamic_ideal'
+			);
+
+			?>
+		</p>
+
+		<p>
+			<?php
+
+			esc_html_e(
+				'With this new identity we are trying to create a uniform and recognizable brand for the future. Our new brand logo and identity is visible when you visit our WordPress plugin page. Also, after updating to version 5.8, a new WordPress admin icon is shown.',
 				'pronamic_ideal'
 			);
 
@@ -33,25 +41,23 @@ Recurring payments are only supported with payment provider Mollie for now.',
 	</div>
 
 	<div class="col column">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2018/05/pronamic-pay-memberpress-recurring.jpg" />
+		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-5-8-banner-small.png" />
 	</div>
 </div>
 
 <div class="feature-section two-col has-2-columns is-fullwidth">
 	<div class="col column">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2018/05/pronamic-pay-google-analytics-ecommerce-tracking.jpg" />
+		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-admin-site-health.png" />
 	</div>
 
 	<div class="col column">
-		<h3><?php esc_html_e( 'Google Analytics e-commerce tracking', 'pronamic_ideal' ); ?></h3>
+		<h3><?php esc_html_e( 'WordPress Health Status', 'pronamic_ideal' ); ?></h3>
 
 		<p>
 			<?php
 
 			esc_html_e(
-				'It is now possible to set a Google Analytics tracking ID in the plugin settings. A
-completed payment will automatically be send to Google (in live mode). The payment will be linked to
-the session of the visitor, which allows you to use visitor revenue in Google Analytics reports.',
+				'WordPress version 5.2 introduced the WordPress Health Status page. We’ve migrated our Pronamic Pay status page and combined it with the new WordPress Health Status page. You can find the new page in your dashboard under ‘Tools’ » ‘Site Health’.',
 				'pronamic_ideal'
 			);
 
@@ -62,15 +68,13 @@ the session of the visitor, which allows you to use visitor revenue in Google An
 
 <div class="feature-section two-col has-2-columns is-fullwidth">
 	<div class="col column">
-		<h3><?php esc_html_e( 'Better subscriptions', 'pronamic_ideal' ); ?></h3>
+		<h3><?php esc_html_e( 'Rabobank - OmniKassa 2.0', 'pronamic_ideal' ); ?></h3>
 
 		<p>
 			<?php
 
 			esc_html_e(
-				'Pronamic Pay includes support for subscriptions to receive recurring payments. This version includes
-improvements based on user feedback. Switching between subscriptions with WooCommerce
-Subscriptions is now supported for example, and payment dates information has been extended and is more reliable.',
+				'',
 				'pronamic_ideal'
 			);
 
@@ -79,15 +83,32 @@ Subscriptions is now supported for example, and payment dates information has be
 	</div>
 
 	<div class="col column">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-subscriptions-dates.jpg" />
+		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-rabobank-omnikassa-2-order-id-24-chars.png" />
 	</div>
 </div>
 
-<div class="feature-section two-col has-2-columns">
+<div class="feature-section two-col has-2-columns is-fullwidth">
 	<div class="col column">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-restrictcontentpro.jpg" />
+		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-gravity-forms-support.png" />
 	</div>
 
+	<div class="col column">
+		<h3><?php esc_html_e( 'Gravity Forms', 'pronamic_ideal' ); ?></h3>
+
+		<p>
+			<?php
+
+			esc_html_e(
+				'',
+				'pronamic_ideal'
+			);
+
+			?>
+		</p>
+	</div>
+</div>
+
+<div class="feature-section two-col has-2-columns is-fullwidth">
 	<div class="col column">
 		<h3><?php esc_html_e( 'Restrict Content Pro', 'pronamic_ideal' ); ?></h3>
 
@@ -95,29 +116,7 @@ Subscriptions is now supported for example, and payment dates information has be
 			<?php
 
 			esc_html_e(
-				'Restrict Content Pro lets you sell memberships to provide access to your content. In this
-version of Pronamic Pay we introduce support for this plugin. Recurring payments can be used, so subscription payments
-are processed automatically when they are due for renewal. Recurring payments are now also
-supported with s2Member (new shortcodes can be created with the included generator).',
-				'pronamic_ideal'
-			);
-
-			?>
-		</p>
-	</div>
-</div>
-
-<div class="feature-section two-col has-2-columns is-fullwidth">
-	<div class="col column">
-		<h3><?php esc_html_e( 'Refreshed payments overview', 'pronamic_ideal' ); ?></h3>
-
-		<p>
-			<?php
-
-			esc_html_e(
-				'The payments list got a visual refresh. Most noticeable are the new status icons and updated default columns
-to make the overview a lot cleaner and easier to use. Additional columns can be displayed by enabling them in the
-"Screen Options" at the right top of the page.',
+				'',
 				'pronamic_ideal'
 			);
 
@@ -126,6 +125,6 @@ to make the overview a lot cleaner and easier to use. Additional columns can be 
 	</div>
 
 	<div class="col column">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-vernieuwd-betalingsoverzicht.png" />
+		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-restrict-content-pro-3-support.png" />
 	</div>
 </div>

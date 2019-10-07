@@ -28,12 +28,16 @@ if ( is_a( $this, 'Pronamic\WordPress\Pay\PayException' ) ) : ?>
 
 				<dt><?php esc_html_e( 'Data', 'pronamic_ideal' ); ?></dt>
 				<dd>
-					<pre><?php
+					<?php
+
+					echo '<pre>';
 
 					// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
 					print_r( $data );
 
-					?></pre>
+					echo '</pre>';
+
+					?>
 				</dd>
 
 			<?php endif; ?>

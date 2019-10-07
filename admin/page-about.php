@@ -13,7 +13,7 @@ use Pronamic\WordPress\Pay\Plugin;
 /**
  * Page about
  *
- * @version 5.4.0
+ * @version 5.8.0
  */
 
 // If this file is called directly, abort.
