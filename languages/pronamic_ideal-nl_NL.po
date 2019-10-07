@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay v5.7.4\n"
+"Project-Id-Version: Pronamic Pay v5.8.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2019-10-07T07:46:36+00:00\n"
-"PO-Revision-Date: 2019-10-07 09:49+0200\n"
-"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
+"PO-Revision-Date: 2019-10-07 11:07+0200\n"
+"Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Plugin Name of the plugin
@@ -2688,15 +2688,17 @@ msgid ""
 "A valid license is required for technical support and continued plugin "
 "updates."
 msgstr ""
+"Een geldige licentiesleutel is vereist voor technische ondersteuning en "
+"verdere plugin updates."
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:171
 msgid "No valid license key for Pronamic Pay"
-msgstr "Geen geldigde licentiesleutel voor Pronamic Pay"
+msgstr "Geen geldige licentiesleutel voor Pronamic Pay"
 
 #. translators: %s: WordPress version number
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:212
 msgid "WordPress version is supported by Pronamic Pay (%s)"
-msgstr ""
+msgstr "WordPress-versie wordt ondersteund door Pronamic Pay (%s)"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:215
 msgid "Pronamic Pay requires at least WordPress 4.7."
@@ -2709,27 +2711,30 @@ msgstr "Pronamic Pay vereist minimaal WordPress 4.7"
 #. translators: %s: WordPress memory limit
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:246
 msgid "WordPress memory limit is sufficient (%s)"
-msgstr ""
+msgstr "WordPress geheugenlimiet is voldoende (%s)"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:249
 msgid ""
 "Pronamic Pay recommends setting the WordPress memory limit to at least 64 MB."
 msgstr ""
+"Pronamic Pay raadt aan om het WordPress geheugenlimiet in te stellen op "
+"minimaal 64 MB."
 
 #. translators: %s: WordPress memory limit
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:264
 msgid "Increase WordPress memory limit (%s) to at least 64 MB"
-msgstr ""
+msgstr "Verhoog het WordPress geheugenlimiet (%s) tot ten minste 64 MB"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:281
 msgid "Character encoding is set to UTF-8"
 msgstr "Tekencodering is ingesteld op UTF-8"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:282
-#, fuzzy
 msgid ""
 "Pronamic Pay recommends to use the UTF-8 character encoding for payments."
-msgstr "Pronamic Pay adviseert om de tekencodering in te stellen op UTF-8."
+msgstr ""
+"Pronamic Pay raadt aan om de UTF-8 tekencodering te gebruiken voor "
+"betalingen."
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:295
 msgid "Character encoding is not set to UTF-8"
@@ -2737,35 +2742,39 @@ msgstr "Tekencodering is niet ingesteld op UTF-8"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:310
 msgid "SHA1 hashing algorithm is available"
-msgstr ""
+msgstr "SHA1 hashing algoritme is beschikbaar"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:311
 msgid ""
 "Payment gateways often use the SHA1 hashing algorithm, therefore Pronamic "
 "Pay advises to enable this hashing algorithm."
 msgstr ""
+"Betalingsproviders gebruiken vaak het SHA1 hashing algoritme, daarom raadt "
+"Pronamic Pay aan om dit hashing algoritme in te schakelen."
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:326
 msgid "SHA1 hashing algorithm is not available for Pronamic Pay"
-msgstr ""
+msgstr "SHA1 hashing algoritme is niet beschikbaar"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:418
 msgid "Untested plugin versions (issues with payments might occur):"
 msgstr ""
+"Niet-geteste plugin versies (er kunnen problemen met betalingen optreden):"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:428
 msgid ""
 "Outdated unsupported plugin versions for which payments can not be processed:"
 msgstr ""
+"Verouderde niet-ondersteunde plugin versies waarvoor betalingen niet kunnen "
+"worden verwerkt:"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:437
 msgid "Supported plugin versions:"
 msgstr "Ondersteunde plugin versies:"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:443
-#, fuzzy
 msgid "Pronamic Pay extensions are compatible"
-msgstr "Pronamic Pay instellingen"
+msgstr "Pronamic Pay extensies zijn compatible"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:445
 msgid ""
@@ -2773,11 +2782,13 @@ msgid ""
 "commerce plugins. All extensions support the currently activated plugin "
 "version."
 msgstr ""
+"Pronamic Pay maakt gebruik van extensies om te integreren met formulier-, "
+"boeking- en andere e-commerce plugins. Alle extensies ondersteunen de "
+"momenteel geactiveerde plugin versie."
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:448
-#, fuzzy
 msgid "Pronamic Pay extensions are incompatible"
-msgstr "Pronamic Pay betaalknoppen generator"
+msgstr "Pronamic Pay extensies zijn niet compatibel"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:450
 msgid ""
@@ -2785,6 +2796,9 @@ msgid ""
 "commerce plugins. Not all extensions support the version of the currently "
 "activated plugin."
 msgstr ""
+"Pronamic Pay maakt gebruik van extensies om te integreren met formulier-, "
+"boeking- en andere e-commerce plugins. Niet alle extensies ondersteunen de "
+"versie van de momenteel geactiveerde plugin."
 
 #: vendor/wp-pay/core/src/Admin/AdminPaymentBulkActions.php:73
 msgid "Check Payment Status"

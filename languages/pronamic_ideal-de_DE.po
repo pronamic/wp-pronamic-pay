@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay v5.7.4\n"
+"Project-Id-Version: Pronamic Pay v5.8.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2019-10-07T07:46:36+00:00\n"
-"PO-Revision-Date: 2019-09-02 16:50+0200\n"
+"PO-Revision-Date: 2019-10-07 12:05+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: de_DE\n"
@@ -396,7 +396,7 @@ msgstr "Kundennachricht"
 
 #: views/exception.php:29
 msgid "Data"
-msgstr ""
+msgstr "Daten"
 
 #: views/eshop/settings-meta-box.php:21
 msgid "Accept payment by iDEAL"
@@ -537,46 +537,40 @@ msgid "The subscription epxires at %s."
 msgstr "Die Abonnement-Epxires auf %s."
 
 #: vendor/wp-pay/core/views/subscription-renew.php:52
-#, fuzzy
 msgid "Subscription Length:"
-msgstr "Abonnement Länge"
+msgstr "Abonnement Dauer:"
 
 #. translators: %s: interval
 #: vendor/wp-pay/core/views/subscription-renew.php:62
-#, fuzzy
 msgid "%s day"
 msgid_plural "%s days"
-msgstr[0] "1 Tag"
-msgstr[1] "1 Tag"
+msgstr[0] "%s Tag"
+msgstr[1] "%s Tage"
 
 #. translators: %s: interval
 #: vendor/wp-pay/core/views/subscription-renew.php:72
-#, fuzzy
 msgid "%s week"
 msgid_plural "%s weeks"
-msgstr[0] "1 Woche"
-msgstr[1] "1 Woche"
+msgstr[0] "%s Woche"
+msgstr[1] "%s Wochen"
 
 #. translators: %s: interval
 #: vendor/wp-pay/core/views/subscription-renew.php:82
-#, fuzzy
 msgid "%s month"
 msgid_plural "%s months"
-msgstr[0] "1 Monat"
-msgstr[1] "1 Monat"
+msgstr[0] "%s Monat"
+msgstr[1] "%s Monate"
 
 #. translators: %s: interval
 #: vendor/wp-pay/core/views/subscription-renew.php:92
-#, fuzzy
 msgid "%s year"
 msgid_plural "%s years"
-msgstr[0] "1 Jahr"
-msgstr[1] "1 Jahr"
+msgstr[0] "%s Jahr"
+msgstr[1] "%s Jahre"
 
 #: vendor/wp-pay/core/views/subscription-renew.php:106
-#, fuzzy
 msgid "Amount:"
-msgstr "Betrag"
+msgstr "Betrag:"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-config.php:33
 #: vendor/wp-pay/core/views/tab-gateways.php:25
@@ -681,9 +675,8 @@ msgid "Next Payment Date"
 msgstr "Nächste Zahlung"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:184
-#, fuzzy
 msgid "Next Payment Delivery Date"
-msgstr "Nächste Zahlung"
+msgstr "Nächstes Zahlungslieferdatum"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:201
 msgid "Expiry Date"
@@ -724,7 +717,7 @@ msgstr "Verlängerung URL"
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:311
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:627
 msgid "REST API URL"
-msgstr ""
+msgstr "REST-API URL"
 
 #: vendor/wp-pay/core/views/pointer-reports.php:12
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:769
@@ -822,7 +815,7 @@ msgstr "Erweitert"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-settings.php:34
 msgid "Feedback"
-msgstr ""
+msgstr "Feedback"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-settings.php:38
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentMethodsField.php:88
@@ -833,14 +826,12 @@ msgid "Payment Methods"
 msgstr "Zahlungsmethoden"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-settings.php:42
-#, fuzzy
 msgid "Supported Payment Methods"
-msgstr "Unterstützte Zahlungsgateways"
+msgstr "Unterstützte Zahlungsmethoden"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-settings.php:56
-#, fuzzy
 msgid "Webhook Status"
-msgstr "Webhook-URL"
+msgstr "Webhook-Status"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-settings.php:89
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:75
@@ -852,6 +843,8 @@ msgid ""
 "Processing gateway transaction feedback in the background requires "
 "additional configuration."
 msgstr ""
+"Die Verarbeitung von Gateway-Transaktionsfeedback im Hintergrund erfordert "
+"zusätzliche Konfiguration."
 
 #: vendor/wp-pay/core/views/tab-system_status.php:20
 #: vendor/wp-pay/core/views/pointer-tools.php:59
@@ -1111,7 +1104,7 @@ msgstr "Erweiterungen"
 
 #: vendor/wp-pay/core/views/page-tools.php:25
 msgid "Secondary menu"
-msgstr ""
+msgstr "Sekundären Menü "
 
 #: vendor/wp-pay/core/views/pointer-payments.php:12
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:49
@@ -1373,12 +1366,11 @@ msgstr "Das Abonnement kann nicht erneuert werden."
 
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:17
 msgid "This gateway does not support webhook logging."
-msgstr ""
+msgstr "Dieses Gateway unterstützt keine Webhook-Protokollierung."
 
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:27
-#, fuzzy
 msgid "No webhook request processed yet."
-msgstr "Webhook angefordert von %s."
+msgstr "Es wurde noch keine Webhook-Anfrage bearbeitet."
 
 #. translators: 1: formatted date, 2: payment edit url, 3: payment id
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:49
@@ -1386,19 +1378,19 @@ msgid ""
 "Last webhook request processed on %1$s for <a href=\"%2$s\" title=\"Payment "
 "%3$s\">payment #%3$s</a>."
 msgstr ""
+"Letzte Webhook-Anforderung verarbeitet am %1$s für <a href=\"%2$s\" title="
+"\"Payment %3$s\">Zahlung #%3$s</a>."
 
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:53
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:64
-#, fuzzy
 msgctxt "full datetime format"
 msgid "l j F Y \\a\\t H:i"
 msgstr "D j M Y \\u\\m H:i"
 
 #. translators: 1: formatted date, 2: payment edit url, 3: payment id
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:60
-#, fuzzy
 msgid "Last webhook request processed on %1$s."
-msgstr "Webhook angefordert von %s."
+msgstr "Letzte Webhook-Anforderung verarbeitet am %1$s."
 
 #: vendor/wp-pay/core/views/page-dashboard.php:26
 #: vendor/wp-pay/core/src/Admin/AdminDashboard.php:74
@@ -1419,9 +1411,8 @@ msgid "No pending payments found."
 msgstr "Keine ausstehenden Zahlungen gefunden."
 
 #: vendor/wp-pay/core/views/page-dashboard.php:192
-#, fuzzy
 msgid "Latest Subscriptions"
-msgstr "Test-Abonnement"
+msgstr "Neueste Abonnements"
 
 #: vendor/wp-pay/core/views/page-dashboard.php:317
 msgid "Getting Started"
@@ -1499,7 +1490,13 @@ msgid_plural ""
 "The webhook URL to receive automatic payment status updates seems to have "
 "changed for the %1$s configurations. Please check your settings."
 msgstr[0] ""
+"Die Webhook-URL zum Empfangen automatischer Zahlungsstatusaktualisierungen "
+"scheint sich für die Konfiguration %1$s geändert zu haben. Bitte überprüfen "
+"Sie Ihre Einstellungen."
 msgstr[1] ""
+"Die Webhook-URL zum Empfangen automatischer Zahlungsstatusaktualisierungen "
+"scheint sich für die Konfigurationen %1$s geändert zu haben. Bitte "
+"überprüfen Sie Ihre Einstellungen."
 
 #: vendor/wp-pay/core/views/form.php:106
 msgid "Personal Info"
@@ -1692,7 +1689,6 @@ msgid "months"
 msgstr "Monate"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-test.php:135
-#, fuzzy
 msgid "year"
 msgstr "Jahr"
 
@@ -1834,17 +1830,16 @@ msgstr "Zahlungsformular"
 
 #: vendor/wp-pay/core/src/Blocks/BlocksModule.php:67
 msgid "Add form"
-msgstr ""
+msgstr "Formular hinzufügen"
 
 #: vendor/wp-pay/core/src/Blocks/BlocksModule.php:133
 msgid "Unable to process payments with default gateway."
-msgstr ""
+msgstr "Zahlungen können nicht verarbeitet werden mit Standardgateway."
 
 #: vendor/wp-pay/core/src/Blocks/BlocksModule.php:159
 #: vendor/wp-pay/core/src/Blocks/BlocksModule.php:191
-#, fuzzy
 msgid "Payment Form Block"
-msgstr "Zahlungsformular"
+msgstr "Zahlungsformular-Block"
 
 #: vendor/wp-pay/core/src/GatewayPostType.php:54
 #: vendor/wp-pay/core/src/GatewayPostType.php:56
@@ -2127,9 +2122,8 @@ msgid "Payment status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Bezahlstatus wurde von \"%s\" zu \"%s\" geändert."
 
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:208
-#, fuzzy
 msgid "Payment ID."
-msgstr "Zahlungsparameter"
+msgstr "Zahlungs-ID."
 
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:226
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:54
@@ -2137,14 +2131,12 @@ msgid "Gateway configuration ID."
 msgstr "Gateway-Konfiguration ID."
 
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:230
-#, fuzzy
 msgid "Gateway ID."
-msgstr "Zahlungsgateway"
+msgstr "Gateway-ID."
 
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:234
-#, fuzzy
 msgid "Gateway mode."
-msgstr "Zahlungsgateway"
+msgstr "Gateway-Modus."
 
 #. translators: %s: Payment ID
 #. translators: %s: Adyen merchant reference
@@ -2493,9 +2485,8 @@ msgstr "Lastschrift"
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:121
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:129
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:137
-#, fuzzy
 msgid "Direct Debit (mandate via %s)"
-msgstr "Lastschriftmandat über %s"
+msgstr "Lastschriftverfahren (Mandat über %s)"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:282
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:293
@@ -2528,9 +2519,8 @@ msgid "SOFORT"
 msgstr "SOFORT Überweisung"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:289
-#, fuzzy
 msgid "EPS"
-msgstr "EMS"
+msgstr "EPS"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:290
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:101
@@ -2670,126 +2660,125 @@ msgid "Unknown"
 msgstr "Unbekannt"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:57
-#, fuzzy
 msgid "Support license key"
 msgstr "Support Lizenzschlüssel"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:58
-#, fuzzy
 msgid "No license key found"
-msgstr "Keine Zahlungen gefunden."
+msgstr "Kein Lizenzschlüssel gefunden"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:64
-#, fuzzy
 msgid "License status"
 msgstr "Lizenz Status"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:70
-#, fuzzy
 msgid "Next scheduled license check"
-msgstr "Nächste Lizenzprüfung"
+msgstr "Nächste geplante Lizenzprüfung"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:81
 msgid "Not available"
-msgstr ""
+msgstr "Nicht verfügbar"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:88
-#, fuzzy
 msgid "OpenSSL version"
-msgstr "SSL Version"
+msgstr "OpenSSL-Version"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:155
-#, fuzzy
 msgid "Pronamic Pay license key is valid"
-msgstr "Pronamic Zahlung fehlgeschlagen"
+msgstr "Pronamic Pay-Lizenzschlüssel ist gültig"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:158
 msgid ""
 "A valid license is required for technical support and continued plugin "
 "updates."
 msgstr ""
+"Für technischen Support und weitere Plugin-Updates ist eine gültige Lizenz "
+"erforderlich."
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:171
-#, fuzzy
 msgid "No valid license key for Pronamic Pay"
-msgstr "Willkommen bei Pronamic Pay"
+msgstr "Kein gültiger Lizenzschlüssel für Pronamic Pay"
 
 #. translators: %s: WordPress version number
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:212
 msgid "WordPress version is supported by Pronamic Pay (%s)"
-msgstr ""
+msgstr "WordPress-Version wird von Pronamic Pay (%s) unterstützt"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:215
-#, fuzzy
 msgid "Pronamic Pay requires at least WordPress 4.7."
 msgstr "Pronamic Pay benötigt WordPress 4.7 oder höher."
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:227
-#, fuzzy
 msgid "Pronamic Pay requires at least WordPress 4.7"
-msgstr "Pronamic Pay benötigt WordPress 4.7 oder höher."
+msgstr "Pronamic Pay benötigt WordPress 4.7 oder höher"
 
 #. translators: %s: WordPress memory limit
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:246
 msgid "WordPress memory limit is sufficient (%s)"
-msgstr ""
+msgstr "WordPress-Speicherlimit ist ausreichend (%s)"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:249
 msgid ""
 "Pronamic Pay recommends setting the WordPress memory limit to at least 64 MB."
 msgstr ""
+"Pronamic Pay empfiehlt, das WordPress-Speicherlimit auf mindestens 64 MB "
+"festzulegen."
 
 #. translators: %s: WordPress memory limit
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:264
 msgid "Increase WordPress memory limit (%s) to at least 64 MB"
-msgstr ""
+msgstr "Erhöhen Sie das WordPress-Speicherlimit (%s) auf mindestens 64 MB"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:281
 msgid "Character encoding is set to UTF-8"
-msgstr ""
+msgstr "Die Zeichencodierung ist auf UTF-8 festgelegt"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:282
-#, fuzzy
 msgid ""
 "Pronamic Pay recommends to use the UTF-8 character encoding for payments."
-msgstr "Pronamic Pay empfiehlt die Zeichenkodierung auf UTF-8 zu setzen."
+msgstr ""
+"Pronamic Pay empfiehlt, die UTF-8-Zeichencodierung für Zahlungen zu "
+"verwenden."
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:295
 msgid "Character encoding is not set to UTF-8"
-msgstr ""
+msgstr "Die Zeichencodierung ist nicht auf UTF-8 festgelegt"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:310
 msgid "SHA1 hashing algorithm is available"
-msgstr ""
+msgstr "SHA1-Hashalgorithmus ist verfügbar"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:311
 msgid ""
 "Payment gateways often use the SHA1 hashing algorithm, therefore Pronamic "
 "Pay advises to enable this hashing algorithm."
 msgstr ""
+"Zahlungsgateways verwenden häufig den SHA1-Hashalgorithmus, daher rät "
+"Pronamic Pay, diesen Hashalgorithmus zu aktivieren."
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:326
 msgid "SHA1 hashing algorithm is not available for Pronamic Pay"
-msgstr ""
+msgstr "SHA1-Hashalgorithmus ist nicht verfügbar für Pronamic Pay"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:418
 msgid "Untested plugin versions (issues with payments might occur):"
 msgstr ""
+"Ungetestete Plugin-Versionen (Probleme mit Zahlungen können auftreten):"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:428
 msgid ""
 "Outdated unsupported plugin versions for which payments can not be processed:"
 msgstr ""
+"Veraltete nicht unterstützte Plugin-Versionen, für die Zahlungen nicht "
+"verarbeitet werden können:"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:437
-#, fuzzy
 msgid "Supported plugin versions:"
-msgstr "Unterstützte Erweiterungen"
+msgstr "Unterstützte Plugin-Versionen:"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:443
-#, fuzzy
 msgid "Pronamic Pay extensions are compatible"
-msgstr "Pronamic Pay Optionen"
+msgstr "Pronamic Pay-Erweiterungen sind kompatibel"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:445
 msgid ""
@@ -2797,11 +2786,13 @@ msgid ""
 "commerce plugins. All extensions support the currently activated plugin "
 "version."
 msgstr ""
+"Pronamic Pay verwendet Erweiterungen, um sich in Formular-, Buchungs- und "
+"andere E-Commerce-Plugins zu integrieren. Alle Erweiterungen unterstützen "
+"die aktuell aktivierte Plugin-Version."
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:448
-#, fuzzy
 msgid "Pronamic Pay extensions are incompatible"
-msgstr "Pronamic Pay Bezahl-Buttons Generator"
+msgstr "Pronamic Pay-Erweiterungen sind inkompatibel"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:450
 msgid ""
@@ -2809,6 +2800,9 @@ msgid ""
 "commerce plugins. Not all extensions support the version of the currently "
 "activated plugin."
 msgstr ""
+"Pronamic Pay verwendet Erweiterungen, um sich in Formular-, Buchungs- und "
+"andere E-Commerce-Plugins zu integrieren. Nicht alle Erweiterungen "
+"unterstützen die Version des aktuell aktivierten Plugins."
 
 #: vendor/wp-pay/core/src/Admin/AdminPaymentBulkActions.php:73
 msgid "Check Payment Status"
@@ -3221,15 +3215,13 @@ msgid "Subscription renewal due on %s."
 msgstr "Abo-Verlängerung am %s fällig."
 
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:860
-#, fuzzy
 msgid "Subscription ID."
-msgstr "Abonnementnummer"
+msgstr "Abonnement-ID."
 
 #. translators: %s: Subscription ID
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:884
-#, fuzzy
 msgid "Could not found subscription with ID `%s`."
-msgstr "Zahlung konnte nicht gefunden werden mit ID `%s`."
+msgstr "Abonnement mit der ID `%s` konnte nicht gefunden werden."
 
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsPrivacy.php:196
 msgid "Subscription anonymized for personal data erasure request."
@@ -3358,7 +3350,6 @@ msgstr "Fehlgeschlagen"
 
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionPostType.php:104
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionPostType.php:174
-#, fuzzy
 msgctxt "Subscription status"
 msgid "On Hold"
 msgstr "Warten"
@@ -3525,7 +3516,6 @@ msgid "Knab"
 msgstr "Knab"
 
 #: vendor/wp-pay-gateways/nocks/src/Client.php:111
-#, fuzzy
 msgid "Moneyou"
 msgstr "Moneyou"
 
@@ -3635,7 +3625,6 @@ msgid "Form Action URL"
 msgstr "Formular-Aktions-URL"
 
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:152
-#, fuzzy
 msgid ""
 "With this setting you can override the default Ingenico e-Commerce form "
 "action URL to the payment processing page."
@@ -3651,9 +3640,8 @@ msgstr ""
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:194
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:225
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:241
-#, fuzzy
 msgid "The Ingenico %s parameter."
-msgstr "Der Ogone Parameter %s."
+msgstr "Der Parameter Ingenico %s."
 
 #. translators: %s: <code>{order_id}</code> <code>{payment_id}</code>
 #. translators: %s: <code>{site_url}</code> <code>{home_url}</code>
@@ -4020,21 +4008,19 @@ msgstr "Der EMS e-Commerce Parameter %s."
 
 #. translators: Translate 'notification' the same as in the EMS e-Commerce dashboard.
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:100
-#, fuzzy
 msgctxt "EMS e-Commerce"
 msgid "Notification URL"
-msgstr "XML-Benachrichtigungs-URL"
+msgstr "Benachrichtigung URL"
 
 #. translators: Translate 'notification' the same as in the EMS e-Commerce dashboard.
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:106
-#, fuzzy
 msgctxt "EMS e-Commerce"
 msgid ""
 "The Notification URL as sent with each transaction to receive automatic "
 "payment status updates on."
 msgstr ""
-"Die Webhook-URL wird mit jeder Transaktion gesendet, um automatische "
-"Zahlungsstatus-Updates zu erhalten."
+"Die Benachrichtigung-URL wird mit jeder Transaktion gesendet, um "
+"automatische Zahlungsstatus-Updates zu erhalten."
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
 msgid "Approval code"
@@ -4106,13 +4092,13 @@ msgid "Result text."
 msgstr "Ergebnistext."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:86
-#, fuzzy
 msgid "No gateway configuration ID given in `config_id` parameter."
-msgstr "Keine Zahlungsgateway-Konfigurationen im Papierkorb gefunden."
+msgstr ""
+"Keine Gateway-Konfigurations-ID, die im Parameter `config_id` angegeben ist."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:95
 msgid "No payload given in `payload` parameter."
-msgstr ""
+msgstr "Keine Nutzlast im Parameter `payload`."
 
 #. translators: %s: Gateway configuration ID
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:119
@@ -4131,18 +4117,15 @@ msgid "Adyen"
 msgstr "Adyen"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:38
-#, fuzzy
 msgid "https://www.adyen.com/"
-msgstr "http://www.multisafepay.com/"
+msgstr "https://www.adyen.com/de_DE/"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:39
-#, fuzzy
 msgid "https://www.adyen.com/pricing"
-msgstr "https://www.mollie.com/de/pricing"
+msgstr "https://www.adyen.com/de_DE/pricing"
 
 #. translators: Translate 'notification' the same as in the Adyen dashboard.
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:104
-#, fuzzy
 msgctxt "Adyen"
 msgid "Adyen Notification Authentication"
 msgstr "Adyen-Benachrichtigungsauthentifizierung"
@@ -4245,7 +4228,6 @@ msgstr "Fehler beim Erhalten des Zahlungsergebnisses: %s"
 
 #. translators: Translate 'notification' the same as in the Adyen dashboard.
 #: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:83
-#, fuzzy
 msgctxt "Adyen"
 msgid "Sorry, you are not allowed to post Adyen notifications."
 msgstr ""
@@ -4253,7 +4235,6 @@ msgstr ""
 
 #. translators: Translate 'notification' the same as in the Adyen dashboard.
 #: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:105
-#, fuzzy
 msgctxt "Adyen"
 msgid "Cannot parse JSON notification."
 msgstr "Kann JSON-Benachrichtigung nicht verarbeiten."
@@ -4306,9 +4287,8 @@ msgstr ""
 "Zahlungsanbieters angegeben."
 
 #: vendor/wp-pay-gateways/pay-nl/src/Client.php:112
-#, fuzzy
 msgid "Unknown response from Pay.nl."
-msgstr "Unbekannte Antwort von Pay.nl Fehler."
+msgstr "Unbekannte Antwort von Pay.nl."
 
 #: vendor/wp-pay-gateways/pay-nl/src/Client.php:133
 msgid "Unknown response from Pay.nl error."
@@ -4419,9 +4399,8 @@ msgstr ""
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:28
 #: vendor/wp-pay-gateways/ideal-basic/src/Integration.php:27
 #: vendor/wp-pay-gateways/ideal-basic/src/Integration.php:28
-#, fuzzy
 msgid "https://www.ideal.nl/en/"
-msgstr "https://www.mollie.com/de/pricing"
+msgstr "https://www.ideal.nl/en/"
 
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:66
 msgid "Private key and certificate"
@@ -4805,7 +4784,7 @@ msgstr "Signierungsschlüssel"
 #. translators: %s: <code>merchantOrderId</code>
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:185
 msgid "This setting defines the OmniKassa 2.0 %s field."
-msgstr ""
+msgstr "Diese Einstellung definiert das Feld OmniKassa 2.0 %s."
 
 #. translators: %s: <code>merchantOrderId</code>
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:192
@@ -4814,6 +4793,9 @@ msgid ""
 "characters, other characters, such as \".\", \"@\", \" \" (space), etc. are "
 "not allowed."
 msgstr ""
+"Das Feld OmniKassa 2.0 %s muss ausschließlich aus 24 alphanumerischen "
+"Zeichen bestehen, andere Zeichen, wie z. B. \".\", \"@\", \"\"(Leerzeichen) "
+"usw. sind nicht zulässig."
 
 #: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:262
 msgid "OmniKassa 2.0 return URL requested:"
@@ -4872,14 +4854,12 @@ msgstr ""
 
 #. translators: Translate 'XML notification URL' the same as in the iDEAL Basic dashboard.
 #: vendor/wp-pay-gateways/ideal-basic/src/Integration.php:80
-#, fuzzy
 msgctxt "iDEAL Basic dashboard"
 msgid "XML Notification URL"
 msgstr "XML-Benachrichtigungs-URL"
 
 #. translators: Translate 'XML notification URL' the same as in the iDEAL Basic dashboard.
 #: vendor/wp-pay-gateways/ideal-basic/src/Integration.php:94
-#, fuzzy
 msgctxt "iDEAL Basic dashboard"
 msgid ""
 "Copy the XML notification URL to the payment provider dashboard to receive "
@@ -5683,15 +5663,13 @@ msgstr "letzte"
 
 #. translators: %s: <select> Monthday (1-27).
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:816
-#, fuzzy
 msgid "On the %s <sup>th</sup> day of the month"
-msgstr "tag des monats"
+msgstr "Am %s Tag des Monats"
 
 #. translators: 1: <select> Monthday (1-27), 2: <select> Month (Jan-Dec).
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:846
-#, fuzzy
 msgid "On %1$s %2$s"
-msgstr "%1$s - %2$s"
+msgstr "Auf %1$s %2$s"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:861
 msgid "Prorate first payment amount"
@@ -6011,9 +5989,8 @@ msgid "Pronamic Payment ID"
 msgstr "Pronamic Zahlungs-ID"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:175
-#, fuzzy
 msgid "Pronamic Subscription Payment ID"
-msgstr "Pronamic Abonnement Betrag"
+msgstr "Pronamic Abonnement Zahlungs-ID"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:180
 msgid "Pronamic Subscription Amount"
@@ -6032,30 +6009,26 @@ msgid "Pronamic Subscription Renewal Date"
 msgstr "Pronamic Abonnement Verlängerungsdatum"
 
 #: vendor/wp-pay-extensions/restrict-content-pro/views/edit-payment.php:16
-#, fuzzy
 msgid "Pronamic Pay Payment"
-msgstr "Pronamic Zahlung"
+msgstr "Pronamic Pay Zahlung"
 
 #: vendor/wp-pay-extensions/restrict-content-pro/views/edit-membership.php:16
-#, fuzzy
 msgid "Pronamic Pay Subscription:"
-msgstr "Pronamic Abonnement"
+msgstr "Pronamic Pay Abonnement:"
 
 #. translators: %s: Restrict Content Pro payment ID
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Util.php:51
-#, fuzzy
 msgid "Restrict Content Pro payment %s"
-msgstr "Restrict Content Pro Bestellung %s"
+msgstr "Restrict Content Pro Zahlung %s"
 
 #. translators: %s: Restrict Content Pro discount code
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Util.php:168
-#, fuzzy
 msgid "Discount code `%s`"
-msgstr "Rabatt"
+msgstr "Rabattcode `%s`"
 
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Util.php:187
 msgid "Fees"
-msgstr ""
+msgstr "Gebühren"
 
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Gateway.php:127
 msgid "Checkout label"
@@ -6081,38 +6054,32 @@ msgstr ""
 
 #. translators: %s: Restrict Content Pro
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:299
-#, fuzzy
 msgid "Subscription activated by %s."
-msgstr "Abonnement aktiviert von %s"
+msgstr "Abonnement aktiviert von %s."
 
 #. translators: %s: Restrict Content Pro
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:307
-#, fuzzy
 msgid "Subscription canceled by %s."
-msgstr "Abonnement storniert von %s"
+msgstr "Abonnement storniert von %s."
 
 #. translators: %s: Restrict Content Pro
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:316
-#, fuzzy
 msgid "Subscription expired by %s."
-msgstr "Abonnement ausstehend von %s"
+msgstr "Abonnement abgelaufen von %s."
 
 #. translators: %s: Restrict Content Pro
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:325
-#, fuzzy
 msgid "Subscription pending by %s."
-msgstr "Abonnement ausstehend von %s"
+msgstr "Abonnement ausstehend von %s."
 
 #. translators: %s: source id
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:470
-#, fuzzy
 msgid "Membership %s"
-msgstr "Membership"
+msgstr "Mitgliedschaft %s"
 
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:491
-#, fuzzy
 msgid "Restrict Content Pro Payment"
-msgstr "Restrict Content Pro"
+msgstr "Restrict Content Pro Zahlung"
 
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:60
 msgid "Generator"
