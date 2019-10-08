@@ -15,6 +15,10 @@ $data = json_decode( $data );
 $providers = array();
 
 foreach ( $data as $provider ) {
+	if ( ! isset( $provider->gateways ) ) {
+		$provider->gateways = array();
+	}
+
 	$providers[ $provider->slug ] = $provider;
 }
 
@@ -23,15 +27,15 @@ $data     = file_get_contents( __DIR__ . '/../gateways.json' );
 $gateways = json_decode( $data );
 
 foreach ( $gateways as $gateway ) {
+	if ( ! isset( $gateway->premium ) || true !== $gateway->premium ) {
+		continue;
+	}
+
 	if ( ! isset( $providers[ $gateway->provider ] ) ) {
 		continue;
 	}
 
 	$provider = $providers[ $gateway->provider ];
-
-	if ( ! isset( $provider->gateways ) ) {
-		$provider->gateways = array();
-	}
 
 	$provider->gateways[ $gateway->slug ] = $gateway;
 }

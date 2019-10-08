@@ -1,60 +1,28 @@
 [
 	{
-		"slug"       : "abnamro-ideal-easy",
-		"provider"   : "abnamro",
-		"gateway"    : "ogone_orderstandard_easy",
-		"name"       : "ABN AMRO - iDEAL Easy",
-		"url"        : "https://internetkassa.abnamro.nl/"
-	},
-	{
-		"slug"       : "abnamro-ideal-only-kassa",
-		"provider"   : "abnamro",
-		"gateway"    : "ogone_orderstandard",
-		"name"       : "ABN AMRO - iDEAL Only Kassa",
-		"url"        : "https://internetkassa.abnamro.nl/"
-	},
-	{
 		"slug"       : "abnamro-ideal-zelfbouw-v3",
 		"provider"   : "abnamro",
 		"gateway"    : "ideal_advanced_v3",
-		"name"       : "ABN AMRO - iDEAL Zelfbouw - v3",
-		"url"        : "https://abnamro.ideal-payment.de/"
+		"name"       : "ABN AMRO - iDEAL Zelfbouw (v3)"
 	},
 	{
-		"slug"       : "abnamro-internetkassa",
-		"provider"   : "abnamro",
-		"gateway"    : "ogone_orderstandard",
-		"name"       : "ABN AMRO - Internetkassa",
-		"url"        : "https://internetkassa.abnamro.nl/"
+		"slug"       : "adyen",
+		"provider"   : "adyen",
+		"gateway"    : "adyen",
+		"name"       : "Adyen",
+		"premium"    : true
 	},
 	{
 		"slug"          : "buckaroo",
 		"provider"      : "buckaroo",
 		"gateway"       : "buckaroo",
-		"name"          : "Buckaroo - HTML",
-		"url"           : "https://plaza.buckaroo.nl/",
-		"dashboard_url" : "https://plaza.buckaroo.nl/"
-	},
-	{
-		"slug"     : "deutschebank-ideal-via-ogone",
-		"provider" : "deutschebank",
-		"gateway"  : "ogone_orderstandard_easy",
-		"name"     : "Deutsche Bank - iDEAL via Ogone"
+		"name"          : "Buckaroo - HTML"
 	},
 	{
 		"slug"     : "deutschebank-ideal-expert-v3",
 		"provider" : "deutschebank",
 		"gateway"  : "ideal_advanced_v3",
-		"name"     : "Deutsche Bank - iDEAL Expert - v3",
-		"url"      : "https://ideal.db.com/"
-	},
-	{
-		"slug"          : "easy-ideal",
-		"provider"      : "easy-ideal",
-		"gateway"       : "qantani",
-		"name"          : "Easy iDeal - iDEAL",
-		"url"           : "http://www.easy-ideal.com/",
-		"dashboard_url" : "https://www.qantanipayments.com/backoffice/login/"
+		"name"     : "Deutsche Bank - iDEAL Expert (v3)"
 	},
 	{
 		"slug"          : "ems-ecommerce",
@@ -78,7 +46,7 @@
 		"slug"     : "ideal-simulator-ideal-advanced-v3",
 		"provider" : "ideal-simulator",
 		"gateway"  : "ideal_advanced_v3",
-		"name"     : "iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3"
+		"name"     : "iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)"
 	},
 	{
 		"slug"     : "ing-ideal-basic",
@@ -90,7 +58,7 @@
 		"slug"     : "ing-ideal-advanced-v3",
 		"provider" : "ing",
 		"gateway"  : "ideal_advanced_v3",
-		"name"     : "ING - iDEAL Advanced - v3"
+		"name"     : "ING - iDEAL Advanced (v3)"
 	},
 	{
 		"slug"       : "ing-kassa-compleet",
@@ -102,78 +70,60 @@
 		"slug"          : "mollie",
 		"provider"      : "mollie",
 		"gateway"       : "mollie",
-		"name"          : "Mollie",
-		"dashboard_url" : "http://www.mollie.nl/",
-		"methods"       : [ "ideal", "mister_cash" ]
+		"name"          : "Mollie"
 	},
 	{
 		"slug"     : "multisafepay-connect",
 		"provider" : "multisafepay",
 		"gateway"  : "multisafepay_connect",
-		"name"     : "MultiSafepay - Connect",
-		"url"      : "http://www.multisafepay.com/"
+		"name"     : "MultiSafepay - Connect"
 	},
 	{
 		"slug"          : "nocks",
 		"provider"      : "nocks",
 		"gateway"       : "nocks",
-		"name"          : "Nocks",
-		"url"           : "https://www.nocks.com/"
-	},
-	{
-		"slug"     : "ogone-easy",
-		"provider" : "ogone",
-		"gateway"  : "ogone_orderstandard_easy",
-		"name"     : "Ingenico/Ogone - Easy",
-		"url"      : "https://secure.ogone.com/"
+		"name"          : "Nocks"
 	},
 	{
 		"slug"     : "ogone-directlink",
 		"provider" : "ogone",
 		"gateway"  : "ogone_directlink",
-		"name"     : "Ingenico/Ogone - DirectLink",
-		"url"      : "https://secure.ogone.com/"
+		"name"     : "Ingenico/Ogone - DirectLink"
 	},
 	{
 		"slug"     : "ogone-orderstandard",
 		"provider" : "ogone",
 		"gateway"  : "ogone_orderstandard",
-		"name"     : "Ingenico/Ogone - OrderStandard",
-		"url"      : "https://secure.ogone.com/"
+		"name"     : "Ingenico/Ogone - OrderStandard"
 	},
 	{
 		"slug"          : "pay_nl",
 		"provider"      : "pay_nl",
 		"gateway"       : "pay_nl",
-		"name"          : "Pay.nl",
-		"dashboard_url" : "https://www.pay.nl/"
+		"name"          : "Pay.nl"
 	},
 	{
 		"slug"          : "rabobank-omnikassa",
 		"provider"      : "rabobank",
 		"gateway"       : "omnikassa",
-		"name"          : "Rabobank - OmniKassa",
-		"dashboard_url" : "https://dashboard.omnikassa.rabobank.nl/",
-		"methods"       : [ "ideal", "mister_cash" ]
+		"name"          : "Rabobank - OmniKassa 2.0"
 	},
 	{
 		"slug"     : "rabobank-ideal-professional-v3",
 		"provider" : "rabobank",
 		"gateway"  : "ideal_advanced_v3",
-		"name"     : "Rabobank - iDEAL Professional - v3"
+		"name"     : "Rabobank - iDEAL Professional (v3)"
 	},
 	{
 		"slug"          : "sisow-ideal",
 		"provider"      : "sisow",
 		"gateway"       : "sisow",
-		"name"          : "Sisow",
-		"dashboard_url" : "https://www.sisow.nl/Sisow/iDeal/Login.aspx"
+		"name"          : "Sisow"
 	},
 	{
 		"slug"          : "targetpay-ideal",
 		"provider"      : "targetpay",
 		"gateway"       : "targetpay",
-		"name"          : "TargetPay - iDEAL",
-		"dashboard_url" : "https://www.targetpay.com/login"
+		"name"          : "TargetPay - iDEAL"
 	}
 ]

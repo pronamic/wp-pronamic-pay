@@ -17,47 +17,4 @@ foreach ( $extensions as $extension ) {
 		$extension->name,
 		$extension->url
 	);
-
-	// Author.
-	if ( isset( $extension->author, $extension->author_url ) ) {
-		printf(
-			"	*	**Author:** [%s](%s)\n",
-			$extension->author,
-			$extension->author_url
-		);
-	}
-
-	// WordPress.org URL.
-	if ( isset( $extension->wp_org_url ) ) {
-		printf(
-			"	*	**WordPress.org:** [%s](%s)\n",
-			$extension->wp_org_url,
-			$extension->wp_org_url
-		);
-	}
-
-	// Github URL.
-	if ( isset( $extension->github_url ) ) {
-		printf(
-			"	*	**GitHub:** [%s](%s)\n",
-			$extension->github_url,
-			$extension->github_url
-		);
-	}
-
-	// Requires at least.
-	if ( isset( $extension->requires_at_least ) ) {
-		printf(
-			"	*	**Requires at least:** %s\n",
-			$extension->requires_at_least
-		);
-	}
-
-	// Tested up to.
-	if ( isset( $extension->tested_up_to ) ) {
-		printf(
-			"	*	**Tested up to:** %s\n",
-			$extension->tested_up_to
-		);
-	}
 }

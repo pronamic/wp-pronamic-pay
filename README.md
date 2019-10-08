@@ -18,78 +18,75 @@
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
 
-## Gateways
+## Supported payment providers
 
 | Provider | Name |
 | -------- | ---- |
-| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Easy |
-| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Only Kassa |
-| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Zelfbouw - v3 |
-| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - Internetkassa |
-| [Buckaroo](https://www.buckaroo.nl/) | Buckaroo - HTML |
-| [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL via Ogone |
-| [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL Expert - v3 |
-| [Easy iDeal](http://www.easy-ideal.com/) | Easy iDeal - iDEAL |
+| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Zelfbouw (v3) |
+| [Adyen](https://www.adyen.com/) | Adyen |
+| [Buckaroo](https://buckaroo.nl/) | Buckaroo - HTML |
+| [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL Expert (v3) |
 | [European Merchant Services](https://emspay.nl/) | EMS - e-Commerce |
 | [Fibonacci ORANGE](http://www.fibonacciorange.nl/) | Fibonacci ORANGE |
 | [ICEPAY](https://icepay.nl/) | ICEPAY |
-| [iDEAL Simulator](https://www.ideal-simulator.nl/) | iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3 |
+| [iDEAL Simulator](https://www.ideal-simulator.nl/) | iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3) |
 | [ING](https://www.ing.nl/) | ING - iDEAL Basic |
-| [ING](https://www.ing.nl/) | ING - iDEAL Advanced - v3 |
+| [ING](https://www.ing.nl/) | ING - iDEAL Advanced (v3) |
 | [ING](https://www.ing.nl/) | ING - Kassa Compleet |
 | [Mollie](https://www.mollie.nl/) | Mollie |
 | [MultiSafepay](https://www.multisafepay.com/) | MultiSafepay - Connect |
 | [Nocks](https://www.nocks.com/) | Nocks |
-| [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - Easy |
 | [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - DirectLink |
 | [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - OrderStandard |
 | [Pay.nl](https://www.pay.nl/) | Pay.nl |
-| [Rabobank](https://www.rabobank.nl/) | Rabobank - OmniKassa |
-| [Rabobank](https://www.rabobank.nl/) | Rabobank - iDEAL Professional - v3 |
+| [Rabobank](https://www.rabobank.nl/) | Rabobank - OmniKassa 2.0 |
+| [Rabobank](https://www.rabobank.nl/) | Rabobank - iDEAL Professional (v3) |
 | [Sisow](https://www.sisow.nl/) | Sisow |
 | [TargetPay](https://www.targetpay.com/) | TargetPay - iDEAL |
 
 
-## Extensions
+## Supported WordPress e-commerce extensions
 
 | Name | Author | WordPress.org | GitHub | Requires at least | Tested up to |
 | ---- | ------ | ------------- | ------ | ----------------- | ------------ |
-| [Charitable](https://www.wpcharitable.com/) | [Studio 164a](http://164a.com/) | [WordPress.org](https://wordpress.org/plugins/charitable/) | [GitHub](https://github.com/Charitable/Charitable) | `1.3` | `1.6.7` |
-| [Easy Digital Downloads](https://easydigitaldownloads.com/) | [Pippin Williamson](http://pippinsplugins.com/) | [WordPress.org](http://wordpress.org/plugins/easy-digital-downloads/) | [GitHub](https://github.com/easydigitaldownloads/Easy-Digital-Downloads) | `1.8.6` | `2.9.9` |
-| [Event Espresso 3](http://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-legacy) | `3.1.24` | `3.1.35.P` |
-| [Event Espresso 3 Lite](http://eventespresso.com/) |  | [WordPress.org](http://wordpress.org/plugins/event-espresso-free/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `3.1.29.1.L` | `3.1.37.12.L` |
-| [Event Espresso 4](http://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.7.p` | `4.9.76.p` |
-| [Event Espresso 4 Decaf](http://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-decaf/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.4.decaf` | `4.9.75.decaf` |
-| [Formidable Forms](https://formidableforms.com/) |  | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `2.05.06` |
-| [Give](https://givewp.com/) |  | [WordPress.org](https://wordpress.org/plugins/give/) | [GitHub](https://github.com/WordImpress/Give) | `1.3.6` | `2.3.0` |
-| [Gravity Forms](http://www.gravityforms.com/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityforms) | `1.9` | `2.4.3` |
-| [Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformsaweber) | `1.4.2` | `1.4.2` |
-| [Gravity Forms Campaign Monitor Add-On](http://www.gravityforms.com/add-ons/campaign-monitor/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformscampaignmonitor) | `2.5.1` | `2.5.1` |
-| [Gravity Forms MailChimp Add-On](http://www.gravityforms.com/add-ons/mailchimp/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformsmailchimp) | `2.4.1` | `4.1` |
-| [Gravity Forms User Registration Add-On](http://www.gravityforms.com/add-ons/user-registration/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformsmailchimp) | `1.8` | `3.9.2` |
-| [Gravity Forms Zapier Add-On](http://www.gravityforms.com/add-ons/zapier/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformszapier) | `1.4.2` | `2.1` |
-| [iThemes Exchange](http://ithemes.com/exchange/) | [iThemes](http://ithemes.com/) | [WordPress.org](http://wordpress.org/plugins/ithemes-exchange/) | [GitHub](https://github.com/wp-plugins/ithemes-exchange) | `1.7.14` | `1.36.5` |
+| [Charitable](https://www.wpcharitable.com/) | [Studio 164a](https://www.164a.com/) | [WordPress.org](https://wordpress.org/plugins/charitable/) | [GitHub](https://github.com/Charitable/Charitable) | `1.3` | `1.6.24` |
+| [Easy Digital Downloads](https://easydigitaldownloads.com/) | [Pippin Williamson](https://pippinsplugins.com/) | [WordPress.org](https://wordpress.org/plugins/easy-digital-downloads/) | [GitHub](https://github.com/easydigitaldownloads/Easy-Digital-Downloads) | `1.8.6` | `2.9.16` |
+| [Event Espresso 3](https://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-legacy) | `3.1.24` | `3.1.37.14.p` |
+| [Event Espresso 3 Lite](https://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-free/) | [GitHub](https://github.com/eventespresso/event-espresso-legacy) | `3.1.29.1.L` | `3.1.37.12.L` |
+| [Event Espresso 4](https://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.7.p` | `4.10.1.p` |
+| [Event Espresso 4 Decaf](https://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-decaf/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.4.decaf` | `4.10.1.decaf` |
+| [Formidable Forms](https://formidableforms.com/) | [Strategy11](https://strategy11.com/) | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `4.02.04` |
+| [Give](https://givewp.com/) |  | [WordPress.org](https://wordpress.org/plugins/give/) | [GitHub](https://github.com/WordImpress/Give) | `1.3.6` | `2.5.7` |
+| [Gravity Forms](https://www.gravityforms.com/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.9` | `2.4.14` |
+| [Gravity Forms AWeber Add-On](https://www.gravityforms.com/add-ons/aweber/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.4.2` | `2.9` |
+| [Gravity Forms Campaign Monitor Add-On](https://www.gravityforms.com/add-ons/campaign-monitor/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `2.5.1` | `3.7` |
+| [Gravity Forms MailChimp Add-On](https://www.gravityforms.com/add-ons/mailchimp/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `2.4.1` | `4.6.3` |
+| [Gravity Forms User Registration Add-On](https://www.gravityforms.com/add-ons/user-registration/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.8` | `4.4` |
+| [Gravity Forms Zapier Add-On](https://www.gravityforms.com/add-ons/zapier/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.4.2` | `3.2` |
+| [iThemes Exchange](https://ithemes.com/exchange/) | [iThemes](https://ithemes.com/) | [WordPress.org](https://wordpress.org/plugins/ithemes-exchange/) | [GitHub](https://github.com/wp-plugins/ithemes-exchange) | `1.7.14` | `1.36.8` |
 | [Jigoshop](https://www.jigoshop.com/) | [Jigoshop](https://www.jigoshop.com/) | [WordPress.org](https://wordpress.org/plugins/jigoshop/) | [GitHub](https://github.com/jigoshop/jigoshop) | `1.1` | `1.18.4` |
-| [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](http://www.caseproof.com/) |  |  | `1.2.4` | `1.3.36` |
-| [Membership 2](http://wordpress.org/plugins/membership/) | [WPMUDEV.org](http://www.wpmudev.org/) | [WordPress.org](http://wordpress.org/plugins/membership/) |  | `3.4.4.1` | `4.0.0.7` |
-| [Membership Premium](https://premium.wpmudev.org/project/membership/) | [WPMUDEV.org](http://www.wpmudev.org/) |  | [GitHub](https://github.com/pronamic-wpmudev/membership-premium) | `3.4.6` | `3.5.1.3` |
-| [Ninja Forms](https://wordpress.org/plugins/ninja-forms/) | [The WP Ninjas](http://ninjaforms.com/) | [WordPress.org](https://wordpress.org/plugins/ninja-forms/) | [GitHub](https://github.com/wpninjas/ninja-forms) | `3.3.15` | `3.4.9` |
-| [s2Member®](http://www.s2member.com/) | [WebSharks, Inc.](http://www.websharks-inc.com/) | [WordPress.org](http://wordpress.org/plugins/s2member/) | [GitHub](https://github.com/WebSharks/s2Member) | `130816` | `170722` |
-| [Shopp](https://shopplugin.net/) | [Ingenesis Limited](http://ingenesis.net/) | [WordPress.org](http://wordpress.org/plugins/shopp/) | [GitHub](https://github.com/ingenesis/shopp) | `1.1` | `1.3.5` |
-| [WooCommerce](http://www.woothemes.com/woocommerce/) | [WooThemes](http://www.woothemes.com/) | [WordPress.org](http://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woothemes/woocommerce) | `2.3.0` | `3.5.2` |
-| [WP e-Commerce](http://getshopped.org/) | [Instinct Entertainment](http://instinct.co.nz/) | [WordPress.org](http://wordpress.org/plugins/wp-e-commerce/) | [GitHub](https://github.com/wp-e-commerce/WP-e-Commerce) | `3.8.12.1` | `3.11.3` |
-| [Crowdfunding by Astoundify](http://wordpress.org/plugins/appthemer-crowdfunding/) | [Astoundify](http://www.astoundify.com/) | [WordPress.org](http://wordpress.org/plugins/appthemer-crowdfunding/) | [GitHub](https://github.com/astoundify/crowdfunding/) | `1.8.2` | `1.8.2` |
-| [ClassiPress](http://www.appthemes.com/themes/classipress/) | [AppThemes](http://www.appthemes.com/) |  |  | `3.3.1` | `3.5.3` |
-| [JobRoller](http://www.appthemes.com/themes/jobroller/) | [AppThemes](http://www.appthemes.com/) |  |  |  | `1.7.1` |
-| [Vantage](http://www.appthemes.com/themes/vantage/) | [AppThemes](http://www.appthemes.com/) |  |  |  | `1.3.2` |
-| [Campaignify](http://www.astoundify.com/) | [Astoundify](http://www.astoundify.com/) |  |  |  | `1.5` |
+| [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](https://caseproof.com/) |  |  | `1.2.4` | `1.6.0` |
+| [Membership 2](https://wordpress.org/plugins/membership/) | [WPMUDEV.org](https://www.wpmudev.org/) | [WordPress.org](https://wordpress.org/plugins/membership/) |  | `3.4.4.1` | `4.1.5` |
+| [Membership Premium](https://premium.wpmudev.org/project/membership/) | [WPMUDEV.org](https://www.wpmudev.org/) |  | [GitHub](https://github.com/pronamic-wpmudev/membership-premium) | `3.4.6` | `3.5.1.3` |
+| [Ninja Forms](https://ninjaforms.com/) | [The WP Ninjas](https://ninjaforms.com/) | [WordPress.org](https://wordpress.org/plugins/ninja-forms/) | [GitHub](https://github.com/wpninjas/ninja-forms) | `3.3.15` | `3.4.20` |
+| [Restrict Content Pro](https://restrictcontentpro.com/) | [Sandhills Development, LLC](https://sandhillsdev.com/) |  |  | `3.0.0` | `3.2.2` |
+| [s2Member®](https://s2member.com/) | [WebSharks, Inc.](http://www.websharks-inc.com/) | [WordPress.org](https://wordpress.org/plugins/s2member/) | [GitHub](https://github.com/WebSharks/s2Member) | `130816` | `190822` |
+| [Shopp](https://shopplugin.net/) | [Ingenesis Limited](http://ingenesis.net/) | [WordPress.org](https://wordpress.org/plugins/shopp/) | [GitHub](https://github.com/ingenesis/shopp) | `1.1` | `1.4` |
+| [WooCommerce](https://woocommerce.com/) | [Automattic](https://automattic.com/) | [WordPress.org](https://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woocommerce/woocommerce) | `2.3.0` | `3.7.0` |
+| [WP e-Commerce](https://wpecommerce.org/) | [Instinct Entertainment](http://instinct.co.nz/) | [WordPress.org](https://wordpress.org/plugins/wp-e-commerce/) | [GitHub](https://github.com/wp-e-commerce/WP-e-Commerce) | `3.8.12.1` | `3.14.0` |
+| [Crowdfunding by Astoundify](https://wordpress.org/plugins/appthemer-crowdfunding/) | [Astoundify](https://astoundify.com/) | [WordPress.org](https://wordpress.org/plugins/appthemer-crowdfunding/) |  | `1.8.2` | `1.8.2` |
+| [ClassiPress](https://www.appthemes.com/themes/classipress/) | [AppThemes](https://www.appthemes.com/) |  |  | `3.3.1` | `3.5.3` |
+| [JobRoller](https://www.appthemes.com/themes/jobroller/) | [AppThemes](https://www.appthemes.com/) |  |  |  | `1.7.1` |
+| [Vantage](https://www.appthemes.com/themes/vantage/) | [AppThemes](https://www.appthemes.com/) |  |  |  | `1.3.2` |
+| [Campaignify](https://astoundify.com/) | [Astoundify](https://astoundify.com/) |  |  |  | `1.5` |
 
 
 ## Installation
 
-Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your 
-WordPress installation and then activate the Plugin from Plugins page.
-
+Extract the zip file and just drop the contents in the `/wp-content/plugins/` directory of your
+WordPress installation and activate the plugin from the Plugins page. Next, create a new configuration
+with the account details for your payment service provider account and enable the payment method in
+one of the supported e-commerce plugins.
 
 ## Are there any known plugin conflicts?
 

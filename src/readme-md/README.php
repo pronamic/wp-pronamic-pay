@@ -31,12 +31,12 @@ header( 'Content-Type: text/plain' );
 <?php require __DIR__ . '/../general/description-short.php'; ?>
 
 
-## Gateways
+## Supported payment providers
 
 <?php require 'gateways.php'; ?>
 
 
-## Extensions
+## Supported WordPress e-commerce extensions
 
 <?php require 'extensions.php'; ?>
 
