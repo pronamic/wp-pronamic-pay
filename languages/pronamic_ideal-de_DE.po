@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay v5.8.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2019-10-07T07:46:36+00:00\n"
+"POT-Creation-Date: 2019-10-08T12:51:47+00:00\n"
 "PO-Revision-Date: 2019-10-07 12:05+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -227,8 +227,9 @@ msgstr ""
 msgid "Version: %s"
 msgstr "Version: %s"
 
-#: admin/page-about.php:56 vendor/wp-pay/core/views/page-dashboard.php:355
-msgid "What is new"
+#: admin/page-about.php:56
+#, fuzzy
+msgid "What is new?"
 msgstr "Was ist neu"
 
 #: admin/page-about.php:57 vendor/wp-pay/core/views/page-dashboard.php:370
@@ -236,66 +237,76 @@ msgid "Getting started"
 msgstr "Erste Schritte"
 
 #: admin/tab-new.php:18
-msgid "Recurring payments for MemberPress"
-msgstr "Wiederkehrende Zahlungen für MemberPress"
+msgid "New Logo"
+msgstr ""
 
 #: admin/tab-new.php:23
 msgid ""
-"We do our best to bring recurring payments support to as many plugins as "
-"possible. After plugins such\n"
-"as Gravity Forms and WooCommerce Subscriptions, this functionality can now "
-"also be used with MemberPress. The plugin\n"
-"provides the ability to offer memberships to your visitors and the "
-"subscription amount can now be charged automatically.\n"
-"Recurring payments are only supported with payment provider Mollie for now."
+"With the newest 5.8 version of Pronamic Pay we’re introducing a totally new "
+"brand identity. Just as our Pronamic logo we’re using the letter ‘P’, from "
+"Pay, as a recognition point. Our new colors yellow and blue are supporting "
+"the sector. Yellow stands for prosperity and gold. Blue stands for safety "
+"and our Dutch roots."
 msgstr ""
-"Wir tun unser Bestes, wiederkehrende Zahlungen Unterstützung so viele "
-"Plugins wie möglich zu bringen. Nach Plugins wie Gravity Forms und "
-"WooCommerce Subscriptions kann diese Funktionalität jetzt auch mit "
-"MemberPress verwendet werden. Das Plugin bietet die Möglichkeit, Ihren "
-"Besuchern Mitgliedschaften anbieten und der Betrag kann nun automatisch "
-"aufgeladen werden. Wiederkehrende Zahlungen werden vorerst nur mit Payment "
-"Provider Mollie unterstützt."
 
-#: admin/tab-new.php:46
-msgid "Google Analytics e-commerce tracking"
-msgstr "Google Analytics e-Commerce-tracking"
-
-#: admin/tab-new.php:51
+#: admin/tab-new.php:34
 msgid ""
-"It is now possible to set a Google Analytics tracking ID in the plugin "
-"settings. A\n"
-"completed payment will automatically be send to Google (in live mode). The "
-"payment will be linked to\n"
-"the session of the visitor, which allows you to use visitor revenue in "
-"Google Analytics reports."
+"With this new identity we are trying to create a uniform and recognizable "
+"brand for the future. Our new brand logo and identity is visible when you "
+"visit our WordPress plugin page. Also, after updating to version 5.8, a new "
+"WordPress admin icon is shown."
 msgstr ""
-"Es ist jetzt möglich, eine Google Analytics-tracking-ID in den Plugin-"
-"Einstellungen festlegen. Eine erfolgreiche Zahlung werden automatisch an "
-"Google senden (im live-Modus). Die Zahlung wird auf die Sitzung des "
-"Besuchers verknüpft werden, ermöglicht es Ihnen Besucher Einkünfte in Google "
-"Analytics-Berichte zu verwenden."
 
-#: admin/tab-new.php:65
-msgid "Better subscriptions"
-msgstr "Bessere Abonnements"
-
-#: admin/tab-new.php:70
+#: admin/tab-new.php:44
 msgid ""
-"Pronamic Pay includes support for subscriptions to receive recurring "
-"payments. This version includes\n"
-"improvements based on user feedback. Switching between subscriptions with "
-"WooCommerce\n"
-"Subscriptions is now supported for example, and payment dates information "
-"has been extended and is more reliable."
+"https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-5.8-update-"
+"banner-en.png"
 msgstr ""
-"Pronamic Pay beinhaltet Support für Abonnements, um wiederkehrende Zahlungen "
-"zu erhalten. Diese Version enthält Verbesserungen basierend auf "
-"Benutzerfeedback. Beispielsweise wird jetzt der Wechsel zwischen Abonnements "
-"mit WooCommerce Subscriptions unterstützt, und die Daten zu Zahlungsterminen "
-"wurden erweitert und sind zuverlässiger."
 
-#: admin/tab-new.php:92
+#: admin/tab-new.php:54
+#, fuzzy
+msgid "WordPress Health Status"
+msgstr "WordPress Version"
+
+#: admin/tab-new.php:59
+msgid ""
+"WordPress version 5.2 introduced the WordPress Health Status page. We’ve "
+"migrated our Pronamic Pay status page and combined it with the new WordPress "
+"Health Status page. You can find the new page in your dashboard under "
+"‘Tools’ » ‘Site Health’."
+msgstr ""
+
+#: admin/tab-new.php:71
+#, fuzzy
+msgid "Rabobank - OmniKassa 2.0"
+msgstr "OmniKassa 2.0"
+
+#: admin/tab-new.php:76
+msgid ""
+"We’ve enhanced the ‘Order ID’ reference that our plugin communicates and "
+"gives back to OmniKassa 2.0. The length of the payment reference is "
+"increased from 10 to 24 characters. Our plugin monitor reads the given "
+"‘Order ID’ and checks if it answers the OmniKassa 2.0 demands. The reference "
+"field may only contain alphanumeric characters (a-z, A-Z, 0-9). Other "
+"characters, for example ‘.’, ‘@’, ‘_’, are not allowed."
+msgstr ""
+
+#: admin/tab-new.php:96
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:245
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
+#: admin/tab-new.php:101
+msgid ""
+"Support for the Gravity Forms plugin within a WordPress multisite is "
+"enhanced. Our Gravity Forms extension is not loaded if Gravity Forms is not "
+"activated in one of the network sites. We’ve also updated the Gravity Forms "
+"internationalisation. The text strings in our extension are now better "
+"translatable, even if your WordPress site uses a Right-to-Left text "
+"direction."
+msgstr ""
+
+#: admin/tab-new.php:113
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:300
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:308
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:317
@@ -306,42 +317,20 @@ msgstr ""
 msgid "Restrict Content Pro"
 msgstr "Restrict Content Pro"
 
-#: admin/tab-new.php:97
+#: admin/tab-new.php:118
 msgid ""
-"Restrict Content Pro lets you sell memberships to provide access to your "
-"content. In this\n"
-"version of Pronamic Pay we introduce support for this plugin. Recurring "
-"payments can be used, so subscription payments\n"
-"are processed automatically when they are due for renewal. Recurring "
-"payments are now also\n"
-"supported with s2Member (new shortcodes can be created with the included "
-"generator)."
+"The team of Sandhills Development, the developers behind Restrict Content "
+"Pro are very active. Version 3.0 of their plugin is released in february "
+"2019. With this 3.0 release we needed to update our support for the plugin. "
+"Sadly some new features in Restrict Content Pro 3.0 weren’t backwards "
+"compatible. Therefor we needed to rewrite some elements of our extension. "
+"The biggest improvement within Restrict Content Pro 3.0 regards the "
+"membership renewal process. After a recurring payment is created a "
+"membership is instantly extended. Previously this would only happen after a "
+"payment was successful, this process could take up to 5 days. Now if a "
+"payment fails or expires the membership will temporarily stop and will get "
+"the ‘pending’ status."
 msgstr ""
-"Mit Restricted Content Pro können Sie Mitgliedschaften verkaufen, um Zugriff "
-"auf Ihre Inhalte zu erhalten. In dieser Version von Pronamic Pay stellen wir "
-"die Unterstützung für dieses Plugin vor. Es können wiederkehrende Zahlungen "
-"verwendet werden, sodass Abonnementzahlungen automatisch verarbeitet werden "
-"wenn sie zur Erneuerung fällig sind. Wiederkehrende Zahlungen werden nun "
-"auch mit s2Member unterstützt (neue Shortcodes können mit dem Generator "
-"erstellt werden)."
-
-#: admin/tab-new.php:112
-msgid "Refreshed payments overview"
-msgstr "Aktualisiert Zahlungen Übersicht"
-
-#: admin/tab-new.php:117
-msgid ""
-"The payments list got a visual refresh. Most noticeable are the new status "
-"icons and updated default columns\n"
-"to make the overview a lot cleaner and easier to use. Additional columns can "
-"be displayed by enabling them in the\n"
-"\"Screen Options\" at the right top of the page."
-msgstr ""
-"Die Zahlungsliste wurde optisch aktualisiert. Am auffälligsten sind die "
-"neuen Statussymbole und die aktualisierten Standardspalten, um die Übersicht "
-"viel sauberer und einfacher zu verwenden. Zusätzliche Spalten können "
-"angezeigt werden, indem Sie sie in den \"Bildschirmoptionen\" oben rechts "
-"auf der Seite aktivieren."
 
 #: views/redirect-message.php:18
 msgid "Payment notice"
@@ -1426,6 +1415,10 @@ msgstr ""
 "Bitte folgen Sie der Tour, lesen Sie die Seiten \"Was ist neu\" und \"Erste "
 "Schritte\", bevor Sie uns kontaktieren. Überprüfen Sie auch die Systemstatus-"
 "Seite auf Probleme."
+
+#: vendor/wp-pay/core/views/page-dashboard.php:355
+msgid "What is new"
+msgstr "Was ist neu"
 
 #: vendor/wp-pay/core/views/page-dashboard.php:394
 #: vendor/wp-pay/core/views/page-dashboard.php:404
@@ -5908,10 +5901,6 @@ msgstr ""
 "Bitte entfernen Sie es aus diesem Formular oder <a href=\"%s\" target="
 "\"_blank\">fügen Sie ein unterstütztes Zahlungsgateway hinzu</a>."
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:245
-msgid "Gravity Forms"
-msgstr "Gravity Forms"
-
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:266
 msgid "Gravity Forms Entry"
 msgstr "Gravity Forms Eintrag"
@@ -6642,6 +6631,95 @@ msgstr "Teilnehmer #%s"
 msgid "Event Espresso Attendee"
 msgstr "Event Espresso-Teilnehmer"
 
+#~ msgid "Recurring payments for MemberPress"
+#~ msgstr "Wiederkehrende Zahlungen für MemberPress"
+
+#~ msgid ""
+#~ "We do our best to bring recurring payments support to as many plugins as "
+#~ "possible. After plugins such\n"
+#~ "as Gravity Forms and WooCommerce Subscriptions, this functionality can "
+#~ "now also be used with MemberPress. The plugin\n"
+#~ "provides the ability to offer memberships to your visitors and the "
+#~ "subscription amount can now be charged automatically.\n"
+#~ "Recurring payments are only supported with payment provider Mollie for "
+#~ "now."
+#~ msgstr ""
+#~ "Wir tun unser Bestes, wiederkehrende Zahlungen Unterstützung so viele "
+#~ "Plugins wie möglich zu bringen. Nach Plugins wie Gravity Forms und "
+#~ "WooCommerce Subscriptions kann diese Funktionalität jetzt auch mit "
+#~ "MemberPress verwendet werden. Das Plugin bietet die Möglichkeit, Ihren "
+#~ "Besuchern Mitgliedschaften anbieten und der Betrag kann nun automatisch "
+#~ "aufgeladen werden. Wiederkehrende Zahlungen werden vorerst nur mit "
+#~ "Payment Provider Mollie unterstützt."
+
+#~ msgid "Google Analytics e-commerce tracking"
+#~ msgstr "Google Analytics e-Commerce-tracking"
+
+#~ msgid ""
+#~ "It is now possible to set a Google Analytics tracking ID in the plugin "
+#~ "settings. A\n"
+#~ "completed payment will automatically be send to Google (in live mode). "
+#~ "The payment will be linked to\n"
+#~ "the session of the visitor, which allows you to use visitor revenue in "
+#~ "Google Analytics reports."
+#~ msgstr ""
+#~ "Es ist jetzt möglich, eine Google Analytics-tracking-ID in den Plugin-"
+#~ "Einstellungen festlegen. Eine erfolgreiche Zahlung werden automatisch an "
+#~ "Google senden (im live-Modus). Die Zahlung wird auf die Sitzung des "
+#~ "Besuchers verknüpft werden, ermöglicht es Ihnen Besucher Einkünfte in "
+#~ "Google Analytics-Berichte zu verwenden."
+
+#~ msgid "Better subscriptions"
+#~ msgstr "Bessere Abonnements"
+
+#~ msgid ""
+#~ "Pronamic Pay includes support for subscriptions to receive recurring "
+#~ "payments. This version includes\n"
+#~ "improvements based on user feedback. Switching between subscriptions with "
+#~ "WooCommerce\n"
+#~ "Subscriptions is now supported for example, and payment dates information "
+#~ "has been extended and is more reliable."
+#~ msgstr ""
+#~ "Pronamic Pay beinhaltet Support für Abonnements, um wiederkehrende "
+#~ "Zahlungen zu erhalten. Diese Version enthält Verbesserungen basierend auf "
+#~ "Benutzerfeedback. Beispielsweise wird jetzt der Wechsel zwischen "
+#~ "Abonnements mit WooCommerce Subscriptions unterstützt, und die Daten zu "
+#~ "Zahlungsterminen wurden erweitert und sind zuverlässiger."
+
+#~ msgid ""
+#~ "Restrict Content Pro lets you sell memberships to provide access to your "
+#~ "content. In this\n"
+#~ "version of Pronamic Pay we introduce support for this plugin. Recurring "
+#~ "payments can be used, so subscription payments\n"
+#~ "are processed automatically when they are due for renewal. Recurring "
+#~ "payments are now also\n"
+#~ "supported with s2Member (new shortcodes can be created with the included "
+#~ "generator)."
+#~ msgstr ""
+#~ "Mit Restricted Content Pro können Sie Mitgliedschaften verkaufen, um "
+#~ "Zugriff auf Ihre Inhalte zu erhalten. In dieser Version von Pronamic Pay "
+#~ "stellen wir die Unterstützung für dieses Plugin vor. Es können "
+#~ "wiederkehrende Zahlungen verwendet werden, sodass Abonnementzahlungen "
+#~ "automatisch verarbeitet werden wenn sie zur Erneuerung fällig sind. "
+#~ "Wiederkehrende Zahlungen werden nun auch mit s2Member unterstützt (neue "
+#~ "Shortcodes können mit dem Generator erstellt werden)."
+
+#~ msgid "Refreshed payments overview"
+#~ msgstr "Aktualisiert Zahlungen Übersicht"
+
+#~ msgid ""
+#~ "The payments list got a visual refresh. Most noticeable are the new "
+#~ "status icons and updated default columns\n"
+#~ "to make the overview a lot cleaner and easier to use. Additional columns "
+#~ "can be displayed by enabling them in the\n"
+#~ "\"Screen Options\" at the right top of the page."
+#~ msgstr ""
+#~ "Die Zahlungsliste wurde optisch aktualisiert. Am auffälligsten sind die "
+#~ "neuen Statussymbole und die aktualisierten Standardspalten, um die "
+#~ "Übersicht viel sauberer und einfacher zu verwenden. Zusätzliche Spalten "
+#~ "können angezeigt werden, indem Sie sie in den \"Bildschirmoptionen\" oben "
+#~ "rechts auf der Seite aktivieren."
+
 #~ msgctxt "Recurring payment"
 #~ msgid "On"
 #~ msgstr "Auf"
@@ -6749,9 +6827,6 @@ msgstr "Event Espresso-Teilnehmer"
 #~ msgstr ""
 #~ "Legen Sie die Webhook-URL im Dashboard %s fest, um automatische "
 #~ "Aktualisierungen des Transaktionsstatus zu erhalten."
-
-#~ msgid "OmniKassa 2.0"
-#~ msgstr "OmniKassa 2.0"
 
 #~ msgid ""
 #~ "The URL below needs to be copied to the payment provider dashboard to "

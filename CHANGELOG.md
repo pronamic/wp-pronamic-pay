@@ -6,7 +6,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [5.8.0] - 2019-10-07
+## [5.8.0] - 2019-10-08
 
 ### Changed
 - Updated WordPress pay core library to version 2.2.4.

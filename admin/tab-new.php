@@ -41,13 +41,13 @@ if ( ! defined( 'WPINC' ) ) {
 	</div>
 
 	<div class="col column">
-		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-5-8-banner-small.png" />
+		<img src="<?php echo esc_url( __( 'https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-5.8-update-banner-en.png', 'pronamic_ideal' ) ); ?>" alt="" />
 	</div>
 </div>
 
 <div class="feature-section two-col has-2-columns is-fullwidth">
 	<div class="col column">
-		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-admin-site-health.png" />
+		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-admin-site-health.png" alt="" />
 	</div>
 
 	<div class="col column">
@@ -74,7 +74,7 @@ if ( ! defined( 'WPINC' ) ) {
 			<?php
 
 			esc_html_e(
-				'',
+				'We’ve enhanced the ‘Order ID’ reference that our plugin communicates and gives back to OmniKassa 2.0. The length of the payment reference is increased from 10 to 24 characters. Our plugin monitor reads the given ‘Order ID’ and checks if it answers the OmniKassa 2.0 demands. The reference field may only contain alphanumeric characters (a-z, A-Z, 0-9). Other characters, for example ‘.’, ‘@’, ‘_’, are not allowed.',
 				'pronamic_ideal'
 			);
 
@@ -83,13 +83,13 @@ if ( ! defined( 'WPINC' ) ) {
 	</div>
 
 	<div class="col column">
-		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-rabobank-omnikassa-2-order-id-24-chars.png" />
+		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-rabobank-omnikassa-2-order-id-24-chars.png" alt="" />
 	</div>
 </div>
 
 <div class="feature-section two-col has-2-columns is-fullwidth">
 	<div class="col column">
-		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-gravity-forms-support.png" />
+		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-gravity-forms-support.png" alt="" />
 	</div>
 
 	<div class="col column">
@@ -99,7 +99,7 @@ if ( ! defined( 'WPINC' ) ) {
 			<?php
 
 			esc_html_e(
-				'',
+				'Support for the Gravity Forms plugin within a WordPress multisite is enhanced. Our Gravity Forms extension is not loaded if Gravity Forms is not activated in one of the network sites. We’ve also updated the Gravity Forms internationalisation. The text strings in our extension are now better translatable, even if your WordPress site uses a Right-to-Left text direction.',
 				'pronamic_ideal'
 			);
 
@@ -116,7 +116,7 @@ if ( ! defined( 'WPINC' ) ) {
 			<?php
 
 			esc_html_e(
-				'',
+				'The team of Sandhills Development, the developers behind Restrict Content Pro are very active. Version 3.0 of their plugin is released in february 2019. With this 3.0 release we needed to update our support for the plugin. Sadly some new features in Restrict Content Pro 3.0 weren’t backwards compatible. Therefor we needed to rewrite some elements of our extension. The biggest improvement within Restrict Content Pro 3.0 regards the membership renewal process. After a recurring payment is created a membership is instantly extended. Previously this would only happen after a payment was successful, this process could take up to 5 days. Now if a payment fails or expires the membership will temporarily stop and will get the ‘pending’ status.',
 				'pronamic_ideal'
 			);
 
@@ -125,6 +125,6 @@ if ( ! defined( 'WPINC' ) ) {
 	</div>
 
 	<div class="col column">
-		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-restrict-content-pro-3-support.png" />
+		<img src="https://www.wp-pay.org/wp-content/uploads/2019/10/pronamic-pay-restrict-content-pro-3-support.png" alt="" />
 	</div>
 </div>

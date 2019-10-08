@@ -53,7 +53,7 @@ if ( ! defined( 'WPINC' ) ) {
 		<?php
 
 		$nav_tabs = array(
-			'new'             => __( 'What is new', 'pronamic_ideal' ),
+			'new'             => __( 'What is new?', 'pronamic_ideal' ),
 			'getting-started' => __( 'Getting started', 'pronamic_ideal' ),
 		);
 

@@ -151,7 +151,7 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
-= 5.8.0 - 2019-10-07 =
+= 5.8.0 - 2019-10-08 =
 *	Updated WordPress pay core library to version 2.2.4.
 	*	Updated `viison/address-splitter` library to version `0.3.3`.
 	*	Move tools to site health debug information and status tests.
