@@ -180,6 +180,7 @@ add_filter(
 				'name'             => 'ING - iDEAL Basic',
 				'provider'         => 'ing',
 				'product_url'      => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'manual_url'       => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
 				'dashboard_url'    => array(
 					'test' => 'https://idealtest.secure-ing.com/',
 					'live' => 'https://ideal.secure-ing.com/',
@@ -196,6 +197,7 @@ add_filter(
 				'name'             => 'ING - iDEAL Advanced (v3)',
 				'provider'         => 'ing',
 				'product_url'      => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'manual_url'       => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
 				'dashboard_url'    => array(
 					'test' => 'https://idealtest.secure-ing.com/',
 					'live' => 'https://ideal.secure-ing.com/',
@@ -256,6 +258,7 @@ add_filter(
 				'name'             => 'Rabobank - iDEAL Professional (v3)',
 				'provider'         => 'rabobank',
 				'product_url'      => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
+				'manual_url'       => __( 'https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
 				'dashboard_url'    => array(
 					'test' => 'https://idealtest.rabobank.nl/',
 					'live' => 'https://ideal.rabobank.nl/',
