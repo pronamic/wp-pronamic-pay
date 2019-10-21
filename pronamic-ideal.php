@@ -108,6 +108,17 @@ add_filter(
 		// Restrict Content Pro.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension(
 			array(
+				'slug'          => 'restrict-content-pro',
+				'name'          => 'Restrict Content Pro',
+				'manual_url'    => null,
+				/**
+				 * Affiliate link.
+				 *
+				 * @link https://restrictcontentpro.com/affiliates/
+				 * @link https://restrictcontentpro.com/affiliate-agreement/
+				 * @todo Request a Restrict Content Pro affiliate link.
+				 */
+				'affiliate_url' => null,
 				/**
 				 * Requirements.
 				 *
@@ -116,7 +127,7 @@ add_filter(
 				 * @link https://github.com/wearerequired/wp-requirements-check
 				 * @link https://github.com/ultraleettech/wp-requirements-checker
 				 */
-				'requirements' => array(
+				'requirements'  => array(
 					array(
 						'type'              => 'php',
 						'requires_at_least' => '5.6.20',
