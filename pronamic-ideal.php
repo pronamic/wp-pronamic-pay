@@ -108,8 +108,48 @@ add_filter(
 		// Restrict Content Pro.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension(
 			array(
-				'requires_at_least' => '3.0.0',
-				'tested_up_to'      => '3.1.2',
+				/**
+				 * Requirements.
+				 *
+				 * @link https://github.com/dsawardekar/wp-requirements
+				 * @link https://github.com/afragen/wp-dependency-installer
+				 * @link https://github.com/wearerequired/wp-requirements-check
+				 * @link https://github.com/ultraleettech/wp-requirements-checker
+				 */
+				'requirements' => array(
+					array(
+						'type'              => 'php',
+						'requires_at_least' => '5.6.20',
+					),
+					array(
+						'type'              => 'php-ext',
+						'name'              => 'Internationalization',
+						'slug'              => 'intl',
+						'is_active'         => function() {
+							return \extension_loaded( 'intl' );
+						}
+					),
+					array(
+						'type'              => 'wp',
+						'requires_at_least' => '4.7',
+					),
+					array(
+						'type'              => 'wp-plugin',
+						'name'              => 'Restrict Content Pro',
+						'slug'              => 'restrict-content-pro',
+						'uri'               => 'https://restrictcontentpro.com/',
+						'requires_at_least' => '3.0.0',
+						'tested_up_to'      => '3.1.2',
+						'is_active'         => function() {
+							return \defined( 'RCP_PLUGIN_VERSION' );
+						},
+						'get_version'       => function() {
+							if ( \defined( 'RCP_PLUGIN_VERSION' ) ) {
+								return RCP_PLUGIN_VERSION;
+							}
+						}
+					),
+				),
 			)
 		);
 
