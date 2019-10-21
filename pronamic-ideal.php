@@ -104,6 +104,22 @@ if ( PRONAMIC_PAY_DEBUG ) {
 );
 
 add_filter(
+	'pronamic_pay_extensions',
+	function( $extensions ) {
+		// Restrict Content Pro.
+		$extensions[] = new \Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension(
+			array(
+				'requires_at_least' => '3.0.0',
+				'tested_up_to'      => '3.1.2',
+			)
+		);
+
+		// Return extensions.
+		return $extensions;
+	}
+);
+
+add_filter(
 	'pronamic_pay_gateways',
 	function( $gateways ) {
 		// ABN AMRO - iDEAL Zelfbouw (v3).
