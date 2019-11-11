@@ -8,32 +8,29 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-if ( is_a( $this, 'Pronamic\WordPress\Pay\PayException' ) ) : ?>
+if ( $exception instanceof \Exception ) : ?>
 
 	<div class="error">
 		<dl>
-			<dt><?php esc_html_e( 'Code', 'pronamic_ideal' ); ?></dt>
-			<dd><?php echo esc_html( $this->get_error_code() ); ?></dd>
-
 			<dt><?php esc_html_e( 'Message', 'pronamic_ideal' ); ?></dt>
-			<dd><?php echo esc_html( $this->get_message() ); ?></dd>
+			<dd><?php echo esc_html( $exception->getMessage() ); ?></dd>
 
-			<?php
+			<?php if ( 0 !== $exception->getCode() ) : ?>
 
-			$data = $this->get_data();
+				<dt><?php esc_html_e( 'Code', 'pronamic_ideal' ); ?></dt>
+				<dd><?php echo esc_html( $exception->getCode() ); ?></dd>
 
-			?>
+			<?php endif; ?>
 
-			<?php if ( PRONAMIC_PAY_DEBUG && current_user_can( 'manage_options' ) && ! empty( $data ) ) : ?>
+			<?php if ( PRONAMIC_PAY_DEBUG && current_user_can( 'manage_options' ) ) : ?>
 
-				<dt><?php esc_html_e( 'Data', 'pronamic_ideal' ); ?></dt>
+				<dt><?php esc_html_e( 'Trace', 'pronamic_ideal' ); ?></dt>
 				<dd>
 					<?php
 
 					echo '<pre>';
 
-					// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
-					print_r( $data );
+					echo $exception->getTraceAsString();
 
 					echo '</pre>';
 
