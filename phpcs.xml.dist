@@ -85,14 +85,6 @@
 		<exclude-pattern>uninstall.php</exclude-pattern>
 	</rule>
 
-	<rule ref="WordPress.NamingConventions.ValidHookName.UseUnderscores">
-		<exclude-pattern>admin/page-dashboard.php</exclude-pattern>
-	</rule>
-
-	<rule ref="WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar">
-		<exclude-pattern>admin/page-reports.php</exclude-pattern>
-	</rule>
-
 	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.system_calls_shell_exec">
 		<exclude-pattern>src/repositories.php</exclude-pattern>
 	</rule>
