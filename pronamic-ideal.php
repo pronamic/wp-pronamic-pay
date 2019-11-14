@@ -146,12 +146,12 @@ add_filter(
 						'requires_at_least' => '5.6.20',
 					),
 					array(
-						'type'              => 'php-ext',
-						'name'              => 'Internationalization',
-						'slug'              => 'intl',
-						'is_active'         => function() {
+						'type'      => 'php-ext',
+						'name'      => 'Internationalization',
+						'slug'      => 'intl',
+						'is_active' => function() {
 							return \extension_loaded( 'intl' );
-						}
+						},
 					),
 					array(
 						'type'              => 'wp',
@@ -171,7 +171,7 @@ add_filter(
 							if ( \defined( 'RCP_PLUGIN_VERSION' ) ) {
 								return RCP_PLUGIN_VERSION;
 							}
-						}
+						},
 					),
 				),
 			)
