@@ -110,10 +110,10 @@ add_filter(
 		// Restrict Content Pro.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension(
 			array(
-				'slug'              => 'restrict-content-pro',
-				'option_db_version' => 'pronamic_pay_restrictcontentpro_db_version',
-				'name'              => 'Restrict Content Pro',
-				'manual_url'        => null,
+				'slug'                => 'restrict-content-pro',
+				'version_option_name' => 'pronamic_pay_restrictcontentpro_db_version',
+				'name'                => 'Restrict Content Pro',
+				'manual_url'          => null,
 				/**
 				 * Affiliate link.
 				 *
@@ -121,7 +121,7 @@ add_filter(
 				 * @link https://restrictcontentpro.com/affiliate-agreement/
 				 * @todo Request a Restrict Content Pro affiliate link.
 				 */
-				'affiliate_url'     => null,
+				'affiliate_url'       => null,
 				/**
 				 * Requirements.
 				 *
@@ -140,7 +140,7 @@ add_filter(
 				 * @link https://github.com/Yoast/yoast-acf-analysis/blob/2.3.0/inc/ac-yoast-seo-acf-content-analysis.php#L30-L32
 				 * @link https://github.com/Yoast/yoast-acf-analysis/blob/2.3.0/inc/requirements.php
 				 */
-				'requirements'      => array(
+				'requirements'        => array(
 					array(
 						'type'              => 'php',
 						'requires_at_least' => '5.6.20',
