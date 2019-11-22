@@ -6,6 +6,11 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [5.8.1] - 2019-11-25
+
+### Changed
+- Updated WordPress pay core library to version ?.
+
 ## [5.8.0] - 2019-10-08
 
 ### Changed
@@ -2160,7 +2165,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.8.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.8.1...HEAD
+[5.8.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.8.0...5.8.1
 [5.8.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.4...5.8.0
 [5.7.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.3...5.7.4
 [5.7.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.2...5.7.3
