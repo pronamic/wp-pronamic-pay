@@ -6,10 +6,91 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [5.8.1] - 2019-11-25
+## [5.8.1] - 2020-01-08
 
 ### Changed
-- Updated WordPress pay core library to version ?.
+- Updated WordPress pay core library to version 2.2.6.
+  - Added filter `pronamic_payment_gateway_configuration_id` for payment gateway configuration ID.
+  - Added filter `pronamic_pay_return_should_redirect` to move return checks to gateway integrations.
+  - Added Polylang home URL support in payment return URL.
+  - Added user display name in payment info meta box.
+  - Added consumer and bank transfer bank details.
+  - Added support for payment expiry date.
+  - Added support for gateway manual URL.
+  - Added new dependencies system.
+  - Added new upgrades system.
+  - Fixed incorrect day of month for yearly recurring payments when using synchronized payment date.
+  - Fixed not starting recurring payments for gateways which don't support recurring payments.
+  - Fixed default payment method in form processor if required.
+  - Fixed empty dashboard widgets for untranslated languages.
+  - Fixed submit button for manual subscription renewal.
+  - Fixed duplicate currency symbol in payment forms.
+  - Fixed stylesheet on payment redirect.
+  - Improved payment methods tab in gateway settings.
+  - Improved updating active payment methods.
+  - Improved error handling with exceptions.
+  - Improved update routine.
+  - Set subscription status 'On hold' for cancelled and expired payments.
+  - Do not auto update subscription status when status is 'On hold'.
+  - Renamed 'Expiry Date' to 'Paid up to' in subscription info meta box.
+- Updated WordPress pay Adyen library to version 1.0.5.
+  - Added Site Health test for HTTP authorization header.
+  - Added URL to manual in gateway settings.
+  - Added shopper email to payment request.
+  - Improved support for PHP 5.6.
+- Updated WordPress pay ING Kassa Compleet library to version 2.0.3.
+  - Added support for payments without method specified.
+  - Improved bank transfer payment instructions.
+- Updated WordPress pay ICEPAY library to version 2.0.6.
+  - Fixed processing ICEPAY postback.
+- Updated WordPress pay Mollie library to version 2.0.9.
+  - Added advanced setting for bank transfer due date days.
+  - Added bank transfer recipient details to payment.
+  - Removed Bitcoin payment method (not supported by Mollie anymore).
+- Updated WordPress pay OmniKassa 2.0 library to version 2.1.10.
+  - Added address fields validation.
+- Updated WordPress pay Sisow library to version 2.0.4.
+  - Added support for new `pronamic_pay_return_should_redirect` filter for notify and callback processing.
+  - Improved status updates for payments without transaction ID (i.e. iDEAL QR and iDEAL without issuer).
+  - Improved getting active payment methods for account.
+- Updated WordPress pay Easy Digital Downloads library to version 2.0.6.
+  - Added payment line ID support with variable price ID.
+  - Improved output HTML to match Easy Digital Downloads.
+- Updated WordPress pay Give library to version 2.0.4.
+  - Updated gateway settings.
+- Updated WordPress pay Gravity Forms library to version 2.1.14.
+  - Added merge tags for bank transfer recipient details.
+  - Added notice about subscription frequency being in addition to the first payment.
+  - Fixed synchronized payment date monthday and month settings.
+  - Improved payment method field creation.
+- Updated WordPress pay Restrict Content Pro library to version 2.1.6.
+  - Added support for new dependencies system.
+  - Added support for new upgrades system.
+  - Added upgrade script for payment and subscriptions source.
+- Updated WordPress pay AppThemes library to version 2.0.4.
+- Updated WordPress pay Buckaroo library to version 2.0.4.
+- Updated WordPress pay Charitable library to version 2.0.3.
+- Updated WordPress pay ClassiPress library to version 2.0.3.
+- Updated WordPress pay EMS e-Commerce library to version 2.0.4.
+- Updated WordPress pay Event Espresso library to version 2.1.3.
+- Updated WordPress pay Event Espresso (legacy) library to version 2.1.2.
+- Updated WordPress pay Formidable Forms library to version 2.0.4.
+- Updated WordPress pay iDEAL Advanced v3 library to version 2.0.5.
+- Updated WordPress pay iDEAL Basic library to version 2.0.5.
+- Updated WordPress pay iThemes Exchange library to version 2.0.3.
+- Updated WordPress pay Jigoshop library to version 2.0.4.
+- Updated WordPress pay MemberPress library to version 2.0.12.
+- Updated WordPress pay MultiSafepay library to version 2.0.5.
+- Updated WordPress pay Ninja Forms library to version 1.0.3.
+- Updated WordPress pay Nocks library to version 2.0.3.
+- Updated WordPress pay Ogone library to version 2.0.4.
+- Updated WordPress pay Pay.nl library to version 2.0.4.
+- Updated WordPress pay s2Member library to version 2.0.5.
+- Updated WordPress pay Shopp library to version 2.0.3.
+- Updated WordPress pay TargetPay library to version 2.0.3.
+- Updated WordPress pay WooCommerce library to version 2.0.10.
+- Updated WordPress pay WP eCommerce library to version 2.0.4.
+- Updated WordPress pay WPMU DEV Membership library to version 2.0.4.
 
 ## [5.8.0] - 2019-10-08
 
