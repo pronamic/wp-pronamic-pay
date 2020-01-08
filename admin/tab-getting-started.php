@@ -38,15 +38,7 @@ the chosen payment provider and a wide variety of supported e-commerce plugins."
 
 			printf(
 				'» <a href="%1$s" title="%2$s">%2$s</a>',
-				esc_url(
-					add_query_arg(
-						array(
-							'page' => 'pronamic_pay_tools',
-							'tab'  => 'gateways',
-						),
-						admin_url( 'admin.php' )
-					)
-				),
+				esc_url( $this->plugin->tracking_module->get_tracking_url( __( 'https://www.pronamic.eu/payment-providers/', 'pronamic_ideal' ) ) ),
 				esc_html__( 'View supported payment providers', 'pronamic_ideal' )
 			);
 
@@ -174,15 +166,7 @@ page, where you choose which configuration to use in the payment methods that ar
 
 			printf(
 				'» <a href="%1$s" title="%2$s">%2$s</a>',
-				esc_url(
-					add_query_arg(
-						array(
-							'page' => 'pronamic_pay_tools',
-							'tab'  => 'extensions',
-						),
-						admin_url( 'admin.php' )
-					)
-				),
+				esc_url( $this->plugin->tracking_module->get_tracking_url( __( 'https://www.pronamic.eu/plugins/pronamic-ideal/', 'pronamic_ideal' ) ) ),
 				esc_html__( 'View supported e-commerce plugins', 'pronamic_ideal' )
 			);
 

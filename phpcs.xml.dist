@@ -3,7 +3,7 @@
 <ruleset name="Pronamic Pay">
 	<config name="minimum_supported_wp_version" value="4.7" />
 
-	<config name="testVersion" value="5.3-" />
+	<config name="testVersion" value="5.6-" />
 
 	<file>.</file>
 
@@ -12,6 +12,7 @@
 	<arg value="sp" />
 
 	<exclude-pattern>assets/*</exclude-pattern>
+	<exclude-pattern>build/*</exclude-pattern>
 	<exclude-pattern>css/*</exclude-pattern>
 	<exclude-pattern>deploy/*</exclude-pattern>
 	<exclude-pattern>documentation/*</exclude-pattern>
@@ -85,14 +86,6 @@
 		<exclude-pattern>uninstall.php</exclude-pattern>
 	</rule>
 
-	<rule ref="WordPress.NamingConventions.ValidHookName.UseUnderscores">
-		<exclude-pattern>admin/page-dashboard.php</exclude-pattern>
-	</rule>
-
-	<rule ref="WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar">
-		<exclude-pattern>admin/page-reports.php</exclude-pattern>
-	</rule>
-
 	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.system_calls_shell_exec">
 		<exclude-pattern>src/repositories.php</exclude-pattern>
 	</rule>
@@ -103,5 +96,9 @@
 
 	<rule ref="WordPress.Security.EscapeOutput.OutputNotEscaped">
 		<exclude-pattern>src/*.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.PHP.DisallowShortTernary">
+		<exclude-pattern>tests/wp-config.php</exclude-pattern>
 	</rule>
 </ruleset>
