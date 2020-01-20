@@ -42,22 +42,12 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	[Gravity Forms MailChimp Add-On](https://www.gravityforms.com/add-ons/mailchimp/)
 *	[Gravity Forms User Registration Add-On](https://www.gravityforms.com/add-ons/user-registration/)
 *	[Gravity Forms Zapier Add-On](https://www.gravityforms.com/add-ons/zapier/)
-*	[iThemes Exchange](https://ithemes.com/exchange/)
-*	[Jigoshop](https://www.jigoshop.com/)
 *	[MemberPress](https://www.memberpress.com/)
-*	[Membership 2](https://wordpress.org/plugins/membership/)
-*	[Membership Premium](https://premium.wpmudev.org/project/membership/)
 *	[Ninja Forms](https://ninjaforms.com/)
 *	[Restrict Content Pro](https://restrictcontentpro.com/)
 *	[s2Member®](https://s2member.com/)
-*	[Shopp](https://shopplugin.net/)
 *	[WooCommerce](https://woocommerce.com/)
 *	[WP e-Commerce](https://wpecommerce.org/)
-*	[Crowdfunding by Astoundify](https://wordpress.org/plugins/appthemer-crowdfunding/)
-*	[ClassiPress](https://www.appthemes.com/themes/classipress/)
-*	[JobRoller](https://www.appthemes.com/themes/jobroller/)
-*	[Vantage](https://www.appthemes.com/themes/vantage/)
-*	[Campaignify](https://astoundify.com/)
 
 = Supported payment providers =
 

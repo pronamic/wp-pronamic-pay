@@ -49,7 +49,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 
 | Name | Author | WordPress.org | GitHub | Requires at least | Tested up to |
 | ---- | ------ | ------------- | ------ | ----------------- | ------------ |
-| [Charitable](https://www.wpcharitable.com/) | [Studio 164a](https://www.164a.com/) | [WordPress.org](https://wordpress.org/plugins/charitable/) | [GitHub](https://github.com/Charitable/Charitable) | `1.3` | `1.6.24` |
+| [Charitable](https://www.wpcharitable.com/) | [Studio 164a](https://www.164a.com/) | [WordPress.org](https://wordpress.org/plugins/charitable/) | [GitHub](https://github.com/Charitable/Charitable) | `1.3` | `1.6.30` |
 | [Easy Digital Downloads](https://easydigitaldownloads.com/) | [Pippin Williamson](https://pippinsplugins.com/) | [WordPress.org](https://wordpress.org/plugins/easy-digital-downloads/) | [GitHub](https://github.com/easydigitaldownloads/Easy-Digital-Downloads) | `1.8.6` | `2.9.16` |
 | [Event Espresso 3](https://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-legacy) | `3.1.24` | `3.1.37.14.p` |
 | [Event Espresso 3 Lite](https://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-free/) | [GitHub](https://github.com/eventespresso/event-espresso-legacy) | `3.1.29.1.L` | `3.1.37.12.L` |
@@ -63,22 +63,12 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Gravity Forms MailChimp Add-On](https://www.gravityforms.com/add-ons/mailchimp/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `2.4.1` | `4.6.3` |
 | [Gravity Forms User Registration Add-On](https://www.gravityforms.com/add-ons/user-registration/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.8` | `4.4` |
 | [Gravity Forms Zapier Add-On](https://www.gravityforms.com/add-ons/zapier/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.4.2` | `3.2` |
-| [iThemes Exchange](https://ithemes.com/exchange/) | [iThemes](https://ithemes.com/) | [WordPress.org](https://wordpress.org/plugins/ithemes-exchange/) | [GitHub](https://github.com/wp-plugins/ithemes-exchange) | `1.7.14` | `1.36.8` |
-| [Jigoshop](https://www.jigoshop.com/) | [Jigoshop](https://www.jigoshop.com/) | [WordPress.org](https://wordpress.org/plugins/jigoshop/) | [GitHub](https://github.com/jigoshop/jigoshop) | `1.1` | `1.18.4` |
 | [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](https://caseproof.com/) |  |  | `1.2.4` | `1.6.0` |
-| [Membership 2](https://wordpress.org/plugins/membership/) | [WPMUDEV.org](https://www.wpmudev.org/) | [WordPress.org](https://wordpress.org/plugins/membership/) |  | `3.4.4.1` | `4.1.5` |
-| [Membership Premium](https://premium.wpmudev.org/project/membership/) | [WPMUDEV.org](https://www.wpmudev.org/) |  | [GitHub](https://github.com/pronamic-wpmudev/membership-premium) | `3.4.6` | `3.5.1.3` |
 | [Ninja Forms](https://ninjaforms.com/) | [The WP Ninjas](https://ninjaforms.com/) | [WordPress.org](https://wordpress.org/plugins/ninja-forms/) | [GitHub](https://github.com/wpninjas/ninja-forms) | `3.3.15` | `3.4.20` |
 | [Restrict Content Pro](https://restrictcontentpro.com/) | [Sandhills Development, LLC](https://sandhillsdev.com/) |  |  | `3.0.0` | `3.2.2` |
 | [s2Member®](https://s2member.com/) | [WebSharks, Inc.](http://www.websharks-inc.com/) | [WordPress.org](https://wordpress.org/plugins/s2member/) | [GitHub](https://github.com/WebSharks/s2Member) | `130816` | `190822` |
-| [Shopp](https://shopplugin.net/) | [Ingenesis Limited](http://ingenesis.net/) | [WordPress.org](https://wordpress.org/plugins/shopp/) | [GitHub](https://github.com/ingenesis/shopp) | `1.1` | `1.4` |
 | [WooCommerce](https://woocommerce.com/) | [Automattic](https://automattic.com/) | [WordPress.org](https://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woocommerce/woocommerce) | `2.3.0` | `3.7.0` |
 | [WP e-Commerce](https://wpecommerce.org/) | [Instinct Entertainment](http://instinct.co.nz/) | [WordPress.org](https://wordpress.org/plugins/wp-e-commerce/) | [GitHub](https://github.com/wp-e-commerce/WP-e-Commerce) | `3.8.12.1` | `3.14.0` |
-| [Crowdfunding by Astoundify](https://wordpress.org/plugins/appthemer-crowdfunding/) | [Astoundify](https://astoundify.com/) | [WordPress.org](https://wordpress.org/plugins/appthemer-crowdfunding/) |  | `1.8.2` | `1.8.2` |
-| [ClassiPress](https://www.appthemes.com/themes/classipress/) | [AppThemes](https://www.appthemes.com/) |  |  | `3.3.1` | `3.5.3` |
-| [JobRoller](https://www.appthemes.com/themes/jobroller/) | [AppThemes](https://www.appthemes.com/) |  |  |  | `1.7.1` |
-| [Vantage](https://www.appthemes.com/themes/vantage/) | [AppThemes](https://www.appthemes.com/) |  |  |  | `1.3.2` |
-| [Campaignify](https://astoundify.com/) | [Astoundify](https://astoundify.com/) |  |  |  | `1.5` |
 
 
 ## Installation
