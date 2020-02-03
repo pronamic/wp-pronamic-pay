@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay v5.8.1\n"
+"Project-Id-Version: Pronamic Pay v5.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2019-12-23T09:52:59+00:00\n"
-"PO-Revision-Date: 2019-10-15 23:25+0200\n"
+"PO-Revision-Date: 2020-02-03 16:38+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: de_DE\n"
@@ -1058,7 +1058,7 @@ msgstr "Pronamic - Banküberweisung"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:212
 msgid "Pronamic bank transfer recipient account number"
-msgstr ""
+msgstr "Pronamic Banküberweisung Empfängerkontonummer"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:218
 msgid "Pronamic Subscription Payment ID"
@@ -3684,16 +3684,16 @@ msgstr "API-Schlüssel wie im Dashboard des Zahlungsanbieters angegeben"
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:112
 msgctxt "mollie"
 msgid "Due date days"
-msgstr ""
+msgstr "Fälligkeitsdatum Tage"
 
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:117
 msgid "Number of days after which a bank transfer payment expires."
-msgstr ""
+msgstr "Anzahl der Tage, nach denen eine Banküberweisung abläuft."
 
 #. translators: 1: <code>1</code>, 2: <code>100</code>, 3: <code>12</code>
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:120
 msgid "Minimum %1$s and maximum %2$s days. Default: %3$s days."
-msgstr ""
+msgstr "Mindestens %1$s und maximal %2$s Tage. Standardwert: %3$s Tage."
 
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:135
 #: vendor/wp-pay-gateways/nocks/src/Integration.php:75
@@ -4468,7 +4468,7 @@ msgstr "Nächste geplante Lizenzprüfung"
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:76
 #: vendor/wp-pay/core/views/tab-system_status.php:231
 msgid "Time (UTC)"
-msgstr ""
+msgstr "Zeit (UTC)"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:77
 #: vendor/wp-pay/core/views/tab-system_status.php:234
@@ -5889,7 +5889,7 @@ msgstr "Produktinformation"
 #: vendor/wp-pay/core/views/meta-box-gateway-config.php:103
 #: vendor/wp-pay/core/views/meta-box-gateway-config.php:104
 msgid "Manual"
-msgstr ""
+msgstr "Handbuch"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-config.php:146
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:666
@@ -6243,7 +6243,7 @@ msgstr "l j. F Y, H:i"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:162
 msgid "Paid up to"
-msgstr ""
+msgstr "Bezahlt bis zu"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:184
 msgid "Next Payment Date"
@@ -6317,7 +6317,7 @@ msgstr "Pronamic Pay Add-On"
 
 #: vendor/wp-pay/core/views/notice-upgraded.php:17
 msgid "Successfully upgraded to the latest version."
-msgstr ""
+msgstr "Erfolgreiches Upgrade auf die neueste Version."
 
 #. translators: 1: configuration link(s)
 #: vendor/wp-pay/core/views/notice-webhook-url.php:56
@@ -6378,7 +6378,7 @@ msgstr "Was ist neu"
 
 #: vendor/wp-pay/core/views/page-dashboard.php:382
 msgid "Site Health"
-msgstr ""
+msgstr "Site Health"
 
 #: vendor/wp-pay/core/views/page-dashboard.php:399
 #: vendor/wp-pay/core/views/page-tools.php:14
@@ -6901,7 +6901,7 @@ msgstr "Akzeptieren Zahlung von iDEAL"
 
 #: views/exception.php:27
 msgid "Trace"
-msgstr ""
+msgstr "Trace"
 
 #: views/ideal-test-cases.php:18
 msgid "Order"
