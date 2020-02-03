@@ -6,6 +6,46 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [5.9.0] - 2020-02-03
+
+### Changed
+- Updated WordPress pay core library to version 2.2.7.
+  - Added Google Analytics e-commerce `pronamic_pay_google_analytics_ecommerce_item_name` and `pronamic_pay_google_analytics_ecommerce_item_category` filters.
+  - Improved error handling for manual payment status check.
+  - Updated custom gender and date of birth input fields.
+  - Clean post cache to prevent duplicate status updates.
+  - Fixed duplicate payment for recurring payment.
+- Updated WordPress pay Easy Digital Downloads library to version 2.0.7.
+  - Improved custom input fields HTML markup and validation.
+- Updated WordPress pay Gravity Forms library to version 2.1.15.
+  - Only prorate subscription amount when form field has been set for recurring amount.
+  - Fixed incorrect currency with multicurrency add-on.
+  - Fixed subscription start with zero interval days.
+- Updated WordPress pay Adyen library to version 1.0.6.
+  - Added support for Drop-in integration (requires 'Origin Key' in gateway settings).
+  - Added application info support.
+- Updated WordPress pay MultiSafepay library to version 2.0.6.
+  - Improved error handling.
+- Updated Pronamic WordPress Money library to version 1.2.4.
+
+### Fixed
+- Updated WordPress pay Charitable library to version 2.0.4.
+  - Fixed processing decimal input amounts.
+- Updated WordPress pay MemberPress library to version 2.0.13.
+  - Explicitly set transaction expiry date.
+- Updated WordPress pay Restrict Content Pro library to version 2.1.7.
+  - Fixed possible 'Fatal error: Call to a member function `get_user_id()` on boolean' in updater.
+- Updated WordPress pay Mollie library to version 2.0.10.
+  - Fixed notice 'Not Found - No customer exists with token cst_XXXXXXXXXX' in some cases.
+
+### Removed
+- Removed AppThemes integration.
+- Removed ClassiPress integration.
+- Removed iThemes Exchange integration (plugin is now Ninja Shop and not supported anymore).
+- Removed Jigoshop integration (plugin not under active development anymore).
+- Removed Shopp integration (plugin not under active development anymore).
+- Removed WPMU DEV Membership integration (plugin has been retired; see https://premium.wpmudev.org/retiring-our-legacy-plugins/).
+
 ## [5.8.1] - 2020-01-08
 
 ### Changed
@@ -2246,7 +2286,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.8.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.9.0...HEAD
+[5.9.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.8.1...5.9.0
 [5.8.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.8.0...5.8.1
 [5.8.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.4...5.8.0
 [5.7.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.3...5.7.4

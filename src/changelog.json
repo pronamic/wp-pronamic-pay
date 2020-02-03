@@ -2,7 +2,95 @@
 	{
 		"version": "Unreleased",
 		"changes": [
-			
+		]
+	},
+	{
+		"version": "5.9.0",
+		"date": "2020-02-03",
+		"changes": [
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay core library to version 2.2.7.",
+						"changes": [
+							"Added Google Analytics e-commerce `pronamic_pay_google_analytics_ecommerce_item_name` and `pronamic_pay_google_analytics_ecommerce_item_category` filters.",
+							"Improved error handling for manual payment status check.",
+							"Updated custom gender and date of birth input fields.",
+							"Clean post cache to prevent duplicate status updates.",
+							"Fixed duplicate payment for recurring payment."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Easy Digital Downloads library to version 2.0.7.",
+						"changes": [
+							"Improved custom input fields HTML markup and validation."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 2.1.15.",
+						"changes": [
+							"Only prorate subscription amount when form field has been set for recurring amount.",
+							"Fixed incorrect currency with multicurrency add-on.",
+							"Fixed subscription start with zero interval days."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Adyen library to version 1.0.6.",
+						"changes": [
+							"Added support for Drop-in integration (requires 'Origin Key' in gateway settings).",
+							"Added application info support."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MultiSafepay library to version 2.0.6.",
+						"changes": [
+							"Improved error handling."
+						]
+					},
+					"Updated Pronamic WordPress Money library to version 1.2.4."
+				]
+			},
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Charitable library to version 2.0.4.",
+						"changes": [
+							"Fixed processing decimal input amounts."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MemberPress library to version 2.0.13.",
+						"changes": [
+							"Explicitly set transaction expiry date."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Restrict Content Pro library to version 2.1.7.",
+						"changes": [
+							"Fixed possible 'Fatal error: Call to a member function `get_user_id()` on boolean' in updater."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Mollie library to version 2.0.10.",
+						"changes": [
+							"Fixed notice 'Not Found - No customer exists with token cst_XXXXXXXXXX' in some cases."
+						]
+					}
+				]
+			},
+			{
+				"name": "Removed",
+				"changes": [
+					"Removed AppThemes integration.",
+					"Removed ClassiPress integration.",
+					"Removed iThemes Exchange integration (plugin is now Ninja Shop and not supported anymore).",
+					"Removed Jigoshop integration (plugin not under active development anymore).",
+					"Removed Shopp integration (plugin not under active development anymore).",
+					"Removed WPMU DEV Membership integration (plugin has been retired; see https://premium.wpmudev.org/retiring-our-legacy-plugins/)."
+				]
+			}
 		]
 	},
 	{
