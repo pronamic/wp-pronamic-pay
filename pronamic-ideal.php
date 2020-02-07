@@ -80,27 +80,41 @@ if ( PRONAMIC_PAY_DEBUG ) {
 		'file'       => __FILE__,
 		'options'    => array(
 			'about_page_file' => __DIR__ . '/admin/page-about.php',
-		),
-		'extensions' => array(
-			'\Pronamic\WordPress\Pay\Extensions\Charitable\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\Give\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\GravityForms\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\WPeCommerce\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\EventEspressoLegacy\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\S2Member\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\MemberPress\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension::bootstrap',
-		),
+		)
 	)
 );
 
 add_filter(
 	'pronamic_pay_plugin_integrations',
 	function( $integrations ) {
+		// Charitable.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\Charitable\Extension();
+
+		// Easy Digital Downloads.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension();
+
+		// Event Espresso.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EventEspressoLegacy\Extension();
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension();
+
+		// Give.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\Give\Extension();
+
+		// WooCommerce.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension();
+
+		// Gravity Forms.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\GravityForms\Extension();
+
+		// FormidableForms.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension();
+
+		// MemberPress.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\MemberPress\Extension();
+
+		// NinjaForms.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension();
+
 		// Restrict Content Pro.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension(
 			array(
@@ -170,6 +184,12 @@ add_filter(
 				),
 			)
 		);
+
+		// s2Member.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\S2Member\Extension();
+
+		// WP e-Commerce.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WPeCommerce\Extension();
 
 		// Return integrations.
 		return $integrations;
