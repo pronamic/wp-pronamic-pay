@@ -305,7 +305,13 @@ add_filter(
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\ING\KassaCompleet\Integration();
 
 		// Mollie.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration(
+			array(
+				'register_url'        => 'https://www.mollie.com/nl/signup/665327',
+				'manual_url'          => \__( 'https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'version_option_name' => 'pronamic_pay_mollie_db_version',
+			)
+		);
 
 		// Mollie - iDEAL.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\MollieIDeal\Integration();
