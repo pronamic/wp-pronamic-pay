@@ -118,10 +118,10 @@ add_filter(
 		// Restrict Content Pro.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension(
 			array(
-				'slug'                => 'restrict-content-pro',
-				'version_option_name' => 'pronamic_pay_restrictcontentpro_db_version',
-				'name'                => 'Restrict Content Pro',
-				'manual_url'          => null,
+				'slug'                   => 'restrict-content-pro',
+				'db_version_option_name' => 'pronamic_pay_restrictcontentpro_db_version',
+				'name'                   => 'Restrict Content Pro',
+				'manual_url'             => null,
 				/**
 				 * Affiliate link.
 				 *
@@ -307,9 +307,10 @@ add_filter(
 		// Mollie.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration(
 			array(
-				'register_url'        => 'https://www.mollie.com/nl/signup/665327',
-				'manual_url'          => \__( 'https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
-				'version_option_name' => 'pronamic_pay_mollie_db_version',
+				'register_url'           => 'https://www.mollie.com/nl/signup/665327',
+				'manual_url'             => \__( 'https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'version_option_name'    => 'pronamic_pay_mollie_version',
+				'db_version_option_name' => 'pronamic_pay_mollie_db_version',
 			)
 		);
 
