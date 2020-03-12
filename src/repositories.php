@@ -57,6 +57,24 @@ $organisations = array(
 	),
 );
 
+function version_update_awk_actions() {
+	global $argv;
+
+	$version_update = isset( $argv[2] ) ? $argv[2] : 'patch';
+
+	switch ( $version_update ) {
+		case 'major':
+			return 'NR==1{printf "%s.0.0", ++$NR};';
+
+		case 'minor':
+			return 'NF==2{print ++$NF}; NF>0{$(NF-1)++; $NF=0; print};';
+
+		case 'patch':
+		default:
+			return 'NF==1{print ++$NF}; NF>1{if(length($NF+1)>length($NF))$(NF-1)++; $NF=sprintf("%0*d", length($NF), ($NF+1)%(10^length($NF))); print};';
+	}
+}
+
 foreach ( $organisations as $organisation => $repositories ) {
 	echo '# ', $organisation, PHP_EOL;
 
@@ -92,6 +110,54 @@ foreach ( $organisations as $organisation => $repositories ) {
 			$command = 'git --no-pager log $(git describe --tags --abbrev=0)..HEAD --oneline';
 		}
 
+		if ( isset( $argv[1] ) && 'changelog' === $argv[1] ) {
+			$command = '
+				CURRENT_TAG=$(git describe --tags --abbrev=0);
+				LOG=$(git --no-pager log ${CURRENT_TAG}..HEAD --oneline);
+
+				# Exit if there are no changes in Git repository.
+				if [ $(echo "$LOG" | wc -l) -eq 1 ]; then
+					echo "Version: ${CURRENT_TAG}";
+					exit;
+				fi;
+
+				# Set version numbers.
+				NEW_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'' . version_update_awk_actions() . '\');
+				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}";
+
+				# Add title and log.
+				TITLE_LINENR=$(grep -n "## \[" CHANGELOG.md | head -2 | tail -1 | cut -d: -f1);
+				LOG=$(echo "$LOG" | sed \'s/^[a-z0-9]\{7\}/-/\' | sed \'s/^- Merge tag.*//\'; echo "";);
+				TITLE="## [${NEW_VERSION}] - $(date \'+%Y-%m-%d\')' . \PHP_EOL . '";
+				ex -s -c "${TITLE_LINENR}i|${TITLE}${LOG}' . str_repeat( \PHP_EOL, 2 ) . '" -c x CHANGELOG.md;
+
+				# Update footer links.
+				LINK_LINENR=$(grep -n "\[unreleased\]" CHANGELOG.md | tail -1 | cut -d: -f1);
+				LINK="[${NEW_VERSION}]: https://github.com/' . $organisation . '/' . $repository . '/compare/${CURRENT_TAG}...${NEW_VERSION}";
+				CHANGELOG=$(cat CHANGELOG.MD | sed "${LINK_LINENR}s/${CURRENT_TAG}...HEAD/${NEW_VERSION}...HEAD/" | tee CHANGELOG.md);
+				ex -s -c "$(( ${LINK_LINENR} + 1 ))i|${LINK}" -c x CHANGELOG.md';
+		}
+
+		if ( isset( $argv[1] ) && 'update-package-version' === $argv[1] ) {
+			$command = '
+				CURRENT_TAG=$(git describe --tags --abbrev=0);
+				LOG=$(git --no-pager log ${CURRENT_TAG}..HEAD --oneline);
+
+				# Exit if there are no changes in Git repository.
+				if [ $(echo "$LOG" | wc -l) -eq 1 ]; then
+					echo "Version: ${CURRENT_TAG}";
+					exit;
+				fi;
+
+				# Set version numbers.
+				NEW_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'' . version_update_awk_actions() . '\');
+				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}";
+
+				# Update version number.
+				VERSION_LINENR=$(grep -n "\"version\":" package.json | tail -1 | cut -d: -f1);
+				PACKAGE_JSON=$(cat package.json | sed "${VERSION_LINENR}s/\"${CURRENT_TAG}\"/\"${NEW_VERSION}\"/" | tee package.json);';
+		}
+
 		if ( isset( $argv[1] ) && in_array( $argv[1], array( 'git', 'grunt', 'composer', 'npm', 'ncu' ), true ) ) {
 			if ( isset( $argv[2] ) ) {
 				$command = sprintf( '%s %s', $argv[1], $argv[2] );
@@ -101,7 +167,9 @@ foreach ( $organisations as $organisation => $repositories ) {
 		}
 
 		if ( null !== $command ) {
-			echo $command, PHP_EOL;
+			if ( ! isset( $argv[1] ) || ( isset( $argv[1] ) && ! in_array( $argv[1], array( 'changelog', 'update-package-version' ), true ) ) ) {
+				echo $command, PHP_EOL;
+			}
 
 			echo shell_exec( $command ), PHP_EOL;
 		}
