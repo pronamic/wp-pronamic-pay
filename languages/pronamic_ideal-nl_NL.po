@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic Pay v5.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2020-03-12T18:42:23+00:00\n"
-"PO-Revision-Date: 2020-03-12 20:11+0100\n"
+"PO-Revision-Date: 2020-03-13 11:48+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -1684,14 +1684,12 @@ msgid "Email"
 msgstr "E-mail"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:899
-#, fuzzy
 msgid "Account Holder Name"
-msgstr "Rekeninghouder"
+msgstr "Rekeninghouder naam"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:900
-#, fuzzy
 msgid "Account IBAN"
-msgstr "Account ID"
+msgstr "Rekening IBAN"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:936
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:140
@@ -2681,78 +2679,82 @@ msgid "Adyen documentation: \"How to get an origin key\"."
 msgstr "Adyen documentatie: \"How to get an origin key\"."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:283
-#, fuzzy
 msgctxt "adyen"
 msgid "Apple Pay Merchant ID"
-msgstr "Winkelier ID"
+msgstr "Apple Pay Merchant ID"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:286
 msgid "Your Apple Pay Merchant ID. Required for accepting live payments."
 msgstr ""
+"Je Apple Pay Merchant ID. Vereist voor het accepteren van live betalingen."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:290
-#, fuzzy
 msgid "Adyen documentation: \"Apple Pay Drop-in - Before you begin\"."
-msgstr "Adyen documentatie: \"How to get an origin key\"."
+msgstr "Adyen documentatie: “Apple Pay Drop-in - Before you begin”."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:292
-#, fuzzy
 msgid "Apple documentation: \"Configuring your environment\"."
-msgstr "Adyen documentatie: \"How to get an origin key\"."
+msgstr "Apple documentatie: “Configuring your environment”."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:301
 msgid "Apple Pay Merchant Identity Certificate"
-msgstr ""
+msgstr "Apple Pay Merchant Identity Certificate"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:305
 msgid ""
 "The Apple Pay Merchant Identity certificate required for secure "
 "communication with Apple."
 msgstr ""
+"De Apple Pay Merchant Identity certificaat dat vereist is voor veilige "
+"communicatie met Apple."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:309
 msgid ""
 "Adyen documentation: \"Enable Apple Pay - Create a merchant identity "
 "certificate\"."
 msgstr ""
+"Adyen documentatie: “Enable Apple Pay - Create a merchant identity "
+"certificate”."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:318
 msgid "Apple Pay Merchant Identity Private Key"
-msgstr ""
+msgstr "Apple Pay Merchant Identity Private Key"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:322
 msgid ""
 "The private key of the Apple Pay Merchant Identity certificate for secure "
 "communication with Apple."
 msgstr ""
+"De privésleutel van het Apple Pay Merchant Identity certificaat voor veilige "
+"communicatie met Apple."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:330
 msgctxt "adyen"
 msgid "Apple Pay Merchant Identity Private Key Password"
-msgstr ""
+msgstr "Apple Pay Merchant Identity privésleutel wachtwoord"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:333
 msgid "Your Apple Pay Merchant Identity Certificate private key password."
 msgstr ""
+"Het wachtwoord van je Apple Pay Merchant Identity Certificate privésleutel."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:341
-#, fuzzy
 msgctxt "adyen"
 msgid "Google Pay Merchant ID"
-msgstr "Winkelier ID"
+msgstr "Google Pay Merchant ID"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:344
 msgid "Your Google Merchant ID. Required for accepting live payments."
 msgstr ""
+"Je Google Merchant ID. Vereist voor het accepteren van live betalingen."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:348
-#, fuzzy
 msgid "Adyen documentation: \"Google Pay Drop-in - Test and go live\"."
-msgstr "Adyen documentatie: \"How to get an origin key\"."
+msgstr "Adyen documentatie: “Google Pay Drop-in - Test and go live”."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:350
 msgid "Google documentation: \"Deploy production environment\"."
-msgstr ""
+msgstr "Google documentatie: “Deploy production environment”."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:357
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:89
@@ -2826,6 +2828,8 @@ msgid ""
 "Upload an Apple Pay Merchant Identity certificate, which can be exported "
 "from Keychain Access on Mac as a PKCS#12 (*.p12) file."
 msgstr ""
+"Upload een Apple Pay Merchant Identity certificaat, dat kan worden "
+"geëxporteerd vanuit Keychain Access op Mac als PKCS#12 (*.p12) bestand."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:475
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:514
@@ -2846,6 +2850,8 @@ msgid ""
 "Leave empty to auto fill when uploading an Apple Pay Merchant Identity "
 "PKCS#12 certificate file."
 msgstr ""
+"Laat leeg om automatisch in te vullen bij het uploaden van een Apple Pay "
+"Merchant Identity PKCS#12 certificaatbestand."
 
 #. translators: %s: Help URL.
 #: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:87
@@ -2958,9 +2964,8 @@ msgstr "De gateway ondersteunt deze methode niet om betalingen te maken."
 #. translators: 1: error message, 2: error code
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:202
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:365
-#, fuzzy
 msgid "%1$s (error %2$s)"
-msgstr "%1$s - %2$s"
+msgstr "%1$s (fout %2$s)"
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:351
 msgid "Gateway does not support sending additional payment details."
@@ -2970,24 +2975,23 @@ msgstr ""
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:496
 msgid "Apple Pay merchant identifier not configured in gateway settings."
 msgstr ""
+"Apple Pay merchant identifier niet geconfigureerd in gateway instellingen."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:503
 msgid "No Apple Pay merchant validation URL given."
-msgstr ""
+msgstr "Geen Apple Pay merchant validatie URL opgegeven."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:528
 msgid "Invalid Apple Pay Merchant Identity configuration."
-msgstr ""
+msgstr "Ongeldige Apple Pay Merchant Identity configuratie."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:536
-#, fuzzy
 msgid "Error creating merchant identity files."
-msgstr "Fout bij ophalen betalingdetails: %s"
+msgstr "Fout bij het maken van merchant identity bestanden."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:603
-#, fuzzy
 msgid "Error reading merchant identity files."
-msgstr "Fout bij ophalen betalingdetails: %s"
+msgstr "Fout bij het lezen van merchant identity bestanden."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:54
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:222
@@ -3844,13 +3848,12 @@ msgid "Mandate Reference"
 msgstr "Mandaatreferentie"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:199
-#, fuzzy
 msgid "Signature Date"
-msgstr "SHA-handtekening"
+msgstr "Handtekening datum"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:200
 msgid "Created On"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:209
 msgid "No mandates found."
@@ -3867,9 +3870,8 @@ msgid "Valid"
 msgstr "Geldig"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:290
-#, fuzzy
 msgid "Card Holder"
-msgstr "Kaartnummer"
+msgstr "Kaarthouder"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:299
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:267
@@ -3877,19 +3879,16 @@ msgid "Card Number"
 msgstr "Kaartnummer"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:308
-#, fuzzy
 msgid "Card Label"
-msgstr "Kaartnummer"
+msgstr "Kaartlabel"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:317
-#, fuzzy
 msgid "Card Fingerprint"
-msgstr "SHA vingerafdruk"
+msgstr "Kaart vingerafdruk"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:326
-#, fuzzy
 msgid "Card Expiry Date"
-msgstr "Vervaldatum"
+msgstr "Kaart vervaldatum"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:342
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:588
@@ -3897,9 +3896,8 @@ msgid "Consumer Name"
 msgstr "Consument naam"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:351
-#, fuzzy
 msgid "Consumer Account"
-msgstr "Consument rekeningnummer"
+msgstr "Consument rekening"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:360
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:615
@@ -5210,9 +5208,8 @@ msgid "Choose your credit card issuer"
 msgstr "Kies het type creditcard"
 
 #: vendor/wp-pay/core/src/Core/Gateway.php:639
-#, fuzzy
 msgid "Account holder name"
-msgstr "Rekeninghouder"
+msgstr "Rekeninghouder naam"
 
 #: vendor/wp-pay/core/src/Core/Gateway.php:665
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:435
@@ -6005,11 +6002,10 @@ msgstr[1] "Elke %s jaar"
 
 #. translators: %s: frequency
 #: vendor/wp-pay/core/src/Util.php:196
-#, fuzzy
 msgid "%s period"
 msgid_plural "%s periods"
-msgstr[0] "Periode"
-msgstr[1] "Periode"
+msgstr[0] "%s periode"
+msgstr[1] "%s perioden"
 
 #: vendor/wp-pay/core/views/form.php:105
 msgid "Personal Info"
