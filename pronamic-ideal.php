@@ -38,7 +38,7 @@ if ( is_readable( $autoload_before ) ) {
 	require $autoload_before;
 }
 
-$loader = require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+$loader = require __DIR__ . '/vendor/autoload.php';
 
 $autoload_after  = __DIR__ . '/src/autoload-after.php';
 
