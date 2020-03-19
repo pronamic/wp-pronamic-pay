@@ -32,44 +32,18 @@ if ( ! defined( 'PRONAMIC_PAY_DEBUG' ) ) {
 	define( 'PRONAMIC_PAY_DEBUG', false );
 }
 
-if ( PRONAMIC_PAY_DEBUG ) {
-	foreach ( glob( __DIR__ . '/repositories/wp-pay/*/vendor/composer/autoload_files.php' ) as $file ) {
-		$files = require $file;
+$autoload_before = __DIR__ . '/src/autoload-before.php';
 
-		foreach ( $files as $identifier => $filepath ) {
-			if ( ! empty( $GLOBALS['__composer_autoload_files'][ $identifier ] ) ) {
-				continue;
-			}
-
-			require $filepath;
-
-			$GLOBALS['__composer_autoload_files'][ $identifier ] = true;
-		}
-	}
+if ( is_readable( $autoload_before ) ) {
+	require $autoload_before;
 }
 
 $loader = require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
-if ( PRONAMIC_PAY_DEBUG ) {
-	foreach ( glob( __DIR__ . '/repositories/*/*/composer.json' ) as $file ) {
-		$content = file_get_contents( $file );
+$autoload_after  = __DIR__ . '/src/autoload-after.php';
 
-		$object = json_decode( $content );
-
-		if ( ! isset( $object->autoload ) ) {
-			continue;
-		}
-
-		foreach ( $object->autoload as $autoload_type => $classmap ) {
-			if ( 'psr-4' !== $autoload_type ) {
-				continue;
-			}
-
-			foreach ( $classmap as $prefix => $filepath ) {
-				$loader->addPsr4( $prefix, dirname( $file ) . '/' . $filepath, true );
-			}
-		}
-	}
+if ( is_readable( $autoload_after ) ) {
+	require $autoload_after;
 }
 
 /**
