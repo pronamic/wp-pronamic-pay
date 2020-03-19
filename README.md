@@ -65,7 +65,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Gravity Forms Zapier Add-On](https://www.gravityforms.com/add-ons/zapier/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.4.2` | `3.2` |
 | [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](https://caseproof.com/) |  |  | `1.2.4` | `1.6.0` |
 | [Ninja Forms](https://ninjaforms.com/) | [The WP Ninjas](https://ninjaforms.com/) | [WordPress.org](https://wordpress.org/plugins/ninja-forms/) | [GitHub](https://github.com/wpninjas/ninja-forms) | `3.3.15` | `3.4.20` |
-| [Restrict Content Pro](https://restrictcontentpro.com/) | [Sandhills Development, LLC](https://sandhillsdev.com/) |  |  | `3.0.0` | `3.2.2` |
+| [Restrict Content Pro](https://restrictcontentpro.com/) | [Sandhills Development, LLC](https://sandhillsdev.com/) |  |  | `3.0.0` | `3.3.7` |
 | [s2Member®](https://s2member.com/) | [WebSharks, Inc.](http://www.websharks-inc.com/) | [WordPress.org](https://wordpress.org/plugins/s2member/) | [GitHub](https://github.com/WebSharks/s2Member) | `130816` | `190822` |
 | [WooCommerce](https://woocommerce.com/) | [Automattic](https://automattic.com/) | [WordPress.org](https://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woocommerce/woocommerce) | `2.3.0` | `3.9.1` |
 | [WP e-Commerce](https://wpecommerce.org/) | [Instinct Entertainment](http://instinct.co.nz/) | [WordPress.org](https://wordpress.org/plugins/wp-e-commerce/) | [GitHub](https://github.com/wp-e-commerce/WP-e-Commerce) | `3.8.12.1` | `3.14.0` |

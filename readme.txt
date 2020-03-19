@@ -3,9 +3,9 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 4.7
-Tested up to: 5.3.2
+Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 5.9.0
+Stable tag: 6.0.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -140,6 +140,51 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 6.0.0 - 2020-03-19 =
+*	Updated WordPress pay core library to version 2.3.0.
+	*	Added Google Pay support.
+	*	Added Apple Pay payment method.
+	*	Added support for payment failure reason.
+	*	Added input fields for consumer bank details name and IBAN.
+	*	Simplify recurrence details in subscription info meta box.
+	*	Fixed setting initials if no first and last name are given.
+	*	Abstracted plugin and gateway integration classes.
+*	Updated WordPress pay Easy Digital Downloads library to version 2.1.0.
+	*	Update integration setup with dependencies support.
+	*	Set Easy Digital Downloads payment status to 'cancelled' in case of a cancelled payment.
+	*	Extend `Extension` class from `AbstractPluginIntegration`.
+*	Updated WordPress pay Gravity Forms library to version 2.2.0.
+	*	Added consumer bank details name and IBAN field settings.
+	*	Fixed adding payment line for shipping costs only when shipping field is being used.
+	*	Fixed dynamically setting selected payment method.
+	*	Fixed feed activation toggle.
+	*	Improved field visibility check with entry.
+	*	Improved payment methods field choices in field input (fixes compatibility with `Gravity Forms Entries in Excel` plugin).
+	*	Extension extends abstract plugin integration with dependency.
+*	Updated WordPress pay Ninja Forms library to version 1.1.0.
+	*	Fix incorrect selected payment method in payment methods fields when editing entry.
+*	Updated WordPress pay WooCommerce library to version 2.1.0.
+	*	Update integration setup with dependencies support.
+	*	Use SVG icons.
+	*	Add Apple Pay payment method.
+	*	Extension extends \Pronamic\WordPress\Pay\AbstractPluginIntegration.
+	*	Added Google Pay support.
+*	Updated WordPress pay Adyen library to version 1.1.0.
+	*	Fixed unnecessarily showing additional payment details screen in some cases.
+	*	Only create controllers and actions when dependencies are met.
+	*	Added Google Pay support.
+	*	Added Apple Pay support.
+*	Updated WordPress pay ICEPAY library to version 2.1.0.
+	*	Fixed "$result is always a sub-type of Icepay_Result".
+*	Updated WordPress pay Mollie library to version 2.1.0.
+	*	Added custom tables for Mollie profiles, customers and WordPress users.
+	*	Added experimental CLI integration.
+	*	Moved webhook logic to REST API.
+	*	Improved WordPress user profile Mollie section.
+	*	Added WordPress admin dashboard page for Mollie customers.
+	*	Added support for one-off SEPA Direct Debit payment method.
+	*	Added support for payment failure reason.
 
 = 5.9.0 - 2020-02-03 =
 *	Updated WordPress pay core library to version 2.2.7.
@@ -314,12 +359,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Fix entry payment fulfillment.
 *	Updated WordPress pay MemberPress library to version 2.0.10.
 	*	Fix error "`DatePeriod::__construct()`: The recurrence count '0' is invalid. Needs to be > 0".
-
-= 5.7.3 - 2019-08-30 =
-*	Updated WordPress pay Sisow library to version 2.0.3.
-	*	Fix possible error with tax request parameters.
-*	Updated WordPress pay iDEAL Advanced v3 library to version 2.0.4.
-	*	Removed 'Show details...' toggle link in settings.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-ideal/changelog/)
 

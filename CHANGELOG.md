@@ -6,6 +6,53 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.0.0] - 2020-03-19
+
+### Changed
+- Updated WordPress pay core library to version 2.3.0.
+  - Added Google Pay support.
+  - Added Apple Pay payment method.
+  - Added support for payment failure reason.
+  - Added input fields for consumer bank details name and IBAN.
+  - Simplify recurrence details in subscription info meta box.
+  - Fixed setting initials if no first and last name are given.
+  - Abstracted plugin and gateway integration classes.
+- Updated WordPress pay Easy Digital Downloads library to version 2.1.0.
+  - Update integration setup with dependencies support.
+  - Set Easy Digital Downloads payment status to 'cancelled' in case of a cancelled payment.
+  - Extend `Extension` class from `AbstractPluginIntegration`.
+- Updated WordPress pay Gravity Forms library to version 2.2.0.
+  - Added consumer bank details name and IBAN field settings.
+  - Fixed adding payment line for shipping costs only when shipping field is being used.
+  - Fixed dynamically setting selected payment method.
+  - Fixed feed activation toggle.
+  - Improved field visibility check with entry.
+  - Improved payment methods field choices in field input (fixes compatibility with `Gravity Forms Entries in Excel` plugin).
+  - Extension extends abstract plugin integration with dependency.
+- Updated WordPress pay Ninja Forms library to version 1.1.0.
+  - Fix incorrect selected payment method in payment methods fields when editing entry.
+- Updated WordPress pay WooCommerce library to version 2.1.0.
+  - Update integration setup with dependencies support.
+  - Use SVG icons.
+  - Add Apple Pay payment method.
+  - Extension extends \Pronamic\WordPress\Pay\AbstractPluginIntegration.
+  - Added Google Pay support.
+- Updated WordPress pay Adyen library to version 1.1.0.
+  - Fixed unnecessarily showing additional payment details screen in some cases.
+  - Only create controllers and actions when dependencies are met.
+  - Added Google Pay support.
+  - Added Apple Pay support.
+- Updated WordPress pay ICEPAY library to version 2.1.0.
+  - Fixed "$result is always a sub-type of Icepay_Result".
+- Updated WordPress pay Mollie library to version 2.1.0.
+  - Added custom tables for Mollie profiles, customers and WordPress users.
+  - Added experimental CLI integration.
+  - Moved webhook logic to REST API.
+  - Improved WordPress user profile Mollie section.
+  - Added WordPress admin dashboard page for Mollie customers.
+  - Added support for one-off SEPA Direct Debit payment method.
+  - Added support for payment failure reason.
+
 ## [5.9.0] - 2020-02-03
 
 ### Changed
@@ -2286,7 +2333,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.9.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.0.0...HEAD
+[6.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.9.0...6.0.0
 [5.9.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.8.1...5.9.0
 [5.8.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.8.0...5.8.1
 [5.8.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.7.4...5.8.0

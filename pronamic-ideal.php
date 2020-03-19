@@ -4,7 +4,7 @@
  * Plugin URI: https://www.pronamic.eu/plugins/pronamic-ideal/
  * Description: The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
  *
- * Version: 5.9.0
+ * Version: 6.0.0
  * Requires at least: 4.7
  *
  * Author: Pronamic
@@ -77,23 +77,9 @@ if ( PRONAMIC_PAY_DEBUG ) {
  */
 \Pronamic\WordPress\Pay\Plugin::instance(
 	array(
-		'file'       => __FILE__,
-		'options'    => array(
+		'file'    => __FILE__,
+		'options' => array(
 			'about_page_file' => __DIR__ . '/admin/page-about.php',
-		),
-		'extensions' => array(
-			'\Pronamic\WordPress\Pay\Extensions\Charitable\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\Give\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\GravityForms\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\WPeCommerce\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\EventEspressoLegacy\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\S2Member\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\MemberPress\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension::bootstrap',
-			'\Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension::bootstrap',
 		),
 	)
 );
@@ -101,13 +87,41 @@ if ( PRONAMIC_PAY_DEBUG ) {
 add_filter(
 	'pronamic_pay_plugin_integrations',
 	function( $integrations ) {
+		// Charitable.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\Charitable\Extension();
+
+		// Easy Digital Downloads.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension();
+
+		// Event Espresso.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EventEspressoLegacy\Extension();
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension();
+
+		// Give.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\Give\Extension();
+
+		// WooCommerce.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension();
+
+		// Gravity Forms.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\GravityForms\Extension();
+
+		// FormidableForms.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension();
+
+		// MemberPress.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\MemberPress\Extension();
+
+		// NinjaForms.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension();
+
 		// Restrict Content Pro.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension(
 			array(
-				'slug'                => 'restrict-content-pro',
-				'version_option_name' => 'pronamic_pay_restrictcontentpro_db_version',
-				'name'                => 'Restrict Content Pro',
-				'manual_url'          => null,
+				'slug'                   => 'restrict-content-pro',
+				'db_version_option_name' => 'pronamic_pay_restrictcontentpro_db_version',
+				'name'                   => 'Restrict Content Pro',
+				'manual_url'             => null,
 				/**
 				 * Affiliate link.
 				 *
@@ -115,7 +129,7 @@ add_filter(
 				 * @link https://restrictcontentpro.com/affiliate-agreement/
 				 * @todo Request a Restrict Content Pro affiliate link.
 				 */
-				'affiliate_url'       => null,
+				'affiliate_url'          => null,
 				/**
 				 * Requirements.
 				 *
@@ -134,7 +148,7 @@ add_filter(
 				 * @link https://github.com/Yoast/yoast-acf-analysis/blob/2.3.0/inc/ac-yoast-seo-acf-content-analysis.php#L30-L32
 				 * @link https://github.com/Yoast/yoast-acf-analysis/blob/2.3.0/inc/requirements.php
 				 */
-				'requirements'        => array(
+				'requirements'           => array(
 					array(
 						'type'              => 'php',
 						'requires_at_least' => '5.6.20',
@@ -170,6 +184,12 @@ add_filter(
 				),
 			)
 		);
+
+		// s2Member.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\S2Member\Extension();
+
+		// WP e-Commerce.
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WPeCommerce\Extension();
 
 		// Return integrations.
 		return $integrations;
@@ -285,7 +305,14 @@ add_filter(
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\ING\KassaCompleet\Integration();
 
 		// Mollie.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration(
+			array(
+				'register_url'           => 'https://www.mollie.com/nl/signup/665327',
+				'manual_url'             => \__( 'https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'version_option_name'    => 'pronamic_pay_mollie_version',
+				'db_version_option_name' => 'pronamic_pay_mollie_db_version',
+			)
+		);
 
 		// Mollie - iDEAL.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\MollieIDeal\Integration();
