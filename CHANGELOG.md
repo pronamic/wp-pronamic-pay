@@ -17,6 +17,26 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Simplify recurrence details in subscription info meta box.
   - Fixed setting initials if no first and last name are given.
   - Abstracted plugin and gateway integration classes.
+- Updated WordPress pay Easy Digital Downloads library to version 2.1.0.
+  - Update integration setup with dependencies support.
+  - Set Easy Digital Downloads payment status to 'cancelled' in case of a cancelled payment.
+  - Extend `Extension` class from `AbstractPluginIntegration`.
+- Updated WordPress pay Gravity Forms library to version 2.2.0.
+  - Added consumer bank details name and IBAN field settings.
+  - Fixed adding payment line for shipping costs only when shipping field is being used.
+  - Fixed dynamically setting selected payment method.
+  - Fixed feed activation toggle.
+  - Improved field visibility check with entry.
+  - Improved payment methods field choices in field input (fixes compatibility with `Gravity Forms Entries in Excel` plugin).
+  - Extension extends abstract plugin integration with dependency.
+- Updated WordPress pay Ninja Forms library to version 1.1.0.
+  - Fix incorrect selected payment method in payment methods fields when editing entry.
+- Updated WordPress pay WooCommerce library to version 2.1.0.
+  - Update integration setup with dependencies support.
+  - Use SVG icons.
+  - Add Apple Pay payment method.
+  - Extension extends \Pronamic\WordPress\Pay\AbstractPluginIntegration.
+  - Added Google Pay support.
 - Updated WordPress pay Adyen library to version 1.1.0.
   - Fixed unnecessarily showing additional payment details screen in some cases.
   - Only create controllers and actions when dependencies are met.

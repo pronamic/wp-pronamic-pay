@@ -24,6 +24,42 @@
 						]
 					},
 					{
+						"description": "Updated WordPress pay Easy Digital Downloads library to version 2.1.0.",
+						"changes": [
+							"Update integration setup with dependencies support.",
+							"Set Easy Digital Downloads payment status to 'cancelled' in case of a cancelled payment.",
+							"Extend `Extension` class from `AbstractPluginIntegration`."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 2.2.0.",
+						"changes": [
+							"Added consumer bank details name and IBAN field settings.",
+							"Fixed adding payment line for shipping costs only when shipping field is being used.",
+							"Fixed dynamically setting selected payment method.",
+							"Fixed feed activation toggle.",
+							"Improved field visibility check with entry.",
+							"Improved payment methods field choices in field input (fixes compatibility with `Gravity Forms Entries in Excel` plugin).",
+							"Extension extends abstract plugin integration with dependency."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Ninja Forms library to version 1.1.0.",
+						"changes": [
+							"Fix incorrect selected payment method in payment methods fields when editing entry."
+						]
+					},
+					{
+						"description": "Updated WordPress pay WooCommerce library to version 2.1.0.",
+						"changes": [
+							"Update integration setup with dependencies support.",
+							"Use SVG icons.",
+							"Add Apple Pay payment method.",
+							"Extension extends \\Pronamic\\WordPress\\Pay\\AbstractPluginIntegration.",
+							"Added Google Pay support."
+						]
+					},
+					{
 						"description": "Updated WordPress pay Adyen library to version 1.1.0.",
 						"changes": [
 							"Fixed unnecessarily showing additional payment details screen in some cases.",
