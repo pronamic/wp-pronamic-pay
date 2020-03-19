@@ -141,7 +141,30 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
-= 6.0.0 - 2020-03-16 =
+= 6.0.0 - 2020-03-19 =
+*	Updated WordPress pay core library to version 2.3.0.
+	*	Added Google Pay support.
+	*	Added Apple Pay payment method.
+	*	Added support for payment failure reason.
+	*	Added input fields for consumer bank details name and IBAN.
+	*	Simplify recurrence details in subscription info meta box.
+	*	Fixed setting initials if no first and last name are given.
+	*	Abstracted plugin and gateway integration classes.
+*	Updated WordPress pay Adyen library to version 1.1.0.
+	*	Fixed unnecessarily showing additional payment details screen in some cases.
+	*	Only create controllers and actions when dependencies are met.
+	*	Added Google Pay support.
+	*	Added Apple Pay support.
+*	Updated WordPress pay ICEPAY library to version 2.1.0.
+	*	Fixed "$result is always a sub-type of Icepay_Result".
+*	Updated WordPress pay Mollie library to version 2.1.0.
+	*	Added custom tables for Mollie profiles, customers and WordPress users.
+	*	Added experimental CLI integration.
+	*	Moved webhook logic to REST API.
+	*	Improved WordPress user profile Mollie section.
+	*	Added WordPress admin dashboard page for Mollie customers.
+	*	Added support for one-off SEPA Direct Debit payment method.
+	*	Added support for payment failure reason.
 
 = 5.9.0 - 2020-02-03 =
 *	Updated WordPress pay core library to version 2.2.7.
