@@ -6,6 +6,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.0.1] - 2020-03-19
+
+### Fixed
+- Updated WordPress pay Mollie library to version 2.1.1.
+  - Force a specific collate to fix "Illegal mix of collations" error.
+
 ## [6.0.0] - 2020-03-19
 
 ### Changed
@@ -2333,7 +2339,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.0.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.0.1...HEAD
+[6.0.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.9.0...6.0.0
 [5.9.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.8.1...5.9.0
 [5.8.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.8.0...5.8.1

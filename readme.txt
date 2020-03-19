@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 6.0.0
+Stable tag: 6.0.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -140,6 +140,10 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 6.0.1 - 2020-03-19 =
+*	Updated WordPress pay Mollie library to version 2.1.1.
+	*	Force a specific collate to fix "Illegal mix of collations" error.
 
 = 6.0.0 - 2020-03-19 =
 *	Updated WordPress pay core library to version 2.3.0.
@@ -353,12 +357,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	No longer disable 'Direct Debit' gateways when WooCommerce subscriptions is active and cart has no subscriptions [read more](https://github.com/wp-pay-extensions/woocommerce#conditional-payment-gateways).
 	*	Changed redirect URL for cancelled and expired payments from cancel order to order pay URL.
 	*	Allow payment gateway selection for order pay URL.
-
-= 5.7.4 - 2019-09-02 =
-*	Updated WordPress pay Gravity Forms library to version 2.1.11.
-	*	Fix entry payment fulfillment.
-*	Updated WordPress pay MemberPress library to version 2.0.10.
-	*	Fix error "`DatePeriod::__construct()`: The recurrence count '0' is invalid. Needs to be > 0".
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-ideal/changelog/)
 
