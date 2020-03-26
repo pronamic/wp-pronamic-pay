@@ -30,7 +30,11 @@ if ( $exception instanceof \Exception ) : ?>
 
 					echo '<pre>';
 
+					// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+
 					echo $exception->getTraceAsString();
+
+					// phpcs:enable
 
 					echo '</pre>';
 
