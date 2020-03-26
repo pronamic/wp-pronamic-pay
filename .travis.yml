@@ -9,9 +9,15 @@ env:
     - COMPOSER_NO_INTERACTION=1
     - WP_VERSION=*
 
+stages:
+  - test
+  - name: deploy
+    if: branch = master
+
 jobs:
   include:
-    - php: 7.3
+    - stage: test
+      php: 7.3
       env: WP_VERSION=^5.0 COVERAGE=1 PHPCS=1 PHPCPD=1
     - php: 7.2
       env: WP_VERSION=^4.9
@@ -33,6 +39,10 @@ jobs:
     - php: 5.6
     - php: nightly
     - php: hhvm
+    - stage: deploy
+      php: 7.3
+      script: ./src/deploy.sh
+
   allow_failures:
     - php: hhvm
     - php: nightly
@@ -100,9 +110,3 @@ script:
 after_success:
   - if [ "$COVERAGE" == "1" ]; then composer run-script coveralls; fi
   - if [ "$COVERAGE" == "1" ]; then bash <(curl -s https://codecov.io/bash); fi
-
-deploy:
-  provider: script
-  script: bash src/deploy.sh
-  on:
-    branch: master
