@@ -100,3 +100,9 @@ script:
 after_success:
   - if [ "$COVERAGE" == "1" ]; then composer run-script coveralls; fi
   - if [ "$COVERAGE" == "1" ]; then bash <(curl -s https://codecov.io/bash); fi
+
+deploy:
+  provider: script
+  script: bash src/deploy.sh
+  on:
+    branch: master
