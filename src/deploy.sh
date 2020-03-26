@@ -8,6 +8,6 @@ cd deployer
 
 git pull
 
-composer install
+composer install --no-interaction
 
 ./bin/pronamic-deployer deploy pronamic-ideal https://github.com/pronamic/wp-pronamic-ideal.git -vvvv --non-interactive --to-s3 --to-wp-org
