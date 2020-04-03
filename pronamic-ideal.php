@@ -40,7 +40,7 @@ if ( is_readable( $autoload_before ) ) {
 
 $loader = require __DIR__ . '/vendor/autoload.php';
 
-$autoload_after  = __DIR__ . '/src/autoload-after.php';
+$autoload_after = __DIR__ . '/src/autoload-after.php';
 
 if ( is_readable( $autoload_after ) ) {
 	require $autoload_after;
