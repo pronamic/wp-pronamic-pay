@@ -14,49 +14,54 @@ $repositories_dir = $project_dir . '/repositories';
 
 $organisations = array(
 	'pronamic'          => array(
-		'wp-datetime',
-		'wp-money',
+		'wp-datetime' => 'DateTime',
+		'wp-money'    => 'Money',
 	),
 	'wp-pay'            => array(
-		'core',
+		'core' => 'core',
 	),
 	'wp-pay-gateways'   => array(
-		'adyen',
-		'buckaroo',
-		'ems-e-commerce',
-		'icepay',
-		'ideal',
-		'ideal-advanced-v3',
-		'ideal-basic',
-		'ing-kassa-compleet',
-		'mollie',
-		'mollie-ideal',
-		'multisafepay',
-		'nocks',
-		'ogone',
-		'omnikassa',
-		'omnikassa-2',
-		'pay-nl',
-		'sisow',
-		'targetpay',
+		'adyen'              => 'Adyen',
+		'buckaroo'           => 'Buckaroo',
+		'ems-e-commerce'     => 'EMS e-Commerce;',
+		'icepay'             => 'ICEPAY',
+		'ideal'              => 'iDEAL',
+		'ideal-advanced-v3'  => 'iDEAL Advanced v3',
+		'ideal-basic'        => 'iDEAL Basic',
+		'ing-kassa-compleet' => 'ING Kassa Compleet',
+		'mollie'             => 'Mollie',
+		'mollie-ideal'       => 'Mollie iDEAL',
+		'multisafepay'       => 'MultiSafepay',
+		'nocks'              => 'Nocks',
+		'ogone'              => 'Ingenico',
+		'omnikassa'          => 'OmniKassa',
+		'omnikassa-2'        => 'OmniKassa 2.0',
+		'pay-nl'             => 'Pay.nl',
+		'sisow'              => 'Sisow',
+		'targetpay'          => 'TargetPay',
 	),
 	'wp-pay-extensions' => array(
-		'charitable',
-		'easy-digital-downloads',
-		'event-espresso',
-		'event-espresso-legacy',
-		'formidable-forms',
-		'give',
-		'gravityforms',
-		'memberpress',
-		'ninjaforms',
-		'restrict-content-pro',
-		's2member',
-		'woocommerce',
-		'wp-e-commerce',
+		'charitable'             => 'Charitable',
+		'easy-digital-downloads' => 'Easy Digital Downloads',
+		'event-espresso'         => 'Event Espresso',
+		'event-espresso-legacy'  => 'Event Espresso (legacy)',
+		'formidable-forms'       => 'Formidable Forms',
+		'give'                   => 'Give',
+		'gravityforms'           => 'Gravity Forms',
+		'memberpress'            => 'MemberPress',
+		'ninjaforms'             => 'Ninja Forms',
+		'restrict-content-pro'   => 'Restrict Content Pro',
+		's2member'               => 's2Member',
+		'woocommerce'            => 'WooCommerce',
+		'wp-e-commerce'          => 'WP eCommerce',
 	),
 );
 
+/**
+ * Version update `awk` actions.
+ *
+ * @return string
+ */
 function version_update_awk_actions() {
 	global $argv;
 
@@ -75,10 +80,14 @@ function version_update_awk_actions() {
 	}
 }
 
+if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
+	fwrite( fopen( __DIR__ . '/changelog-release.json', 'w+' ), '[null' );
+}
+
 foreach ( $organisations as $organisation => $repositories ) {
 	echo '# ', $organisation, PHP_EOL;
 
-	foreach ( $repositories as $repository ) {
+	foreach ( $repositories as $repository => $name ) {
 		echo '- ', $repository, PHP_EOL;
 
 		$git_url = sprintf(
@@ -100,6 +109,10 @@ foreach ( $organisations as $organisation => $repositories ) {
 
 		if ( isset( $argv[1] ) && 'develop' === $argv[1] ) {
 			$command = 'git checkout develop';
+		}
+
+		if ( isset( $argv[1] ) && 'master' === $argv[1] ) {
+			$command = 'git checkout master';
 		}
 
 		if ( isset( $argv[1] ) && 'pull' === $argv[1] ) {
@@ -138,6 +151,28 @@ foreach ( $organisations as $organisation => $repositories ) {
 				ex -s -c "$(( ${LINK_LINENR} + 1 ))i|${LINK}" -c x CHANGELOG.md';
 		}
 
+		if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
+			$command = '
+				CURRENT_TAG=$(git describe --tags --abbrev=0);
+				NEW_VERSION=$(cat package.json | jq --raw-output \'.version\' );
+
+				# Exit if there are no changes in Git repository.
+				if [[ "$CURRENT_TAG" == "$NEW_VERSION" ]]; then
+					echo "Version: ${CURRENT_TAG}";
+					exit;
+				fi;
+
+				# Echo new version number.
+				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}";
+
+				# Write temporary changelog JSON.
+				FROM=$(( $(grep -n "## \[" CHANGELOG.md | head -2 | tail -1 | cut -d: -f1) + 1 ));
+				TO=$(( $(grep -n "## \[" CHANGELOG.md | head -3 | tail -1 | cut -d: -f1) - 2 ));
+				LOG=$(cat CHANGELOG.md | head -n $TO | tail -n +$FROM );
+				echo "${LOG}"
+				echo ",{\"description\":\"Updated WordPress ' . ( 'pronamic' === $organisation ? null : 'pay ' ) . $name . ' library to version ${NEW_VERSION}.\",\"changes\":$(echo "${LOG}" | sed \'s/^- //\' | jq --raw-input --raw-output --slurp \'split("\\n") | .[0:-1]\')}" >> ../../../src/changelog-release.json';
+		}
+
 		if ( isset( $argv[1] ) && 'update-package-version' === $argv[1] ) {
 			$command = '
 				CURRENT_TAG=$(git describe --tags --abbrev=0);
@@ -167,11 +202,55 @@ foreach ( $organisations as $organisation => $repositories ) {
 		}
 
 		if ( null !== $command ) {
-			if ( ! isset( $argv[1] ) || ( isset( $argv[1] ) && ! in_array( $argv[1], array( 'changelog', 'update-package-version' ), true ) ) ) {
+			if ( ! isset( $argv[1] ) || ( isset( $argv[1] ) && ! in_array( $argv[1], array( 'changelog', 'changelog-plugin', 'update-package-version' ), true ) ) ) {
 				echo $command, PHP_EOL;
 			}
 
 			echo shell_exec( $command ), PHP_EOL;
 		}
 	}
+}
+
+if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
+	// Get release changelog items from temporary file.
+	$changelog_plugin = file_get_contents( __DIR__ . '/changelog-release.json' ) . ']';
+	$changelog_plugin = str_replace( '\\', '\\\\', $changelog_plugin );
+	$changelog_plugin = str_replace( '\\\\"', '\\"', $changelog_plugin );
+
+	unlink( __DIR__ . '/changelog-release.json' );
+
+	$updates = json_decode( $changelog_plugin );
+
+	array_shift( $updates );
+
+	// Release item.
+	$package = json_decode( file_get_contents( __DIR__ . '/../package.json' ) );
+
+	$release = array(
+		array(
+			'version' => $package->version,
+			'date'    => date( 'Y-m-d' ),
+			'changes' => array(
+				'name'    => 'Changed',
+				'changes' => $updates,
+			),
+		),
+	);
+
+	// Insert in changelog after 'Unreleased' item.
+	$changelog = json_decode( file_get_contents( __DIR__ . '/changelog.json' ) );
+
+	array_splice( $changelog, 1, 0, $release );
+
+	// Use tabs for indentation.
+	$json = preg_replace_callback(
+		'/^ +/m',
+		function( $indentation ) {
+			return str_repeat( '	', strlen( $indentation[0] ) / 4 );
+		},
+		json_encode( $changelog, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )
+	);
+
+	// Write updated changelog.
+	fwrite( fopen( __DIR__ . '/changelog.json', 'w+' ), $json . PHP_EOL );
 }

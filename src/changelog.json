@@ -1,7 +1,92 @@
 [
 	{
 		"version": "Unreleased",
+		"changes": []
+	},
+	{
+		"version": "6.1.0",
+		"date": "2020-04-06",
 		"changes": [
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Charitable library to version 2.1.1.",
+						"changes": [
+							"Fixed incorrect currency symbol filter."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MemberPress library to version 2.1.1.",
+						"changes": [
+							"Fixed \"PHP Warning: call_user_func() expects parameter 1 to be a valid callback\"."
+						]
+					}
+				]
+			},
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay core library to version 2.3.1.",
+						"changes": [
+							"Added optional `$args` parameter to `get_pronamic_payment_by_meta()` function.",
+							"Added active plugin integrations to Site Health debug fields.",
+							"Fixed unnecessarily showing upgrade button in new installations."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Mollie library to version 2.1.2.",
+						"changes": [
+							"Fixed install issues on some specific WordPress installations.",
+							"Add initial Apple Pay support."
+						]
+					},
+					{
+						"description": "Updated WordPress pay OmniKassa 2.0 library to version 2.2.1.",
+						"changes": [
+							"Improved webhook handling if multiple payments exist with same merchant order ID."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Easy Digital Downloads library to version 2.1.1.",
+						"changes": [
+							"Improved tax support for Easy Digital Downloads 3.0."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 2.3.0.",
+						"changes": [
+							"Added payment feed fields settings to auto detect first visible field of type in entry.",
+							"Added `pronamic_pay_again_url` merge tag, which can be used to pre-populate form after failed payment.",
+							"Fixed \"Warning: Invalid argument supplied for foreach()\" in calculation variables select.",
+							"Improved payment feed conditions with support for all fields and multiple rules.",
+							"Improved forms list performance."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Ninja Forms library to version 1.2.0.",
+						"changes": [
+							"Added payment status page action settings.",
+							"Updated action redirect to use payment redirect URL."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Restrict Content Pro library to version 2.2.1.",
+						"changes": [
+							"Improved CLI commands.",
+							"Improved 2.1.6 upgrade."
+						]
+					},
+					"Updated WordPress pay Event Espresso library to version 2.2.1.",
+					"Updated WordPress pay Event Espresso (legacy) library to version 2.2.1.",
+					"Updated WordPress pay Formidable Forms library to version 2.1.1.",
+					"Updated WordPress pay Give library to version 2.1.1.",
+					"Updated WordPress pay s2Member library to version 2.1.1.",
+					"Updated WordPress pay WooCommerce library to version 2.1.1.",
+					"Updated WordPress pay WP eCommerce library to version 2.1.1."
+				]
+			}
 		]
 	},
 	{

@@ -1,4 +1,12 @@
 <?php
+/**
+ * Before autoload.
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2020 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 if ( ! PRONAMIC_PAY_DEBUG ) {
 	return;
@@ -15,6 +23,12 @@ foreach ( glob( __DIR__ . '/../repositories/*/*/vendor/composer/autoload_files.p
 
 	foreach ( $files as $identifier => $filepath ) {
 		if ( array_key_exists( $identifier, $__composer_autoload_files ) ) {
+			continue;
+		}
+
+		// Make sure to load `wp-pay/core` files from development repository,
+		// instead of from `vendor` directory of gateways and extensions.
+		if ( false !== strpos( $filepath, '/vendor/wp-pay/core/' ) ) {
 			continue;
 		}
 
