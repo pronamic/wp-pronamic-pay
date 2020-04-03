@@ -6,6 +6,46 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.1.0] - 2020-04-06
+
+### Fixed
+- Updated WordPress pay Charitable library to version 2.1.1.
+  - Fixed incorrect currency symbol filter.
+- Updated WordPress pay MemberPress library to version 2.1.1.
+  - Fixed "PHP Warning: call_user_func() expects parameter 1 to be a valid callback".
+
+### Changed
+- Updated WordPress pay core library to version 2.3.1.
+  - Added optional `$args` parameter to `get_pronamic_payment_by_meta()` function.
+  - Added active plugin integrations to Site Health debug fields.
+  - Fixed unnecessarily showing upgrade button in new installations.
+- Updated WordPress pay Mollie library to version 2.1.2.
+  - Fixed install issues on some specific WordPress installations.
+  - Add initial Apple Pay support.
+- Updated WordPress pay OmniKassa 2.0 library to version 2.2.1.
+  - Improved webhook handling if multiple payments exist with same merchant order ID.
+- Updated WordPress pay Easy Digital Downloads library to version 2.1.1.
+  - Improved tax support for Easy Digital Downloads 3.0.
+- Updated WordPress pay Gravity Forms library to version 2.3.0.
+  - Added payment feed fields settings to auto detect first visible field of type in entry.
+  - Added `pronamic_pay_again_url` merge tag, which can be used to pre-populate form after failed payment.
+  - Fixed "Warning: Invalid argument supplied for foreach()" in calculation variables select.
+  - Improved payment feed conditions with support for all fields and multiple rules.
+  - Improved forms list performance.
+- Updated WordPress pay Ninja Forms library to version 1.2.0.
+  - Added payment status page action settings.
+  - Updated action redirect to use payment redirect URL.
+- Updated WordPress pay Restrict Content Pro library to version 2.2.1.
+  - Improved CLI commands.
+  - Improved 2.1.6 upgrade.
+- Updated WordPress pay Event Espresso library to version 2.2.1.
+- Updated WordPress pay Event Espresso (legacy) library to version 2.2.1.
+- Updated WordPress pay Formidable Forms library to version 2.1.1.
+- Updated WordPress pay Give library to version 2.1.1.
+- Updated WordPress pay s2Member library to version 2.1.1.
+- Updated WordPress pay WooCommerce library to version 2.1.1.
+- Updated WordPress pay WP eCommerce library to version 2.1.1.
+
 ## [6.0.2] - 2020-03-26
 
 ### Fixed
@@ -2347,7 +2387,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.0.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.0...HEAD
+[6.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.0.2...6.1.0
 [6.0.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.0.1...6.0.2
 [6.0.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.9.0...6.0.0

@@ -57,6 +57,11 @@ $organisations = array(
 	),
 );
 
+/**
+ * Version update `awk` actions.
+ *
+ * @return string
+ */
 function version_update_awk_actions() {
 	global $argv;
 
@@ -104,6 +109,10 @@ foreach ( $organisations as $organisation => $repositories ) {
 
 		if ( isset( $argv[1] ) && 'develop' === $argv[1] ) {
 			$command = 'git checkout develop';
+		}
+
+		if ( isset( $argv[1] ) && 'master' === $argv[1] ) {
+			$command = 'git checkout master';
 		}
 
 		if ( isset( $argv[1] ) && 'pull' === $argv[1] ) {
@@ -161,7 +170,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 				TO=$(( $(grep -n "## \[" CHANGELOG.md | head -3 | tail -1 | cut -d: -f1) - 2 ));
 				LOG=$(cat CHANGELOG.md | head -n $TO | tail -n +$FROM );
 				echo "${LOG}"
-				echo ",{\"description\":\"Updated WordPress ' . ( 'pronamic' === $organisation ? null : 'pay ') . $name . ' library to version ${NEW_VERSION}.\",\"changes\":$(echo "${LOG}" | sed \'s/^- //\' | jq --raw-input --raw-output --slurp \'split("\\n") | .[0:-1]\')}" >> ../../../src/changelog-release.json';
+				echo ",{\"description\":\"Updated WordPress ' . ( 'pronamic' === $organisation ? null : 'pay ' ) . $name . ' library to version ${NEW_VERSION}.\",\"changes\":$(echo "${LOG}" | sed \'s/^- //\' | jq --raw-input --raw-output --slurp \'split("\\n") | .[0:-1]\')}" >> ../../../src/changelog-release.json';
 		}
 
 		if ( isset( $argv[1] ) && 'update-package-version' === $argv[1] ) {
