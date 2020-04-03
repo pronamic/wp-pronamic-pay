@@ -106,6 +106,10 @@ foreach ( $organisations as $organisation => $repositories ) {
 			$command = 'git checkout develop';
 		}
 
+		if ( isset( $argv[1] ) && 'master' === $argv[1] ) {
+			$command = 'git checkout master';
+		}
+
 		if ( isset( $argv[1] ) && 'pull' === $argv[1] ) {
 			$command = 'git pull';
 		}
