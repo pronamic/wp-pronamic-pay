@@ -41,7 +41,7 @@ jobs:
     - php: hhvm
     - stage: deploy
       php: 7.3
-      script: ./src/deploy.sh
+      script: bash src/deploy.sh
 
   allow_failures:
     - php: hhvm
