@@ -4,6 +4,70 @@
 		"changes": []
 	},
 	{
+		"version": "6.1.2",
+		"date": "2020-04-20",
+		"changes": [
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Buckaroo library to version 2.1.1.",
+						"changes": [
+							"Fixed HTML entities in payment description resulting in invalid signature error."
+						]
+					},
+					{
+						"description": "Updated WordPress pay EMS e-Commerce; library to version 2.1.1.",
+						"changes": [
+							"Fixed incorrect default tag in description of Order ID settings field."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 2.3.1.",
+						"changes": [
+							"Fixed PHP notices and warnings.",
+							"Use integration version number for scripts and styles."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MemberPress library to version 2.1.2.",
+						"changes": [
+							"Fixed setting `complete` transaction status to `pending` again on free downgrade."
+						]
+					}
+				]
+			},
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Adyen library to version 1.1.1.",
+						"changes": [
+							"Fixed not using billing address country code on drop-in payment redirect page.",
+							"Added support for payment metadata via `pronamic_pay_adyen_payment_metadata` filter.",
+							"Added advanced gateway configuration setting for `merchantOrderReference` parameter.",
+							"Added browser information to payment request.",
+							"Removed shopper reference from payment request.",
+							"Removed payment status request from drop-in gateway supported features."
+						]
+					},
+					{
+						"description": "Updated WordPress pay OmniKassa 2.0 library to version 2.2.2.",
+						"changes": [
+							"Improved webhook handling if multiple gateway configurations exist."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Formidable Forms library to version 2.1.2.",
+						"changes": [
+							"Updated settings description for delaying email notifications."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "6.1.1",
 		"date": "2020-04-06",
 		"changes": [

@@ -6,6 +6,32 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.1.2] - 2020-04-20
+
+### Fixed
+- Updated WordPress pay Buckaroo library to version 2.1.1.
+  - Fixed HTML entities in payment description resulting in invalid signature error.
+- Updated WordPress pay EMS e-Commerce; library to version 2.1.1.
+  - Fixed incorrect default tag in description of Order ID settings field.
+- Updated WordPress pay Gravity Forms library to version 2.3.1.
+  - Fixed PHP notices and warnings.
+  - Use integration version number for scripts and styles.
+- Updated WordPress pay MemberPress library to version 2.1.2.
+  - Fixed setting `complete` transaction status to `pending` again on free downgrade.
+
+### Changed
+- Updated WordPress pay Adyen library to version 1.1.1.
+  - Fixed not using billing address country code on drop-in payment redirect page.
+  - Added support for payment metadata via `pronamic_pay_adyen_payment_metadata` filter.
+  - Added advanced gateway configuration setting for `merchantOrderReference` parameter.
+  - Added browser information to payment request.
+  - Removed shopper reference from payment request.
+  - Removed payment status request from drop-in gateway supported features.
+- Updated WordPress pay OmniKassa 2.0 library to version 2.2.2.
+  - Improved webhook handling if multiple gateway configurations exist.
+- Updated WordPress pay Formidable Forms library to version 2.1.2.
+  - Updated settings description for delaying email notifications.
+
 ## [6.1.1] - 2020-04-06
 
 ### Fixed
@@ -2392,7 +2418,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.2...HEAD
+[6.1.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.1...6.1.2
 [6.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.0...6.1.1
 [6.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.0.2...6.1.0
 [6.0.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.0.1...6.0.2
