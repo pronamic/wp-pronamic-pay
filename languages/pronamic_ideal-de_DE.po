@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay 6.1.0\n"
+"Project-Id-Version: Pronamic Pay 6.1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2020-04-03T10:05:17+00:00\n"
-"PO-Revision-Date: 2020-04-03 12:42+0200\n"
+"POT-Creation-Date: 2020-04-20T07:42:19+00:00\n"
+"PO-Revision-Date: 2020-04-20 09:51+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: de_DE\n"
@@ -303,8 +303,8 @@ msgstr ""
 
 #: admin/tab-new.php:96
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:63
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:263
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:321
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:264
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:322
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
@@ -470,7 +470,7 @@ msgstr "Charitable Spende"
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:126
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:401
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:128
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:865
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:868
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:41
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:237
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Gateways/Gateway.php:251
@@ -763,8 +763,8 @@ msgstr "Formidable Forms"
 #. translators: %s: payment source id
 #. translators: %s: source id
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:214
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:271
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:329
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:272
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:330
 #: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:241
 msgid "Entry #%s"
 msgstr "Eintrag #%s"
@@ -807,8 +807,8 @@ msgid "Payment Methods"
 msgstr "Zahlungsmethoden"
 
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:94
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:598
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:611
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:647
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:660
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:140
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:218
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:265
@@ -820,7 +820,7 @@ msgid "Payment Method"
 msgstr "Zahlungsart"
 
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:114
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:671
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:720
 msgid "Choose a payment method"
 msgstr "Wählen Sie eine Zahlungsmethode"
 
@@ -873,8 +873,10 @@ msgid "Notifications"
 msgstr "Benachrichtigungen"
 
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:125
-msgid "Hold email notifications until payment is received."
-msgstr "Halten Sie E-Mail-Benachrichtigungen, bis die Zahlung eingegangen ist."
+msgid "Delay email notifications until payment has been received."
+msgstr ""
+"Verzögern Sie das Senden von Benachrichtigungen bis die Zahlung eingegangen "
+"ist."
 
 #: vendor/wp-pay-extensions/give/src/Extension.php:51
 #: vendor/wp-pay-extensions/give/src/Extension.php:219
@@ -925,7 +927,7 @@ msgstr "Zahlung-Feeds"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:115
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:102
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:814
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:817
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:196
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:85
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:134
@@ -1037,64 +1039,64 @@ msgstr "Formular"
 msgid "Date"
 msgstr "Datum"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:286
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:344
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:287
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:345
 msgid "Gravity Forms Entry"
 msgstr "Gravity Forms Eintrag"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:675
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:676
 msgid "Subscription manually activated."
 msgstr "Abonnement manuell aktiviert."
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:812
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:813
 msgid "Subscription manually canceled."
 msgstr "Abonnement manuell abgebrochen."
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1174
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1175
 msgid "Subscribing the user to ActiveCampaign"
 msgstr "Abonnieren des Benutzers für ActiveCampaign"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1180
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1181
 msgid "Subscribing the user to AWeber"
 msgstr "Abonnieren des Benutzers zu AWeber"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1195
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1196
 msgid "Subscribing the user to Campaign Monitor"
 msgstr "Abonnieren des Benutzers für Campaign Monitor"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1211
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1212
 msgid "Subscribing the user to MailChimp"
 msgstr "Abonnieren des Benutzers für MailChimp"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1227
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1228
 msgid "Creating quotes and invoices with Sliced Invoices"
 msgstr "Erstellen von Angeboten und Rechnungen mit Sliced Invoices"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1233
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1234
 msgid "Sending estimates and invoices with Moneybird"
 msgstr "Senden von Schätzungen und Rechnungen mit Moneybird"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1239
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1240
 msgid "Sending data to Twilio"
 msgstr "Senden von Daten an Twilio"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1245
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1246
 msgid "Sending a trigger to Webhooks"
 msgstr "Einen Auslöser an Webhooks senden"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1251
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1252
 msgid "Uploading files to Dropbox"
 msgstr "Hochladen von Dateien zu Dropbox"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1257
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1258
 msgid "Sending data to Zapier"
 msgstr "Daten an Zapier senden"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1273
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1274
 msgid "Registering the user"
 msgstr "Registrieren des Benutzers"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1279
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1280
 msgid "Start the Workflow once payment has been received."
 msgstr "Starten Sie den Workflow, sobald die Zahlung eingegangen ist."
 
@@ -1141,7 +1143,7 @@ msgstr "Große Symbole"
 
 #: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:495
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:63
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:579
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:583
 msgid "New Payment Feed"
 msgstr "Neuer Zahlungs-Feed"
 
@@ -1373,6 +1375,7 @@ msgstr "Standard:"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:191
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:254
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:297
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:95
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:93
 #: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:74
@@ -1835,7 +1838,7 @@ msgstr "%s Abonnement wurde erneut aktiviert."
 msgid "%s subscription cancelled."
 msgstr "%s Abonnement gekündigt."
 
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:820
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:823
 msgid ""
 "JavaScript is disabled in your browser. You will not be able to complete "
 "your purchase until you either enable JavaScript in your browser, or switch "
@@ -2565,16 +2568,16 @@ msgstr "WP e-Commerce Bestellung"
 msgid "WP eCommerce order %s"
 msgstr "WP eCommerce Bestellung %s"
 
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:280
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:289
 msgid "Payment completed successfully."
 msgstr "Zahlung erfolgreich abgeschlossen."
 
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:281
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:290
 msgid ""
 "The order has been received and we are waiting for the payment to clear."
 msgstr "Die Bestellung ist eingegangen und wir warten auf die Zahlung."
 
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:282
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:291
 msgid ""
 "The payment has been refused. Please try again using a different method or "
 "card."
@@ -2583,17 +2586,17 @@ msgstr ""
 "Methode oder Karte."
 
 #. translators: %s: exception message
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:331
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:340
 #: vendor/wp-pay-gateways/adyen/src/WebSdkGateway.php:331
 msgid "Error getting payment result: %s"
 msgstr "Fehler beim Erhalten des Zahlungsergebnisses: %s"
 
 #. translators: %s: exception message
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:394
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:403
 msgid "Error getting payment details: %s"
 msgstr "Fehler beim Abrufen von Zahlungsdetails: %s"
 
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:551
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:575
 msgid "Credit or debit card"
 msgstr "Kredit- oder Debitkarte"
 
@@ -2705,29 +2708,54 @@ msgstr ""
 msgid "Adyen documentation: \"How to get an origin key\"."
 msgstr "Adyen-Dokumentation: \"How to get an origin key\"."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:284
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:287
+msgid "Merchant Order Reference"
+msgstr "Händlerbestellreferenz"
+
+#. translators: %s: <code>{orderId}</code>
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:292
+msgid "The Adyen %s parameter."
+msgstr "Der Adyen %s Parameter."
+
+#. translators: %s: {payment_id}
+#. translators: %s: <code>{payment_id}</code>
+#. translators: %s: 0
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:305
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:110
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:103
+#: vendor/wp-pay-gateways/icepay/src/Integration.php:101
+#: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:49
+#: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:82
+#: vendor/wp-pay-gateways/ogone/src/Settings.php:178
+#: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:214
+#: vendor/wp-pay-gateways/omnikassa/src/Integration.php:110
+#: vendor/wp-pay-gateways/sisow/src/Integration.php:141
+msgid "Default: <code>%s</code>"
+msgstr "Standard: <code>%s</code>"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:316
 msgctxt "adyen"
 msgid "Apple Pay Merchant ID"
 msgstr "Apple Pay Merchant ID"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:287
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:319
 msgid "Your Apple Pay Merchant ID. Required for accepting live payments."
 msgstr ""
 "Ihre Apple Pay Merchant ID. Erforderlich für die Annahme von Live-Zahlungen."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:291
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:323
 msgid "Adyen documentation: \"Apple Pay Drop-in - Before you begin\"."
 msgstr "Adyen-Dokumentation: \"Apple Pay Drop-in - Before you begin\"."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:293
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:325
 msgid "Apple documentation: \"Configuring your environment\"."
 msgstr "Apple-Dokumentation: \"Configuring your environment\"."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:302
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:334
 msgid "Apple Pay Merchant Identity Certificate"
 msgstr "Apple Pay Merchant Identity Zertifikat"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:306
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:338
 msgid ""
 "The Apple Pay Merchant Identity certificate required for secure "
 "communication with Apple."
@@ -2735,7 +2763,7 @@ msgstr ""
 "Das Apple Pay Merchant Identity-Zertifikat, das für die sichere "
 "Kommunikation mit Apple erforderlich ist."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:310
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:342
 msgid ""
 "Adyen documentation: \"Enable Apple Pay - Create a merchant identity "
 "certificate\"."
@@ -2743,11 +2771,11 @@ msgstr ""
 "Adyen-Dokumentation: \"Enable Apple Pay - Create a merchant identity "
 "certificate\"."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:319
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:351
 msgid "Apple Pay Merchant Identity Private Key"
 msgstr "Apple Pay Merchant Identity Privater Schlüssel"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:323
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:355
 msgid ""
 "The private key of the Apple Pay Merchant Identity certificate for secure "
 "communication with Apple."
@@ -2755,34 +2783,34 @@ msgstr ""
 "Der private Schlüssel des Apple Pay Merchant Identity-Zertifikats für die "
 "sichere Kommunikation mit Apple."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:331
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:363
 msgctxt "adyen"
 msgid "Apple Pay Merchant Identity Private Key Password"
 msgstr "Apple Pay Merchant Identity Privater Schlüssel Passwort"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:334
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:366
 msgid "Your Apple Pay Merchant Identity Certificate private key password."
 msgstr "Ihr Apple Pay Merchant Identity Zertifikat privates Schlüsselpasswort."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:342
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:374
 msgctxt "adyen"
 msgid "Google Pay Merchant ID"
 msgstr "Google Pay Merchant ID"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:345
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:377
 msgid "Your Google Merchant ID. Required for accepting live payments."
 msgstr ""
 "Ihre Google Merchant ID. Erforderlich für die Annahme von Live-Zahlungen."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:349
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:381
 msgid "Adyen documentation: \"Google Pay Drop-in - Test and go live\"."
 msgstr "Adyen-Dokumentation: \"Google Pay Drop-in - Test and go live\"."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:351
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:383
 msgid "Google documentation: \"Deploy production environment\"."
 msgstr "Google-Dokumentation: \"Deploy production environment\"."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:358
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:390
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:89
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:186
 #: vendor/wp-pay-gateways/nocks/src/Integration.php:83
@@ -2792,7 +2820,7 @@ msgstr "Webhook-URL"
 
 #. translators: %s: Adyen
 #. translators: %s: ING Kassa Compleet
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:365
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:397
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:96
 msgid ""
 "Copy the Webhook URL to the %s dashboard to receive automatic transaction "
@@ -2801,36 +2829,36 @@ msgstr ""
 "Kopieren Sie die Webhook-URL in das Dashboard %s, um automatische "
 "Aktualisierungen des Transaktionsstatus zu erhalten."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:369
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:401
 #: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:142
 #: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:39
 #: vendor/wp-pay-gateways/adyen/src/PaymentResultHelper.php:37
 msgid "Adyen"
 msgstr "Adyen"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:381
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:413
 msgid "SSL Version"
 msgstr "SSL Version"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:383
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:415
 msgid "Choose the SSL Version of your server on the Adyen Customer Area."
 msgstr "Wählen Sie die SSL-Version Ihres Servers im Adyen-Kundenbereich."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:394
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:426
 msgctxt "adyen notification"
 msgid "Method"
 msgstr "Methode"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:396
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:428
 msgid "JSON"
 msgstr "JSON"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:402
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:434
 msgid "Authentication"
 msgstr "Authentifizierung"
 
 #. translators: %s: Pronamic Pay settings page URL.
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:406
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:438
 msgid ""
 "Go to the <a href=\"%s\">Pronamic Pay settings page</a> for webhook "
 "authentication settings."
@@ -2838,27 +2866,27 @@ msgstr ""
 "Wechseln Sie zur <a href=\"%s\">Seite Pronamic Pay-Einstellungen</a> für "
 "Webhook-Authentifizierungseinstellungen."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:450
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:482
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:373
 msgid "SHA Fingerprint"
 msgstr "SHA Fingerabdruck"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:457
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:489
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:379
 msgid "M j, Y @ G:i"
 msgstr "d. F Y @ H:i"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:460
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:492
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:382
 msgid "Valid From"
 msgstr "Gültig ab"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:465
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:497
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:387
 msgid "Valid To"
 msgstr "Gültig bis"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:474
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:506
 msgid ""
 "Upload an Apple Pay Merchant Identity certificate, which can be exported "
 "from Keychain Access on Mac as a PKCS#12 (*.p12) file."
@@ -2866,21 +2894,21 @@ msgstr ""
 "Laden Sie ein Apple Pay Merchant Identity-Zertifikat hoch, das aus Keychain "
 "Access auf Mac als PKCS-12-Datei (*.p12) exportiert werden kann."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:484
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:529
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:516
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:561
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:289
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:401
 msgid "Download"
 msgstr "Herunterladen"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:495
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:547
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:527
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:579
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:300
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:412
 msgid "Upload"
 msgstr "Hochladen"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:541
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:573
 msgid ""
 "Leave empty to auto fill when uploading an Apple Pay Merchant Identity "
 "PKCS#12 certificate file."
@@ -2929,7 +2957,7 @@ msgid "Webhook requested by %s."
 msgstr "Webhook angefordert von %s."
 
 #. translators: %s: item index
-#: vendor/wp-pay-gateways/adyen/src/PaymentRequestHelper.php:99
+#: vendor/wp-pay-gateways/adyen/src/PaymentRequestHelper.php:104
 #: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:166
 msgid "Item %s"
 msgstr "Artikel %s"
@@ -3230,22 +3258,6 @@ msgstr "Dies steuert den Buckaroo%s-Parameter."
 #: vendor/wp-pay-gateways/buckaroo/src/Integration.php:97
 msgid "Invoice number"
 msgstr "Rechnungsnummer"
-
-#. translators: %s: <code>{payment_id}</code>
-#. translators: %s: {order_id}
-#. translators: %s: 0
-#. translators: %s: {payment_id}
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:110
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:103
-#: vendor/wp-pay-gateways/icepay/src/Integration.php:101
-#: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:49
-#: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:82
-#: vendor/wp-pay-gateways/ogone/src/Settings.php:178
-#: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:214
-#: vendor/wp-pay-gateways/omnikassa/src/Integration.php:110
-#: vendor/wp-pay-gateways/sisow/src/Integration.php:141
-msgid "Default: <code>%s</code>"
-msgstr "Standard: <code>%s</code>"
 
 #: vendor/wp-pay-gateways/buckaroo/src/Integration.php:117
 msgid "Push URL"
@@ -4342,7 +4354,7 @@ msgstr ""
 msgid "OmniKassa 2.0 return URL requested:"
 msgstr "OmniKassa 2.0 Return-URL angefordert:"
 
-#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:355
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:360
 msgid "OmniKassa 2.0 webhook URL requested:"
 msgstr "OmniKassa 2.0 Webhook URL angefordert:"
 
@@ -7136,6 +7148,10 @@ msgid "Please click the button below if you are not automatically redirected."
 msgstr ""
 "Bitte klicken Sie auf die Schaltfläche unten, wenn Sie nicht automatisch "
 "umgeleitet werden."
+
+#~ msgid "Hold email notifications until payment is received."
+#~ msgstr ""
+#~ "Halten Sie E-Mail-Benachrichtigungen, bis die Zahlung eingegangen ist."
 
 #~ msgid "is"
 #~ msgstr "ist"
