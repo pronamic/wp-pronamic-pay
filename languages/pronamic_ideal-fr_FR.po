@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Pronamic Pay plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay 6.1.2\n"
+"Project-Id-Version: Pronamic Pay 6.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2020-04-20T07:42:19+00:00\n"
-"PO-Revision-Date: 2020-04-20 09:52+0200\n"
+"POT-Creation-Date: 2020-06-02T21:48:17+00:00\n"
+"PO-Revision-Date: 2020-06-03 00:06+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -816,7 +816,7 @@ msgid "Pronamic payment failed"
 msgstr "Pronamic paiement échoué"
 
 #. translators: %s order id
-#: vendor/wp-pay-extensions/formidable-forms/src/PaymentData.php:89
+#: vendor/wp-pay-extensions/formidable-forms/src/PaymentData.php:108
 msgid "Formidable entry %s"
 msgstr "Formidable entrée %s"
 
@@ -852,7 +852,7 @@ msgstr "Choisissez un moyen de paiement"
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:205
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:340
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:153
-#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:69
+#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:89
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:429
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:428
 #: vendor/wp-pay/core/views/form.php:50
@@ -922,7 +922,7 @@ msgstr "La vérification a échoué"
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:431
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:281
 #: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:123
-#: vendor/wp-pay/core/src/Plugin.php:1134 vendor/wp-pay/core/views/form.php:185
+#: vendor/wp-pay/core/src/Plugin.php:1161 vendor/wp-pay/core/views/form.php:185
 msgid "Error"
 msgstr "Erreur"
 
@@ -1084,62 +1084,62 @@ msgstr "Gravity Forms Entrée"
 msgid "Subscription manually activated."
 msgstr "Abonnement activé manuellement."
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:813
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:822
 msgid "Subscription manually canceled."
 msgstr "Abonnement annulé manuellement."
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1175
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1184
 #, fuzzy
 msgid "Subscribing the user to ActiveCampaign"
 msgstr "Abonnement de l'utilisateur à ActiveCampaign"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1181
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1190
 #, fuzzy
 msgid "Subscribing the user to AWeber"
 msgstr "Abonnement de l'utilisateur à AWeber"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1196
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1205
 #, fuzzy
 msgid "Subscribing the user to Campaign Monitor"
 msgstr "Abonnement de l'utilisateur à Campaign Monitor"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1212
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1221
 #, fuzzy
 msgid "Subscribing the user to MailChimp"
 msgstr "Abonnement de l'utilisateur à MailChimp"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1228
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1237
 #, fuzzy
 msgid "Creating quotes and invoices with Sliced Invoices"
 msgstr "Création de devis et de factures avec des factures tranchées"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1234
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1243
 #, fuzzy
 msgid "Sending estimates and invoices with Moneybird"
 msgstr "Envoi d'estimations et de factures avec Moneybird"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1240
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1249
 msgid "Sending data to Twilio"
 msgstr "Envoi de données à Twilio"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1246
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1255
 #, fuzzy
 msgid "Sending a trigger to Webhooks"
 msgstr "Envoi d'un déclencheur à Webhooks"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1252
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1261
 msgid "Uploading files to Dropbox"
 msgstr "Téléchargement de fichiers sur Dropbox"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1258
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1267
 msgid "Sending data to Zapier"
 msgstr "Envoi de données à Zapier"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1274
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1283
 msgid "Registering the user"
 msgstr "Enregistrement de l'utilisateur"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1280
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:1289
 msgid "Start the Workflow once payment has been received."
 msgstr "Lancez le workflow lorsque le paiement a été reçu."
 
@@ -1523,7 +1523,7 @@ msgid "Success"
 msgstr "Succès"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:430
-#: vendor/wp-pay/core/src/Plugin.php:1133
+#: vendor/wp-pay/core/src/Plugin.php:1160
 msgid "Expired"
 msgstr "Expiré"
 
@@ -1745,7 +1745,8 @@ msgid "Country"
 msgstr "Pays"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:894
-msgid "Telephone Nnumber"
+#: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:579
+msgid "Telephone Number"
 msgstr "Numéro de téléphone"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:895
@@ -3485,19 +3486,19 @@ msgid "EMS"
 msgstr "EMS"
 
 #: vendor/wp-pay-gateways/icepay/src/Gateway.php:126
-#: vendor/wp-pay-gateways/multisafepay/src/Gateway.php:93
+#: vendor/wp-pay-gateways/multisafepay/src/Gateway.php:94
 msgctxt "Payment method name"
 msgid "AMEX"
 msgstr "American Express"
 
 #: vendor/wp-pay-gateways/icepay/src/Gateway.php:130
-#: vendor/wp-pay-gateways/multisafepay/src/Gateway.php:95
+#: vendor/wp-pay-gateways/multisafepay/src/Gateway.php:96
 msgctxt "Payment method name"
 msgid "MASTER"
 msgstr "MasterCard"
 
 #: vendor/wp-pay-gateways/icepay/src/Gateway.php:134
-#: vendor/wp-pay-gateways/multisafepay/src/Gateway.php:96
+#: vendor/wp-pay-gateways/multisafepay/src/Gateway.php:97
 msgctxt "Payment method name"
 msgid "VISA"
 msgstr "Visa"
@@ -4130,7 +4131,7 @@ msgid ""
 "payments."
 msgstr ""
 
-#: vendor/wp-pay-gateways/multisafepay/src/Gateway.php:94
+#: vendor/wp-pay-gateways/multisafepay/src/Gateway.php:95
 msgctxt "Payment method name"
 msgid "Maestro"
 msgstr "Maestro"
@@ -5282,7 +5283,7 @@ msgstr "Client"
 
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:418
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:212
-#: vendor/wp-pay/core/src/Plugin.php:1135
+#: vendor/wp-pay/core/src/Plugin.php:1162
 msgid "Unknown"
 msgstr "Inconnu"
 
@@ -5429,28 +5430,26 @@ msgstr "— Sélectionnez une page —"
 msgid "Recurrence"
 msgstr "Récurrence"
 
-#: vendor/wp-pay/core/src/Admin/Install.php:239
+#: vendor/wp-pay/core/src/Admin/Install.php:247
 msgid "Payer"
 msgstr "Payeur"
 
-#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:67
-#: vendor/wp-pay/core/src/Forms/FormPostType.php:113
-#: vendor/wp-pay/core/src/Forms/FormShortcode.php:79
-#: vendor/wp-pay/core/src/Forms/FormsModule.php:196
-#: vendor/wp-pay/core/src/Forms/FormsModule.php:227
+#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:87
+#, fuzzy
+msgctxt "Block"
 msgid "Payment Form"
 msgstr "Formulaire de paiement"
 
-#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:68
+#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:88
 msgid "Add form"
 msgstr "Ajouter un formulaire"
 
-#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:142
+#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:162
 msgid "Unable to process payments with default gateway."
 msgstr "Impossible de traiter les paiements avec la passerelle par défaut."
 
-#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:170
-#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:202
+#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:190
+#: vendor/wp-pay/core/src/Blocks/BlocksModule.php:222
 msgid "Payment Form Block"
 msgstr "Bloc de formulaire de paiement"
 
@@ -5543,6 +5542,13 @@ msgstr ""
 msgid "Could not load the XML string."
 msgstr "Impossible de charger la chaîne XML."
 
+#: vendor/wp-pay/core/src/Forms/FormPostType.php:113
+#: vendor/wp-pay/core/src/Forms/FormShortcode.php:79
+#: vendor/wp-pay/core/src/Forms/FormsModule.php:196
+#: vendor/wp-pay/core/src/Forms/FormsModule.php:227
+msgid "Payment Form"
+msgstr "Formulaire de paiement"
+
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:115
 msgid "Add New Payment Form"
 msgstr "Ajouter un nouveau formulaire de paiement"
@@ -5629,11 +5635,11 @@ msgstr "Shortcode :"
 msgid "Payment Form %s"
 msgstr "Formulaire de paiement %s"
 
-#: vendor/wp-pay/core/src/Forms/FormProcessor.php:248
+#: vendor/wp-pay/core/src/Forms/FormProcessor.php:249
 msgid "Please enter your first name"
 msgstr "Veuillez saisir votre prénom"
 
-#: vendor/wp-pay/core/src/Forms/FormProcessor.php:255
+#: vendor/wp-pay/core/src/Forms/FormProcessor.php:256
 msgid "Please enter a valid email address"
 msgstr "S'il vous plaît, mettez une adresse email valide"
 
@@ -5949,10 +5955,6 @@ msgstr "Langue"
 msgid "Postal Code"
 msgstr "Code postal"
 
-#: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:579
-msgid "Telephone Number"
-msgstr "Numéro de téléphone"
-
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:597
 msgid "Consumer Account Number"
 msgstr "Numéro de compte du consommateur"
@@ -6056,11 +6058,11 @@ msgstr ""
 msgid "— Select Configuration —"
 msgstr "— Sélectionner la configuration —"
 
-#: vendor/wp-pay/core/src/Plugin.php:1131
+#: vendor/wp-pay/core/src/Plugin.php:1158
 msgid "Completed"
 msgstr "Terminé"
 
-#: vendor/wp-pay/core/src/Plugin.php:1132
+#: vendor/wp-pay/core/src/Plugin.php:1159
 msgid "Canceled"
 msgstr "Annulé"
 
@@ -6187,31 +6189,31 @@ msgid "Interval Period"
 msgstr "Période d'intervalle"
 
 #. translators: %s: payment title
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:427
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:428
 msgid "Subscription for %s"
 msgstr "Abonnement pour %s"
 
 #. translators: 1: new status
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:661
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:664
 msgid "Subscription created with status \"%1$s\"."
 msgstr "Abonnement créé avec le statut \"%1$s\"."
 
 #. translators: 1: old status, 2: new status
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:668
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:671
 msgid "Subscription status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Le statut d'abonnement est passé de \"%1$s\" à \"%2$s\"."
 
 #. translators: %s: expiry date
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:751
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:754
 msgid "Subscription renewal due on %s."
 msgstr "Renouvellement d'abonnement dû sur %s."
 
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:970
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:973
 msgid "Subscription ID."
 msgstr "ID d'abonnement."
 
 #. translators: %s: Subscription ID
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:994
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:997
 #, fuzzy
 msgid "Could not find subscription with ID `%s`."
 msgstr "Impossible de trouver l'abonnement avec ID `%s`."
@@ -6238,6 +6240,11 @@ msgstr ""
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsPrivacy.php:220
 msgid "Subscription ID %s not anonymized because of active status."
 msgstr "Abonnement ID %s pas anonymisé en raison de son statut actif."
+
+#. translators: %s: formatted next payment date
+#: vendor/wp-pay/core/src/Upgrades/Upgrade620.php:89
+msgid "Missing subscription next payment date restored to %s."
+msgstr ""
 
 #. translators: %s: interval
 #: vendor/wp-pay/core/src/Util.php:140
@@ -7379,6 +7386,9 @@ msgid "Please click the button below if you are not automatically redirected."
 msgstr ""
 "S’il vous plaît cliquez sur le bouton ci-dessous si vous n’êtes pas "
 "automatiquement redirigé."
+
+#~ msgid "Telephone Nnumber"
+#~ msgstr "Numéro de téléphone"
 
 #~ msgid "Hold email notifications until payment is received."
 #~ msgstr ""
