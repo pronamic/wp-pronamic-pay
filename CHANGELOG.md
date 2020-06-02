@@ -6,6 +6,29 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.2.0] - 2020-06-03
+
+### Changed
+- Updated WordPress pay core library to version 2.3.2.
+  - Add support for new fundraising add-on (requires Pro license).
+  - Add payment origin post ID.
+  - Add 'Pronamic Pay' block category.
+  - Fix subscriptions without next payment date.
+  - Fix incorrect formatted amount in payment form block.
+- Updated WordPress pay Mollie library to version 2.1.3.
+  - Add support for Mollie payment billing email and filter `pronamic_pay_mollie_payment_billing_email`.
+- Updated WordPress pay OmniKassa 2.0 library to version 2.2.3.
+  - Fix incorrect payments order when handling order status notifications.
+- Updated WordPress pay Charitable library to version 2.1.2.
+  - Add telephone number to payment data.
+  - Fix error handling.
+- Updated WordPress pay Gravity Forms library to version 2.4.0.
+  - Add filter `pronamic_pay_gravityforms_delay_actions` for delayed actions.
+  - Fix empty formatted amount in entry notes if value is `0`.
+- Updated WordPress pay MultiSafepay library to version 2.1.1.
+- Updated WordPress pay Formidable Forms library to version 2.1.3.
+- Updated WordPress pay s2Member library to version 2.1.2.
+
 ## [6.1.2] - 2020-04-20
 
 ### Fixed
@@ -2418,7 +2441,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.2.0...HEAD
+[6.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.2...6.2.0
 [6.1.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.1...6.1.2
 [6.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.0...6.1.1
 [6.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.0.2...6.1.0
