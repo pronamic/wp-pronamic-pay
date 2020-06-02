@@ -4,6 +4,56 @@
 		"changes": []
 	},
 	{
+		"version": "6.2.0",
+		"date": "2020-06-03",
+		"changes": [
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay core library to version 2.3.2.",
+						"changes": [
+							"Add support for new fundraising add-on (requires Pro license).",
+							"Add payment origin post ID.",
+							"Add 'Pronamic Pay' block category.",
+							"Fix subscriptions without next payment date.",
+							"Fix incorrect formatted amount in payment form block."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Mollie library to version 2.1.3.",
+						"changes": [
+							"Add support for Mollie payment billing email and filter `pronamic_pay_mollie_payment_billing_email`."
+						]
+					},
+					{
+						"description": "Updated WordPress pay OmniKassa 2.0 library to version 2.2.3.",
+						"changes": [
+							"Fix incorrect payments order when handling order status notifications."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Charitable library to version 2.1.2.",
+						"changes": [
+							"Add telephone number to payment data.",
+							"Fix error handling."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 2.4.0.",
+						"changes": [
+							"Add filter `pronamic_pay_gravityforms_delay_actions` for delayed actions.",
+							"Fix empty formatted amount in entry notes if value is `0`."
+						]
+					},
+					"Updated WordPress pay MultiSafepay library to version 2.1.1.",
+					"Updated WordPress pay Formidable Forms library to version 2.1.3.",
+					"Updated WordPress pay s2Member library to version 2.1.2."
+				]
+			}
+		]
+	},
+	{
 		"version": "6.1.2",
 		"date": "2020-04-20",
 		"changes": [
