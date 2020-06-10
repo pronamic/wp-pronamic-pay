@@ -1,0 +1,164 @@
+@startuml
+
+' https://plantuml.com/ie-diagram
+' https://stackoverflow.com/questions/46658847/crypto-currency-mysql-datatypes
+' https://laravel.com/docs/4.2/eloquent#timestamps
+' https://dev.mysql.com/doc/refman/8.0/en/json.html
+
+entity "wp_pronamic_pay_customers" as customer {
+	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
+	* created_at : DATETIME
+	* updated_at : DATETIME
+	* email : VARCHAR( 100 )
+	wp_user_id : BIGINT(20) UNSIGNED <<fk>>
+	metadata : JSON
+	__ indexes __
+	PRIMARY( id )
+	UNIQUE( email )
+	INDEX( wp_user_id )
+}
+
+entity "wp_pronamic_pay_orders" as order {
+	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
+	* created_at : DATETIME
+	* updated_at : DATETIME
+	* currency_code : VARCHAR(3)
+	* total_amount : DECIMAL(27,18)
+	shipping_amount : DECIMAL(27,18)
+	* post_id : BIGINT(20) UNSIGNED <<fk>>
+	* origin : VARCHAR(32)
+	* origin_id : BIGINT(20)
+	customer_id : BIGINT(20) UNSIGNED <<fk>>
+	country_code : VARCHAR(2)
+	billing_address_id : BIGINT(20) UNSIGNED <<fk>>
+	shipping_address_id : BIGINT(20) UNSIGNED <<fk>>
+	subscription_id : BIGINT(20) UNSIGNED <<fk>>
+	metadata : JSON
+	__ indexes __
+	PRIMARY( id )
+	INDEX( currency_code )
+	INDEX( country_code )
+	INDEX( billing_address_id )
+	INDEX( shipping_address_id )
+	INDEX( subscription_id )
+	INDEX( origin )
+	INDEX( origin_id )
+	UNIQUE( origin, origin_id )
+}
+
+note left of order::origin
+  origin or source?
+end note
+
+note left of order::origin_id
+  origin_id or source_id?
+end note
+
+entity "wp_pronamic_pay_order_lines" as order_line {
+	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
+	* created_at : DATETIME
+	* updated_at : DATETIME
+	* order_id : BIGINT(20) UNSIGNED <<fk>>
+	* line_number : SMALLINT(5) UNSIGNED
+	type : VARCHAR(32)
+	sku : VARCHAR(255)
+	name : VARCHAR(255)
+	description : VARCHAR(255)
+	quantity : SMALLINT(5) UNSIGNED
+	unit_price : DECIMAL(27,18)
+	discount_amount : DECIMAL(27,18)
+	total_amount : DECIMAL(27,18)
+	product_url : VARCHAR(255)
+	image_url : VARCHAR(255)
+	product_category : VARCHAR(255)
+	metadata : JSON
+	__ indexes __
+	PRIMARY( id )
+	INDEX( order_id )
+	UNIQUE( order_id, line_number )
+}
+
+entity "wp_pronamic_pay_subscriptions" as subscription {
+	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
+	* created_at : DATETIME
+	* updated_at : DATETIME
+	* post_id : BIGINT(20) UNSIGNED <<fk>>
+	* order_id : BIGINT(20) UNSIGNED <<fk>>
+	* start_date : DATE
+	end_date : DATE
+	* amount : DECIMAL(27,18)
+	metadata : JSON
+	__ indexes __
+	PRIMARY( id )
+}
+
+entity "wp_pronamic_pay_subscription_periods" as subscription_period {
+	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
+	* created_at : DATETIME
+	* updated_at : DATETIME
+	* subscription_id : BIGINT(20) UNSIGNED <<fk>>
+	* start_date : DATE
+	* end_date : DATE
+	* amount : DECIMAL(27,18)
+	metadata : JSON
+	__ indexes __
+	PRIMARY( id )
+	INDEX( subscription_id )
+	UNIQUE( subscription_id, start_date, end_date )
+}
+
+entity "wp_pronamic_pay_transactions" as transaction {
+	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
+	* created_at : DATETIME
+	* updated_at : DATETIME
+	* post_id : BIGINT(20) UNSIGNED <<fk>>
+	* order_id : BIGINT(20) UNSIGNED <<fk>>
+	* type: VARCHAR(32)
+	* transaction_id : VARCHAR(255)
+	* amount : DECIMAL(27,18)
+	subscription_id : BIGINT(20) UNSIGNED <<fk>>
+	subscription_period_id : BIGINT(20) UNSIGNED <<fk>>
+	metadata : JSON
+	__ indexes __
+	PRIMARY( id )
+	INDEX( post_id )
+	INDEX( type )
+	UNIQUE( transaction_id )
+	INDEX( subscription_id )
+	INDEX( subscription_period_id )
+}
+
+entity "wp_pronamic_pay_addresses" as address {
+	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
+	* created_at : DATETIME
+	* updated_at : DATETIME
+	name : VARCHAR(255)
+	company_name : VARCHAR(255)
+	line_1 : VARCHAR(255)
+	line_2 : VARCHAR(255)
+	street_name : VARCHAR(255)
+	house_number : VARCHAR(255)
+	postal_code : VARCHAR(255)
+	company_name : VARCHAR(255)
+	city : VARCHAR(255)
+	country_code : VARCHAR(2)
+	country_name : VARCHAR(255)
+	latitude : DECIMAL(8,6)
+	longitude DECIMAL(9,6)
+	metadata : JSON
+	__ indexes __
+	PRIMARY( id )
+	INDEX( country_code )
+}
+
+customer |o--o{ order
+order --o| address : billing
+order --o| address : shipping
+order ||--o| subscription
+order ||--o{ order_line
+order ||--o{ transaction
+subscription ||--o{ subscription_period
+subscription |o--o{ transaction
+subscription_period ||--o{ transaction
+
+@enduml
