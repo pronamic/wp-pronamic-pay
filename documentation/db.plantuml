@@ -28,20 +28,26 @@ entity "wp_pronamic_pay_orders" as order {
 	* post_id : BIGINT(20) UNSIGNED <<fk>>
 	* origin : VARCHAR(32)
 	* origin_id : BIGINT(20)
+	* status : VARCHAR(20)
+	* test_mode : BOOL FALSE
 	customer_id : BIGINT(20) UNSIGNED <<fk>>
 	billing_address_id : BIGINT(20) UNSIGNED <<fk>>
 	shipping_address_id : BIGINT(20) UNSIGNED <<fk>>
 	subscription_id : BIGINT(20) UNSIGNED <<fk>>
+	payment_method : VARCHAR(32)
 	metadata : JSON
 	__ indexes __
 	PRIMARY( id )
 	INDEX( currency_code )
+	INDEX( status )
 	INDEX( billing_address_id )
 	INDEX( shipping_address_id )
 	INDEX( subscription_id )
 	INDEX( origin )
 	INDEX( origin_id )
 	UNIQUE( origin, origin_id )
+	INDEX( test_mode )
+	INDEX( payment_method )
 }
 
 note left of order::origin
@@ -82,12 +88,16 @@ entity "wp_pronamic_pay_subscriptions" as subscription {
 	* updated_at : DATETIME
 	* post_id : BIGINT(20) UNSIGNED <<fk>>
 	* order_id : BIGINT(20) UNSIGNED <<fk>>
+	* status : VARCHAR(20)
 	* start_date : DATE
 	end_date : DATE
 	* amount : DECIMAL(27,18)
+	payment_method : VARCHAR(32)
 	metadata : JSON
 	__ indexes __
 	PRIMARY( id )
+	INDEX( status )
+	INDEX( payment_method )
 }
 
 entity "wp_pronamic_pay_subscription_periods" as subscription_period {
@@ -112,18 +122,24 @@ entity "wp_pronamic_pay_transactions" as transaction {
 	* post_id : BIGINT(20) UNSIGNED <<fk>>
 	* order_id : BIGINT(20) UNSIGNED <<fk>>
 	* type: VARCHAR(32)
+	* status : VARCHAR(20)
 	* transaction_id : VARCHAR(255)
 	* amount : DECIMAL(27,18)
+	* test_mode : BOOL FALSE
 	subscription_id : BIGINT(20) UNSIGNED <<fk>>
 	subscription_period_id : BIGINT(20) UNSIGNED <<fk>>
+	payment_method : VARCHAR(32)
 	metadata : JSON
 	__ indexes __
 	PRIMARY( id )
 	INDEX( post_id )
 	INDEX( type )
+	INDEX( status )
 	UNIQUE( transaction_id )
 	INDEX( subscription_id )
 	INDEX( subscription_period_id )
+	INDEX( test_mode )
+	INDEX( payment_method )
 }
 
 entity "wp_pronamic_pay_addresses" as address {
