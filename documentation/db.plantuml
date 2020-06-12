@@ -29,7 +29,6 @@ entity "wp_pronamic_pay_orders" as order {
 	* origin : VARCHAR(32)
 	* origin_id : BIGINT(20)
 	customer_id : BIGINT(20) UNSIGNED <<fk>>
-	country_code : VARCHAR(2)
 	billing_address_id : BIGINT(20) UNSIGNED <<fk>>
 	shipping_address_id : BIGINT(20) UNSIGNED <<fk>>
 	subscription_id : BIGINT(20) UNSIGNED <<fk>>
@@ -37,7 +36,6 @@ entity "wp_pronamic_pay_orders" as order {
 	__ indexes __
 	PRIMARY( id )
 	INDEX( currency_code )
-	INDEX( country_code )
 	INDEX( billing_address_id )
 	INDEX( shipping_address_id )
 	INDEX( subscription_id )
