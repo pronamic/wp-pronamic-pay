@@ -165,6 +165,15 @@ entity "wp_pronamic_pay_addresses" as address {
 	INDEX( country_code )
 }
 
+entity "wp_pronamic_pay_gateway_configurations" as gateway_configuration {
+	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
+	* created_at : DATETIME
+	* updated_at : DATETIME
+	metadata : JSON
+	__ indexes __
+	PRIMARY( id )
+}
+
 customer |o--o{ order
 order --o| address : billing
 order --o| address : shipping
