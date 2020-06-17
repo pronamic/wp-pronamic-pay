@@ -4,6 +4,7 @@
 ' https://stackoverflow.com/questions/46658847/crypto-currency-mysql-datatypes
 ' https://laravel.com/docs/4.2/eloquent#timestamps
 ' https://dev.mysql.com/doc/refman/8.0/en/json.html
+' https://help.afas.nl/help/NL/SE/Sub_Config_Cycli.htm
 
 entity "wp_pronamic_pay_customers" as customer {
 	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
@@ -108,12 +109,27 @@ entity "wp_pronamic_pay_subscription_periods" as subscription_period {
 	* start_date : DATE
 	* end_date : DATE
 	* amount : DECIMAL(27,18)
+	* type : VARCHAR(32)
+	* status : VARCHAR(32)
+	note : TEXT
 	metadata : JSON
 	__ indexes __
 	PRIMARY( id )
 	INDEX( subscription_id )
 	UNIQUE( subscription_id, start_date, end_date )
 }
+
+note right of subscription_period
+  Or should we use 'billing cycle' instead of 'subscription period'?
+end note
+
+note left of subscription_period::type
+  For example: 'regular', 'trial', 'sign-up'
+end note
+
+note left of subscription_period::status
+  For example: 'open', 'pending', 'paid', 'refunded', 'failed', 'canceled'
+end note
 
 entity "wp_pronamic_pay_transactions" as transaction {
 	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
@@ -126,9 +142,19 @@ entity "wp_pronamic_pay_transactions" as transaction {
 	* transaction_id : VARCHAR(255)
 	* amount : DECIMAL(27,18)
 	* test_mode : BOOL FALSE
+	amount_refunded : DECIMAL(27,18)
+	amount_remaining : DECIMAL(27,18)
+	amount_captured : DECIMAL(27,18)
+	authorized_at : DATETIME
+	paid_at : DATETIME
+	canceled_at : DATETIME
+	expires_at : DATETIME
+	expired_at : DATETIME
+	failed_at : DATETIME
 	subscription_id : BIGINT(20) UNSIGNED <<fk>>
 	subscription_period_id : BIGINT(20) UNSIGNED <<fk>>
 	payment_method : VARCHAR(32)
+	invoice_number : VARCHAR(32)
 	metadata : JSON
 	__ indexes __
 	PRIMARY( id )
