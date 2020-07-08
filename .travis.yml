@@ -38,13 +38,11 @@ jobs:
     - php: 7.0
     - php: 5.6
     - php: nightly
-    - php: hhvm
     - stage: deploy
       php: 7.3
       script: bash src/deploy.sh
 
   allow_failures:
-    - php: hhvm
     - php: nightly
 
 cache:
