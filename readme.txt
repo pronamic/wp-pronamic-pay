@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 6.2.0
+Stable tag: 6.3.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -29,6 +29,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 = Supported WordPress e-commerce plugins =
 
 *	[Charitable](https://www.wpcharitable.com/)
+*	[Contact Form 7](https://contactform7.com/) (requires [Basic license](https://www.pronamic.eu/plugins/pronamic-ideal/))
 *	[Easy Digital Downloads](https://easydigitaldownloads.com/)
 *	[Event Espresso 3](https://eventespresso.com/)
 *	[Event Espresso 3 Lite](https://eventespresso.com/)
@@ -52,7 +53,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 = Supported payment providers =
 
 *	ABN AMRO - iDEAL Zelfbouw (v3)
-*	Adyen
+*	Adyen (requires [Pro license](https://www.pronamic.eu/plugins/pronamic-ideal/))
 *	Buckaroo - HTML
 *	Deutsche Bank - iDEAL Expert (v3)
 *	EMS - e-Commerce
@@ -141,6 +142,43 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.3.0 - 2020-07-08 =
+*	Added support for Contact Form 7 plugin (requires Basic license).
+*	Updated WordPress pay core library to version 2.4.0.
+	*	Added support for customer company name.
+	*	Added support for updating subscription mandate.
+	*	Added support for VAT number (validation via VIES).
+	*	Added `get_pronamic_subscriptions_by_source()` function.
+	*	Fixed possible duplicate payment on upgrade if pending recurring payment exists.
+	*	Fixed updating subscription status to 'On Hold' only if subscription is not already active, when processing first payment.
+	*	Improved subscription date calculations.
+	*	Updated admin tour.
+*	Updated WordPress Money library to version 1.2.5.
+	*	Added support for parsing negative amounts and `5,-` notation for amounts without minor units.
+	*	Updated currency symbols.
+*	Updated WordPress pay Adyen library to version 1.1.2.
+	*	Fixed possible conflicting payments caused by double clicking submit button.
+	*	Removed empty meta data from payment request JSON.
+*	Updated WordPress pay Mollie library to version 2.1.4.
+	*	Added filter `pronamic_pay_mollie_payment_metadata` for Mollie payment metadata.
+	*	Added support for updating subscription mandate.
+*	Updated WordPress pay Ingenico library to version 2.1.1.
+	*	Added exception for Ingenico error when retrieving order status.
+*	Updated WordPress pay OmniKassa 2.0 library to version 2.2.4.
+	*	Switched to new endpoint at `/order/server/api/v2/order`.
+	*	Removed obsolete update of payment transaction ID.
+*	Updated WordPress pay Easy Digital Downloads library to version 2.1.2.
+	*	Added support for company name and VAT number from the custom Pronamic EDD plugins.
+	*	Fixed registering `cancelled` post status for use in EDD payments table view filters.
+*	Updated WordPress pay Gravity Forms library to version 2.4.1.
+	*	Added support for company name and VAT number.
+	*	Improved Gravity Forms 2.5 beta compatibility.
+*	Updated WordPress pay Restrict Content Pro library to version 2.2.2.
+	*	Added support for subscription frequency.
+	*	Fixed using existing subscription for membership.
+	*	Fixed expiring membership if first payment expires but subscription is already active.
+*	Updated WordPress pay WooCommerce library to version 2.1.2.
+
 = 6.2.0 - 2020-06-03 =
 *	Updated WordPress pay core library to version 2.3.2.
 	*	Add support for new fundraising add-on (requires Pro license).
@@ -222,12 +260,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 *	Updated WordPress pay s2Member library to version 2.1.1.
 *	Updated WordPress pay WooCommerce library to version 2.1.1.
 *	Updated WordPress pay WP eCommerce library to version 2.1.1.
-
-= 6.0.2 - 2020-03-26 =
-*	Updated WordPress pay iDEAL Advanced v3 library to version 2.1.1.
-	*	Fix incomplete gateway settings.
-*	Updated WordPress pay iDEAL Basic library to version 2.1.1.
-	*	Fix incomplete gateway settings.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-ideal/changelog/)
 

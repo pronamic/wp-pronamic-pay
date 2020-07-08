@@ -6,6 +6,47 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.3.0] - 2020-07-08
+
+### Added
+- Added support for Contact Form 7 plugin (requires Basic license).
+
+### Changed
+- Updated WordPress pay core library to version 2.4.0.
+  - Added support for customer company name.
+  - Added support for updating subscription mandate.
+  - Added support for VAT number (validation via VIES).
+  - Added `get_pronamic_subscriptions_by_source()` function.
+  - Fixed possible duplicate payment on upgrade if pending recurring payment exists.
+  - Fixed updating subscription status to 'On Hold' only if subscription is not already active, when processing first payment.
+  - Improved subscription date calculations.
+  - Updated admin tour.
+- Updated WordPress Money library to version 1.2.5.
+  - Added support for parsing negative amounts and `5,-` notation for amounts without minor units.
+  - Updated currency symbols.
+- Updated WordPress pay Adyen library to version 1.1.2.
+  - Fixed possible conflicting payments caused by double clicking submit button.
+  - Removed empty meta data from payment request JSON.
+- Updated WordPress pay Mollie library to version 2.1.4.
+  - Added filter `pronamic_pay_mollie_payment_metadata` for Mollie payment metadata.
+  - Added support for updating subscription mandate.
+- Updated WordPress pay Ingenico library to version 2.1.1.
+  - Added exception for Ingenico error when retrieving order status.
+- Updated WordPress pay OmniKassa 2.0 library to version 2.2.4.
+  - Switched to new endpoint at `/order/server/api/v2/order`.
+  - Removed obsolete update of payment transaction ID.
+- Updated WordPress pay Easy Digital Downloads library to version 2.1.2.
+  - Added support for company name and VAT number from the custom Pronamic EDD plugins.
+  - Fixed registering `cancelled` post status for use in EDD payments table view filters.
+- Updated WordPress pay Gravity Forms library to version 2.4.1.
+  - Added support for company name and VAT number.
+  - Improved Gravity Forms 2.5 beta compatibility.
+- Updated WordPress pay Restrict Content Pro library to version 2.2.2.
+  - Added support for subscription frequency.
+  - Fixed using existing subscription for membership.
+  - Fixed expiring membership if first payment expires but subscription is already active.
+- Updated WordPress pay WooCommerce library to version 2.1.2.
+
 ## [6.2.0] - 2020-06-03
 
 ### Changed
@@ -2441,7 +2482,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.2.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.0...HEAD
+[6.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.2.0...6.3.0
 [6.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.2...6.2.0
 [6.1.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.1...6.1.2
 [6.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.0...6.1.1
