@@ -10,14 +10,21 @@
 
 header( 'Content-Type: text/plain' );
 
-$data      = file_get_contents( __DIR__ . '/../changelog.json' );
+$data = file_get_contents( __DIR__ . '/../changelog.json' );
+
+// Check if file could be read.
+if ( false === $data ) {
+	return;
+}
+
 $changelog = json_decode( $data );
 
 /**
  * Render changes.
  *
- * @param string|array|object $changes Changes.
- * @param int                 $level   Level.
+ * @param string|array<int, object>|object $changes Changes.
+ * @param int                              $level   Level.
+ * @return void
  */
 function render_changes( $changes, $level = 0 ) {
 	$indent = $level * 2;

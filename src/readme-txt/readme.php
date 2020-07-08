@@ -11,7 +11,13 @@
 header( 'Content-Type: text/plain' );
 
 $data = file_get_contents( __DIR__ . '/../../package.json' );
-$pkg  = json_decode( $data );
+
+// Check if file could be read.
+if ( false === $data ) {
+	return;
+}
+
+$pkg = json_decode( $data );
 
 ?>
 === Pronamic Pay ===
