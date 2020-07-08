@@ -50,6 +50,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | Name | Author | WordPress.org | GitHub | Requires at least | Tested up to |
 | ---- | ------ | ------------- | ------ | ----------------- | ------------ |
 | [Charitable](https://www.wpcharitable.com/) | [Studio 164a](https://www.164a.com/) | [WordPress.org](https://wordpress.org/plugins/charitable/) | [GitHub](https://github.com/Charitable/Charitable) | `1.3` | `1.6.35` |
+| [Contact Form 7](https://contactform7.com/) | [Takayuki Miyoshi](https://ideasilo.wordpress.com/) | [WordPress.org](https://nl.wordpress.org/plugins/contact-form-7/) | [GitHub](https://github.com/takayukister/contact-form-7) | `5.1.9` | `5.1.9` |
 | [Easy Digital Downloads](https://easydigitaldownloads.com/) | [Pippin Williamson](https://pippinsplugins.com/) | [WordPress.org](https://wordpress.org/plugins/easy-digital-downloads/) | [GitHub](https://github.com/easydigitaldownloads/Easy-Digital-Downloads) | `1.8.6` | `2.9.22` |
 | [Event Espresso 3](https://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-legacy) | `3.1.24` | `3.1.37.14.p` |
 | [Event Espresso 3 Lite](https://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-free/) | [GitHub](https://github.com/eventespresso/event-espresso-legacy) | `3.1.29.1.L` | `3.1.37.12.L` |

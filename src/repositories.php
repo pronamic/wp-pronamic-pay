@@ -42,6 +42,7 @@ $organisations = array(
 	),
 	'wp-pay-extensions' => array(
 		'charitable'             => 'Charitable',
+		'contact-form-7'         => 'Contact Form 7',
 		'easy-digital-downloads' => 'Easy Digital Downloads',
 		'event-espresso'         => 'Event Espresso',
 		'event-espresso-legacy'  => 'Event Espresso (legacy)',

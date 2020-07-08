@@ -4,6 +4,93 @@
 		"changes": []
 	},
 	{
+		"version": "6.3.0",
+		"date": "2020-07-08",
+		"changes": [
+			{
+				"name": "Added",
+				"changes": [
+					"Added support for Contact Form 7 plugin (requires Basic license)."
+				]
+			},
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay core library to version 2.4.0.",
+						"changes": [
+							"Added support for customer company name.",
+							"Added support for updating subscription mandate.",
+							"Added support for VAT number (validation via VIES).",
+							"Added `get_pronamic_subscriptions_by_source()` function.",
+							"Fixed possible duplicate payment on upgrade if pending recurring payment exists.",
+							"Fixed updating subscription status to 'On Hold' only if subscription is not already active, when processing first payment.",
+							"Improved subscription date calculations.",
+							"Updated admin tour."
+						]
+					},
+					{
+						"description": "Updated WordPress Money library to version 1.2.5.",
+						"changes": [
+							"Added support for parsing negative amounts and `5,-` notation for amounts without minor units.",
+							"Updated currency symbols."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Adyen library to version 1.1.2.",
+						"changes": [
+							"Fixed possible conflicting payments caused by double clicking submit button.",
+							"Removed empty meta data from payment request JSON."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Mollie library to version 2.1.4.",
+						"changes": [
+							"Added filter `pronamic_pay_mollie_payment_metadata` for Mollie payment metadata.",
+							"Added support for updating subscription mandate."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Ingenico library to version 2.1.1.",
+						"changes": [
+							"Added exception for Ingenico error when retrieving order status."
+						]
+					},
+					{
+						"description": "Updated WordPress pay OmniKassa 2.0 library to version 2.2.4.",
+						"changes": [
+							"Switched to new endpoint at `/order/server/api/v2/order`.",
+							"Removed obsolete update of payment transaction ID."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Easy Digital Downloads library to version 2.1.2.",
+						"changes": [
+							"Added support for company name and VAT number from the custom Pronamic EDD plugins.",
+							"Fixed registering `cancelled` post status for use in EDD payments table view filters."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 2.4.1.",
+						"changes": [
+							"Added support for company name and VAT number.",
+							"Improved Gravity Forms 2.5 beta compatibility."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Restrict Content Pro library to version 2.2.2.",
+						"changes": [
+							"Added support for subscription frequency.",
+							"Fixed using existing subscription for membership.",
+							"Fixed expiring membership if first payment expires but subscription is already active."
+						]
+					},
+					"Updated WordPress pay WooCommerce library to version 2.1.2."
+				]
+			}
+		]
+	},
+	{
 		"version": "6.2.0",
 		"date": "2020-06-03",
 		"changes": [
