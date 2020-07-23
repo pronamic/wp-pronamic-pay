@@ -6,6 +6,19 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.3.1] - 2020-07-23
+
+### Fixed
+- Updated WordPress pay core library to version 2.4.1.
+  - Added email address as fallback for customer name in payments and subscriptions overview and details.
+  - Fixed using deprecated `email` and `customer_name` properties.
+- Updated WordPress pay Restrict Content Pro library to version 2.2.3.
+  - Fixed possible 'Fatal error: Call to a member function `get_id()` on null'.
+- Updated WordPress pay s2Member library to version 2.1.3.
+  - Fixed creating empty subscriptions.
+- Updated WordPress pay WooCommerce library to version 2.1.3.
+  - Fixed compatibility with WooCommerce EU VAT Number plugin.
+
 ## [6.3.0] - 2020-07-08
 
 ### Added
@@ -2482,7 +2495,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.1...HEAD
+[6.3.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.0...6.3.1
 [6.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.2.0...6.3.0
 [6.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.2...6.2.0
 [6.1.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.1...6.1.2
