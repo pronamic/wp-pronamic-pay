@@ -12,8 +12,24 @@ if ( ! PRONAMIC_PAY_DEBUG ) {
 	return;
 }
 
-foreach ( glob( __DIR__ . '/../repositories/*/*/composer.json' ) as $file ) {
+if ( ! isset( $loader ) ) {
+	return;
+}
+
+$files = glob( __DIR__ . '/../repositories/*/*/composer.json' );
+
+// Check for glob error.
+if ( false === $files ) {
+	return;
+}
+
+foreach ( $files as $file ) {
 	$content = file_get_contents( $file );
+
+	// Check if file could be read.
+	if ( false === $content ) {
+		continue;
+	}
 
 	$object = json_decode( $content );
 

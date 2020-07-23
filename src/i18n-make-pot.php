@@ -10,6 +10,10 @@
 
 namespace Pronamic\WordPress\Pay;
 
+if ( ! \class_exists( 'WP_CLI' ) ) {
+	return;
+}
+
 /*
  * The `pronamic i18n make-pot` command requires the `i18n make-pot` command.
  *

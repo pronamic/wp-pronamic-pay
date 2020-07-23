@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 6.3.0
+Stable tag: 6.3.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -142,6 +142,17 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.3.1 - 2020-07-23 =
+*	Updated WordPress pay core library to version 2.4.1.
+	*	Added email address as fallback for customer name in payments and subscriptions overview and details.
+	*	Fixed using deprecated `email` and `customer_name` properties.
+*	Updated WordPress pay Restrict Content Pro library to version 2.2.3.
+	*	Fixed possible 'Fatal error: Call to a member function `get_id()` on null'.
+*	Updated WordPress pay s2Member library to version 2.1.3.
+	*	Fixed creating empty subscriptions.
+*	Updated WordPress pay WooCommerce library to version 2.1.3.
+	*	Fixed compatibility with WooCommerce EU VAT Number plugin.
+
 = 6.3.0 - 2020-07-08 =
 *	Added support for Contact Form 7 plugin (requires Basic license).
 *	Updated WordPress pay core library to version 2.4.0.
@@ -224,42 +235,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 = 6.1.1 - 2020-04-06 =
 *	Updated deployment script.
-
-= 6.1.0 - 2020-04-06 =
-*	Updated WordPress pay Charitable library to version 2.1.1.
-	*	Fixed incorrect currency symbol filter.
-*	Updated WordPress pay MemberPress library to version 2.1.1.
-	*	Fixed "PHP Warning: call_user_func() expects parameter 1 to be a valid callback".
-*	Updated WordPress pay core library to version 2.3.1.
-	*	Added optional `$args` parameter to `get_pronamic_payment_by_meta()` function.
-	*	Added active plugin integrations to Site Health debug fields.
-	*	Fixed unnecessarily showing upgrade button in new installations.
-*	Updated WordPress pay Mollie library to version 2.1.2.
-	*	Fixed install issues on some specific WordPress installations.
-	*	Add initial Apple Pay support.
-*	Updated WordPress pay OmniKassa 2.0 library to version 2.2.1.
-	*	Improved webhook handling if multiple payments exist with same merchant order ID.
-*	Updated WordPress pay Easy Digital Downloads library to version 2.1.1.
-	*	Improved tax support for Easy Digital Downloads 3.0.
-*	Updated WordPress pay Gravity Forms library to version 2.3.0.
-	*	Added payment feed fields settings to auto detect first visible field of type in entry.
-	*	Added `pronamic_pay_again_url` merge tag, which can be used to pre-populate form after failed payment.
-	*	Fixed "Warning: Invalid argument supplied for foreach()" in calculation variables select.
-	*	Improved payment feed conditions with support for all fields and multiple rules.
-	*	Improved forms list performance.
-*	Updated WordPress pay Ninja Forms library to version 1.2.0.
-	*	Added payment status page action settings.
-	*	Updated action redirect to use payment redirect URL.
-*	Updated WordPress pay Restrict Content Pro library to version 2.2.1.
-	*	Improved CLI commands.
-	*	Improved 2.1.6 upgrade.
-*	Updated WordPress pay Event Espresso library to version 2.2.1.
-*	Updated WordPress pay Event Espresso (legacy) library to version 2.2.1.
-*	Updated WordPress pay Formidable Forms library to version 2.1.1.
-*	Updated WordPress pay Give library to version 2.1.1.
-*	Updated WordPress pay s2Member library to version 2.1.1.
-*	Updated WordPress pay WooCommerce library to version 2.1.1.
-*	Updated WordPress pay WP eCommerce library to version 2.1.1.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-ideal/changelog/)
 

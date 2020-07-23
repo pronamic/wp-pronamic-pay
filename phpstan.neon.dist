@@ -1,6 +1,10 @@
 parameters:
 	customRulesetUsed: false
+	dynamicConstantNames:
+		- PRONAMIC_PAY_DEBUG
 	level: max
 	bootstrap: tests/bootstrap.php
 	paths:
 		- src
+	excludes_analyse:
+		- src/i18n-make-pot.php

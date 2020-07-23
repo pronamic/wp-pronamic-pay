@@ -12,13 +12,18 @@ if ( ! PRONAMIC_PAY_DEBUG ) {
 	return;
 }
 
-global $__composer_autoload_files;
-
-if ( null === $__composer_autoload_files ) {
+if ( ! isset( $__composer_autoload_files ) ) {
 	$__composer_autoload_files = array();
 }
 
-foreach ( glob( __DIR__ . '/../repositories/*/*/vendor/composer/autoload_files.php' ) as $file ) {
+$files = glob( __DIR__ . '/../repositories/*/*/vendor/composer/autoload_files.php' );
+
+// Check for glob error.
+if ( false === $files ) {
+	return;
+}
+
+foreach ( $files as $file ) {
 	$files = require $file;
 
 	foreach ( $files as $identifier => $filepath ) {

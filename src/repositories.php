@@ -82,7 +82,11 @@ function version_update_awk_actions() {
 }
 
 if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
-	fwrite( fopen( __DIR__ . '/changelog-release.json', 'w+' ), '[null' );
+	$changelog_release = fopen( __DIR__ . '/changelog-release.json', 'w+' );
+
+	if ( false !== $changelog_release ) {
+		fwrite( $changelog_release, '[null' );
+	}
 }
 
 foreach ( $organisations as $organisation => $repositories ) {
@@ -171,7 +175,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 				TO=$(( $(grep -n "## \[" CHANGELOG.md | head -3 | tail -1 | cut -d: -f1) - 2 ));
 				LOG=$(cat CHANGELOG.md | head -n $TO | tail -n +$FROM );
 				echo "${LOG}"
-				echo ",{\"description\":\"Updated WordPress ' . ( 'pronamic' === $organisation ? null : 'pay ' ) . $name . ' library to version ${NEW_VERSION}.\",\"changes\":$(echo "${LOG}" | sed \'s/^- //\' | jq --raw-input --raw-output --slurp \'split("\\n") | .[0:-1]\')}" >> ../../../src/changelog-release.json';
+				echo ",{\"description\":\"Updated WordPress ' . ( 'pronamic' === $organisation ? '' : 'pay ' ) . $name . ' library to version ${NEW_VERSION}.\",\"changes\":$(echo "${LOG}" | sed \'s/^- //\' | jq --raw-input --raw-output --slurp \'split("\\n") | .[0:-1]\')}" >> ../../../src/changelog-release.json';
 		}
 
 		if ( isset( $argv[1] ) && 'update-package-version' === $argv[1] ) {
@@ -225,7 +229,14 @@ if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
 	array_shift( $updates );
 
 	// Release item.
-	$package = json_decode( file_get_contents( __DIR__ . '/../package.json' ) );
+	$package = file_get_contents( __DIR__ . '/../package.json' );
+
+	// Check if package file could be read.
+	if ( false === $package ) {
+		return;
+	}
+
+	$package = json_decode( $package );
 
 	$release = array(
 		array(
@@ -239,19 +250,43 @@ if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
 	);
 
 	// Insert in changelog after 'Unreleased' item.
-	$changelog = json_decode( file_get_contents( __DIR__ . '/changelog.json' ) );
+	$changelog = file_get_contents( __DIR__ . '/changelog.json' );
+
+	// Check if changelog file could be read.
+	if ( false === $changelog ) {
+		return;
+	}
+
+	$changelog = json_decode( $changelog );
 
 	array_splice( $changelog, 1, 0, $release );
 
 	// Use tabs for indentation.
+	$changelog_json = json_encode( $changelog, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+
+	// Check if changelog could be JSON encoded.
+	if ( false === $changelog_json ) {
+		return;
+	}
+
 	$json = preg_replace_callback(
 		'/^ +/m',
-		function( $indentation ) {
-			return str_repeat( '	', strlen( $indentation[0] ) / 4 );
+		/**
+		 * Repeated tabs based on indentation length.
+		 *
+		 * @param array<int, string> $indentation Indentation spaces.
+		 * @return string
+		 */
+		function ( $indentation ) {
+			return str_repeat( '	', (int) ceil( strlen( $indentation[0] ) / 4 ) );
 		},
-		json_encode( $changelog, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )
+		$changelog_json
 	);
 
 	// Write updated changelog.
-	fwrite( fopen( __DIR__ . '/changelog.json', 'w+' ), $json . PHP_EOL );
+	$handle = fopen( __DIR__ . '/changelog.json', 'w+' );
+
+	if ( false !== $handle ) {
+		fwrite( $handle, $json . PHP_EOL );
+	}
 }

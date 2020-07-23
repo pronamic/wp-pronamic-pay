@@ -8,14 +8,21 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-$data      = file_get_contents( __DIR__ . '/../changelog.json' );
+$data = file_get_contents( __DIR__ . '/../changelog.json' );
+
+// Check if file could be read.
+if ( false === $data ) {
+	return;
+}
+
 $changelog = json_decode( $data );
 
 /**
  * Render changes.
  *
- * @param string|array|object $changes Changes.
- * @param int                 $level   Indentation level.
+ * @param string|array<int, object>|object $changes Changes.
+ * @param int                              $level   Indentation level.
+ * @return void
  */
 function render_changes( $changes, $level = 0 ) {
 	$indent = $level * 1;

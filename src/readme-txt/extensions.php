@@ -8,7 +8,13 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-$data       = file_get_contents( __DIR__ . '/../extensions.json' );
+$data = file_get_contents( __DIR__ . '/../extensions.json' );
+
+// Check if file could be read.
+if ( false === $data ) {
+	return;
+}
+
 $extensions = json_decode( $data );
 
 foreach ( $extensions as $extension ) {

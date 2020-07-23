@@ -10,6 +10,12 @@
 
 // Providers.
 $data = file_get_contents( __DIR__ . '/../providers.json' );
+
+// Check if file could be read.
+if ( false === $data ) {
+	return;
+}
+
 $data = json_decode( $data );
 
 $providers = array();
@@ -19,7 +25,13 @@ foreach ( $data as $provider ) {
 }
 
 // Gateways.
-$data     = file_get_contents( __DIR__ . '/../gateways.json' );
+$data = file_get_contents( __DIR__ . '/../gateways.json' );
+
+// Check if file could be read.
+if ( false === $data ) {
+	return;
+}
+
 $gateways = json_decode( $data );
 
 foreach ( $gateways as $gateway ) {

@@ -101,6 +101,27 @@ entity "wp_pronamic_pay_subscriptions" as subscription {
 	INDEX( payment_method )
 }
 
+entity "wp_pronamic_pay_subscription_period_definitions" as subscription_period_definition {
+	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
+	* created_at : DATETIME
+	* updated_at : DATETIME
+	* subscription_id : BIGINT(20) UNSIGNED
+	* sequence_number : INT(3) UNSIGNED
+	* type : VARCHAR(20)
+	* name : VARCHAR(255)
+	* interval_unit : VARCHAR(1)
+	* interval_value : INT(3) UNSIGNED
+	times : INT(3) UNSIGNED
+
+	__ indexes __
+	PRIMARY( id )
+}
+
+note left of subscription_period_definition::interval_unit
+  'interval unit' or 'period designator'?
+end note
+
+
 entity "wp_pronamic_pay_subscription_periods" as subscription_period {
 	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
 	* created_at : DATETIME
