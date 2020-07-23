@@ -4,6 +4,40 @@
 		"changes": []
 	},
 	{
+		"version": "6.3.1",
+		"date": "2020-07-23",
+		"changes": {
+			"name": "Fixed",
+			"changes": [
+				{
+					"description": "Updated WordPress pay core library to version 2.4.1.",
+					"changes": [
+						"Added email address as fallback for customer name in payments and subscriptions overview and details.",
+						"Fixed using deprecated `email` and `customer_name` properties."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Restrict Content Pro library to version 2.2.3.",
+					"changes": [
+						"Fixed possible 'Fatal error: Call to a member function `get_id()` on null'."
+					]
+				},
+				{
+					"description": "Updated WordPress pay s2Member library to version 2.1.3.",
+					"changes": [
+						"Fixed creating empty subscriptions."
+					]
+				},
+				{
+					"description": "Updated WordPress pay WooCommerce library to version 2.1.3.",
+					"changes": [
+						"Fixed compatibility with WooCommerce EU VAT Number plugin."
+					]
+				}
+			]
+		}
+	},
+	{
 		"version": "6.3.0",
 		"date": "2020-07-08",
 		"changes": [
