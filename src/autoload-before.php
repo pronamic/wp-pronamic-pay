@@ -12,6 +12,8 @@ if ( ! PRONAMIC_PAY_DEBUG ) {
 	return;
 }
 
+global $__composer_autoload_files;
+
 if ( ! isset( $__composer_autoload_files ) ) {
 	$__composer_autoload_files = array();
 }
