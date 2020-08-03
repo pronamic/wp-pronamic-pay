@@ -12,10 +12,8 @@ if ( ! PRONAMIC_PAY_DEBUG ) {
 	return;
 }
 
-global $__composer_autoload_files;
-
-if ( ! isset( $__composer_autoload_files ) ) {
-	$__composer_autoload_files = array();
+if ( ! isset( $GLOBALS['__composer_autoload_files'] ) ) {
+	$GLOBALS['__composer_autoload_files'] = array();
 }
 
 $files = glob( __DIR__ . '/../repositories/*/*/vendor/composer/autoload_files.php' );
@@ -29,7 +27,7 @@ foreach ( $files as $file ) {
 	$files = require $file;
 
 	foreach ( $files as $identifier => $filepath ) {
-		if ( array_key_exists( $identifier, $__composer_autoload_files ) ) {
+		if ( array_key_exists( $identifier, $GLOBALS['__composer_autoload_files'] ) ) {
 			continue;
 		}
 
@@ -41,6 +39,6 @@ foreach ( $files as $file ) {
 
 		require $filepath;
 
-		$__composer_autoload_files[ $identifier ] = true;
+		$GLOBALS['__composer_autoload_files'][ $identifier ] = true;
 	}
 }
