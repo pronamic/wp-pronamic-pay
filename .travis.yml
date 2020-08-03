@@ -61,8 +61,6 @@ before_install:
     fi
   # Raise PHP memory limit to 2048MB
   - echo 'memory_limit = 2048M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-  # Set Node version.
-  - nvm install 12
   # Validate composer.json file.
   - composer validate --strict
   # Add Composer global vendor/bin to path.
