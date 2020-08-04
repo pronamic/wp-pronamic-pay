@@ -18,9 +18,19 @@ if ( false === $data ) {
 $extensions = json_decode( $data );
 
 foreach ( $extensions as $extension ) {
+	$note = '';
+
+	if ( \property_exists( $extension, 'license' ) ) {
+		$note = \sprintf(
+ 			' (requires [%s license](https://www.pronamic.eu/plugins/pronamic-ideal/))',
+ 			$extension->license
+		);
+	}
+
 	printf(
-		"*	[%s](%s)\n",
+		"*	[%s](%s)%s\n",
 		$extension->name,
-		$extension->url
+		$extension->url,
+		$note
 	);
 }

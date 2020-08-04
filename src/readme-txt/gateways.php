@@ -51,6 +51,15 @@ foreach ( $gateways as $gateway ) {
 // Print gateways.
 foreach ( $providers as $provider ) {
 	foreach ( $provider->gateways as $gateway ) {
-		printf( "*	%s\n", $gateway->name );
+		$note = '';
+
+		if ( \property_exists( $gateway, 'license' ) ) {
+			$note = \sprintf(
+	 			' (requires [%s license](https://www.pronamic.eu/plugins/pronamic-ideal/))',
+	 			$gateway->license
+			);
+		}
+
+		printf( "*	%s%s\n", $gateway->name, $note );
 	}
 }
