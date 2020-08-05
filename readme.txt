@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 6.3.1
+Stable tag: 6.3.2
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -136,6 +136,12 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.3.2 - 2020-08-05 =
+*	Updated WordPress pay MemberPress library to version 2.1.3.
+	*	Fixed reactivating cancelled MemberPress subscription when pending recurring payment completes.
+*	Updated WordPress pay WooCommerce library to version 2.1.4.
+	*	Fixed possible error on WooCommerce products admin page.
+
 = 6.3.1 - 2020-07-23 =
 *	Updated WordPress pay core library to version 2.4.1.
 	*	Added email address as fallback for customer name in payments and subscriptions overview and details.
@@ -226,9 +232,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Improved webhook handling if multiple gateway configurations exist.
 *	Updated WordPress pay Formidable Forms library to version 2.1.2.
 	*	Updated settings description for delaying email notifications.
-
-= 6.1.1 - 2020-04-06 =
-*	Updated deployment script.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
