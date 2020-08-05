@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay 6.3.1\n"
+"Project-Id-Version: Pronamic Pay 6.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2020-07-23T07:17:16+00:00\n"
-"PO-Revision-Date: 2020-06-03 00:06+0200\n"
+"PO-Revision-Date: 2020-08-05 10:47+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. Plugin Name of the plugin
@@ -553,17 +553,16 @@ msgstr "Sofortüberweisung"
 #: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:204
 #: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:228
 msgid "Contact Form 7"
-msgstr ""
+msgstr "Contact Form 7"
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:147
 msgid "Please wait while redirecting for payment"
-msgstr ""
+msgstr "Bitte warten Sie, während umleiten für die Zahlung"
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:216
 #: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:240
-#, fuzzy
 msgid "Contact Form 7 Entry"
-msgstr "Ninja Forms Eintritt"
+msgstr "Contact Form 7 Eintrag"
 
 #. translators: %s: payment data title
 #. translators: %s: title
@@ -579,9 +578,8 @@ msgstr "Zahlung für %s"
 
 #. translators: %s: order id
 #: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:165
-#, fuzzy
 msgid "Contact Form 7 Entry @ %s"
-msgstr "Ninja Forms Eintritt"
+msgstr "Contact Form 7 Eintrag @ %s"
 
 #. translators: %s: entry id
 #. translators: %s: source id
@@ -595,11 +593,11 @@ msgstr "Zahlung %s"
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/AmountTag.php:151
 msgid "Input amount is invalid."
-msgstr ""
+msgstr "Eingabebetrag ist ungültig."
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/AmountTag.php:152
 msgid "The input amount is invalid."
-msgstr ""
+msgstr "Der Eingabebetrag ist ungültig."
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/IssuerTag.php:166
 #: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:528
@@ -611,14 +609,12 @@ msgid "Issuer"
 msgstr "Aussteller"
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/PaymentMethodTag.php:194
-#, fuzzy
 msgid "Payment method required."
-msgstr "Zahlungsmethode"
+msgstr "Zahlungsmethode erforderlich."
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/PaymentMethodTag.php:195
-#, fuzzy
 msgid "The payment method is invalid."
-msgstr "Keine Zahlungsmethode angegeben."
+msgstr "Die Zahlungsmethode ist ungültig."
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/PaymentMethodTag.php:209
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:58
@@ -634,49 +630,51 @@ msgid ""
 "optional in most cases. For step-by-step instructions on receiving payments "
 "with Contact Form 7, please see %2$s."
 msgstr ""
+"Generieren Sie ein Tag für ein Ausstellerfeld. %1$s erfordert ein Feld mit "
+"der Option `pronamic_pay_amount`, aber die Felder für Zahlungsmethode und "
+"Aussteller sind in den meisten Fällen optional. Eine Schritt-für-Schritt-"
+"Anleitung zum Empfang von Zahlungen mit Contact Form 7 finden Sie unter %2$s."
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:16
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:19
-#, fuzzy
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-contact-form-7-to-pronamic-"
 "pay/"
 msgstr ""
-"https://www.pronamic.eu/support/how-to-connect-icepay-with-wordpress-via-"
-"pronamic-pay/"
+"https://www.pronamic.eu/support/how-to-connect-contact-form-7-to-pronamic-"
+"pay/"
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:16
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:19
 msgid "How to connect Contact Form 7 to Pronamic Pay"
-msgstr ""
+msgstr "So verbinden Sie das Contact Form 7 mit Pronamic Pay"
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:37
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:42
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:40
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:45
-#, fuzzy
 msgid "Field type"
-msgstr "Felder"
+msgstr "Feldtyp"
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:46
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:49
 msgid "Required field"
-msgstr ""
+msgstr "Pflichtfeld"
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:66
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:108
 msgid "Id attribute"
-msgstr ""
+msgstr "Id-Attribut"
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:76
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:118
 msgid "Class attribute"
-msgstr ""
+msgstr "CSS-Klasse"
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:91
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:133
 msgid "Insert Tag"
-msgstr ""
+msgstr "Tag einfügen"
 
 #. translators: %s: mail-tag placeholder HTML
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:102
@@ -685,6 +683,9 @@ msgid ""
 "To use the value input through this field in a mail field, you need to "
 "insert the corresponding mail-tag (%s) into the field on the Mail tab."
 msgstr ""
+"Um den Eingabewert mittels dieses Feldes in einem E-Mail-Feld zu verwenden, "
+"müssen Sie den entsprechenden E-Mail-Tag (%s) in das Feld auf der "
+"Registerkarte E-Mail einfügen."
 
 #. translators: 1: Pronamic Pay plugin name, 2: documentation URL anchor
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:17
@@ -694,6 +695,11 @@ msgid ""
 "optional in most cases. For step-by-step instructions on receiving payments "
 "with Contact Form 7, please see %2$s."
 msgstr ""
+"Generieren Sie ein Tag für ein Zahlungsmethodenfeld. %1$s erfordert ein Feld "
+"mit der Option `pronamic_pay_amount`, aber die Felder für Zahlungsmethode "
+"und Aussteller sind in den meisten Fällen optional. Eine Schritt-für-Schritt-"
+"Anleitung zum Empfang von Zahlungen mit Contact Forms 7 finden Sie unter "
+"%2$s."
 
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:68
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:73
@@ -750,7 +756,6 @@ msgstr "Abgebrochen"
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:498
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:528
-#, fuzzy
 msgctxt "Easy Digital Downloads cancelled payment status"
 msgid "Cancelled"
 msgstr "Abgebrochen"
@@ -1847,16 +1852,14 @@ msgid "Account IBAN"
 msgstr "Konto IBAN"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:898
-#, fuzzy
 msgid "Company Name"
-msgstr "Anzeigename"
+msgstr "Firmenname"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:899
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:301
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:325
-#, fuzzy
 msgid "VAT Number"
-msgstr "Kartennummer"
+msgstr "USt-IdNr"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:920
 msgid "— From first name field —"
@@ -3946,15 +3949,13 @@ msgstr "Mollie Zahlungen"
 
 #. translators: 1: old mandate ID, 2: new mandate ID
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:701
-#, fuzzy
 msgid "Mandate for subscription changed from \"%1$s\" to \"%2$s\"."
-msgstr "Abonnement-Status von \"%1$s\" in \"%2$s\" geändert."
+msgstr "Das Abonnementmandat wurde von \"%1$s\" auf \"%2$s\" geändert."
 
 #. translators: 1: old payment method, 2: new payment method
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:729
-#, fuzzy
 msgid "Payment method for subscription changed from \"%1$s\" to \"%2$s\"."
-msgstr "Bezahlstatus wurde von \"%s\" zu \"%s\" geändert."
+msgstr "Die Zahlungsmethode für Abonnement geändert von \"%1$s\" auf \"%2$s\"."
 
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:57
 msgid "https://www.mollie.com/en/pricing"
@@ -4006,9 +4007,8 @@ msgstr "Kunde: %s"
 
 #. translators: %s: Mollie mandate ID
 #: vendor/wp-pay-gateways/mollie/views/meta-box-subscription.php:64
-#, fuzzy
 msgid "Mandate: %s"
-msgstr "Mandate"
+msgstr "Mandat: %s"
 
 #. translators: %s: Mollie customer ID.
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:93
@@ -5449,54 +5449,52 @@ msgid "Payment Form Block"
 msgstr "Zahlungsformular-Block"
 
 #: vendor/wp-pay/core/src/Cards.php:46
-#, fuzzy
 msgid "American Express"
-msgstr "Event Espresso"
+msgstr "American Express"
 
 #: vendor/wp-pay/core/src/Cards.php:51
 msgid "Carta Si"
-msgstr ""
+msgstr "Carta Si"
 
 #: vendor/wp-pay/core/src/Cards.php:56
 msgid "Carte Bleue"
-msgstr ""
+msgstr "Carte Bleue"
 
 #: vendor/wp-pay/core/src/Cards.php:61
 msgid "Dankort"
-msgstr ""
+msgstr "Dankort"
 
 #: vendor/wp-pay/core/src/Cards.php:66
 msgid "Diners Club"
-msgstr ""
+msgstr "Diners Club"
 
 #: vendor/wp-pay/core/src/Cards.php:71
-#, fuzzy
 msgid "Discover"
-msgstr "Rabatt"
+msgstr "Discover"
 
 #: vendor/wp-pay/core/src/Cards.php:76
 msgid "JCB"
-msgstr ""
+msgstr "JCB"
 
 #: vendor/wp-pay/core/src/Cards.php:86
 msgid "Mastercard"
-msgstr ""
+msgstr "Mastercard"
 
 #: vendor/wp-pay/core/src/Cards.php:91
 msgid "UnionPay"
-msgstr ""
+msgstr "UnionPay"
 
 #: vendor/wp-pay/core/src/Cards.php:96
 msgid "Visa"
-msgstr ""
+msgstr "Visa"
 
 #: vendor/wp-pay/core/src/Cards.php:113
 msgid "bunq"
-msgstr ""
+msgstr "bunq"
 
 #: vendor/wp-pay/core/src/Cards.php:118
 msgid "Handelsbanken"
-msgstr ""
+msgstr "Handelsbanken"
 
 #: vendor/wp-pay/core/src/Core/Gateway.php:392
 msgctxt "Payment method field"
@@ -6224,9 +6222,8 @@ msgid "Interval Period"
 msgstr "Intervalle"
 
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:236
-#, fuzzy
 msgid "Gateway does not support subscription mandate updates."
-msgstr "Gateway unterstützt das Senden zusätzlicher Zahlungsdetails nicht."
+msgstr "Gateway unterstützt keine Abonnementmandataktualisierungen."
 
 #. translators: 1: new status
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:687
@@ -6519,25 +6516,23 @@ msgstr "Weiterleitungs-URL"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:282
 msgid "Company"
-msgstr ""
+msgstr "Firma"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:312
-#, fuzzy
 msgid "VAT Number Validity"
-msgstr "Anzahl Tage gültig"
+msgstr "MwSt.-Nummer Gültigkeit"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:333
-#, fuzzy
 msgid "Request Date"
-msgstr "Erfordert mindestens"
+msgstr "Anfragesdatum"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:382
 msgid "Validation Service"
-msgstr ""
+msgstr "Validierungsdienst"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:389
 msgid "VIES"
-msgstr ""
+msgstr "MIAS"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:521
 msgid "Account Holder"
@@ -6742,7 +6737,7 @@ msgstr "Verlängerung URL"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:350
 msgid "Mandate Selection URL"
-msgstr ""
+msgstr "URL zur Mandatsauswahl"
 
 #: vendor/wp-pay/core/views/notice-license.php:24
 msgid "You succesfully activated your website."
@@ -6901,13 +6896,12 @@ msgstr ""
 "Übersicht über die letzten ausstehenden Zahlungen anzeigen."
 
 #: vendor/wp-pay/core/views/pointer-dashboard.php:16
-#, fuzzy
 msgid ""
 "It also gives you access to the “Getting Started” and “Site Health” pages in "
 "case you have issues."
 msgstr ""
-"Sie erhalten außerdem Zugriff auf die Seiten \"Erste Schritte\" und "
-"\"Systemstatus\", falls Sie Probleme haben sollten."
+"Es gibt auch Zugriff auf die Seiten \"Erste Schritte\" und \"Site Health\", "
+"falls es Probleme gibt."
 
 #: vendor/wp-pay/core/views/pointer-dashboard.php:17
 msgid "And you can follow the latest news from the Pronamic.eu weblog."
@@ -7060,67 +7054,58 @@ msgstr "Folgen Sie Pronamic"
 
 #: vendor/wp-pay/core/views/subscription-mandate-failed.php:18
 #: vendor/wp-pay/core/views/subscription-mandate-updated.php:18
-#, fuzzy
 msgid "Subscription Mandate"
-msgstr "Abonnement aktualisiert."
+msgstr "Abonnementmandat"
 
 #: vendor/wp-pay/core/views/subscription-mandate-failed.php:27
-#, fuzzy
 msgid "The mandate for this subscription can not be updated."
-msgstr "Das Abonnement kann nicht erneuert werden."
+msgstr "Das Mandat für dieses Abonnement kann nicht aktualisiert werden."
 
 #: vendor/wp-pay/core/views/subscription-mandate-updated.php:27
-#, fuzzy
 msgid "The subscription has been updated."
-msgstr "Das Abonnement kann nicht erneuert werden."
+msgstr "Das Abonnement wurde aktualisiert."
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:55
 #: vendor/wp-pay/core/views/subscription-mandate.php:65
-#, fuzzy
 msgid "Change subscription payment method"
-msgstr "Abonnementzahlung hinzugefügt"
+msgstr "Ändern der Abonnementzahlungsmethode"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:69
 msgid "Select an existing payment method or add a new one."
 msgstr ""
+"Wählen Sie eine vorhandene Zahlungsmethode aus, oder fügen Sie eine neue "
+"Zahlungsmethode hinzu."
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:76
-#, fuzzy
 msgid "Select existing payment method"
-msgstr "Zahlungsmethode auwählen"
+msgstr "Vorhandene Zahlungsmethode auswählen"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:99
-#, fuzzy
 msgctxt "Card selector"
 msgid "Card Number"
 msgstr "Kartennummer"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:107
-#, fuzzy
 msgctxt "Card selector"
 msgid "Account Number"
 msgstr "Kontonummer"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:152
-#, fuzzy
 msgctxt "Card selector"
 msgid "Name"
 msgstr "Name"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:171
-#, fuzzy
 msgid "Use selected payment method"
-msgstr "Zahlungsmethode auwählen"
+msgstr "Ausgewählte Zahlungsmethode verwenden"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:181
-#, fuzzy
 msgid "Add new payment method"
-msgstr "Neue Zahlung-Feed hinzufügen"
+msgstr "Neue Zahlungsmethode hinzufügen"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:186
-#, fuzzy
 msgid "Select payment method for verification payment."
-msgstr "Zahlungsmethode auwählen"
+msgstr "Wählen Sie die Zahlungsmethode für die Überprüfungszahlung aus."
 
 #: vendor/wp-pay/core/views/subscription-renew-failed.php:18
 #: vendor/wp-pay/core/views/subscription-renew.php:18
