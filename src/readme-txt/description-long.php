@@ -19,9 +19,3 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 = Supported payment providers =
 
 <?php require 'gateways.php'; ?>
-
-= Premium payment providers =
-
-<?php require 'premium_gateways.php'; ?>
-
-Premium payment providers require a [Pro license](https://www.pronamic.eu/plugins/pronamic-pay/).
