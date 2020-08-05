@@ -100,6 +100,7 @@ while ( $have_configs ) {
 	$have_configs = ! empty( $configs );
 
 	foreach ( $configs as $config ) {
+		/* translators: %d: configuration ID */
 		$title = sprintf( __( 'Configuration %d', 'pronamic_ideal' ), $config->id );
 
 		// Post
@@ -274,7 +275,11 @@ while ( $have_feeds ) {
 	foreach ( $feeds as $feed ) {
 		// Post
 		$post = array(
-			'post_title'  => sprintf( __( 'Payment Form %d', 'pronamic_ideal' ), $feed->id ),
+			'post_title'  => sprintf(
+				/* translators: %d: payment feed ID */
+				__( 'Payment Form %d', 'pronamic_ideal' ),
+				$feed->id
+			),
 			'post_type'   => 'pronamic_pay_gf',
 			'post_status' => 'publish',
 		);
@@ -391,7 +396,11 @@ while ( $have_payments ) {
 	foreach ( $payments as $payment ) {
 		// Post
 		$post = array(
-			'post_title'    => sprintf( __( 'Payment %d', 'pronamic_ideal' ), $payment->id ),
+			'post_title'    => sprintf(
+				/* translators: %d: payment ID */
+				__( 'Payment %d', 'pronamic_ideal' ),
+				$payment->id
+			),
 			'post_date'     => get_date_from_gmt( $payment->date_gmt ),
 			'post_date_gmt' => $payment->date_gmt,
 			'post_type'     => 'pronamic_payment',

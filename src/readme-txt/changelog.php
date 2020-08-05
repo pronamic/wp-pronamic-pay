@@ -79,4 +79,4 @@ foreach ( $changelog as $log ) {
 	}
 }
 
-echo '[See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-ideal/changelog/)';
+echo '[See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)';

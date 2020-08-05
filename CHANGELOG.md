@@ -6,6 +6,14 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.3.2] - 2020-08-05
+
+### Fixed
+- Updated WordPress pay MemberPress library to version 2.1.3.
+  - Fixed reactivating cancelled MemberPress subscription when pending recurring payment completes.
+- Updated WordPress pay WooCommerce library to version 2.1.4.
+  - Fixed possible error on WooCommerce products admin page.
+
 ## [6.3.1] - 2020-07-23
 
 ### Fixed
@@ -2495,7 +2503,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.2...HEAD
+[6.3.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.1...6.3.2
 [6.3.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.0...6.3.1
 [6.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.2.0...6.3.0
 [6.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.1.2...6.2.0

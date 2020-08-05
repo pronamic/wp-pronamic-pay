@@ -1,11 +1,11 @@
 === Pronamic Pay ===
 Contributors: pronamic, remcotolsma 
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
-Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
+Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
 Requires at least: 4.7
-Tested up to: 5.4
+Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 6.3.1
+Stable tag: 6.3.2
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -29,7 +29,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 = Supported WordPress e-commerce plugins =
 
 *	[Charitable](https://www.wpcharitable.com/)
-*	[Contact Form 7](https://contactform7.com/) (requires [Basic license](https://www.pronamic.eu/plugins/pronamic-ideal/))
+*	[Contact Form 7](https://contactform7.com/) (requires [Basic license](https://www.pronamic.eu/plugins/pronamic-pay/))
 *	[Easy Digital Downloads](https://easydigitaldownloads.com/)
 *	[Event Espresso 3](https://eventespresso.com/)
 *	[Event Espresso 3 Lite](https://eventespresso.com/)
@@ -53,7 +53,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 = Supported payment providers =
 
 *	ABN AMRO - iDEAL Zelfbouw (v3)
-*	Adyen (requires [Pro license](https://www.pronamic.eu/plugins/pronamic-ideal/))
+*	Adyen (requires [Pro license](https://www.pronamic.eu/plugins/pronamic-pay/))
 *	Buckaroo - HTML
 *	Deutsche Bank - iDEAL Expert (v3)
 *	EMS - e-Commerce
@@ -73,12 +73,6 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	Rabobank - iDEAL Professional (v3)
 *	Sisow
 *	TargetPay - iDEAL
-
-= Premium payment providers =
-
-*	Adyen
-
-Premium payment providers require a [Pro license](https://www.pronamic.eu/plugins/pronamic-ideal/).
 
 
 == Installation ==
@@ -141,6 +135,12 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 6.3.2 - 2020-08-05 =
+*	Updated WordPress pay MemberPress library to version 2.1.3.
+	*	Fixed reactivating cancelled MemberPress subscription when pending recurring payment completes.
+*	Updated WordPress pay WooCommerce library to version 2.1.4.
+	*	Fixed possible error on WooCommerce products admin page.
 
 = 6.3.1 - 2020-07-23 =
 *	Updated WordPress pay core library to version 2.4.1.
@@ -233,10 +233,7 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 *	Updated WordPress pay Formidable Forms library to version 2.1.2.
 	*	Updated settings description for delaying email notifications.
 
-= 6.1.1 - 2020-04-06 =
-*	Updated deployment script.
-
-[See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-ideal/changelog/)
+[See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
 == Links ==
 
