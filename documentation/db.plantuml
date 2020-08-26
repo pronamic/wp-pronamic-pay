@@ -101,7 +101,7 @@ entity "wp_pronamic_pay_subscriptions" as subscription {
 	INDEX( payment_method )
 }
 
-entity "wp_pronamic_pay_subscription_period_definitions" as subscription_period_definition {
+entity "wp_pronamic_pay_subscription_phases" as subscription_phase {
 	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
 	* created_at : DATETIME
 	* updated_at : DATETIME
@@ -117,8 +117,8 @@ entity "wp_pronamic_pay_subscription_period_definitions" as subscription_period_
 	PRIMARY( id )
 }
 
-note left of subscription_period_definition::interval_unit
-  'interval unit' or 'period designator'?
+note left of subscription_phase::interval_unit
+  Options 'interval unit' or 'period designator'?
 end note
 
 
@@ -127,6 +127,7 @@ entity "wp_pronamic_pay_subscription_periods" as subscription_period {
 	* created_at : DATETIME
 	* updated_at : DATETIME
 	* subscription_id : BIGINT(20) UNSIGNED <<fk>>
+	* phase_id : BIGINT(20) UNSIGNED <<fk>>
 	* start_date : DATE
 	* end_date : DATE
 	* amount : DECIMAL(27,18)
@@ -152,6 +153,15 @@ note left of subscription_period::status
   For example: 'open', 'pending', 'paid', 'refunded', 'failed', 'canceled'
 end note
 
+entity "wp_pronamic_pay_subscription_transactions" as subscription_transaction {
+	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
+	* created_at : DATETIME
+	* updated_at : DATETIME
+	* subscription_id : BIGINT(20) UNSIGNED <<fk>>
+	* subscription_period_id : BIGINT(20) UNSIGNED <<fk>>
+	* transaction_id : BIGINT(20) UNSIGNED <<fk>>
+}
+
 entity "wp_pronamic_pay_transactions" as transaction {
 	* <u>id</u> : BIGINT(20) UNSIGNED <<pk>>
 	* created_at : DATETIME
@@ -172,8 +182,6 @@ entity "wp_pronamic_pay_transactions" as transaction {
 	expires_at : DATETIME
 	expired_at : DATETIME
 	failed_at : DATETIME
-	subscription_id : BIGINT(20) UNSIGNED <<fk>>
-	subscription_period_id : BIGINT(20) UNSIGNED <<fk>>
 	payment_method : VARCHAR(32)
 	invoice_number : VARCHAR(32)
 	metadata : JSON
@@ -241,8 +249,19 @@ order --o| address : shipping
 order ||--o| subscription
 order ||--o{ order_line
 order ||--o{ transaction
-subscription ||--o{ subscription_period
-subscription |o--o{ transaction
-subscription_period ||--o{ transaction
+subscription ||--o{ subscription_phase
+subscription_phase ||--o{ subscription_period
+
+subscription_transaction "0…*" |o--o{ "0…*" transaction
+
+subscription_transaction "0…*" ||--o{ "0…*" subscription
+note on link
+A payment can be for multiple subscriptions.
+end note
+
+subscription_transaction "0…*" ||--o{ "0…*" subscription_period
+note on link
+A payment can be for multiple subscriptions and periods.
+end note
 
 @enduml
