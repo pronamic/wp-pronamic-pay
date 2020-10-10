@@ -176,18 +176,18 @@ add_filter(
 		// ABN AMRO - iDEAL Zelfbouw (v3).
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'               => 'abnamro-ideal-zelfbouw-v3',
-				'name'             => 'ABN AMRO - iDEAL Zelfbouw (v3)',
-				'provider'         => 'abnamro',
-				'url'              => 'https://abnamro.ideal-payment.de/',
-				'product_url'      => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
-				'dashboard_url'    => array(
+				'id'                => 'abnamro-ideal-zelfbouw-v3',
+				'name'              => 'ABN AMRO - iDEAL Zelfbouw (v3)',
+				'provider'          => 'abnamro',
+				'url'               => 'https://abnamro.ideal-payment.de/',
+				'product_url'       => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
+				'dashboard_url'     => array(
 					'test' => 'https://abnamro-test.ideal-payment.de/',
 					'live' => 'https://abnamro.ideal-payment.de/',
 				),
-				'aquirer_url'      => 'https://abnamro.ideal-payment.de/ideal/iDEALv3',
-				'aquirer_test_url' => 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3',
-				'certificates'     => array(),
+				'acquirer_url'      => 'https://abnamro.ideal-payment.de/ideal/iDEALv3',
+				'acquirer_test_url' => 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3',
+				'certificates'      => array(),
 			)
 		);
 
@@ -197,17 +197,17 @@ add_filter(
 		// Deutsche Bank - iDEAL Expert (v3).
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'               => 'deutschebank-ideal-expert-v3',
-				'name'             => 'Deutsche Bank - iDEAL Expert (v3)',
-				'provider'         => 'deutschebank',
-				'product_url'      => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
-				'dashboard_url'    => array(
+				'id'                => 'deutschebank-ideal-expert-v3',
+				'name'              => 'Deutsche Bank - iDEAL Expert (v3)',
+				'provider'          => 'deutschebank',
+				'product_url'       => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
+				'dashboard_url'     => array(
 					'test' => 'https://myideal.test.db.com/',
 					'live' => 'https://myideal.db.com/',
 				),
-				'aquirer_url'      => 'https://myideal.db.com/ideal/iDealv3',
-				'aquirer_test_url' => null,
-				'certificates'     => array(),
+				'acquirer_url'      => 'https://myideal.db.com/ideal/iDealv3',
+				'acquirer_test_url' => null,
+				'certificates'      => array(),
 			)
 		);
 
@@ -230,48 +230,48 @@ add_filter(
 		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3).
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'               => 'ideal-simulator-ideal-advanced-v3',
-				'name'             => 'iDEAL Simulator - iDEAL Professional / Advanced',
-				'provider'         => 'ideal-simulator',
-				'product_url'      => 'https://www.ideal-checkout.nl/support/ideal-simulator',
-				'aquirer_url'      => 'https://www.ideal-checkout.nl/simulator/',
-				'aquirer_test_url' => null,
-				'certificates'     => array(),
+				'id'                => 'ideal-simulator-ideal-advanced-v3',
+				'name'              => 'iDEAL Simulator - iDEAL Professional / Advanced',
+				'provider'          => 'ideal-simulator',
+				'product_url'       => 'https://www.ideal-checkout.nl/support/ideal-simulator',
+				'acquirer_url'      => 'https://www.ideal-checkout.nl/simulator/',
+				'acquirer_test_url' => null,
+				'certificates'      => array(),
 			)
 		);
 
 		// ING - iDEAL Basic.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
 			array(
-				'id'               => 'ing-ideal-basic',
-				'name'             => 'ING - iDEAL Basic',
-				'provider'         => 'ing',
-				'product_url'      => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'       => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
-				'dashboard_url'    => array(
+				'id'                => 'ing-ideal-basic',
+				'name'              => 'ING - iDEAL Basic',
+				'provider'          => 'ing',
+				'product_url'       => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'manual_url'        => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url'     => array(
 					'test' => 'https://idealtest.secure-ing.com/',
 					'live' => 'https://ideal.secure-ing.com/',
 				),
-				'aquirer_url'      => 'https://ideal.secure-ing.com/ideal/mpiPayInitIng.do',
-				'aquirer_test_url' => 'https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do',
+				'acquirer_url'      => 'https://ideal.secure-ing.com/ideal/mpiPayInitIng.do',
+				'acquirer_test_url' => 'https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do',
 			)
 		);
 
 		// ING - iDEAL Advanced (v3).
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'               => 'ing-ideal-advanced-v3',
-				'name'             => 'ING - iDEAL Advanced (v3)',
-				'provider'         => 'ing',
-				'product_url'      => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'       => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
-				'dashboard_url'    => array(
+				'id'                => 'ing-ideal-advanced-v3',
+				'name'              => 'ING - iDEAL Advanced (v3)',
+				'provider'          => 'ing',
+				'product_url'       => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'manual_url'        => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url'     => array(
 					'test' => 'https://idealtest.secure-ing.com/',
 					'live' => 'https://ideal.secure-ing.com/',
 				),
-				'aquirer_url'      => 'https://ideal.secure-ing.com/ideal/iDEALv3',
-				'aquirer_test_url' => 'https://idealtest.secure-ing.com/ideal/iDEALv3',
-				'certificates'     => array(),
+				'acquirer_url'      => 'https://ideal.secure-ing.com/ideal/iDEALv3',
+				'acquirer_test_url' => 'https://idealtest.secure-ing.com/ideal/iDEALv3',
+				'certificates'      => array(),
 			)
 		);
 
@@ -294,13 +294,13 @@ add_filter(
 		// Mollie - iDEAL Basic.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
 			array(
-				'id'               => 'mollie-ideal-basic',
-				'name'             => 'Mollie - iDEAL Basic',
-				'provider'         => 'mollie',
-				'dashboard_url'    => 'http://www.mollie.nl/beheer/',
-				'deprecated'       => true,
-				'aquirer_url'      => 'https://secure.mollie.nl/xml/idealAcquirer/lite/',
-				'aquirer_test_url' => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/',
+				'id'                => 'mollie-ideal-basic',
+				'name'              => 'Mollie - iDEAL Basic',
+				'provider'          => 'mollie',
+				'dashboard_url'     => 'http://www.mollie.nl/beheer/',
+				'deprecated'        => true,
+				'acquirer_url'      => 'https://secure.mollie.nl/xml/idealAcquirer/lite/',
+				'acquirer_test_url' => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/',
 			)
 		);
 
@@ -328,18 +328,18 @@ add_filter(
 		// Rabobank - iDEAL Professional (v3).
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'               => 'rabobank-ideal-professional-v3',
-				'name'             => 'Rabobank - iDEAL Professional (v3)',
-				'provider'         => 'rabobank',
-				'product_url'      => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
-				'manual_url'       => __( 'https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
-				'dashboard_url'    => array(
+				'id'                => 'rabobank-ideal-professional-v3',
+				'name'              => 'Rabobank - iDEAL Professional (v3)',
+				'provider'          => 'rabobank',
+				'product_url'       => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
+				'manual_url'        => __( 'https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url'     => array(
 					'test' => 'https://idealtest.rabobank.nl/',
 					'live' => 'https://ideal.rabobank.nl/',
 				),
-				'aquirer_url'      => 'https://ideal.rabobank.nl/ideal/iDEALv3',
-				'aquirer_test_url' => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
-				'certificates'     => array(),
+				'acquirer_url'      => 'https://ideal.rabobank.nl/ideal/iDEALv3',
+				'acquirer_test_url' => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
+				'certificates'      => array(),
 			)
 		);
 
@@ -349,14 +349,14 @@ add_filter(
 		// Sisow - iDEAL Basic.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
 			array(
-				'id'               => 'sisow-ideal-basic',
-				'name'             => 'Sisow - iDEAL Basic',
-				'provider'         => 'sisow',
-				'url'              => 'https://www.sisow.nl/',
-				'dashboard_url'    => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
-				'deprecated'       => true,
-				'aquirer_url'      => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx',
-				'aquirer_test_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test',
+				'id'                => 'sisow-ideal-basic',
+				'name'              => 'Sisow - iDEAL Basic',
+				'provider'          => 'sisow',
+				'url'               => 'https://www.sisow.nl/',
+				'dashboard_url'     => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
+				'deprecated'        => true,
+				'acquirer_url'      => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx',
+				'acquirer_test_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test',
 			)
 		);
 

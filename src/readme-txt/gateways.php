@@ -55,8 +55,8 @@ foreach ( $providers as $provider ) {
 
 		if ( \property_exists( $gateway, 'license' ) ) {
 			$note = \sprintf(
-	 			' (requires [%s license](https://www.pronamic.eu/plugins/pronamic-pay/))',
-	 			$gateway->license
+				' (requires [%s license](https://www.pronamic.eu/plugins/pronamic-pay/))',
+				$gateway->license
 			);
 		}
 

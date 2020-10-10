@@ -241,7 +241,7 @@ if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
 	$release = array(
 		array(
 			'version' => $package->version,
-			'date'    => date( 'Y-m-d' ),
+			'date'    => gmdate( 'Y-m-d' ),
 			'changes' => array(
 				'name'    => 'Changed',
 				'changes' => $updates,
