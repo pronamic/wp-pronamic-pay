@@ -6,6 +6,10 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.4.0-rc.1] - 2020-10-30
+
+### Fixed
+
 ## [6.3.2] - 2020-08-05
 
 ### Fixed
@@ -2503,7 +2507,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.4.0-rc.1...HEAD
+[6.4.0-rc.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.2...6.4.0-rc.1
 [6.3.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.1...6.3.2
 [6.3.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.0...6.3.1
 [6.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.2.0...6.3.0

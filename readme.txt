@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 6.3.2
+Stable tag: 6.4.0-rc.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -136,6 +136,8 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.4.0-rc.1 - 2020-10-30 =
+
 = 6.3.2 - 2020-08-05 =
 *	Updated WordPress pay MemberPress library to version 2.1.3.
 	*	Fixed reactivating cancelled MemberPress subscription when pending recurring payment completes.
@@ -210,28 +212,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 *	Updated WordPress pay MultiSafepay library to version 2.1.1.
 *	Updated WordPress pay Formidable Forms library to version 2.1.3.
 *	Updated WordPress pay s2Member library to version 2.1.2.
-
-= 6.1.2 - 2020-04-20 =
-*	Updated WordPress pay Buckaroo library to version 2.1.1.
-	*	Fixed HTML entities in payment description resulting in invalid signature error.
-*	Updated WordPress pay EMS e-Commerce; library to version 2.1.1.
-	*	Fixed incorrect default tag in description of Order ID settings field.
-*	Updated WordPress pay Gravity Forms library to version 2.3.1.
-	*	Fixed PHP notices and warnings.
-	*	Use integration version number for scripts and styles.
-*	Updated WordPress pay MemberPress library to version 2.1.2.
-	*	Fixed setting `complete` transaction status to `pending` again on free downgrade.
-*	Updated WordPress pay Adyen library to version 1.1.1.
-	*	Fixed not using billing address country code on drop-in payment redirect page.
-	*	Added support for payment metadata via `pronamic_pay_adyen_payment_metadata` filter.
-	*	Added advanced gateway configuration setting for `merchantOrderReference` parameter.
-	*	Added browser information to payment request.
-	*	Removed shopper reference from payment request.
-	*	Removed payment status request from drop-in gateway supported features.
-*	Updated WordPress pay OmniKassa 2.0 library to version 2.2.2.
-	*	Improved webhook handling if multiple gateway configurations exist.
-*	Updated WordPress pay Formidable Forms library to version 2.1.2.
-	*	Updated settings description for delaying email notifications.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
