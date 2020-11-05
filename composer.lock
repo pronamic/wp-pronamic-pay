@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8805833aea9b7824330092696b3e5ff7",
+    "content-hash": "13cba36268140d567dd56ee9c5a688a8",
     "packages": [
         {
             "name": "composer/installers",
@@ -866,12 +866,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "7f3d6ddbad78109e3b55ddb9fd088325f91e78ce"
+                "reference": "975f6b1cc5c8ffc25ae6c909f005e1e7072627eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/7f3d6ddbad78109e3b55ddb9fd088325f91e78ce",
-                "reference": "7f3d6ddbad78109e3b55ddb9fd088325f91e78ce",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/975f6b1cc5c8ffc25ae6c909f005e1e7072627eb",
+                "reference": "975f6b1cc5c8ffc25ae6c909f005e1e7072627eb",
                 "shasum": ""
             },
             "require": {
@@ -925,7 +925,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2020-11-02T12:04:36+00:00"
+            "time": "2020-11-05T10:30:06+00:00"
         },
         {
             "name": "wp-pay-extensions/memberpress",
@@ -2281,12 +2281,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/omnikassa-2.git",
-                "reference": "28b9ae1a69e7a6b652b9a8516da74e915ae831ee"
+                "reference": "d3d1f5d930659018ec953bf2ec69a851d43960a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/28b9ae1a69e7a6b652b9a8516da74e915ae831ee",
-                "reference": "28b9ae1a69e7a6b652b9a8516da74e915ae831ee",
+                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/d3d1f5d930659018ec953bf2ec69a851d43960a1",
+                "reference": "d3d1f5d930659018ec953bf2ec69a851d43960a1",
                 "shasum": ""
             },
             "require": {
@@ -2296,19 +2296,19 @@
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.6.0",
-                "overtrue/phplint": "^1.2",
-                "php-coveralls/php-coveralls": "^2.2",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "overtrue/phplint": "^2.2",
+                "php-coveralls/php-coveralls": "^2.4",
                 "phpcompatibility/php-compatibility": "^9.3",
                 "phpcompatibility/phpcompatibility-wp": "^2.1",
-                "phpmd/phpmd": "^2.7",
+                "phpmd/phpmd": "^2.9",
                 "phpunit/phpunit": "^5.7 || ^6.0",
                 "roots/wordpress": "^5.5",
-                "sirbrillig/phpcs-variable-analysis": "^2.7",
-                "slevomat/coding-standard": "^6.1",
+                "sirbrillig/phpcs-variable-analysis": "^2.9",
+                "slevomat/coding-standard": "^6.4",
                 "squizlabs/php_codesniffer": "^3.5",
-                "wp-coding-standards/wpcs": "^2.2",
-                "wp-phpunit/wp-phpunit": "^5.3"
+                "wp-coding-standards/wpcs": "^2.3",
+                "wp-phpunit/wp-phpunit": "^5.5"
             },
             "type": "library",
             "autoload": {
@@ -2344,7 +2344,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2020-11-04T12:38:11+00:00"
+            "time": "2020-11-05T09:15:45+00:00"
         },
         {
             "name": "wp-pay-gateways/pay-nl",
@@ -2412,6 +2412,79 @@
                 "wp"
             ],
             "time": "2020-10-22T20:39:17+00:00"
+        },
+        {
+            "name": "wp-pay-gateways/payvision",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/payvision.git",
+                "reference": "6de9a94742e59f01ad33bd2f24c3f0f0176fccbe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/payvision/zipball/6de9a94742e59f01ad33bd2f24c3f0f0176fccbe",
+                "reference": "6de9a94742e59f01ad33bd2f24c3f0f0176fccbe",
+                "shasum": ""
+            },
+            "require": {
+                "ext-intl": "*",
+                "justinrainbow/json-schema": "^5.2",
+                "php": ">=5.6.20",
+                "pronamic/wp-money": "^1.2",
+                "wp-pay/core": "dev-develop as 2.5"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.4",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+                "overtrue/phplint": "^1.2",
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpcompatibility/php-compatibility": "^9.3",
+                "phpcompatibility/phpcompatibility-wp": "^2.1",
+                "phpmd/phpmd": "^2.8",
+                "phpunit/phpunit": "^5.7",
+                "roots/wordpress": "^5.5",
+                "sirbrillig/phpcs-import-detection": "^1.2",
+                "sirbrillig/phpcs-variable-analysis": "^2.8",
+                "squizlabs/php_codesniffer": "^3.5",
+                "wp-coding-standards/wpcs": "^2.3",
+                "wp-phpunit/wp-phpunit": "^5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Gateways\\Payvision\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                },
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Payvision driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/gateways/payvision/",
+            "keywords": [
+                "gateway",
+                "pay",
+                "payvision",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2020-11-05T13:07:32+00:00"
         },
         {
             "name": "wp-pay-gateways/sisow",
@@ -2554,12 +2627,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "7e0a50623cb730489ae3610832a41d09f802b4af"
+                "reference": "e96480ff1f18ea9be8bbdedc52e09e30c5c6bfcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/7e0a50623cb730489ae3610832a41d09f802b4af",
-                "reference": "7e0a50623cb730489ae3610832a41d09f802b4af",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/e96480ff1f18ea9be8bbdedc52e09e30c5c6bfcf",
+                "reference": "e96480ff1f18ea9be8bbdedc52e09e30c5c6bfcf",
                 "shasum": ""
             },
             "require": {
@@ -2575,7 +2648,7 @@
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-                "overtrue/phplint": "^2.1",
+                "overtrue/phplint": "^2.2",
                 "php-coveralls/php-coveralls": "^2.4",
                 "php-stubs/wp-cli-stubs": "^2.4",
                 "phpcompatibility/php-compatibility": "^9.3",
@@ -2628,7 +2701,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2020-11-02T08:56:36+00:00"
+            "time": "2020-11-05T12:57:54+00:00"
         }
     ],
     "packages-dev": [
@@ -3919,6 +3992,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2017-12-04T08:55:13+00:00"
         },
         {
@@ -4327,7 +4401,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.5.3"
+                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.5.3",
+                "reference": "5.5.3"
             },
             "require": {
                 "php": ">=5.3.2",
@@ -6280,6 +6355,12 @@
             "package": "wp-pay-gateways/pay-nl"
         },
         {
+            "alias": "1.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "dev-develop",
+            "package": "wp-pay-gateways/payvision"
+        },
+        {
             "alias": "2.1",
             "alias_normalized": "2.1.0.0",
             "version": "dev-develop",
@@ -6332,6 +6413,7 @@
         "wp-pay-gateways/omnikassa": 20,
         "wp-pay-gateways/omnikassa-2": 20,
         "wp-pay-gateways/pay-nl": 20,
+        "wp-pay-gateways/payvision": 20,
         "wp-pay-gateways/sisow": 20,
         "wp-pay-gateways/targetpay": 20,
         "wp-pay/core": 20
