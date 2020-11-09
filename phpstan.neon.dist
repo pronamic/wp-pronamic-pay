@@ -3,7 +3,8 @@ parameters:
 	dynamicConstantNames:
 		- PRONAMIC_PAY_DEBUG
 	level: max
-	bootstrap: tests/bootstrap.php
+	bootstrapFiles:
+		- tests/bootstrap.php
 	paths:
 		- src
 	excludes_analyse:

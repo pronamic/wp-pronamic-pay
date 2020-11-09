@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 6.3.2
+Stable tag: 6.4.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -136,6 +136,69 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.4.0 - 2020-11-09 =
+*	Updated WordPress pay core library to version 2.5.0.
+	*	Added support for subscription phases.
+	*	Added support for Przelewy24 payment method.
+	*	Improved data stores, reuse data from memory.
+	*	Catch money parser exceptions in blocks.
+	*	Introduced some traits for the DRY principle.
+	*	Payments can be linked to multiple subscription periods.
+	*	Improved support for subscription alignment and proration.
+	*	Added REST API endpoint for subscription phases.
+	*	Removed `$subscription->get_total_amount()` in favor of getting amount from phases.
+	*	Removed ability to manually change subscription amount for now.
+	*	No longer start recurring payments for expired subscriptions.
+*	Updated WordPress pay Adyen library to version 1.2.0.
+	*	Added REST route permission callbacks.
+*	Updated WordPress pay Mollie library to version 2.2.0.
+	*	Added Przelewy24 payment method.
+	*	Added REST route permission callback.
+	*	Improved determining customer if previously used customer has been removed at Mollie.
+	*	Fixed filtering next payment delivery date.
+	*	Fixed incorrect check for failed payment bank reason detail.
+*	Updated WordPress pay Nocks library to version 2.2.0.
+	*	Deprecated gateway as Nocks no longer exists (https://guldenbites.com/2020/05/15/nocks-announcement/).
+*	Updated WordPress pay OmniKassa 2.0 library to version 2.3.0.
+	*	Switched to REST API for webhook.
+	*	Catch input JSON validation exception in webhook listener.
+*	Updated WordPress pay Pay.nl library to version 2.1.1.
+	*	Limited first and last name to 32 characters.
+*	Updated WordPress pay Charitable library to version 2.1.3.
+	*	Improved getting user data from donation.
+*	Updated WordPress pay Contact Form 7 library to version 1.0.2.
+	*	Fixed getting amount from free text value.
+*	Updated WordPress pay Formidable Forms library to version 2.1.4.
+	*	Improved error handling on payment start.
+	*	Fixed incorrect amount when using product fields.
+*	Updated WordPress pay Gravity Forms library to version 2.5.0.
+	*	Changed 'Frequency' to 'Number of Periods' in payment feed subscription settings.
+	*	Changed 'Synchronized payment date' to 'Fixed Subscription Period' in payment feed subscription settings.
+	*	Places Euro symbol left of amount in Gravity Forms currency when using Dutch language.
+	*	Added Dutch address notation for Gravity Forms.
+	*	Added support for new subscription phases and periods.
+	*	Fixed unselected options in payment method selector after processing conditional logic.
+*	Updated WordPress pay MemberPress library to version 2.2.0.
+	*	Added Przelewy24 payment method.
+	*	Added support for new subscription phases and periods.
+	*	Added support for trials and (prorated) upgrades/downgrade.
+	*	Set Pronamic Pay subscription on hold if non-recurring payment fails.
+*	Updated WordPress pay Restrict Content Pro library to version 2.3.0.
+	*	Changed setting the next payment date 1 day earlier, to prevent temporary membership expirations.
+	*	No longer mark Pronamic Pay subscriptions as expired when a Restrict Content Pro membership expires.
+	*	Added support for new subscription phases and periods.
+	*	Added support for trials to credit card and direct debit methods.
+	*	Added support for payment fees.
+*	Updated WordPress pay s2Member library to version 2.2.0.
+	*	Added support for new subscription phases and periods.
+	*	Fixed processing list servers for recurring payments.
+*	Updated WordPress pay WooCommerce library to version 2.2.0.
+	*	Updated iDEAL logo.
+	*	Added Przelewy24 payment method.
+	*	Added support for new subscription phases and periods.
+	*	Fixed incorrect 'Awaiting payment' order note for recurring payments in some cases.
+	*	Fixed using default payment description if setting is empty.
+
 = 6.3.2 - 2020-08-05 =
 *	Updated WordPress pay MemberPress library to version 2.1.3.
 	*	Fixed reactivating cancelled MemberPress subscription when pending recurring payment completes.
@@ -210,28 +273,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 *	Updated WordPress pay MultiSafepay library to version 2.1.1.
 *	Updated WordPress pay Formidable Forms library to version 2.1.3.
 *	Updated WordPress pay s2Member library to version 2.1.2.
-
-= 6.1.2 - 2020-04-20 =
-*	Updated WordPress pay Buckaroo library to version 2.1.1.
-	*	Fixed HTML entities in payment description resulting in invalid signature error.
-*	Updated WordPress pay EMS e-Commerce; library to version 2.1.1.
-	*	Fixed incorrect default tag in description of Order ID settings field.
-*	Updated WordPress pay Gravity Forms library to version 2.3.1.
-	*	Fixed PHP notices and warnings.
-	*	Use integration version number for scripts and styles.
-*	Updated WordPress pay MemberPress library to version 2.1.2.
-	*	Fixed setting `complete` transaction status to `pending` again on free downgrade.
-*	Updated WordPress pay Adyen library to version 1.1.1.
-	*	Fixed not using billing address country code on drop-in payment redirect page.
-	*	Added support for payment metadata via `pronamic_pay_adyen_payment_metadata` filter.
-	*	Added advanced gateway configuration setting for `merchantOrderReference` parameter.
-	*	Added browser information to payment request.
-	*	Removed shopper reference from payment request.
-	*	Removed payment status request from drop-in gateway supported features.
-*	Updated WordPress pay OmniKassa 2.0 library to version 2.2.2.
-	*	Improved webhook handling if multiple gateway configurations exist.
-*	Updated WordPress pay Formidable Forms library to version 2.1.2.
-	*	Updated settings description for delaying email notifications.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

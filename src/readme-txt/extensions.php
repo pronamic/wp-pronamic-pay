@@ -22,8 +22,8 @@ foreach ( $extensions as $extension ) {
 
 	if ( \property_exists( $extension, 'license' ) ) {
 		$note = \sprintf(
- 			' (requires [%s license](https://www.pronamic.eu/plugins/pronamic-pay/))',
- 			$extension->license
+			' (requires [%s license](https://www.pronamic.eu/plugins/pronamic-pay/))',
+			$extension->license
 		);
 	}
 

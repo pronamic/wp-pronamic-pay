@@ -37,6 +37,7 @@ $organisations = array(
 		'omnikassa'          => 'OmniKassa',
 		'omnikassa-2'        => 'OmniKassa 2.0',
 		'pay-nl'             => 'Pay.nl',
+		'payvision'          => 'Payvision',
 		'sisow'              => 'Sisow',
 		'targetpay'          => 'TargetPay',
 	),
@@ -241,7 +242,7 @@ if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
 	$release = array(
 		array(
 			'version' => $package->version,
-			'date'    => date( 'Y-m-d' ),
+			'date'    => gmdate( 'Y-m-d' ),
 			'changes' => array(
 				'name'    => 'Changed',
 				'changes' => $updates,

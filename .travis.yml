@@ -18,7 +18,7 @@ jobs:
   include:
     - stage: test
       php: 7.3
-      env: WP_VERSION=^5.0 COVERAGE=1 PHPCS=1 PHPCPD=1
+      env: WP_VERSION=^5.0 COVERAGE=1 PHPCS=1
     - php: 7.2
       env: WP_VERSION=^4.9
     - php: 7.2
@@ -63,14 +63,6 @@ before_install:
   - echo 'memory_limit = 2048M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   # Validate composer.json file.
   - composer validate --strict
-  # Add Composer global vendor/bin to path.
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  # PHPStan
-  - if [ "$PHPSTAN" == "1" ]; then composer global require phpstan/phpstan; fi
-  # Psalm
-  - if [ "$PSALM" == "1" ]; then composer global require vimeo/psalm; fi
-  # PHP Copy/Paste Detector
-  - if [ "$PHPCPD" == "1" ]; then composer global require sebastian/phpcpd; fi
 
 install:
   # Install Grunt command line interface (https://github.com/gruntjs/grunt-cli).
@@ -78,9 +70,13 @@ install:
   # Install Node.js packages.
   - npm install
   # Update Composer itself to the latest version (https://getcomposer.org/doc/03-cli.md#self-update-selfupdate-).
-  - composer self-update
+  - composer self-update --1
   # Install Composer packages.
   - composer install
+  # PHPStan
+  - if [ "$PHPSTAN" == "1" ]; then composer bin phpstan install; fi
+  # Psalm
+  - if [ "$PSALM" == "1" ]; then composer bin psalm install; fi
   # Test on specific WordPress version.
   - composer require --dev --update-with-dependencies roots/wordpress:${WP_VERSION} wp-phpunit/wp-phpunit:${WP_VERSION}
   # List available packages.
@@ -96,11 +92,9 @@ script:
   # PHP Mess Detector
   - if [ "$PHPMD" == "1" ]; then composer run-script phpmd; fi
   # PHPStan
-  - if [ "$PHPSTAN" == "1" ]; then phpstan analyze; fi
+  - if [ "$PHPSTAN" == "1" ]; then composer run-script phpstan; fi
   # Psalm
-  - if [ "$PSALM" == "1" ]; then psalm; fi
-  # PHP Copy/Paste Detector
-  - if [ "$PHPCPD" == "1" ]; then phpcpd; fi
+  - if [ "$PSALM" == "1" ]; then composer run-script psalm; fi
 
 after_success:
   - if [ "$COVERAGE" == "1" ]; then composer run-script coveralls; fi

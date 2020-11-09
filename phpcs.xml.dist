@@ -86,6 +86,14 @@
 		<exclude-pattern>uninstall.php</exclude-pattern>
 	</rule>
 
+	<rule ref="WordPress.WP.AlternativeFunctions.file_system_read_fopen">
+		<exclude-pattern>src/repositories.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.WP.AlternativeFunctions.file_system_read_fwrite">
+		<exclude-pattern>src/repositories.php</exclude-pattern>
+	</rule>
+
 	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.system_calls_shell_exec">
 		<exclude-pattern>src/repositories.php</exclude-pattern>
 	</rule>
