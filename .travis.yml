@@ -76,7 +76,7 @@ install:
   # Install Node.js packages.
   - npm install
   # Update Composer itself to the latest version (https://getcomposer.org/doc/03-cli.md#self-update-selfupdate-).
-  - composer self-update
+  - composer self-update --1
   # Install Composer packages.
   - composer install
   # Test on specific WordPress version.
