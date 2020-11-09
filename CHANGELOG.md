@@ -6,9 +6,70 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [6.4.0-rc.1] - 2020-10-30
+## [6.4.0] - 2020-11-09
 
-### Fixed
+### Changed
+- Updated WordPress pay core library to version 2.5.0.
+  - Added support for subscription phases.
+  - Added support for Przelewy24 payment method.
+  - Improved data stores, reuse data from memory.
+  - Catch money parser exceptions in blocks.
+  - Introduced some traits for the DRY principle.
+  - Payments can be linked to multiple subscription periods.
+  - Improved support for subscription alignment and proration.
+  - Added REST API endpoint for subscription phases.
+  - Removed `$subscription->get_total_amount()` in favor of getting amount from phases.
+  - Removed ability to manually change subscription amount for now.
+  - No longer start recurring payments for expired subscriptions.
+- Updated WordPress pay Adyen library to version 1.2.0.
+  - Added REST route permission callbacks.
+- Updated WordPress pay Mollie library to version 2.2.0.
+  - Added Przelewy24 payment method.
+  - Added REST route permission callback.
+  - Improved determining customer if previously used customer has been removed at Mollie.
+  - Fixed filtering next payment delivery date.
+  - Fixed incorrect check for failed payment bank reason detail.
+- Updated WordPress pay Nocks library to version 2.2.0.
+  - Deprecated gateway as Nocks no longer exists (https://guldenbites.com/2020/05/15/nocks-announcement/).
+- Updated WordPress pay OmniKassa 2.0 library to version 2.3.0.
+  - Switched to REST API for webhook.
+  - Catch input JSON validation exception in webhook listener.
+- Updated WordPress pay Pay.nl library to version 2.1.1.
+  - Limited first and last name to 32 characters.
+- Updated WordPress pay Charitable library to version 2.1.3.
+  - Improved getting user data from donation.
+- Updated WordPress pay Contact Form 7 library to version 1.0.2.
+  - Fixed getting amount from free text value.
+- Updated WordPress pay Formidable Forms library to version 2.1.4.
+  - Improved error handling on payment start.
+  - Fixed incorrect amount when using product fields.
+- Updated WordPress pay Gravity Forms library to version 2.5.0.
+  - Changed 'Frequency' to 'Number of Periods' in payment feed subscription settings.
+  - Changed 'Synchronized payment date' to 'Fixed Subscription Period' in payment feed subscription settings.
+  - Places Euro symbol left of amount in Gravity Forms currency when using Dutch language.
+  - Added Dutch address notation for Gravity Forms.
+  - Added support for new subscription phases and periods.
+  - Fixed unselected options in payment method selector after processing conditional logic.
+- Updated WordPress pay MemberPress library to version 2.2.0.
+  - Added Przelewy24 payment method.
+  - Added support for new subscription phases and periods.
+  - Added support for trials and (prorated) upgrades/downgrade.
+  - Set Pronamic Pay subscription on hold if non-recurring payment fails.
+- Updated WordPress pay Restrict Content Pro library to version 2.3.0.
+  - Changed setting the next payment date 1 day earlier, to prevent temporary membership expirations.
+  - No longer mark Pronamic Pay subscriptions as expired when a Restrict Content Pro membership expires.
+  - Added support for new subscription phases and periods.
+  - Added support for trials to credit card and direct debit methods.
+  - Added support for payment fees.
+- Updated WordPress pay s2Member library to version 2.2.0.
+  - Added support for new subscription phases and periods.
+  - Fixed processing list servers for recurring payments.
+- Updated WordPress pay WooCommerce library to version 2.2.0.
+  - Updated iDEAL logo.
+  - Added Przelewy24 payment method.
+  - Added support for new subscription phases and periods.
+  - Fixed incorrect 'Awaiting payment' order note for recurring payments in some cases.
+  - Fixed using default payment description if setting is empty.
 
 ## [6.3.2] - 2020-08-05
 
@@ -2507,8 +2568,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.4.0-rc.1...HEAD
-[6.4.0-rc.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.2...6.4.0-rc.1
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.4.0...HEAD
+[6.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.2...6.4.0
 [6.3.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.1...6.3.2
 [6.3.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.0...6.3.1
 [6.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.2.0...6.3.0
