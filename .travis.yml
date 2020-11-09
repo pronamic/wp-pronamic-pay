@@ -63,10 +63,6 @@ before_install:
   - echo 'memory_limit = 2048M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   # Validate composer.json file.
   - composer validate --strict
-  # PHPStan
-  - if [ "$PHPSTAN" == "1" ]; then composer bin phpstan install; fi
-  # Psalm
-  - if [ "$PSALM" == "1" ]; then composer bin psalm install; fi
 
 install:
   # Install Grunt command line interface (https://github.com/gruntjs/grunt-cli).
@@ -77,6 +73,10 @@ install:
   - composer self-update --1
   # Install Composer packages.
   - composer install
+  # PHPStan
+  - if [ "$PHPSTAN" == "1" ]; then composer bin phpstan install; fi
+  # Psalm
+  - if [ "$PSALM" == "1" ]; then composer bin psalm install; fi
   # Test on specific WordPress version.
   - composer require --dev --update-with-dependencies roots/wordpress:${WP_VERSION} wp-phpunit/wp-phpunit:${WP_VERSION}
   # List available packages.
