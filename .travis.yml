@@ -63,12 +63,10 @@ before_install:
   - echo 'memory_limit = 2048M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   # Validate composer.json file.
   - composer validate --strict
-  # Add Composer global vendor/bin to path.
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
   # PHPStan
-  - if [ "$PHPSTAN" == "1" ]; then composer global require phpstan/phpstan; fi
+  - if [ "$PHPSTAN" == "1" ]; then composer bin phpstan install; fi
   # Psalm
-  - if [ "$PSALM" == "1" ]; then composer global require vimeo/psalm; fi
+  - if [ "$PSALM" == "1" ]; then composer bin psalm install; fi
 
 install:
   # Install Grunt command line interface (https://github.com/gruntjs/grunt-cli).
@@ -94,9 +92,9 @@ script:
   # PHP Mess Detector
   - if [ "$PHPMD" == "1" ]; then composer run-script phpmd; fi
   # PHPStan
-  - if [ "$PHPSTAN" == "1" ]; then phpstan analyze; fi
+  - if [ "$PHPSTAN" == "1" ]; then composer run-script phpstan; fi
   # Psalm
-  - if [ "$PSALM" == "1" ]; then psalm; fi
+  - if [ "$PSALM" == "1" ]; then composer run-script psalm; fi
 
 after_success:
   - if [ "$COVERAGE" == "1" ]; then composer run-script coveralls; fi
