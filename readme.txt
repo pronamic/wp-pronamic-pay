@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 6.4.0
+Stable tag: 6.4.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -136,6 +136,12 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.4.1 - 2020-11-10 =
+*	Updated WordPress pay iDEAL Advanced library to version 2.1.2.
+	*	Fixed acquirer URL.
+*	Updated WordPress pay iDEAL Basic library to version 2.1.2.
+	*	Fixed acquirer URL.
+
 = 6.4.0 - 2020-11-09 =
 *	Updated WordPress pay core library to version 2.5.0.
 	*	Added support for subscription phases.
@@ -252,27 +258,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Fixed using existing subscription for membership.
 	*	Fixed expiring membership if first payment expires but subscription is already active.
 *	Updated WordPress pay WooCommerce library to version 2.1.2.
-
-= 6.2.0 - 2020-06-03 =
-*	Updated WordPress pay core library to version 2.3.2.
-	*	Add support for new fundraising add-on (requires Pro license).
-	*	Add payment origin post ID.
-	*	Add 'Pronamic Pay' block category.
-	*	Fix subscriptions without next payment date.
-	*	Fix incorrect formatted amount in payment form block.
-*	Updated WordPress pay Mollie library to version 2.1.3.
-	*	Add support for Mollie payment billing email and filter `pronamic_pay_mollie_payment_billing_email`.
-*	Updated WordPress pay OmniKassa 2.0 library to version 2.2.3.
-	*	Fix incorrect payments order when handling order status notifications.
-*	Updated WordPress pay Charitable library to version 2.1.2.
-	*	Add telephone number to payment data.
-	*	Fix error handling.
-*	Updated WordPress pay Gravity Forms library to version 2.4.0.
-	*	Add filter `pronamic_pay_gravityforms_delay_actions` for delayed actions.
-	*	Fix empty formatted amount in entry notes if value is `0`.
-*	Updated WordPress pay MultiSafepay library to version 2.1.1.
-*	Updated WordPress pay Formidable Forms library to version 2.1.3.
-*	Updated WordPress pay s2Member library to version 2.1.2.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

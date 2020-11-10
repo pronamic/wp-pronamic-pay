@@ -1702,16 +1702,16 @@
         },
         {
             "name": "wp-pay-gateways/ideal-advanced-v3",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-advanced-v3.git",
-                "reference": "b9367660c4bb69144a095115def778139ce9a509"
+                "reference": "72aa2a640d2ffe6ac8833b17b8b8a2b0f5656528"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/b9367660c4bb69144a095115def778139ce9a509",
-                "reference": "b9367660c4bb69144a095115def778139ce9a509",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/72aa2a640d2ffe6ac8833b17b8b8a2b0f5656528",
+                "reference": "72aa2a640d2ffe6ac8833b17b8b8a2b0f5656528",
                 "shasum": ""
             },
             "require": {
@@ -1719,19 +1719,21 @@
                 "ext-openssl": "*",
                 "php": ">=5.6.20",
                 "wp-pay-gateways/ideal": "^2.1",
-                "wp-pay/core": "^2.3"
+                "wp-pay/core": "^2.4"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-                "php-coveralls/php-coveralls": "^2.1",
+                "bamarni/composer-bin-plugin": "^1.4",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+                "overtrue/phplint": "^1.2",
+                "php-coveralls/php-coveralls": "^2.2",
                 "phpcompatibility/php-compatibility": "^9.3",
                 "phpcompatibility/phpcompatibility-wp": "^2.1",
-                "phpmd/phpmd": "^2.7",
+                "phpmd/phpmd": "^2.8",
                 "phpunit/phpunit": "^5.7 || ^6.0",
-                "roots/wordpress": "^5.2",
-                "squizlabs/php_codesniffer": "^3.4",
-                "wp-coding-standards/wpcs": "^2.1",
-                "wp-phpunit/wp-phpunit": "^5.2"
+                "roots/wordpress": "^5.5",
+                "squizlabs/php_codesniffer": "^3.5",
+                "wp-coding-standards/wpcs": "^2.3",
+                "wp-phpunit/wp-phpunit": "^5.5"
             },
             "type": "library",
             "autoload": {
@@ -1769,26 +1771,26 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2020-03-26T13:27:56+00:00"
+            "time": "2020-11-10T22:31:10+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal-basic",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-basic.git",
-                "reference": "d960a0ae0aeb3e0ccf04bb2a4209ab140724e4ba"
+                "reference": "9dbde9b582819a966d9ef5f548a46113ad567784"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/d960a0ae0aeb3e0ccf04bb2a4209ab140724e4ba",
-                "reference": "d960a0ae0aeb3e0ccf04bb2a4209ab140724e4ba",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/9dbde9b582819a966d9ef5f548a46113ad567784",
+                "reference": "9dbde9b582819a966d9ef5f548a46113ad567784",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.20",
                 "wp-pay-gateways/ideal": "^2.1",
-                "wp-pay/core": "^2.3"
+                "wp-pay/core": "^2.4"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
@@ -1837,7 +1839,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2020-03-26T13:27:37+00:00"
+            "time": "2020-11-10T22:22:33+00:00"
         },
         {
             "name": "wp-pay-gateways/ing-kassa-compleet",
@@ -4409,7 +4411,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.5.3"
+                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.5.3",
+                "reference": "5.5.3"
             },
             "require": {
                 "php": ">=5.3.2",
@@ -6130,12 +6133,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/payvision.git",
-                "reference": "cf534de2fd6956ee14905d43bf4c90e1759496e4"
+                "reference": "c62efa002f98efe00e8e104f00aad17982a74c63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/payvision/zipball/cf534de2fd6956ee14905d43bf4c90e1759496e4",
-                "reference": "cf534de2fd6956ee14905d43bf4c90e1759496e4",
+                "url": "https://api.github.com/repos/wp-pay-gateways/payvision/zipball/c62efa002f98efe00e8e104f00aad17982a74c63",
+                "reference": "c62efa002f98efe00e8e104f00aad17982a74c63",
                 "shasum": ""
             },
             "require": {
@@ -6195,7 +6198,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2020-11-09T21:14:51+00:00"
+            "time": "2020-11-10T18:57:33+00:00"
         },
         {
             "name": "wp-phpunit/wp-phpunit",
