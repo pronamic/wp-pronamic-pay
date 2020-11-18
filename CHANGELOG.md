@@ -6,6 +6,21 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.5.0] - 2020-11-18
+
+### Added
+- Added support for Payvision gateway (requires Basic license).
+
+### Fixed
+- Updated WordPress pay iDEAL Advanced library to version 2.1.3.
+  - Fix regression in payment status retrieval.
+
+### Removed
+- Removed deprecated Fibonacci ORANGE gateway.
+- Removed deprecated Mollie iDEAL gateway.
+- Removed deprecated Nocks gateway.
+- Removed deprecated Rabobank OmniKassa gateway.
+
 ## [6.4.1] - 2020-11-10
 
 ### Fixed
@@ -2576,7 +2591,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.4.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.0...HEAD
+[6.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.4.1...6.5.0
 [6.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.4.0...6.4.1
 [6.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.2...6.4.0
 [6.3.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.1...6.3.2

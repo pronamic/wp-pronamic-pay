@@ -263,6 +263,7 @@ if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
 	array_splice( $changelog, 1, 0, $release );
 
 	// Use tabs for indentation.
+	// phpcs:ignore WordPress.WP.AlternativeFunctions.json_encode_json_encode
 	$changelog_json = json_encode( $changelog, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
 
 	// Check if changelog could be JSON encoded.

@@ -4,7 +4,7 @@
  * Plugin URI: https://www.pronamic.eu/plugins/pronamic-ideal/
  * Description: The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
  *
- * Version: 6.4.1
+ * Version: 6.5.0
  * Requires at least: 4.7
  *
  * Author: Pronamic
@@ -214,16 +214,6 @@ add_filter(
 		// EMS - eCommerce.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\EMS\ECommerce\Integration();
 
-		// Fibonacci ORANGE.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Icepay\Integration(
-			array(
-				'id'          => 'fibonacciorange',
-				'name'        => 'Fibonacci ORANGE',
-				'provider'    => 'fibonacciorange',
-				'product_url' => 'http://www.fibonacciorange.nl/',
-			)
-		);
-
 		// ICEPAY.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Icepay\Integration();
 
@@ -288,9 +278,6 @@ add_filter(
 			)
 		);
 
-		// Mollie - iDEAL.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\MollieIDeal\Integration();
-
 		// Mollie - iDEAL Basic.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
 			array(
@@ -307,17 +294,11 @@ add_filter(
 		// MultiSafePay - Connect.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\MultiSafepay\Integration();
 
-		// Nocks.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Nocks\Integration();
-
 		// Ingenico - DirectLink.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\Integration();
 
 		// Ingenico - OrderStandard.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration();
-
-		// Rabobank - OmniKassa.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\OmniKassa\Integration();
 
 		// Rabobank - OmniKassa 2.0.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration();

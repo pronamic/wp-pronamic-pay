@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 6.4.1
+Stable tag: 6.5.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -57,7 +57,6 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	Buckaroo - HTML
 *	Deutsche Bank - iDEAL Expert (v3)
 *	EMS - e-Commerce
-*	Fibonacci ORANGE
 *	ICEPAY
 *	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
 *	ING - iDEAL Basic
@@ -65,10 +64,10 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	ING - Kassa Compleet
 *	Mollie
 *	MultiSafepay - Connect
-*	Nocks
 *	Ingenico/Ogone - DirectLink
 *	Ingenico/Ogone - OrderStandard
 *	Pay.nl
+*	Payvision (requires [Basic license](https://www.pronamic.eu/plugins/pronamic-pay/))
 *	Rabobank - OmniKassa 2.0
 *	Rabobank - iDEAL Professional (v3)
 *	Sisow
@@ -135,6 +134,15 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 6.5.0 - 2020-11-18 =
+*	Added support for Payvision gateway (requires Basic license).
+*	Updated WordPress pay iDEAL Advanced library to version 2.1.3.
+	*	Fix regression in payment status retrieval.
+*	Removed deprecated Fibonacci ORANGE gateway.
+*	Removed deprecated Mollie iDEAL gateway.
+*	Removed deprecated Nocks gateway.
+*	Removed deprecated Rabobank OmniKassa gateway.
 
 = 6.4.1 - 2020-11-10 =
 *	Updated WordPress pay iDEAL Advanced library to version 2.1.2.
@@ -221,43 +229,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Fixed creating empty subscriptions.
 *	Updated WordPress pay WooCommerce library to version 2.1.3.
 	*	Fixed compatibility with WooCommerce EU VAT Number plugin.
-
-= 6.3.0 - 2020-07-08 =
-*	Added support for Contact Form 7 plugin (requires Basic license).
-*	Updated WordPress pay core library to version 2.4.0.
-	*	Added support for customer company name.
-	*	Added support for updating subscription mandate.
-	*	Added support for VAT number (validation via VIES).
-	*	Added `get_pronamic_subscriptions_by_source()` function.
-	*	Fixed possible duplicate payment on upgrade if pending recurring payment exists.
-	*	Fixed updating subscription status to 'On Hold' only if subscription is not already active, when processing first payment.
-	*	Improved subscription date calculations.
-	*	Updated admin tour.
-*	Updated WordPress Money library to version 1.2.5.
-	*	Added support for parsing negative amounts and `5,-` notation for amounts without minor units.
-	*	Updated currency symbols.
-*	Updated WordPress pay Adyen library to version 1.1.2.
-	*	Fixed possible conflicting payments caused by double clicking submit button.
-	*	Removed empty meta data from payment request JSON.
-*	Updated WordPress pay Mollie library to version 2.1.4.
-	*	Added filter `pronamic_pay_mollie_payment_metadata` for Mollie payment metadata.
-	*	Added support for updating subscription mandate.
-*	Updated WordPress pay Ingenico library to version 2.1.1.
-	*	Added exception for Ingenico error when retrieving order status.
-*	Updated WordPress pay OmniKassa 2.0 library to version 2.2.4.
-	*	Switched to new endpoint at `/order/server/api/v2/order`.
-	*	Removed obsolete update of payment transaction ID.
-*	Updated WordPress pay Easy Digital Downloads library to version 2.1.2.
-	*	Added support for company name and VAT number from the custom Pronamic EDD plugins.
-	*	Fixed registering `cancelled` post status for use in EDD payments table view filters.
-*	Updated WordPress pay Gravity Forms library to version 2.4.1.
-	*	Added support for company name and VAT number.
-	*	Improved Gravity Forms 2.5 beta compatibility.
-*	Updated WordPress pay Restrict Content Pro library to version 2.2.2.
-	*	Added support for subscription frequency.
-	*	Fixed using existing subscription for membership.
-	*	Fixed expiring membership if first payment expires but subscription is already active.
-*	Updated WordPress pay WooCommerce library to version 2.1.2.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
