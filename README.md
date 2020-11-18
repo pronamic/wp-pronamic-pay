@@ -27,7 +27,6 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Buckaroo](https://buckaroo.nl/) | Buckaroo - HTML |
 | [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL Expert (v3) |
 | [European Merchant Services](https://emspay.nl/) | EMS - e-Commerce |
-| [Fibonacci ORANGE](http://www.fibonacciorange.nl/) | Fibonacci ORANGE |
 | [ICEPAY](https://icepay.nl/) | ICEPAY |
 | [iDEAL Simulator](https://www.ideal-simulator.nl/) | iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3) |
 | [ING](https://www.ing.nl/) | ING - iDEAL Basic |
@@ -35,10 +34,10 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [ING](https://www.ing.nl/) | ING - Kassa Compleet |
 | [Mollie](https://www.mollie.nl/) | Mollie |
 | [MultiSafepay](https://www.multisafepay.com/) | MultiSafepay - Connect |
-| [Nocks](https://www.nocks.com/) | Nocks |
 | [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - DirectLink |
 | [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - OrderStandard |
 | [Pay.nl](https://www.pay.nl/) | Pay.nl |
+| [Payvision](https://www.payvision.com) | Payvision |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - OmniKassa 2.0 |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - iDEAL Professional (v3) |
 | [Sisow](https://www.sisow.nl/) | Sisow |
