@@ -8,15 +8,34 @@
 	{
 		"version": "6.5.0",
 		"date": "2020-11-18",
-		"changes": {
-			"name": "Removed",
-			"changes": [
-				"Removed deprecated Fibonacci ORANGE gateway.",
-				"Removed deprecated Mollie iDEAL gateway.",
-				"Removed deprecated Nocks gateway.",
-				"Removed deprecated Rabobank OmniKassa gateway."
-			]
-		}
+		"changes": [
+			{
+				"name": "Added",
+				"changes": [
+					"Added support for Payvision gateway (requires Basic license)."
+				]
+			},
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay iDEAL Advanced library to version 2.1.3.",
+						"changes": [
+							"Fix regression in payment status retrieval."
+						]
+					}
+				]
+			},
+			{
+				"name": "Removed",
+				"changes": [
+					"Removed deprecated Fibonacci ORANGE gateway.",
+					"Removed deprecated Mollie iDEAL gateway.",
+					"Removed deprecated Nocks gateway.",
+					"Removed deprecated Rabobank OmniKassa gateway."
+				]
+			}
+		]
 	},
 	{
 		"version": "6.4.1",

@@ -57,7 +57,6 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	Buckaroo - HTML
 *	Deutsche Bank - iDEAL Expert (v3)
 *	EMS - e-Commerce
-*	Fibonacci ORANGE
 *	ICEPAY
 *	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
 *	ING - iDEAL Basic
@@ -65,10 +64,10 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	ING - Kassa Compleet
 *	Mollie
 *	MultiSafepay - Connect
-*	Nocks
 *	Ingenico/Ogone - DirectLink
 *	Ingenico/Ogone - OrderStandard
 *	Pay.nl
+*	Payvision (requires [Basic license](https://www.pronamic.eu/plugins/pronamic-pay/))
 *	Rabobank - OmniKassa 2.0
 *	Rabobank - iDEAL Professional (v3)
 *	Sisow
@@ -137,6 +136,9 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 == Changelog ==
 
 = 6.5.0 - 2020-11-18 =
+*	Added support for Payvision gateway (requires Basic license).
+*	Updated WordPress pay iDEAL Advanced library to version 2.1.3.
+	*	Fix regression in payment status retrieval.
 *	Removed deprecated Fibonacci ORANGE gateway.
 *	Removed deprecated Mollie iDEAL gateway.
 *	Removed deprecated Nocks gateway.

@@ -8,6 +8,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [6.5.0] - 2020-11-18
 
+### Added
+- Added support for Payvision gateway (requires Basic license).
+
+### Fixed
+- Updated WordPress pay iDEAL Advanced library to version 2.1.3.
+  - Fix regression in payment status retrieval.
+
 ### Removed
 - Removed deprecated Fibonacci ORANGE gateway.
 - Removed deprecated Mollie iDEAL gateway.
