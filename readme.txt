@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 6.5.0
+Stable tag: 6.5.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -135,6 +135,15 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.5.1 - 2020-11-19 =
+*	Updated WordPress pay core library to version 2.5.1.
+	*	Fixed always setting payment customer details.
+	*	Fixed setting currency in payment lines amount.
+*	Updated WordPress pay Gravity Forms library to version 2.5.1.
+	*	Updated getting subscription from payment period.
+*	Updated WordPress pay Adyen library to version 1.2.1.
+	*	Removed unused configuration to store card details.
+
 = 6.5.0 - 2020-11-18 =
 *	Added support for Payvision gateway (requires Basic license).
 *	Updated WordPress pay iDEAL Advanced library to version 2.1.3.
@@ -218,17 +227,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Fixed reactivating cancelled MemberPress subscription when pending recurring payment completes.
 *	Updated WordPress pay WooCommerce library to version 2.1.4.
 	*	Fixed possible error on WooCommerce products admin page.
-
-= 6.3.1 - 2020-07-23 =
-*	Updated WordPress pay core library to version 2.4.1.
-	*	Added email address as fallback for customer name in payments and subscriptions overview and details.
-	*	Fixed using deprecated `email` and `customer_name` properties.
-*	Updated WordPress pay Restrict Content Pro library to version 2.2.3.
-	*	Fixed possible 'Fatal error: Call to a member function `get_id()` on null'.
-*	Updated WordPress pay s2Member library to version 2.1.3.
-	*	Fixed creating empty subscriptions.
-*	Updated WordPress pay WooCommerce library to version 2.1.3.
-	*	Fixed compatibility with WooCommerce EU VAT Number plugin.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

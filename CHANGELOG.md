@@ -6,6 +6,19 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.5.1] - 2020-11-19
+
+### Fixed
+- Updated WordPress pay core library to version 2.5.1.
+  - Fixed always setting payment customer details.
+  - Fixed setting currency in payment lines amount.
+- Updated WordPress pay Gravity Forms library to version 2.5.1.
+  - Updated getting subscription from payment period.
+
+### Changed
+- Updated WordPress pay Adyen library to version 1.2.1.
+  - Removed unused configuration to store card details.
+
 ## [6.5.0] - 2020-11-18
 
 ### Added
@@ -2591,7 +2604,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.1...HEAD
+[6.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.0...6.5.1
 [6.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.4.1...6.5.0
 [6.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.4.0...6.4.1
 [6.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.3.2...6.4.0

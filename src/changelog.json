@@ -1,9 +1,42 @@
 [
 	{
 		"version": "Unreleased",
-		"changes": {
-
-		}
+		"changes": {}
+	},
+	{
+		"version": "6.5.1",
+		"date": "2020-11-19",
+		"changes": [
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay core library to version 2.5.1.",
+						"changes": [
+							"Fixed always setting payment customer details.",
+							"Fixed setting currency in payment lines amount."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 2.5.1.",
+						"changes": [
+							"Updated getting subscription from payment period."
+						]
+					}
+				]
+			},
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Adyen library to version 1.2.1.",
+						"changes": [
+							"Removed unused configuration to store card details."
+						]
+					}
+				]
+			}
+		]
 	},
 	{
 		"version": "6.5.0",
