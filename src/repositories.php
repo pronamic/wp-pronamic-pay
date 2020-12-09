@@ -37,6 +37,7 @@ $organisations = array(
 		'omnikassa'          => 'OmniKassa',
 		'omnikassa-2'        => 'OmniKassa 2.0',
 		'pay-nl'             => 'Pay.nl',
+		'paypal'             => 'PayPal',
 		'payvision'          => 'Payvision',
 		'sisow'              => 'Sisow',
 		'targetpay'          => 'TargetPay',
