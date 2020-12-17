@@ -18,7 +18,8 @@ $organisations = array(
 		'wp-money'    => 'Money',
 	),
 	'wp-pay'            => array(
-		'core' => 'core',
+		'core'        => 'core',
+		'fundraising' => 'Fundraising',
 	),
 	'wp-pay-gateways'   => array(
 		'adyen'              => 'Adyen',
