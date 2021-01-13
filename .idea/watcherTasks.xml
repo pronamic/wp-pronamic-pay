@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectTasksOptions">
+    <TaskOptions isEnabled="true">
+      <option name="arguments" value="$FilePath$ --out-dir ./js/dist" />
+      <option name="checkSyntaxErrors" value="true" />
+      <option name="description" />
+      <option name="exitCodeBehavior" value="ERROR" />
+      <option name="fileExtension" value="js" />
+      <option name="immediateSync" value="true" />
+      <option name="name" value="Babel - wp-pay-gateways/adyen (JS)" />
+      <option name="output" value="$FileParentDir$/../dist/" />
+      <option name="outputFilters">
+        <array />
+      </option>
+      <option name="outputFromStdout" value="false" />
+      <option name="program" value="$ProjectFileDir$/repositories/wp-pay-gateways/adyen/node_modules/.bin/babel" />
+      <option name="runOnExternalChanges" value="true" />
+      <option name="scopeName" value="wp-pay-gateways/adyen (JS)" />
+      <option name="trackOnlyRoot" value="false" />
+      <option name="workingDir" value="$FileParentDir$/../" />
+      <envs />
+    </TaskOptions>
+    <TaskOptions isEnabled="false">
+      <option name="arguments" value="run-script babel" />
+      <option name="checkSyntaxErrors" value="true" />
+      <option name="description" />
+      <option name="exitCodeBehavior" value="ERROR" />
+      <option name="fileExtension" value="js" />
+      <option name="immediateSync" value="false" />
+      <option name="name" value="Babel - wp-pay/fundraising (JS)" />
+      <option name="output" value="" />
+      <option name="outputFilters">
+        <array />
+      </option>
+      <option name="outputFromStdout" value="false" />
+      <option name="program" value="/usr/local/bin/npm" />
+      <option name="runOnExternalChanges" value="true" />
+      <option name="scopeName" value="wp-pay/fundraising (JS)" />
+      <option name="trackOnlyRoot" value="false" />
+      <option name="workingDir" value="$FileParentDir$/../" />
+      <envs />
+    </TaskOptions>
+    <TaskOptions isEnabled="true">
+      <option name="arguments" value="sass postcss" />
+      <option name="checkSyntaxErrors" value="true" />
+      <option name="description" />
+      <option name="exitCodeBehavior" value="ERROR" />
+      <option name="fileExtension" value="scss" />
+      <option name="immediateSync" value="false" />
+      <option name="name" value="npm styles - wp-pay/fundraising (SCSS)" />
+      <option name="output" value="" />
+      <option name="outputFilters">
+        <array />
+      </option>
+      <option name="outputFromStdout" value="false" />
+      <option name="program" value="/usr/local/bin/npm-run-all" />
+      <option name="runOnExternalChanges" value="true" />
+      <option name="scopeName" value="wp-pay/fundraising (SCSS)" />
+      <option name="trackOnlyRoot" value="false" />
+      <option name="workingDir" value="$FileParentDir$" />
+      <envs />
+    </TaskOptions>
+  </component>
+</project>
