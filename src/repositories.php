@@ -35,7 +35,6 @@ $organisations = array(
 		'multisafepay'       => 'MultiSafepay',
 		'nocks'              => 'Nocks',
 		'ogone'              => 'Ingenico',
-		'omnikassa'          => 'OmniKassa',
 		'omnikassa-2'        => 'OmniKassa 2.0',
 		'pay-nl'             => 'Pay.nl',
 		'paypal'             => 'PayPal',
