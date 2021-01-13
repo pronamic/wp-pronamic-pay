@@ -33,7 +33,6 @@ $organisations = array(
 		'mollie'             => 'Mollie',
 		'mollie-ideal'       => 'Mollie iDEAL',
 		'multisafepay'       => 'MultiSafepay',
-		'nocks'              => 'Nocks',
 		'ogone'              => 'Ingenico',
 		'omnikassa-2'        => 'OmniKassa 2.0',
 		'pay-nl'             => 'Pay.nl',
