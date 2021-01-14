@@ -18,6 +18,13 @@
 		<title><?php esc_html_e( 'Redirecting…', 'pronamic_ideal' ); ?></title>
 
 		<?php wp_print_styles( 'pronamic-pay-redirect' ); ?>
+
+		<script>
+		// Break out of iframe.
+		if ( window.top.location !== window.location ) {
+			window.top.location = window.location;
+		}
+		</script>
 	</head>
 
 	<?php
