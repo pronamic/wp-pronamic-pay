@@ -18,7 +18,8 @@ $organisations = array(
 		'wp-money'    => 'Money',
 	),
 	'wp-pay'            => array(
-		'core' => 'core',
+		'core'        => 'core',
+		'fundraising' => 'Fundraising',
 	),
 	'wp-pay-gateways'   => array(
 		'adyen'              => 'Adyen',
@@ -32,11 +33,10 @@ $organisations = array(
 		'mollie'             => 'Mollie',
 		'mollie-ideal'       => 'Mollie iDEAL',
 		'multisafepay'       => 'MultiSafepay',
-		'nocks'              => 'Nocks',
 		'ogone'              => 'Ingenico',
-		'omnikassa'          => 'OmniKassa',
 		'omnikassa-2'        => 'OmniKassa 2.0',
 		'pay-nl'             => 'Pay.nl',
+		'paypal'             => 'PayPal',
 		'payvision'          => 'Payvision',
 		'sisow'              => 'Sisow',
 		'targetpay'          => 'TargetPay',

@@ -4,6 +4,78 @@
 		"changes": {}
 	},
 	{
+		"version": "6.6.0",
+		"date": "2021-01-14",
+		"changes": {
+			"name": "Changed",
+			"changes": [
+				{
+					"description": "Updated WordPress pay core library to version 2.6.0.",
+					"changes": [
+						"Payment Gateway Referral Exclusions in Google Analytics.",
+						"Added Santander payment method.",
+						"Ask for confirmation before manually cancelling a subscription.",
+						"Redirect to new 'Subscription Canceled' status page after cancelling subscriptions.",
+						"Fixed updating subscription dates on next period payment creation.",
+						"Only add user agent in payment info meta box if not empty.",
+						"Added feature to manually start the next subscription payment."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Charitable library to version 2.2.1.",
+					"changes": [
+						"Improved donation total amount value retrieval.",
+						"Improved user data support, set adress line 2 and country code."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Contact Form 7 to version 1.0.3.",
+					"changes": [
+						"Fix redirecting when scripts are disabled through `wpcf7_load_js` filter."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Formidable Forms to version 2.2.0.",
+					"changes": [
+						"Simplified icon hover style.",
+						"Updated form action icon.",
+						"Added support for form settings redirect success URL."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Ninja Forms to version 1.3.0.",
+					"changes": [
+						"Fixed notice payment redirect URL."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Restrict Content Pro to version 2.3.1.",
+					"changes": [
+						"Renew inactive membership on successful (retry) payment.",
+						"Fix not using checkout label setting."
+					]
+				},
+				{
+					"description": "Updated WordPress pay s2Member to version 2.2.1.",
+					"changes": [
+						"Prevent updating eot if (retry) payment period end date is (before) current eot time.",
+						"Fix using removed payment data class and multiple status update actions.",
+						"Fix setting subscription next payment date for new subscriptions (removes payment data class)."
+					]
+				},
+				{
+					"description": "Updated WordPress pay WooCommerce to version 2.2.1.",
+					"changes": [
+						"Updated logo library to version 1.6.3 for new iDEAL logo.",
+						"Start subscription payment through subscription module instead of plugin.",
+						"Move info message up on thank you page.",
+						"Add Santander payment method."
+					]
+				}
+			]
+		}
+	},
+	{
 		"version": "6.5.1",
 		"date": "2020-11-19",
 		"changes": [
