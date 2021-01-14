@@ -6,6 +6,41 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.6.0] - 2021-01-14
+
+### Changed
+- Updated WordPress pay core library to version 2.6.0.
+  - Payment Gateway Referral Exclusions in Google Analytics.
+  - Added Santander payment method.
+  - Ask for confirmation before manually cancelling a subscription.
+  - Redirect to new 'Subscription Canceled' status page after cancelling subscriptions.
+  - Fixed updating subscription dates on next period payment creation.
+  - Only add user agent in payment info meta box if not empty.
+  - Added feature to manually start the next subscription payment.
+- Updated WordPress pay Charitable library to version 2.2.1.
+  - Improved donation total amount value retrieval.
+  - Improved user data support, set adress line 2 and country code.
+- Updated WordPress pay Contact Form 7 to version 1.0.3.
+  - Fix redirecting when scripts are disabled through `wpcf7_load_js` filter.
+- Updated WordPress pay Formidable Forms to version 2.2.0.
+  - Simplified icon hover style.
+  - Updated form action icon.
+  - Added support for form settings redirect success URL.
+- Updated WordPress pay Ninja Forms to version 1.3.0.
+  - Fixed notice payment redirect URL.
+- Updated WordPress pay Restrict Content Pro to version 2.3.1.
+  - Renew inactive membership on successful (retry) payment.
+  - Fix not using checkout label setting.
+- Updated WordPress pay s2Member to version 2.2.1.
+  - Prevent updating eot if (retry) payment period end date is (before) current eot time.
+  - Fix using removed payment data class and multiple status update actions.
+  - Fix setting subscription next payment date for new subscriptions (removes payment data class).
+- Updated WordPress pay WooCommerce to version 2.2.1.
+  - Updated logo library to version 1.6.3 for new iDEAL logo.
+  - Start subscription payment through subscription module instead of plugin.
+  - Move info message up on thank you page.
+  - Add Santander payment method.
+
 ## [6.5.1] - 2020-11-19
 
 ### Fixed
@@ -2604,7 +2639,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.0...HEAD
+[6.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.1...6.6.0
 [6.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.0...6.5.1
 [6.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.4.1...6.5.0
 [6.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.4.0...6.4.1

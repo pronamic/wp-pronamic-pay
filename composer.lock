@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "417c172600763871c53e772d967de88d",
+    "content-hash": "191392c4a1a8300501362b4a78f66b0b",
     "packages": [
         {
             "name": "composer/installers",
@@ -471,16 +471,16 @@
         },
         {
             "name": "wp-pay-extensions/charitable",
-            "version": "2.3.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/charitable.git",
-                "reference": "ea71eb4f0de906bf68f847946516518a5671d4ca"
+                "reference": "79cf6d9f912354e5c7eddc681cbb4ec106c9dc5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/charitable/zipball/ea71eb4f0de906bf68f847946516518a5671d4ca",
-                "reference": "ea71eb4f0de906bf68f847946516518a5671d4ca",
+                "url": "https://api.github.com/repos/wp-pay-extensions/charitable/zipball/79cf6d9f912354e5c7eddc681cbb4ec106c9dc5a",
+                "reference": "79cf6d9f912354e5c7eddc681cbb4ec106c9dc5a",
                 "shasum": ""
             },
             "require": {
@@ -488,16 +488,17 @@
                 "wp-pay/core": "^2.6"
             },
             "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.4",
                 "charitable/charitable": "^1.6",
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
-                "php-coveralls/php-coveralls": "^2.1",
-                "phpcompatibility/php-compatibility": "^9.1",
-                "phpcompatibility/phpcompatibility-wp": "^2.0",
-                "phpmd/phpmd": "^2.7",
+                "php-coveralls/php-coveralls": "^2.4",
+                "phpcompatibility/php-compatibility": "^9.3",
+                "phpcompatibility/phpcompatibility-wp": "^2.1",
+                "phpmd/phpmd": "^2.9",
                 "phpunit/phpunit": "^5.7 || ^6.0",
                 "roots/wordpress": "^5.6",
-                "squizlabs/php_codesniffer": "^3.4",
-                "wp-coding-standards/wpcs": "^2.1",
+                "squizlabs/php_codesniffer": "^3.5",
+                "wp-coding-standards/wpcs": "^2.3",
                 "wp-phpunit/wp-phpunit": "^5.6"
             },
             "type": "library",
@@ -539,7 +540,7 @@
                 "issues": "https://github.com/wp-pay-extensions/charitable/issues",
                 "source": "https://github.com/wp-pay-extensions/charitable"
             },
-            "time": "2021-01-14T11:19:20+00:00"
+            "time": "2021-01-14T16:29:39+00:00"
         },
         {
             "name": "wp-pay-extensions/contact-form-7",
