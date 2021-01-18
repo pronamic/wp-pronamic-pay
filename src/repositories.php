@@ -157,7 +157,6 @@ foreach ( $organisations as $organisation => $repositories ) {
 				ex -s -c "$(( ${LINK_LINENR} + 1 ))i|${LINK}" -c x CHANGELOG.md';
 		}
 
-
 		if ( isset( $argv[1] ) && 'update-package-version' === $argv[1] ) {
 			$command = '
 				CURRENT_TAG=$(git describe --tags --abbrev=0);

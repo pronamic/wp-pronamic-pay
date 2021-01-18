@@ -6,6 +6,27 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.6.1] - 2021-01-18
+
+### Changed
+- Updated WordPress pay core library to version 2.6.1.
+  - Added support for recurring payments with Apple Pay.
+- Updated WordPress pay Mollie library to version 2.2.1.
+  - Added support for first payment with regular iDEAL/Bancontact/Sofort payment methods.
+  - Added support for recurring payments with Apple Pay.
+  - Added 'Change Payment State' URL to Mollie payment admin page.
+  - Chargebacks now update subscriptions status to 'On hold' (needs manual review).
+- Updated WordPress pay MultiSafepay library to version 2.1.2.
+  - Added support for In3 pament method.
+  - Added partial support for Santander 'Betaal per maand' payment method.
+- Updated WordPress pay Payvision library to version 1.0.1.
+  - Added business ID to gateway ID column in payments overview.
+- Updated WordPress pay Event Espresso (legacy) library to version 2.3.1.
+  - Fixed syntax errors.
+- Updated WordPress pay MemberPress library to version 2.2.2.
+  - Added support for recurring payments with Apple Pay.
+  - Updated payment method icons to use wp-pay/logos library.
+
 ## [6.6.0] - 2021-01-14
 
 ### Changed
@@ -2639,7 +2660,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.1...HEAD
+[6.6.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.0...6.6.1
 [6.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.1...6.6.0
 [6.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.0...6.5.1
 [6.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.4.1...6.5.0
