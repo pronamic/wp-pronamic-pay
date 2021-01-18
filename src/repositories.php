@@ -157,6 +157,27 @@ foreach ( $organisations as $organisation => $repositories ) {
 				ex -s -c "$(( ${LINK_LINENR} + 1 ))i|${LINK}" -c x CHANGELOG.md';
 		}
 
+
+		if ( isset( $argv[1] ) && 'update-package-version' === $argv[1] ) {
+			$command = '
+				CURRENT_TAG=$(git describe --tags --abbrev=0);
+				LOG=$(git --no-pager log ${CURRENT_TAG}..HEAD --oneline);
+
+				# Exit if there are no changes in Git repository.
+				if [ $(echo "$LOG" | wc -l) -eq 1 ]; then
+					echo "Version: ${CURRENT_TAG}";
+					exit;
+				fi;
+
+				# Set version numbers.
+				NEW_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'' . version_update_awk_actions() . '\');
+				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}";
+
+				# Update version number.
+				VERSION_LINENR=$(grep -n "\"version\":" package.json | tail -1 | cut -d: -f1);
+				PACKAGE_JSON=$(cat package.json | sed "${VERSION_LINENR}s/\"${CURRENT_TAG}\"/\"${NEW_VERSION}\"/" | tee package.json);';
+		}
+
 		if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
 			$command = '
 				CURRENT_TAG=$(git describe --tags --abbrev=0);
@@ -177,26 +198,6 @@ foreach ( $organisations as $organisation => $repositories ) {
 				LOG=$(cat CHANGELOG.md | head -n $TO | tail -n +$FROM );
 				echo "${LOG}"
 				echo ",{\"description\":\"Updated WordPress ' . ( 'pronamic' === $organisation ? '' : 'pay ' ) . $name . ' library to version ${NEW_VERSION}.\",\"changes\":$(echo "${LOG}" | sed \'s/^- //\' | jq --raw-input --raw-output --slurp \'split("\\n") | .[0:-1]\')}" >> ../../../src/changelog-release.json';
-		}
-
-		if ( isset( $argv[1] ) && 'update-package-version' === $argv[1] ) {
-			$command = '
-				CURRENT_TAG=$(git describe --tags --abbrev=0);
-				LOG=$(git --no-pager log ${CURRENT_TAG}..HEAD --oneline);
-
-				# Exit if there are no changes in Git repository.
-				if [ $(echo "$LOG" | wc -l) -eq 1 ]; then
-					echo "Version: ${CURRENT_TAG}";
-					exit;
-				fi;
-
-				# Set version numbers.
-				NEW_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'' . version_update_awk_actions() . '\');
-				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}";
-
-				# Update version number.
-				VERSION_LINENR=$(grep -n "\"version\":" package.json | tail -1 | cut -d: -f1);
-				PACKAGE_JSON=$(cat package.json | sed "${VERSION_LINENR}s/\"${CURRENT_TAG}\"/\"${NEW_VERSION}\"/" | tee package.json);';
 		}
 
 		if ( isset( $argv[1] ) && in_array( $argv[1], array( 'git', 'grunt', 'composer', 'npm', 'ncu' ), true ) ) {
