@@ -59,8 +59,8 @@ before_install:
     if [ "$COVERAGE" != "1" && -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
       phpenv config-rm xdebug.ini
     fi
-  # Set Xdebug mode for coverage.
-  - if [ "$COVERAGE" == "1" ]; then export XDEBUG_MODE=coverage; fi
+  # Set Xdebug coverage mode.
+  - export XDEBUG_MODE=coverage
   # Raise PHP memory limit to 2048MB
   - echo 'memory_limit = 2048M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   # Update Composer itself to the latest version (https://getcomposer.org/doc/03-cli.md#self-update-selfupdate-).
