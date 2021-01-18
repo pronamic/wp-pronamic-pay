@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2021-01-14T19:28:52+00:00\n"
-"PO-Revision-Date: 2020-12-03 17:16+0100\n"
+"POT-Creation-Date: 2021-01-18T13:31:28+00:00\n"
+"PO-Revision-Date: 2021-01-18 14:53+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -417,7 +417,7 @@ msgstr ""
 "https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-"
 "wordpress-via-pronamic-pay/"
 
-#: pronamic-ideal.php:275
+#: pronamic-ideal.php:275 vendor/wp-pay-gateways/mollie/tests/bootstrap.php:24
 #, fuzzy
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
@@ -575,23 +575,22 @@ msgstr "SOFORT Banking"
 #: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:229
 #: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:253
 msgid "Contact Form 7"
-msgstr ""
+msgstr "Contact Form 7"
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:149
 msgid "Please wait while redirecting for payment"
-msgstr ""
+msgstr "S’il vous plaît attendre tout en redirigeant pour le paiement"
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:241
 #: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:265
-#, fuzzy
 msgid "Contact Form 7 Entry"
-msgstr "Entrée Ninja Forms"
+msgstr "Contact Form 7 Entrée"
 
 #. translators: %s: payment data title
 #: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:158
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:385
 #: vendor/wp-pay-extensions/gravityforms/src/Processor.php:244
-#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:51
+#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:63
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:100
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:349
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Gateways/Gateway.php:178
@@ -601,25 +600,24 @@ msgstr "Paiement pour %s"
 
 #. translators: %s: order id
 #: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:161
-#, fuzzy
 msgid "Contact Form 7 Entry @ %s"
-msgstr "Entrée Ninja Forms"
+msgstr "Contact Form 7 Entrée @ %s"
 
 #. translators: %s: payment number
 #: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:172
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:403
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:550
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:25
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:47
 msgid "Payment %s"
 msgstr "Paiement %s"
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/AmountTag.php:151
 msgid "Input amount is invalid."
-msgstr ""
+msgstr "Le montant de l’entrée n’est pas valide."
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/AmountTag.php:152
 msgid "The input amount is invalid."
-msgstr ""
+msgstr "Le montant de l’entrée n’est pas valide."
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/IssuerTag.php:166
 #: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:528
@@ -631,14 +629,12 @@ msgid "Issuer"
 msgstr "Émetteur"
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/PaymentMethodTag.php:194
-#, fuzzy
 msgid "Payment method required."
-msgstr "Mode de paiement"
+msgstr "Mode de paiement requis."
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/PaymentMethodTag.php:195
-#, fuzzy
 msgid "The payment method is invalid."
-msgstr "Mode de paiement"
+msgstr "Le mode de paiement n’est pas valide."
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/PaymentMethodTag.php:209
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:58
@@ -668,35 +664,34 @@ msgstr ""
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:16
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:19
 msgid "How to connect Contact Form 7 to Pronamic Pay"
-msgstr ""
+msgstr "Comment connecter Contact Form 7 à Pronamic Pay"
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:37
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:42
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:40
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:45
-#, fuzzy
 msgid "Field type"
-msgstr "Champs"
+msgstr "Type de champ"
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:46
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:49
 msgid "Required field"
-msgstr ""
+msgstr "Champ obligatoire"
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:66
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:108
 msgid "Id attribute"
-msgstr ""
+msgstr "Attribut Id"
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:76
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:118
 msgid "Class attribute"
-msgstr ""
+msgstr "Attribut class"
 
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:91
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:133
 msgid "Insert Tag"
-msgstr ""
+msgstr "Insérer la balise"
 
 #. translators: %s: mail-tag placeholder HTML
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:102
@@ -770,7 +765,6 @@ msgstr "Annulé"
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:498
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:528
-#, fuzzy
 msgctxt "Easy Digital Downloads cancelled payment status"
 msgid "Cancelled"
 msgstr "Annulé"
@@ -861,14 +855,14 @@ msgstr "Ordre Easy Digital Downloads %s"
 msgid "Payment %s pending."
 msgstr "Paiement %s en attente."
 
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/EventEspressoHelper.php:36
+#. translators: %s: attendee ID
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/EventEspressoHelper.php:37
 msgid "Attendee %s"
 msgstr "Participant #%s"
 
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:43
-#, fuzzy
 msgid "Event Espresso (legacy)"
-msgstr "Event Espresso"
+msgstr "Event Espresso (legacy)"
 
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:177
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:203
@@ -1051,10 +1045,10 @@ msgid "Notifications"
 msgstr "Notifications"
 
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:125
-#, fuzzy
 msgid "Delay email notifications until payment has been received."
 msgstr ""
-"Retard de l'envoi de notifications jusqu'à ce que le paiement ait été reçu."
+"Retardez les notifications par courriel jusqu’à ce que le paiement ait été "
+"reçu."
 
 #: vendor/wp-pay-extensions/give/src/Extension.php:51
 #: vendor/wp-pay-extensions/give/src/Extension.php:219
@@ -1076,6 +1070,7 @@ msgstr "La vérification a échoué"
 #: vendor/wp-pay-extensions/give/src/Gateway.php:234
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:408
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:527
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:123
 #: vendor/wp-pay/core/src/Plugin.php:1069 vendor/wp-pay/core/views/form.php:185
 msgid "Error"
 msgstr "Erreur"
@@ -1346,9 +1341,8 @@ msgid "New Payment Feed"
 msgstr "Nouveau flux de paiement"
 
 #: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:505
-#, fuzzy
 msgid "This field is not supported by your payment gateway."
-msgstr "Ce champ n'est pas pris en charge par votre passerelle de paiement."
+msgstr "Ce champ n’est pas pris en charge par votre passerelle de paiement."
 
 #. translators: %s: new feed URL
 #: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:508
@@ -1386,9 +1380,8 @@ msgstr "Flux de paiement par défaut"
 
 #. translators: 1: <a href="new feed URL">, 2: </a>
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:471
-#, fuzzy
 msgid "This form doesn't have any pay feeds. Let's go %1$screate one%2$s."
-msgstr "Ce formulaire n'a pas de flux de salaire. Allons %1$screate un%2$s."
+msgstr "Ce formulaire n'a pas de flux de paiement. Allons %1$screate un%2$s."
 
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:497
 msgid "Payment Completed"
@@ -1476,7 +1469,6 @@ msgid "Payment feeds list"
 msgstr "Liste des flux de paiement"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-gf-box.php:19
-#, fuzzy
 msgid "There was an error updating this payment feed."
 msgstr "Il y a eu une erreur de mise à jour de ce flux de paiement."
 
@@ -1521,9 +1513,8 @@ msgid "Advanced"
 msgstr "Avancé"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:87
-#, fuzzy
 msgid "The Gravity Forms form to process payments for."
-msgstr "Formulaires de gravité pour traiter les paiements pour."
+msgstr "Le formulaire Gravity Forms pour traiter les paiements."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:91
 msgid "— Select a form —"
@@ -1559,6 +1550,7 @@ msgstr "Par défaut:"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:172
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:235
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:299
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:95
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:93
 #: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:74
@@ -1608,10 +1600,9 @@ msgstr ""
 "paiement ait été reçu."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:264
-#, fuzzy
 msgid "Delay sending notifications until payment has been received."
 msgstr ""
-"Retard de l'envoi de notifications jusqu'à ce que le paiement ait été reçu."
+"Retarder l’envoi des notifications jusqu’à ce que le paiement ait été reçu."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:321
 msgid "Admin notification"
@@ -1635,9 +1626,8 @@ msgstr ""
 "ait été reçu."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:348
-#, fuzzy
 msgid "Delay actions until payment has been received."
-msgstr "Retarder les actions jusqu'à ce que le paiement ait été reçu."
+msgstr "Retarder les actions jusqu’à ce que le paiement ait été reçu."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:374
 msgid "Creating a post"
@@ -1746,15 +1736,13 @@ msgid "days"
 msgstr "jours"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:583
-#, fuzzy
 msgid "Use a field value of 0 days for one-time payments."
-msgstr ""
-"Utilisez une valeur de terrain de 0 jours pour les paiements ponctuels."
+msgstr "Utilisez une valeur de champ de 0 jour pour les paiements uniques."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:596
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:602
 msgid "Number of Periods"
-msgstr ""
+msgstr "Nombre de périodes"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:606
 #: vendor/wp-pay/core/src/Util.php:294
@@ -1770,9 +1758,8 @@ msgstr "fois"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:640
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:646
-#, fuzzy
 msgid "Fixed Subscription Period"
-msgstr "Voir l'abonnement"
+msgstr "Période d’abonnement fixe"
 
 #. translators: nl: Een vaste abonnementsperiode zorgt ervoor dat de periodes van alle verkochte abonnementen op één lijn liggen.
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:653
@@ -1780,14 +1767,14 @@ msgid ""
 "A fixed subscription period ensures that periods of all sold subscriptions "
 "are aligned."
 msgstr ""
+"Une période d’abonnement fixe garantit que les périodes de tous les "
+"abonnements vendus sont alignées."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:662
-#, fuzzy
 msgid "Entry Date"
-msgstr "Date de fin"
+msgstr "Date d'entrée"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:744
-#, fuzzy
 msgid "Not Available"
 msgstr "Non disponible"
 
@@ -1810,7 +1797,7 @@ msgstr "Sur %1$s %2$s"
 #. translators: nl: Bereken bedrag uitlijingsperiode pro rata.
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:831
 msgid "Prorate the amount of the alignment period."
-msgstr ""
+msgstr "Prorate le montant de la période d’alignement."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:844
 #, fuzzy
@@ -1890,19 +1877,16 @@ msgid "Email"
 msgstr "E-mail"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:863
-#, fuzzy
 msgid "Account Holder Name"
-msgstr "Titulaire de l’account"
+msgstr "Nom du titulaire du compte"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:864
-#, fuzzy
 msgid "Account IBAN"
-msgstr "ID de compte"
+msgstr "Compte IBAN"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:865
-#, fuzzy
 msgid "Company Name"
-msgstr "Mode d'affichage"
+msgstr "Nom de l'entreprise"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:866
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:301
@@ -1912,23 +1896,20 @@ msgid "VAT Number"
 msgstr "Numéro de la carte"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:887
-#, fuzzy
 msgid "— From first name field —"
-msgstr "— Sélectionnez un champ de caisse —"
+msgstr "— Du champ du prénom —"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:889
 msgid "— From first address field —"
-msgstr ""
+msgstr "— Du champ de première adresse —"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:891
-#, fuzzy
 msgid "— First phone field —"
-msgstr "— Sélectionnez un champ de caisse —"
+msgstr "— Premier champ téléphonique —"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:893
-#, fuzzy
 msgid "— First email address field —"
-msgstr "— Sélectionner le champ —"
+msgstr "— Premier champ d'adresse e-mail —"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:915
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:140
@@ -1938,9 +1919,8 @@ msgstr "Paramètres optionnels pour une utilisation avancée uniquement."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:922
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:954
-#, fuzzy
 msgid "Conditional Logic"
-msgstr "Condition"
+msgstr "Logique conditionnelle"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:967
 #, fuzzy
@@ -2062,7 +2042,7 @@ msgstr ""
 "navigateur, ou passer à un navigateur qui le prend en charge."
 
 #. translators: %s: order id
-#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:54
+#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:66
 msgid "MemberPress transaction %s"
 msgstr "Transaction MemberPress %s"
 
@@ -2139,9 +2119,8 @@ msgid "Restrict Content Pro Payment"
 msgstr "Restrict Content Pro Paiement"
 
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:612
-#, fuzzy
 msgid "Restrict Content Pro Membership"
-msgstr "Restrict Content Pro"
+msgstr "Restrict Content Pro Adhésion"
 
 #. translators: %s: source id
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:642
@@ -2214,6 +2193,7 @@ msgid "Pronamic Pay Subscription:"
 msgstr "Abonnement Pronamic Pay"
 
 #: vendor/wp-pay-extensions/restrict-content-pro/views/edit-payment.php:16
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:118
 msgid "Pronamic Pay Payment"
 msgstr "Paiement Pronamic Pay"
 
@@ -2384,19 +2364,16 @@ msgid "lifetime"
 msgstr "à vie"
 
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:56
-#, fuzzy
 msgid "Signup Confirmation Email Message"
-msgstr "Message électronique de confirmation d'inscription"
+msgstr "Message d'email de confirmation d’inscription"
 
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:71
-#, fuzzy
 msgid "Subscription Renewal Notice Email Subject"
-msgstr "Sujet d'avis de renouvellement d'abonnement"
+msgstr "Objet d’email d’avis de renouvellement d’abonnement"
 
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:86
-#, fuzzy
 msgid "Subscription Renewal Notice Email Message"
-msgstr "Message électronique d'avis de renouvellement d'abonnement"
+msgstr "Message d'email d’avis de renouvellement d’abonnement"
 
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:135
 msgid "Pronamic Pay Options"
@@ -2463,6 +2440,7 @@ msgstr "Bouton texte:"
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:129
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:258
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:274
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:307
 #: vendor/wp-pay-gateways/buckaroo/src/Integration.php:110
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:103
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:101
@@ -2499,13 +2477,12 @@ msgstr "WooCommerce"
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:230
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:245
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:260
-#, fuzzy
 msgid ""
 "By using this payment method you authorize us via %s to debit payments from "
 "your bank account."
 msgstr ""
 "En utilisant ce mode de paiement, vous nous autorisez via %s à débiter les "
-"paiements à partir de votre compte bancaire."
+"paiements de votre compte bancaire."
 
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:297
 #, fuzzy
@@ -2705,9 +2682,8 @@ msgid "A required field for the %s payment method is empty."
 msgstr "Un champ requis pour le mode de paiement %s est vide."
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:50
-#, fuzzy
 msgid "WP eCommerce"
-msgstr "WP e-Commerce"
+msgstr "WP eCommerce"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:103
 msgid "Pronamic - AfterPay"
@@ -2787,6 +2763,572 @@ msgstr "Achat WP e-Commerce"
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Gateways/Gateway.php:181
 msgid "WP eCommerce order %s"
 msgstr "WP eCommerce commande %s"
+
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:286
+msgid "Payment completed successfully."
+msgstr "Le paiement a été effectué avec succès."
+
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:287
+msgid ""
+"The order has been received and we are waiting for the payment to clear."
+msgstr "La commande a été reçue et nous attendons que le paiement soit clair."
+
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:288
+msgid ""
+"The payment has been refused. Please try again using a different method or "
+"card."
+msgstr ""
+"Le paiement a été refusé. S’il vous plaît essayer à nouveau en utilisant une "
+"méthode différente ou une carte."
+
+#. translators: %s: exception message
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:337
+#: vendor/wp-pay-gateways/adyen/src/WebSdkGateway.php:328
+msgid "Error getting payment result: %s"
+msgstr "Erreur obtenant le résultat de paiement: %s"
+
+#. translators: %s: exception message
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:400
+#, fuzzy
+msgid "Error getting payment details: %s"
+msgstr "Erreur obtenant le résultat de paiement: %s"
+
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:571
+msgid "Credit or debit card"
+msgstr "Carte de crédit ou de débit"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:44
+#, fuzzy
+msgid "https://www.adyen.com/"
+msgstr "https://www.adyen.com/fr_FR/pricing"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:45
+msgid "https://www.adyen.com/pricing"
+msgstr "https://www.adyen.com/fr_FR/pricing"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:47
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:32
+msgid "test"
+msgstr "test"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:48
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:33
+msgid "live"
+msgstr "live"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:50
+#, fuzzy
+msgid "https://www.pronamic.eu/manuals/using-adyen-pronamic-pay/"
+msgstr "https://www.pronamic.eu/plugins/pronamic-ideal/"
+
+#. translators: Translate 'notification' the same as in the Adyen dashboard.
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:147
+msgctxt "Adyen"
+msgid "Adyen Notification Authentication"
+msgstr "Authentification de notification Adyen"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:154
+msgid "User Name"
+msgstr "Nom d'utilisateur"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:165
+msgid "Password"
+msgstr "Mot de passe"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:183
+msgid ""
+"Set the user name and password below and in the webhook authentication "
+"settings in the Adyen dashboard for increased security (recommended)."
+msgstr ""
+"Définir le nom d'utilisateur et le mot de passe ci-dessous et dans les "
+"paramètres d'authentification webhook dans le tableau de bord Adyen pour une "
+"sécurité accrue (recommandé)."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:223
+msgctxt "adyen"
+msgid "Merchant Account"
+msgstr "Compte marchand"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:226
+msgid ""
+"The merchant account identifier, with which you want to process the "
+"transaction."
+msgstr ""
+"L’identifiant de compte marchand, avec lequel vous souhaitez traiter la "
+"transaction."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:234
+msgctxt "adyen"
+msgid "API Key"
+msgstr "Clé API"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:237
+#, fuzzy
+msgid "API key as mentioned in the payment provider dashboard."
+msgstr "Clé API mentionnée dans le tableau de bord du fournisseur de paiement."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:241
+msgid "Adyen documentation: \"How to get the API key\"."
+msgstr "Documentation Adyen: \"How to get the API key\"."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:250
+msgctxt "adyen"
+msgid "API Live URL Prefix"
+msgstr "Préfixe d'URL API Live"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:253
+#, fuzzy
+msgid ""
+"The unique prefix for the live API URL, as mentioned at <strong>Account » "
+"API URLs</strong> in the Adyen dashboard."
+msgstr ""
+"Le préfixe unique pour l'URL API en direct, comme mentionné à <strong>compte "
+"» URL API</strong> dans le tableau de bord Adyen."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:257
+msgid "Adyen documentation: \"Live URL prefix\"."
+msgstr "Documentation Adyen : \"Live URL prefix\"."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:266
+msgctxt "adyen"
+msgid "Origin Key"
+msgstr "Clé d’origine"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:273
+msgid ""
+"An origin key is a client-side key that is used to validate Adyen's "
+"JavaScript component library. It is required for the Drop-in and Component "
+"integrations."
+msgstr ""
+"Une clé d’origine est une clé côté client qui est utilisée pour valider la "
+"bibliothèque de composants JavaScript d’Adyen. Il est nécessaire pour les "
+"intégrations Drop-in et Component."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:277
+#, fuzzy
+msgid "Adyen documentation: \"How to get an origin key\"."
+msgstr "Documentation Adyen: \"How to get the API key\"."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:289
+msgid "Merchant Order Reference"
+msgstr "Référence de l’ordre marchand"
+
+#. translators: %s: <code>parameterName</code>
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:294
+msgid "The Adyen %s parameter."
+msgstr "Le Adyen paramètre %s."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:318
+#, fuzzy
+msgctxt "adyen"
+msgid "Apple Pay Merchant ID"
+msgstr "ID du Marchand"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:321
+msgid "Your Apple Pay Merchant ID. Required for accepting live payments."
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:325
+#, fuzzy
+msgid "Adyen documentation: \"Apple Pay Drop-in - Before you begin\"."
+msgstr "Documentation Adyen : \"Live URL prefix\"."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:327
+#, fuzzy
+msgid "Apple documentation: \"Configuring your environment\"."
+msgstr "Documentation Adyen: \"How to get the API key\"."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:336
+#, fuzzy
+msgid "Apple Pay Merchant Identity Certificate"
+msgstr "ID du Marchand"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:340
+msgid ""
+"The Apple Pay Merchant Identity certificate required for secure "
+"communication with Apple."
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:344
+#, fuzzy
+msgid ""
+"Adyen documentation: \"Enable Apple Pay - Create a merchant identity "
+"certificate\"."
+msgstr "Documentation Adyen : \"Live URL prefix\"."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:353
+#, fuzzy
+msgid "Apple Pay Merchant Identity Private Key"
+msgstr "ID du Marchand"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:357
+msgid ""
+"The private key of the Apple Pay Merchant Identity certificate for secure "
+"communication with Apple."
+msgstr ""
+"La clé privée du certificat Apple Pay Merchant Identity pour une "
+"communication sécurisée avec Apple."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:365
+msgctxt "adyen"
+msgid "Apple Pay Merchant Identity Private Key Password"
+msgstr "Apple Pay Merchant Identity Mot de passe clé privé"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:368
+msgid "Your Apple Pay Merchant Identity Certificate private key password."
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:376
+msgctxt "adyen"
+msgid "Google Pay Merchant ID"
+msgstr "Google Pay Merchant ID"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:379
+msgid "Your Google Merchant ID. Required for accepting live payments."
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:383
+#, fuzzy
+msgid "Adyen documentation: \"Google Pay Drop-in - Test and go live\"."
+msgstr "Documentation Adyen: \"How to get the API key\"."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:385
+msgid "Google documentation: \"Deploy production environment\"."
+msgstr "Documentation Google: \"Deploy production environment\"."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:392
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:89
+#: vendor/wp-pay-gateways/mollie/src/Integration.php:187
+#: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:245
+msgid "Webhook URL"
+msgstr "URL Webhook"
+
+#. translators: %s: payment provider name
+#. translators: %s: ING Kassa Compleet
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:399
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:96
+#, fuzzy
+msgid ""
+"Copy the Webhook URL to the %s dashboard to receive automatic transaction "
+"status updates."
+msgstr ""
+"Copiez l'URL Webhook au tableau de bord %s pour recevoir des mises à jour "
+"automatiques de l'état des transactions."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:400
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:142
+#: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:39
+#: vendor/wp-pay-gateways/adyen/src/PaymentResultHelper.php:37
+msgid "Adyen"
+msgstr "Adyen"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:412
+msgid "SSL Version"
+msgstr "Version de SSL"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:414
+#, fuzzy
+msgid "Choose the SSL Version of your server on the Adyen Customer Area."
+msgstr "Choisissez la version SSL de votre serveur sur la zone client Adyen."
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:425
+msgctxt "adyen notification"
+msgid "Method"
+msgstr "Méthode"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:427
+msgid "JSON"
+msgstr "JSON"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:433
+msgid "Authentication"
+msgstr "Authentification"
+
+#. translators: %s: Pronamic Pay settings page URL.
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:437
+msgid ""
+"Go to the <a href=\"%s\">Pronamic Pay settings page</a> for webhook "
+"authentication settings."
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:481
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:397
+#, fuzzy
+msgid "SHA Fingerprint"
+msgstr "Empreinte digitale SHA"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:488
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:403
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:491
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:406
+msgid "Valid From"
+msgstr "Valide à partir de"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:496
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:411
+msgid "Valid To"
+msgstr "Valide jusqu'au"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:505
+msgid ""
+"Upload an Apple Pay Merchant Identity certificate, which can be exported "
+"from Keychain Access on Mac as a PKCS#12 (*.p12) file."
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:515
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:560
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:309
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:425
+msgid "Download"
+msgstr "Télécharger"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:526
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:578
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:320
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:436
+msgid "Upload"
+msgstr "Télécharger"
+
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:572
+msgid ""
+"Leave empty to auto fill when uploading an Apple Pay Merchant Identity "
+"PKCS#12 certificate file."
+msgstr ""
+"Laissez vide pour remplir automatiquement lors du téléchargement d'un "
+"fichier de certificat Apple Pay Merchant Identity PKCS#12."
+
+#. translators: %s: Help URL.
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:87
+msgid "HTTP Authorization header is missing, read %s for more information."
+msgstr ""
+
+#. translators: Translate 'notification' the same as in the Adyen dashboard.
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:102
+msgctxt "Adyen"
+msgid "Sorry, you are not allowed to post Adyen notifications."
+msgstr "Désolé, vous n’êtes pas autorisé à poster des notifications Adyen."
+
+#. translators: Translate 'notification' the same as in the Adyen dashboard.
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:124
+msgctxt "Adyen"
+msgid "Cannot parse JSON notification."
+msgstr "Impossible d'inséquer la notification JSON."
+
+#. translators: %s: payment provider name
+#. translators: %s: Buckaroo
+#. translators: %s: EMS
+#. translators: %s: ICEPAY
+#. translators: %s: ING
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:141
+#: vendor/wp-pay-gateways/buckaroo/src/Listener.php:71
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:34
+#: vendor/wp-pay-gateways/icepay/src/Listener.php:48
+#: vendor/wp-pay-gateways/ideal-basic/src/Listener.php:36
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Listener.php:46
+#: vendor/wp-pay-gateways/mollie/src/WebhookController.php:108
+msgid "Webhook requested by %s."
+msgstr "Webhook demandé par %s."
+
+#. translators: %s: item index
+#: vendor/wp-pay-gateways/adyen/src/PaymentRequestHelper.php:104
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:165
+msgid "Item %s"
+msgstr "Article %s"
+
+#. translators: %s: payment provider name
+#: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:38
+#: vendor/wp-pay-gateways/adyen/src/PaymentResultHelper.php:36
+msgid "Verified payment result."
+msgstr "Résultat de paiement vérifié."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:56
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:73
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:90
+#: vendor/wp-pay/core/src/Payments/PaymentsModule.php:204
+msgid "Payment ID."
+msgstr "ID de paiement."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:112
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:263
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:426
+msgid "No payment ID given in `payment_id` parameter."
+msgstr "Aucun ID de paiement donné dans le paramètre `payment_id`."
+
+#. translators: %s: payment ID
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:123
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:274
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:437
+#: vendor/wp-pay/core/src/Payments/PaymentsModule.php:254
+#, fuzzy
+msgid "Could not find payment with ID `%s`."
+msgstr "Impossible de trouver le paiement avec ID `%s`."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:136
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:287
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:450
+msgid "No data given in request body."
+msgstr "Aucune donnée fournie dans le corps de la demande."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:146
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:297
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:460
+#, fuzzy
+msgid "No gateway configuration ID given in payment."
+msgstr ""
+"Aucun ID de configuration de passerelle donné dans le paramètre 'config'id'."
+
+#. translators: %s: Gateway configuration ID
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:157
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:308
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:471
+#: vendor/wp-pay/core/src/Payments/PaymentsModule.php:288
+#, fuzzy
+msgid "Could not find gateway with ID `%s`."
+msgstr "Impossible de trouver passerelle avec ID `%s`."
+
+#. translators: %s: Gateway configuration ID
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:169
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:320
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:483
+#, fuzzy
+msgid "Could not find client in gateway with ID `%s`."
+msgstr "Impossible de trouver le client dans la passerelle avec ID `%s`."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:181
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:331
+msgid "No payment method given."
+msgstr "Aucun mode de paiement donné."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:191
+#, fuzzy
+msgid "Gateway does not support method to create payment."
+msgstr "Cette passerelle ne prend pas en charge l'enregistrement webhook."
+
+#. translators: 1: error message, 2: error code
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:205
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:368
+msgid "%1$s (error %2$s)"
+msgstr "%1$s (erreur %2$s)"
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:354
+#, fuzzy
+msgid "Gateway does not support sending additional payment details."
+msgstr "Cette passerelle ne prend pas en charge l'enregistrement webhook."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:500
+msgid "Apple Pay merchant identifier not configured in gateway settings."
+msgstr ""
+"Identifiant marchand Apple Pay non configuré dans les paramètres de "
+"passerelle."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:507
+msgid "No Apple Pay merchant validation URL given."
+msgstr "Aucune URL de validation Apple Pay marchand donnée."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:532
+msgid "Invalid Apple Pay Merchant Identity configuration."
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:540
+#, fuzzy
+msgid "Error creating merchant identity files."
+msgstr "Erreur obtenant le résultat de paiement: %s"
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:610
+#, fuzzy
+msgid "Error reading merchant identity files."
+msgstr "Erreur obtenant le résultat de paiement: %s"
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:55
+#: vendor/wp-pay/core/src/Payments/PaymentsModule.php:222
+msgid "Gateway configuration ID."
+msgstr "ID de configuration de passerelle."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:59
+msgid "Payload."
+msgstr "Charge."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:63
+msgid "Result code."
+msgstr "Code de résultat."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:67
+msgid "Result text."
+msgstr "Texte de résultat."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:87
+#, fuzzy
+msgid "No gateway configuration ID given in `config_id` parameter."
+msgstr ""
+"Aucun ID de configuration de passerelle donné dans le paramètre 'config'id'."
+
+#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:96
+msgid "No payload given in `payload` parameter."
+msgstr "Aucune charge utile donnée dans le paramètre `payload`."
+
+#. translators: %s: Gateway configuration ID
+#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:108
+msgid "Could not found gateway with ID `%s`."
+msgstr "Impossible de trouver passerelle avec ID `%s`."
+
+#. translators: %s: Gateway configuration ID
+#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:120
+msgid "Could not found client in gateway with ID `%s`."
+msgstr "Impossible de trouver le client dans la passerelle avec ID `%s`."
+
+#. translators: %s: Adyen merchant reference
+#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:142
+msgid "Could not found payment with ID `%s`."
+msgstr "Impossible de trouver le paiement avec ID `%s`."
+
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:63
+msgid "HTTP Authorization header test"
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:87
+msgid "HTTP Basic authentication is working"
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:90
+#: vendor/wp-pay-gateways/mollie/src/Admin.php:171
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:252
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:288
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:321
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:350
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:497
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:981
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:982
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:535
+#: vendor/wp-pay/core/src/Forms/FormPostType.php:169
+#: vendor/wp-pay/core/src/Payments/PaymentPostType.php:50
+#: vendor/wp-pay/core/src/Payments/PaymentPostType.php:52
+#: vendor/wp-pay/core/src/Payments/PaymentPostType.php:63
+#: vendor/wp-pay/core/src/Payments/PaymentsPrivacy.php:46
+#: vendor/wp-pay/core/src/Payments/PaymentsPrivacy.php:62
+#: vendor/wp-pay/core/src/Payments/PaymentsPrivacy.php:127
+#: vendor/wp-pay/core/views/pointer-payments.php:12
+msgid "Payments"
+msgstr "Paiements"
+
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:95
+msgid ""
+"HTTP Basic authentication is required to securely receive Adyen "
+"notifications."
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:117
+msgid "Could not reach HTTP Authorization header test endpoint."
+msgstr ""
+"N’a pas pu atteindre le point de terminaison de test de l’en-tête HTTP "
+"Authorization."
+
+#: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:19
+#: vendor/wp-pay-gateways/adyen/views/checkout-web-sdk.php:19
+msgid "Checkout"
+msgstr "Commander"
 
 #: vendor/wp-pay-gateways/buckaroo/src/Client.php:459
 msgid "Unable to retrieve issuers from Buckaroo."
@@ -2922,20 +3464,6 @@ msgstr ""
 "L'URL Push telle qu'envoyée à chaque transaction pour recevoir des mises à "
 "jour automatiques de l'état des paiements."
 
-#. translators: %s: Buckaroo
-#. translators: %s: EMS
-#. translators: %s: ICEPAY
-#. translators: %s: payment provider name
-#. translators: %s: ING
-#: vendor/wp-pay-gateways/buckaroo/src/Listener.php:71
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:34
-#: vendor/wp-pay-gateways/icepay/src/Listener.php:48
-#: vendor/wp-pay-gateways/ideal-basic/src/Listener.php:36
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Listener.php:46
-#: vendor/wp-pay-gateways/mollie/src/WebhookController.php:108
-msgid "Webhook requested by %s."
-msgstr "Webhook demandé par %s."
-
 #: vendor/wp-pay-gateways/buckaroo/src/Listener.php:72
 msgid "Buckaroo"
 msgstr "Buckaroo"
@@ -3010,14 +3538,6 @@ msgstr "Marque de carte de crédit"
 #, fuzzy
 msgid "EMS e-Commerce transaction data in response message:"
 msgstr "Données de transaction e-Commerce EMS dans le message de réponse :"
-
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:32
-msgid "test"
-msgstr "test"
-
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:33
-msgid "live"
-msgstr "live"
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:40
 #, fuzzy
@@ -3317,16 +3837,6 @@ msgstr ""
 "Laissez vide et enregistrez la configuration pour générer la clé privée ou "
 "afficher la commande OpenSSL."
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:309
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:425
-msgid "Download"
-msgstr "Télécharger"
-
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:320
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:436
-msgid "Upload"
-msgstr "Télécharger"
-
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:344
 msgid "ideal.cer"
 msgstr "ideal.cer"
@@ -3339,23 +3849,6 @@ msgid ""
 msgstr ""
 "Laissez vide et enregistrez la configuration pour générer le certificat ou "
 "afficher la commande OpenSSL."
-
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:397
-#, fuzzy
-msgid "SHA Fingerprint"
-msgstr "Empreinte digitale SHA"
-
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:403
-msgid "M j, Y @ G:i"
-msgstr "M j, Y @ G:i"
-
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:406
-msgid "Valid From"
-msgstr "Valide à partir de"
-
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:411
-msgid "Valid To"
-msgstr "Valide jusqu'au"
 
 #: vendor/wp-pay-gateways/ideal-basic/src/Integration.php:66
 msgid "Hash Key"
@@ -3440,11 +3933,11 @@ msgid "API key"
 msgstr "Clé API"
 
 #. translators: %s: ING Kassa Compleet
-#. translators: %s: MultiSafepay
+#. translators: %s: payment provider name
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:80
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:60
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:76
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:92
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:68
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:84
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:100
 msgid "as mentioned in the %s dashboard"
 msgstr "comme mentionné dans le tableau de bord %s"
 
@@ -3452,22 +3945,6 @@ msgstr "comme mentionné dans le tableau de bord %s"
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:97
 msgid "ING Kassa Compleet"
 msgstr "ING Kassa Compleet"
-
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:89
-#: vendor/wp-pay-gateways/mollie/src/Integration.php:187
-#: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:245
-msgid "Webhook URL"
-msgstr "URL Webhook"
-
-#. translators: %s: ING Kassa Compleet
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:96
-#, fuzzy
-msgid ""
-"Copy the Webhook URL to the %s dashboard to receive automatic transaction "
-"status updates."
-msgstr ""
-"Copiez l'URL Webhook au tableau de bord %s pour recevoir des mises à jour "
-"automatiques de l'état des transactions."
 
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Listener.php:47
 #: vendor/wp-pay-gateways/payvision/src/Gateway.php:64
@@ -3484,58 +3961,38 @@ msgid "Mollie"
 msgstr "Mollie"
 
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:152
-#, fuzzy
 msgid "Mollie Profiles"
-msgstr "Profil du marchand"
+msgstr "Profils Mollie"
 
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:153
-#, fuzzy
 msgid "Profiles"
-msgstr "Clé de profil"
+msgstr "Profils"
 
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:161
-#, fuzzy
 msgid "Mollie Customers"
-msgstr "Client"
+msgstr "Clients Mollie"
 
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:162
-#, fuzzy
 msgid "Customers"
-msgstr "Client"
+msgstr "Clients"
 
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:170
-#, fuzzy
 msgid "Mollie Payments"
-msgstr "Tous les paiements"
+msgstr "Paiements Mollie"
 
-#: vendor/wp-pay-gateways/mollie/src/Admin.php:171
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:252
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:288
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:321
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:350
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:497
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:981
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:982
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:535
-#: vendor/wp-pay/core/src/Forms/FormPostType.php:169
-#: vendor/wp-pay/core/src/Payments/PaymentPostType.php:50
-#: vendor/wp-pay/core/src/Payments/PaymentPostType.php:52
-#: vendor/wp-pay/core/src/Payments/PaymentPostType.php:63
-#: vendor/wp-pay/core/src/Payments/PaymentsPrivacy.php:46
-#: vendor/wp-pay/core/src/Payments/PaymentsPrivacy.php:62
-#: vendor/wp-pay/core/src/Payments/PaymentsPrivacy.php:127
-#: vendor/wp-pay/core/views/pointer-payments.php:12
-msgid "Payments"
-msgstr "Paiements"
+#. translators: 1: Mollie chargeback ID, 2: Mollie payment ID
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:743
+msgid "Subscription put on hold due to chargeback `%1$s` of payment `%2$s`."
+msgstr ""
 
 #. translators: 1: old mandate ID, 2: new mandate ID
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:717
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:782
 #, fuzzy
 msgid "Mandate for subscription changed from \"%1$s\" to \"%2$s\"."
 msgstr "Le statut d'abonnement est passé de \"%1$s\" à \"%2$s\"."
 
 #. translators: 1: old payment method, 2: new payment method
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:745
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:810
 #, fuzzy
 msgid "Payment method for subscription changed from \"%1$s\" to \"%2$s\"."
 msgstr "Le statut de paiement est passé de \"%1$s\" à \"%2$s\"."
@@ -3557,16 +4014,16 @@ msgstr "Clé API mentionnée dans le tableau de bord du fournisseur de paiement"
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:169
 msgctxt "mollie"
 msgid "Due date days"
-msgstr ""
+msgstr "Jours d'échéance"
 
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:174
 msgid "Number of days after which a bank transfer payment expires."
-msgstr ""
+msgstr "Nombre de jours après l’expiration d’un paiement de virement bancaire."
 
 #. translators: 1: <code>1</code>, 2: <code>100</code>, 3: <code>12</code>
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:177
 msgid "Minimum %1$s and maximum %2$s days. Default: %3$s days."
-msgstr ""
+msgstr "Minimum %1$s et maximum %2$s jours. Par défaut : %3$s jours."
 
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:192
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:250
@@ -3580,33 +4037,29 @@ msgstr ""
 
 #. translators: %s: Mollie payment ID anchor.
 #: vendor/wp-pay-gateways/mollie/views/meta-box-payment.php:39
-#, fuzzy
 msgid "Payment: %s"
-msgstr "Paiement %s"
+msgstr "Paiement: %s"
 
 #. translators: %s: Mollie customer ID anchor.
 #: vendor/wp-pay-gateways/mollie/views/meta-box-payment.php:67
 #: vendor/wp-pay-gateways/mollie/views/meta-box-subscription.php:37
-#, fuzzy
 msgid "Customer: %s"
-msgstr "Client"
+msgstr "Client: %s"
 
 #. translators: %s: Mollie mandate ID
 #: vendor/wp-pay-gateways/mollie/views/meta-box-subscription.php:68
-#, fuzzy
 msgid "Mandate: %s"
-msgstr "Paiement %s"
+msgstr "Mandat: %s"
 
 #. translators: %s: Mollie customer ID.
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:99
-#, fuzzy
 msgid "Customer %s"
-msgstr "Client"
+msgstr "Client %s "
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:116
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:199
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:432
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:42
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:64
 #: vendor/wp-pay-gateways/mollie/views/user-profile.php:52
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:84
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:44
@@ -3645,13 +4098,13 @@ msgid "Locale"
 msgstr "Lieu"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:171
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:48
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:70
 msgid "Link"
-msgstr ""
+msgstr "Lien"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:194
 msgid "Mandates"
-msgstr ""
+msgstr "Mandats"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:202
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:431
@@ -3659,31 +4112,26 @@ msgid "Method"
 msgstr "Méthode"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:203
-#, fuzzy
 msgid "Details"
-msgstr "Détail"
+msgstr "Détails "
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:204
-#, fuzzy
 msgid "Mandate Reference"
-msgstr "Référence de transaction"
+msgstr "Référence du mandat"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:205
-#, fuzzy
 msgid "Signature Date"
-msgstr "Signature SHA"
+msgstr "Date de signature"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:206
 msgid "Created On"
-msgstr ""
+msgstr "Créé le"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:215
-#, fuzzy
 msgid "No mandates found."
-msgstr "Pas d'histoire trouvées."
+msgstr "Aucun mandat n’a été trouvé."
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:251
-#, fuzzy
 msgid "Pending"
 msgstr "En attente"
 
@@ -3695,9 +4143,8 @@ msgid "Valid"
 msgstr "Valide"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:296
-#, fuzzy
 msgid "Card Holder"
-msgstr "Numéro de la carte"
+msgstr "Titulaire de la carte"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:305
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:267
@@ -3705,17 +4152,14 @@ msgid "Card Number"
 msgstr "Numéro de la carte"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:314
-#, fuzzy
 msgid "Card Label"
-msgstr "Numéro de la carte"
+msgstr "Étiquette de carte"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:323
-#, fuzzy
 msgid "Card Fingerprint"
-msgstr "Empreinte digitale SHA"
+msgstr "Empreinte digitale de la carte"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:332
-#, fuzzy
 msgid "Card Expiry Date"
 msgstr "Date d'expiration"
 
@@ -3735,20 +4179,23 @@ msgid "Consumer BIC"
 msgstr "Consommateur BIC"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:427
-#, fuzzy
 msgid "WordPress Users"
-msgstr "Version de WordPress"
+msgstr "Utilisateurs WordPress"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:434
-#, fuzzy
 msgid "Display Name"
-msgstr "Mode d'affichage"
+msgstr "Afficher le nom"
+
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:100
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:107
+#, fuzzy
+msgid "Change Payment State"
+msgstr "Vérifier l'état des paiement"
 
 #: vendor/wp-pay-gateways/mollie/views/user-profile.php:46
-#, fuzzy
 msgctxt "mollie"
 msgid "Customers"
-msgstr "Client"
+msgstr "Clients"
 
 #: vendor/wp-pay-gateways/mollie/views/user-profile.php:84
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:344
@@ -3794,25 +4241,25 @@ msgstr ""
 "https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-"
 "wordpress-via-pronamic-pay/"
 
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:53
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:58
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:61
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:66
 msgid "Account ID"
 msgstr "ID de compte"
 
-#. translators: %s: MultiSafepay
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:60
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:76
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:92
+#. translators: %s: payment provider name
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:68
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:84
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:100
 msgid "MultiSafepay"
 msgstr "MultiSafepay"
 
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:69
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:74
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:77
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:82
 msgid "Site ID"
 msgstr "Identifiant du site"
 
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:85
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:90
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:93
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:98
 msgid "Site Security Code"
 msgstr "Code de sécurité du site"
 
@@ -3855,9 +4302,8 @@ msgid "Transaction Date"
 msgstr "Date de transaction"
 
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:271
-#, fuzzy
 msgid "Pay ID"
-msgstr "ID de paiement"
+msgstr "Pay ID"
 
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:272
 msgid "NC Error"
@@ -4079,11 +4525,6 @@ msgstr ""
 "UrL de demande directe de serveur à serveur pour les statuts de paiement "
 "\"annulés par le client\" ou \"trop de rejets par l'acquéreur\"."
 
-#. translators: %s: item index
-#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:165
-msgid "Item %s"
-msgstr "Article %s"
-
 #: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:255
 msgid "OmniKassa 2.0 return URL requested:"
 msgstr "OmniKassa 2.0 URL de retour demandé:"
@@ -4216,7 +4657,6 @@ msgid "https://www.pronamic.eu/manuals/using-paypal-pronamic-pay/"
 msgstr "https://www.pronamic.eu/plugins/pronamic-ideal/"
 
 #: vendor/wp-pay-gateways/paypal/src/Integration.php:94
-#, fuzzy
 msgctxt "paypal"
 msgid "Email"
 msgstr "E-mail"
@@ -4266,9 +4706,8 @@ msgid "Knab"
 msgstr "Knab"
 
 #: vendor/wp-pay-gateways/payvision/src/Gateway.php:70
-#, fuzzy
 msgid "Van Lanschot Bankiers"
-msgstr "Van Lanschot"
+msgstr "Van Lanschot Bankiers"
 
 #: vendor/wp-pay-gateways/payvision/src/Gateway.php:71
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:293
@@ -4283,7 +4722,7 @@ msgstr "Moneyou"
 #: vendor/wp-pay-gateways/payvision/src/Gateway.php:73
 #: vendor/wp-pay/core/src/Cards.php:118
 msgid "Handelsbanken"
-msgstr ""
+msgstr "Handelsbanken"
 
 #: vendor/wp-pay-gateways/payvision/src/Integration.php:42
 #: vendor/wp-pay-gateways/payvision/src/Integration.php:43
@@ -4296,30 +4735,30 @@ msgstr "https://www.adyen.com/fr_FR/"
 msgid "https://www.pronamic.eu/manuals/using-payvision-pronamic-pay/"
 msgstr "https://www.pronamic.eu/plugins/pronamic-ideal/"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:69
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:89
 msgctxt "payvision"
 msgid "Business Id"
-msgstr ""
+msgstr "Business Id"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:72
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:92
 msgid ""
 "A Merchant connecting to the platform is identified by its Business ID "
 "(“businessId”)."
 msgstr ""
+"Un marchand se connectant à la plateforme est identifié par son Business ID "
+"(”businessId”)."
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:83
-#, fuzzy
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:103
 msgctxt "payvision"
 msgid "User"
 msgstr "Utilisateur"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:93
-#, fuzzy
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:113
 msgctxt "payvision"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:103
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:123
 #, fuzzy
 msgctxt "payvision"
 msgid "Store ID"
@@ -4526,7 +4965,7 @@ msgstr "Prochaine vérification de licence prévue"
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:76
 #: vendor/wp-pay/core/views/tab-system_status.php:231
 msgid "Time (UTC)"
-msgstr ""
+msgstr "Heure (UTC)"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:77
 #: vendor/wp-pay/core/views/tab-system_status.php:234
@@ -4542,9 +4981,8 @@ msgid "OpenSSL version"
 msgstr "Version OpenSSL"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:94
-#, fuzzy
 msgid "Active plugin integrations"
-msgstr "Versions plugin prises en charge:"
+msgstr "Intégrations actives de plugin"
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:190
 msgid "Pronamic Pay license key is valid"
@@ -4739,14 +5177,12 @@ msgid "The payment status is unknown."
 msgstr "L'état de paiement est inconnu."
 
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:483
-#, fuzzy
 msgid "subscription"
-msgstr "Abonnement"
+msgstr "abonnement"
 
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:486
-#, fuzzy
 msgid "The subscription has been canceled."
-msgstr "L'abonnement ne peut pas être renouvelé."
+msgstr "L’abonnement a été annulé."
 
 #. translators: %s: order ID
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:668
@@ -4988,7 +5424,6 @@ msgid "Payment draft updated."
 msgstr "Paiement brouillon mis à jour."
 
 #: vendor/wp-pay/core/src/Admin/AdminReports.php:157
-#, fuzzy
 msgid "Number successful payments"
 msgstr "Nombre de paiements réussis"
 
@@ -4997,7 +5432,6 @@ msgid "Open payments"
 msgstr "Paiements ouverts"
 
 #: vendor/wp-pay/core/src/Admin/AdminReports.php:194
-#, fuzzy
 msgid "Successful payments"
 msgstr "Paiements réussis"
 
@@ -5066,15 +5500,13 @@ msgstr "— Sélectionnez une page —"
 
 #. translators: %d: payment ID
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:204
-#, fuzzy
 msgid "Payment #%d"
-msgstr "Paiement %d"
+msgstr "Paiement #%d"
 
 #. translators: %s: payment post edit link
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:225
-#, fuzzy
 msgid "%s has been created."
-msgstr "%s paiement mis à jour."
+msgstr "%s a été créé."
 
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:291
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:101
@@ -5083,16 +5515,14 @@ msgid "Recurrence"
 msgstr "Récurrence"
 
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:526
-#, fuzzy
 msgid "Phases"
-msgstr "Achat #%s"
+msgstr "Phases"
 
 #: vendor/wp-pay/core/src/Admin/Install.php:247
 msgid "Payer"
 msgstr "Payeur"
 
 #: vendor/wp-pay/core/src/Blocks/BlocksModule.php:87
-#, fuzzy
 msgctxt "Block"
 msgid "Payment Form"
 msgstr "Formulaire de paiement"
@@ -5111,50 +5541,48 @@ msgid "Payment Form Block"
 msgstr "Bloc de formulaire de paiement"
 
 #: vendor/wp-pay/core/src/Cards.php:46
-#, fuzzy
 msgid "American Express"
-msgstr "Event Espresso"
+msgstr "American Express"
 
 #: vendor/wp-pay/core/src/Cards.php:51
 msgid "Carta Si"
-msgstr ""
+msgstr "Carta Si"
 
 #: vendor/wp-pay/core/src/Cards.php:56
 msgid "Carte Bleue"
-msgstr ""
+msgstr "Carte Bleue"
 
 #: vendor/wp-pay/core/src/Cards.php:61
 msgid "Dankort"
-msgstr ""
+msgstr "Dankort"
 
 #: vendor/wp-pay/core/src/Cards.php:66
 msgid "Diners Club"
-msgstr ""
+msgstr "Diners Club"
 
 #: vendor/wp-pay/core/src/Cards.php:71
-#, fuzzy
 msgid "Discover"
-msgstr "Remise"
+msgstr "Discover"
 
 #: vendor/wp-pay/core/src/Cards.php:76
 msgid "JCB"
-msgstr ""
+msgstr "JCB"
 
 #: vendor/wp-pay/core/src/Cards.php:86
 msgid "Mastercard"
-msgstr ""
+msgstr "Mastercard"
 
 #: vendor/wp-pay/core/src/Cards.php:91
 msgid "UnionPay"
-msgstr ""
+msgstr "UnionPay"
 
 #: vendor/wp-pay/core/src/Cards.php:96
 msgid "Visa"
-msgstr ""
+msgstr "Visa"
 
 #: vendor/wp-pay/core/src/Cards.php:113
 msgid "bunq"
-msgstr ""
+msgstr "bunq"
 
 #: vendor/wp-pay/core/src/Cards.php:123
 msgid "ING Bank"
@@ -5178,9 +5606,8 @@ msgid "Choose your credit card issuer"
 msgstr "Choisissez votre émetteur de carte de crédit"
 
 #: vendor/wp-pay/core/src/Core/Gateway.php:645
-#, fuzzy
 msgid "Account holder name"
-msgstr "Titulaire de l’account"
+msgstr "Nom du titulaire du compte"
 
 #: vendor/wp-pay/core/src/Core/Gateway.php:671
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:598
@@ -5193,7 +5620,7 @@ msgstr "Alipay"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:287
 msgid "Apple Pay"
-msgstr ""
+msgstr "Apple Pay"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:290
 msgid "Belfius Direct Net"
@@ -5216,9 +5643,8 @@ msgid "EPS"
 msgstr "EPS"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:316
-#, fuzzy
 msgid "Google Pay"
-msgstr "Google Analytics"
+msgstr "Google Pay"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:317
 msgid "Gulden"
@@ -5242,11 +5668,11 @@ msgstr "Payconiq"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:325
 msgid "Przelewy24"
-msgstr ""
+msgstr "Przelewy24"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:326
 msgid "Santander"
-msgstr ""
+msgstr "Santander"
 
 #. translators: 1: received response code, 2: required response code
 #: vendor/wp-pay/core/src/Core/Util.php:61
@@ -5721,35 +6147,13 @@ msgstr "Paiement créé avec le statut \"%1$s\"."
 msgid "Payment status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Le statut de paiement est passé de \"%1$s\" à \"%2$s\"."
 
-#: vendor/wp-pay/core/src/Payments/PaymentsModule.php:204
-msgid "Payment ID."
-msgstr "ID de paiement."
-
-#: vendor/wp-pay/core/src/Payments/PaymentsModule.php:222
-msgid "Gateway configuration ID."
-msgstr "ID de configuration de passerelle."
-
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:226
-#, fuzzy
 msgid "Gateway ID."
-msgstr "ID Gateway."
+msgstr "ID de passerelle."
 
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:230
-#, fuzzy
 msgid "Gateway mode."
-msgstr "Mode Gateway."
-
-#. translators: %s: payment ID
-#: vendor/wp-pay/core/src/Payments/PaymentsModule.php:254
-#, fuzzy
-msgid "Could not find payment with ID `%s`."
-msgstr "Impossible de trouver le paiement avec ID `%s`."
-
-#. translators: %s: Gateway configuration ID
-#: vendor/wp-pay/core/src/Payments/PaymentsModule.php:288
-#, fuzzy
-msgid "Could not find gateway with ID `%s`."
-msgstr "Impossible de trouver passerelle avec ID `%s`."
+msgstr "Mode passerelle."
 
 #: vendor/wp-pay/core/src/Payments/PaymentsPrivacy.php:228
 msgid "Payment anonymized for personal data erasure request."
@@ -5962,9 +6366,8 @@ msgid "Subscription ID."
 msgstr "ID d'abonnement."
 
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:1218
-#, fuzzy
 msgid "Subscription phase sequence number."
-msgstr "L'abonnement ne peut pas être renouvelé."
+msgstr "Numéro de séquence de phase d’abonnement."
 
 #. translators: %s: Subscription ID
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:1242
@@ -6005,7 +6408,7 @@ msgstr "Abonnement ID %s pas anonymisé en raison de son statut actif."
 #. translators: %s: formatted next payment date
 #: vendor/wp-pay/core/src/Upgrades/Upgrade620.php:122
 msgid "Missing subscription next payment date restored to %s."
-msgstr ""
+msgstr "Date de paiement suivante de l’abonnement manquante restaurée %s."
 
 #. translators: %s: number of years
 #: vendor/wp-pay/core/src/Util.php:152
@@ -6032,35 +6435,32 @@ msgstr[1] "%s jours"
 #: vendor/wp-pay/core/src/Util.php:167
 msgid "%s hour"
 msgid_plural "%s hours"
-msgstr[0] ""
+msgstr[0] "%s heure"
 msgstr[1] ""
 
 #. translators: %s: number of minutes
 #: vendor/wp-pay/core/src/Util.php:172
-#, fuzzy
 msgid "%s minute"
 msgid_plural "%s minutes"
-msgstr[0] "%s mois"
+msgstr[0] "%s minute"
 msgstr[1] "%s mois"
 
 #. translators: %s: number of seconds
 #: vendor/wp-pay/core/src/Util.php:177
 msgid "%s second"
 msgid_plural "%s seconds"
-msgstr[0] ""
+msgstr[0] "%s seconde"
 msgstr[1] ""
 
 #. translators: 1: formatted periods, 2: last formatted period
 #: vendor/wp-pay/core/src/Util.php:194
-#, fuzzy
 msgid "%1$s and %2$s"
-msgstr "%1$s - %2$s"
+msgstr "%1$s et %2$s"
 
 #. translators: %s: formatted date interval periods
 #: vendor/wp-pay/core/src/Util.php:223
-#, fuzzy
 msgid "Every %s"
-msgstr "Chaque %s jour"
+msgstr "Chaque %s"
 
 #. translators: %s: interval
 #: vendor/wp-pay/core/src/Util.php:242
@@ -6092,10 +6492,9 @@ msgstr[1] "Tous les %s ans"
 
 #. translators: %s: frequency
 #: vendor/wp-pay/core/src/Util.php:298
-#, fuzzy
 msgid "%s period"
 msgid_plural "%s periods"
-msgstr[0] "Période"
+msgstr[0] "%s période"
 msgstr[1] "Période"
 
 #: vendor/wp-pay/core/views/form.php:105
@@ -6148,10 +6547,9 @@ msgstr "Informations du produit"
 #: vendor/wp-pay/core/views/meta-box-gateway-config.php:103
 #: vendor/wp-pay/core/views/meta-box-gateway-config.php:104
 msgid "Manual"
-msgstr ""
+msgstr "Manuel"
 
 #: vendor/wp-pay/core/views/meta-box-gateway-payment-methods.php:15
-#, fuzzy
 msgid "Active"
 msgstr "Actif"
 
@@ -6190,7 +6588,6 @@ msgstr ""
 "fournisseur de paiement, pour effectuer un paiement de test."
 
 #: vendor/wp-pay/core/views/meta-box-gateway-test.php:121
-#, fuzzy
 msgid "Phone Number"
 msgstr "Numéro de téléphone"
 
@@ -6299,9 +6696,8 @@ msgid "User"
 msgstr "Utilisateur"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:141
-#, fuzzy
 msgid "Bank Transfer Recipient"
-msgstr "Virement bancaire"
+msgstr "Bénéficiaire du virement bancaire"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:180
 msgid "Return URL"
@@ -6313,7 +6709,7 @@ msgstr "URL de redirection"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:282
 msgid "Company"
-msgstr ""
+msgstr "Entreprise"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:312
 #, fuzzy
@@ -6327,11 +6723,11 @@ msgstr "Nécessite au moins"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:382
 msgid "Validation Service"
-msgstr ""
+msgstr "Service de validation"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:389
 msgid "VIES"
-msgstr ""
+msgstr "VIES"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:521
 msgid "Account Holder"
@@ -6342,9 +6738,8 @@ msgid "Account Holder City"
 msgstr "Titulaire du compte Ville"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:557
-#, fuzzy
 msgid "Account Holder Country"
-msgstr "Titulaire du compte Ville"
+msgstr "Pays titulaire d’un compte"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:575
 msgid "Account Number"
@@ -6479,7 +6874,6 @@ msgid "Inclusive tax: %s"
 msgstr "Taxe inclusive: %s"
 
 #: vendor/wp-pay/core/views/meta-box-payment-subscription.php:86
-#, fuzzy
 msgctxt "Recurring payment"
 msgid "Recurrence"
 msgstr "Récurrence"
@@ -6512,7 +6906,7 @@ msgstr "l jS \\o\\f F Y, h:ia"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:168
 msgid "Paid up to"
-msgstr ""
+msgstr "Payé jusqu’à"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:190
 msgid "Next Payment Date"
@@ -6532,21 +6926,21 @@ msgstr "URL de renouvellement"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:356
 msgid "Mandate Selection URL"
-msgstr ""
+msgstr "URL de sélection du mandat"
 
 #. translators: %s: next payment date
 #: vendor/wp-pay/core/views/meta-box-subscription-payments.php:66
 msgid "Will be created on %s"
-msgstr ""
+msgstr "Sera créé sur %s"
 
 #. translators: 1: next payment delivery date, 2: create next period payment anchor
 #: vendor/wp-pay/core/views/meta-box-subscription-payments.php:76
 msgid "Will be created on %1$s or %2$s"
-msgstr ""
+msgstr "Sera créé sur %1$s ou %2$s"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-payments.php:81
 msgid "create now"
-msgstr ""
+msgstr "créer maintenant"
 
 #. translators: %d: payment ID
 #: vendor/wp-pay/core/views/meta-box-subscription-payments.php:173
@@ -6555,35 +6949,33 @@ msgid "Retry payment #%d"
 msgstr "paiement #%s"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-phases.php:18
-#, fuzzy
 msgid "No phases found."
-msgstr "Aucun paiement trouvé."
+msgstr "Aucune phase trouvée."
 
 #: vendor/wp-pay/core/views/meta-box-subscription-phases.php:33
-#, fuzzy
 msgid "Next Date"
-msgstr "Date du prochain paiement"
+msgstr "Date Suivante"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-phases.php:34
 msgid "Periods created"
-msgstr ""
+msgstr "Périodes créées"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-phases.php:35
 msgid "Trial"
-msgstr ""
+msgstr "Essai"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-phases.php:36
 msgid "Aligned"
-msgstr ""
+msgstr "Aligné"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-phases.php:37
 msgid "Prorated"
-msgstr ""
+msgstr "Au prorata"
 
 #. translators: %s: Pronamic Pay
 #: vendor/wp-pay/core/views/notice-license.php:27
 msgid "Thank you for activating your license and using the %s plugin."
-msgstr ""
+msgstr "Merci d’activer votre licence et d’utiliser le %s plugin."
 
 #: vendor/wp-pay/core/views/notice-license.php:33
 #, fuzzy
@@ -6641,7 +7033,7 @@ msgstr "Pronamic Pay Add-On"
 
 #: vendor/wp-pay/core/views/notice-upgraded.php:17
 msgid "Successfully upgraded to the latest version."
-msgstr ""
+msgstr "Mise à niveau réussie vers la dernière version."
 
 #. translators: 1: configuration link(s)
 #: vendor/wp-pay/core/views/notice-webhook-url.php:56
@@ -6724,9 +7116,8 @@ msgid "The default payment status pages are created."
 msgstr "Les pages d'état de paiement par défaut sont créées."
 
 #: vendor/wp-pay/core/views/page-settings.php:25
-#, fuzzy
 msgid "The default payment status pages could not be created."
-msgstr "Les pages d'état de paiement par défaut sont créées."
+msgstr "Les pages d'état de paiement par défaut n'ont pas pu être créées."
 
 #: vendor/wp-pay/core/views/page-tools.php:15
 msgid "Payment Gateways"
@@ -6789,12 +7180,11 @@ msgstr ""
 "supprimer des formulaires de paiement simples."
 
 #: vendor/wp-pay/core/views/pointer-forms.php:16
-#, fuzzy
 msgid ""
 "Currently it’s not possible to adjust the form fields or styling of these "
 "forms."
 msgstr ""
-"Actuellement, il n'est pas possible d'ajuster les champs de forme ou le "
+"Actuellement, il n’est pas possible d’ajuster les champs de forme ou le "
 "style de ces formes."
 
 #. translators: 1: Gravity Forms link, 2: _blank
@@ -6833,13 +7223,12 @@ msgstr ""
 "configuration de passerelle de paiement."
 
 #: vendor/wp-pay/core/views/pointer-gateways.php:17
-#, fuzzy
 msgid ""
 "Normally you get the required configuration information from your payment "
 "provider."
 msgstr ""
-"Normalement, vous obtenez les informations de configuration requises de "
-"votre fournisseur de paiement."
+"Normalement, vous obtenez les informations de configuration requises auprès "
+"de votre fournisseur de paiement."
 
 #: vendor/wp-pay/core/views/pointer-payments.php:15
 #, fuzzy
@@ -6900,7 +7289,6 @@ msgid "Congratulations"
 msgstr "Félicitations"
 
 #: vendor/wp-pay/core/views/pointer-start.php:15
-#, fuzzy
 msgid ""
 "You’ve just installed the Pronamic Pay plugin. Click “Start Tour” to view a "
 "quick introduction of this plugin’s core functionality."
@@ -6914,16 +7302,14 @@ msgstr "Suivre Pronamic"
 
 #: vendor/wp-pay/core/views/subscription-cancel.php:25
 #: vendor/wp-pay/core/views/subscription-cancel.php:34
-#, fuzzy
 msgid "Subscription Cancellation"
-msgstr "Abonnement annulé"
+msgstr "Annulation d’abonnement"
 
 #. translators: %s: expiry date
 #: vendor/wp-pay/core/views/subscription-cancel.php:44
 #: vendor/wp-pay/core/views/subscription-renew.php:43
-#, fuzzy
 msgid "The subscription expires at %s."
-msgstr "L'abonnement s'epxires à %s."
+msgstr "L’abonnement expire à %s."
 
 #: vendor/wp-pay/core/views/subscription-cancel.php:60
 #: vendor/wp-pay/core/views/subscription-renew.php:59
@@ -6936,34 +7322,29 @@ msgid "Amount:"
 msgstr "Montant:"
 
 #: vendor/wp-pay/core/views/subscription-cancel.php:79
-#, fuzzy
 msgid "The subscription has already been canceled."
-msgstr "L'abonnement ne peut pas être renouvelé."
+msgstr "L’abonnement a déjà été annulé."
 
 #: vendor/wp-pay/core/views/subscription-cancel.php:85
 msgid "Are you sure you want to cancel the subscription?"
-msgstr ""
+msgstr "Es-tu sûr(e) de vouloir résilier cet abonnement ?"
 
 #: vendor/wp-pay/core/views/subscription-cancel.php:88
-#, fuzzy
 msgid "Cancel"
-msgstr "Annulé"
+msgstr "Annuler"
 
 #: vendor/wp-pay/core/views/subscription-mandate-failed.php:18
 #: vendor/wp-pay/core/views/subscription-mandate-updated.php:18
-#, fuzzy
 msgid "Subscription Mandate"
-msgstr "Abonnement mis à jour."
+msgstr "Mandat d’abonnement"
 
 #: vendor/wp-pay/core/views/subscription-mandate-failed.php:27
-#, fuzzy
 msgid "The mandate for this subscription can not be updated."
-msgstr "L'abonnement ne peut pas être renouvelé."
+msgstr "Le mandat de cet abonnement ne peut pas être mis à jour."
 
 #: vendor/wp-pay/core/views/subscription-mandate-updated.php:27
-#, fuzzy
 msgid "The subscription has been updated."
-msgstr "L'abonnement ne peut pas être renouvelé."
+msgstr "L’abonnement a été mis à jour."
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:55
 #: vendor/wp-pay/core/views/subscription-mandate.php:65
@@ -6973,7 +7354,7 @@ msgstr "Paiement d'abonnement ajouté"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:69
 msgid "Select an existing payment method or add a new one."
-msgstr ""
+msgstr "Sélectionnez un mode de paiement existant ou ajoutez-en un nouveau."
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:76
 #, fuzzy
@@ -6981,32 +7362,27 @@ msgid "Select existing payment method"
 msgstr "Sélectionner une méthode de paiement"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:99
-#, fuzzy
 msgctxt "Card selector"
 msgid "Card Number"
 msgstr "Numéro de la carte"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:107
-#, fuzzy
 msgctxt "Card selector"
 msgid "Account Number"
 msgstr "Numéro de compte"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:152
-#, fuzzy
 msgctxt "Card selector"
 msgid "Name"
 msgstr "Nom"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:171
-#, fuzzy
 msgid "Use selected payment method"
-msgstr "Sélectionner une méthode de paiement"
+msgstr "Utiliser le mode de paiement sélectionné"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:181
-#, fuzzy
 msgid "Add new payment method"
-msgstr "Ajouter de nouveaux flux de paiement"
+msgstr "Ajouter un nouveau mode de paiement"
 
 #: vendor/wp-pay/core/views/subscription-mandate.php:186
 #, fuzzy
@@ -7187,7 +7563,7 @@ msgstr "Accepter le paiement par iDEAL"
 
 #: views/exception.php:27
 msgid "Trace"
-msgstr ""
+msgstr "Trace"
 
 #: views/ideal-test-cases.php:18
 msgid "Order"
@@ -7221,205 +7597,6 @@ msgid "Please click the button below if you are not automatically redirected."
 msgstr ""
 "S’il vous plaît cliquez sur le bouton ci-dessous si vous n’êtes pas "
 "automatiquement redirigé."
-
-#, fuzzy
-#~ msgid "Payment completed successfully."
-#~ msgstr "Flux de paiement mis à jour avec succès."
-
-#~ msgid "Error getting payment result: %s"
-#~ msgstr "Erreur obtenant le résultat de paiement: %s"
-
-#, fuzzy
-#~ msgid "Error getting payment details: %s"
-#~ msgstr "Erreur obtenant le résultat de paiement: %s"
-
-#, fuzzy
-#~ msgid "Credit or debit card"
-#~ msgstr "Carte de crédit"
-
-#~ msgid "https://www.adyen.com/pricing"
-#~ msgstr "https://www.adyen.com/fr_FR/pricing"
-
-#~ msgctxt "Adyen"
-#~ msgid "Adyen Notification Authentication"
-#~ msgstr "Authentification de notification Adyen"
-
-#~ msgid "User Name"
-#~ msgstr "Nom d'utilisateur"
-
-#~ msgid "Password"
-#~ msgstr "Mot de passe"
-
-#~ msgid ""
-#~ "Set the user name and password below and in the webhook authentication "
-#~ "settings in the Adyen dashboard for increased security (recommended)."
-#~ msgstr ""
-#~ "Définir le nom d'utilisateur et le mot de passe ci-dessous et dans les "
-#~ "paramètres d'authentification webhook dans le tableau de bord Adyen pour "
-#~ "une sécurité accrue (recommandé)."
-
-#~ msgctxt "adyen"
-#~ msgid "Merchant Account"
-#~ msgstr "Compte marchand"
-
-#, fuzzy
-#~ msgid ""
-#~ "The merchant account identifier, with which you want to process the "
-#~ "transaction."
-#~ msgstr ""
-#~ "L'identifiant de compte marchand, avec lequel vous souhaitez traiter la "
-#~ "transaction."
-
-#~ msgctxt "adyen"
-#~ msgid "API Key"
-#~ msgstr "Clé API"
-
-#, fuzzy
-#~ msgid "API key as mentioned in the payment provider dashboard."
-#~ msgstr ""
-#~ "Clé API mentionnée dans le tableau de bord du fournisseur de paiement."
-
-#~ msgid "Adyen documentation: \"How to get the API key\"."
-#~ msgstr "Documentation Adyen: \"How to get the API key\"."
-
-#~ msgctxt "adyen"
-#~ msgid "API Live URL Prefix"
-#~ msgstr "Préfixe d'URL API Live"
-
-#, fuzzy
-#~ msgid ""
-#~ "The unique prefix for the live API URL, as mentioned at <strong>Account » "
-#~ "API URLs</strong> in the Adyen dashboard."
-#~ msgstr ""
-#~ "Le préfixe unique pour l'URL API en direct, comme mentionné à "
-#~ "<strong>compte » URL API</strong> dans le tableau de bord Adyen."
-
-#~ msgid "Adyen documentation: \"Live URL prefix\"."
-#~ msgstr "Documentation Adyen : \"Live URL prefix\"."
-
-#, fuzzy
-#~ msgctxt "adyen"
-#~ msgid "Origin Key"
-#~ msgstr "Clé de signature"
-
-#, fuzzy
-#~ msgid "Adyen documentation: \"How to get an origin key\"."
-#~ msgstr "Documentation Adyen: \"How to get the API key\"."
-
-#, fuzzy
-#~ msgid "Merchant Order Reference"
-#~ msgstr "Référence de transaction"
-
-#, fuzzy
-#~ msgid "The Adyen %s parameter."
-#~ msgstr "Le paramètre iDEAL %s."
-
-#, fuzzy
-#~ msgctxt "adyen"
-#~ msgid "Apple Pay Merchant ID"
-#~ msgstr "ID du Marchand"
-
-#, fuzzy
-#~ msgid "Adyen documentation: \"Apple Pay Drop-in - Before you begin\"."
-#~ msgstr "Documentation Adyen : \"Live URL prefix\"."
-
-#, fuzzy
-#~ msgctxt "adyen"
-#~ msgid "Google Pay Merchant ID"
-#~ msgstr "ID du Marchand"
-
-#, fuzzy
-#~ msgid "Adyen documentation: \"Google Pay Drop-in - Test and go live\"."
-#~ msgstr "Documentation Adyen: \"How to get the API key\"."
-
-#~ msgid "Adyen"
-#~ msgstr "Adyen"
-
-#~ msgid "SSL Version"
-#~ msgstr "Version de SSL"
-
-#, fuzzy
-#~ msgid "Choose the SSL Version of your server on the Adyen Customer Area."
-#~ msgstr ""
-#~ "Choisissez la version SSL de votre serveur sur la zone client Adyen."
-
-#~ msgctxt "adyen notification"
-#~ msgid "Method"
-#~ msgstr "Méthode"
-
-#~ msgid "JSON"
-#~ msgstr "JSON"
-
-#~ msgid "Authentication"
-#~ msgstr "Authentification"
-
-#, fuzzy
-#~ msgctxt "Adyen"
-#~ msgid "Sorry, you are not allowed to post Adyen notifications."
-#~ msgstr "Désolé, vous n'êtes pas autorisé à publier des notifications Adyen."
-
-#~ msgctxt "Adyen"
-#~ msgid "Cannot parse JSON notification."
-#~ msgstr "Impossible d'inséquer la notification JSON."
-
-#~ msgid "Verified payment result."
-#~ msgstr "Résultat de paiement vérifié."
-
-#, fuzzy
-#~ msgid "No payment ID given in `payment_id` parameter."
-#~ msgstr "Aucune charge utile donnée dans le paramètre `payload`."
-
-#, fuzzy
-#~ msgid "No gateway configuration ID given in payment."
-#~ msgstr ""
-#~ "Aucun ID de configuration de passerelle donné dans le paramètre "
-#~ "'config'id'."
-
-#, fuzzy
-#~ msgid "Could not find client in gateway with ID `%s`."
-#~ msgstr "Impossible de trouver le client dans la passerelle avec ID `%s`."
-
-#, fuzzy
-#~ msgid "No payment method given."
-#~ msgstr "Mode de paiement"
-
-#, fuzzy
-#~ msgid "Gateway does not support method to create payment."
-#~ msgstr "Cette passerelle ne prend pas en charge l'enregistrement webhook."
-
-#, fuzzy
-#~ msgid "%1$s (error %2$s)"
-#~ msgstr "%1$s - %2$s"
-
-#~ msgid "Payload."
-#~ msgstr "Charge."
-
-#~ msgid "Result code."
-#~ msgstr "Code de résultat."
-
-#~ msgid "Result text."
-#~ msgstr "Texte de résultat."
-
-#, fuzzy
-#~ msgid "No gateway configuration ID given in `config_id` parameter."
-#~ msgstr ""
-#~ "Aucun ID de configuration de passerelle donné dans le paramètre "
-#~ "'config'id'."
-
-#~ msgid "No payload given in `payload` parameter."
-#~ msgstr "Aucune charge utile donnée dans le paramètre `payload`."
-
-#~ msgid "Could not found gateway with ID `%s`."
-#~ msgstr "Impossible de trouver passerelle avec ID `%s`."
-
-#~ msgid "Could not found client in gateway with ID `%s`."
-#~ msgstr "Impossible de trouver le client dans la passerelle avec ID `%s`."
-
-#~ msgid "Could not found payment with ID `%s`."
-#~ msgstr "Impossible de trouver le paiement avec ID `%s`."
-
-#~ msgid "Checkout"
-#~ msgstr "Commander"
 
 #~ msgid "You succesfully activated your website."
 #~ msgstr "Vous avez activé avec succès votre site web."
