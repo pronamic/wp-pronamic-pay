@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 6.6.1
+Stable tag: 6.6.2
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -135,6 +135,10 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.6.2 - 2021-01-19 =
+*	Updated WordPress pay Event Espresso (legacy) library to version 2.3.2.
+	*	Fixed using unknown classes.
+
 = 6.6.1 - 2021-01-18 =
 *	Updated WordPress pay core library to version 2.6.1.
 	*	Added support for recurring payments with Apple Pay.
@@ -144,7 +148,7 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Added 'Change Payment State' URL to Mollie payment admin page.
 	*	Chargebacks now update subscriptions status to 'On hold' (needs manual review).
 *	Updated WordPress pay MultiSafepay library to version 2.1.2.
-	*	Added support for In3 pament method.
+	*	Added support for In3 payment method.
 	*	Added partial support for Santander 'Betaal per maand' payment method.
 *	Updated WordPress pay Payvision library to version 1.0.1.
 	*	Added business ID to gateway ID column in payments overview.
@@ -204,12 +208,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 *	Removed deprecated Mollie iDEAL gateway.
 *	Removed deprecated Nocks gateway.
 *	Removed deprecated Rabobank OmniKassa gateway.
-
-= 6.4.1 - 2020-11-10 =
-*	Updated WordPress pay iDEAL Advanced library to version 2.1.2.
-	*	Fixed acquirer URL.
-*	Updated WordPress pay iDEAL Basic library to version 2.1.2.
-	*	Fixed acquirer URL.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

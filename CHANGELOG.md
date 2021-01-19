@@ -6,6 +6,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.6.2] - 2021-01-19
+
+### Fixed
+- Updated WordPress pay Event Espresso (legacy) library to version 2.3.2.
+  - Fixed using unknown classes.
+
 ## [6.6.1] - 2021-01-18
 
 ### Changed
@@ -17,7 +23,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Added 'Change Payment State' URL to Mollie payment admin page.
   - Chargebacks now update subscriptions status to 'On hold' (needs manual review).
 - Updated WordPress pay MultiSafepay library to version 2.1.2.
-  - Added support for In3 pament method.
+  - Added support for In3 payment method.
   - Added partial support for Santander 'Betaal per maand' payment method.
 - Updated WordPress pay Payvision library to version 1.0.1.
   - Added business ID to gateway ID column in payments overview.
@@ -2660,7 +2666,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.2...HEAD
+[6.6.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.1...6.6.2
 [6.6.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.0...6.6.1
 [6.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.1...6.6.0
 [6.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.0...6.5.1
