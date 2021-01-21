@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 6.6.2
+Stable tag: 6.6.3
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -135,6 +135,19 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.6.3 - 2021-01-21 =
+*	Updated WordPress pay core library to version 2.6.2.
+	*	Happy 2021.
+	*	Added debug mode setting.
+	*	Improved setting `utm_nooverride` parameter in redirect URL.
+*	Updated WordPress pay OmniKassa 2.0 library to version 2.3.1.
+	*	Updated check for response object in client request.
+*	Updated WordPress pay Formidable Forms library to version 2.2.1.
+	*	Fixed using undefined variable.
+	*	Removed debug code.
+*	Updated WordPress pay Ninja Forms library to version 1.4.0.
+	*	Added gateway configuration setting to form action.
+
 = 6.6.2 - 2021-01-19 =
 *	Updated WordPress pay Event Espresso (legacy) library to version 2.3.2.
 	*	Fixed using unknown classes.
@@ -199,15 +212,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Updated getting subscription from payment period.
 *	Updated WordPress pay Adyen library to version 1.2.1.
 	*	Removed unused configuration to store card details.
-
-= 6.5.0 - 2020-11-18 =
-*	Added support for Payvision gateway (requires Basic license).
-*	Updated WordPress pay iDEAL Advanced library to version 2.1.3.
-	*	Fix regression in payment status retrieval.
-*	Removed deprecated Fibonacci ORANGE gateway.
-*	Removed deprecated Mollie iDEAL gateway.
-*	Removed deprecated Nocks gateway.
-*	Removed deprecated Rabobank OmniKassa gateway.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

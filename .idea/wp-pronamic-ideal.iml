@@ -82,19 +82,28 @@
       <sourceFolder url="file://$MODULE_DIR$/repositories/pronamic/wp-gravityforms-nl/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/repositories/wp-pay/core/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/repositories/wp-pay/core/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/paypal/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/paypal/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/repositories/wp-pay/importer/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/repositories/wp-pay/importer/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/deployer" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/pronamic/wp-datetime/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/pronamic/wp-datetime/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/pronamic/wp-datetime/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/pronamic/wp-gravityforms-nl/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/pronamic/wp-gravityforms-nl/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/pronamic/wp-gravityforms-nl/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/pronamic/wp-money/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/pronamic/wp-money/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/pronamic/wp-money/wordpress" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/charitable/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/charitable/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/charitable/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/charitable/wp-content" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/contact-form-7/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/contact-form-7/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/contact-form-7/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/contact-form-7/wp-content" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/easy-digital-downloads/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/easy-digital-downloads/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/easy-digital-downloads/wordpress" />
@@ -110,15 +119,18 @@
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/give/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/give/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/give/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/give/wp-content" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/gravityforms/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/gravityforms/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/gravityforms/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/gravityforms/wp-content" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/memberpress/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/memberpress/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/memberpress/wordpress" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/ninjaforms/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/ninjaforms/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/ninjaforms/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/ninjaforms/wp-content" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/restrict-content-pro/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/restrict-content-pro/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/restrict-content-pro/wordpress" />
@@ -128,6 +140,7 @@
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/woocommerce/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/woocommerce/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/woocommerce/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/woocommerce/wp-content" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/wp-e-commerce/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/wp-e-commerce/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-extensions/wp-e-commerce/wordpress" />
@@ -178,6 +191,9 @@
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/pay-nl/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/pay-nl/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/pay-nl/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/paypal/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/paypal/vendor-bin" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/paypal/wordpress" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/payvision/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/payvision/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/payvision/wordpress" />
@@ -187,11 +203,16 @@
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/targetpay/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/targetpay/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay-gateways/targetpay/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay/core/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay/core/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay/core/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay/core/wp-content" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay/fundraising/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay/fundraising/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay/fundraising/wordpress" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay/importer/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay/importer/vendor-bin" />
+      <excludeFolder url="file://$MODULE_DIR$/repositories/wp-pay/logos/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/vendor" />
       <excludeFolder url="file://$MODULE_DIR$/vendor-bin" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bamarni/composer-bin-plugin" />
@@ -295,6 +316,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/wp-pay/core" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/wp-pay/fundraising" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/wp-phpunit/wp-phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/wordpress" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

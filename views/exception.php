@@ -3,7 +3,7 @@
  * Exception
  *
  * @author    Pronamic <info@pronamic.eu>
- * @copyright 2005-2020 Pronamic
+ * @copyright 2005-2021 Pronamic
  * @license   GPL-3.0-or-later
  * @package   Pronamic\WordPress\Pay
  */
@@ -22,7 +22,7 @@ if ( $exception instanceof \Exception ) : ?>
 
 			<?php endif; ?>
 
-			<?php if ( PRONAMIC_PAY_DEBUG && current_user_can( 'manage_options' ) ) : ?>
+			<?php if ( $this->is_debug_mode() && current_user_can( 'manage_options' ) ) : ?>
 
 				<dt><?php esc_html_e( 'Trace', 'pronamic_ideal' ); ?></dt>
 				<dd>

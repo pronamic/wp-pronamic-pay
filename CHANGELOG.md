@@ -6,6 +6,21 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.6.3] - 2021-01-21
+
+### Changed
+- Updated WordPress pay core library to version 2.6.2.
+  - Happy 2021.
+  - Added debug mode setting.
+  - Improved setting `utm_nooverride` parameter in redirect URL.
+- Updated WordPress pay OmniKassa 2.0 library to version 2.3.1.
+  - Updated check for response object in client request.
+- Updated WordPress pay Formidable Forms library to version 2.2.1.
+  - Fixed using undefined variable.
+  - Removed debug code.
+- Updated WordPress pay Ninja Forms library to version 1.4.0.
+  - Added gateway configuration setting to form action.
+
 ## [6.6.2] - 2021-01-19
 
 ### Fixed
@@ -2666,7 +2681,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.3...HEAD
+[6.6.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.2...6.6.3
 [6.6.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.1...6.6.2
 [6.6.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.0...6.6.1
 [6.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.5.1...6.6.0
