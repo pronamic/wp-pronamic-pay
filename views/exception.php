@@ -22,7 +22,7 @@ if ( $exception instanceof \Exception ) : ?>
 
 			<?php endif; ?>
 
-			<?php if ( $this->is_debug_mode() && current_user_can( 'manage_options' ) ) : ?>
+			<?php if ( pronamic_pay_plugin()->is_debug_mode() && current_user_can( 'manage_options' ) ) : ?>
 
 				<dt><?php esc_html_e( 'Trace', 'pronamic_ideal' ); ?></dt>
 				<dd>
