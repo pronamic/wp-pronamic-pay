@@ -6,6 +6,19 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.6.4] - 2021-02-08
+
+### Fixed
+- Updated WordPress pay Mollie library to version 2.2.2.
+  - Fixed "Error validating `/locale`: The property `locale` is required" on some status update (https://github.com/mollie/api-documentation/pull/731).
+- Updated WordPress pay MemberPress library to version 2.2.3.
+  - Fixed showing payment method specific input fields.
+
+### Changed
+- Updated WordPress pay Payvision library to version 1.1.0.
+  - Added transaction description.
+  - Added advanced purchase ID setting.
+
 ## [6.6.3] - 2021-01-21
 
 ### Changed
@@ -2681,7 +2694,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.3...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.4...HEAD
+[6.6.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.3...6.6.4
 [6.6.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.2...6.6.3
 [6.6.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.1...6.6.2
 [6.6.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.0...6.6.1
