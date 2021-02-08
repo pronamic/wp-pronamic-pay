@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2021-01-21T15:41:59+00:00\n"
-"PO-Revision-Date: 2021-01-21 16:44+0100\n"
+"POT-Creation-Date: 2021-02-08T10:14:57+00:00\n"
+"PO-Revision-Date: 2021-02-08 11:19+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -489,7 +489,7 @@ msgstr "Charitable donatie"
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:126
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:405
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:109
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:887
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:898
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:152
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:41
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:240
@@ -1092,7 +1092,7 @@ msgstr "Betalingsfeeds"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:115
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:102
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:836
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:847
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:208
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:96
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:134
@@ -1506,6 +1506,7 @@ msgstr ""
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:262
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:161
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:210
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:140
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:465
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:52
 msgid "Order ID"
@@ -1527,6 +1528,7 @@ msgstr "Standaard:"
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:93
 #: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:74
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:228
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:150
 msgid "Available tags:"
 msgstr "Beschikbare tags:"
 
@@ -1986,7 +1988,7 @@ msgstr "%s abonnement gereactiveerd."
 msgid "%s subscription cancelled."
 msgstr "%s abonnement geannuleerd."
 
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:842
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:853
 msgid ""
 "JavaScript is disabled in your browser. You will not be able to complete "
 "your purchase until you either enable JavaScript in your browser, or switch "
@@ -2408,6 +2410,7 @@ msgstr "Knop tekst:"
 #: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:82
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:178
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:236
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:158
 #: vendor/wp-pay-gateways/sisow/src/Integration.php:141
 msgid "Default: <code>%s</code>"
 msgstr "Standaard: <code>%s</code>"
@@ -4596,12 +4599,12 @@ msgstr "https://www.payvision.com/"
 msgid "https://www.pronamic.eu/manuals/using-payvision-pronamic-pay/"
 msgstr "https://www.pronamic.eu/manuals/using-payvision-pronamic-pay/"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:89
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:94
 msgctxt "payvision"
 msgid "Business Id"
 msgstr "Business ID"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:92
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:97
 msgid ""
 "A Merchant connecting to the platform is identified by its Business ID "
 "(“businessId”)."
@@ -4609,20 +4612,25 @@ msgstr ""
 "Een verkoper die verbinding maakt met het platform wordt geïdentificeerd met "
 "een Business ID (“businessId”)."
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:103
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:108
 msgctxt "payvision"
 msgid "User"
 msgstr "Gebruiker"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:113
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:118
 msgctxt "payvision"
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:123
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:128
 msgctxt "payvision"
 msgid "Store ID"
 msgstr "Winkel ID"
+
+#. translators: %s: <code>purchaseId</code>
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:145
+msgid "The Payvision parameter %s"
+msgstr "De Payvision parameter %s."
 
 #. translators: %s: XML document element name
 #: vendor/wp-pay-gateways/sisow/src/Client.php:152
