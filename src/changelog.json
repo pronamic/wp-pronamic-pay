@@ -4,6 +4,41 @@
 		"changes": {}
 	},
 	{
+		"version": "6.6.4",
+		"date": "2021-02-08",
+		"changes": [
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Mollie library to version 2.2.2.",
+						"changes": [
+							"Fixed \"Error validating `/locale`: The property `locale` is required\" on some status update (https://github.com/mollie/api-documentation/pull/731)."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MemberPress library to version 2.2.3.",
+						"changes": [
+							"Fixed showing payment method specific input fields."
+						]
+					}
+				]
+			},
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Payvision library to version 1.1.0.",
+						"changes": [
+							"Added transaction description.",
+							"Added advanced purchase ID setting."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "6.6.3",
 		"date": "2021-01-21",
 		"changes": {

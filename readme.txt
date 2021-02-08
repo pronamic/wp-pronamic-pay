@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 6.6.3
+Stable tag: 6.6.4
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -135,6 +135,15 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.6.4 - 2021-02-08 =
+*	Updated WordPress pay Mollie library to version 2.2.2.
+	*	Fixed "Error validating `/locale`: The property `locale` is required" on some status update (https://github.com/mollie/api-documentation/pull/731).
+*	Updated WordPress pay MemberPress library to version 2.2.3.
+	*	Fixed showing payment method specific input fields.
+*	Updated WordPress pay Payvision library to version 1.1.0.
+	*	Added transaction description.
+	*	Added advanced purchase ID setting.
+
 = 6.6.3 - 2021-01-21 =
 *	Updated WordPress pay core library to version 2.6.2.
 	*	Happy 2021.
@@ -203,15 +212,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Start subscription payment through subscription module instead of plugin.
 	*	Move info message up on thank you page.
 	*	Add Santander payment method.
-
-= 6.5.1 - 2020-11-19 =
-*	Updated WordPress pay core library to version 2.5.1.
-	*	Fixed always setting payment customer details.
-	*	Fixed setting currency in payment lines amount.
-*	Updated WordPress pay Gravity Forms library to version 2.5.1.
-	*	Updated getting subscription from payment period.
-*	Updated WordPress pay Adyen library to version 1.2.1.
-	*	Removed unused configuration to store card details.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
