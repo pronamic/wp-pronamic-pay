@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2021-01-21T15:41:59+00:00\n"
-"PO-Revision-Date: 2021-01-21 16:45+0100\n"
+"POT-Creation-Date: 2021-02-08T10:14:57+00:00\n"
+"PO-Revision-Date: 2021-02-08 11:22+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -503,7 +503,7 @@ msgstr "Don Charitable"
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:126
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:405
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:109
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:887
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:898
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:152
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:41
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:240
@@ -1102,7 +1102,7 @@ msgstr "Payment Feeds"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:115
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:102
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:836
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:847
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:208
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:96
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:134
@@ -1536,6 +1536,7 @@ msgstr ""
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:262
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:161
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:210
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:140
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:465
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:52
 msgid "Order ID"
@@ -1557,6 +1558,7 @@ msgstr "Par défaut:"
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:93
 #: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:74
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:228
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:150
 msgid "Available tags:"
 msgstr "Mots clés disponibles:"
 
@@ -2032,7 +2034,7 @@ msgstr "%s abonnement réactivé."
 msgid "%s subscription cancelled."
 msgstr "%s abonnement annulé."
 
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:842
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:853
 #, fuzzy
 msgid ""
 "JavaScript is disabled in your browser. You will not be able to complete "
@@ -2192,7 +2194,7 @@ msgstr "Frais"
 
 #: vendor/wp-pay-extensions/restrict-content-pro/views/edit-membership.php:16
 msgid "Pronamic Pay Subscription:"
-msgstr "Abonnement Pronamic Pay"
+msgstr "Abonnement Pronamic Pay:"
 
 #: vendor/wp-pay-extensions/restrict-content-pro/views/edit-payment.php:16
 #: vendor/wp-pay-gateways/mollie/views/page-payment.php:118
@@ -2450,6 +2452,7 @@ msgstr "Bouton texte:"
 #: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:82
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:178
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:236
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:158
 #: vendor/wp-pay-gateways/sisow/src/Integration.php:141
 msgid "Default: <code>%s</code>"
 msgstr "Par défaut: <code>%s</code>"
@@ -3724,7 +3727,7 @@ msgstr "État ou province, p. ex. Île-de-France"
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:140
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:146
 msgid "2 letter country code, e.g."
-msgstr "Code de pays de 2 lettres, p. ex. FR"
+msgstr "Code de pays de 2 lettres, p. ex."
 
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:157
 msgid "E-mail address"
@@ -4056,7 +4059,7 @@ msgstr "Mandat: %s"
 #. translators: %s: Mollie customer ID.
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:99
 msgid "Customer %s"
-msgstr "Client %s "
+msgstr "Client %s"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:116
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:199
@@ -4115,7 +4118,7 @@ msgstr "Méthode"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:203
 msgid "Details"
-msgstr "Détails "
+msgstr "Détails"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:204
 msgid "Mandate Reference"
@@ -4737,12 +4740,12 @@ msgstr "https://www.adyen.com/fr_FR/"
 msgid "https://www.pronamic.eu/manuals/using-payvision-pronamic-pay/"
 msgstr "https://www.pronamic.eu/plugins/pronamic-ideal/"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:89
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:94
 msgctxt "payvision"
 msgid "Business Id"
 msgstr "Business Id"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:92
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:97
 msgid ""
 "A Merchant connecting to the platform is identified by its Business ID "
 "(“businessId”)."
@@ -4750,21 +4753,26 @@ msgstr ""
 "Un marchand se connectant à la plateforme est identifié par son Business ID "
 "(”businessId”)."
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:103
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:108
 msgctxt "payvision"
 msgid "User"
 msgstr "Utilisateur"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:113
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:118
 msgctxt "payvision"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: vendor/wp-pay-gateways/payvision/src/Integration.php:123
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:128
 #, fuzzy
 msgctxt "payvision"
 msgid "Store ID"
 msgstr "ID source"
+
+#. translators: %s: <code>purchaseId</code>
+#: vendor/wp-pay-gateways/payvision/src/Integration.php:145
+msgid "The Payvision parameter %s"
+msgstr "Le paramètre Payvision %s"
 
 #. translators: %s: XML document element name
 #: vendor/wp-pay-gateways/sisow/src/Client.php:152
@@ -6443,7 +6451,7 @@ msgstr[1] "%s jours"
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s heure"
-msgstr[1] ""
+msgstr[1] "%s heures"
 
 #. translators: %s: number of minutes
 #: vendor/wp-pay/core/src/Util.php:172
@@ -6457,7 +6465,7 @@ msgstr[1] "%s mois"
 msgid "%s second"
 msgid_plural "%s seconds"
 msgstr[0] "%s seconde"
-msgstr[1] ""
+msgstr[1] "%s secondes"
 
 #. translators: 1: formatted periods, 2: last formatted period
 #: vendor/wp-pay/core/src/Util.php:194
@@ -7201,7 +7209,7 @@ msgid ""
 "target=\"%2$s\">“Gravity Forms” plugin</a>."
 msgstr ""
 "Pour les formulaires de paiement plus avancés, nous vous conseillons "
-"d'utiliser le <a href=\"%1$s\" target=\"%2$s\">plugin \"Gravity Forms\".</a>"
+"d'utiliser le <a href=\"%1$s\" target=\"%2$s\">plugin \"Gravity Forms\"</a>."
 
 #: vendor/wp-pay/core/views/pointer-forms.php:38
 #: vendor/wp-pay/core/views/pointer-gateways.php:21
