@@ -65,7 +65,7 @@ module.exports = function( grunt ) {
 			]
 		},
 
-		// Check textdomain errors.
+		// Check text domain errors.
 		checktextdomain: {
 			options:{
 				text_domain: 'pronamic_ideal',

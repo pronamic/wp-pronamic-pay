@@ -74,7 +74,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Added feature to manually start the next subscription payment.
 - Updated WordPress pay Charitable library to version 2.2.1.
   - Improved donation total amount value retrieval.
-  - Improved user data support, set adress line 2 and country code.
+  - Improved user data support, set address line 2 and country code.
 - Updated WordPress pay Contact Form 7 to version 1.0.3.
   - Fix redirecting when scripts are disabled through `wpcf7_load_js` filter.
 - Updated WordPress pay Formidable Forms to version 2.2.0.
@@ -548,7 +548,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Move tools to site health debug information and status tests.
   - Read plugin version from plugin file header.
   - Catch money parser exception for test payments.
-  - Sepereated `Statuses` class in `PaymentStatus` and `SubscriptionStatus` class.
+  - Separated `Statuses` class in `PaymentStatus` and `SubscriptionStatus` class.
   - Require `edit_payments` capability for payments related meta boxes on dashboard page.
   - Set menu page capability to minimum required capability based on submenu pages.
   - Only redirect to about page if not already viewed.
@@ -722,7 +722,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Added/updated gateway icons.
   - More DRY gateway setup.
 - Updated WordPress pay WP eCommerce library from 2.0.1 to version 2.0.2.
-  - Added support for additional payment data like customer, adresses, payment lines, etc.
+  - Added support for additional payment data like customer, addresses, payment lines, etc.
   - Added gateway for AfterPay, Bancontact, Bank Transfer, Credit Card, Focum, Giropay, Maestro, PayPal and SOFORT.
 - Updated WordPress pay Buckaroo library from 2.0.1 to version 2.0.2.
   - Improved Buckaroo push response handling when payment was not found.
@@ -758,7 +758,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress pay MemberPress library from 2.0.5 to version 2.0.6.
   - Fixed fatal error Gateway not found when processing status updates.
 - Updated WordPress pay Restrict Content Pro library from 2.1.2 to version 2.1.3.
-  - Use taxed money object for subscripption amount.
+  - Use taxed money object for subscription amount.
 - Updated WordPress pay ICEPAY library from 2.0.1 to version 2.0.2.
   - Improved setting required country and language.
 - Updated WordPress pay OmniKassa 2.0 library from 2.1.4 to version 2.1.5.
@@ -947,7 +947,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Added Pronamic subscription amount merge tag `{pronamic_subscription_amount}`.
   - Added support for duplicating payment feeds.
   - Added custom display mode field setting.
-  - Improved handel delay actions support.
+  - Improved handling delay actions support.
   - Removed support for "Gravity Forms User Registration Add-On" version < 3.0.
   - The `add_pending_payment` action is no longer triggered for entries without pending payments.
 - Updated WordPress pay Easy Digital Downloads library to version 2.0.1.
@@ -1026,7 +1026,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - No longer create new Mollie customer during recurring (not first) payments.
   - Update payment consumer BIC from Mollie payment details.
   - Update payment consumer name with Mollie payment card holder name.
-  - Cancel subscriptions if first payment fails, to prevent future reactivation when a vailid customer ID becomes available.
+  - Cancel subscriptions if first payment fails, to prevent future reactivation when a valid customer ID becomes available.
   - Update subscription status on payment start only if it's not a recurring payment for a cancelled subscription.
 - Updated WordPress pay MultiSafepay library to version 2.0.1.
   - Added support for first and last name.
@@ -1286,7 +1286,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Fixed
 - Updated WordPress pay Give library to version 1.0.4.
-  - Display payment input fields also if guest donations are not allowed and registraton and/or login forms are displayed.
+  - Display payment input fields also if guest donations are not allowed and registration and/or login forms are displayed.
 
 ### Removed
 - Removed own definition of the `wp_slash` function, this plugin requires already WordPress 4.3 or higher, this function is part of WordPress since 3.6.
@@ -1352,7 +1352,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress pay Mollie library to version 1.1.9.
   - Fixed wrong char in switch statement.
   - Added support for new Bancontact constant.
-  - Use seperate customer IDs for test and live mode.
+  - Use separate customer IDs for test and live mode.
 - Updated WordPress pay Mollie iDEAL library to version 1.0.7.
 - Updated WordPress pay MultiSafepay Connect library to version 1.3.0.
   - Improved error reporting.
@@ -1567,7 +1567,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Added
 - Added experimental support for Give.
-- Added tabs to the gateway configration edit page.
+- Added tabs to the gateway configuration edit page.
 - Added return URL to admin payment detail page.
 - Added redirect URL to admin payment detail page.
 
@@ -1656,7 +1656,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress pay WP eCommerce library to version 1.0.2.
   - WordPress Coding Standards optimizations.
   - Removed status code from redirect in status_update.
-  - Added Pronamic gateway, whith payment method selector in plugin settings.
+  - Added Pronamic gateway, with payment method selector in plugin settings.
   - iDEAL gateway now uses the iDEAL payment method.
 
 ## [3.8.8] - 2016-02-11
@@ -1728,7 +1728,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Fixed
 - Updated WordPress pay core library to version 1.3.3.
-  - Readded the MiniTix payment method constant for backwards compatibility.
+  - Re-added the MiniTix payment method constant for backwards compatibility.
 - Updated WordPress pay Easy Digital Downloads library to version 1.2.2.
   - Removed discontinued MiniTix gateway.
   - Removed status code from redirect in status_update.
@@ -1739,13 +1739,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Fixed
 - Updated WordPress pay ING Kassa Compleet library to version 1.0.1.
-  - Fixed fatal eror 'Can't use function return value in write context'.
+  - Fixed fatal error 'Can't use function return value in write context'.
 
 ## [3.8.1] - 2016-02-02
 
 ### Fixed
 - Updated WordPress pay Membership library to version 1.0.3.
-  - Fixed fatal eror 'Can't use function return value in write context'.
+  - Fixed fatal error 'Can't use function return value in write context'.
 
 ### Changed
 - Updated WordPress pay WooCommerce library to version 1.1.6.
@@ -1799,7 +1799,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [3.7.0] - 2015-10-15
 - Fix transaction status checking event not 'renewed'.
-- Prevent redirects from within extensions if doing cron, so that events get sheduled in check_status.
+- Prevent redirects from within extensions if doing cron, so that events get scheduled in check_status.
 
 ### Changed
 - Updated WordPress pay Buckaroo library to version 1.1.2.
@@ -1817,7 +1817,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress pay TargetPay library to version 1.0.3.
   - Add scheduled transaction status request.
 - Updated WordPress pay Event Espresso library to version 1.1.2.
-  - Fix sending multiple notifcations.
+  - Fix sending multiple notifications.
 - Updated WordPress pay Gravity Forms library to version 1.3.1.
   - Add support for multiple payment feeds with conditions per form.
   - Only use visible issuer dropdowns (allows conditional logic on issuer dropdown field.
@@ -1914,7 +1914,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [3.5.2] - 2015-03-09
 - Tweak - Updated WordPress pay iDEAL library to version 1.1.0.
-  - Added an utlity class wich can create purchase ID's.
+  - Added an utility class which can create purchase ID's.
 - Tweak - Updated WordPress pay iDEAL Basic library to version 1.1.0.
   - Improved support for user defined purchase ID's.
 - Tweak - Updated WordPress pay iDEAL Advanced v3 library to version 1.1.0.
@@ -1933,7 +1933,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [3.5.0] - 2015-02-19
 - Tweak - Updated WordPress pay ICEPAY library to version 1.2.0.
-- Tweak - Added context to the ICEPAY admin labels and inmproved Dutch translations.
+- Tweak - Added context to the ICEPAY admin labels and improved Dutch translations.
 - Tweak - Changed the ICEPAY login URL's to the new portal login URL's.
 - Tweak - Updated WordPress pay core library to version 1.0.1.
 - Tweak - Updated WordPress pay Mollie library to version 1.1.0.
@@ -1965,9 +1965,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Tweak - Updated WordPress pay Gravity Forms library to version 1.0.1.
 
 ## [3.3.0] - 2014-12-30
-- Feature - Event Espresso 4 - Added expirmental support for Event Espresso 4.
+- Feature - Event Espresso 4 - Added experimental support for Event Espresso 4.
 - Tweak - Event Espresso 3 - Improved support for Event Espresso 3.
-- Tweak - Adeed WordPress pay Gravity Forms library version 1.0.0.
+- Tweak - Added WordPress pay Gravity Forms library version 1.0.0.
 
 ## [3.2.4] - 2014-12-19
 - Tweak - Updated WordPress pay WooCommerce library to version 1.0.1.
@@ -2042,7 +2042,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Tweak - Ogone - Updated the Ogone calculations parameters for SHA-IN and SHA-OUT.
 - Feature - Ogone - Add payment notes on Ogone payment status requests.
 - Feature - Ogone - Added Ogone Direct HTTP server-to-server request URL fields.
-- Tweak - Use the global payemnt status pages as backup.
+- Tweak - Use the global payment status pages as backup.
 - Fix - Jigoshop - Fixed support for Jigoshop version 1.12.
 - Test - Jigoshop - Tested up to version 1.12.
 - Tweak - Jigoshop - Moved Jigoshop extension to it's own repository (https://github.com/wp-pay-extensions/jigoshop).
@@ -2113,7 +2113,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Documentation - WooCommerce - Increased requires at least version up to 2.1.0.
 
 ## [2.7.5] - 2014-05-14
-- Fix - Buckaroo - Fixed parameter sorting with mixed characther return.
+- Fix - Buckaroo - Fixed parameter sorting with mixed character return.
 
 ## [2.7.4] - 2014-05-14
 - Tweak - WPMU DEV Membership - Improved loading activated gateways.
@@ -2140,11 +2140,11 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Feature - Vantage - Added support for the Vantage theme from AppThemes.
 
 ## [2.7.0] - 2014-04-26
-- Tweak - WordPress Coding Standards optimizations thansk to PHP CodeSniffer.
+- Tweak - WordPress Coding Standards optimizations thanks to PHP CodeSniffer.
 - Tweak - Easy Digital Downloads - Fixed an fatal error (public $payment_id).
 - Tweak - WPMU DEV Membership - Use Pronamic capability for iDEAL settings page.
 - Tweak - Moved everything from the 'WordPress' namespace to the 'WP' namespace.
-- Tweak - Improved the private certifcate generate command.
+- Tweak - Improved the private certificate generate command.
 
 ## [2.6.9] - 2014-04-17
 - Tweak - s2Member - Require email for not logged in users.
@@ -2162,7 +2162,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [2.6.6] - 2014-03-21
 - Tweak - ICEPAY - Use the 'OrderID' in the listener so the correct payment will be updated.
-- Fix - Buckaroo - Fixed support for & charachter in blog name for WooCommerce payment description.
+- Fix - Buckaroo - Fixed support for & character in blog name for WooCommerce payment description.
 - Test - WooCommerce - Tested up to version 2.1.5.
 - Test - ClassiPress - Tested up to version 3.3.3.
 - Tweak - AppThemes - Process the order/gateway also in the 'template_redirect' hook, to improve some redirect issues.
@@ -2181,7 +2181,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Test - WooCommerce - Tested up to version 2.1.3.
 
 ## [2.6.2] - 2014-02-27
-- Tweak - s2Member - Only update user if payment status is changed from 'unknown' to 'succes' to prevent double updates.
+- Tweak - s2Member - Only update user if payment status is changed from 'unknown' to 'success' to prevent double updates.
 - Tweak - Did a lot of small adjustments to make this plugin faster.
 - Tweak - Automated some tasks with Grunt (PHPLint, JSHint, PHPUnit, makepot.php).
 - Test - WooCommerce - Tested up to version 2.1.2.
@@ -2234,7 +2234,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Feature - WooCommerce - Added an option field for the gateway icon URL.
 - Feature - Mollie - Added support for the new universal Mollie API.
 - Feature - Mollie - Added some Mollie badges on the WordPress admin "Branding" page.
-- Feature - Mister Cash - Added three Misther Cash icons on the WordPress admin "Branding" page.
+- Feature - Mister Cash - Added three Mister Cash icons on the WordPress admin "Branding" page.
 - Tweak - Improved support for WordPress lower then 3.6 by adding the wp_slash() function.
 - Tweak - Membership - Improved support for "Popup registration form" form type.
 - Fix - Membership - Pass in the correct subscription ID in the Membership create_subscription() function.
@@ -2258,7 +2258,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Tweak - Jigoshop - Deprecated: Assigning the return value of new by reference is deprecated in classes/Pronamic/Jigoshop/IDeal/IDealGateway.php on line 172.
 
 ## [2.2.3] - 2013-11-28
-- Tweak - Gravity Forms - Added an processor class wich handles payment forms.
+- Tweak - Gravity Forms - Added an processor class which handles payment forms.
 - Fix - Gravity Forms - Improved support for AJAX driven forms.
 - Fix - Warning: addslashes() expects parameter 1 to be string, array given.
 - Fix - Fatal error: Class Pronamic_Gateways_Ogone_XML_OrderResponseParser cannot extend from interface Pronamic_Gateways_IDealAdvancedV3_XML_Parser.
@@ -2267,7 +2267,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [2.2.2] - 2013-11-26
 - Fix - Strict Standards: Declaration of 'function' should be compatible with 'function'.
 - Tweak - Added support for slashes in the gateway configuration meta values.
-- Tweak - Added support for '(' and ')' charachters in private key and certificate commands.
+- Tweak - Added support for '(' and ')' characters in private key and certificate commands.
 - Tweak - Sisow - Improved support for 'callback' and 'notify' requests to ensure Google Analytics e-commerce tracking.
 - Tweak - Shopp - Improved status update. 
 
@@ -2284,10 +2284,10 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [2.1.0] - 2013-11-14
 - Tweak - Added character set to the system status page.
-- Tweak - Gravity Forms - Improved delay notifiations function after succesfull payment.
+- Tweak - Gravity Forms - Improved delay notifications function after successful payment.
 - Tweak - Gravity Forms - Added support for Campaign Monitor Subscription Delay.
 - Tweak - Gravity Forms - Added support for MailChimp Subscription Delay.
-- Tweak - ABN AMRO - iDEAL Easy - Improved support for mulitple payments for same order.
+- Tweak - ABN AMRO - iDEAL Easy - Improved support for multiple payments for same order.
 - Tweak - Ogone - DirectLink - Improved payment status update.
 
 ## [2.0.7] - 2013-11-06
@@ -2349,7 +2349,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Feature - Added support for the "Deutsche Bank - iDEAL via Ogone" gateway.
 - Feature - Added support for the "Ogone - DirectLink" gateway.
 - Feature - Added support for the "Dutch Payment Group - PayDutch" gateway. 
-- Feature - Extended the iDEAL Advanced v3 private key and certifcate generate commands.
+- Feature - Extended the iDEAL Advanced v3 private key and certificate generate commands.
 - Feature - Added log/note/comment system to payments using WordPress comment system.
 - Feature - Added an dashboard page - latest payments, Pronamic news and more.
 - Feature - Added an system status - supported extensions, versions, build status and more.
@@ -2401,7 +2401,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Membership - Improved the check for an active iDEAl gateway
 - Mollie - Enabled feedback support for the Mollie gateway
 - Cleaned up the configuration editor and add support for certificate info with iDEAL v3
-- s2Member - Improved support for providers wich support an description (Sisow)
+- s2Member - Improved support for providers which support an description (Sisow)
 - WooCommerce - Improved the check payment e-mail note by using get_order_number()
 - Return URL's - Improved use of site_url() and home_url() functions
 - Buckaroo - Added support for the Buckaroo payment provider (thanks to Marcel Snoeck)
@@ -2420,7 +2420,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - TargetPay - No longer verify SSL
 - WordPress - Tested up to version 3.5.1
 - Event Espresso - Improved the handling of sending e-mails
-- Gravity Forms - Fullfill order callback is no called only once
+- Gravity Forms - Fulfill order callback is no called only once
 - Mollie - Improved error handling
 - Pages generator pages now have by default no index (WordPress SEO by Yoast)
 
@@ -2428,11 +2428,11 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - ClassiPress - Improved URL redirect if payment status was not successful
 
 ## [1.2.3] - 2013-02-02
-- Event Espresso - Improved support for gateways wich have input fields
-- ClassiPress - Improved support for gateways wich have input fields
+- Event Espresso - Improved support for gateways which have input fields
+- ClassiPress - Improved support for gateways which have input fields
 - Shopp - Fixed issue with gateways with an issuer input field
 - WooCommerce - Fixed issue with no description and gateway input fields
-- Display certificate valid from and to values on the confiugration editor
+- Display certificate valid from and to values on the configuration editor
 
 ## [1.2.2] - 2013-01-27
 - Fix - Fatal error on saving settings
@@ -2517,7 +2517,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Gravity Forms - Improved the determination of the status URL
 - Sisow - Added support for "Sisow - iDEAL Basic" variant
 - Sisow - Added support for "Sisow - iDEAL Advanced" variant
-- Gravity Forms - Display error code if somehting is going wrong with the iDEAL Advanced variant
+- Gravity Forms - Display error code if something is going wrong with the iDEAL Advanced variant
 - Shopp - Added 'keyed' => true parameter to the module settings UI render drop-down menu function
 - Tweak - Removed the utility function remove query arguments from URL, no longer used
 - Tweak - Improved the utility class and the retrieval of the ISO 639 and ISO 3166 values
@@ -2535,7 +2535,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - OmniKassa - Changed the use of the site_url() function, now called with an slash
 
 ## [beta-0.9.4] - 2012-04-27
-- Fixed issue with the use of the [dbDelta](http://codex.wordpress.org/Creating_Tables_with_Plugins) function wich was causing "WordPress database error: [Multiple primary key defined]" errors
+- Fixed issue with the use of the [dbDelta](http://codex.wordpress.org/Creating_Tables_with_Plugins) function which was causing "WordPress database error: [Multiple primary key defined]" errors
 - Fixed check on (un)paid Shopp 1.2+ purchases, in some way this was mixed up.
 - Gravity Forms - Added field type title for the issuer drop down field
 - Gravity Forms - Changed Dutch translation of "Issuer Drop Down" field to "Banken uitschuifkeuzelijst"
@@ -2544,13 +2544,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [beta-0.9.3] - 2012-04-17
 - Added some icons for the iDEAL banks to create a nicer issuer select element
-- Added exprimental support for ClassiPress
+- Added experimental support for ClassiPress
 - Added Gravity Forms delay admin notification option
 - Added Gravity Forms delay user notification option
 - Added Gravity Forms delay post creation option
 
 ## [beta-0.9.2] - 2012-04-05
-- Fixed line delimters wich was causing unexpected T_CLASS error in classes/Pronamic/WPeCommerce/IDeal/AddOn.php 
+- Fixed line delimiters which was causing unexpected T_CLASS error in classes/Pronamic/WPeCommerce/IDeal/AddOn.php 
 - Added an array_filter() to the optional OmniKassa data fields
 - Fixed an issue in the Shopp Add-On caused by an Shopp bug (see ticket https://shopp.lighthouseapp.com/projects/47561/tickets/1536-shoppcheckoutoffline-instructions-tag-seemingly-absent-from-12)
 - Added support plugins section to the settings page
@@ -2558,7 +2558,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [beta-0.9.1] - 2012-03-30
 - Added an overview of the registered hashing algorithms and check for sha1 algorithm
 - Fixed plugins_url() function call in the WP e-Commerce Add-On
-- Fixed retrieving succes URL in the Gravity Forms Add-On from an iDEAL feed 
+- Fixed retrieving success URL in the Gravity Forms Add-On from an iDEAL feed 
 - Fixed edit order link in check iDEAL payment e-mail in the WooCommerce Add-On
 - Added check for unavailable or removed iDEAL variant in Gravity Forms iDEAL feed editor
 
@@ -2566,7 +2566,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Added an data proxy class, all add-ons are now optimized
 - Added OmniKassa support for all add-ons
 - Added support for the WP e-Commerce plugin
-- Improved the redirection if returned from an iDEAL advanced payment to WooComnmerce
+- Improved the redirection if returned from an iDEAL advanced payment to WooCommerce
 - Changed the text domain from 'pronamic-ideal' to 'pronamic_ideal'
 - Replaced all references to class constant TEXT_DOMAIN to an string
 
@@ -2580,8 +2580,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - WooCommerce iDEAL Easy and Basic payments send an check payment mail and add note to order
 
 ## [beta-0.8.5] - 2012-01-18
-- Fixed an nonce check wich was causing a lot "Are you sure you want to do this?" notices
-- Added an uninstall hook wich will delete all extra database tables and options
+- Fixed an nonce check which was causing a lot "Are you sure you want to do this?" notices
+- Added an uninstall hook which will delete all extra database tables and options
 - Removed the custom made uninstall block from the iDEAL configurations page
 - Fixed database errors / unexpected output while installing the plugin
 - Pages generator will now generate pages with comments closed by default
@@ -2598,13 +2598,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [beta-0.8.3] - 2012-01-04
 - Fixed notice wp_register_style was called incorrectly in admin
 - Fixed notice undefined variable: nl2br in the Gravity Forms Add-On
-- Fixed issue in WooCommerce with building the iDEAL basic succes URL, Google Analytics e-commerce tracking was not possible
+- Fixed issue in WooCommerce with building the iDEAL basic success URL, Google Analytics e-commerce tracking was not possible
 - Fixed issue with the purchase ID passing through to iDEAL
 - Added extra description to the hash key field on the iDEAL configuration edit page 
 - Removed the maxlength="32" attribute from the Gravity Forms iDEAL feed transaction description field
 - Now it is also possible to search on the amount of an payment
 - Moved the return from iDEAL routine form the 'parse_query' routine to the 'template_redirect' routine
-- Improved the 'pronamic_ideal_return' and 'pronamic_ideal_status_update' routines with an 'can redirect' paramter
+- Improved the 'pronamic_ideal_return' and 'pronamic_ideal_status_update' routines with an 'can redirect' parameter
 - Improved the status update of WooCommerce and Jigoshop orders after an failure status update (from expired to failed)
 - Improved the scheduling of status requests of iDEAL advanced payments
 - Fixed the notice if no status pages or URL's are configured in an Gravity Forms iDEAL feed
@@ -2685,7 +2685,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Added the issuers list to the iDEAL configuration tests page
 - The Gravity Forms iDEAL Issuer Drop Down remembers 
 - Description and entrance code are automatically truncated on the maximum length
-- Added better checks on the output of the OpenSSL functions to prefend PHP warnings
+- Added better checks on the output of the OpenSSL functions to prevent PHP warnings
 - Use the generic hash() function instead of the md5() and sha1() functions
 - Added transaction description to the GravityForms iDEAL feed
 - Fixed bug with retrieving feeds with no form or configuration attached (inner join - left join)

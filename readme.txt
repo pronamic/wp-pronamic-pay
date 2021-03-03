@@ -78,7 +78,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 
 = Requirements =
 
-The Pronamic Pay plugin extends WordPress extensions with payment methods such as iDEAL, Bancontact, Sofort and credit cards. To offer the payment methods to the vistors of your WordPress website you also require one of these e-commerce or form builder extensions.
+The Pronamic Pay plugin extends WordPress extensions with payment methods such as iDEAL, Bancontact, Sofort and credit cards. To offer the payment methods to the visitors of your WordPress website you also require one of these e-commerce or form builder extensions.
 
 = Automatic installation =
 
@@ -191,7 +191,7 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Added feature to manually start the next subscription payment.
 *	Updated WordPress pay Charitable library to version 2.2.1.
 	*	Improved donation total amount value retrieval.
-	*	Improved user data support, set adress line 2 and country code.
+	*	Improved user data support, set address line 2 and country code.
 *	Updated WordPress pay Contact Form 7 to version 1.0.3.
 	*	Fix redirecting when scripts are disabled through `wpcf7_load_js` filter.
 *	Updated WordPress pay Formidable Forms to version 2.2.0.
