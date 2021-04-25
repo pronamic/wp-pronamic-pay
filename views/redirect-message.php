@@ -22,15 +22,19 @@
 
 	<body>
 		<div class="pronamic-pay-redirect-page">
-			<div class="pronamic-pay-redirect-container alignleft">
-				<p>
-					<?php
+			<div class="pronamic-pay-redirect-container">
+				<div class="pp-page-section-container">
+					<div class="pp-page-section-wrapper">
+						<p>
+							<?php
 
-					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					echo wpautop( $redirect_message );
+							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo wpautop( $redirect_message );
 
-					?>
-				</p>
+							?>
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
