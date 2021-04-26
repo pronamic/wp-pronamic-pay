@@ -4,6 +4,138 @@
 		"changes": {}
 	},
 	{
+		"version": "6.7.0",
+		"date": "2021-04-26",
+		"changes": {
+			"name": "Changed",
+			"changes": [
+				{
+					"description": "Updated WordPress pay core library to version 2.7.0.",
+					"changes": [
+						"Added initial support for refunds.",
+						"Added support for creating mandate with free trial periods.",
+						"Added support for Swish and Vipps payment methods.",
+						"Fixed setting post author `0` as customer user ID.",
+						"Fixed subscription memory inconsistencies.",
+						"Fixed subscription status updated to previous status when using manual payment status check.",
+						"Improved manually renewing canceled subscriptions.",
+						"Updated active tab item highlight to use WordPress color scheme.",
+						"Updated redirect and subscription cancel/renew pages.",
+						"Removed parameter `$post_id` from `Subscription` constructor (use `get_pronamic_subscription()` instead).",
+						"Started using `pronamic/wp-html` and `pronamic/wp-http`."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Adyen library to version 1.3.1.",
+					"changes": [
+						"Added support for Swish and Vipps payment methods.",
+						"Updated redirect/checkout pages.",
+						"Started using `pronamic/wp-http`."
+					]
+				},
+				{
+					"description": "Updated WordPress pay iDEAL Basic library to version 2.1.3.",
+					"changes": [
+						"Fixed fatal error on handling invalid notification."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Mollie library to version 2.2.3.",
+					"changes": [
+						"Added initial support for refunds.",
+						"Added support for creating mandate with free trial periods.",
+						"Started using `pronamic/wp-http`."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Ingenico library to version 2.1.2.",
+					"changes": [
+						"Improved support for bank transfer payment method."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Payvision library to version 1.1.1.",
+					"changes": [
+						"Added Revolut iDEAL issuer.",
+						"Started using `pronamic/wp-http`."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Contact Form 7 library to version 1.1.0.",
+					"changes": [
+						"Added support for getting submission value by tag name.",
+						"Fixed handling tag options with non-unique values.",
+						"Fixed processing form entry for active payment methods only.",
+						"Improved compatibility with Contact Form 7 Conditional Fields add-on."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Easy Digital Downloads library to version 2.1.4.",
+					"changes": [
+						"Improved adding payment details to 'Thank you' page."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Event Espresso library to version 2.3.1.",
+					"changes": [
+						"Fixed setting payment method."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Gravity Forms library to version 2.6.0.",
+					"changes": [
+						"Improved compatibility with Gravity Forms 2.5.",
+						"Improved displaying payment methods icons.",
+						"Removed support for Gravity Forms version < 1.7."
+					]
+				},
+				{
+					"description": "Updated WordPress pay MemberPress library to version 2.3.0.",
+					"changes": [
+						"Added support for single-page checkout."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Ninja Forms library to version 1.5.0.",
+					"changes": [
+						"Added support for delayed actions."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Restrict Content Pro library to version 2.3.2.",
+					"changes": [
+						"Fixed incorrect amount when using registration fees."
+					]
+				},
+				{
+					"description": "Updated WordPress pay WooCommerce library to version 2.3.0.",
+					"changes": [
+						"Added initial support for refunds.",
+						"Added support for Swish and Vipps payment methods.",
+						"Fixed using default configuration if not set in gateway settings."
+					]
+				},
+				"Updated WordPress DateTime library to version 1.2.1.",
+				"Updated WordPress Money library to version 1.2.6.",
+				"Updated WordPress pay Buckaroo library to version 2.1.2.",
+				"Updated WordPress pay EMS e-Commerce; library to version 2.1.2.",
+				"Updated WordPress pay ICEPAY library to version 2.1.1.",
+				"Updated WordPress pay iDEAL library to version 2.1.1.",
+				"Updated WordPress pay iDEAL Advanced v3 library to version 2.1.4.",
+				"Updated WordPress pay ING Kassa Compleet library to version 2.1.1.",
+				"Updated WordPress pay MultiSafepay library to version 2.1.3.",
+				"Updated WordPress pay OmniKassa 2.0 library to version 2.3.2.",
+				"Updated WordPress pay Pay.nl library to version 2.1.2.",
+				"Updated WordPress pay Sisow library to version 2.1.1.",
+				"Updated WordPress pay TargetPay library to version 2.1.1.",
+				"Updated WordPress pay Charitable library to version 2.2.2.",
+				"Updated WordPress pay Give library to version 2.2.1.",
+				"Updated WordPress pay s2Member library to version 2.2.2.",
+				"Updated WordPress pay WP eCommerce library to version 2.1.3."
+			]
+		}
+	},
+	{
 		"version": "6.6.4",
 		"date": "2021-02-08",
 		"changes": [
