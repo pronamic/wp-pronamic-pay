@@ -6,6 +6,77 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.7.0] - 2021-04-26
+
+### Changed
+- Updated WordPress pay core library to version 2.7.0.
+  - Added initial support for refunds.
+  - Added support for creating mandate with free trial periods.
+  - Added support for Swish and Vipps payment methods.
+  - Fixed setting post author `0` as customer user ID.
+  - Fixed subscription memory inconsistencies.
+  - Fixed subscription status updated to previous status when using manual payment status check.
+  - Improved manually renewing canceled subscriptions.
+  - Updated active tab item highlight to use WordPress color scheme.
+  - Updated redirect and subscription cancel/renew pages.
+  - Removed parameter `$post_id` from `Subscription` constructor (use `get_pronamic_subscription()` instead).
+  - Started using `pronamic/wp-html` and `pronamic/wp-http`.
+- Updated WordPress pay Adyen library to version 1.3.1.
+  - Added support for Swish and Vipps payment methods.
+  - Updated redirect/checkout pages.
+  - Started using `pronamic/wp-http`.
+- Updated WordPress pay iDEAL Basic library to version 2.1.3.
+  - Fixed fatal error on handling invalid notification.
+- Updated WordPress pay Mollie library to version 2.2.3.
+  - Added initial support for refunds.
+  - Added support for creating mandate with free trial periods.
+  - Started using `pronamic/wp-http`.
+- Updated WordPress pay Ingenico library to version 2.1.2.
+  - Improved support for bank transfer payment method.
+- Updated WordPress pay Payvision library to version 1.1.1.
+  - Added Revolut iDEAL issuer.
+  - Started using `pronamic/wp-http`.
+- Updated WordPress pay Contact Form 7 library to version 1.1.0.
+  - Added support for getting submission value by tag name.
+  - Fixed handling tag options with non-unique values.
+  - Fixed processing form entry for active payment methods only.
+  - Improved compatibility with Contact Form 7 Conditional Fields add-on.
+- Updated WordPress pay Easy Digital Downloads library to version 2.1.4.
+  - Improved adding payment details to 'Thank you' page.
+- Updated WordPress pay Event Espresso library to version 2.3.1.
+  - Fixed setting payment method.
+- Updated WordPress pay Gravity Forms library to version 2.6.0.
+  - Improved compatibility with Gravity Forms 2.5.
+  - Improved displaying payment methods icons.
+  - Removed support for Gravity Forms version < 1.7.
+- Updated WordPress pay MemberPress library to version 2.3.0.
+  - Added support for single-page checkout.
+- Updated WordPress pay Ninja Forms library to version 1.5.0.
+  - Added support for delayed actions.
+- Updated WordPress pay Restrict Content Pro library to version 2.3.2.
+  - Fixed incorrect amount when using registration fees.
+- Updated WordPress pay WooCommerce library to version 2.3.0.
+  - Added initial support for refunds.
+  - Added support for Swish and Vipps payment methods.
+  - Fixed using default configuration if not set in gateway settings.
+- Updated WordPress DateTime library to version 1.2.1.
+- Updated WordPress Money library to version 1.2.6.
+- Updated WordPress pay Buckaroo library to version 2.1.2.
+- Updated WordPress pay EMS e-Commerce; library to version 2.1.2.
+- Updated WordPress pay ICEPAY library to version 2.1.1.
+- Updated WordPress pay iDEAL library to version 2.1.1.
+- Updated WordPress pay iDEAL Advanced v3 library to version 2.1.4.
+- Updated WordPress pay ING Kassa Compleet library to version 2.1.1.
+- Updated WordPress pay MultiSafepay library to version 2.1.3.
+- Updated WordPress pay OmniKassa 2.0 library to version 2.3.2.
+- Updated WordPress pay Pay.nl library to version 2.1.2.
+- Updated WordPress pay Sisow library to version 2.1.1.
+- Updated WordPress pay TargetPay library to version 2.1.1.
+- Updated WordPress pay Charitable library to version 2.2.2.
+- Updated WordPress pay Give library to version 2.2.1.
+- Updated WordPress pay s2Member library to version 2.2.2.
+- Updated WordPress pay WP eCommerce library to version 2.1.3.
+
 ## [6.6.4] - 2021-02-08
 
 ### Fixed
@@ -1728,7 +1799,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Fixed
 - Updated WordPress pay core library to version 1.3.3.
-  - Re-added the MiniTix payment method constant for backwards compatibility.
+  - Readded the MiniTix payment method constant for backwards compatibility.
 - Updated WordPress pay Easy Digital Downloads library to version 1.2.2.
   - Removed discontinued MiniTix gateway.
   - Removed status code from redirect in status_update.
@@ -2267,7 +2338,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [2.2.2] - 2013-11-26
 - Fix - Strict Standards: Declaration of 'function' should be compatible with 'function'.
 - Tweak - Added support for slashes in the gateway configuration meta values.
-- Tweak - Added support for '(' and ')' characters in private key and certificate commands.
+- Tweak - Added support for '(' and ')' charachters in private key and certificate commands.
 - Tweak - Sisow - Improved support for 'callback' and 'notify' requests to ensure Google Analytics e-commerce tracking.
 - Tweak - Shopp - Improved status update. 
 
@@ -2420,7 +2491,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - TargetPay - No longer verify SSL
 - WordPress - Tested up to version 3.5.1
 - Event Espresso - Improved the handling of sending e-mails
-- Gravity Forms - Fulfill order callback is no called only once
+- Gravity Forms - Fulfil order callback is no called only once
 - Mollie - Improved error handling
 - Pages generator pages now have by default no index (WordPress SEO by Yoast)
 
@@ -2446,12 +2517,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Added support for TargetPay iDEAL API
 - Added support for Mollie iDEAL API
 - InternetKassa - Improved handling of signature IN and OUT creating
-- Jigoshop - Improved backwards compatibilty for v1.2 or lower
+- Jigoshop - Improved backwards compatibility for v1.2 or lower
 - OmniKassa - Fixed issue with key version error in admin tests page
 
 ## [1.1.1] - 2012-12-21
 - OmniKassa - Fixed version key issue
-- Jigoshop - Improved backwards compatibilty for v1.2 or lower
+- Jigoshop - Improved backwards compatibility for v1.2 or lower
 - Improved the configurations selector
 - Added ID column to the configurations overview table  
 
@@ -2694,7 +2765,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.4...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.0...HEAD
+[6.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.4...6.7.0
 [6.6.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.3...6.6.4
 [6.6.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.2...6.6.3
 [6.6.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.1...6.6.2
