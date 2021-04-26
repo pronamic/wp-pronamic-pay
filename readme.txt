@@ -3,9 +3,9 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
 Requires at least: 4.7
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 6.6.4
+Stable tag: 6.7.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -78,7 +78,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 
 = Requirements =
 
-The Pronamic Pay plugin extends WordPress extensions with payment methods such as iDEAL, Bancontact, Sofort and credit cards. To offer the payment methods to the vistors of your WordPress website you also require one of these e-commerce or form builder extensions.
+The Pronamic Pay plugin extends WordPress extensions with payment methods such as iDEAL, Bancontact, Sofort and credit cards. To offer the payment methods to the visitors of your WordPress website you also require one of these e-commerce or form builder extensions.
 
 = Automatic installation =
 
@@ -135,6 +135,75 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.7.0 - 2021-04-26 =
+*	Updated WordPress pay core library to version 2.7.0.
+	*	Added initial support for refunds.
+	*	Added support for creating mandate with free trial periods.
+	*	Added support for Swish and Vipps payment methods.
+	*	Fixed setting post author `0` as customer user ID.
+	*	Fixed subscription memory inconsistencies.
+	*	Fixed subscription status updated to previous status when using manual payment status check.
+	*	Improved manually renewing canceled subscriptions.
+	*	Updated active tab item highlight to use WordPress color scheme.
+	*	Updated redirect and subscription cancel/renew pages.
+	*	Removed parameter `$post_id` from `Subscription` constructor (use `get_pronamic_subscription()` instead).
+	*	Started using `pronamic/wp-html` and `pronamic/wp-http`.
+*	Updated WordPress pay Adyen library to version 1.3.1.
+	*	Added support for Swish and Vipps payment methods.
+	*	Updated redirect/checkout pages.
+	*	Started using `pronamic/wp-http`.
+*	Updated WordPress pay iDEAL Basic library to version 2.1.3.
+	*	Fixed fatal error on handling invalid notification.
+*	Updated WordPress pay Mollie library to version 2.2.3.
+	*	Added initial support for refunds.
+	*	Added support for creating mandate with free trial periods.
+	*	Started using `pronamic/wp-http`.
+*	Updated WordPress pay Ingenico library to version 2.1.2.
+	*	Improved support for bank transfer payment method.
+*	Updated WordPress pay Payvision library to version 1.1.1.
+	*	Added Revolut iDEAL issuer.
+	*	Started using `pronamic/wp-http`.
+*	Updated WordPress pay Contact Form 7 library to version 1.1.0.
+	*	Added support for getting submission value by tag name.
+	*	Fixed handling tag options with non-unique values.
+	*	Fixed processing form entry for active payment methods only.
+	*	Improved compatibility with Contact Form 7 Conditional Fields add-on.
+*	Updated WordPress pay Easy Digital Downloads library to version 2.1.4.
+	*	Improved adding payment details to 'Thank you' page.
+*	Updated WordPress pay Event Espresso library to version 2.3.1.
+	*	Fixed setting payment method.
+*	Updated WordPress pay Gravity Forms library to version 2.6.0.
+	*	Improved compatibility with Gravity Forms 2.5.
+	*	Improved displaying payment methods icons.
+	*	Removed support for Gravity Forms version < 1.7.
+*	Updated WordPress pay MemberPress library to version 2.3.0.
+	*	Added support for single-page checkout.
+*	Updated WordPress pay Ninja Forms library to version 1.5.0.
+	*	Added support for delayed actions.
+*	Updated WordPress pay Restrict Content Pro library to version 2.3.2.
+	*	Fixed incorrect amount when using registration fees.
+*	Updated WordPress pay WooCommerce library to version 2.3.0.
+	*	Added initial support for refunds.
+	*	Added support for Swish and Vipps payment methods.
+	*	Fixed using default configuration if not set in gateway settings.
+*	Updated WordPress DateTime library to version 1.2.1.
+*	Updated WordPress Money library to version 1.2.6.
+*	Updated WordPress pay Buckaroo library to version 2.1.2.
+*	Updated WordPress pay EMS e-Commerce; library to version 2.1.2.
+*	Updated WordPress pay ICEPAY library to version 2.1.1.
+*	Updated WordPress pay iDEAL library to version 2.1.1.
+*	Updated WordPress pay iDEAL Advanced v3 library to version 2.1.4.
+*	Updated WordPress pay ING Kassa Compleet library to version 2.1.1.
+*	Updated WordPress pay MultiSafepay library to version 2.1.3.
+*	Updated WordPress pay OmniKassa 2.0 library to version 2.3.2.
+*	Updated WordPress pay Pay.nl library to version 2.1.2.
+*	Updated WordPress pay Sisow library to version 2.1.1.
+*	Updated WordPress pay TargetPay library to version 2.1.1.
+*	Updated WordPress pay Charitable library to version 2.2.2.
+*	Updated WordPress pay Give library to version 2.2.1.
+*	Updated WordPress pay s2Member library to version 2.2.2.
+*	Updated WordPress pay WP eCommerce library to version 2.1.3.
+
 = 6.6.4 - 2021-02-08 =
 *	Updated WordPress pay Mollie library to version 2.2.2.
 	*	Fixed "Error validating `/locale`: The property `locale` is required" on some status update (https://github.com/mollie/api-documentation/pull/731).
@@ -179,39 +248,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 *	Updated WordPress pay MemberPress library to version 2.2.2.
 	*	Added support for recurring payments with Apple Pay.
 	*	Updated payment method icons to use wp-pay/logos library.
-
-= 6.6.0 - 2021-01-14 =
-*	Updated WordPress pay core library to version 2.6.0.
-	*	Payment Gateway Referral Exclusions in Google Analytics.
-	*	Added Santander payment method.
-	*	Ask for confirmation before manually cancelling a subscription.
-	*	Redirect to new 'Subscription Canceled' status page after cancelling subscriptions.
-	*	Fixed updating subscription dates on next period payment creation.
-	*	Only add user agent in payment info meta box if not empty.
-	*	Added feature to manually start the next subscription payment.
-*	Updated WordPress pay Charitable library to version 2.2.1.
-	*	Improved donation total amount value retrieval.
-	*	Improved user data support, set adress line 2 and country code.
-*	Updated WordPress pay Contact Form 7 to version 1.0.3.
-	*	Fix redirecting when scripts are disabled through `wpcf7_load_js` filter.
-*	Updated WordPress pay Formidable Forms to version 2.2.0.
-	*	Simplified icon hover style.
-	*	Updated form action icon.
-	*	Added support for form settings redirect success URL.
-*	Updated WordPress pay Ninja Forms to version 1.3.0.
-	*	Fixed notice payment redirect URL.
-*	Updated WordPress pay Restrict Content Pro to version 2.3.1.
-	*	Renew inactive membership on successful (retry) payment.
-	*	Fix not using checkout label setting.
-*	Updated WordPress pay s2Member to version 2.2.1.
-	*	Prevent updating eot if (retry) payment period end date is (before) current eot time.
-	*	Fix using removed payment data class and multiple status update actions.
-	*	Fix setting subscription next payment date for new subscriptions (removes payment data class).
-*	Updated WordPress pay WooCommerce to version 2.2.1.
-	*	Updated logo library to version 1.6.3 for new iDEAL logo.
-	*	Start subscription payment through subscription module instead of plugin.
-	*	Move info message up on thank you page.
-	*	Add Santander payment method.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

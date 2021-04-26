@@ -27,35 +27,6 @@ module.exports = function( grunt ) {
 			]
 		},
 
-		// PHP Code Sniffer.
-		phpcs: {
-			core: {
-				src: [
-					'admin/**/*.php',
-					'includes/**/*.php',
-					'!includes/updates/**',
-					'views/**/*.php',
-					'pronamic-ideal.php',
-					'uninstall.php'
-				]
-			},
-			options: {
-				bin: 'vendor/bin/phpcs',
-				standard: 'phpcs.xml.dist',
-				showSniffCodes: true
-			}
-		},
-
-		// PHPUnit.
-		phpunit: {
-			options: {
-				bin: 'vendor/bin/phpunit'
-			},
-			classes: {
-				
-			}
-		},
-
 		// JSHint.
 		jshint: {
 			options: grunt.file.readJSON( '.jshintrc' ),
@@ -65,7 +36,7 @@ module.exports = function( grunt ) {
 			]
 		},
 
-		// Check textdomain errors.
+		// Check text domain errors.
 		checktextdomain: {
 			options:{
 				text_domain: 'pronamic_ideal',
@@ -193,7 +164,7 @@ module.exports = function( grunt ) {
 	} );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpcs', 'phpunit' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'phplint' ] );
 	grunt.registerTask( 'assets', [ 'copy:images', 'copy:other' ] );
 	grunt.registerTask( 'min', [ 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );

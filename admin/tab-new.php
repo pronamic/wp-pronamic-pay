@@ -116,7 +116,7 @@ if ( ! defined( 'WPINC' ) ) {
 			<?php
 
 			esc_html_e(
-				'The team of Sandhills Development, the developers behind Restrict Content Pro are very active. Version 3.0 of their plugin is released in february 2019. With this 3.0 release we needed to update our support for the plugin. Sadly some new features in Restrict Content Pro 3.0 weren’t backwards compatible. Therefor we needed to rewrite some elements of our extension. The biggest improvement within Restrict Content Pro 3.0 regards the membership renewal process. After a recurring payment is created a membership is instantly extended. Previously this would only happen after a payment was successful, this process could take up to 5 days. Now if a payment fails or expires the membership will temporarily stop and will get the ‘pending’ status.',
+				'The team of Sandhills Development, the developers behind Restrict Content Pro are very active. Version 3.0 of their plugin is released in february 2019. With this 3.0 release we needed to update our support for the plugin. Sadly some new features in Restrict Content Pro 3.0 weren’t backwards compatible. Therefore we needed to rewrite some elements of our extension. The biggest improvement within Restrict Content Pro 3.0 regards the membership renewal process. After a recurring payment is created a membership is instantly extended. Previously this would only happen after a payment was successful, this process could take up to 5 days. Now if a payment fails or expires the membership will temporarily stop and will get the ‘pending’ status.',
 				'pronamic_ideal'
 			);
 
