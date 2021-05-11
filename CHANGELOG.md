@@ -6,6 +6,25 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.7.1] - 2021-05-11
+
+### Fixed
+- Updated `pronamic/wp-http` library to version `1.0.1`.
+  - Improved 'http_request_args' filter removal related to Query Monitor conflict.
+- Updated `wp-pay-extensions/event-espresso` library to version `2.3.2`.
+  - Use `$transaction->remaining()` instead of `$transaction->total()` so that incomplete or manual payments are also included.
+  - Fixed "Non-static method EventEspressoHelper::get_description() should not be called statically" warning/error.
+- Updated `wp-pay-extensions/memberpress` library to version `2.3.1`.
+  - Use default gateway configuration setting.
+  - Reduced magic in MemberPress payment address transformation function.
+  - Improved tax calculation of payment from MemberPress subscription in trial (coupon code).
+- Updated `wp-pay-gateways/omnikassa-2` library to version `2.3.3`
+  - Improved error and exception handling in webhook controller.
+  - Introduced the `InvalidSignatureException` class.
+  - Improved documentation of the filters.
+- Updated `wp-pay-gateways/payvision` library to version `1.1.2`
+  - Fixed "Uncaught Error: Class 'Pronamic\WordPress\Pay\Facades\Http' not found".
+
 ## [6.7.0] - 2021-04-26
 
 ### Changed
@@ -2765,7 +2784,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.1...HEAD
+[6.7.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.0...6.7.1
 [6.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.4...6.7.0
 [6.6.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.3...6.6.4
 [6.6.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.2...6.6.3
