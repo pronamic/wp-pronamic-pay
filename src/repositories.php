@@ -15,6 +15,8 @@ $repositories_dir = $project_dir . '/repositories';
 $organisations = array(
 	'pronamic'          => array(
 		'wp-datetime' => 'DateTime',
+		'wp-html'     => 'HTML',
+		'wp-http'     => 'HTTP',
 		'wp-money'    => 'Money',
 	),
 	'wp-pay'            => array(
