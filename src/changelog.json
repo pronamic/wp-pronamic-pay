@@ -4,6 +4,50 @@
 		"changes": {}
 	},
 	{
+		"version": "6.7.1",
+		"date": "2021-05-11",
+		"changes": {
+			"name": "Fixed",
+			"changes": [
+				{
+					"description": "Updated `pronamic/wp-http` library to version `1.0.1`.",
+					"changes": [
+						"Improved 'http_request_args' filter removal related to Query Monitor conflict."
+					]
+				},
+				{
+					"description": "Updated `wp-pay-extensions/event-espresso` library to version `2.3.2`.",
+					"changes": [
+						"Use `$transaction->remaining()` instead of `$transaction->total()` so that incomplete or manual payments are also included.",
+						"Fixed \"Non-static method EventEspressoHelper::get_description() should not be called statically\" warning/error."
+					]
+				},
+				{
+					"description": "Updated `wp-pay-extensions/memberpress` library to version `2.3.1`.",
+					"changes": [
+						"Use default gateway configuration setting.",
+						"Reduced magic in MemberPress payment address transformation function.",
+						"Improved tax calculation of payment from MemberPress subscription in trial (coupon code)."
+					]
+				},
+				{
+					"description": "Updated `wp-pay-gateways/omnikassa-2` library to version `2.3.3`",
+					"changes": [
+						"Improved error and exception handling in webhook controller.",
+						"Introduced the `InvalidSignatureException` class.",
+						"Improved documentation of the filters."
+					]
+				},
+				{
+					"description": "Updated `wp-pay-gateways/payvision` library to version `1.1.2`",
+					"changes": [
+						"Fixed \"Uncaught Error: Class 'Pronamic\\WordPress\\Pay\\Facades\\Http' not found\"."
+					]
+				}
+			]
+		}
+	},
+	{
 		"version": "6.7.0",
 		"date": "2021-04-26",
 		"changes": {

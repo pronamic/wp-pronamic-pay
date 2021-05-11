@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 6.7.0
+Stable tag: 6.7.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -135,6 +135,23 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.7.1 - 2021-05-11 =
+*	Updated `pronamic/wp-http` library to version `1.0.1`.
+	*	Improved 'http_request_args' filter removal related to Query Monitor conflict.
+*	Updated `wp-pay-extensions/event-espresso` library to version `2.3.2`.
+	*	Use `$transaction->remaining()` instead of `$transaction->total()` so that incomplete or manual payments are also included.
+	*	Fixed "Non-static method EventEspressoHelper::get_description() should not be called statically" warning/error.
+*	Updated `wp-pay-extensions/memberpress` library to version `2.3.1`.
+	*	Use default gateway configuration setting.
+	*	Reduced magic in MemberPress payment address transformation function.
+	*	Improved tax calculation of payment from MemberPress subscription in trial (coupon code).
+*	Updated `wp-pay-gateways/omnikassa-2` library to version `2.3.3`
+	*	Improved error and exception handling in webhook controller.
+	*	Introduced the `InvalidSignatureException` class.
+	*	Improved documentation of the filters.
+*	Updated `wp-pay-gateways/payvision` library to version `1.1.2`
+	*	Fixed "Uncaught Error: Class 'Pronamic\WordPress\Pay\Facades\Http' not found".
+
 = 6.7.0 - 2021-04-26 =
 *	Updated WordPress pay core library to version 2.7.0.
 	*	Added initial support for refunds.
@@ -229,25 +246,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 = 6.6.2 - 2021-01-19 =
 *	Updated WordPress pay Event Espresso (legacy) library to version 2.3.2.
 	*	Fixed using unknown classes.
-
-= 6.6.1 - 2021-01-18 =
-*	Updated WordPress pay core library to version 2.6.1.
-	*	Added support for recurring payments with Apple Pay.
-*	Updated WordPress pay Mollie library to version 2.2.1.
-	*	Added support for first payment with regular iDEAL/Bancontact/Sofort payment methods.
-	*	Added support for recurring payments with Apple Pay.
-	*	Added 'Change Payment State' URL to Mollie payment admin page.
-	*	Chargebacks now update subscriptions status to 'On hold' (needs manual review).
-*	Updated WordPress pay MultiSafepay library to version 2.1.2.
-	*	Added support for In3 payment method.
-	*	Added partial support for Santander 'Betaal per maand' payment method.
-*	Updated WordPress pay Payvision library to version 1.0.1.
-	*	Added business ID to gateway ID column in payments overview.
-*	Updated WordPress pay Event Espresso (legacy) library to version 2.3.1.
-	*	Fixed syntax errors.
-*	Updated WordPress pay MemberPress library to version 2.2.2.
-	*	Added support for recurring payments with Apple Pay.
-	*	Updated payment method icons to use wp-pay/logos library.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
