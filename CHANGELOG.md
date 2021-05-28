@@ -6,6 +6,34 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.7.2] - 2021-05-28
+
+### Added
+- Added WordPress pay DigiWallet library version 1.0.0.
+
+### Changed
+- Updated WordPress pay core library to version 2.7.1.
+  - Added transaction description setting to payment forms.
+  - Updated payment methods logos to version 1.6.6.
+  - Fixed missing `On Hold` status in payment status map.
+- Updated WordPress pay OmniKassa 2.0 library to version 2.3.4.
+  - Added support for gateway configuration specific webhook URLs.
+  - Improved webhook error handling.
+- Updated WordPress pay TargetPay library to version 2.2.0.
+  - Deprecated gateway in favor of DigiWallet.
+  - Improved error handling.
+  - Added documentation.
+- Updated WordPress pay Charitable library to version 2.2.3.
+  - Improved using default gateway configuration.
+- Updated WordPress pay Gravity Forms library to version 2.6.1.
+  - Improved Gravity Forms 2.5.3 compatibility.
+  - Fixed payment feed conditional logic setting.
+  - Fixed loading admin script in form editor.
+- Updated WordPress pay MemberPress library to version 2.3.2.
+  - Improved setting tax amount and rate in trial phase.
+- Updated WordPress pay Ninja Forms library to version 1.5.1.
+  - Improved delayed actions.
+
 ## [6.7.1] - 2021-05-11
 
 ### Fixed
@@ -2784,7 +2812,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.2...HEAD
+[6.7.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.1...6.7.2
 [6.7.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.0...6.7.1
 [6.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.4...6.7.0
 [6.6.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.3...6.6.4

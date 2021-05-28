@@ -4,6 +4,72 @@
 		"changes": {}
 	},
 	{
+		"version": "6.7.2",
+		"date": "2021-05-28",
+		"changes": [
+			{
+				"name": "Added",
+				"changes": [
+					"Added WordPress pay DigiWallet library version 1.0.0."
+				]
+			},
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay core library to version 2.7.1.",
+						"changes": [
+							"Added transaction description setting to payment forms.",
+							"Updated payment methods logos to version 1.6.6.",
+							"Fixed missing `On Hold` status in payment status map."
+						]
+					},
+					{
+						"description": "Updated WordPress pay OmniKassa 2.0 library to version 2.3.4.",
+						"changes": [
+							"Added support for gateway configuration specific webhook URLs.",
+							"Improved webhook error handling."
+						]
+					},
+					{
+						"description": "Updated WordPress pay TargetPay library to version 2.2.0.",
+						"changes": [
+							"Deprecated gateway in favor of DigiWallet.",
+							"Improved error handling.",
+							"Added documentation."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Charitable library to version 2.2.3.",
+						"changes": [
+							"Improved using default gateway configuration."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 2.6.1.",
+						"changes": [
+							"Improved Gravity Forms 2.5.3 compatibility.",
+							"Fixed payment feed conditional logic setting.",
+							"Fixed loading admin script in form editor."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MemberPress library to version 2.3.2.",
+						"changes": [
+							"Improved setting tax amount and rate in trial phase."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Ninja Forms library to version 1.5.1.",
+						"changes": [
+							"Improved delayed actions."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "6.7.1",
 		"date": "2021-05-11",
 		"changes": {
