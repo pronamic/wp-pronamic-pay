@@ -26,6 +26,7 @@ $organisations = array(
 	'wp-pay-gateways'   => array(
 		'adyen'              => 'Adyen',
 		'buckaroo'           => 'Buckaroo',
+		'digiwallet'         => 'DigiWallet',
 		'ems-e-commerce'     => 'EMS e-Commerce;',
 		'icepay'             => 'ICEPAY',
 		'ideal'              => 'iDEAL',

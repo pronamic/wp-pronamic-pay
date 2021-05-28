@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 6.7.1
+Stable tag: 6.7.2
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -56,6 +56,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	Adyen (requires [Pro license](https://www.pronamic.eu/plugins/pronamic-pay/))
 *	Buckaroo - HTML
 *	Deutsche Bank - iDEAL Expert (v3)
+*	DigiWallet
 *	EMS - e-Commerce
 *	ICEPAY
 *	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
@@ -134,6 +135,30 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 6.7.2 - 2021-05-28 =
+*	Added WordPress pay DigiWallet library version 1.0.0.
+*	Updated WordPress pay core library to version 2.7.1.
+	*	Added transaction description setting to payment forms.
+	*	Updated payment methods logos to version 1.6.6.
+	*	Fixed missing `On Hold` status in payment status map.
+*	Updated WordPress pay OmniKassa 2.0 library to version 2.3.4.
+	*	Added support for gateway configuration specific webhook URLs.
+	*	Improved webhook error handling.
+*	Updated WordPress pay TargetPay library to version 2.2.0.
+	*	Deprecated gateway in favor of DigiWallet.
+	*	Improved error handling.
+	*	Added documentation.
+*	Updated WordPress pay Charitable library to version 2.2.3.
+	*	Improved using default gateway configuration.
+*	Updated WordPress pay Gravity Forms library to version 2.6.1.
+	*	Improved Gravity Forms 2.5.3 compatibility.
+	*	Fixed payment feed conditional logic setting.
+	*	Fixed loading admin script in form editor.
+*	Updated WordPress pay MemberPress library to version 2.3.2.
+	*	Improved setting tax amount and rate in trial phase.
+*	Updated WordPress pay Ninja Forms library to version 1.5.1.
+	*	Improved delayed actions.
 
 = 6.7.1 - 2021-05-11 =
 *	Updated `pronamic/wp-http` library to version `1.0.1`.
@@ -242,10 +267,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Removed debug code.
 *	Updated WordPress pay Ninja Forms library to version 1.4.0.
 	*	Added gateway configuration setting to form action.
-
-= 6.6.2 - 2021-01-19 =
-*	Updated WordPress pay Event Espresso (legacy) library to version 2.3.2.
-	*	Fixed using unknown classes.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
