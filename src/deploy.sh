@@ -21,4 +21,4 @@ if ! [ -x "$(command -v aws)" ]; then
   aws --version
 fi
 
-./bin/pronamic-deployer deploy pronamic-ideal https://github.com/pronamic/wp-pronamic-ideal.git -vvvv --non-interactive --to-s3 --to-wp-org
+./bin/pronamic-deployer deploy pronamic-ideal https://github.com/pronamic/wp-pronamic-pay.git -vvvv --non-interactive --to-s3 --to-wp-org
