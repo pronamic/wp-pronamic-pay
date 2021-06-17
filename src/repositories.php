@@ -18,6 +18,7 @@ $organisations = array(
 		'wp-html'     => 'HTML',
 		'wp-http'     => 'HTTP',
 		'wp-money'    => 'Money',
+		'wp-number'   => 'Number',
 	),
 	'wp-pay'            => array(
 		'core'        => 'core',
