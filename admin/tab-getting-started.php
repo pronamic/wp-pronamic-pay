@@ -166,7 +166,7 @@ page, where you choose which configuration to use in the payment methods that ar
 
 			printf(
 				'» <a href="%1$s" title="%2$s">%2$s</a>',
-				esc_url( $this->plugin->tracking_module->get_tracking_url( __( 'https://www.pronamic.eu/plugins/pronamic-ideal/', 'pronamic_ideal' ) ) ),
+				esc_url( $this->plugin->tracking_module->get_tracking_url( __( 'https://www.pronamic.eu/plugins/pronamic-pay/', 'pronamic_ideal' ) ) ),
 				esc_html__( 'View supported e-commerce plugins', 'pronamic_ideal' )
 			);
 

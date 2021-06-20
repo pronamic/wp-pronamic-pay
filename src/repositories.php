@@ -18,6 +18,7 @@ $organisations = array(
 		'wp-html'     => 'HTML',
 		'wp-http'     => 'HTTP',
 		'wp-money'    => 'Money',
+		'wp-number'   => 'Number',
 	),
 	'wp-pay'            => array(
 		'core'        => 'core',
@@ -85,7 +86,7 @@ function version_update_awk_actions() {
 	}
 }
 
-if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
+if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 	$changelog_release = fopen( __DIR__ . '/changelog-release.json', 'w+' );
 
 	if ( false !== $changelog_release ) {
@@ -132,74 +133,74 @@ foreach ( $organisations as $organisation => $repositories ) {
 			$command = 'git --no-pager log $(git describe --tags --abbrev=0)..HEAD --oneline';
 		}
 
-		if ( isset( $argv[1] ) && 'changelog' === $argv[1] ) {
+		if ( isset( $argv[1] ) && 'release-start' === $argv[1] ) {
 			$command = '
-				CURRENT_TAG=$(git describe --tags --abbrev=0);
-				LOG=$(git --no-pager log ${CURRENT_TAG}..HEAD --oneline);
+				CURRENT_TAG=$(git describe --tags --abbrev=0)
+				LOG=$(git --no-pager log ${CURRENT_TAG}..HEAD --oneline)
 
 				# Exit if there are no changes in Git repository.
 				if [ $(echo "$LOG" | wc -l) -eq 1 ]; then
-					echo "Version: ${CURRENT_TAG}";
-					exit;
+					echo "Version: ${CURRENT_TAG}"
+					exit
 				fi;
 
 				# Set version numbers.
-				NEW_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'' . version_update_awk_actions() . '\');
-				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}";
+				NEW_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'' . version_update_awk_actions() . '\')
+				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}"
 
-				# Add title and log.
-				TITLE_LINENR=$(grep -n "## \[" CHANGELOG.md | head -2 | tail -1 | cut -d: -f1);
-				LOG=$(echo "$LOG" | sed \'s/^[a-z0-9]\{7\}/-/\' | sed \'s/^- Merge tag.*//\'; echo "";);
-				TITLE="## [${NEW_VERSION}] - $(date \'+%Y-%m-%d\')' . \PHP_EOL . '";
-				ex -s -c "${TITLE_LINENR}i|${TITLE}${LOG}' . str_repeat( \PHP_EOL, 2 ) . '" -c x CHANGELOG.md;
+				# Start Gitflow release.
+				git flow init -d
+				git flow release start "${NEW_VERSION}"
 
-				# Update footer links.
-				LINK_LINENR=$(grep -n "\[unreleased\]" CHANGELOG.md | tail -1 | cut -d: -f1);
-				LINK="[${NEW_VERSION}]: https://github.com/' . $organisation . '/' . $repository . '/compare/${CURRENT_TAG}...${NEW_VERSION}";
-				CHANGELOG=$(cat CHANGELOG.MD | sed "${LINK_LINENR}s/${CURRENT_TAG}...HEAD/${NEW_VERSION}...HEAD/" | tee CHANGELOG.md);
+				# Update package version number.
+				VERSION_LINENR=$(grep -n "\"version\":" package.json | tail -1 | cut -d: -f1)
+				PACKAGE_JSON=$(cat package.json | sed "${VERSION_LINENR}s/\"${CURRENT_TAG}\"/\"${NEW_VERSION}\"/" | tee package.json)
+
+				# Update changelog title and add log.
+				TITLE_LINENR=$(grep -n "## \[" CHANGELOG.md | head -2 | tail -1 | cut -d: -f1)
+				LOG=$(echo "$LOG" | sed \'s/^[a-z0-9]\{7\}/-/\' | sed \'s/^- Merge tag.*//\'; echo "";)
+				TITLE="## [${NEW_VERSION}] - $(date \'+%Y-%m-%d\')' . \PHP_EOL . '"
+				ex -s -c "${TITLE_LINENR}i|${TITLE}${LOG}' . str_repeat( \PHP_EOL, 2 ) . '" -c x CHANGELOG.md
+
+				# Update changelog footer links.
+				LINK_LINENR=$(grep -n "\[unreleased\]" CHANGELOG.md | tail -1 | cut -d: -f1)
+				LINK="[${NEW_VERSION}]: https://github.com/' . $organisation . '/' . $repository . '/compare/${CURRENT_TAG}...${NEW_VERSION}"
+				CHANGELOG=$(cat CHANGELOG.MD | sed "${LINK_LINENR}s/${CURRENT_TAG}...HEAD/${NEW_VERSION}...HEAD/" | tee CHANGELOG.md)
 				ex -s -c "$(( ${LINK_LINENR} + 1 ))i|${LINK}" -c x CHANGELOG.md';
 		}
 
-		if ( isset( $argv[1] ) && 'update-package-version' === $argv[1] ) {
+		if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 			$command = '
-				CURRENT_TAG=$(git describe --tags --abbrev=0);
-				LOG=$(git --no-pager log ${CURRENT_TAG}..HEAD --oneline);
-
-				# Exit if there are no changes in Git repository.
-				if [ $(echo "$LOG" | wc -l) -eq 1 ]; then
-					echo "Version: ${CURRENT_TAG}";
-					exit;
-				fi;
-
-				# Set version numbers.
-				NEW_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'' . version_update_awk_actions() . '\');
-				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}";
-
-				# Update version number.
-				VERSION_LINENR=$(grep -n "\"version\":" package.json | tail -1 | cut -d: -f1);
-				PACKAGE_JSON=$(cat package.json | sed "${VERSION_LINENR}s/\"${CURRENT_TAG}\"/\"${NEW_VERSION}\"/" | tee package.json);';
-		}
-
-		if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
-			$command = '
-				CURRENT_TAG=$(git describe --tags --abbrev=0);
-				NEW_VERSION=$(cat package.json | jq --raw-output \'.version\' );
+				CURRENT_TAG=$(git describe --tags --abbrev=0)
+				NEW_VERSION=$(cat package.json | jq --raw-output \'.version\' )
 
 				# Exit if there are no changes in Git repository.
 				if [[ "$CURRENT_TAG" == "$NEW_VERSION" ]]; then
-					echo "Version: ${CURRENT_TAG}";
-					exit;
+					echo "Version: ${CURRENT_TAG}"
+					exit
 				fi;
 
 				# Echo new version number.
-				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}";
+				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}"
 
 				# Write temporary changelog JSON.
-				FROM=$(( $(grep -n "## \[" CHANGELOG.md | head -2 | tail -1 | cut -d: -f1) + 1 ));
-				TO=$(( $(grep -n "## \[" CHANGELOG.md | head -3 | tail -1 | cut -d: -f1) - 2 ));
-				LOG=$(cat CHANGELOG.md | head -n $TO | tail -n +$FROM );
+				FROM=$(( $(grep -n "## \[" CHANGELOG.md | head -2 | tail -1 | cut -d: -f1) + 1 ))
+				TO=$(( $(grep -n "## \[" CHANGELOG.md | head -3 | tail -1 | cut -d: -f1) - 2 ))
+				LOG=$(cat CHANGELOG.md | head -n $TO | tail -n +$FROM )
 				echo "${LOG}"
-				echo ",{\"description\":\"Updated WordPress ' . ( 'pronamic' === $organisation ? '' : 'pay ' ) . $name . ' library to version ${NEW_VERSION}.\",\"changes\":$(echo "${LOG}" | sed \'s/^- //\' | jq --raw-input --raw-output --slurp \'split("\\n") | .[0:-1]\')}" >> ../../../src/changelog-release.json';
+				echo ",{\"description\":\"Updated WordPress ' . ( 'pronamic' === $organisation ? '' : 'pay ' ) . $name . ' library to version ${NEW_VERSION}.\",\"changes\":$(echo "${LOG}" | sed \'s/^- //\' | jq --raw-input --raw-output --slurp \'split("\\n") | .[0:-1]\')}" >> ../../../src/changelog-release.json
+
+				# Git commit changes.
+				git commit -a -m "Getting ready for version ${NEW_VERSION}."
+
+				# Gitflow finish release.
+				git flow release finish -m "${NEW_VERSION}" "${NEW_VERSION}"
+				
+				# Git push tag, master and develop.
+				git push origin --tags && echo ""
+				git rev-parse --verify --quiet master && git push origin master && echo ""
+				git rev-parse --verify --quiet main && git push origin main && echo ""
+				git push origin develop';
 		}
 
 		if ( isset( $argv[1] ) && in_array( $argv[1], array( 'git', 'grunt', 'composer', 'npm', 'ncu' ), true ) ) {
@@ -211,7 +212,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 		}
 
 		if ( null !== $command ) {
-			if ( ! isset( $argv[1] ) || ( isset( $argv[1] ) && ! in_array( $argv[1], array( 'changelog', 'changelog-plugin', 'update-package-version' ), true ) ) ) {
+			if ( ! isset( $argv[1] ) || ( isset( $argv[1] ) && ! in_array( $argv[1], array( 'release-start', 'release-finish' ), true ) ) ) {
 				echo $command, PHP_EOL;
 			}
 
@@ -220,7 +221,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 	}
 }
 
-if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
+if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 	// Get release changelog items from temporary file.
 	$changelog_plugin = file_get_contents( __DIR__ . '/changelog-release.json' ) . ']';
 	$changelog_plugin = str_replace( '\\', '\\\\', $changelog_plugin );
@@ -287,6 +288,12 @@ if ( isset( $argv[1] ) && 'changelog-plugin' === $argv[1] ) {
 		},
 		$changelog_json
 	);
+
+	// Replace `pronamic/wp-pronamic-pay` issue reference markdown.
+	$json = preg_replace( '/ \[(#[0-9]+)\]\(.*?pronamic\/wp-pronamic-pay\/issues\/.*?\)\./m', '. \\1', $json );
+
+	// Remove all other issue reference markdown.
+	$json = preg_replace( '/ \[(#[0-9]+)\]\(.*?\/issues\/.*?\)\./m', '.', $json );
 
 	// Write updated changelog.
 	$handle = fopen( __DIR__ . '/changelog.json', 'w+' );
