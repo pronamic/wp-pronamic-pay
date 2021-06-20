@@ -6,6 +6,41 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.8.0] - 2021-06-21
+
+### Changed
+- Updated WordPress pay core library to version 2.7.2.
+  - Added payment method to subscription details when cancelling/renewing a subscription.
+  - Added refunded amount in payments overview amount column.
+  - Fixed using user locale on payment redirect and subscription action pages. #136
+  - Improved changing subscription mandate.
+- Updated WordPress pay Adyen library to version 1.3.2.
+  - Updated to API version 64 and Drop-in SDK version 3.15.0 (adds support for ACH Direct Debit payment method).
+  - Updated documentation of the `pronamic_pay_adyen_checkout_head` action.
+- Updated WordPress pay Buckaroo library to version 2.2.0.
+  - Added initial support for refunds.
+  - Added WP-CLI command to retrieve transaction status and refunds info.
+  - Updated integration to JSON API.
+  - Switched to WordPress REST API for Push URL.
+- Updated WordPress pay iDEAL Basic library to version 2.2.0.
+  - Switched to REST API for notification URL.
+- Updated WordPress pay Ingenico library to version 2.1.3.
+  - Fixed updating payment transaction ID from transaction feedback.
+- Updated WordPress pay Contact Form 7 library to version 1.1.1.
+  - Improved error handling on form submission.
+- Updated WordPress pay Easy Digital Downloads library to version 2.2.0.
+  - Added initial support for refunds. #129
+- Updated WordPress pay Gravity Forms library to version 2.7.0.
+  - Added initial support for refunds. #119
+- Updated WordPress pay MemberPress library to version 2.3.3.
+  - Added subscription mandate selection link to account update page.
+  - Fixed updating gateway in subscription/transaction on payment method update (via mandate selection URL).
+- Updated WordPress pay WooCommerce library to version 2.3.1.
+  - Fixed updating WooCommerce order for refunds on payment update. #130
+- Updated WordPress HTTP library to version 1.1.1.
+- Updated WordPress pay DigiWallet library to version 1.0.1.
+- Updated WordPress pay Mollie library to version 2.2.4.
+
 ## [6.7.2] - 2021-05-28
 
 ### Added
@@ -2812,7 +2847,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.8.0...HEAD
+[6.8.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.2...6.8.0
 [6.7.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.1...6.7.2
 [6.7.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.0...6.7.1
 [6.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.6.4...6.7.0
