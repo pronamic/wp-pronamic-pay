@@ -8,7 +8,7 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-use Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\IDeal;
+use Pronamic\WordPress\Money\Money;
 
 ?>
 <table class="wp-list-table widefat" style="width: auto;" cellspacing="0">
@@ -62,11 +62,13 @@ use Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\IDeal;
 				<td>
 					<?php
 
+					$amount = new Money( $data['amount'], 'EUR' );
+
 					echo wp_kses(
 						sprintf(
 							/* translators: %s: formatted amount */
 							__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ),
-							esc_html( IDeal::format_amount( $data['amount'] ) )
+							esc_html( $amount->get_number()->format( 2 ) )
 						),
 						array(
 							'code' => array(),
