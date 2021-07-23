@@ -43,7 +43,7 @@ foreach ( $files as $file ) {
 		}
 
 		foreach ( $classmap as $prefix => $filepath ) {
-			$loader->addPsr4( $prefix, dirname( $file ) . '/' . $filepath, true );
+			$loader->setPsr4( $prefix, dirname( $file ) . '/' . $filepath, true );
 		}
 	}
 }
