@@ -91,6 +91,7 @@ if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 	$changelog_release = fopen( __DIR__ . '/changelog-release.json', 'w+' );
 
 	if ( false !== $changelog_release ) {
+		// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_fwrite
 		fwrite( $changelog_release, '[null' );
 	}
 }
@@ -228,6 +229,7 @@ if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 	$changelog_plugin = str_replace( '\\', '\\\\', $changelog_plugin );
 	$changelog_plugin = str_replace( '\\\\"', '\\"', $changelog_plugin );
 
+	// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_unlink
 	unlink( __DIR__ . '/changelog-release.json' );
 
 	$updates = json_decode( $changelog_plugin );
@@ -300,6 +302,7 @@ if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 	$handle = fopen( __DIR__ . '/changelog.json', 'w+' );
 
 	if ( false !== $handle ) {
+		// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_fwrite
 		fwrite( $handle, $json . PHP_EOL );
 	}
 }

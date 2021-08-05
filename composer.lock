@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1bb8e59ce5d7182c674df0b0b9a584af",
+    "content-hash": "2664cc0143ecea679e1916baa82a2970",
     "packages": [
         {
             "name": "composer/installers",
@@ -2977,6 +2977,58 @@
     ],
     "packages-dev": [
         {
+            "name": "automattic/vipwpcs",
+            "version": "2.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Automattic/VIP-Coding-Standards.git",
+                "reference": "efacebef421334d54b99afa92fb8fa645336a8a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Automattic/VIP-Coding-Standards/zipball/efacebef421334d54b99afa92fb8fa645336a8a7",
+                "reference": "efacebef421334d54b99afa92fb8fa645336a8a7",
+                "shasum": ""
+            },
+            "require": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.1 || ^0.5 || ^0.6.2 || ^0.7",
+                "php": ">=5.4",
+                "sirbrillig/phpcs-variable-analysis": "^2.8.3",
+                "squizlabs/php_codesniffer": "^3.5.5",
+                "wp-coding-standards/wpcs": "^2.3"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-console-highlighter": "^0.5",
+                "php-parallel-lint/php-parallel-lint": "^1.0",
+                "phpcompatibility/php-compatibility": "^9",
+                "phpcsstandards/phpcsdevtools": "^1.0",
+                "phpunit/phpunit": "^4 || ^5 || ^6 || ^7"
+            },
+            "type": "phpcodesniffer-standard",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/Automattic/VIP-Coding-Standards/graphs/contributors"
+                }
+            ],
+            "description": "PHP_CodeSniffer rules (sniffs) to enforce WordPress VIP minimum coding conventions",
+            "keywords": [
+                "phpcs",
+                "standards",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/Automattic/VIP-Coding-Standards/issues",
+                "source": "https://github.com/Automattic/VIP-Coding-Standards",
+                "wiki": "https://github.com/Automattic/VIP-Coding-Standards/wiki"
+            },
+            "time": "2021-04-28T16:41:50+00:00"
+        },
+        {
             "name": "bamarni/composer-bin-plugin",
             "version": "1.4.1",
             "source": {
@@ -4639,6 +4691,62 @@
             "time": "2017-01-23T22:12:35+00:00"
         },
         {
+            "name": "pronamic/wp-coding-standards",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/wp-coding-standards.git",
+                "reference": "9670218269a0c620987fc33a897a9e642047a1d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/wp-coding-standards/zipball/9670218269a0c620987fc33a897a9e642047a1d0",
+                "reference": "9670218269a0c620987fc33a897a9e642047a1d0",
+                "shasum": ""
+            },
+            "require": {
+                "automattic/vipwpcs": "^2.3",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+                "php": ">=5.6.20",
+                "phpcompatibility/phpcompatibility-wp": "^2.1",
+                "sirbrillig/phpcs-variable-analysis": "^2.11",
+                "squizlabs/php_codesniffer": "^3.6",
+                "wp-coding-standards/wpcs": "^2.3"
+            },
+            "type": "phpcodesniffer-standard",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "https://www.pronamic.eu/",
+                    "role": "Company"
+                },
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "https://www.remcotolsma.nl/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Pronamic WordPress WordPress Coding Standards for PHP_CodeSniffer.",
+            "homepage": "https://github.com/pronamic/wp-coding-standards",
+            "keywords": [
+                "phpcs",
+                "pronamic",
+                "standards",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/pronamic/wp-coding-standards/issues",
+                "source": "https://github.com/pronamic/wp-coding-standards"
+            },
+            "time": "2021-06-25T11:45:06+00:00"
+        },
+        {
             "name": "psr/container",
             "version": "1.0.0",
             "source": {
@@ -5522,6 +5630,59 @@
                 "source": "https://github.com/sebastianbergmann/version/tree/master"
             },
             "time": "2016-10-03T07:35:21+00:00"
+        },
+        {
+            "name": "sirbrillig/phpcs-variable-analysis",
+            "version": "v2.11.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sirbrillig/phpcs-variable-analysis.git",
+                "reference": "3fad28475bfbdbf8aa5c440f8a8f89824983d85e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sirbrillig/phpcs-variable-analysis/zipball/3fad28475bfbdbf8aa5c440f8a8f89824983d85e",
+                "reference": "3fad28475bfbdbf8aa5c440f8a8f89824983d85e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "limedeck/phpunit-detailed-printer": "^3.1 || ^4.0 || ^5.0",
+                "phpstan/phpstan": "^0.11.8",
+                "phpunit/phpunit": "^5.0 || ^6.5 || ^7.0 || ^8.0",
+                "sirbrillig/phpcs-import-detection": "^1.1"
+            },
+            "type": "phpcodesniffer-standard",
+            "autoload": {
+                "psr-4": {
+                    "VariableAnalysis\\": "VariableAnalysis/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Graham",
+                    "email": "php-codesniffer-variableanalysis@illusori.co.uk"
+                },
+                {
+                    "name": "Payton Swick",
+                    "email": "payton@foolord.com"
+                }
+            ],
+            "description": "A PHPCS sniff to detect problems with variables.",
+            "support": {
+                "issues": "https://github.com/sirbrillig/phpcs-variable-analysis/issues",
+                "source": "https://github.com/sirbrillig/phpcs-variable-analysis",
+                "wiki": "https://github.com/sirbrillig/phpcs-variable-analysis/wiki"
+            },
+            "time": "2021-07-06T23:45:17+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

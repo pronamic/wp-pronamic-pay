@@ -24,7 +24,7 @@ if ( false === $files ) {
 }
 
 foreach ( $files as $file ) {
-	$content = file_get_contents( $file );
+	$content = file_get_contents( $file, true );
 
 	// Check if file could be read.
 	if ( false === $content ) {
