@@ -137,6 +137,11 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 == Changelog ==
 
 = 6.9.0-RC-1 - 2021-08-06 =
+*	Updated WordPress pay core library to version `3.0.0`: https://github.com/pronamic/wp-pay-core/releases/tag/3.0.0.
+*	Updated WordPress pay money library to version `3.0.0`: https://github.com/pronamic/wp-money/releases/tag/2.0.0.
+*	Added WordPress pay PayPal library version `1.0.0`: https://github.com/wp-pay-gateways/paypal/releases/tag/1.0.0.
+*	Added support for SprayPay payment method.
+*	Removed deprecated ING Kassa Compleet gateway, the `api.kassacompleet.nl` endpoint is no longer available.
 
 = 6.8.0 - 2021-06-21 =
 *	Updated WordPress pay core library to version 2.7.2.
