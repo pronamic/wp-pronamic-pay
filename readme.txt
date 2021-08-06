@@ -62,7 +62,6 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
 *	ING - iDEAL Basic
 *	ING - iDEAL Advanced (v3)
-*	ING - Kassa Compleet
 *	Mollie
 *	MultiSafepay - Connect
 *	Ingenico/Ogone - DirectLink

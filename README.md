@@ -32,7 +32,6 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [iDEAL Simulator](https://www.ideal-simulator.nl/) | iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3) |
 | [ING](https://www.ing.nl/) | ING - iDEAL Basic |
 | [ING](https://www.ing.nl/) | ING - iDEAL Advanced (v3) |
-| [ING](https://www.ing.nl/) | ING - Kassa Compleet |
 | [Mollie](https://www.mollie.nl/) | Mollie |
 | [MultiSafepay](https://www.multisafepay.com/) | MultiSafepay - Connect |
 | [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - DirectLink |
