@@ -265,9 +265,6 @@ add_filter(
 			)
 		);
 
-		// ING - Kassa Compleet.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\ING\KassaCompleet\Integration();
-
 		// Mollie.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration(
 			array(
