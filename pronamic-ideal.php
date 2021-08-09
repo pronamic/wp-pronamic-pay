@@ -4,7 +4,7 @@
  * Plugin URI: https://www.pronamic.eu/plugins/pronamic-pay/
  * Description: The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
  *
- * Version: 6.8.0
+ * Version: 6.9.0
  * Requires at least: 4.7
  *
  * Author: Pronamic
@@ -264,9 +264,6 @@ add_filter(
 				'certificates'      => array(),
 			)
 		);
-
-		// ING - Kassa Compleet.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\ING\KassaCompleet\Integration();
 
 		// Mollie.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration(

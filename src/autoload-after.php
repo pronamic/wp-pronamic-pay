@@ -24,7 +24,7 @@ if ( false === $files ) {
 }
 
 foreach ( $files as $file ) {
-	$content = file_get_contents( $file );
+	$content = file_get_contents( $file, true );
 
 	// Check if file could be read.
 	if ( false === $content ) {
@@ -43,7 +43,7 @@ foreach ( $files as $file ) {
 		}
 
 		foreach ( $classmap as $prefix => $filepath ) {
-			$loader->addPsr4( $prefix, dirname( $file ) . '/' . $filepath, true );
+			$loader->setPsr4( $prefix, dirname( $file ) . '/' . $filepath, true );
 		}
 	}
 }

@@ -3,9 +3,9 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
 Requires at least: 4.7
-Tested up to: 5.7
+Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 6.8.0
+Stable tag: 6.9.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -62,7 +62,6 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
 *	ING - iDEAL Basic
 *	ING - iDEAL Advanced (v3)
-*	ING - Kassa Compleet
 *	Mollie
 *	MultiSafepay - Connect
 *	Ingenico/Ogone - DirectLink
@@ -135,6 +134,13 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 6.9.0 - 2021-08-09 =
+*	Updated WordPress pay core library to version `3.0.0`: https://github.com/pronamic/wp-pay-core/releases/tag/3.0.0.
+*	Updated WordPress pay money library to version `3.0.0`: https://github.com/pronamic/wp-money/releases/tag/2.0.0.
+*	Added WordPress pay PayPal library version `1.0.0`: https://github.com/wp-pay-gateways/paypal/releases/tag/1.0.0.
+*	Added support for SprayPay payment method.
+*	Removed deprecated ING Kassa Compleet gateway, the `api.kassacompleet.nl` endpoint is no longer available.
 
 = 6.8.0 - 2021-06-21 =
 *	Updated WordPress pay core library to version 2.7.2.
@@ -278,15 +284,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 *	Updated WordPress pay Give library to version 2.2.1.
 *	Updated WordPress pay s2Member library to version 2.2.2.
 *	Updated WordPress pay WP eCommerce library to version 2.1.3.
-
-= 6.6.4 - 2021-02-08 =
-*	Updated WordPress pay Mollie library to version 2.2.2.
-	*	Fixed "Error validating `/locale`: The property `locale` is required" on some status update (https://github.com/mollie/api-documentation/pull/731).
-*	Updated WordPress pay MemberPress library to version 2.2.3.
-	*	Fixed showing payment method specific input fields.
-*	Updated WordPress pay Payvision library to version 1.1.0.
-	*	Added transaction description.
-	*	Added advanced purchase ID setting.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
