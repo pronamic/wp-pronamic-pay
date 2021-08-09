@@ -6,7 +6,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [6.9.0-RC-1] - 2021-08-06
+## [6.9.0] - 2021-08-09
 
 ### Changed
 - Updated WordPress pay core library to version `3.0.0`: https://github.com/pronamic/wp-pay-core/releases/tag/3.0.0.
@@ -2860,8 +2860,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.0-RC-1...HEAD
-[6.9.0-RC-1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.8.0...6.9.0-RC-1
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.0...HEAD
+[6.9.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.8.0...6.9.0
 [6.8.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.2...6.8.0
 [6.7.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.1...6.7.2
 [6.7.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.0...6.7.1

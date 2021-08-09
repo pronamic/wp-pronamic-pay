@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2021-08-06T07:05:16+00:00\n"
-"PO-Revision-Date: 2021-06-21 00:17+0200\n"
-"Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
+"POT-Creation-Date: 2021-08-09T07:42:35+00:00\n"
+"PO-Revision-Date: 2021-08-09 09:53+0200\n"
+"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Plugin Name of the plugin
@@ -412,13 +412,13 @@ msgstr ""
 "https://www.pronamic.nl/support/pronamic-ideal-koppelen-met-ing-bank-ideal-"
 "advanced-v3/"
 
-#: pronamic-ideal.php:275
+#: pronamic-ideal.php:272
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
 "pronamic-pay/"
 msgstr "https://www.pronamic.nl/support/pronamic-ideal-koppelen-aan-mollie/"
 
-#: pronamic-ideal.php:316
+#: pronamic-ideal.php:313
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-"
 "v3-with-wordpress-via-pronamic-pay/"
@@ -1040,7 +1040,6 @@ msgid "Transaction Description"
 msgstr "Transactiebeschrijving"
 
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:107
-#, fuzzy
 msgid ""
 "Enter a transaction description, you can use Formidable Forms shortcodes."
 msgstr ""
@@ -2772,14 +2771,13 @@ msgid "Pronamic - SOFORT"
 msgstr "Pronamic - SOFORT"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:154
-#, fuzzy
 msgid "Pronamic - SprayPay"
-msgstr "Pronamic - PayPal"
+msgstr "Pronamic - SprayPay"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:155
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:353
 msgid "SprayPay"
-msgstr ""
+msgstr "SprayPay"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:307
 msgid "WP e-Commerce"
@@ -3354,9 +3352,8 @@ msgstr "Afrekenen"
 
 #. translators: 1: payment provider name, 2: status message, 3: status sub message
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:448
-#, fuzzy
 msgid "Unable to create payment at gateway: %1$s%2$s"
-msgstr "Kan geen terugbetaling aanmaken bij betalingsprovider %1$s: %2$s%3$s"
+msgstr "Kan betaling niet aanmaken bij gateway: %1$s%2$s"
 
 #. translators: %s: transaction key
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:608
@@ -6863,9 +6860,8 @@ msgstr "Totale belasting"
 
 #: vendor/wp-pay/core/views/meta-box-payment-lines.php:209
 #: vendor/wp-pay/core/views/meta-box-payment-lines.php:255
-#, fuzzy
 msgid "No tax information."
-msgstr "Productinformatie"
+msgstr "Geen belastinggegevens."
 
 #. translators: %s: price excluding tax
 #: vendor/wp-pay/core/views/meta-box-payment-lines.php:216

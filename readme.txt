@@ -3,9 +3,9 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
 Requires at least: 4.7
-Tested up to: 5.7
+Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 6.9.0-RC-1
+Stable tag: 6.9.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -135,7 +135,7 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
-= 6.9.0-RC-1 - 2021-08-06 =
+= 6.9.0 - 2021-08-09 =
 *	Updated WordPress pay core library to version `3.0.0`: https://github.com/pronamic/wp-pay-core/releases/tag/3.0.0.
 *	Updated WordPress pay money library to version `3.0.0`: https://github.com/pronamic/wp-money/releases/tag/2.0.0.
 *	Added WordPress pay PayPal library version `1.0.0`: https://github.com/wp-pay-gateways/paypal/releases/tag/1.0.0.
