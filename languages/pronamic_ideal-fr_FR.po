@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2021-08-09T07:42:35+00:00\n"
+"POT-Creation-Date: 2021-08-13T11:05:49+00:00\n"
 "PO-Revision-Date: 2021-02-08 11:22+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: \n"
@@ -540,7 +540,7 @@ msgstr "Contact Form 7 Entrée"
 #: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:206
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:385
 #: vendor/wp-pay-extensions/gravityforms/src/Processor.php:244
-#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:51
+#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:52
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:100
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:380
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Gateways/Gateway.php:178
@@ -2070,7 +2070,7 @@ msgid "Update payment method"
 msgstr "Ajouter un nouveau mode de paiement"
 
 #. translators: %s: order id
-#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:54
+#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:55
 msgid "MemberPress transaction %s"
 msgstr "Transaction MemberPress %s"
 
@@ -3091,7 +3091,6 @@ msgid "Google documentation: \"Deploy production environment\"."
 msgstr "Documentation Google: \"Deploy production environment\"."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:392
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:90
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:188
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:245
 msgid "Webhook URL"
@@ -3099,7 +3098,6 @@ msgstr "URL Webhook"
 
 #. translators: %s: payment provider name
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:399
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:97
 #, fuzzy
 msgid ""
 "Copy the Webhook URL to the %s dashboard to receive automatic transaction "
@@ -3216,7 +3214,6 @@ msgstr "Impossible d'inséquer la notification JSON."
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:39
 #: vendor/wp-pay-gateways/icepay/src/Listener.php:50
 #: vendor/wp-pay-gateways/ideal-basic/src/NotificationController.php:101
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Listener.php:46
 #: vendor/wp-pay-gateways/mollie/src/WebhookController.php:108
 msgid "Webhook requested by %s."
 msgstr "Webhook demandé par %s."
@@ -3224,7 +3221,7 @@ msgstr "Webhook demandé par %s."
 #. translators: %s: item index
 #: vendor/wp-pay-gateways/adyen/src/PaymentRequestHelper.php:105
 #: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:184
-#: vendor/wp-pay-gateways/paypal/src/Gateway.php:266
+#: vendor/wp-pay-gateways/paypal/src/Gateway.php:276
 msgid "Item %s"
 msgstr "Article %s"
 
@@ -4040,42 +4037,6 @@ msgstr "ID d'achat"
 msgid "The iDEAL %s parameter."
 msgstr "Le paramètre iDEAL %s."
 
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:46
-#, fuzzy
-msgid ""
-"https://www.pronamic.eu/support/how-to-connect-ing-kassa-compleet-with-"
-"wordpress-via-pronamic-pay/"
-msgstr ""
-"https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-"
-"wordpress-via-pronamic-pay/"
-
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:73
-msgctxt "ing_kassa_compleet"
-msgid "API Key"
-msgstr "Clé API"
-
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:78
-msgid "API key"
-msgstr "Clé API"
-
-#. translators: %s: payment provider name
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:81
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:67
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:83
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:99
-msgid "as mentioned in the %s dashboard"
-msgstr "comme mentionné dans le tableau de bord %s"
-
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:82
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:98
-msgid "ING Kassa Compleet"
-msgstr "ING Kassa Compleet"
-
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Listener.php:47
-#: vendor/wp-pay-gateways/payvision/src/Gateway.php:63
-msgid "ING"
-msgstr "ING"
-
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:142
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:143
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:275
@@ -4371,6 +4332,13 @@ msgstr ""
 #: vendor/wp-pay-gateways/multisafepay/src/Integration.php:65
 msgid "Account ID"
 msgstr "ID de compte"
+
+#. translators: %s: payment provider name
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:67
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:83
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:99
+msgid "as mentioned in the %s dashboard"
+msgstr "comme mentionné dans le tableau de bord %s"
 
 #. translators: %s: payment provider name
 #: vendor/wp-pay-gateways/multisafepay/src/Integration.php:67
@@ -4835,7 +4803,7 @@ msgid ""
 "for the full or partial amount of the original transaction."
 msgstr ""
 
-#: vendor/wp-pay-gateways/paypal/src/NotificationsController.php:261
+#: vendor/wp-pay-gateways/paypal/src/NotificationsController.php:268
 msgid "Received PayPal IPN request:"
 msgstr ""
 
@@ -4843,6 +4811,10 @@ msgstr ""
 #: vendor/wp-pay/core/src/Cards.php:103
 msgid "ABN Amro"
 msgstr "ABN Amro"
+
+#: vendor/wp-pay-gateways/payvision/src/Gateway.php:63
+msgid "ING"
+msgstr "ING"
 
 #: vendor/wp-pay-gateways/payvision/src/Gateway.php:64
 #: vendor/wp-pay/core/src/Cards.php:138
@@ -7828,6 +7800,24 @@ msgid "Please click the button below if you are not automatically redirected."
 msgstr ""
 "S’il vous plaît cliquez sur le bouton ci-dessous si vous n’êtes pas "
 "automatiquement redirigé."
+
+#, fuzzy
+#~ msgid ""
+#~ "https://www.pronamic.eu/support/how-to-connect-ing-kassa-compleet-with-"
+#~ "wordpress-via-pronamic-pay/"
+#~ msgstr ""
+#~ "https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-"
+#~ "wordpress-via-pronamic-pay/"
+
+#~ msgctxt "ing_kassa_compleet"
+#~ msgid "API Key"
+#~ msgstr "Clé API"
+
+#~ msgid "API key"
+#~ msgstr "Clé API"
+
+#~ msgid "ING Kassa Compleet"
+#~ msgstr "ING Kassa Compleet"
 
 #~ msgid "Select Payment Form"
 #~ msgstr "Sélectionner le formulaire de paiement"

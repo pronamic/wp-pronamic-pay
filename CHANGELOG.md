@@ -6,6 +6,14 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.9.1] - 2021-08-13
+
+### Changed
+- Updated WordPress pay MemberPress library to version `3.0.1`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.1.
+  - Fixed "Fatal error: Uncaught Error: Class 'Pronamic\WordPress\Pay\Extensions\MemberPress\Money' not found".
+- Updated WordPress pay PayPal library to version `1.0.1`: https://github.com/wp-pay-gateways/paypal/releases/tag/1.0.1.
+  - Improved support for tax.
+
 ## [6.9.0] - 2021-08-09
 
 ### Changed
@@ -2860,7 +2868,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.1...HEAD
+[6.9.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.0...6.9.1
 [6.9.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.8.0...6.9.0
 [6.8.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.2...6.8.0
 [6.7.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.1...6.7.2
