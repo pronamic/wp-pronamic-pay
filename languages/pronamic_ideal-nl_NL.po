@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2021-08-09T07:42:35+00:00\n"
-"PO-Revision-Date: 2021-08-09 09:53+0200\n"
+"POT-Creation-Date: 2021-08-13T11:05:49+00:00\n"
+"PO-Revision-Date: 2021-08-13 13:07+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -524,7 +524,7 @@ msgstr "Contact Form 7 inzending"
 #: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:206
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:385
 #: vendor/wp-pay-extensions/gravityforms/src/Processor.php:244
-#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:51
+#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:52
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:100
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:380
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Gateways/Gateway.php:178
@@ -2015,7 +2015,7 @@ msgid "Update payment method"
 msgstr "Betaalmethode wijzigen"
 
 #. translators: %s: order id
-#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:54
+#: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:55
 msgid "MemberPress transaction %s"
 msgstr "MemberPress transactie %s"
 
@@ -3023,7 +3023,6 @@ msgid "Google documentation: \"Deploy production environment\"."
 msgstr "Google documentatie: “Deploy production environment”."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:392
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:90
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:188
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:245
 msgid "Webhook URL"
@@ -3031,7 +3030,6 @@ msgstr "Webhook URL"
 
 #. translators: %s: payment provider name
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:399
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:97
 msgid ""
 "Copy the Webhook URL to the %s dashboard to receive automatic transaction "
 "status updates."
@@ -3149,7 +3147,6 @@ msgstr "Kan JSON-notificatie niet verwerken."
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:39
 #: vendor/wp-pay-gateways/icepay/src/Listener.php:50
 #: vendor/wp-pay-gateways/ideal-basic/src/NotificationController.php:101
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Listener.php:46
 #: vendor/wp-pay-gateways/mollie/src/WebhookController.php:108
 msgid "Webhook requested by %s."
 msgstr "Webhook aangeroepen door %s."
@@ -3157,7 +3154,7 @@ msgstr "Webhook aangeroepen door %s."
 #. translators: %s: item index
 #: vendor/wp-pay-gateways/adyen/src/PaymentRequestHelper.php:105
 #: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:184
-#: vendor/wp-pay-gateways/paypal/src/Gateway.php:266
+#: vendor/wp-pay-gateways/paypal/src/Gateway.php:276
 msgid "Item %s"
 msgstr "Item %s"
 
@@ -3925,40 +3922,6 @@ msgstr "Aankoop ID"
 msgid "The iDEAL %s parameter."
 msgstr "De iDEAL parameter %s."
 
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:46
-msgid ""
-"https://www.pronamic.eu/support/how-to-connect-ing-kassa-compleet-with-"
-"wordpress-via-pronamic-pay/"
-msgstr ""
-"https://www.pronamic.nl/support/pronamic-pay-koppelen-met-ing-kassa-compleet/"
-
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:73
-msgctxt "ing_kassa_compleet"
-msgid "API Key"
-msgstr "API-sleutel"
-
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:78
-msgid "API key"
-msgstr "API-sleutel"
-
-#. translators: %s: payment provider name
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:81
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:67
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:83
-#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:99
-msgid "as mentioned in the %s dashboard"
-msgstr "zoals vermeld in het %s dashboard"
-
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:82
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Integration.php:98
-msgid "ING Kassa Compleet"
-msgstr "ING Kassa Compleet"
-
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Listener.php:47
-#: vendor/wp-pay-gateways/payvision/src/Gateway.php:63
-msgid "ING"
-msgstr "ING"
-
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:142
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:143
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:275
@@ -4254,6 +4217,13 @@ msgstr ""
 #: vendor/wp-pay-gateways/multisafepay/src/Integration.php:65
 msgid "Account ID"
 msgstr "Account ID"
+
+#. translators: %s: payment provider name
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:67
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:83
+#: vendor/wp-pay-gateways/multisafepay/src/Integration.php:99
+msgid "as mentioned in the %s dashboard"
+msgstr "zoals vermeld in het %s dashboard"
 
 #. translators: %s: payment provider name
 #: vendor/wp-pay-gateways/multisafepay/src/Integration.php:67
@@ -4690,7 +4660,7 @@ msgstr ""
 "beide van deze betalingsstatussen voor het volledige of gedeeltelijke bedrag "
 "van de oorspronkelijke transactie zijn."
 
-#: vendor/wp-pay-gateways/paypal/src/NotificationsController.php:261
+#: vendor/wp-pay-gateways/paypal/src/NotificationsController.php:268
 msgid "Received PayPal IPN request:"
 msgstr "PayPal IPN ontvangen:"
 
@@ -4698,6 +4668,10 @@ msgstr "PayPal IPN ontvangen:"
 #: vendor/wp-pay/core/src/Cards.php:103
 msgid "ABN Amro"
 msgstr "ABN Amro"
+
+#: vendor/wp-pay-gateways/payvision/src/Gateway.php:63
+msgid "ING"
+msgstr "ING"
 
 #: vendor/wp-pay-gateways/payvision/src/Gateway.php:64
 #: vendor/wp-pay/core/src/Cards.php:138
@@ -7611,6 +7585,23 @@ msgstr "Je wordt doorgestuurd naar de online betaalomgeving."
 #: views/redirect-via-html.php:58
 msgid "Please click the button below if you are not automatically redirected."
 msgstr "Klik op de knop als de doorsturing niet automatisch wordt uitgevoerd."
+
+#~ msgid ""
+#~ "https://www.pronamic.eu/support/how-to-connect-ing-kassa-compleet-with-"
+#~ "wordpress-via-pronamic-pay/"
+#~ msgstr ""
+#~ "https://www.pronamic.nl/support/pronamic-pay-koppelen-met-ing-kassa-"
+#~ "compleet/"
+
+#~ msgctxt "ing_kassa_compleet"
+#~ msgid "API Key"
+#~ msgstr "API-sleutel"
+
+#~ msgid "API key"
+#~ msgstr "API-sleutel"
+
+#~ msgid "ING Kassa Compleet"
+#~ msgstr "ING Kassa Compleet"
 
 #~ msgid "Select Payment Form"
 #~ msgstr "Selecteer betalingsformulier"

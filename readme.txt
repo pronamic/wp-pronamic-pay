@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 6.9.0
+Stable tag: 6.9.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -135,6 +135,12 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.9.1 - 2021-08-13 =
+*	Updated WordPress pay MemberPress library to version `3.0.1`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.1.
+	*	Fixed "Fatal error: Uncaught Error: Class 'Pronamic\WordPress\Pay\Extensions\MemberPress\Money' not found".
+*	Updated WordPress pay PayPal library to version `1.0.1`: https://github.com/wp-pay-gateways/paypal/releases/tag/1.0.1.
+	*	Improved support for tax.
+
 = 6.9.0 - 2021-08-09 =
 *	Updated WordPress pay core library to version `3.0.0`: https://github.com/pronamic/wp-pay-core/releases/tag/3.0.0.
 *	Updated WordPress pay money library to version `3.0.0`: https://github.com/pronamic/wp-money/releases/tag/2.0.0.
@@ -215,75 +221,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Improved documentation of the filters.
 *	Updated `wp-pay-gateways/payvision` library to version `1.1.2`
 	*	Fixed "Uncaught Error: Class 'Pronamic\WordPress\Pay\Facades\Http' not found".
-
-= 6.7.0 - 2021-04-26 =
-*	Updated WordPress pay core library to version 2.7.0.
-	*	Added initial support for refunds.
-	*	Added support for creating mandate with free trial periods.
-	*	Added support for Swish and Vipps payment methods.
-	*	Fixed setting post author `0` as customer user ID.
-	*	Fixed subscription memory inconsistencies.
-	*	Fixed subscription status updated to previous status when using manual payment status check.
-	*	Improved manually renewing canceled subscriptions.
-	*	Updated active tab item highlight to use WordPress color scheme.
-	*	Updated redirect and subscription cancel/renew pages.
-	*	Removed parameter `$post_id` from `Subscription` constructor (use `get_pronamic_subscription()` instead).
-	*	Started using `pronamic/wp-html` and `pronamic/wp-http`.
-*	Updated WordPress pay Adyen library to version 1.3.1.
-	*	Added support for Swish and Vipps payment methods.
-	*	Updated redirect/checkout pages.
-	*	Started using `pronamic/wp-http`.
-*	Updated WordPress pay iDEAL Basic library to version 2.1.3.
-	*	Fixed fatal error on handling invalid notification.
-*	Updated WordPress pay Mollie library to version 2.2.3.
-	*	Added initial support for refunds.
-	*	Added support for creating mandate with free trial periods.
-	*	Started using `pronamic/wp-http`.
-*	Updated WordPress pay Ingenico library to version 2.1.2.
-	*	Improved support for bank transfer payment method.
-*	Updated WordPress pay Payvision library to version 1.1.1.
-	*	Added Revolut iDEAL issuer.
-	*	Started using `pronamic/wp-http`.
-*	Updated WordPress pay Contact Form 7 library to version 1.1.0.
-	*	Added support for getting submission value by tag name.
-	*	Fixed handling tag options with non-unique values.
-	*	Fixed processing form entry for active payment methods only.
-	*	Improved compatibility with Contact Form 7 Conditional Fields add-on.
-*	Updated WordPress pay Easy Digital Downloads library to version 2.1.4.
-	*	Improved adding payment details to 'Thank you' page.
-*	Updated WordPress pay Event Espresso library to version 2.3.1.
-	*	Fixed setting payment method.
-*	Updated WordPress pay Gravity Forms library to version 2.6.0.
-	*	Improved compatibility with Gravity Forms 2.5.
-	*	Improved displaying payment methods icons.
-	*	Removed support for Gravity Forms version < 1.7.
-*	Updated WordPress pay MemberPress library to version 2.3.0.
-	*	Added support for single-page checkout.
-*	Updated WordPress pay Ninja Forms library to version 1.5.0.
-	*	Added support for delayed actions.
-*	Updated WordPress pay Restrict Content Pro library to version 2.3.2.
-	*	Fixed incorrect amount when using registration fees.
-*	Updated WordPress pay WooCommerce library to version 2.3.0.
-	*	Added initial support for refunds.
-	*	Added support for Swish and Vipps payment methods.
-	*	Fixed using default configuration if not set in gateway settings.
-*	Updated WordPress DateTime library to version 1.2.1.
-*	Updated WordPress Money library to version 1.2.6.
-*	Updated WordPress pay Buckaroo library to version 2.1.2.
-*	Updated WordPress pay EMS e-Commerce; library to version 2.1.2.
-*	Updated WordPress pay ICEPAY library to version 2.1.1.
-*	Updated WordPress pay iDEAL library to version 2.1.1.
-*	Updated WordPress pay iDEAL Advanced v3 library to version 2.1.4.
-*	Updated WordPress pay ING Kassa Compleet library to version 2.1.1.
-*	Updated WordPress pay MultiSafepay library to version 2.1.3.
-*	Updated WordPress pay OmniKassa 2.0 library to version 2.3.2.
-*	Updated WordPress pay Pay.nl library to version 2.1.2.
-*	Updated WordPress pay Sisow library to version 2.1.1.
-*	Updated WordPress pay TargetPay library to version 2.1.1.
-*	Updated WordPress pay Charitable library to version 2.2.2.
-*	Updated WordPress pay Give library to version 2.2.1.
-*	Updated WordPress pay s2Member library to version 2.2.2.
-*	Updated WordPress pay WP eCommerce library to version 2.1.3.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
