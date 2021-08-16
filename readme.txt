@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 6.9.1
+Stable tag: 6.9.2
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -135,6 +135,23 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
+= 6.9.2 - 2021-08-17 =
+*	Updated WordPress pay core library to version `3.0.1`: https://github.com/pronamic/wp-pay-core/releases/tag/3.0.1
+	*	Added debug page for subscriptions follow-up payments.
+	*	Added support for 'American Express' payment method.
+	*	Added support for 'Mastercard' payment method.
+	*	Added support for 'Visa' payment method.
+	*	Added support for 'V PAY' payment method.
+*	Updated WordPress pay MemberPress library to version `3.0.2`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.2.
+	*	Fixed "Fatal error: Uncaught Error: Call to a member function get_periods() on bool".
+*	Updated WordPress pay WooCommerce library to version `3.0.1`: https://github.com/wp-pay-extensions/woocommerce/releases/tag/3.0.1.
+	*	Added American Express, Mastercard, V PAY and Visa payment gateways.
+*	Updated WordPress pay OmniKassa 2.0 library to version `3.0.1`: https://github.com/wp-pay-gateways/omnikassa-2/releases/tag/3.0.1.
+	*	Added support for Mastercard, V PAY and Visa.
+*	Updated WordPress pay Buckaroo library to version `3.0.1`: https://github.com/wp-pay-gateways/buckaroo/releases/tag/3.0.1.
+	*	Added support for American Express, Maestro, Mastercard, V PAY and Visa.
+	*	Save `CustomerIBAN` and `CustomerBIC` for Sofort payments.
+
 = 6.9.1 - 2021-08-13 =
 *	Updated WordPress pay MemberPress library to version `3.0.1`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.1.
 	*	Fixed "Fatal error: Uncaught Error: Class 'Pronamic\WordPress\Pay\Extensions\MemberPress\Money' not found".
@@ -204,23 +221,6 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 	*	Improved setting tax amount and rate in trial phase.
 *	Updated WordPress pay Ninja Forms library to version 1.5.1.
 	*	Improved delayed actions.
-
-= 6.7.1 - 2021-05-11 =
-*	Updated `pronamic/wp-http` library to version `1.0.1`.
-	*	Improved 'http_request_args' filter removal related to Query Monitor conflict.
-*	Updated `wp-pay-extensions/event-espresso` library to version `2.3.2`.
-	*	Use `$transaction->remaining()` instead of `$transaction->total()` so that incomplete or manual payments are also included.
-	*	Fixed "Non-static method EventEspressoHelper::get_description() should not be called statically" warning/error.
-*	Updated `wp-pay-extensions/memberpress` library to version `2.3.1`.
-	*	Use default gateway configuration setting.
-	*	Reduced magic in MemberPress payment address transformation function.
-	*	Improved tax calculation of payment from MemberPress subscription in trial (coupon code).
-*	Updated `wp-pay-gateways/omnikassa-2` library to version `2.3.3`
-	*	Improved error and exception handling in webhook controller.
-	*	Introduced the `InvalidSignatureException` class.
-	*	Improved documentation of the filters.
-*	Updated `wp-pay-gateways/payvision` library to version `1.1.2`
-	*	Fixed "Uncaught Error: Class 'Pronamic\WordPress\Pay\Facades\Http' not found".
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

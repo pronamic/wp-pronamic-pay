@@ -6,6 +6,25 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.9.2] - 2021-08-17
+
+### Changed
+- Updated WordPress pay core library to version `3.0.1`: https://github.com/pronamic/wp-pay-core/releases/tag/3.0.1
+  - Added debug page for subscriptions follow-up payments.
+  - Added support for 'American Express' payment method.
+  - Added support for 'Mastercard' payment method.
+  - Added support for 'Visa' payment method.
+  - Added support for 'V PAY' payment method.
+- Updated WordPress pay MemberPress library to version `3.0.2`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.2.
+  - Fixed "Fatal error: Uncaught Error: Call to a member function get_periods() on bool".
+- Updated WordPress pay WooCommerce library to version `3.0.1`: https://github.com/wp-pay-extensions/woocommerce/releases/tag/3.0.1.
+  - Added American Express, Mastercard, V PAY and Visa payment gateways.
+- Updated WordPress pay OmniKassa 2.0 library to version `3.0.1`: https://github.com/wp-pay-gateways/omnikassa-2/releases/tag/3.0.1.
+  - Added support for Mastercard, V PAY and Visa.
+- Updated WordPress pay Buckaroo library to version `3.0.1`: https://github.com/wp-pay-gateways/buckaroo/releases/tag/3.0.1.
+  - Added support for American Express, Maestro, Mastercard, V PAY and Visa.
+  - Save `CustomerIBAN` and `CustomerBIC` for Sofort payments.
+
 ## [6.9.1] - 2021-08-13
 
 ### Changed
@@ -2868,7 +2887,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.2...HEAD
+[6.9.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.1...6.9.2
 [6.9.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.0...6.9.1
 [6.9.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.8.0...6.9.0
 [6.8.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.7.2...6.8.0
