@@ -48,3 +48,9 @@ if ( ! $exception instanceof \Exception ) {
 		<?php endif; ?>
 	</dl>
 </div>
+
+<?php
+
+$exception = $exception->getPrevious();
+
+include __FILE__;
