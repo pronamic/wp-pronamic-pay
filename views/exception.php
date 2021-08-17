@@ -8,41 +8,49 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-if ( $exception instanceof \Exception ) : ?>
+if ( ! $exception instanceof \Exception ) {
+	return;
+}
 
-	<div class="error">
-		<dl>
-			<dt><?php esc_html_e( 'Message', 'pronamic_ideal' ); ?></dt>
-			<dd><?php echo esc_html( $exception->getMessage() ); ?></dd>
+?>
 
-			<?php if ( 0 !== $exception->getCode() ) : ?>
+<div class="error">
+	<dl>
+		<dt><?php esc_html_e( 'Message', 'pronamic_ideal' ); ?></dt>
+		<dd><?php echo esc_html( $exception->getMessage() ); ?></dd>
 
-				<dt><?php esc_html_e( 'Code', 'pronamic_ideal' ); ?></dt>
-				<dd><?php echo esc_html( $exception->getCode() ); ?></dd>
+		<?php if ( 0 !== $exception->getCode() ) : ?>
 
-			<?php endif; ?>
+			<dt><?php esc_html_e( 'Code', 'pronamic_ideal' ); ?></dt>
+			<dd><?php echo esc_html( $exception->getCode() ); ?></dd>
 
-			<?php if ( pronamic_pay_plugin()->is_debug_mode() && current_user_can( 'manage_options' ) ) : ?>
+		<?php endif; ?>
 
-				<dt><?php esc_html_e( 'Trace', 'pronamic_ideal' ); ?></dt>
-				<dd>
-					<?php
+		<?php if ( pronamic_pay_plugin()->is_debug_mode() && current_user_can( 'manage_options' ) ) : ?>
 
-					echo '<pre>';
+			<dt><?php esc_html_e( 'Trace', 'pronamic_ideal' ); ?></dt>
+			<dd>
+				<?php
 
-					// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<pre>';
 
-					echo $exception->getTraceAsString();
+				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 
-					// phpcs:enable
+				echo $exception->getTraceAsString();
 
-					echo '</pre>';
+				// phpcs:enable
 
-					?>
-				</dd>
+				echo '</pre>';
 
-			<?php endif; ?>
-		</dl>
-	</div>
+				?>
+			</dd>
 
-<?php endif; ?>
+		<?php endif; ?>
+	</dl>
+</div>
+
+<?php
+
+$exception = $exception->getPrevious();
+
+include __FILE__;

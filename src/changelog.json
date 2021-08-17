@@ -4,6 +4,52 @@
 		"changes": {}
 	},
 	{
+		"version": "6.9.2",
+		"date": "2021-08-17",
+		"changes": [
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay core library to version `3.0.1`: https://github.com/pronamic/wp-pay-core/releases/tag/3.0.1",
+						"changes": [
+							"Added debug page for subscriptions follow-up payments.",
+							"Added support for 'American Express' payment method.",
+							"Added support for 'Mastercard' payment method.",
+							"Added support for 'Visa' payment method.",
+							"Added support for 'V PAY' payment method."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MemberPress library to version `3.0.2`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.2.",
+						"changes": [
+							"Fixed \"Fatal error: Uncaught Error: Call to a member function get_periods() on bool\"."
+						]
+					},
+					{
+						"description": "Updated WordPress pay WooCommerce library to version `3.0.1`: https://github.com/wp-pay-extensions/woocommerce/releases/tag/3.0.1.",
+						"changes": [
+							"Added American Express, Mastercard, V PAY and Visa payment gateways."
+						]
+					},
+					{
+						"description": "Updated WordPress pay OmniKassa 2.0 library to version `3.0.1`: https://github.com/wp-pay-gateways/omnikassa-2/releases/tag/3.0.1.",
+						"changes": [
+							"Added support for Mastercard, V PAY and Visa."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Buckaroo library to version `3.0.1`: https://github.com/wp-pay-gateways/buckaroo/releases/tag/3.0.1.",
+						"changes": [
+							"Added support for American Express, Maestro, Mastercard, V PAY and Visa.",
+							"Save `CustomerIBAN` and `CustomerBIC` for Sofort payments."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "6.9.1",
 		"date": "2021-08-13",
 		"changes": [
