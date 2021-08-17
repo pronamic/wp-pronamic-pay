@@ -47,9 +47,6 @@ Stable tag: <?php echo $pkg->version, "\r\n"; ?>
 <?php require 'screenshots.php'; ?>
 
 
-<?php require 'other-notes.php'; ?>
-
-
 == Changelog ==
 
 <?php require 'changelog.php'; ?>
