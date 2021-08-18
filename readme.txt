@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 6.9.3
+Stable tag: 6.9.4
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -118,6 +118,10 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 6.9.4 - 2021-08-18 =
+*	Updated WordPress pay EMS e-Commerce library to version `3.0.1`: https://github.com/wp-pay-gateways/ems-e-commerce/releases/tag/3.0.1.
+	*	Fixed `chargetotal` number format.
+
 = 6.9.3 - 2021-08-18 =
 *	Updated WordPress pay Adyen library to version `2.0.1`: https://github.com/wp-pay-gateways/adyen/releases/tag/2.0.1.
 	*	No longer require PHP `intl` extensie.
@@ -154,39 +158,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 *	Added WordPress pay PayPal library version `1.0.0`: https://github.com/wp-pay-gateways/paypal/releases/tag/1.0.0.
 *	Added support for SprayPay payment method.
 *	Removed deprecated ING Kassa Compleet gateway, the `api.kassacompleet.nl` endpoint is no longer available.
-
-= 6.8.0 - 2021-06-21 =
-*	Updated WordPress pay core library to version 2.7.2.
-	*	Added payment method to subscription details when cancelling/renewing a subscription.
-	*	Added refunded amount in payments overview amount column.
-	*	Fixed using user locale on payment redirect and subscription action pages. #136
-	*	Improved changing subscription mandate.
-*	Updated WordPress pay Adyen library to version 1.3.2.
-	*	Updated to API version 64 and Drop-in SDK version 3.15.0 (adds support for ACH Direct Debit payment method).
-	*	Updated documentation of the `pronamic_pay_adyen_checkout_head` action.
-*	Updated WordPress pay Buckaroo library to version 2.2.0.
-	*	Added initial support for refunds.
-	*	Added WP-CLI command to retrieve transaction status and refunds info.
-	*	Updated integration to JSON API.
-	*	Switched to WordPress REST API for Push URL.
-*	Updated WordPress pay iDEAL Basic library to version 2.2.0.
-	*	Switched to REST API for notification URL.
-*	Updated WordPress pay Ingenico library to version 2.1.3.
-	*	Fixed updating payment transaction ID from transaction feedback.
-*	Updated WordPress pay Contact Form 7 library to version 1.1.1.
-	*	Improved error handling on form submission.
-*	Updated WordPress pay Easy Digital Downloads library to version 2.2.0.
-	*	Added initial support for refunds. #129
-*	Updated WordPress pay Gravity Forms library to version 2.7.0.
-	*	Added initial support for refunds. #119
-*	Updated WordPress pay MemberPress library to version 2.3.3.
-	*	Added subscription mandate selection link to account update page.
-	*	Fixed updating gateway in subscription/transaction on payment method update (via mandate selection URL).
-*	Updated WordPress pay WooCommerce library to version 2.3.1.
-	*	Fixed updating WooCommerce order for refunds on payment update. #130
-*	Updated WordPress HTTP library to version 1.1.1.
-*	Updated WordPress pay DigiWallet library to version 1.0.1.
-*	Updated WordPress pay Mollie library to version 2.2.4.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
