@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 6.9.2
+Stable tag: 6.9.3
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -118,6 +118,13 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 6.9.3 - 2021-08-18 =
+*	Updated WordPress pay Adyen library to version `2.0.1`: https://github.com/wp-pay-gateways/adyen/releases/tag/2.0.1.
+	*	No longer require PHP `intl` extensie.
+	*	Simplified exception handling.
+*	Updated WordPress pay Buckaroo library to version `3.0.2`: https://github.com/wp-pay-gateways/buckaroo/releases/tag/3.0.2.
+	*	Fix "Fatal error: Uncaught Error: Undefined class constant 'V_PAY'".
+
 = 6.9.2 - 2021-08-17 =
 *	Updated WordPress pay core library to version `3.0.1`: https://github.com/pronamic/wp-pay-core/releases/tag/3.0.1
 	*	Added debug page for subscriptions follow-up payments.
@@ -180,30 +187,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 *	Updated WordPress HTTP library to version 1.1.1.
 *	Updated WordPress pay DigiWallet library to version 1.0.1.
 *	Updated WordPress pay Mollie library to version 2.2.4.
-
-= 6.7.2 - 2021-05-28 =
-*	Added WordPress pay DigiWallet library version 1.0.0.
-*	Updated WordPress pay core library to version 2.7.1.
-	*	Added transaction description setting to payment forms.
-	*	Updated payment methods logos to version 1.6.6.
-	*	Fixed missing `On Hold` status in payment status map.
-*	Updated WordPress pay OmniKassa 2.0 library to version 2.3.4.
-	*	Added support for gateway configuration specific webhook URLs.
-	*	Improved webhook error handling.
-*	Updated WordPress pay TargetPay library to version 2.2.0.
-	*	Deprecated gateway in favor of DigiWallet.
-	*	Improved error handling.
-	*	Added documentation.
-*	Updated WordPress pay Charitable library to version 2.2.3.
-	*	Improved using default gateway configuration.
-*	Updated WordPress pay Gravity Forms library to version 2.6.1.
-	*	Improved Gravity Forms 2.5.3 compatibility.
-	*	Fixed payment feed conditional logic setting.
-	*	Fixed loading admin script in form editor.
-*	Updated WordPress pay MemberPress library to version 2.3.2.
-	*	Improved setting tax amount and rate in trial phase.
-*	Updated WordPress pay Ninja Forms library to version 1.5.1.
-	*	Improved delayed actions.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
