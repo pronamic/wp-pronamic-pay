@@ -6,6 +6,15 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.9.3] - 2021-08-18
+
+### Changed
+- Updated WordPress pay Adyen library to version `2.0.1`: https://github.com/wp-pay-gateways/adyen/releases/tag/2.0.1.
+  - No longer require PHP `intl` extensie.
+  - Simplified exception handling.
+- Updated WordPress pay Buckaroo library to version `3.0.2`: https://github.com/wp-pay-gateways/buckaroo/releases/tag/3.0.2.
+  - Fix "Fatal error: Uncaught Error: Undefined class constant 'V_PAY'".
+
 ## [6.9.2] - 2021-08-17
 
 ### Changed
@@ -2887,7 +2896,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.3...HEAD
+[6.9.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.2...6.9.3
 [6.9.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.1...6.9.2
 [6.9.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.0...6.9.1
 [6.9.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.8.0...6.9.0

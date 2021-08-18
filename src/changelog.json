@@ -4,6 +4,30 @@
 		"changes": {}
 	},
 	{
+		"version": "6.9.3",
+		"date": "2021-08-18",
+		"changes": [
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Adyen library to version `2.0.1`: https://github.com/wp-pay-gateways/adyen/releases/tag/2.0.1.",
+						"changes": [
+							"No longer require PHP `intl` extensie.",
+							"Simplified exception handling."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Buckaroo library to version `3.0.2`: https://github.com/wp-pay-gateways/buckaroo/releases/tag/3.0.2.",
+						"changes": [
+							"Fix \"Fatal error: Uncaught Error: Undefined class constant 'V_PAY'\"."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "6.9.2",
 		"date": "2021-08-17",
 		"changes": [
