@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 6.9.4
+Stable tag: 6.9.5
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -118,6 +118,12 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 6.9.5 - 2021-08-19 =
+*	Updated WordPress pay Adyen library to version `2.0.2`: https://github.com/wp-pay-gateways/adyen/releases/tag/2.0.2.
+	*	Adyen drop-in gateway supports Klarna Pay Later payment method.
+*	Updated WordPress pay MemberPress library to version `3.0.3`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.3.
+	*	Added Giropay gateway.
+
 = 6.9.4 - 2021-08-18 =
 *	Updated WordPress pay EMS e-Commerce library to version `3.0.1`: https://github.com/wp-pay-gateways/ems-e-commerce/releases/tag/3.0.1.
 	*	Fixed `chargetotal` number format.
@@ -151,13 +157,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 	*	Fixed "Fatal error: Uncaught Error: Class 'Pronamic\WordPress\Pay\Extensions\MemberPress\Money' not found".
 *	Updated WordPress pay PayPal library to version `1.0.1`: https://github.com/wp-pay-gateways/paypal/releases/tag/1.0.1.
 	*	Improved support for tax.
-
-= 6.9.0 - 2021-08-09 =
-*	Updated WordPress pay core library to version `3.0.0`: https://github.com/pronamic/wp-pay-core/releases/tag/3.0.0.
-*	Updated WordPress pay money library to version `3.0.0`: https://github.com/pronamic/wp-money/releases/tag/2.0.0.
-*	Added WordPress pay PayPal library version `1.0.0`: https://github.com/wp-pay-gateways/paypal/releases/tag/1.0.0.
-*	Added support for SprayPay payment method.
-*	Removed deprecated ING Kassa Compleet gateway, the `api.kassacompleet.nl` endpoint is no longer available.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

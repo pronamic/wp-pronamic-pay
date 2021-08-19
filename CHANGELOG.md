@@ -6,6 +6,14 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.9.5] - 2021-08-19
+
+### Changed
+- Updated WordPress pay Adyen library to version `2.0.2`: https://github.com/wp-pay-gateways/adyen/releases/tag/2.0.2.
+  - Adyen drop-in gateway supports Klarna Pay Later payment method.
+- Updated WordPress pay MemberPress library to version `3.0.3`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.3.
+  - Added Giropay gateway.
+
 ## [6.9.4] - 2021-08-18
 
 ### Changed
@@ -2902,7 +2910,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.4...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.5...HEAD
+[6.9.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.4...6.9.5
 [6.9.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.3...6.9.4
 [6.9.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.2...6.9.3
 [6.9.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.1...6.9.2
