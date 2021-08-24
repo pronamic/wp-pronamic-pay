@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 6.9.5
+Stable tag: 6.9.6
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -118,6 +118,10 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 6.9.6 - 2021-08-24 =
+*	Updated WordPress pay Pay.nl library to version `3.0.1`
+	*	Fixed "Fatal error: Uncaught Error: Call to undefined method Pronamic\WordPress\Money\Money::get_including_tax()".
+
 = 6.9.5 - 2021-08-19 =
 *	Updated WordPress pay Adyen library to version `2.0.2`: https://github.com/wp-pay-gateways/adyen/releases/tag/2.0.2.
 	*	Adyen drop-in gateway supports Klarna Pay Later payment method.
@@ -151,12 +155,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 *	Updated WordPress pay Buckaroo library to version `3.0.1`: https://github.com/wp-pay-gateways/buckaroo/releases/tag/3.0.1.
 	*	Added support for American Express, Maestro, Mastercard, V PAY and Visa.
 	*	Save `CustomerIBAN` and `CustomerBIC` for Sofort payments.
-
-= 6.9.1 - 2021-08-13 =
-*	Updated WordPress pay MemberPress library to version `3.0.1`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.1.
-	*	Fixed "Fatal error: Uncaught Error: Class 'Pronamic\WordPress\Pay\Extensions\MemberPress\Money' not found".
-*	Updated WordPress pay PayPal library to version `1.0.1`: https://github.com/wp-pay-gateways/paypal/releases/tag/1.0.1.
-	*	Improved support for tax.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
