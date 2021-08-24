@@ -53,4 +53,4 @@ if ( ! $exception instanceof \Exception ) {
 
 $exception = $exception->getPrevious();
 
-include __FILE__;
+require __FILE__;

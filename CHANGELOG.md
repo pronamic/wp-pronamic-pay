@@ -6,6 +6,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [6.9.6] - 2021-08-24
+
+### Changed
+- Updated WordPress pay Pay.nl library to version `3.0.1`
+  - Fixed "Fatal error: Uncaught Error: Call to undefined method Pronamic\WordPress\Money\Money::get_including_tax()".
+
 ## [6.9.5] - 2021-08-19
 
 ### Changed
@@ -2910,7 +2916,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.5...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.6...HEAD
+[6.9.6]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.5...6.9.6
 [6.9.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.4...6.9.5
 [6.9.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.3...6.9.4
 [6.9.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.2...6.9.3
