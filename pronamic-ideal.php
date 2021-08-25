@@ -84,7 +84,13 @@ add_filter(
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension();
 
 		// MemberPress.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\MemberPress\Extension();
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\MemberPress\Extension(
+			array(
+				'slug'                   => 'memberpress',
+				'db_version_option_name' => 'pronamic_pay_memberpress_db_version',
+				'name'                   => 'MemberPress',
+			)
+		);
 
 		// NinjaForms.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension();
