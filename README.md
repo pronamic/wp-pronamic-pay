@@ -57,17 +57,17 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Event Espresso 4 Decaf](https://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-decaf/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.4.decaf` | `4.10.8.decaf` |
 | [Formidable Forms](https://formidableforms.com/) | [Strategy11](https://strategy11.com/) | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `4.11` |
 | [Give](https://givewp.com/) |  | [WordPress.org](https://wordpress.org/plugins/give/) | [GitHub](https://github.com/WordImpress/Give) | `1.8.0` | `2.11.1` |
-| [Gravity Forms](https://www.gravityforms.com/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.9` | `2.5.3` |
+| [Gravity Forms](https://www.gravityforms.com/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.9` | `2.5.9` |
 | [Gravity Forms AWeber Add-On](https://www.gravityforms.com/add-ons/aweber/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.4.2` | `2.9` |
 | [Gravity Forms Campaign Monitor Add-On](https://www.gravityforms.com/add-ons/campaign-monitor/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `2.5.1` | `3.7` |
 | [Gravity Forms MailChimp Add-On](https://www.gravityforms.com/add-ons/mailchimp/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `2.4.1` | `4.6.3` |
 | [Gravity Forms User Registration Add-On](https://www.gravityforms.com/add-ons/user-registration/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.8` | `4.4` |
 | [Gravity Forms Zapier Add-On](https://www.gravityforms.com/add-ons/zapier/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.4.2` | `3.2` |
-| [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](https://caseproof.com/) |  |  | `1.2.4` | `1.9.17` |
+| [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](https://caseproof.com/) |  |  | `1.9.21` | `1.9.21` |
 | [Ninja Forms](https://ninjaforms.com/) | [The WP Ninjas](https://ninjaforms.com/) | [WordPress.org](https://wordpress.org/plugins/ninja-forms/) | [GitHub](https://github.com/wpninjas/ninja-forms) | `3.3.15` | `3.5.4` |
 | [Restrict Content Pro](https://restrictcontentpro.com/) | [Sandhills Development, LLC](https://sandhillsdev.com/) |  |  | `3.0.0` | `3.4.4` |
 | [s2Member®](https://s2member.com/) | [WebSharks, Inc.](http://www.websharks-inc.com/) | [WordPress.org](https://wordpress.org/plugins/s2member/) | [GitHub](https://github.com/WebSharks/s2Member) | `130816` | `200301` |
-| [WooCommerce](https://woocommerce.com/) | [Automattic](https://automattic.com/) | [WordPress.org](https://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woocommerce/woocommerce) | `2.3.0` | `5.3.0` |
+| [WooCommerce](https://woocommerce.com/) | [Automattic](https://automattic.com/) | [WordPress.org](https://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woocommerce/woocommerce) | `2.3.0` | `5.6.0` |
 | [WP e-Commerce](https://wpecommerce.org/) | [Instinct Entertainment](http://instinct.co.nz/) | [WordPress.org](https://wordpress.org/plugins/wp-e-commerce/) | [GitHub](https://github.com/wp-e-commerce/WP-e-Commerce) | `3.8.12.1` | `3.15.1` |
 
 

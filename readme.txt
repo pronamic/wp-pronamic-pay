@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 6.9.6
+Stable tag: 7.0.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -118,6 +118,34 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 7.0.0 - 2021-09-03 =
+*	Updated WordPress core library to version 3.1.0.
+	*	No longer create recurring payments for subscriptions with the status `Failed` (see https://github.com/pronamic/wp-pronamic-pay/issues/188#issuecomment-907155800).
+	*	No longer set payments with an empty amount to success (gateways and extensions should handle this).
+	*	Subscription renewal page uses last failed period for manual renewal, if failed period has not yet passed.
+	*	Fixed block titles (pronamic/wp-pronamic-pay#185).
+	*	Fixed layout issue with input HTML on subscription renewal page.
+	*	Fixed script error in payment form block.
+*	Updated WordPress pay Mollie library to version 3.1.0.
+	*	Added `pronamic_pay_mollie_payment_description` filter (with example).
+	*	Removed check for empty amount, `0` amount is allowed for credit card authorizations.
+*	Updated WordPress pay Gravity Forms library to version 3.0.1.
+	*	Updated processing of free payments (allows credit card authorizations for subscriptions).
+*	Updated WordPress pay MemberPress library to version 3.1.0.
+	*	Completely revised integration.
+	*	Improved support for free (amount = 0) transactions.
+	*	Improved support for subscription upgrades and downgrades.
+	*	Account page 'Update' allows users to manually pay for last period if payment failed.
+	*	Added Pronamic payment column to the MemberPress transactions table in WordPress admin dashboard.
+	*	Temporarily removed support for suspend and resume subscriptions due to unintended behavior.
+*	Updated WordPress pay WooCommerce library to version 3.0.2.
+	*	Set pending order status when awaiting payment.
+	*	Fixed using non-existing `shipping_phone` order property.
+*	Updated Pronamic WordPress DateTime library to version 1.2.2.
+*	Updated WordPress pay Adyen library to version 2.0.3.
+*	Updated WordPress pay Fundraising library to version 2.0.1.
+*	Updated WordPress pay PayPal library to version 1.0.2.
+
 = 6.9.6 - 2021-08-24 =
 *	Updated WordPress pay Pay.nl library to version `3.0.1`
 	*	Fixed "Fatal error: Uncaught Error: Call to undefined method Pronamic\WordPress\Money\Money::get_including_tax()".
@@ -138,23 +166,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 	*	Simplified exception handling.
 *	Updated WordPress pay Buckaroo library to version `3.0.2`: https://github.com/wp-pay-gateways/buckaroo/releases/tag/3.0.2.
 	*	Fix "Fatal error: Uncaught Error: Undefined class constant 'V_PAY'".
-
-= 6.9.2 - 2021-08-17 =
-*	Updated WordPress pay core library to version `3.0.1`: https://github.com/pronamic/wp-pay-core/releases/tag/3.0.1
-	*	Added debug page for subscriptions follow-up payments.
-	*	Added support for 'American Express' payment method.
-	*	Added support for 'Mastercard' payment method.
-	*	Added support for 'Visa' payment method.
-	*	Added support for 'V PAY' payment method.
-*	Updated WordPress pay MemberPress library to version `3.0.2`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.2.
-	*	Fixed "Fatal error: Uncaught Error: Call to a member function get_periods() on bool".
-*	Updated WordPress pay WooCommerce library to version `3.0.1`: https://github.com/wp-pay-extensions/woocommerce/releases/tag/3.0.1.
-	*	Added American Express, Mastercard, V PAY and Visa payment gateways.
-*	Updated WordPress pay OmniKassa 2.0 library to version `3.0.1`: https://github.com/wp-pay-gateways/omnikassa-2/releases/tag/3.0.1.
-	*	Added support for Mastercard, V PAY and Visa.
-*	Updated WordPress pay Buckaroo library to version `3.0.1`: https://github.com/wp-pay-gateways/buckaroo/releases/tag/3.0.1.
-	*	Added support for American Express, Maestro, Mastercard, V PAY and Visa.
-	*	Save `CustomerIBAN` and `CustomerBIC` for Sofort payments.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
