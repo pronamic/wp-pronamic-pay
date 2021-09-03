@@ -4,7 +4,7 @@
  * Plugin URI: https://www.pronamic.eu/plugins/pronamic-pay/
  * Description: The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
  *
- * Version: 6.9.6
+ * Version: 7.0.0
  * Requires at least: 4.7
  *
  * Author: Pronamic
@@ -84,7 +84,13 @@ add_filter(
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension();
 
 		// MemberPress.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\MemberPress\Extension();
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\MemberPress\Extension(
+			array(
+				'slug'                   => 'memberpress',
+				'db_version_option_name' => 'pronamic_pay_memberpress_db_version',
+				'name'                   => 'MemberPress',
+			)
+		);
 
 		// NinjaForms.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension();
