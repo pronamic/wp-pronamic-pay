@@ -6,6 +6,36 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [7.0.0] - 2021-09-03
+
+### Changed
+- Updated WordPress core library to version 3.1.0.
+  - No longer create recurring payments for subscriptions with the status `Failed` (see https://github.com/pronamic/wp-pronamic-pay/issues/188#issuecomment-907155800).
+  - No longer set payments with an empty amount to success (gateways and extensions should handle this).
+  - Subscription renewal page uses last failed period for manual renewal, if failed period has not yet passed.
+  - Fixed block titles (pronamic/wp-pronamic-pay#185).
+  - Fixed layout issue with input HTML on subscription renewal page.
+  - Fixed script error in payment form block.
+- Updated WordPress pay Mollie library to version 3.1.0.
+  - Added `pronamic_pay_mollie_payment_description` filter (with example).
+  - Removed check for empty amount, `0` amount is allowed for credit card authorizations.
+- Updated WordPress pay Gravity Forms library to version 3.0.1.
+  - Updated processing of free payments (allows credit card authorizations for subscriptions).
+- Updated WordPress pay MemberPress library to version 3.1.0.
+  - Completely revised integration.
+  - Improved support for free (amount = 0) transactions.
+  - Improved support for subscription upgrades and downgrades.
+  - Account page 'Update' allows users to manually pay for last period if payment failed.
+  - Added Pronamic payment column to the MemberPress transactions table in WordPress admin dashboard.
+  - Temporarily removed support for suspend and resume subscriptions due to unintended behavior.
+- Updated WordPress pay WooCommerce library to version 3.0.2.
+  - Set pending order status when awaiting payment.
+  - Fixed using non-existing `shipping_phone` order property.
+- Updated Pronamic WordPress DateTime library to version 1.2.2.
+- Updated WordPress pay Adyen library to version 2.0.3.
+- Updated WordPress pay Fundraising library to version 2.0.1.
+- Updated WordPress pay PayPal library to version 1.0.2.
+
 ## [6.9.6] - 2021-08-24
 
 ### Changed
@@ -2916,7 +2946,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.6...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.0...HEAD
+[7.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.6...7.0.0
 [6.9.6]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.5...6.9.6
 [6.9.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.4...6.9.5
 [6.9.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.3...6.9.4

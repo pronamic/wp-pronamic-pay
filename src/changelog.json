@@ -4,6 +4,61 @@
 		"changes": {}
 	},
 	{
+		"version": "7.0.0",
+		"date": "2021-09-03",
+		"changes": {
+			"name": "Changed",
+			"changes": [
+				{
+					"description": "Updated WordPress core library to version 3.1.0.",
+					"changes": [
+						"No longer create recurring payments for subscriptions with the status `Failed` (see https://github.com/pronamic/wp-pronamic-pay/issues/188#issuecomment-907155800).",
+						"No longer set payments with an empty amount to success (gateways and extensions should handle this).",
+						"Subscription renewal page uses last failed period for manual renewal, if failed period has not yet passed.",
+						"Fixed block titles (pronamic/wp-pronamic-pay#185).",
+						"Fixed layout issue with input HTML on subscription renewal page.",
+						"Fixed script error in payment form block."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Mollie library to version 3.1.0.",
+					"changes": [
+						"Added `pronamic_pay_mollie_payment_description` filter (with example).",
+						"Removed check for empty amount, `0` amount is allowed for credit card authorizations."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Gravity Forms library to version 3.0.1.",
+					"changes": [
+						"Updated processing of free payments (allows credit card authorizations for subscriptions)."
+					]
+				},
+				{
+					"description": "Updated WordPress pay MemberPress library to version 3.1.0.",
+					"changes": [
+						"Completely revised integration.",
+						"Improved support for free (amount = 0) transactions.",
+						"Improved support for subscription upgrades and downgrades.",
+						"Account page 'Update' allows users to manually pay for last period if payment failed.",
+						"Added Pronamic payment column to the MemberPress transactions table in WordPress admin dashboard.",
+						"Temporarily removed support for suspend and resume subscriptions due to unintended behavior."
+					]
+				},
+				{
+					"description": "Updated WordPress pay WooCommerce library to version 3.0.2.",
+					"changes": [
+						"Set pending order status when awaiting payment.",
+						"Fixed using non-existing `shipping_phone` order property."
+					]
+				},
+				"Updated Pronamic WordPress DateTime library to version 1.2.2.",
+				"Updated WordPress pay Adyen library to version 2.0.3.",
+				"Updated WordPress pay Fundraising library to version 2.0.1.",
+				"Updated WordPress pay PayPal library to version 1.0.2."
+			]
+		}
+	},
+	{
 		"version": "6.9.6",
 		"date": "2021-08-24",
 		"changes": [
