@@ -36,7 +36,6 @@ $organisations = array(
 		'ideal-basic'        => 'iDEAL Basic',
 		'ing-kassa-compleet' => 'ING Kassa Compleet',
 		'mollie'             => 'Mollie',
-		'mollie-ideal'       => 'Mollie iDEAL',
 		'multisafepay'       => 'MultiSafepay',
 		'ogone'              => 'Ingenico',
 		'omnikassa-2'        => 'OmniKassa 2.0',
@@ -177,7 +176,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 				NEW_VERSION=$(cat package.json | jq --raw-output \'.version\' )
 
 				# Exit if there are no changes in Git repository.
-				if [[ "$CURRENT_TAG" == "$NEW_VERSION" ]]; then
+				if [[ "" == "$NEW_VERSION" || "$CURRENT_TAG" == "$NEW_VERSION" ]]; then
 					echo "Version: ${CURRENT_TAG}"
 					exit
 				fi;
@@ -192,10 +191,12 @@ foreach ( $organisations as $organisation => $repositories ) {
 				echo "${LOG}"
 				echo ",{\"description\":\"Updated WordPress ' . ( 'pronamic' === $organisation ? '' : 'pay ' ) . $name . ' library to version ${NEW_VERSION}.\",\"changes\":$(echo "${LOG}" | sed \'s/^- //\' | jq --raw-input --raw-output --slurp \'split("\\n") | .[0:-1]\')}" >> ../../../src/changelog-release.json
 
-				# Git commit changes.
-				git commit -a -m "Getting ready for version ${NEW_VERSION}."
+				# Git commit changes (without running pre-commit hooks).
+				git commit -a -m "Getting ready for version ${NEW_VERSION}." --no-verify
 
 				# Gitflow finish release.
+				git rev-parse --verify --quiet master && git fetch origin master:master && echo ""
+				git rev-parse --verify --quiet main && git fetch origin main:main && echo ""
 				git flow release finish -m "${NEW_VERSION}" "${NEW_VERSION}"
 				
 				# Git push tag, master and develop.
@@ -292,8 +293,12 @@ if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 		$changelog_json
 	);
 
-	// Replace `pronamic/wp-pronamic-pay` issue reference markdown.
-	$json = preg_replace( '/ \[(#[0-9]+)\]\(.*?pronamic\/wp-pronamic-pay\/issues\/.*?\)\./m', '. \\1', $json );
+	// Replace issue references markdown.
+	$json = preg_replace( '/ \[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)\/m', ' (\\2/\\3#\\1)', $json );
+
+	$json = preg_replace( '/\(\[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)\)/m', '(\\2/\\3#\\1)', $json );
+
+	$json = preg_replace( '/\(\[(.*?)\/(.*?)#([0-9]+)\]\(.*?\/.*?\/.*?\/issues\/.*?\)\)/m', '(\\1/\\2#\\3)', $json );
 
 	// Remove all other issue reference markdown.
 	$json = preg_replace( '/ \[(#[0-9]+)\]\(.*?\/issues\/.*?\)\./m', '.', $json );
