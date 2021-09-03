@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2021-09-03T10:04:12+00:00\n"
+"POT-Creation-Date: 2021-09-03T12:02:23+00:00\n"
 "PO-Revision-Date: 2021-09-03 12:30+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: \n"
@@ -26,6 +26,9 @@ msgstr ""
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:52
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:153
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:100
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:498
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:507
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:514
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:1016
 #: vendor/wp-pay/core/src/Payments/StatusChecker.php:169
 #: vendor/wp-pay/core/views/notice-license.php:24
@@ -3365,7 +3368,7 @@ msgstr ""
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:288
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:321
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:350
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:495
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:526
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:932
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:933
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:539
@@ -5153,12 +5156,12 @@ msgstr ""
 "L'algorithme de hachage SHA1 n'est pas disponible pour la rémunération "
 "pronamic"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:455
-msgid "Untested plugin versions (issues with payments might occur):"
-msgstr ""
-"Versions plugin non testées (des problèmes de paiement peuvent survenir):"
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:470
+#, fuzzy
+msgid "Untested plugin versions:"
+msgstr "Versions plugin prises en charge:"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:465
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:480
 #, fuzzy
 msgid ""
 "Outdated unsupported plugin versions for which payments can not be processed:"
@@ -5166,33 +5169,47 @@ msgstr ""
 "Versions de plugin non prises en compte obsolètes pour lesquelles les "
 "paiements ne peuvent pas être traités :"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:474
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:489
 msgid "Supported plugin versions:"
 msgstr "Versions plugin prises en charge:"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:480
-msgid "Pronamic Pay extensions are compatible"
+#. translators: %s: plugin name
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:497
+#, fuzzy
+msgid "%s extensions are compatible"
 msgstr "Les extensions de Pronamic Pay sont compatibles"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:482
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:501
+#, fuzzy
 msgid ""
 "Pronamic Pay uses extensions to integrate with form, booking and other e-"
 "commerce plugins. All extensions support the currently activated plugin "
-"version."
+"versions."
 msgstr ""
 "Pronamic Pay utilise des extensions pour s'intégrer aux plugins de "
 "formulaire, de réservation et autres plugins commerce électronique. Toutes "
 "les extensions prennent en charge la version plugin actuellement activée."
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:485
-msgid "Pronamic Pay extensions are incompatible"
+#. translators: %s: plugin name
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:506
+#, fuzzy
+msgid "%s extensions are incompatible"
 msgstr "Les extensions de Pronamic Pay sont incompatibles"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:487
+#. translators: %s: plugin name
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:513
+#, fuzzy
+msgid "%s extensions might be incompatible"
+msgstr "Les extensions de Pronamic Pay sont incompatibles"
+
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:518
+#, fuzzy
 msgid ""
 "Pronamic Pay uses extensions to integrate with form, booking and other e-"
-"commerce plugins. Not all extensions support the version of the currently "
-"activated plugin."
+"commerce plugins. We have found that not all extensions are tested with or "
+"support the version of the currently activated plugins. Usually you can "
+"still accept payments, however if you experience payment issues it is "
+"advised to check the 'Plugins' page for available updates."
 msgstr ""
 "Pronamic Pay utilise des extensions pour s'intégrer aux plugins de "
 "formulaire, de réservation et autres plugins commerce électronique. Toutes "
@@ -7791,6 +7808,10 @@ msgid "Please click the button below if you are not automatically redirected."
 msgstr ""
 "S’il vous plaît cliquez sur le bouton ci-dessous si vous n’êtes pas "
 "automatiquement redirigé."
+
+#~ msgid "Untested plugin versions (issues with payments might occur):"
+#~ msgstr ""
+#~ "Versions plugin non testées (des problèmes de paiement peuvent survenir):"
 
 #, fuzzy
 #~ msgid ""
