@@ -4,6 +4,38 @@
 		"changes": {}
 	},
 	{
+		"version": "7.0.1",
+		"date": "2021-09-16",
+		"changes": {
+			"name": "Changed",
+			"changes": [
+				{
+					"description": "Updated WordPress pay Adyen library to version 2.0.4.",
+					"changes": [
+						"Added support for the PayPal payment method (pronamic/wp-pronamic-pay#180).",
+						"Added country code to Apple Pay payment method configuration."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Fundraising library to version 2.0.2.",
+					"changes": [
+						"Fixed blocks not loading in editor (pronamic/wp-pronamic-pay#204)."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Gravity Forms library to version 3.0.2.",
+					"changes": [
+						"Updated issuers field to only use active payment feeds.",
+						"Fixed duplicate `pronamic_payment_id` entry meta (pronamic/wp-pronamic-pay#208).",
+						"Fixed empty merge tags in 'Form is submitted' notification event."
+					]
+				},
+				"Updated WordPress core library to version 3.1.1.",
+				"Updated WordPress pay Charitable library to version 3.0.1."
+			]
+		}
+	},
+	{
 		"version": "7.0.0",
 		"date": "2021-09-03",
 		"changes": {
