@@ -6,6 +6,21 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [7.0.1] - 2021-09-16
+
+### Changed
+- Updated WordPress pay Adyen library to version 2.0.4.
+  - Added support for the PayPal payment method (pronamic/wp-pronamic-pay#180).
+  - Added country code to Apple Pay payment method configuration.
+- Updated WordPress pay Fundraising library to version 2.0.2.
+  - Fixed blocks not loading in editor (pronamic/wp-pronamic-pay#204).
+- Updated WordPress pay Gravity Forms library to version 3.0.2.
+  - Updated issuers field to only use active payment feeds.
+  - Fixed duplicate `pronamic_payment_id` entry meta (pronamic/wp-pronamic-pay#208).
+  - Fixed empty merge tags in 'Form is submitted' notification event.
+- Updated WordPress core library to version 3.1.1.
+- Updated WordPress pay Charitable library to version 3.0.1.
+
 ## [7.0.0] - 2021-09-03
 
 ### Changed
@@ -2946,7 +2961,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.1...HEAD
+[7.0.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.0...7.0.1
 [7.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.6...7.0.0
 [6.9.6]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.5...6.9.6
 [6.9.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.4...6.9.5
