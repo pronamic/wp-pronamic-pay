@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2021-09-03T12:02:23+00:00\n"
+"POT-Creation-Date: 2021-09-16T14:05:12+00:00\n"
 "PO-Revision-Date: 2021-09-03 12:23+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -553,8 +553,8 @@ msgid "The input amount is invalid."
 msgstr "Der Eingabebetrag ist ungültig."
 
 #: vendor/wp-pay-extensions/contact-form-7/src/Tags/IssuerTag.php:166
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:528
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:540
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:533
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:545
 #: vendor/wp-pay-extensions/ninjaforms/src/IssuersField.php:94
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:470
 #: vendor/wp-pay/core/views/tab-system_status.php:395
@@ -942,7 +942,7 @@ msgid "Banks"
 msgstr "Banken"
 
 #: vendor/wp-pay-extensions/formidable-forms/src/BankSelectFieldType.php:74
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:567
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:572
 msgid "Choose a bank for iDEAL payment"
 msgstr "Wählen Sie eine Bank für die Zahlung mit iDEAL"
 
@@ -1329,18 +1329,18 @@ msgctxt "Field display mode"
 msgid "Large icons"
 msgstr "Große Symbole"
 
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:495
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:500
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:53
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:604
 msgid "New Payment Feed"
 msgstr "Neuer Zahlungs-Feed"
 
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:505
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:510
 msgid "This field is not supported by your payment gateway."
 msgstr "Dieses Feld wird von Ihrem Zahlungsgateway nicht unterstützt."
 
 #. translators: %s: new feed URL
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:508
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:513
 msgid ""
 "Please remove it from this form or <a href=\"%s\" target=\"_blank\">add a "
 "supported payment gateway</a>."
@@ -2838,7 +2838,7 @@ msgstr "Fehler beim Erhalten des Zahlungsergebnisses: %s"
 msgid "Error getting payment details: %s"
 msgstr "Fehler beim Abrufen von Zahlungsdetails: %s"
 
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:558
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:565
 msgid "Credit or debit card"
 msgstr "Kredit- oder Debitkarte"
 
@@ -3186,82 +3186,80 @@ msgid "Payment ID."
 msgstr "Zahlungs-ID."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:112
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:263
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:426
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:251
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:363
 msgid "No payment ID given in `payment_id` parameter."
 msgstr "Keine Zahlungs-ID im Parameter `payment_id` angegeben."
 
 #. translators: %s: payment ID
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:123
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:274
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:437
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:262
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:374
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:254
 msgid "Could not find payment with ID `%s`."
 msgstr "Zahlung mit ID `%s` konnte nicht gefunden werden."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:136
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:287
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:450
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:275
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:387
 msgid "No data given in request body."
 msgstr "Keine Daten im Anforderungstext angegeben."
 
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:146
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:297
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:460
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:285
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:397
 msgid "No gateway configuration ID given in payment."
 msgstr "Keine Gateway-Konfigurations-ID bei Zahlung angegeben."
 
 #. translators: %s: Gateway configuration ID
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:157
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:308
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:471
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:296
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:408
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:288
 msgid "Could not find gateway with ID `%s`."
 msgstr "Gateway mit der ID `%s` konnte nicht gefunden werden."
 
 #. translators: %s: Gateway configuration ID
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:169
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:308
+msgid ""
+"Unable to handle payment `%s` because it was not processed through the Adyen "
+"drop-in integration."
+msgstr ""
+
+#. translators: %s: Gateway configuration ID
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:181
 #: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:320
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:483
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:420
 msgid "Could not find client in gateway with ID `%s`."
 msgstr "Der Client im Gateway mit der ID `%s` konnte nicht gefunden werden."
 
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:181
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:331
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:193
 msgid "No payment method given."
 msgstr "Keine Zahlungsmethode angegeben."
 
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:191
-msgid "Gateway does not support method to create payment."
-msgstr "Gateway unterstützt keine Methode zum Erstellen von Zahlungen."
-
 #. translators: 1: error message, 2: error code
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:205
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:368
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:211
 msgid "%1$s (error %2$s)"
 msgstr "%1$s (Fehler %2$s)"
 
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:354
-msgid "Gateway does not support sending additional payment details."
-msgstr "Gateway unterstützt das Senden zusätzlicher Zahlungsdetails nicht."
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:500
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:437
 msgid "Apple Pay merchant identifier not configured in gateway settings."
 msgstr "Apple Pay Händlerkennung nicht in Gateway-Einstellungen konfiguriert."
 
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:507
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:444
 msgid "No Apple Pay merchant validation URL given."
 msgstr "Keine Apple Pay Händlervalidierungs-URL angegeben."
 
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:532
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:469
 msgid "Invalid Apple Pay Merchant Identity configuration."
 msgstr "Ungültige Apple Pay Merchant Identity-Konfiguration."
 
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:540
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:477
 msgid "Error creating merchant identity files."
 msgstr "Fehler beim Erstellen von Händleridentitätsdateien."
 
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:610
+#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:547
 msgid "Error reading merchant identity files."
 msgstr "Fehler beim Lesen von Händleridentitätsdateien."
 
@@ -6958,21 +6956,21 @@ msgid "Mandate Selection URL"
 msgstr "URL zur Mandatsauswahl"
 
 #. translators: %s: next payment date
-#: vendor/wp-pay/core/views/meta-box-subscription-payments.php:74
+#: vendor/wp-pay/core/views/meta-box-subscription-payments.php:78
 msgid "Will be created on %s"
 msgstr "Wird auf %s erstellt"
 
 #. translators: 1: next payment delivery date, 2: create next period payment anchor
-#: vendor/wp-pay/core/views/meta-box-subscription-payments.php:84
+#: vendor/wp-pay/core/views/meta-box-subscription-payments.php:88
 msgid "Will be created on %1$s or %2$s"
 msgstr "Wird auf %1$s erstellt oder %2$s"
 
-#: vendor/wp-pay/core/views/meta-box-subscription-payments.php:89
+#: vendor/wp-pay/core/views/meta-box-subscription-payments.php:93
 msgid "create now"
 msgstr "jetzt erstellen"
 
 #. translators: %d: payment ID
-#: vendor/wp-pay/core/views/meta-box-subscription-payments.php:181
+#: vendor/wp-pay/core/views/meta-box-subscription-payments.php:185
 msgid "Retry payment #%d"
 msgstr "Zahlung #%d wiederholen"
 
@@ -7605,15 +7603,15 @@ msgid_plural "%s payments"
 msgstr[0] "%s Zahlung"
 msgstr[1] "%s Zahlungen"
 
-#: vendor/wp-pay/fundraising/src/Blocks.php:139
+#: vendor/wp-pay/fundraising/src/Blocks.php:140
 msgid "Fundraising Progress Circle"
 msgstr ""
 
-#: vendor/wp-pay/fundraising/src/Blocks.php:152
+#: vendor/wp-pay/fundraising/src/Blocks.php:153
 msgid "Fundraising Progress Bar"
 msgstr ""
 
-#: vendor/wp-pay/fundraising/src/Blocks.php:165
+#: vendor/wp-pay/fundraising/src/Blocks.php:166
 msgid "Fundraising Progress"
 msgstr "Fundraising-Fortschritt"
 
@@ -7675,6 +7673,12 @@ msgid "Please click the button below if you are not automatically redirected."
 msgstr ""
 "Bitte klicken Sie auf die Schaltfläche unten, wenn Sie nicht automatisch "
 "umgeleitet werden."
+
+#~ msgid "Gateway does not support method to create payment."
+#~ msgstr "Gateway unterstützt keine Methode zum Erstellen von Zahlungen."
+
+#~ msgid "Gateway does not support sending additional payment details."
+#~ msgstr "Gateway unterstützt das Senden zusätzlicher Zahlungsdetails nicht."
 
 #~ msgid "Untested plugin versions (issues with payments might occur):"
 #~ msgstr ""
