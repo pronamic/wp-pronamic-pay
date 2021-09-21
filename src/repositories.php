@@ -292,7 +292,7 @@ if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 	);
 
 	// Replace issue references markdown.
-	$json = preg_replace( '/ \[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)\/m', ' (\\2/\\3#\\1)', $json );
+	$json = preg_replace( '/ \[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)/m', ' (\\2/\\3#\\1)', $json );
 
 	$json = preg_replace( '/\(\[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)\)/m', '(\\2/\\3#\\1)', $json );
 
