@@ -6,6 +6,20 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [7.0.2] - 2021-09-30
+
+### Changed
+- Updated WordPress core library to version `3.2.0`.
+  - Start using `<input type="number">` in payment forms en test meta box.
+  - Removed deprecated `Util::string_to_amount( $value )` function.
+  - Updated logo library to version `1.6.8` for new Bancontact logo.
+  - Improved security by using correct escaping functions.
+- Updated WordPress pay Fundraising library to version `2.0.3`.
+  - Load assets from relative links.
+  - Added Update URI in plugin file.
+  - Included and use `block.json`.
+  - Improved security by using correct escaping functions.
+
 ## [7.0.1] - 2021-09-16
 
 ### Changed
@@ -2961,7 +2975,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.2...HEAD
+[7.0.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.1...7.0.2
 [7.0.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.0...7.0.1
 [7.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.6...7.0.0
 [6.9.6]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.5...6.9.6

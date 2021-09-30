@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a72b7deecc4b093420f816604e3dcba3",
+    "content-hash": "56d0602a87fe3b4fa449b0e4a0a2c68f",
     "packages": [
         {
             "name": "composer/installers",
@@ -514,16 +514,16 @@
         },
         {
             "name": "pronamic/wp-number",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-number.git",
-                "reference": "66f829f0595622c5f64c88727a894009b8514222"
+                "reference": "ff5c55c6dc3a9d9041de50b50a02de662effd5e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-number/zipball/66f829f0595622c5f64c88727a894009b8514222",
-                "reference": "66f829f0595622c5f64c88727a894009b8514222",
+                "url": "https://api.github.com/repos/pronamic/wp-number/zipball/ff5c55c6dc3a9d9041de50b50a02de662effd5e3",
+                "reference": "ff5c55c6dc3a9d9041de50b50a02de662effd5e3",
                 "shasum": ""
             },
             "require": {
@@ -539,8 +539,8 @@
                 "phpmd/phpmd": "^2.9",
                 "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0",
                 "pronamic/wp-coding-standards": "^1.0",
-                "roots/wordpress": "^5.7",
-                "wp-phpunit/wp-phpunit": "^5.6"
+                "roots/wordpress": "^5.8",
+                "wp-phpunit/wp-phpunit": "^5.8"
             },
             "type": "library",
             "autoload": {
@@ -578,9 +578,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pronamic/wp-number/issues",
-                "source": "https://github.com/pronamic/wp-number/tree/1.0.0"
+                "source": "https://github.com/pronamic/wp-number/tree/1.0.1"
             },
-            "time": "2021-07-02T12:28:21+00:00"
+            "time": "2021-09-30T09:07:15+00:00"
         },
         {
             "name": "viison/address-splitter",
@@ -2818,16 +2818,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "3.1.1",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pay-core.git",
-                "reference": "8cc68a5a724ad1a6e15741cc4f3824fa3a24b8a3"
+                "reference": "07ee3c2894cde68b903a76da7173d152e721373f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/8cc68a5a724ad1a6e15741cc4f3824fa3a24b8a3",
-                "reference": "8cc68a5a724ad1a6e15741cc4f3824fa3a24b8a3",
+                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/07ee3c2894cde68b903a76da7173d152e721373f",
+                "reference": "07ee3c2894cde68b903a76da7173d152e721373f",
                 "shasum": ""
             },
             "require": {
@@ -2840,6 +2840,7 @@
                 "pronamic/wp-html": "^1.0",
                 "pronamic/wp-http": "^1.0",
                 "pronamic/wp-money": "^2.0",
+                "pronamic/wp-number": "^1.0",
                 "viison/address-splitter": "^0.3.4"
             },
             "require-dev": {
@@ -2850,9 +2851,9 @@
                 "phpmd/phpmd": "^2.9",
                 "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0",
                 "pronamic/wp-coding-standards": "^1.0",
-                "roots/wordpress": "^5.6",
+                "roots/wordpress": "^5.8",
                 "wp-cli/wp-cli": "^2.3",
-                "wp-phpunit/wp-phpunit": "^5.6"
+                "wp-phpunit/wp-phpunit": "^5.8"
             },
             "type": "library",
             "autoload": {
@@ -2897,20 +2898,20 @@
                 "issues": "https://github.com/wp-pay/core/issues",
                 "source": "https://github.com/wp-pay/core"
             },
-            "time": "2021-09-16T13:36:47+00:00"
+            "time": "2021-09-30T09:20:43+00:00"
         },
         {
             "name": "wp-pay/fundraising",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/wp-pay/fundraising.git",
-                "reference": "00bdcedc5016a8d7a7504317241b8dbfe188977b"
+                "url": "https://github.com/pronamic/wp-pronamic-pay-fundraising.git",
+                "reference": "2455ab5565f83319671e5834f8a99dbe86fe2a5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/fundraising/zipball/00bdcedc5016a8d7a7504317241b8dbfe188977b",
-                "reference": "00bdcedc5016a8d7a7504317241b8dbfe188977b",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-fundraising/zipball/2455ab5565f83319671e5834f8a99dbe86fe2a5d",
+                "reference": "2455ab5565f83319671e5834f8a99dbe86fe2a5d",
                 "shasum": ""
             },
             "require": {
@@ -2973,7 +2974,7 @@
                 "issues": "https://github.com/wp-pay/fundraising/issues",
                 "source": "https://github.com/wp-pay/fundraising"
             },
-            "time": "2021-09-16T13:36:55+00:00"
+            "time": "2021-09-30T11:05:26+00:00"
         }
     ],
     "packages-dev": [

@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 4.7
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 7.0.1
+Stable tag: 7.0.2
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -118,6 +118,18 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 7.0.2 - 2021-09-30 =
+*	Updated WordPress core library to version `3.2.0`.
+	*	Start using `<input type="number">` in payment forms en test meta box.
+	*	Removed deprecated `Util::string_to_amount( $value )` function.
+	*	Updated logo library to version `1.6.8` for new Bancontact logo.
+	*	Improved security by using correct escaping functions.
+*	Updated WordPress pay Fundraising library to version `2.0.3`.
+	*	Load assets from relative links.
+	*	Added Update URI in plugin file.
+	*	Included and use `block.json`.
+	*	Improved security by using correct escaping functions.
+
 = 7.0.1 - 2021-09-16 =
 *	Updated WordPress pay Adyen library to version 2.0.4.
 	*	Added support for the PayPal payment method (pronamic/wp-pronamic-pay#180).
@@ -168,10 +180,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 	*	Adyen drop-in gateway supports Klarna Pay Later payment method.
 *	Updated WordPress pay MemberPress library to version `3.0.3`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.3.
 	*	Added Giropay gateway.
-
-= 6.9.4 - 2021-08-18 =
-*	Updated WordPress pay EMS e-Commerce library to version `3.0.1`: https://github.com/wp-pay-gateways/ems-e-commerce/releases/tag/3.0.1.
-	*	Fixed `chargetotal` number format.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

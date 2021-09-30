@@ -14,16 +14,14 @@ $repositories_dir = $project_dir . '/repositories';
 
 $organisations = array(
 	'pronamic'          => array(
-		'wp-datetime'  => 'DateTime',
-		'wp-html'      => 'HTML',
-		'wp-http'      => 'HTTP',
-		'wp-money'     => 'Money',
-		'wp-number'    => 'Number',
-		'wp-pay-core'  => 'core',
-		'wp-pay-logos' => 'Logos',
-	),
-	'wp-pay'            => array(
-		'fundraising' => 'Fundraising',
+		'wp-datetime'                 => 'DateTime',
+		'wp-html'                     => 'HTML',
+		'wp-http'                     => 'HTTP',
+		'wp-money'                    => 'Money',
+		'wp-number'                   => 'Number',
+		'wp-pay-core'                 => 'core',
+		'wp-pay-logos'                => 'Logos',
+		'wp-pronamic-pay-fundraising' => 'Fundraising',
 	),
 	'wp-pay-gateways'   => array(
 		'adyen'              => 'Adyen',
