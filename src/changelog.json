@@ -4,6 +4,33 @@
 		"changes": {}
 	},
 	{
+		"version": "7.0.2",
+		"date": "2021-09-30",
+		"changes": {
+			"name": "Changed",
+			"changes": [
+				{
+					"description": "Updated WordPress core library to version `3.2.0`.",
+					"changes": [
+						"Start using `<input type=\"number\">` in payment forms en test meta box.",
+						"Removed deprecated `Util::string_to_amount( $value )` function.",
+						"Updated logo library to version `1.6.8` for new Bancontact logo.",
+						"Improved security by using correct escaping functions."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Fundraising library to version `2.0.3`.",
+					"changes": [
+						"Load assets from relative links.",
+						"Added Update URI in plugin file.",
+						"Included and use `block.json`.",
+						"Improved security by using correct escaping functions."
+					]
+				}
+			]
+		}
+	},
+	{
 		"version": "7.0.1",
 		"date": "2021-09-16",
 		"changes": {
