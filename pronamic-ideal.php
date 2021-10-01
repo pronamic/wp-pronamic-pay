@@ -354,6 +354,7 @@ add_filter(
 				'provider'      => 'targetpay',
 				'manual_url'    => \__( 'https://www.pronamic.eu/support/how-to-connect-targetpay-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
 				'deprecated'    => true,
+				'meta_key_rtlo' => 'targetpay_layoutcode',
 			)
 		);
 
