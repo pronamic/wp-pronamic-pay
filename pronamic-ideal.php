@@ -345,7 +345,17 @@ add_filter(
 		);
 
 		// TargetPay.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\TargetPay\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\DigiWallet\Integration(
+			array(
+				'id'            => 'targetpay-ideal',
+				'name'          => 'TargetPay',
+				'product_url'   => \__( 'https://www.targetpay.com/info/ideal?setlang=en', 'pronamic_ideal' ),
+				'dashboard_url' => 'https://www.targetpay.com/login',
+				'provider'      => 'targetpay',
+				'manual_url'    => \__( 'https://www.pronamic.eu/support/how-to-connect-targetpay-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'deprecated'    => true,
+			)
+		);
 
 		// Return gateways.
 		return $gateways;
