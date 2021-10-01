@@ -22,6 +22,7 @@ $organisations = array(
 		'wp-pay-core'                 => 'core',
 		'wp-pay-logos'                => 'Logos',
 		'wp-pronamic-pay-fundraising' => 'Fundraising',
+		'wp-gravityforms-nl'          => 'Gravity Forms (nl)',
 	),
 	'wp-pay-gateways'   => array(
 		'adyen'              => 'Adyen',
