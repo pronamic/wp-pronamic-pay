@@ -41,7 +41,6 @@ $organisations = array(
 		'paypal'             => 'PayPal',
 		'payvision'          => 'Payvision',
 		'sisow'              => 'Sisow',
-		'targetpay'          => 'TargetPay',
 	),
 	'wp-pay-extensions' => array(
 		'charitable'             => 'Charitable',

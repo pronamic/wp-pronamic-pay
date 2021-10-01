@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56d0602a87fe3b4fa449b0e4a0a2c68f",
+    "content-hash": "9c2bb99cebac184ada9f960cf0555d8b",
     "packages": [
         {
             "name": "composer/installers",
@@ -2747,76 +2747,6 @@
             "time": "2021-08-05T13:53:15+00:00"
         },
         {
-            "name": "wp-pay-gateways/targetpay",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wp-pay-gateways/targetpay.git",
-                "reference": "318988ee41c7945547bd16b80d4f290ff1236079"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/318988ee41c7945547bd16b80d4f290ff1236079",
-                "reference": "318988ee41c7945547bd16b80d4f290ff1236079",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6.20",
-                "wp-pay/core": "^3.0"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4",
-                "overtrue/phplint": "^1.2",
-                "php-coveralls/php-coveralls": "^2.4",
-                "phpmd/phpmd": "^2.7",
-                "phpunit/phpunit": "^5.7 || ^6.0",
-                "pronamic/wp-coding-standards": "^1.0",
-                "roots/wordpress": "^5.8",
-                "wp-phpunit/wp-phpunit": "^5.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Pronamic\\WordPress\\Pay\\Gateways\\TargetPay\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
-                },
-                {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "TargetPay driver for the WordPress payment processing library.",
-            "homepage": "http://www.wp-pay.org/gateways/targetpay/",
-            "keywords": [
-                "deprecated",
-                "gateway",
-                "pay",
-                "pronamic",
-                "targetpay",
-                "wordpress",
-                "wp"
-            ],
-            "support": {
-                "email": "support@wp-pay.org",
-                "issues": "https://github.com/wp-pay-gateways/targetpay/issues",
-                "source": "https://github.com/wp-pay-gateways/targetpay"
-            },
-            "time": "2021-08-05T14:01:24+00:00"
-        },
-        {
             "name": "wp-pay/core",
             "version": "3.2.0",
             "source": {
@@ -2980,22 +2910,22 @@
     "packages-dev": [
         {
             "name": "automattic/vipwpcs",
-            "version": "2.3.2",
+            "version": "2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Automattic/VIP-Coding-Standards.git",
-                "reference": "efacebef421334d54b99afa92fb8fa645336a8a7"
+                "reference": "6cd0a6a82bc0ac988dbf9d6a7c2e293dc8ac640b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Automattic/VIP-Coding-Standards/zipball/efacebef421334d54b99afa92fb8fa645336a8a7",
-                "reference": "efacebef421334d54b99afa92fb8fa645336a8a7",
+                "url": "https://api.github.com/repos/Automattic/VIP-Coding-Standards/zipball/6cd0a6a82bc0ac988dbf9d6a7c2e293dc8ac640b",
+                "reference": "6cd0a6a82bc0ac988dbf9d6a7c2e293dc8ac640b",
                 "shasum": ""
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.4.1 || ^0.5 || ^0.6.2 || ^0.7",
                 "php": ">=5.4",
-                "sirbrillig/phpcs-variable-analysis": "^2.8.3",
+                "sirbrillig/phpcs-variable-analysis": "^2.11.1",
                 "squizlabs/php_codesniffer": "^3.5.5",
                 "wp-coding-standards/wpcs": "^2.3"
             },
@@ -3028,7 +2958,7 @@
                 "source": "https://github.com/Automattic/VIP-Coding-Standards",
                 "wiki": "https://github.com/Automattic/VIP-Coding-Standards/wiki"
             },
-            "time": "2021-04-28T16:41:50+00:00"
+            "time": "2021-09-29T16:20:23+00:00"
         },
         {
             "name": "bamarni/composer-bin-plugin",

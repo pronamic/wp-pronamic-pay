@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2021-09-30T11:16:02+00:00\n"
-"PO-Revision-Date: 2021-09-30 13:20+0200\n"
+"POT-Creation-Date: 2021-10-01T06:56:29+00:00\n"
+"PO-Revision-Date: 2021-10-01 08:58+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -428,6 +428,16 @@ msgid ""
 msgstr ""
 "https://www.pronamic.nl/support/pronamic-ideal-koppelen-met-rabobank-ideal-"
 "professional-v3/"
+
+#: pronamic-ideal.php:352
+msgid "https://www.targetpay.com/info/ideal?setlang=en"
+msgstr "https://www.targetpay.com/info/ideal?setlang=nl"
+
+#: pronamic-ideal.php:355
+msgid ""
+"https://www.pronamic.eu/support/how-to-connect-targetpay-with-wordpress-via-"
+"pronamic-pay/"
+msgstr "https://www.pronamic.nl/support/pronamic-pay-koppelen-met-targetpay/"
 
 #: vendor/pronamic/wp-http/src/Response.php:146
 #: vendor/wp-pay/core/src/Core/Util.php:96
@@ -4568,7 +4578,6 @@ msgstr "https://www.pronamic.nl/support/pronamic-ideal-koppelen-aan-pay-nl/"
 #. translators: 1: payment provider name
 #: vendor/wp-pay-gateways/pay-nl/src/Integration.php:55
 #: vendor/wp-pay-gateways/sisow/src/Integration.php:101
-#: vendor/wp-pay-gateways/targetpay/src/Integration.php:54
 msgid ""
 "Account details are provided by %1$s after registration. These settings need "
 "to match with the %1$s dashboard."
@@ -4828,32 +4837,6 @@ msgid ""
 "Shop ID as mentioned at <strong>My Profile</strong> in the Sisow dashboard."
 msgstr ""
 "Shop ID zoals vermeld in het Sisow dashboard op de pagina \"Mijn profiel\"."
-
-#: vendor/wp-pay-gateways/targetpay/src/Integration.php:29
-msgid "https://www.targetpay.com/info/ideal?setlang=en"
-msgstr "https://www.targetpay.com/info/ideal?setlang=nl"
-
-#: vendor/wp-pay-gateways/targetpay/src/Integration.php:32
-msgid ""
-"https://www.pronamic.eu/support/how-to-connect-targetpay-with-wordpress-via-"
-"pronamic-pay/"
-msgstr "https://www.pronamic.nl/support/pronamic-pay-koppelen-met-targetpay/"
-
-#: vendor/wp-pay-gateways/targetpay/src/Integration.php:55
-msgid "TargetPay"
-msgstr "TargetPay"
-
-#: vendor/wp-pay-gateways/targetpay/src/Integration.php:64
-msgid "Layout Code"
-msgstr "Layout code"
-
-#: vendor/wp-pay-gateways/targetpay/src/Integration.php:66
-msgid ""
-"Layout code as mentioned at <strong>Sub accounts</strong> in the TargetPay "
-"dashboard."
-msgstr ""
-"Layout code zoals vermeld in het TargetPay dashboard op de pagina \"Mijn "
-"account » Subaccounts\"."
 
 #: vendor/wp-pay/core/src/Admin/AdminAboutPage.php:69
 msgid "About Pronamic Pay"
@@ -7630,6 +7613,19 @@ msgstr "Je wordt doorgestuurd naar de online betaalomgeving."
 #: views/redirect-via-html.php:58
 msgid "Please click the button below if you are not automatically redirected."
 msgstr "Klik op de knop als de doorsturing niet automatisch wordt uitgevoerd."
+
+#~ msgid "TargetPay"
+#~ msgstr "TargetPay"
+
+#~ msgid "Layout Code"
+#~ msgstr "Layout code"
+
+#~ msgid ""
+#~ "Layout code as mentioned at <strong>Sub accounts</strong> in the "
+#~ "TargetPay dashboard."
+#~ msgstr ""
+#~ "Layout code zoals vermeld in het TargetPay dashboard op de pagina \"Mijn "
+#~ "account » Subaccounts\"."
 
 #~ msgid "Fundraising Progress Circle"
 #~ msgstr "Geldinzameling-voortgang (cirkel)"
