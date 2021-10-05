@@ -33,7 +33,6 @@ $organisations = array(
 		'ideal'              => 'iDEAL',
 		'ideal-advanced-v3'  => 'iDEAL Advanced v3',
 		'ideal-basic'        => 'iDEAL Basic',
-		'ing-kassa-compleet' => 'ING Kassa Compleet',
 		'mollie'             => 'Mollie',
 		'multisafepay'       => 'MultiSafepay',
 		'ogone'              => 'Ingenico',
