@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2021-10-12T14:42:05+00:00\n"
-"PO-Revision-Date: 2021-10-01 08:58+0200\n"
+"PO-Revision-Date: 2021-10-12 16:48+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -5453,15 +5453,13 @@ msgid "Enable debug mode"
 msgstr "Schakel foutopsporingsmodus in"
 
 #: vendor/wp-pay/core/src/Admin/AdminSettings.php:138
-#, fuzzy
 msgid "Disable Recurring Payments"
-msgstr "Terugkerende betaling"
+msgstr "Terugkerende betalingen uitschakelen"
 
 #: vendor/wp-pay/core/src/Admin/AdminSettings.php:143
 #: vendor/wp-pay/core/src/Admin/AdminSettings.php:144
-#, fuzzy
 msgid "Disable starting recurring payments at gateway"
-msgstr "Terugbetalen via betalingsprovider"
+msgstr "Schakel het starten van terugkerende betalingen bij gateway uit"
 
 #: vendor/wp-pay/core/src/Admin/AdminSettings.php:187
 msgid ""
@@ -6377,12 +6375,14 @@ msgstr "Abonnement vernieuwing op %s."
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:1377
 msgid "Unable to start recurring payment. Will not try again. Error: %s"
 msgstr ""
+"Kan terugkerende betaling niet starten. Zal niet opnieuw proberen. Fout: %s"
 
 #. translators: 1: Retry time, 2: Exception message.
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:1386
-#, fuzzy
 msgid "Unable to start recurring payment. Retry on %1$s. Error: %2$s"
-msgstr "Kan betaling niet aanmaken bij gateway: %1$s%2$s"
+msgstr ""
+"Kan terugkerende betaling niet starten. Probeer het opnieuw op %1$s. Fout: "
+"%2$s"
 
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:1651
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:1669
@@ -7472,7 +7472,7 @@ msgstr "PHP versie"
 
 #: vendor/wp-pay/core/views/tab-system_status.php:122
 msgid "Unable to get the current PHP version."
-msgstr ""
+msgstr "Kan de huidige PHP-versie niet ophalen."
 
 #: vendor/wp-pay/core/views/tab-system_status.php:129
 msgid "Pronamic Pay requires PHP 5.2 or above."
@@ -7521,7 +7521,7 @@ msgstr "cURL"
 
 #: vendor/wp-pay/core/views/tab-system_status.php:271
 msgid "Unable to get the current cURL version."
-msgstr ""
+msgstr "Kan de huidige cURL-versie niet ophalen."
 
 #: vendor/wp-pay/core/views/tab-system_status.php:287
 msgid "OpenSSL"
@@ -7620,7 +7620,6 @@ msgid "Please click the button below if you are not automatically redirected."
 msgstr "Klik op de knop als de doorsturing niet automatisch wordt uitgevoerd."
 
 #: vendor/wp-pay/core/js/dist/blocks/payment-form/block.json
-#, fuzzy
 msgctxt "block title"
 msgid "Payment Form"
 msgstr "Betalingsformulier"
