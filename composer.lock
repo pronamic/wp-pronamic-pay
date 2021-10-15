@@ -628,6 +628,45 @@
             "time": "2019-10-24T09:23:47+00:00"
         },
         {
+            "name": "woocommerce/action-scheduler",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/woocommerce/action-scheduler.git",
+                "reference": "5588a831cd2453ecf7d4803f3a81063e13cde93d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/woocommerce/action-scheduler/zipball/5588a831cd2453ecf7d4803f3a81063e13cde93d",
+                "reference": "5588a831cd2453ecf7d4803f3a81063e13cde93d",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.5",
+                "woocommerce/woocommerce-sniffs": "0.1.0",
+                "wp-cli/wp-cli": "~2.5.0"
+            },
+            "type": "wordpress-plugin",
+            "extra": {
+                "scripts-description": {
+                    "test": "Run unit tests",
+                    "phpcs": "Analyze code against the WordPress coding standards with PHP_CodeSniffer",
+                    "phpcbf": "Fix coding standards warnings/errors automatically with PHP Code Beautifier"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Action Scheduler for WordPress and WooCommerce",
+            "homepage": "https://actionscheduler.org/",
+            "support": {
+                "issues": "https://github.com/woocommerce/action-scheduler/issues",
+                "source": "https://github.com/woocommerce/action-scheduler/tree/3.3.0"
+            },
+            "time": "2021-09-15T21:08:48+00:00"
+        },
+        {
             "name": "wp-pay-extensions/charitable",
             "version": "dev-develop",
             "source": {
@@ -2189,12 +2228,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "63a576dbd013511d8ea1496f61e430ce70745b00"
+                "reference": "e7eb71638e6bcd412f7c150f41d39e55b25fb0ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/63a576dbd013511d8ea1496f61e430ce70745b00",
-                "reference": "63a576dbd013511d8ea1496f61e430ce70745b00",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/e7eb71638e6bcd412f7c150f41d39e55b25fb0ac",
+                "reference": "e7eb71638e6bcd412f7c150f41d39e55b25fb0ac",
                 "shasum": ""
             },
             "require": {
@@ -2253,7 +2292,7 @@
                 "issues": "https://github.com/wp-pay-gateways/mollie/issues",
                 "source": "https://github.com/wp-pay-gateways/mollie"
             },
-            "time": "2021-10-11T07:18:53+00:00"
+            "time": "2021-10-15T12:30:33+00:00"
         },
         {
             "name": "wp-pay-gateways/multisafepay",
@@ -2770,12 +2809,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pay-core.git",
-                "reference": "e23eb5cb7c82c5ae55d42c0d4abea888a2ee6f2c"
+                "reference": "195ccce63863bcb81f012beb356fb59fd4ac5d1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/e23eb5cb7c82c5ae55d42c0d4abea888a2ee6f2c",
-                "reference": "e23eb5cb7c82c5ae55d42c0d4abea888a2ee6f2c",
+                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/195ccce63863bcb81f012beb356fb59fd4ac5d1b",
+                "reference": "195ccce63863bcb81f012beb356fb59fd4ac5d1b",
                 "shasum": ""
             },
             "require": {
@@ -2789,7 +2828,8 @@
                 "pronamic/wp-http": "^1.0",
                 "pronamic/wp-money": "^2.0",
                 "pronamic/wp-number": "^1.0",
-                "viison/address-splitter": "^0.3.4"
+                "viison/address-splitter": "^0.3.4",
+                "woocommerce/action-scheduler": "^3.3"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
@@ -2806,13 +2846,21 @@
             },
             "default-branch": true,
             "type": "library",
+            "extra": {
+                "installer-paths": {
+                    "packages/{$name}": [
+                        "woocommerce/action-scheduler"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Pronamic\\WordPress\\Pay\\": "src/"
                 },
                 "files": [
                     "includes/functions.php",
-                    "includes/xmlseclibs/xmlseclibs-ing.php"
+                    "includes/xmlseclibs/xmlseclibs-ing.php",
+                    "packages/action-scheduler/action-scheduler.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2848,7 +2896,7 @@
                 "issues": "https://github.com/wp-pay/core/issues",
                 "source": "https://github.com/wp-pay/core"
             },
-            "time": "2021-10-12T10:01:06+00:00"
+            "time": "2021-10-15T12:40:07+00:00"
         },
         {
             "name": "wp-pay/fundraising",
