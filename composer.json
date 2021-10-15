@@ -49,6 +49,7 @@
 		"pronamic/wp-datetime": "dev-develop as 1.2",
 		"pronamic/wp-money": "dev-develop as 2.0",
 		"pronamic/wp-number": "dev-develop as 1.0",
+		"woocommerce/action-scheduler": "^3.3",
 		"wp-pay-extensions/charitable": "dev-develop as 3.0",
 		"wp-pay-extensions/contact-form-7": "dev-develop as 2.0",
 		"wp-pay-extensions/easy-digital-downloads": "dev-develop as 3.0",
@@ -91,6 +92,13 @@
 		"pronamic/wp-coding-standards": "^1.0",
 		"roots/wordpress": "^5.8",
 		"wp-phpunit/wp-phpunit": "^5.8"
+	},
+	"extra": {
+		"installer-paths": {
+			"packages/{$name}": [
+				"woocommerce/action-scheduler"
+			]
+		}
 	},
 	"scripts": {
 		"coveralls": "vendor/bin/php-coveralls -v",

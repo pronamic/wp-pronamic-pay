@@ -51,10 +51,11 @@ if ( is_readable( $autoload_after ) ) {
  */
 \Pronamic\WordPress\Pay\Plugin::instance(
 	array(
-		'file'    => __FILE__,
-		'options' => array(
+		'file'             => __FILE__,
+		'options'          => array(
 			'about_page_file' => __DIR__ . '/admin/page-about.php',
 		),
+		'action_scheduler' => __DIR__ . '/packages/action-scheduler/action-scheduler.php',
 	)
 );
 

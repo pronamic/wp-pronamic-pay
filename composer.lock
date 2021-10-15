@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc1136da7477f0faac5bc4c43dcb5ebf",
+    "content-hash": "7ca32f4bc2ac3966a94c82ffb546fb57",
     "packages": [
         {
             "name": "composer/installers",
@@ -2228,12 +2228,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "e7eb71638e6bcd412f7c150f41d39e55b25fb0ac"
+                "reference": "2de508179b2ab591f8926eb3a7d0ee8a4308dfec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/e7eb71638e6bcd412f7c150f41d39e55b25fb0ac",
-                "reference": "e7eb71638e6bcd412f7c150f41d39e55b25fb0ac",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/2de508179b2ab591f8926eb3a7d0ee8a4308dfec",
+                "reference": "2de508179b2ab591f8926eb3a7d0ee8a4308dfec",
                 "shasum": ""
             },
             "require": {
@@ -2292,7 +2292,7 @@
                 "issues": "https://github.com/wp-pay-gateways/mollie/issues",
                 "source": "https://github.com/wp-pay-gateways/mollie"
             },
-            "time": "2021-10-15T12:30:33+00:00"
+            "time": "2021-10-15T12:47:03+00:00"
         },
         {
             "name": "wp-pay-gateways/multisafepay",
@@ -2809,12 +2809,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pay-core.git",
-                "reference": "195ccce63863bcb81f012beb356fb59fd4ac5d1b"
+                "reference": "5b8ab9fa3e3ac2adaf83aa18085728e473032441"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/195ccce63863bcb81f012beb356fb59fd4ac5d1b",
-                "reference": "195ccce63863bcb81f012beb356fb59fd4ac5d1b",
+                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/5b8ab9fa3e3ac2adaf83aa18085728e473032441",
+                "reference": "5b8ab9fa3e3ac2adaf83aa18085728e473032441",
                 "shasum": ""
             },
             "require": {
@@ -2846,21 +2846,13 @@
             },
             "default-branch": true,
             "type": "library",
-            "extra": {
-                "installer-paths": {
-                    "packages/{$name}": [
-                        "woocommerce/action-scheduler"
-                    ]
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Pronamic\\WordPress\\Pay\\": "src/"
                 },
                 "files": [
                     "includes/functions.php",
-                    "includes/xmlseclibs/xmlseclibs-ing.php",
-                    "packages/action-scheduler/action-scheduler.php"
+                    "includes/xmlseclibs/xmlseclibs-ing.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2896,7 +2888,7 @@
                 "issues": "https://github.com/wp-pay/core/issues",
                 "source": "https://github.com/wp-pay/core"
             },
-            "time": "2021-10-15T12:40:07+00:00"
+            "time": "2021-10-15T13:03:03+00:00"
         },
         {
             "name": "wp-pay/fundraising",
