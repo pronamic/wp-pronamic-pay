@@ -2,7 +2,7 @@
 Contributors: pronamic, remcotolsma 
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
-Requires at least: 4.7
+Requires at least: 5.2
 Tested up to: 5.8
 Requires PHP: 5.6
 Stable tag: 8.0.0-alpha.2
