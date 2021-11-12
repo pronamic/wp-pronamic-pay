@@ -115,6 +115,14 @@ foreach ( $organisations as $organisation => $repositories ) {
 
 		$command = null;
 
+		if ( isset( $argv[1] ) ) {
+			$args = $argv;
+
+			array_shift( $args );
+
+			$command = implode( ' ', $args );
+		}
+
 		if ( isset( $argv[1] ) && 'develop' === $argv[1] ) {
 			$command = 'git checkout develop';
 		}
@@ -201,14 +209,6 @@ foreach ( $organisations as $organisation => $repositories ) {
 				git rev-parse --verify --quiet master && git push origin master && echo ""
 				git rev-parse --verify --quiet main && git push origin main && echo ""
 				git push origin develop';
-		}
-
-		if ( isset( $argv[1] ) && in_array( $argv[1], array( 'git', 'grunt', 'composer', 'npm', 'ncu' ), true ) ) {
-			if ( isset( $argv[2] ) ) {
-				$command = sprintf( '%s %s', $argv[1], $argv[2] );
-			} else {
-				$command = sprintf( '%s', $argv[1] );
-			}
 		}
 
 		if ( null !== $command ) {
