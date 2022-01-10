@@ -60,6 +60,34 @@ if ( is_readable( $autoload_after ) ) {
 );
 
 add_filter(
+	'pronamic_pay_removed_extension_notifications',
+	function( $notifications ) {
+		$notifications[] = new \Pronamic\WordPress\Pay\Admin\AdminNotification(
+			'removed-extension-active-event-espresso-legacy',
+			\__( 'Event Espresso 3', 'pronamic_ideal' ),
+			\defined( '\EVENT_ESPRESSO_VERSION' ) && \version_compare( \EVENT_ESPRESSO_VERSION, '4.0.0', '<' ),
+			'8'
+		);
+
+		$notifications[] = new \Pronamic\WordPress\Pay\Admin\AdminNotification(
+			'removed-extension-active-s2member',
+			\__( 's2Member', 'pronamic_ideal' ),
+			\defined( '\WS_PLUGIN__S2MEMBER_VERSION' ),
+			'8'
+		);
+
+		$notifications[] = new \Pronamic\WordPress\Pay\Admin\AdminNotification(
+			'removed-extension-active-wp-e-commerce',
+			\__( 'WP eCommerce', 'pronamic_ideal' ),
+			\class_exists( '\WP_eCommerce' ),
+			'8'
+		);
+
+		return $notifications;
+	}
+);
+
+add_filter(
 	'pronamic_pay_plugin_integrations',
 	function( $integrations ) {
 		// Charitable.
