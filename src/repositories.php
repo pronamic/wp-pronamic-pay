@@ -47,16 +47,13 @@ $organisations = array(
 		'contact-form-7'         => 'Contact Form 7',
 		'easy-digital-downloads' => 'Easy Digital Downloads',
 		'event-espresso'         => 'Event Espresso',
-		'event-espresso-legacy'  => 'Event Espresso (legacy)',
 		'formidable-forms'       => 'Formidable Forms',
 		'give'                   => 'Give',
 		'gravityforms'           => 'Gravity Forms',
 		'memberpress'            => 'MemberPress',
 		'ninjaforms'             => 'Ninja Forms',
 		'restrict-content-pro'   => 'Restrict Content Pro',
-		's2member'               => 's2Member',
 		'woocommerce'            => 'WooCommerce',
-		'wp-e-commerce'          => 'WP eCommerce',
 	),
 );
 

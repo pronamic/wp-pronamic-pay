@@ -97,7 +97,6 @@ add_filter(
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension();
 
 		// Event Espresso.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EventEspressoLegacy\Extension();
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension();
 
 		// Give.
@@ -193,12 +192,6 @@ add_filter(
 				),
 			)
 		);
-
-		// s2Member.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\S2Member\Extension();
-
-		// WP e-Commerce.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WPeCommerce\Extension();
 
 		// Return integrations.
 		return $integrations;
