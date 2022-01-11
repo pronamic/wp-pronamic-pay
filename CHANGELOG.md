@@ -8,6 +8,18 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [8.0.0-alpha.4] - 2022-01-11
 
+### Removed
+- Removed support for Event Espresso 3 → https://www.pronamic.eu/pronamic-pay-support-for-event-espresso-3-removed/.
+- Removed support for s2Member → https://www.pronamic.eu/pronamic-pay-support-for-s2member-removed/.
+- Removed support for WP eCommerce → https://www.pronamic.eu/pronamic-pay-support-for-wp-ecommerce-removed/.
+
+### Changed
+- Updated WordPress core library to version `4.0.0`.
+- Refactored subscription follow-up payments processes.
+- Increased WordPress requirement to version `5.2` or higher.
+- Updated all extension libraries → https://github.com/wp-pay-extensions.
+- Updated all gateway libraries → https://github.com/wp-pay-gateways.
+
 ### Added
 - Added https://actionscheduler.org/ library for subscription processes.
 - Added payment method icon to amount column and info meta boxes.
