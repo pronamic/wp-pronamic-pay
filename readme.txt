@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.2
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 8.0.0-alpha.3
+Stable tag: 8.0.0-alpha.4
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -114,10 +114,12 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
-= 8.0.0 - 2022-01-10 =
-*	Removed support for Event Espresso 3 → https://www.pronamic.eu/pronamic-pay-support-for-event-espresso-3-removed/.
-*	Removed support for s2Member → https://www.pronamic.eu/pronamic-pay-support-for-s2member-removed/.
-*	Removed support for WP eCommerce → https://www.pronamic.eu/pronamic-pay-support-for-wp-ecommerce-removed/.
+= 8.0.0-alpha.4 - 2022-01-11 =
+*	Added https://actionscheduler.org/ library for subscription processes.
+*	Added payment method icon to amount column and info meta boxes.
+*	Added BLIK payment method.
+*	Added MB WAY payment method.
+*	Added TWINT payment method.
 
 = 7.0.2 - 2021-09-30 =
 *	Updated WordPress core library to version `3.2.0`.

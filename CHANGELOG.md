@@ -6,12 +6,14 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [8.0.0] - 2022-01-10
+## [8.0.0-alpha.4] - 2022-01-11
 
-### Removed
-- Removed support for Event Espresso 3 → https://www.pronamic.eu/pronamic-pay-support-for-event-espresso-3-removed/.
-- Removed support for s2Member → https://www.pronamic.eu/pronamic-pay-support-for-s2member-removed/.
-- Removed support for WP eCommerce → https://www.pronamic.eu/pronamic-pay-support-for-wp-ecommerce-removed/.
+### Added
+- Added https://actionscheduler.org/ library for subscription processes.
+- Added payment method icon to amount column and info meta boxes.
+- Added BLIK payment method.
+- Added MB WAY payment method.
+- Added TWINT payment method.
 
 ## [7.0.2] - 2021-09-30
 
@@ -2982,8 +2984,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.0.0...HEAD
-[8.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.2...8.0.0
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.0.0-alpha.4...HEAD
+[8.0.0-alpha.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.2...8.0.0-alpha.4
 [7.0.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.1...7.0.2
 [7.0.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.0...7.0.1
 [7.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/6.9.6...7.0.0
