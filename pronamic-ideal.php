@@ -215,7 +215,10 @@ add_filter(
 				),
 				'acquirer_url'      => 'https://abnamro.ideal-payment.de/ideal/iDEALv3',
 				'acquirer_test_url' => 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3',
-				'certificates'      => array(),
+				'certificates'      => array(
+					__DIR__ . '/certificates/abnamro-2017-01-26-2022-01-25.cer',
+					__DIR__ . '/certificates/abnamro-2021-10-01-2026-09-30.cer',
+				),
 			)
 		);
 
@@ -254,7 +257,9 @@ add_filter(
 				'product_url'       => 'https://www.ideal-checkout.nl/support/ideal-simulator',
 				'acquirer_url'      => 'https://www.ideal-checkout.nl/simulator/',
 				'acquirer_test_url' => null,
-				'certificates'      => array(),
+				'certificates'      => array(
+					__DIR__ . '/certificates/ideal-checkout-2019-02-27-2024-02-26.cer',
+				),
 			)
 		);
 
@@ -289,7 +294,10 @@ add_filter(
 				),
 				'acquirer_url'      => 'https://ideal.secure-ing.com/ideal/iDEALv3',
 				'acquirer_test_url' => 'https://idealtest.secure-ing.com/ideal/iDEALv3',
-				'certificates'      => array(),
+				'certificates'      => array(
+					__DIR__ . '/certificates/ing-2017-01-26-2022-01-25.cer',
+					__DIR__ . '/certificates/ing-2021-10-01-2016-09-30.cer',
+				),
 			)
 		);
 
@@ -345,7 +353,10 @@ add_filter(
 				),
 				'acquirer_url'      => 'https://ideal.rabobank.nl/ideal/iDEALv3',
 				'acquirer_test_url' => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
-				'certificates'      => array(),
+				'certificates'      => array(
+					__DIR__ . '/certificates/rabobank-2017-01-26-2022-01-25.cer',
+					__DIR__ . '/certificates/rabobank-2021-10-01-2026-09-30.cer',
+				),
 			)
 		);
 
