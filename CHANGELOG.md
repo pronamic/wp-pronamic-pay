@@ -26,6 +26,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Added BLIK payment method.
 - Added MB WAY payment method.
 - Added TWINT payment method.
+- Added new ABN ARMO signing certificate for iDEAL (valid until 29-09-2026).
+- Added new ING signing certificate for iDEAL (valid until 29-09-2026).
+- Added new Rabobank signing certificate for iDEAL (valid until 29-09-2026).
 
 ## [7.0.2] - 2021-09-30
 
