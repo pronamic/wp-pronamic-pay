@@ -26,7 +26,7 @@ Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurrin
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
 Requires at least: 5.2
 Tested up to: 5.8
-Requires PHP: 5.6
+Requires PHP: 7.4
 Stable tag: <?php echo $pkg->version, "\r\n"; ?>
 
 <?php require __DIR__ . '/../general/description-short.php'; ?>
