@@ -2,10 +2,10 @@
 Contributors: pronamic, remcotolsma 
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
-Requires at least: 4.7
+Requires at least: 5.2
 Tested up to: 5.8
-Requires PHP: 5.6
-Stable tag: 7.0.2
+Requires PHP: 7.4
+Stable tag: 8.0.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -31,8 +31,6 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	[Charitable](https://www.wpcharitable.com/)
 *	[Contact Form 7](https://contactform7.com/) (requires [Basic license](https://www.pronamic.eu/plugins/pronamic-pay/))
 *	[Easy Digital Downloads](https://easydigitaldownloads.com/)
-*	[Event Espresso 3](https://eventespresso.com/)
-*	[Event Espresso 3 Lite](https://eventespresso.com/)
 *	[Event Espresso 4](https://eventespresso.com/)
 *	[Event Espresso 4 Decaf](https://eventespresso.com/)
 *	[Formidable Forms](https://formidableforms.com/)
@@ -46,9 +44,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	[MemberPress](https://www.memberpress.com/)
 *	[Ninja Forms](https://ninjaforms.com/)
 *	[Restrict Content Pro](https://restrictcontentpro.com/)
-*	[s2Member®](https://s2member.com/)
 *	[WooCommerce](https://woocommerce.com/)
-*	[WP e-Commerce](https://wpecommerce.org/)
 
 = Supported payment providers =
 
@@ -118,6 +114,24 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 8.0.0 - 2022-01-13 =
+*	Removed support for Event Espresso 3 → https://www.pronamic.eu/pronamic-pay-support-for-event-espresso-3-removed/.
+*	Removed support for s2Member → https://www.pronamic.eu/pronamic-pay-support-for-s2member-removed/.
+*	Removed support for WP eCommerce → https://www.pronamic.eu/pronamic-pay-support-for-wp-ecommerce-removed/.
+*	Updated WordPress core library to version `4.0.0`.
+*	Refactored subscription follow-up payments processes.
+*	Increased WordPress requirement to version `5.2` or higher.
+*	Updated all extension libraries → https://github.com/wp-pay-extensions.
+*	Updated all gateway libraries → https://github.com/wp-pay-gateways.
+*	Added https://actionscheduler.org/ library for subscription processes.
+*	Added payment method icon to amount column and info meta boxes.
+*	Added BLIK payment method.
+*	Added MB WAY payment method.
+*	Added TWINT payment method.
+*	Added new ABN ARMO signing certificate for iDEAL (valid until 29-09-2026).
+*	Added new ING signing certificate for iDEAL (valid until 29-09-2026).
+*	Added new Rabobank signing certificate for iDEAL (valid until 29-09-2026).
+
 = 7.0.2 - 2021-09-30 =
 *	Updated WordPress core library to version `3.2.0`.
 	*	Start using `<input type="number">` in payment forms en test meta box.
@@ -174,12 +188,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 = 6.9.6 - 2021-08-24 =
 *	Updated WordPress pay Pay.nl library to version `3.0.1`
 	*	Fixed "Fatal error: Uncaught Error: Call to undefined method Pronamic\WordPress\Money\Money::get_including_tax()".
-
-= 6.9.5 - 2021-08-19 =
-*	Updated WordPress pay Adyen library to version `2.0.2`: https://github.com/wp-pay-gateways/adyen/releases/tag/2.0.2.
-	*	Adyen drop-in gateway supports Klarna Pay Later payment method.
-*	Updated WordPress pay MemberPress library to version `3.0.3`: https://github.com/wp-pay-extensions/memberpress/releases/tag/3.0.3.
-	*	Added Giropay gateway.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

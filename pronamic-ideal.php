@@ -4,8 +4,8 @@
  * Plugin URI: https://www.pronamic.eu/plugins/pronamic-pay/
  * Description: The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
  *
- * Version: 7.0.2
- * Requires at least: 4.7
+ * Version: 8.0.0
+ * Requires at least: 5.2
  *
  * Author: Pronamic
  * Author URI: https://www.pronamic.eu/
@@ -20,7 +20,7 @@
  * GitHub URI: https://github.com/pronamic/wp-pronamic-pay
  *
  * @author    Pronamic <info@pronamic.eu>
- * @copyright 2005-2021 Pronamic
+ * @copyright 2005-2022 Pronamic
  * @license   GPL-3.0-or-later
  * @package   Pronamic\WordPress\Pay
  */
@@ -51,11 +51,40 @@ if ( is_readable( $autoload_after ) ) {
  */
 \Pronamic\WordPress\Pay\Plugin::instance(
 	array(
-		'file'    => __FILE__,
-		'options' => array(
+		'file'             => __FILE__,
+		'options'          => array(
 			'about_page_file' => __DIR__ . '/admin/page-about.php',
 		),
+		'action_scheduler' => __DIR__ . '/packages/action-scheduler/action-scheduler.php',
 	)
+);
+
+add_filter(
+	'pronamic_pay_removed_extension_notifications',
+	function( $notifications ) {
+		$notifications[] = new \Pronamic\WordPress\Pay\Admin\AdminNotification(
+			'removed-extension-active-event-espresso-legacy',
+			\__( 'Event Espresso 3', 'pronamic_ideal' ),
+			\defined( '\EVENT_ESPRESSO_VERSION' ) && \version_compare( \EVENT_ESPRESSO_VERSION, '4.0.0', '<' ),
+			'8'
+		);
+
+		$notifications[] = new \Pronamic\WordPress\Pay\Admin\AdminNotification(
+			'removed-extension-active-s2member',
+			\__( 's2Member', 'pronamic_ideal' ),
+			\defined( '\WS_PLUGIN__S2MEMBER_VERSION' ),
+			'8'
+		);
+
+		$notifications[] = new \Pronamic\WordPress\Pay\Admin\AdminNotification(
+			'removed-extension-active-wp-e-commerce',
+			\__( 'WP eCommerce', 'pronamic_ideal' ),
+			\class_exists( '\WP_eCommerce' ),
+			'8'
+		);
+
+		return $notifications;
+	}
 );
 
 add_filter(
@@ -68,7 +97,6 @@ add_filter(
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension();
 
 		// Event Espresso.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EventEspressoLegacy\Extension();
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension();
 
 		// Give.
@@ -165,12 +193,6 @@ add_filter(
 			)
 		);
 
-		// s2Member.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\S2Member\Extension();
-
-		// WP e-Commerce.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WPeCommerce\Extension();
-
 		// Return integrations.
 		return $integrations;
 	}
@@ -193,7 +215,10 @@ add_filter(
 				),
 				'acquirer_url'      => 'https://abnamro.ideal-payment.de/ideal/iDEALv3',
 				'acquirer_test_url' => 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3',
-				'certificates'      => array(),
+				'certificates'      => array(
+					__DIR__ . '/certificates/abnamro-2017-01-26-2022-01-25.cer',
+					__DIR__ . '/certificates/abnamro-2021-10-01-2026-09-30.cer',
+				),
 			)
 		);
 
@@ -232,7 +257,9 @@ add_filter(
 				'product_url'       => 'https://www.ideal-checkout.nl/support/ideal-simulator',
 				'acquirer_url'      => 'https://www.ideal-checkout.nl/simulator/',
 				'acquirer_test_url' => null,
-				'certificates'      => array(),
+				'certificates'      => array(
+					__DIR__ . '/certificates/ideal-checkout-2019-02-27-2024-02-26.cer',
+				),
 			)
 		);
 
@@ -267,7 +294,10 @@ add_filter(
 				),
 				'acquirer_url'      => 'https://ideal.secure-ing.com/ideal/iDEALv3',
 				'acquirer_test_url' => 'https://idealtest.secure-ing.com/ideal/iDEALv3',
-				'certificates'      => array(),
+				'certificates'      => array(
+					__DIR__ . '/certificates/ing-2017-01-26-2022-01-25.cer',
+					__DIR__ . '/certificates/ing-2021-10-01-2016-09-30.cer',
+				),
 			)
 		);
 
@@ -323,7 +353,10 @@ add_filter(
 				),
 				'acquirer_url'      => 'https://ideal.rabobank.nl/ideal/iDEALv3',
 				'acquirer_test_url' => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
-				'certificates'      => array(),
+				'certificates'      => array(
+					__DIR__ . '/certificates/rabobank-2017-01-26-2022-01-25.cer',
+					__DIR__ . '/certificates/rabobank-2021-10-01-2026-09-30.cer',
+				),
 			)
 		);
 
@@ -345,7 +378,18 @@ add_filter(
 		);
 
 		// TargetPay.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\TargetPay\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\DigiWallet\Integration(
+			array(
+				'id'            => 'targetpay-ideal',
+				'name'          => 'TargetPay',
+				'product_url'   => \__( 'https://www.targetpay.com/info/ideal?setlang=en', 'pronamic_ideal' ),
+				'dashboard_url' => 'https://www.targetpay.com/login',
+				'provider'      => 'targetpay',
+				'manual_url'    => \__( 'https://www.pronamic.eu/support/how-to-connect-targetpay-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'deprecated'    => true,
+				'meta_key_rtlo' => 'targetpay_layoutcode',
+			)
+		);
 
 		// Return gateways.
 		return $gateways;

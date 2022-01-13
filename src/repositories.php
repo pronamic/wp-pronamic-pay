@@ -3,7 +3,7 @@
  * Repositories.
  *
  * @author    Pronamic <info@pronamic.eu>
- * @copyright 2005-2021 Pronamic
+ * @copyright 2005-2022 Pronamic
  * @license   GPL-3.0-or-later
  * @package   Pronamic\WordPress\Pay
  */
@@ -22,6 +22,7 @@ $organisations = array(
 		'wp-pay-core'                 => 'core',
 		'wp-pay-logos'                => 'Logos',
 		'wp-pronamic-pay-fundraising' => 'Fundraising',
+		'wp-gravityforms-nl'          => 'Gravity Forms (nl)',
 	),
 	'wp-pay-gateways'   => array(
 		'adyen'              => 'Adyen',
@@ -32,7 +33,6 @@ $organisations = array(
 		'ideal'              => 'iDEAL',
 		'ideal-advanced-v3'  => 'iDEAL Advanced v3',
 		'ideal-basic'        => 'iDEAL Basic',
-		'ing-kassa-compleet' => 'ING Kassa Compleet',
 		'mollie'             => 'Mollie',
 		'multisafepay'       => 'MultiSafepay',
 		'ogone'              => 'Ingenico',
@@ -41,23 +41,19 @@ $organisations = array(
 		'paypal'             => 'PayPal',
 		'payvision'          => 'Payvision',
 		'sisow'              => 'Sisow',
-		'targetpay'          => 'TargetPay',
 	),
 	'wp-pay-extensions' => array(
 		'charitable'             => 'Charitable',
 		'contact-form-7'         => 'Contact Form 7',
 		'easy-digital-downloads' => 'Easy Digital Downloads',
 		'event-espresso'         => 'Event Espresso',
-		'event-espresso-legacy'  => 'Event Espresso (legacy)',
 		'formidable-forms'       => 'Formidable Forms',
 		'give'                   => 'Give',
 		'gravityforms'           => 'Gravity Forms',
 		'memberpress'            => 'MemberPress',
 		'ninjaforms'             => 'Ninja Forms',
 		'restrict-content-pro'   => 'Restrict Content Pro',
-		's2member'               => 's2Member',
 		'woocommerce'            => 'WooCommerce',
-		'wp-e-commerce'          => 'WP eCommerce',
 	),
 );
 
@@ -115,6 +111,14 @@ foreach ( $organisations as $organisation => $repositories ) {
 		chdir( $git_dir );
 
 		$command = null;
+
+		if ( isset( $argv[1] ) ) {
+			$args = $argv;
+
+			array_shift( $args );
+
+			$command = implode( ' ', $args );
+		}
 
 		if ( isset( $argv[1] ) && 'develop' === $argv[1] ) {
 			$command = 'git checkout develop';
@@ -202,14 +206,6 @@ foreach ( $organisations as $organisation => $repositories ) {
 				git rev-parse --verify --quiet master && git push origin master && echo ""
 				git rev-parse --verify --quiet main && git push origin main && echo ""
 				git push origin develop';
-		}
-
-		if ( isset( $argv[1] ) && in_array( $argv[1], array( 'git', 'grunt', 'composer', 'npm', 'ncu' ), true ) ) {
-			if ( isset( $argv[2] ) ) {
-				$command = sprintf( '%s %s', $argv[1], $argv[2] );
-			} else {
-				$command = sprintf( '%s', $argv[1] );
-			}
 		}
 
 		if ( null !== $command ) {

@@ -4,6 +4,43 @@
 		"changes": {}
 	},
 	{
+		"version": "8.0.0",
+		"date": "2022-01-13",
+		"changes": [
+			{
+				"name": "Removed",
+				"changes": [
+					"Removed support for Event Espresso 3 → https://www.pronamic.eu/pronamic-pay-support-for-event-espresso-3-removed/.",
+					"Removed support for s2Member → https://www.pronamic.eu/pronamic-pay-support-for-s2member-removed/.",
+					"Removed support for WP eCommerce → https://www.pronamic.eu/pronamic-pay-support-for-wp-ecommerce-removed/."
+				]
+			},
+			{
+				"name": "Changed",
+				"changes": [
+					"Updated WordPress core library to version `4.0.0`.",
+					"Refactored subscription follow-up payments processes.",
+					"Increased WordPress requirement to version `5.2` or higher.",
+					"Updated all extension libraries → https://github.com/wp-pay-extensions.",
+					"Updated all gateway libraries → https://github.com/wp-pay-gateways."
+				]
+			},
+			{
+				"name": "Added",
+				"changes": [
+					"Added https://actionscheduler.org/ library for subscription processes.",
+					"Added payment method icon to amount column and info meta boxes.",
+					"Added BLIK payment method.",
+					"Added MB WAY payment method.",
+					"Added TWINT payment method.",
+					"Added new ABN ARMO signing certificate for iDEAL (valid until 29-09-2026).",
+					"Added new ING signing certificate for iDEAL (valid until 29-09-2026).",
+					"Added new Rabobank signing certificate for iDEAL (valid until 29-09-2026)."
+				]
+			}
+		]
+	},
+	{
 		"version": "7.0.2",
 		"date": "2021-09-30",
 		"changes": {
