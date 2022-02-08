@@ -8,7 +8,7 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-if ( ! PRONAMIC_PAY_DEBUG ) {
+if ( ! defined( 'PRONAMIC_PAY_DEBUG' ) || ! PRONAMIC_PAY_DEBUG ) {
 	return;
 }
 

@@ -286,14 +286,14 @@ if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 	);
 
 	// Replace issue references markdown.
-	$json = preg_replace( '/ \[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)/m', ' (\\2/\\3#\\1)', $json );
+	$json = preg_replace( '/ \[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)/m', ' (\\2/\\3#\\1)', (string) $json );
 
-	$json = preg_replace( '/\(\[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)\)/m', '(\\2/\\3#\\1)', $json );
+	$json = preg_replace( '/\(\[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)\)/m', '(\\2/\\3#\\1)', (string) $json );
 
-	$json = preg_replace( '/\(\[(.*?)\/(.*?)#([0-9]+)\]\(.*?\/.*?\/.*?\/issues\/.*?\)\)/m', '(\\1/\\2#\\3)', $json );
+	$json = preg_replace( '/\(\[(.*?)\/(.*?)#([0-9]+)\]\(.*?\/.*?\/.*?\/issues\/.*?\)\)/m', '(\\1/\\2#\\3)', (string) $json );
 
 	// Remove all other issue reference markdown.
-	$json = preg_replace( '/ \[(#[0-9]+)\]\(.*?\/issues\/.*?\)\./m', '.', $json );
+	$json = preg_replace( '/ \[(#[0-9]+)\]\(.*?\/issues\/.*?\)\./m', '.', (string) $json );
 
 	// Write updated changelog.
 	$handle = fopen( __DIR__ . '/changelog.json', 'w+' );

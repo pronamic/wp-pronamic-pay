@@ -16,10 +16,13 @@
 	<exclude-pattern>index.php</exclude-pattern>
 	<exclude-pattern>js/*</exclude-pattern>
 	<exclude-pattern>languages/*</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>other/*</exclude-pattern>
 	<exclude-pattern>packages/*</exclude-pattern>
 	<exclude-pattern>repositories/*</exclude-pattern>
 	<exclude-pattern>tests/bootstrap.php</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>wordpress/*</exclude-pattern>
 
 	<rule ref="PronamicWP">
 		<exclude name="WordPress.DB.DirectDatabaseQuery.DirectQuery" />
