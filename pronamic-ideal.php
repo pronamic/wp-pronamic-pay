@@ -205,7 +205,7 @@ add_filter(
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
 				'id'                => 'abnamro-ideal-zelfbouw-v3',
-				'name'              => 'ABN AMRO - iDEAL Zelfbouw (v3)',
+				'name'              => 'ABN AMRO - iDEAL Zelfbouw',
 				'provider'          => 'abnamro',
 				'url'               => 'https://abnamro.ideal-payment.de/',
 				'product_url'       => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
@@ -229,7 +229,7 @@ add_filter(
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
 				'id'                => 'deutschebank-ideal-expert-v3',
-				'name'              => 'Deutsche Bank - iDEAL Expert (v3)',
+				'name'              => 'Deutsche Bank - iDEAL Expert',
 				'provider'          => 'deutschebank',
 				'product_url'       => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
 				'dashboard_url'     => array(
@@ -284,7 +284,7 @@ add_filter(
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
 				'id'                => 'ing-ideal-advanced-v3',
-				'name'              => 'ING - iDEAL Advanced (v3)',
+				'name'              => 'ING - iDEAL Advanced',
 				'provider'          => 'ing',
 				'product_url'       => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
 				'manual_url'        => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
@@ -343,7 +343,7 @@ add_filter(
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
 				'id'                => 'rabobank-ideal-professional-v3',
-				'name'              => 'Rabobank - iDEAL Professional (v3)',
+				'name'              => 'Rabobank - iDEAL Professional',
 				'provider'          => 'rabobank',
 				'product_url'       => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
 				'manual_url'        => __( 'https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
