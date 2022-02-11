@@ -301,6 +301,27 @@ add_filter(
 			)
 		);
 
+		// ING - iDEAL Advanced (new platform).
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
+			array(
+				'id'                => 'ing-ideal-advanced-2022',
+				'name'              => 'ING - iDEAL Advanced (new platform)',
+				'provider'          => 'ing',
+				'product_url'       => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'manual_url'        => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url'     => array(
+					'test' => 'https://sandbox.ideal-portal.ing.nl/',
+					'live' => 'https://ideal-portal.ing.nl/',
+				),
+				'acquirer_url'      => 'https://ideal-acquiring.ing.nl/ideal/iDEALv3',
+				'acquirer_test_url' => 'https://sandbox.ideal-acquiring.ing.nl/ideal/iDEALv3',
+				'certificates'      => array(
+					__DIR__ . '/certificates/ing-new-2020-03-04-2025-01-17.cer',
+					__DIR__ . '/certificates/ing-new-sandbox-2020-03-04-2025-01-17.cer',
+				),
+			)
+		);
+
 		// Mollie.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration(
 			array(
