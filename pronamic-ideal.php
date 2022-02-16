@@ -230,6 +230,8 @@ add_filter(
 				return ( 'test' === $mode ) ? 'ing-ideal-advanced-2022-sandbox' : 'ing-ideal-advanced-2022-production';
 			case 'rabobank-ideal-professional-v3':
 				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
+			case 'sisow-ideal-basic':
+				return ( 'test' === $mode ) ? 'sisow-ideal-basic-test' : 'sisow-ideal-basic';
 		}
 
 		return $value;
@@ -492,14 +494,27 @@ add_filter(
 		// Sisow - iDEAL Basic.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
 			array(
-				'id'                => 'sisow-ideal-basic',
-				'name'              => 'Sisow - iDEAL Basic',
-				'provider'          => 'sisow',
-				'url'               => 'https://www.sisow.nl/',
-				'dashboard_url'     => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
-				'deprecated'        => true,
-				'acquirer_url'      => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx',
-				'acquirer_test_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test',
+				'id'            => 'sisow-ideal-basic',
+				'name'          => 'Sisow - iDEAL Basic',
+				'mode'          => 'live',
+				'provider'      => 'sisow',
+				'url'           => 'https://www.sisow.nl/',
+				'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
+				'deprecated'    => true,
+				'acquirer_url'  => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx',
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
+			array(
+				'id'            => 'sisow-ideal-basic-test',
+				'name'          => 'Sisow - iDEAL Basic - Test',
+				'mode'          => 'test',
+				'provider'      => 'sisow',
+				'url'           => 'https://www.sisow.nl/',
+				'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
+				'deprecated'    => true,
+				'acquirer_url'  => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test',
 			)
 		);
 
