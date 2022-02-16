@@ -428,13 +428,25 @@ add_filter(
 		// Mollie - iDEAL Basic.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
 			array(
-				'id'                => 'mollie-ideal-basic',
-				'name'              => 'Mollie - iDEAL Basic',
-				'provider'          => 'mollie',
-				'dashboard_url'     => 'http://www.mollie.nl/beheer/',
-				'deprecated'        => true,
-				'acquirer_url'      => 'https://secure.mollie.nl/xml/idealAcquirer/lite/',
-				'acquirer_test_url' => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/',
+				'id'            => 'mollie-ideal-basic',
+				'name'          => 'Mollie - iDEAL Basic',
+				'mode'          => 'live',
+				'provider'      => 'mollie',
+				'dashboard_url' => 'http://www.mollie.nl/beheer/',
+				'deprecated'    => true,
+				'acquirer_url'  => 'https://secure.mollie.nl/xml/idealAcquirer/lite/',
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
+			array(
+				'id'            => 'mollie-ideal-basic',
+				'name'          => 'Mollie - iDEAL Basic - Test',
+				'mode'          => 'test',
+				'provider'      => 'mollie',
+				'dashboard_url' => 'http://www.mollie.nl/beheer/',
+				'deprecated'    => true,
+				'acquirer_url'  => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/',
 			)
 		);
 
