@@ -432,7 +432,7 @@ add_filter(
 				'name'          => 'Mollie - iDEAL Basic',
 				'mode'          => 'live',
 				'provider'      => 'mollie',
-				'dashboard_url' => 'http://www.mollie.nl/beheer/',
+				'dashboard_url' => 'https://www.mollie.com/dashboard/',
 				'deprecated'    => true,
 				'acquirer_url'  => 'https://secure.mollie.nl/xml/idealAcquirer/lite/',
 			)
@@ -444,7 +444,7 @@ add_filter(
 				'name'          => 'Mollie - iDEAL Basic - Test',
 				'mode'          => 'test',
 				'provider'      => 'mollie',
-				'dashboard_url' => 'http://www.mollie.nl/beheer/',
+				'dashboard_url' => 'https://www.mollie.com/dashboard/',
 				'deprecated'    => true,
 				'acquirer_url'  => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/',
 			)
