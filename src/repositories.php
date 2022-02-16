@@ -154,8 +154,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 				git flow release start "${NEW_VERSION}"
 
 				# Update package version number.
-				VERSION_LINENR=$(grep -n "\"version\":" package.json | tail -1 | cut -d: -f1)
-				PACKAGE_JSON=$(cat package.json | sed "${VERSION_LINENR}s/\"${CURRENT_TAG}\"/\"${NEW_VERSION}\"/" | tee package.json)
+				sed -i -e "s/\"version\": \"${CURRENT_TAG}\"/\"version\": \"${NEW_VERSION}\"/g" package.json
 
 				# Update changelog title and add log.
 				TITLE_LINENR=$(grep -n "## \[" CHANGELOG.md | head -2 | tail -1 | cut -d: -f1)
@@ -164,9 +163,9 @@ foreach ( $organisations as $organisation => $repositories ) {
 				ex -s -c "${TITLE_LINENR}i|${TITLE}${LOG}' . str_repeat( \PHP_EOL, 2 ) . '" -c x CHANGELOG.md
 
 				# Update changelog footer links.
+				sed -i -e "s/\/${CURRENT_TAG}...HEAD/\/${NEW_VERSION}...HEAD/g" CHANGELOG.md
 				LINK_LINENR=$(grep -n "\[unreleased\]" CHANGELOG.md | tail -1 | cut -d: -f1)
 				LINK="[${NEW_VERSION}]: https://github.com/' . $organisation . '/' . $repository . '/compare/${CURRENT_TAG}...${NEW_VERSION}"
-				CHANGELOG=$(cat CHANGELOG.MD | sed "${LINK_LINENR}s/${CURRENT_TAG}...HEAD/${NEW_VERSION}...HEAD/" | tee CHANGELOG.md)
 				ex -s -c "$(( ${LINK_LINENR} + 1 ))i|${LINK}" -c x CHANGELOG.md';
 		}
 
