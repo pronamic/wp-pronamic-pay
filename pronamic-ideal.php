@@ -283,13 +283,13 @@ add_filter(
 		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3).
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'                => 'ideal-simulator-ideal-advanced-v3',
-				'name'              => 'iDEAL Simulator - iDEAL Professional / Advanced',
-				'mode'              => 'test',
-				'provider'          => 'ideal-simulator',
-				'product_url'       => 'https://www.ideal-checkout.nl/support/ideal-simulator',
-				'acquirer_url'      => 'https://www.ideal-checkout.nl/simulator/',
-				'certificates'      => array(
+				'id'           => 'ideal-simulator-ideal-advanced-v3',
+				'name'         => 'iDEAL Simulator - iDEAL Professional / Advanced',
+				'mode'         => 'test',
+				'provider'     => 'ideal-simulator',
+				'product_url'  => 'https://www.ideal-checkout.nl/support/ideal-simulator',
+				'acquirer_url' => 'https://www.ideal-checkout.nl/simulator/',
+				'certificates' => array(
 					__DIR__ . '/certificates/ideal-checkout-2019-02-27-2024-02-26.cer',
 				),
 			)
