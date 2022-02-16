@@ -199,6 +199,38 @@ add_filter(
 );
 
 add_filter(
+	'get_post_metadata',
+	function( $value, $post_id, $meta_key, $single ) {
+		static $filter = true;
+
+		if ( false === $filter ) {
+			return $value;
+		}
+
+		if ( '_pronamic_gateway_id' !== $meta_key ) {
+			return $value;
+		}
+
+		$filter = false;
+
+		$value = get_post_meta( $post_id, $meta_key, $single );
+
+		$filter = true;
+
+		$mode = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
+
+		switch ( $value ) {
+			case 'ing-ideal-advanced-2022':
+				return ( 'test' === $mode ) ? 'ing-ideal-advanced-2022-sandbox' : 'ing-ideal-advanced-2022-production';
+		}
+
+		return $value;
+	},
+	10,
+	4
+);
+
+add_filter(
 	'pronamic_pay_gateways',
 	function( $gateways ) {
 		// ABN AMRO - iDEAL Zelfbouw (v3).
@@ -317,6 +349,38 @@ add_filter(
 				'acquirer_test_url' => 'https://sandbox.ideal-acquiring.ing.nl/ideal/iDEALv3',
 				'certificates'      => array(
 					__DIR__ . '/certificates/ing-new-2020-03-04-2025-01-17.cer',
+					__DIR__ . '/certificates/ing-new-sandbox-2020-03-04-2025-01-17.cer',
+				),
+			)
+		);
+
+		// ING - iDEAL Advanced - New platform - Production.
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
+			array(
+				'id'            => 'ing-ideal-advanced-2022-production',
+				'name'          => 'ING - iDEAL Advanced - New platform - Production',
+				'provider'      => 'ing',
+				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'manual_url'    => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url' => 'https://ideal-portal.ing.nl/',
+				'acquirer_url'  => 'https://ideal-acquiring.ing.nl/ideal/iDEALv3',
+				'certificates'  => array(
+					__DIR__ . '/certificates/ing-new-2020-03-04-2025-01-17.cer',
+				),
+			)
+		);
+
+		// ING - iDEAL Advanced - New platform - Sandbox.
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
+			array(
+				'id'            => 'ing-ideal-advanced-2022-sandbox',
+				'name'          => 'ING - iDEAL Advanced - New platform - Sandbox',
+				'provider'      => 'ing',
+				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'manual_url'    => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url' => 'https://sandbox.ideal-portal.ing.nl/',
+				'acquirer_url'  => 'https://sandbox.ideal-acquiring.ing.nl/ideal/iDEALv3',
+				'certificates'  => array(
 					__DIR__ . '/certificates/ing-new-sandbox-2020-03-04-2025-01-17.cer',
 				),
 			)
