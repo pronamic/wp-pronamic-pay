@@ -228,6 +228,10 @@ add_filter(
 				return ( 'test' === $mode ) ? 'ing-ideal-advanced-test' : 'ing-ideal-advanced';
 			case 'ing-ideal-advanced-2022':
 				return ( 'test' === $mode ) ? 'ing-ideal-advanced-2022-sandbox' : 'ing-ideal-advanced-2022-production';
+			case 'ing-ideal-basic':
+				return ( 'test' === $mode ) ? 'ing-ideal-basic-test' : 'ing-ideal-basic';
+			case 'mollie-ideal-basic':
+				return ( 'test' === $mode ) ? 'mollie-ideal-basic-test' : 'mollie-ideal-basic';
 			case 'rabobank-ideal-professional-v3':
 				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
 			case 'sisow-ideal-basic':
@@ -332,17 +336,27 @@ add_filter(
 		// ING - iDEAL Basic.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
 			array(
-				'id'                => 'ing-ideal-basic',
-				'name'              => 'ING - iDEAL Basic',
-				'provider'          => 'ing',
-				'product_url'       => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'        => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
-				'dashboard_url'     => array(
-					'test' => 'https://idealtest.secure-ing.com/',
-					'live' => 'https://ideal.secure-ing.com/',
-				),
-				'acquirer_url'      => 'https://ideal.secure-ing.com/ideal/mpiPayInitIng.do',
-				'acquirer_test_url' => 'https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do',
+				'id'            => 'ing-ideal-basic',
+				'name'          => 'ING - iDEAL Basic',
+				'mode'          => 'live',
+				'provider'      => 'ing',
+				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'manual_url'    => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url' => 'https://ideal.secure-ing.com/',
+				'acquirer_url'  => 'https://ideal.secure-ing.com/ideal/mpiPayInitIng.do',
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
+			array(
+				'id'            => 'ing-ideal-basic-test',
+				'name'          => 'ING - iDEAL Basic - Test',
+				'mode'          => 'test',
+				'provider'      => 'ing',
+				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'manual_url'    => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url' => 'https://idealtest.secure-ing.com/',
+				'acquirer_url'  => 'https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do',
 			)
 		);
 
@@ -440,7 +454,7 @@ add_filter(
 
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
 			array(
-				'id'            => 'mollie-ideal-basic',
+				'id'            => 'mollie-ideal-basic-test',
 				'name'          => 'Mollie - iDEAL Basic - Test',
 				'mode'          => 'test',
 				'provider'      => 'mollie',
