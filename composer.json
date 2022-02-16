@@ -41,7 +41,13 @@
 		"platform": {
 			"php": "7.4"
 		},
-		"sort-packages": true
+		"sort-packages": true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"roots/wordpress-core-installer": true,
+			"bamarni/composer-bin-plugin": true,
+			"composer/installers": true
+		}
 	},
 	"require": {
 		"php": ">=7.4",
