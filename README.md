@@ -22,16 +22,17 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 
 | Provider | Name |
 | -------- | ---- |
-| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Zelfbouw (v3) |
+| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Zelfbouw |
 | [Adyen](https://www.adyen.com/) | Adyen |
 | [Buckaroo](https://buckaroo.nl/) | Buckaroo - HTML |
 | [DigiWallet](https://www.digiwallet.nl/) | DigiWallet |
-| [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL Expert (v3) |
+| [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL Expert |
 | [European Merchant Services](https://emspay.nl/) | EMS - e-Commerce |
 | [ICEPAY](https://icepay.nl/) | ICEPAY |
-| [iDEAL Simulator](https://www.ideal-simulator.nl/) | iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3) |
+| [iDEAL Simulator](https://www.ideal-simulator.nl/) | iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw |
 | [ING](https://www.ing.nl/) | ING - iDEAL Basic |
-| [ING](https://www.ing.nl/) | ING - iDEAL Advanced (v3) |
+| [ING](https://www.ing.nl/) | ING - iDEAL Advanced |
+| [ING](https://www.ing.nl/) | ING - iDEAL Advanced (new platform) |
 | [Mollie](https://www.mollie.nl/) | Mollie |
 | [MultiSafepay](https://www.multisafepay.com/) | MultiSafepay - Connect |
 | [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - DirectLink |
@@ -39,7 +40,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Pay.nl](https://www.pay.nl/) | Pay.nl |
 | [Payvision](https://www.payvision.com) | Payvision |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - OmniKassa 2.0 |
-| [Rabobank](https://www.rabobank.nl/) | Rabobank - iDEAL Professional (v3) |
+| [Rabobank](https://www.rabobank.nl/) | Rabobank - iDEAL Professional |
 | [Sisow](https://www.sisow.nl/) | Sisow |
 | [TargetPay](https://www.targetpay.com/) | TargetPay - iDEAL |
 
@@ -49,22 +50,22 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | Name | Author | WordPress.org | GitHub | Requires at least | Tested up to |
 | ---- | ------ | ------------- | ------ | ----------------- | ------------ |
 | [Charitable](https://www.wpcharitable.com/) | [Studio 164a](https://www.164a.com/) | [WordPress.org](https://wordpress.org/plugins/charitable/) | [GitHub](https://github.com/Charitable/Charitable) | `1.3` | `1.6.54` |
-| [Contact Form 7](https://contactform7.com/) | [Takayuki Miyoshi](https://ideasilo.wordpress.com/) | [WordPress.org](https://nl.wordpress.org/plugins/contact-form-7/) | [GitHub](https://github.com/takayukister/contact-form-7) | `5.2.0` | `5.5.3` |
-| [Easy Digital Downloads](https://easydigitaldownloads.com/) | [Pippin Williamson](https://pippinsplugins.com/) | [WordPress.org](https://wordpress.org/plugins/easy-digital-downloads/) | [GitHub](https://github.com/easydigitaldownloads/Easy-Digital-Downloads) | `1.8.6` | `2.10.5` |
+| [Contact Form 7](https://contactform7.com/) | [Takayuki Miyoshi](https://ideasilo.wordpress.com/) | [WordPress.org](https://nl.wordpress.org/plugins/contact-form-7/) | [GitHub](https://github.com/takayukister/contact-form-7) | `5.2.0` | `5.5.5` |
+| [Easy Digital Downloads](https://easydigitaldownloads.com/) | [Pippin Williamson](https://pippinsplugins.com/) | [WordPress.org](https://wordpress.org/plugins/easy-digital-downloads/) | [GitHub](https://github.com/easydigitaldownloads/Easy-Digital-Downloads) | `1.8.6` | `2.11.5` |
 | [Event Espresso 4](https://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.7.p` | `4.10.8.p` |
 | [Event Espresso 4 Decaf](https://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-decaf/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.4.decaf` | `4.10.8.decaf` |
 | [Formidable Forms](https://formidableforms.com/) | [Strategy11](https://strategy11.com/) | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `4.11` |
 | [Give](https://givewp.com/) |  | [WordPress.org](https://wordpress.org/plugins/give/) | [GitHub](https://github.com/WordImpress/Give) | `1.8.0` | `2.11.1` |
-| [Gravity Forms](https://www.gravityforms.com/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.9` | `2.5.9` |
+| [Gravity Forms](https://www.gravityforms.com/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.9` | `2.5.16` |
 | [Gravity Forms AWeber Add-On](https://www.gravityforms.com/add-ons/aweber/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.4.2` | `2.9` |
 | [Gravity Forms Campaign Monitor Add-On](https://www.gravityforms.com/add-ons/campaign-monitor/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `2.5.1` | `3.7` |
 | [Gravity Forms MailChimp Add-On](https://www.gravityforms.com/add-ons/mailchimp/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `2.4.1` | `4.6.3` |
-| [Gravity Forms User Registration Add-On](https://www.gravityforms.com/add-ons/user-registration/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.8` | `4.4` |
+| [Gravity Forms User Registration Add-On](https://www.gravityforms.com/add-ons/user-registration/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.8` | `4.9` |
 | [Gravity Forms Zapier Add-On](https://www.gravityforms.com/add-ons/zapier/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.4.2` | `3.2` |
-| [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](https://caseproof.com/) |  |  | `1.9.21` | `1.9.21` |
-| [Ninja Forms](https://ninjaforms.com/) | [The WP Ninjas](https://ninjaforms.com/) | [WordPress.org](https://wordpress.org/plugins/ninja-forms/) | [GitHub](https://github.com/wpninjas/ninja-forms) | `3.3.15` | `3.5.4` |
+| [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](https://caseproof.com/) |  |  | `1.9.21` | `1.9.27` |
+| [Ninja Forms](https://ninjaforms.com/) | [The WP Ninjas](https://ninjaforms.com/) | [WordPress.org](https://wordpress.org/plugins/ninja-forms/) | [GitHub](https://github.com/wpninjas/ninja-forms) | `3.3.15` | `3.6.7` |
 | [Restrict Content Pro](https://restrictcontentpro.com/) | [Sandhills Development, LLC](https://sandhillsdev.com/) |  |  | `3.0.0` | `3.4.4` |
-| [WooCommerce](https://woocommerce.com/) | [Automattic](https://automattic.com/) | [WordPress.org](https://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woocommerce/woocommerce) | `2.3.0` | `5.6.0` |
+| [WooCommerce](https://woocommerce.com/) | [Automattic](https://automattic.com/) | [WordPress.org](https://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woocommerce/woocommerce) | `2.3.0` | `6.2.0` |
 
 
 ## Installation
