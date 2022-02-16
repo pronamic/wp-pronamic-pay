@@ -56,6 +56,7 @@ if ( ! \class_exists( 'WP_CLI' ) ) {
 						'documentation',
 						'etc',
 						'repositories',
+						'vendor/wp-phpunit',
 						'wordpress',
 						'wp-content',
 					)

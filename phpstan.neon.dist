@@ -4,8 +4,11 @@ parameters:
 		- PRONAMIC_PAY_DEBUG
 	level: max
 	bootstrapFiles:
-		- tests/bootstrap.php
+		- tests/phpstan/bootstrap.php
 	paths:
 		- src
-	excludes_analyse:
+	excludePaths:
 		- src/i18n-make-pot.php
+		- wordpress/wp-admin/includes/noop.php
+	scanDirectories:
+	  - wordpress/

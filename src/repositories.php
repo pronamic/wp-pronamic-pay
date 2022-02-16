@@ -13,47 +13,45 @@ $project_dir      = dirname( __DIR__ );
 $repositories_dir = $project_dir . '/repositories';
 
 $organisations = array(
-	'pronamic'          => array(
-		'wp-datetime'                 => 'DateTime',
-		'wp-html'                     => 'HTML',
-		'wp-http'                     => 'HTTP',
-		'wp-money'                    => 'Money',
-		'wp-number'                   => 'Number',
-		'wp-pay-core'                 => 'core',
-		'wp-pay-logos'                => 'Logos',
-		'wp-pronamic-pay-fundraising' => 'Fundraising',
-		'wp-gravityforms-nl'          => 'Gravity Forms (nl)',
-	),
-	'wp-pay-gateways'   => array(
-		'adyen'              => 'Adyen',
-		'buckaroo'           => 'Buckaroo',
-		'digiwallet'         => 'DigiWallet',
-		'ems-e-commerce'     => 'EMS e-Commerce;',
-		'icepay'             => 'ICEPAY',
-		'ideal'              => 'iDEAL',
-		'ideal-advanced-v3'  => 'iDEAL Advanced v3',
-		'ideal-basic'        => 'iDEAL Basic',
-		'mollie'             => 'Mollie',
-		'multisafepay'       => 'MultiSafepay',
-		'ogone'              => 'Ingenico',
-		'omnikassa-2'        => 'OmniKassa 2.0',
-		'pay-nl'             => 'Pay.nl',
-		'paypal'             => 'PayPal',
-		'payvision'          => 'Payvision',
-		'sisow'              => 'Sisow',
-	),
-	'wp-pay-extensions' => array(
-		'charitable'             => 'Charitable',
-		'contact-form-7'         => 'Contact Form 7',
-		'easy-digital-downloads' => 'Easy Digital Downloads',
-		'event-espresso'         => 'Event Espresso',
-		'formidable-forms'       => 'Formidable Forms',
-		'give'                   => 'Give',
-		'gravityforms'           => 'Gravity Forms',
-		'memberpress'            => 'MemberPress',
-		'ninjaforms'             => 'Ninja Forms',
-		'restrict-content-pro'   => 'Restrict Content Pro',
-		'woocommerce'            => 'WooCommerce',
+	'pronamic' => array(
+		'wp-datetime'                            => 'DateTime',
+		'wp-html'                                => 'HTML',
+		'wp-http'                                => 'HTTP',
+		'wp-money'                               => 'Money',
+		'wp-number'                              => 'Number',
+		'wp-pay-core'                            => 'core',
+		'wp-pay-logos'                           => 'Logos',
+		'wp-pronamic-pay-fundraising'            => 'Fundraising',
+		'wp-gravityforms-nl'                     => 'Gravity Forms (nl)',
+		// Gateways.
+		'wp-pronamic-pay-adyen'                  => 'Adyen',
+		'wp-pronamic-pay-buckaroo'               => 'Buckaroo',
+		'wp-pronamic-pay-digiwallet'             => 'DigiWallet',
+		'wp-pronamic-pay-ems-e-commerce'         => 'EMS e-Commerce;',
+		'wp-pronamic-pay-icepay'                 => 'ICEPAY',
+		'wp-pronamic-pay-ideal'                  => 'iDEAL',
+		'wp-pronamic-pay-ideal-advanced-v3'      => 'iDEAL Advanced v3',
+		'wp-pronamic-pay-ideal-basic'            => 'iDEAL Basic',
+		'wp-pronamic-pay-mollie'                 => 'Mollie',
+		'wp-pronamic-pay-multisafepay'           => 'MultiSafepay',
+		'wp-pronamic-pay-ingenico'               => 'Ingenico',
+		'wp-pronamic-pay-omnikassa-2'            => 'OmniKassa 2.0',
+		'wp-pronamic-pay-pay-nl'                 => 'Pay.nl',
+		'wp-pronamic-pay-paypal'                 => 'PayPal',
+		'wp-pronamic-pay-payvision'              => 'Payvision',
+		'wp-pronamic-pay-sisow'                  => 'Sisow',
+		// Extensions.
+		'wp-pronamic-pay-charitable'             => 'Charitable',
+		'wp-pronamic-pay-contact-form-7'         => 'Contact Form 7',
+		'wp-pronamic-pay-easy-digital-downloads' => 'Easy Digital Downloads',
+		'wp-pronamic-pay-event-espresso'         => 'Event Espresso',
+		'wp-pronamic-pay-formidable-forms'       => 'Formidable Forms',
+		'wp-pronamic-pay-give'                   => 'Give',
+		'wp-pronamic-pay-gravityforms'           => 'Gravity Forms',
+		'wp-pronamic-pay-memberpress'            => 'MemberPress',
+		'wp-pronamic-pay-ninjaforms'             => 'Ninja Forms',
+		'wp-pronamic-pay-restrict-content-pro'   => 'Restrict Content Pro',
+		'wp-pronamic-pay-woocommerce'            => 'WooCommerce',
 	),
 );
 
@@ -156,8 +154,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 				git flow release start "${NEW_VERSION}"
 
 				# Update package version number.
-				VERSION_LINENR=$(grep -n "\"version\":" package.json | tail -1 | cut -d: -f1)
-				PACKAGE_JSON=$(cat package.json | sed "${VERSION_LINENR}s/\"${CURRENT_TAG}\"/\"${NEW_VERSION}\"/" | tee package.json)
+				sed -i -e "s/\"version\": \"${CURRENT_TAG}\"/\"version\": \"${NEW_VERSION}\"/g" package.json
 
 				# Update changelog title and add log.
 				TITLE_LINENR=$(grep -n "## \[" CHANGELOG.md | head -2 | tail -1 | cut -d: -f1)
@@ -166,9 +163,9 @@ foreach ( $organisations as $organisation => $repositories ) {
 				ex -s -c "${TITLE_LINENR}i|${TITLE}${LOG}' . str_repeat( \PHP_EOL, 2 ) . '" -c x CHANGELOG.md
 
 				# Update changelog footer links.
+				sed -i -e "s/\/${CURRENT_TAG}...HEAD/\/${NEW_VERSION}...HEAD/g" CHANGELOG.md
 				LINK_LINENR=$(grep -n "\[unreleased\]" CHANGELOG.md | tail -1 | cut -d: -f1)
 				LINK="[${NEW_VERSION}]: https://github.com/' . $organisation . '/' . $repository . '/compare/${CURRENT_TAG}...${NEW_VERSION}"
-				CHANGELOG=$(cat CHANGELOG.MD | sed "${LINK_LINENR}s/${CURRENT_TAG}...HEAD/${NEW_VERSION}...HEAD/" | tee CHANGELOG.md)
 				ex -s -c "$(( ${LINK_LINENR} + 1 ))i|${LINK}" -c x CHANGELOG.md';
 		}
 
@@ -288,14 +285,14 @@ if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 	);
 
 	// Replace issue references markdown.
-	$json = preg_replace( '/ \[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)/m', ' (\\2/\\3#\\1)', $json );
+	$json = preg_replace( '/ \[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)/m', ' (\\2/\\3#\\1)', (string) $json );
 
-	$json = preg_replace( '/\(\[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)\)/m', '(\\2/\\3#\\1)', $json );
+	$json = preg_replace( '/\(\[#([0-9]+)\]\(.*?\/(.*?)\/(.*?)\/issues\/.*?\)\)/m', '(\\2/\\3#\\1)', (string) $json );
 
-	$json = preg_replace( '/\(\[(.*?)\/(.*?)#([0-9]+)\]\(.*?\/.*?\/.*?\/issues\/.*?\)\)/m', '(\\1/\\2#\\3)', $json );
+	$json = preg_replace( '/\(\[(.*?)\/(.*?)#([0-9]+)\]\(.*?\/.*?\/.*?\/issues\/.*?\)\)/m', '(\\1/\\2#\\3)', (string) $json );
 
 	// Remove all other issue reference markdown.
-	$json = preg_replace( '/ \[(#[0-9]+)\]\(.*?\/issues\/.*?\)\./m', '.', $json );
+	$json = preg_replace( '/ \[(#[0-9]+)\]\(.*?\/issues\/.*?\)\./m', '.', (string) $json );
 
 	// Write updated changelog.
 	$handle = fopen( __DIR__ . '/changelog.json', 'w+' );

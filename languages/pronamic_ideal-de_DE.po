@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-01-13T07:44:54+00:00\n"
+"POT-Creation-Date: 2022-02-16T11:08:14+00:00\n"
 "PO-Revision-Date: 2021-09-03 12:23+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -17,16 +17,16 @@ msgstr ""
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:30
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:33
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentAction.php:35
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:83
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:126
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:84
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:127
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:52
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:153
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:100
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:502
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:511
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:518
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:106
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:570
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:579
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:586
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:1002
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:134
+#: vendor/wp-pay/core/src/Admin/AdminNotices.php:141
 #: vendor/wp-pay/core/src/Payments/StatusChecker.php:156
 #: vendor/wp-pay/core/views/notice-license.php:24
 #: vendor/wp-pay/core/views/notice-license.php:32
@@ -62,11 +62,11 @@ msgstr ""
 #: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:80
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Gateway.php:90
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Gateway.php:115
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:186
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:126
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:127
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:144
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:261
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:152
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:123
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:124
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:141
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:269
 msgid "Pronamic"
 msgstr "Pronamic"
 
@@ -75,7 +75,7 @@ msgid "https://www.pronamic.eu/"
 msgstr "https://www.pronamic.eu/"
 
 #: admin/methods-wp-admin.php:17
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:274
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:282
 msgid "Icon"
 msgstr "Symbol"
 
@@ -410,7 +410,7 @@ msgstr ""
 "https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-"
 "wordpress-via-pronamic-pay/"
 
-#: pronamic-ideal.php:290
+#: pronamic-ideal.php:290 pronamic-ideal.php:311
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-"
 "wordpress-via-pronamic-pay/"
@@ -418,7 +418,7 @@ msgstr ""
 "https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-"
 "wordpress-via-pronamic-pay/"
 
-#: pronamic-ideal.php:308
+#: pronamic-ideal.php:329
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
 "pronamic-pay/"
@@ -426,7 +426,7 @@ msgstr ""
 "https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
 "pronamic-pay/"
 
-#: pronamic-ideal.php:349
+#: pronamic-ideal.php:370
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-"
 "v3-with-wordpress-via-pronamic-pay/"
@@ -434,11 +434,11 @@ msgstr ""
 "https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-"
 "v3-with-wordpress-via-pronamic-pay/"
 
-#: pronamic-ideal.php:385
+#: pronamic-ideal.php:406
 msgid "https://www.targetpay.com/info/ideal?setlang=en"
 msgstr "https://www.targetpay.com/info/ideal?setlang=en"
 
-#: pronamic-ideal.php:388
+#: pronamic-ideal.php:409
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-targetpay-with-wordpress-via-"
 "pronamic-pay/"
@@ -478,9 +478,9 @@ msgstr "Charitable Spende"
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:124
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:452
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:110
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:748
-#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:186
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:284
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:773
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:180
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:292
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:265
 msgid "Configuration"
 msgstr "Konfiguration"
@@ -508,7 +508,7 @@ msgstr "Verfügbare Tags: %s"
 
 #: vendor/wp-pay-extensions/charitable/src/Gateway.php:102
 #: vendor/wp-pay-extensions/give/src/Gateway.php:116
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:187
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:153
 msgid ""
 "This payment method does not use a predefined payment method for the "
 "payment. Some payment providers list all activated payment methods for your "
@@ -542,7 +542,7 @@ msgstr "Contact Form 7 Eintrag"
 #: vendor/wp-pay-extensions/gravityforms/src/Processor.php:246
 #: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:52
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:102
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:486
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:509
 #: vendor/wp-pay/core/src/Forms/FormProcessor.php:144
 msgid "Payment for %s"
 msgstr "Zahlung für %s"
@@ -687,9 +687,9 @@ msgstr "Easy Digital Downloads"
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:76
 #: vendor/wp-pay-extensions/event-espresso/src/IDealPaymentMethod.php:43
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:277
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:412
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:424
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:261
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:438
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:450
 msgid "iDEAL"
 msgstr "iDEAL"
 
@@ -765,7 +765,7 @@ msgstr[1] "Teilweise erstattet <span class=\"count\">(%s)</span>"
 
 #. translators: 1: Gateway admin label prefix, 2: Gateway admin label
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:91
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:125
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
 msgid "%1$s - %2$s"
 msgstr "%1$s - %2$s"
 
@@ -790,10 +790,10 @@ msgid "Checkout Label"
 msgstr "Kasse-Label"
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:198
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:264
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:272
 #: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:37
 #: vendor/wp-pay-gateways/adyen/views/checkout-web-sdk.php:37
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:340
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:334
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:532
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:537
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:72
@@ -887,7 +887,7 @@ msgstr "Event Espresso"
 
 #. translators: %s: payment source id
 #: vendor/wp-pay-extensions/event-espresso/src/Extension.php:170
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:633
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:632
 msgid "Transaction %s"
 msgstr "Transaktion %s"
 
@@ -922,7 +922,7 @@ msgstr "Formidable Forms"
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:258
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:284
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:342
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:438
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:461
 msgid "Entry #%s"
 msgstr "Eintrag #%s"
 
@@ -980,8 +980,8 @@ msgstr "Wählen Sie eine Zahlungsmethode"
 #: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:40
 #: vendor/wp-pay-gateways/adyen/views/checkout-web-sdk.php:40
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:295
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:342
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:289
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:336
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:286
 #: vendor/wp-pay/core/src/Blocks/BlocksModule.php:97
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:470
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:493
@@ -1007,7 +1007,7 @@ msgstr "— Feld auswählen —"
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:64
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:451
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:197
-#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:210
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:204
 msgid "Transaction Description"
 msgstr "Transaktionsbeschreibung"
 
@@ -1070,10 +1070,10 @@ msgstr "Give Spende %s"
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:61
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:102
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:282
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:673
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:698
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:1003
-#: vendor/wp-pay/core/src/Core/Gateway.php:755
-#: vendor/wp-pay/core/views/subscription-mandate.php:249
+#: vendor/wp-pay/core/src/Core/Gateway.php:758
+#: vendor/wp-pay/core/views/subscription-mandate.php:267
 #: vendor/wp-pay/core/views/subscription-renew.php:103
 msgid "Pay"
 msgstr "Bezahlen"
@@ -1156,7 +1156,7 @@ msgid "Pronamic Subscription Renewal Date"
 msgstr "Pronamic Abonnement Verlängerungsdatum"
 
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:61
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:258
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:266
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:82
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:167
 msgid "Title"
@@ -1171,8 +1171,8 @@ msgstr "Formular"
 #: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:34
 #: vendor/wp-pay-gateways/adyen/views/checkout-web-sdk.php:34
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:86
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:343
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:291
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:337
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:289
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:172
 #: vendor/wp-pay/core/views/meta-box-notes.php:33
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:22
@@ -1453,11 +1453,11 @@ msgid "Status pages"
 msgstr "Statusseiten"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:68
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:333
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:334
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:658
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:287
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:521
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:327
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:328
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:650
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:284
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:525
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionPostType.php:52
 #: vendor/wp-pay/core/views/meta-box-gateway-test.php:152
 #: vendor/wp-pay/core/views/meta-box-payment-subscription.php:40
@@ -1622,7 +1622,7 @@ msgid "Page:"
 msgstr "Seite:"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:472
-#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:235
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:229
 msgid "— Select —"
 msgstr "— Auswählen —"
 
@@ -1640,7 +1640,8 @@ msgid "Recurring amount"
 msgstr "Wiederkehrender Betrag"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:512
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:126
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:132
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:177
 msgid "None"
 msgstr "Keiner"
 
@@ -1896,12 +1897,12 @@ msgid "Pronamic Payment"
 msgstr "Pronamic Zahlung"
 
 #: vendor/wp-pay-extensions/memberpress/src/Extension.php:47
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:520
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:620
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:648
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:398
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:467
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:522
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:519
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:619
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:647
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:423
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:492
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:547
 msgid "MemberPress"
 msgstr "MemberPress"
 
@@ -1910,20 +1911,22 @@ msgid "Payment failed. Please try again."
 msgstr "Bearbeitung fehlgeschlagen. Bitte versuche es nochmal."
 
 #. translators: %s: MemberPress
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:519
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:518
 msgid "%s subscription deleted."
 msgstr "%s Abonnement gelöscht."
 
 #. translators: %s: payment source id
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:660
+#. translators: %s: order number
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:659
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1193
 msgid "Subscription %s"
 msgstr "Abonnement %s"
 
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:675
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:674
 msgid "MemberPress Transaction"
 msgstr "MemberPress Transaktion"
 
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:687
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:686
 msgid "MemberPress Subscription"
 msgstr "MemberPress Abonnement"
 
@@ -1933,25 +1936,25 @@ msgid "Pronamic - %s"
 msgstr "Pronamic - %s"
 
 #. translators: %s: extension name
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:397
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:422
 msgid "%s subscription on hold."
 msgstr "%s Abonnement in Wartestellung."
 
 #. translators: %s: extension name
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:466
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:491
 msgid "%s subscription reactivated."
 msgstr "%s Abonnement wurde erneut aktiviert."
 
 #. translators: %s: extension name
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:521
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:546
 msgid "%s subscription cancelled."
 msgstr "%s Abonnement gekündigt."
 
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:623
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:648
 msgid "For admins only: check payment method settings in MemberPress."
 msgstr ""
 
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:679
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:704
 msgid ""
 "JavaScript is disabled in your browser. You will not be able to complete "
 "your purchase until you either enable JavaScript in your browser, or switch "
@@ -1961,24 +1964,24 @@ msgstr ""
 "den Kauf erfolgreich abschließen zu können, oder wechsele zu einem Browser, "
 "der dieses unterstützt."
 
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:810
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:835
 #, fuzzy
 msgid "The payment method for this subscription can not be updated manually."
 msgstr "Das Mandat für dieses Abonnement kann nicht aktualisiert werden."
 
 #. translators: %s: mandate selection URL anchor
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:826
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:851
 #, fuzzy
 msgid ""
 "To update the payment method for this subscription, please visit the %s page."
 msgstr "Das Mandat für dieses Abonnement kann nicht aktualisiert werden."
 
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:830
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:831
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:855
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:856
 msgid "payment method update"
 msgstr "Zahlungsmethode aktualisieren"
 
-#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:839
+#: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:864
 msgid "Update payment method"
 msgstr "Zahlungsmethode aktualisieren"
 
@@ -1988,34 +1991,34 @@ msgid "MemberPress transaction %s"
 msgstr "MemberPress Transaktion %s"
 
 #: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:38
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:417
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:457
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:440
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:480
 msgid "Ninja Forms"
 msgstr "Ninja Forms"
 
 #. translators: %s: payment source id
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:442
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:465
 msgid "#%s"
 msgstr "#%s"
 
-#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:468
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:491
 msgid "Ninja Forms Entry"
 msgstr "Ninja Forms Eintritt"
 
-#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:164
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:141
 msgid "Please wait while you are redirected to complete the payment."
 msgstr "Bitte warten Sie, während umleiten für die Zahlung."
 
-#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:196
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:190
 msgid "— Default Gateway —"
 msgstr "— Standard-Gateway —"
 
-#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:227
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:221
 #: vendor/wp-pay/core/src/Admin/AdminSettings.php:154
 msgid "Payment Status Pages"
 msgstr "Zahlungsstatus Seiten"
 
-#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:269
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:263
 msgid "Delayed actions"
 msgstr "Verzögerte Aktionen"
 
@@ -2128,17 +2131,29 @@ msgstr "Pronamic Pay Abonnement:"
 msgid "Pronamic Pay Payment"
 msgstr "Pronamic Pay Zahlung"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:48
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:787
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1124
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1178
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:42
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:785
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1122
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1176
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:165
+msgid ""
+"AfterPay is one of the largest and most popular post-payment system in the "
+"Benelux. Millions of Dutch and Belgians use AfterPay to pay for products."
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:177
+msgid ""
+"Afterpay is a popular buy now, pay later service in Australia, New Zealand, "
+"the United States, and Canada."
+msgstr ""
+
 #. translators: %s: payment method
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:262
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:276
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:290
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:246
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:260
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:274
 msgid ""
 "By using this payment method you authorize us via %s to debit payments from "
 "your bank account."
@@ -2146,18 +2161,18 @@ msgstr ""
 "Mit dieser Zahlungsmethode ermächtigen Sie uns über %s, Zahlungen von Ihrem "
 "Bankkonto abzubuchen."
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:263
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:393
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:407
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:247
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:419
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:433
 msgid "Bancontact"
 msgstr "Bancontact"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:291
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:417
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:275
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:443
 msgid "SOFORT"
 msgstr "SOFORT Überweisung"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:327
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:311
 msgid ""
 "With iDEAL you can easily pay online in the secure environment of your own "
 "bank."
@@ -2165,23 +2180,23 @@ msgstr ""
 "Mit iDEAL können Sie einfach online in der sicheren Umgebung Ihrer eigenen "
 "Bank bezahlen."
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:459
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:453
 msgid "We process your order as soon as we have processed your payment."
 msgstr ""
 "Wir bearbeiten Ihre Bestellung, sobald wir Ihre Zahlung bearbeitet haben."
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:521
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:515
 msgid "reserved payment cancelled"
 msgstr "Vorbehaltene Zahlung storniert"
 
 #. translators: 1: payment URL, 2: payment ID, 3: WooCommerce payment method title, 4: Pronamic payment status
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:567
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:561
 msgid "<a href=\"%1$s\">Payment #%2$s</a> via \"%3$s\" updated to \"%4$s\"."
 msgstr ""
 "<a href=\"%1$s\">Zahlung #%2$s</a> über \"%3$s\" aktualisiert zu \"%4$s\"."
 
 #. translators: 1: payment URL, 2: payment ID
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:589
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:583
 msgid ""
 "Create an invoice at payment gateway for <a href=\"%1$s\">payment #%2$s</a> "
 "after processing the order."
@@ -2190,37 +2205,37 @@ msgstr ""
 "%2$s</a> nach Abwicklung der Bestellung."
 
 #. translators: %s: error message
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:730
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:728
 msgid "Unable to create WooCommerce refund: %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:795
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:793
 msgid "Date of birth checkout field"
 msgstr "Geburtsdatum Kasse Feld"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:806
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:811
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:804
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:809
 msgid "Add date of birth field"
 msgstr "Geburtsdatum Feld hinzufügen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:812
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:810
 msgid "Add date of birth field to billing checkout fields"
 msgstr "Geburtsdatum Feld an Kasse hinzufügen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:821
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:819
 msgid "Gender checkout field"
 msgstr "Geschlecht Kasse Feld"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:832
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:837
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:830
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:835
 msgid "Add gender field"
 msgstr "Geschlecht Feld hinzufügen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:838
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:836
 msgid "Add gender field to billing checkout fields"
 msgstr "Geschlecht Feld and Kasse hinzufügen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:856
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:854
 msgid ""
 "Extra fields are used for post-pay payment methods such as AfterPay and "
 "Klarna."
@@ -2228,75 +2243,78 @@ msgstr ""
 "Zusätzliche Felder werden für Nachzahlungsmethoden wie AfterPay und Klarna "
 "verwendet."
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:970
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:968
 msgid "— Select a checkout field —"
 msgstr "— Kasse Feld auswählen —"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1016
-#: vendor/wp-pay/core/src/Core/Gateway.php:604
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1014
+#: vendor/wp-pay/core/src/Core/Gateway.php:607
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:537
 msgid "Date of birth"
 msgstr "Geburtsdatum"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1027
-#: vendor/wp-pay/core/src/Core/Gateway.php:565
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1025
+#: vendor/wp-pay/core/src/Core/Gateway.php:568
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:559
 msgid "Gender"
 msgstr "Geschlecht"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1030
-#: vendor/wp-pay/core/src/Core/Gateway.php:570
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1028
+#: vendor/wp-pay/core/src/Core/Gateway.php:573
 msgid "— Select gender —"
 msgstr "— Geschlecht auswählen —"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1031
-#: vendor/wp-pay/core/src/Core/Gateway.php:571
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1029
+#: vendor/wp-pay/core/src/Core/Gateway.php:574
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:566
 msgid "Female"
 msgstr "Weiblich"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1032
-#: vendor/wp-pay/core/src/Core/Gateway.php:572
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1030
+#: vendor/wp-pay/core/src/Core/Gateway.php:575
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:570
 msgid "Male"
 msgstr "Männlich"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1033
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1031
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:574
 msgid "Other"
 msgstr "Andere"
 
 #. translators: %s: order number
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1139
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1195
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1137
 msgid "Order %s"
 msgstr "Bestellung %s"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1154
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1210
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1152
 msgid "WooCommerce Order"
 msgstr "WooCommerce Bestellung"
 
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1208
+#, fuzzy
+msgid "WooCommerce Subscription"
+msgstr "Such Abonnements"
+
 #. translators: %s: payment method title
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:143
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:140
 msgid "Proceed to %s"
 msgstr "Weiter zu %s"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:248
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:256
 msgid "Enable/Disable"
 msgstr "Aktivieren/Deaktivieren"
 
 #. translators: %s: payment method title
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:252
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:260
 msgid "Enable %s"
 msgstr "%s aktivieren"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:260
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:268
 msgid "This controls the title which the user sees during checkout."
 msgstr "Dies steuert den Titel, den der Benutzer beim Auschecken sieht."
 
 #. translators: %s: payment method title
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:268
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:276
 msgid ""
 "Give the customer instructions for paying via %s, and let them know that "
 "their order won't be shipping until the money is received."
@@ -2304,26 +2322,26 @@ msgstr ""
 "Geben Sie dem Kunden Anweisungen zum Bezahlen über %s und teilen Sie ihm "
 "mit, dass die Bestellung erst versendet wird wenn das Geld eingegangen ist."
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:279
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:316
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:287
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:324
 msgid "This controls the icon which the user sees during checkout."
 msgstr "Dies steuert den Titel, den der Benutzer beim Auschecken sieht."
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:290
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:298
 msgid "Payment Options"
 msgstr "Zahlungsoptionen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:295
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:303
 msgid "Payment Description"
 msgstr "Zahlungsbeschreibung"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:300
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:308
 msgid "This controls the payment description."
 msgstr "Dies steuert die Zahlungsbeschreibung."
 
 #. translators: %s: default code
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:302
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:318
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:310
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:326
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:306
 #: vendor/wp-pay-gateways/buckaroo/src/Integration.php:156
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:108
@@ -2338,22 +2356,22 @@ msgid "Default: <code>%s</code>"
 msgstr "Standard: <code>%s</code>"
 
 #. translators: %s: default code
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:302
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:306
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:310
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:314
 msgid "Order {order_number}"
 msgstr "Bestellung {order_number}"
 
 #. translators: %s: tags
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:304
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:312
 msgid "Tags: %s"
 msgstr "Tags: %s"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:346
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:354
 msgid "The payment gateway could not be found."
 msgstr "Das Zahlungsgateway wurde nicht gefunden."
 
 #. translators: %s: WooCommerce checkout settings URL
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:352
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:360
 msgid ""
 "You have to select an gateway configuration on the <a href=\"%s"
 "\">WooCommerce checkout settings page</a>."
@@ -2361,40 +2379,40 @@ msgstr ""
 "Sie müssen eine Gateway-Konfiguration auf der <a href=\"%s\">WooCommerce "
 "Kasse-Einstellungsseite</a> auswählen."
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:445
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:464
 msgid "Awaiting payment."
 msgstr "Zahlung erwartet."
 
 #. translators: %s: order id
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:489
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:512
 msgid "WooCommerce order %s"
 msgstr "WooCommerce Bestellung %s"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:858
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:889
 #, fuzzy
 msgid "Unable to process refund as gateway configuration does not exist."
 msgstr "Zahlungsgatewaykonfigurationenliste filtern"
 
 #. translators: 1: formatted refund amount, 2: refund gateway reference
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:873
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:904
 msgid "Created refund of %1$s with gateway reference `%2$s`."
 msgstr ""
 
 #. translators: %s: payment method title
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:1015
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:1046
 msgid "A required field for the %s payment method is empty."
 msgstr "Ein benötigtes Feld für die Zahlungsmethode von% ist leer."
 
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:308
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:311
 msgid "Payment completed successfully."
 msgstr "Zahlung erfolgreich abgeschlossen."
 
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:309
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:312
 msgid ""
 "The order has been received and we are waiting for the payment to clear."
 msgstr "Die Bestellung ist eingegangen und wir warten auf die Zahlung."
 
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:310
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:313
 msgid ""
 "The payment has been refused. Please try again using a different method or "
 "card."
@@ -2402,18 +2420,30 @@ msgstr ""
 "Die Zahlung wurde abgelehnt. Versuchen Sie es erneut mit einer anderen "
 "Methode oder Karte."
 
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:314
+msgid ""
+"Received an invalid response while processing your request. Please try "
+"reloading this page."
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:315
+msgid ""
+"An unknown error occurred while processing your request. Please try "
+"reloading this page."
+msgstr ""
+
 #. translators: %s: exception message
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:359
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:364
 #: vendor/wp-pay-gateways/adyen/src/WebSdkGateway.php:313
 msgid "Error getting payment result: %s"
 msgstr "Fehler beim Erhalten des Zahlungsergebnisses: %s"
 
 #. translators: %s: exception message
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:422
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:427
 msgid "Error getting payment details: %s"
 msgstr "Fehler beim Abrufen von Zahlungsdetails: %s"
 
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:592
+#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:597
 msgid "Credit or debit card"
 msgstr "Kredit- oder Debitkarte"
 
@@ -2899,14 +2929,14 @@ msgstr "HTTP Basic-Authentifizierung funktioniert"
 
 #: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:90
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:171
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:252
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:288
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:321
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:350
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:530
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:303
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:339
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:372
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:401
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:598
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:930
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:931
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:548
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:552
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:169
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:50
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:52
@@ -2933,8 +2963,8 @@ msgstr ""
 
 #: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:31
 #: vendor/wp-pay-gateways/adyen/views/checkout-web-sdk.php:31
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:337
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:640
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:331
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:632
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:53
 #: vendor/wp-pay/core/views/meta-box-subscription-payments.php:38
 #: views/redirect-via-html.php:72
@@ -3103,10 +3133,10 @@ msgstr "Referenz-Nummer"
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:192
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:201
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:292
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:328
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:329
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:283
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:284
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:322
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:323
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:280
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:281
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:567
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:530
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:30
@@ -3555,17 +3585,17 @@ msgid "Mollie Payments"
 msgstr "Mollie Zahlungen"
 
 #. translators: 1: Mollie chargeback ID, 2: Mollie payment ID
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:898
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:901
 msgid "Subscription put on hold due to chargeback `%1$s` of payment `%2$s`."
 msgstr ""
 
 #. translators: 1: old mandate ID, 2: new mandate ID
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:953
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:956
 msgid "Mandate for subscription changed from \"%1$s\" to \"%2$s\"."
 msgstr "Das Abonnementmandat wurde von \"%1$s\" auf \"%2$s\" geändert."
 
 #. translators: 1: old payment method, 2: new payment method
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:981
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:984
 msgid "Payment method for subscription changed from \"%1$s\" to \"%2$s\"."
 msgstr "Die Zahlungsmethode für Abonnement geändert von \"%1$s\" auf \"%2$s\"."
 
@@ -3721,12 +3751,12 @@ msgid "Valid"
 msgstr "Gültig"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:271
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:402
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:428
 msgid "Credit Card"
 msgstr "Kreditkarte"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:275
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:403
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:429
 msgid "Direct Debit"
 msgstr "Lastschrift"
 
@@ -4333,7 +4363,7 @@ msgid "ASN Bank"
 msgstr "ASN Bank"
 
 #: vendor/wp-pay-gateways/payvision/src/Gateway.php:66
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:399
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:425
 msgid "Bunq"
 msgstr "Bunq"
 
@@ -4506,7 +4536,7 @@ msgid "Recurring"
 msgstr "Wiederkehrend"
 
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:521
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:796
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:788
 msgid "M j, Y @ H:i"
 msgstr "M j, Y @ H:i"
 
@@ -4579,11 +4609,16 @@ msgstr "OpenSSL-Version"
 msgid "Active plugin integrations"
 msgstr "Aktive Plugin-Integrationen"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:190
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:100
+#, fuzzy
+msgid "Active gateway integrations"
+msgstr "Aktive Plugin-Integrationen"
+
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:241
 msgid "Pronamic Pay license key is valid"
 msgstr "Pronamic Pay-Lizenzschlüssel ist gültig"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:193
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:244
 msgid ""
 "A valid license is required for technical support and continued plugin "
 "updates."
@@ -4591,29 +4626,29 @@ msgstr ""
 "Für technischen Support und weitere Plugin-Updates ist eine gültige Lizenz "
 "erforderlich."
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:206
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:257
 msgid "No valid license key for Pronamic Pay"
 msgstr "Kein gültiger Lizenzschlüssel für Pronamic Pay"
 
 #. translators: %s: WordPress version number
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:247
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:298
 msgid "WordPress version is supported by Pronamic Pay (%s)"
 msgstr "WordPress-Version wird von Pronamic Pay (%s) unterstützt"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:250
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:301
 msgid "Pronamic Pay requires at least WordPress 4.7."
 msgstr "Pronamic Pay benötigt WordPress 4.7 oder höher."
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:262
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:313
 msgid "Pronamic Pay requires at least WordPress 4.7"
 msgstr "Pronamic Pay benötigt WordPress 4.7 oder höher"
 
 #. translators: %s: WordPress memory limit
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:283
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:334
 msgid "WordPress memory limit is sufficient (%s)"
 msgstr "WordPress-Speicherlimit ist ausreichend (%s)"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:286
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:337
 msgid ""
 "Pronamic Pay recommends setting the WordPress memory limit to at least 64 MB."
 msgstr ""
@@ -4621,30 +4656,30 @@ msgstr ""
 "festzulegen."
 
 #. translators: %s: WordPress memory limit
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:301
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:352
 msgid "Increase WordPress memory limit (%s) to at least 64 MB"
 msgstr "Erhöhen Sie das WordPress-Speicherlimit (%s) auf mindestens 64 MB"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:318
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:369
 msgid "Character encoding is set to UTF-8"
 msgstr "Die Zeichencodierung ist auf UTF-8 festgelegt"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:319
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:370
 msgid ""
 "Pronamic Pay recommends to use the UTF-8 character encoding for payments."
 msgstr ""
 "Pronamic Pay empfiehlt, die UTF-8-Zeichencodierung für Zahlungen zu "
 "verwenden."
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:332
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:383
 msgid "Character encoding is not set to UTF-8"
 msgstr "Die Zeichencodierung ist nicht auf UTF-8 festgelegt"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:347
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:398
 msgid "SHA1 hashing algorithm is available"
 msgstr "SHA1-Hashalgorithmus ist verfügbar"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:348
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:399
 msgid ""
 "Payment gateways often use the SHA1 hashing algorithm, therefore Pronamic "
 "Pay advises to enable this hashing algorithm."
@@ -4652,33 +4687,33 @@ msgstr ""
 "Zahlungsgateways verwenden häufig den SHA1-Hashalgorithmus, daher rät "
 "Pronamic Pay, diesen Hashalgorithmus zu aktivieren."
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:363
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:414
 msgid "SHA1 hashing algorithm is not available for Pronamic Pay"
 msgstr "SHA1-Hashalgorithmus ist nicht verfügbar für Pronamic Pay"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:474
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:542
 #, fuzzy
 msgid "Untested plugin versions:"
 msgstr "Unterstützte Plugin-Versionen:"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:484
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:552
 msgid ""
 "Outdated unsupported plugin versions for which payments can not be processed:"
 msgstr ""
 "Veraltete nicht unterstützte Plugin-Versionen, für die Zahlungen nicht "
 "verarbeitet werden können:"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:493
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:561
 msgid "Supported plugin versions:"
 msgstr "Unterstützte Plugin-Versionen:"
 
 #. translators: %s: plugin name
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:501
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:569
 #, fuzzy
 msgid "%s extensions are compatible"
 msgstr "Pronamic Pay-Erweiterungen sind kompatibel"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:505
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:573
 #, fuzzy
 msgid ""
 "Pronamic Pay uses extensions to integrate with form, booking and other e-"
@@ -4690,18 +4725,18 @@ msgstr ""
 "die aktuell aktivierte Plugin-Version."
 
 #. translators: %s: plugin name
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:510
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:578
 #, fuzzy
 msgid "%s extensions are incompatible"
 msgstr "Pronamic Pay-Erweiterungen sind inkompatibel"
 
 #. translators: %s: plugin name
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:517
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:585
 #, fuzzy
 msgid "%s extensions might be incompatible"
 msgstr "Pronamic Pay-Erweiterungen sind inkompatibel"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:522
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:590
 #, fuzzy
 msgid ""
 "Pronamic Pay uses extensions to integrate with form, booking and other e-"
@@ -4872,16 +4907,16 @@ msgstr ""
 "Sie sich ein <a href=\"%3$s\" target=\"_blank\">um Ihren Lizenzstatus zu "
 "überprüfen</a>."
 
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:138
+#: vendor/wp-pay/core/src/Admin/AdminNotices.php:145
 msgid "Dismiss this notice."
 msgstr ""
 
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:162
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:172
+#: vendor/wp-pay/core/src/Admin/AdminNotices.php:169
+#: vendor/wp-pay/core/src/Admin/AdminNotices.php:179
 msgid "Action failed. Please refresh the page and retry."
 msgstr ""
 
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:166
+#: vendor/wp-pay/core/src/Admin/AdminNotices.php:173
 msgid "You don’t have permission to do this."
 msgstr ""
 
@@ -4958,12 +4993,12 @@ msgstr ""
 "Diese Zahlung wurde anonymisiert. Personenbezogene Daten sind nicht mehr "
 "verfügbar."
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:338
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:332
 #: vendor/wp-pay/core/views/meta-box-subscription-payments.php:39
 msgid "Transaction"
 msgstr "Transaktion"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:339
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:333
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:168
 #: vendor/wp-pay/core/views/meta-box-form-options.php:25
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:147
@@ -4972,80 +5007,80 @@ msgstr "Transaktion"
 msgid "Gateway"
 msgstr "Zahlungsgateway"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:341
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:288
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:335
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:285
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:382
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:212
 msgid "Customer"
 msgstr "Kunde"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:420
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:350
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:413
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:348
 #: vendor/wp-pay/core/src/Plugin.php:1211
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:444
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:437
 msgid "Recurring payment"
 msgstr "Wiederkehrende Zahlung"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:448
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:441
 msgid "First of recurring payment"
 msgstr "Erste wiederkehrende Zahlung"
 
 #. translators: 1: edit post link with post ID, 2: source description, 3: source ID text
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:521
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:418
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:514
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:416
 msgid "%1$s for %2$s %3$s"
 msgstr "%1$s für %2$s - %3$s"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:649
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:530
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:641
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:534
 msgid "Payment Lines"
 msgstr "Zahlungsleitungen"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:667
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:557
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:659
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:561
 msgid "Notes"
 msgstr "Notizen"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:676
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:566
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:668
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:570
 #: vendor/wp-pay/core/views/meta-box-payment-update.php:178
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:54
 msgid "Update"
 msgstr "Aktualisieren"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:800
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:806
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:792
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:798
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:76
 msgid "Payment updated."
 msgstr "Zahlung aktualisiert."
 
 #. translators: %s: date and time of the revision
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:810
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:802
 msgid "Payment restored to revision from %s."
 msgstr "Zahlung von %s Revision wiederhergestellt."
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:813
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:805
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:72
 msgid "Payment published."
 msgstr "Zahlung veröffentlicht."
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:815
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:807
 msgid "Payment saved."
 msgstr "Zahlung gespeichert."
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:817
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:809
 msgid "Payment submitted."
 msgstr "Zahlung gesendet."
 
 #. translators: %s: scheduled date
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:820
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:812
 msgid "Payment scheduled for: %s."
 msgstr "Zahlung geplant für: %s."
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:822
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:814
 msgid "Payment draft updated."
 msgstr "Zahlungsentwurf aktualisiert."
 
@@ -5141,23 +5176,39 @@ msgid "— Select a page —"
 msgstr "— Wählen Sie eine Seite —"
 
 #. translators: %d: payment ID
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:202
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:204
 msgid "Payment #%d"
 msgstr "Zahlung #%d"
 
 #. translators: %s: payment post edit link
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:223
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:225
 msgid "%s has been created."
 msgstr "%s wurde erstellt."
 
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:290
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:287
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:127
 #: vendor/wp-pay/core/views/meta-box-subscription-phases.php:30
 #: vendor/wp-pay/core/views/subscription-details.php:72
 msgid "Recurrence"
 msgstr "Wiederholung"
 
-#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:539
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:288
+#, fuzzy
+msgid "Next payment"
+msgstr "Neue Zahlung"
+
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:480
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionPeriod.php:269
+#: vendor/wp-pay/core/views/meta-box-payment-info.php:542
+#: vendor/wp-pay/core/views/meta-box-subscription-info.php:169
+#: vendor/wp-pay/core/views/meta-box-subscription-info.php:184
+#: vendor/wp-pay/core/views/meta-box-subscription-payments.php:101
+#: vendor/wp-pay/core/views/meta-box-subscription-phases.php:106
+#, fuzzy
+msgid "D j M Y"
+msgstr "D j M Y \\u\\m H:i"
+
+#: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:543
 msgid "Phases"
 msgstr "Phasen"
 
@@ -5191,7 +5242,7 @@ msgid "Payment Form Block"
 msgstr "Zahlungsformular-Block"
 
 #: vendor/wp-pay/core/src/Cards.php:46
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:391
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:417
 msgid "American Express"
 msgstr "American Express"
 
@@ -5220,12 +5271,12 @@ msgid "JCB"
 msgstr "JCB"
 
 #: vendor/wp-pay/core/src/Cards.php:81
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:428
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:456
 msgid "Maestro"
 msgstr "Maestro"
 
 #: vendor/wp-pay/core/src/Cards.php:86
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:429
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:457
 msgid "Mastercard"
 msgstr "Mastercard"
 
@@ -5234,7 +5285,7 @@ msgid "UnionPay"
 msgstr "UnionPay"
 
 #: vendor/wp-pay/core/src/Cards.php:96
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:441
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:469
 msgid "Visa"
 msgstr "Visa"
 
@@ -5250,161 +5301,171 @@ msgstr "ING Bank"
 msgid "Moneyou"
 msgstr "Moneyou"
 
-#: vendor/wp-pay/core/src/Core/Gateway.php:377
+#: vendor/wp-pay/core/src/Core/Gateway.php:380
 msgctxt "Payment method field"
 msgid "All available methods"
 msgstr "Alle verfügbaren Methoden"
 
-#: vendor/wp-pay/core/src/Core/Gateway.php:379
+#: vendor/wp-pay/core/src/Core/Gateway.php:382
 msgctxt "Payment method field"
 msgid "Other"
 msgstr "Andere"
 
-#: vendor/wp-pay/core/src/Core/Gateway.php:514
+#: vendor/wp-pay/core/src/Core/Gateway.php:517
 msgid "Choose your bank"
 msgstr "Wählen Sie Ihre Bank"
 
-#: vendor/wp-pay/core/src/Core/Gateway.php:528
+#: vendor/wp-pay/core/src/Core/Gateway.php:531
 msgid "Choose your credit card issuer"
 msgstr "Wählen Sie Ihren Kreditkartenaussteller"
 
-#: vendor/wp-pay/core/src/Core/Gateway.php:631
+#: vendor/wp-pay/core/src/Core/Gateway.php:634
 msgid "Account holder name"
 msgstr "Name des Kontoinhabers"
 
-#: vendor/wp-pay/core/src/Core/Gateway.php:657
+#: vendor/wp-pay/core/src/Core/Gateway.php:660
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:289
 msgid "IBAN"
 msgstr "IBAN"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:388
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:414
 #, fuzzy
 msgctxt "afterpay.nl"
 msgid "AfterPay"
 msgstr "AfterPay"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:389
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:415
 #, fuzzy
 msgctxt "afterpay.com"
 msgid "Afterpay"
 msgstr "AfterPay"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:390
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:416
 msgid "Alipay"
 msgstr "Alipay"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:392
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:418
 msgid "Apple Pay"
 msgstr "Apple Pay"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:394
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:420
 msgid "Bank Transfer"
 msgstr "Banküberweisung"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:395
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:421
 msgid "Belfius Direct Net"
 msgstr "Belfius Direct Net"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:396
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:422
 msgid "Billink"
 msgstr "Billink"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:397
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:423
 msgid "Bitcoin"
 msgstr "Bitcoin"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:398
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:424
 msgid "BLIK"
 msgstr ""
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:400
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:426
 msgid "Capayable"
 msgstr "Capayable"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:401
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:427
 msgid "In3"
 msgstr "In3"
 
 #. translators: %s: payment method
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:406
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:411
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:416
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:432
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:437
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:442
 msgid "Direct Debit (mandate via %s)"
 msgstr "Lastschriftverfahren (Mandat über %s)"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:419
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:445
 msgid "EPS"
 msgstr "EPS"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:420
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:446
 msgid "Focum"
 msgstr "Focum"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:421
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:447
 msgid "Giropay"
 msgstr "Giropay"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:422
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:448
 msgid "Google Pay"
 msgstr "Google Pay"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:423
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:449
 msgid "Gulden"
 msgstr "Gulden"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:425
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:451
 msgid "iDEAL QR"
 msgstr "iDEAL QR"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:426
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:452
 msgid "KBC/CBC Payment Button"
 msgstr "KBC/CBC-Zahlungsschaltfläche"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:427
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:453
 msgid "Klarna Pay Later"
 msgstr "Klarna Pay Later"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:430
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:454
+#, fuzzy
+msgid "Klarna Pay Now"
+msgstr "Klarna Pay Later"
+
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:455
+#, fuzzy
+msgid "Klarna Pay Over Time"
+msgstr "Klarna Pay Later"
+
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:458
 msgid "MB WAY"
 msgstr ""
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:431
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:459
 msgid "Payconiq"
 msgstr "Payconiq"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:432
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:460
 msgid "PayPal"
 msgstr "PayPal"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:433
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:461
 msgid "Przelewy24"
 msgstr "Przelewy24"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:434
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:462
 msgid "Santander"
 msgstr "Santander"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:435
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:463
 msgid "SOFORT Banking"
 msgstr "Sofortüberweisung"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:436
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:464
 msgid "SprayPay"
 msgstr "SprayPay"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:437
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:465
 msgid "Swish"
 msgstr "Swish"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:438
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:466
 msgid "TWINT"
 msgstr ""
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:439
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:467
 msgid "V PAY"
 msgstr "V PAY"
 
-#: vendor/wp-pay/core/src/Core/PaymentMethods.php:440
+#: vendor/wp-pay/core/src/Core/PaymentMethods.php:468
 msgid "Vipps"
 msgstr "Vipps"
 
@@ -5951,11 +6012,6 @@ msgstr "Storniert"
 msgid "Subscription for %s"
 msgstr "Abonnement für %s"
 
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionPeriod.php:271
-#, fuzzy
-msgid "D j M Y"
-msgstr "D j M Y \\u\\m H:i"
-
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionPostType.php:54
 msgid "Add New Subscription"
 msgstr "Neue Abonnement hinzufügen"
@@ -6093,27 +6149,27 @@ msgstr "Abonnement mit Status \"%1$s\" erstellt."
 msgid "Subscription status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Abonnement-Status von \"%1$s\" in \"%2$s\" geändert."
 
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:453
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:450
 msgid "Gateway does not support subscription mandate updates."
 msgstr "Gateway unterstützt keine Abonnementmandataktualisierungen."
 
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:643
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:661
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:636
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:654
 msgid "Subscription ID."
 msgstr "Abonnement-ID."
 
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:665
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:658
 msgid "Subscription phase sequence number."
 msgstr "Sequenznummer der Abonnementphase."
 
 #. translators: %s: Subscription ID
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:689
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:715
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:682
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:708
 msgid "Could not find subscription with ID `%s`."
 msgstr "Abonnement mit der ID `%s` konnte nicht gefunden werden."
 
 #. translators: %s: Subscription ID
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:731
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:724
 msgid "Could not find subscription phase with sequence number `%s`."
 msgstr ""
 "Abonnementphase mit der Sequenznummer `%s` konnte nicht gefunden werden."
@@ -7044,45 +7100,45 @@ msgstr "Das Abonnement wurde aktualisiert."
 msgid "Return to home page"
 msgstr "Zurück zur Startseite"
 
-#: vendor/wp-pay/core/views/subscription-mandate.php:65
-#: vendor/wp-pay/core/views/subscription-mandate.php:75
+#: vendor/wp-pay/core/views/subscription-mandate.php:83
+#: vendor/wp-pay/core/views/subscription-mandate.php:93
 msgid "Change subscription payment method"
 msgstr "Ändern der Abonnementzahlungsmethode"
 
-#: vendor/wp-pay/core/views/subscription-mandate.php:81
+#: vendor/wp-pay/core/views/subscription-mandate.php:99
 msgid "Select an existing payment method or add a new one."
 msgstr ""
 "Wählen Sie eine vorhandene Zahlungsmethode aus, oder fügen Sie eine neue "
 "Zahlungsmethode hinzu."
 
-#: vendor/wp-pay/core/views/subscription-mandate.php:88
+#: vendor/wp-pay/core/views/subscription-mandate.php:106
 msgid "Select existing payment method"
 msgstr "Vorhandene Zahlungsmethode auswählen"
 
-#: vendor/wp-pay/core/views/subscription-mandate.php:111
+#: vendor/wp-pay/core/views/subscription-mandate.php:129
 msgctxt "Card selector"
 msgid "Card Number"
 msgstr "Kartennummer"
 
-#: vendor/wp-pay/core/views/subscription-mandate.php:119
+#: vendor/wp-pay/core/views/subscription-mandate.php:137
 msgctxt "Card selector"
 msgid "Account Number"
 msgstr "Kontonummer"
 
-#: vendor/wp-pay/core/views/subscription-mandate.php:172
+#: vendor/wp-pay/core/views/subscription-mandate.php:190
 msgctxt "Card selector"
 msgid "Name"
 msgstr "Name"
 
-#: vendor/wp-pay/core/views/subscription-mandate.php:191
+#: vendor/wp-pay/core/views/subscription-mandate.php:209
 msgid "Use selected payment method"
 msgstr "Ausgewählte Zahlungsmethode verwenden"
 
-#: vendor/wp-pay/core/views/subscription-mandate.php:203
+#: vendor/wp-pay/core/views/subscription-mandate.php:221
 msgid "Add new payment method"
 msgstr "Neue Zahlungsmethode hinzufügen"
 
-#: vendor/wp-pay/core/views/subscription-mandate.php:208
+#: vendor/wp-pay/core/views/subscription-mandate.php:226
 msgid "Select payment method for verification payment."
 msgstr "Wählen Sie die Zahlungsmethode für die Überprüfungszahlung aus."
 
@@ -7317,6 +7373,16 @@ msgstr ""
 msgctxt "block title"
 msgid "Payment Form"
 msgstr "Zahlungsformular"
+
+#, fuzzy
+#~ msgctxt "Font size name"
+#~ msgid "Custom"
+#~ msgstr "Benutzerdefiniert."
+
+#, fuzzy
+#~ msgctxt "Gradient name"
+#~ msgid "Custom gradient"
+#~ msgstr "Kunden Name"
 
 #~ msgid "Attendee %s"
 #~ msgstr "Teilnehmer %s"

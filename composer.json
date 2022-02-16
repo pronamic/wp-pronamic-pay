@@ -27,7 +27,7 @@
 		{
 			"name": "Leo Oosterloo",
 			"email": "leo@pronamic.nl",
-			"homepage": "http://www.leo-oosterloo.eu/",
+			"homepage": "https://www.leo-oosterloo.eu/",
 			"role": "Designer"
 		}
 	],
@@ -39,12 +39,18 @@
 	],
 	"config": {
 		"platform": {
-			"php": "5.6.20"
+			"php": "7.4"
 		},
-		"sort-packages": true
+		"sort-packages": true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"roots/wordpress-core-installer": true,
+			"bamarni/composer-bin-plugin": true,
+			"composer/installers": true
+		}
 	},
 	"require": {
-		"php": ">=5.6.20",
+		"php": ">=7.4",
 		"composer/installers": "^1.7",
 		"pronamic/wp-datetime": "^2.0",
 		"pronamic/wp-html": "^2.0",
