@@ -220,8 +220,16 @@ add_filter(
 		$mode = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
 
 		switch ( $value ) {
+			case 'abnamro-ideal-zelfbouw-v3':
+				return ( 'test' === $mode ) ? 'abnamro-ideal-zelfbouw-test' : 'abnamro-ideal-zelfbouw';
+			case 'deutschebank-ideal-expert-v3':
+				return ( 'test' === $mode ) ? 'deutschebank-ideal-expert-test' : 'deutschebank-ideal-expert';
+			case 'ing-ideal-advanced-v3':
+				return ( 'test' === $mode ) ? 'ing-ideal-advanced-test' : 'ing-ideal-advanced';
 			case 'ing-ideal-advanced-2022':
 				return ( 'test' === $mode ) ? 'ing-ideal-advanced-2022-sandbox' : 'ing-ideal-advanced-2022-production';
+			case 'rabobank-ideal-professional-v3':
+				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
 		}
 
 		return $value;
@@ -233,21 +241,35 @@ add_filter(
 add_filter(
 	'pronamic_pay_gateways',
 	function( $gateways ) {
-		// ABN AMRO - iDEAL Zelfbouw (v3).
+		// ABN AMRO - iDEAL Zelfbouw.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'                => 'abnamro-ideal-zelfbouw-v3',
-				'name'              => 'ABN AMRO - iDEAL Zelfbouw',
-				'provider'          => 'abnamro',
-				'url'               => 'https://abnamro.ideal-payment.de/',
-				'product_url'       => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
-				'dashboard_url'     => array(
-					'test' => 'https://abnamro-test.ideal-payment.de/',
-					'live' => 'https://abnamro.ideal-payment.de/',
+				'id'            => 'abnamro-ideal-zelfbouw',
+				'name'          => 'ABN AMRO - iDEAL Zelfbouw',
+				'mode'          => 'live',
+				'provider'      => 'abnamro',
+				'url'           => 'https://abnamro.ideal-payment.de/',
+				'product_url'   => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
+				'dashboard_url' => 'https://abnamro.ideal-payment.de/',
+				'acquirer_url'  => 'https://abnamro.ideal-payment.de/ideal/iDEALv3',
+				'certificates'  => array(
+					__DIR__ . '/certificates/abnamro-2017-01-26-2022-01-25.cer',
+					__DIR__ . '/certificates/abnamro-2021-10-01-2026-09-30.cer',
 				),
-				'acquirer_url'      => 'https://abnamro.ideal-payment.de/ideal/iDEALv3',
-				'acquirer_test_url' => 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3',
-				'certificates'      => array(
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
+			array(
+				'id'            => 'abnamro-ideal-zelfbouw-test',
+				'name'          => 'ABN AMRO - iDEAL Zelfbouw - Test',
+				'mode'          => 'test',
+				'provider'      => 'abnamro',
+				'url'           => 'https://abnamro.ideal-payment.de/',
+				'product_url'   => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
+				'dashboard_url' => 'https://abnamro-test.ideal-payment.de/',
+				'acquirer_url'  => 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3',
+				'certificates'  => array(
 					__DIR__ . '/certificates/abnamro-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/abnamro-2021-10-01-2026-09-30.cer',
 				),
@@ -257,20 +279,30 @@ add_filter(
 		// Buckaroo.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration();
 
-		// Deutsche Bank - iDEAL Expert (v3).
+		// Deutsche Bank - iDEAL Expert.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'                => 'deutschebank-ideal-expert-v3',
-				'name'              => 'Deutsche Bank - iDEAL Expert',
-				'provider'          => 'deutschebank',
-				'product_url'       => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
-				'dashboard_url'     => array(
-					'test' => 'https://myideal.test.db.com/',
-					'live' => 'https://myideal.db.com/',
-				),
-				'acquirer_url'      => 'https://myideal.db.com/ideal/iDealv3',
-				'acquirer_test_url' => null,
-				'certificates'      => array(),
+				'id'            => 'deutschebank-ideal-expert',
+				'name'          => 'Deutsche Bank - iDEAL Expert',
+				'mode'          => 'live',
+				'provider'      => 'deutschebank',
+				'product_url'   => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
+				'dashboard_url' => 'https://myideal.db.com/',
+				'acquirer_url'  => 'https://myideal.db.com/ideal/iDealv3',
+				'certificates'  => array(),
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
+			array(
+				'id'            => 'deutschebank-ideal-expert-test',
+				'name'          => 'Deutsche Bank - iDEAL Expert - Test',
+				'mode'          => 'test',
+				'provider'      => 'deutschebank',
+				'product_url'   => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
+				'dashboard_url' => 'https://myideal.test.db.com/',
+				'acquirer_url'  => 'https://myideal.test.db.com/ideal/iDealv3',
+				'certificates'  => array(),
 			)
 		);
 
@@ -312,21 +344,35 @@ add_filter(
 			)
 		);
 
-		// ING - iDEAL Advanced (v3).
+		// ING - iDEAL Advanced.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'                => 'ing-ideal-advanced-v3',
-				'name'              => 'ING - iDEAL Advanced',
-				'provider'          => 'ing',
-				'product_url'       => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'        => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
-				'dashboard_url'     => array(
-					'test' => 'https://idealtest.secure-ing.com/',
-					'live' => 'https://ideal.secure-ing.com/',
+				'id'            => 'ing-ideal-advanced',
+				'name'          => 'ING - iDEAL Advanced - Old platform',
+				'mode'          => 'live',
+				'provider'      => 'ing',
+				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'manual_url'    => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url' => 'https://ideal.secure-ing.com/',
+				'acquirer_url'  => 'https://ideal.secure-ing.com/ideal/iDEALv3',
+				'certificates'  => array(
+					__DIR__ . '/certificates/ing-2017-01-26-2022-01-25.cer',
+					__DIR__ . '/certificates/ing-2021-10-01-2016-09-30.cer',
 				),
-				'acquirer_url'      => 'https://ideal.secure-ing.com/ideal/iDEALv3',
-				'acquirer_test_url' => 'https://idealtest.secure-ing.com/ideal/iDEALv3',
-				'certificates'      => array(
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
+			array(
+				'id'            => 'ing-ideal-advanced-test',
+				'name'          => 'ING - iDEAL Advanced - Old platform - Test',
+				'mode'          => 'test',
+				'provider'      => 'ing',
+				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
+				'manual_url'    => __( 'https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url' => 'https://idealtest.secure-ing.com/',
+				'acquirer_url'  => 'https://idealtest.secure-ing.com/ideal/iDEALv3',
+				'certificates'  => array(
 					__DIR__ . '/certificates/ing-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/ing-2021-10-01-2016-09-30.cer',
 				),
@@ -405,21 +451,35 @@ add_filter(
 		// Pay.nl.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\PayNL\Integration();
 
-		// Rabobank - iDEAL Professional (v3).
+		// Rabobank - iDEAL Professional.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
-				'id'                => 'rabobank-ideal-professional-v3',
-				'name'              => 'Rabobank - iDEAL Professional',
-				'provider'          => 'rabobank',
-				'product_url'       => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
-				'manual_url'        => __( 'https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
-				'dashboard_url'     => array(
-					'test' => 'https://idealtest.rabobank.nl/',
-					'live' => 'https://ideal.rabobank.nl/',
+				'id'            => 'rabobank-ideal-professional',
+				'name'          => 'Rabobank - iDEAL Professional',
+				'mode'          => 'live',
+				'provider'      => 'rabobank',
+				'product_url'   => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
+				'manual_url'    => __( 'https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url' => 'https://ideal.rabobank.nl/',
+				'acquirer_url'  => 'https://ideal.rabobank.nl/ideal/iDEALv3',
+				'certificates'  => array(
+					__DIR__ . '/certificates/rabobank-2017-01-26-2022-01-25.cer',
+					__DIR__ . '/certificates/rabobank-2021-10-01-2026-09-30.cer',
 				),
-				'acquirer_url'      => 'https://ideal.rabobank.nl/ideal/iDEALv3',
-				'acquirer_test_url' => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
-				'certificates'      => array(
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
+			array(
+				'id'            => 'rabobank-ideal-professional-test',
+				'name'          => 'Rabobank - iDEAL Professional - Test',
+				'mode'          => 'test',
+				'provider'      => 'rabobank',
+				'product_url'   => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
+				'manual_url'    => __( 'https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-v3-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
+				'dashboard_url' => 'https://idealtest.rabobank.nl/',
+				'acquirer_url'  => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
+				'certificates'  => array(
 					__DIR__ . '/certificates/rabobank-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/rabobank-2021-10-01-2026-09-30.cer',
 				),
