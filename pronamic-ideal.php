@@ -230,8 +230,6 @@ add_filter(
 				return ( 'test' === $mode ) ? 'ing-ideal-advanced-2022-sandbox' : 'ing-ideal-advanced-2022-production';
 			case 'ing-ideal-basic':
 				return ( 'test' === $mode ) ? 'ing-ideal-basic-test' : 'ing-ideal-basic';
-			case 'mollie-ideal-basic':
-				return ( 'test' === $mode ) ? 'mollie-ideal-basic-test' : 'mollie-ideal-basic';
 			case 'rabobank-ideal-professional-v3':
 				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
 			case 'sisow-ideal-basic':
@@ -318,7 +316,7 @@ add_filter(
 		// ICEPAY.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Icepay\Integration();
 
-		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3).
+		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			array(
 				'id'           => 'ideal-simulator-ideal-advanced-v3',
@@ -436,31 +434,6 @@ add_filter(
 				'manual_url'             => \__( 'https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-pronamic-pay/', 'pronamic_ideal' ),
 				'version_option_name'    => 'pronamic_pay_mollie_version',
 				'db_version_option_name' => 'pronamic_pay_mollie_db_version',
-			)
-		);
-
-		// Mollie - iDEAL Basic.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
-			array(
-				'id'            => 'mollie-ideal-basic',
-				'name'          => 'Mollie - iDEAL Basic',
-				'mode'          => 'live',
-				'provider'      => 'mollie',
-				'dashboard_url' => 'https://www.mollie.com/dashboard/',
-				'deprecated'    => true,
-				'acquirer_url'  => 'https://secure.mollie.nl/xml/idealAcquirer/lite/',
-			)
-		);
-
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
-			array(
-				'id'            => 'mollie-ideal-basic-test',
-				'name'          => 'Mollie - iDEAL Basic - Test',
-				'mode'          => 'test',
-				'provider'      => 'mollie',
-				'dashboard_url' => 'https://www.mollie.com/dashboard/',
-				'deprecated'    => true,
-				'acquirer_url'  => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/',
 			)
 		);
 
