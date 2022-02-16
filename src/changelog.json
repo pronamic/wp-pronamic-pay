@@ -4,6 +4,85 @@
 		"changes": {}
 	},
 	{
+		"version": "8.1.0",
+		"date": "2022-02-16",
+		"changes": [
+			{
+				"name": "Added",
+				"changes": [
+					"Added support for new ING iDEAL Advanced platform."
+				]
+			},
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress core library to version 4.0.2.",
+						"changes": [
+							"Changed minimum PHP version requirement to `7.4` (https://github.com/pronamic/wp-pronamic-pay/issues/274).",
+							"Changed follow-up payments query to subscriptions which needed renewal in past 24 hours only.",
+							"Added next payment date column in subscriptions admin (https://github.com/pronamic/wp-pronamic-pay/issues/288).",
+							"Fixed empty payment description admin column.",
+							"Fixed error on subscription mandate selection page with invalid Mollie customer.",
+							"Fixed possible infinite loop on updating active payment methods (https://github.com/pronamic/wp-pay-core/issues/54).",
+							"Fixed setting Mollie sequence type when manually re-trying payment for a period.",
+							"Updated scheduling follow-up payments pages.",
+							"Updated site health tests and debug information.",
+							"Updated pronamic/wp-pay-logos library to version `1.7.1`.",
+							"Removed time from next payment dates in admin."
+						]
+					},
+					{
+						"description": "Updated WordPress Adyen library to version 3.0.1.",
+						"changes": [
+							"Added support for Klarna Pay Now and Klarna Pay Over Time.",
+							"Added support for Afterpay and the Adyen `afterpaytouch` payment method indicator.",
+							"Updated drop-in error handling (https://github.com/pronamic/wp-pronamic-pay-adyen/issues/2)."
+						]
+					},
+					{
+						"description": "Updated WordPress MultiSafepay library to version 4.0.1.",
+						"changes": [
+							"Fixed possible error \"Call to a member function get_total() on null\"."
+						]
+					},
+					{
+						"description": "Updated WordPress Gravity Forms library to version 4.0.1.",
+						"changes": [
+							"Fixed processing delayed feeds during fulfilment of free payments (e.g. user registration for entry with discount; https://github.com/pronamic/wp-pronamic-pay/issues/279)."
+						]
+					},
+					{
+						"description": "Updated WordPress MemberPress library to version 4.0.1.",
+						"changes": [
+							"Fixed MemberPress gateway capabilities based on gateway support.",
+							"Fixed confirming subscription confirmation transaction only for recurring payments."
+						]
+					},
+					{
+						"description": "Updated WordPress Ninja Forms library to version 3.0.1.",
+						"changes": [
+							"Fixed delaying all actions (https://github.com/pronamic/wp-pronamic-pay-ninjaforms/issues/4)."
+						]
+					},
+					{
+						"description": "Updated WordPress WooCommerce library to version 4.0.1.",
+						"changes": [
+							"Added Klarna Pay Now and Klarna Pay Over Time gateways.",
+							"Added support for multiple subscriptions.",
+							"Fixed adding periods to payments.",
+							"Fixed handling subscription payment method changes.",
+							"Fixed setting input fields only if gateway is enabled.",
+							"Updated AfterPay.nl and Afterpay.com method descriptions to clarify differences in target countries.",
+							"Updated subscription source texts."
+						]
+					},
+					"Updated WordPress Mollie library to version 4.0.1."
+				]
+			}
+		]
+	},
+	{
 		"version": "8.0.0",
 		"date": "2022-01-13",
 		"changes": [
