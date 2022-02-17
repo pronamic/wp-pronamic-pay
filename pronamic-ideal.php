@@ -222,6 +222,8 @@ add_filter(
 		switch ( $value ) {
 			case 'abnamro-ideal-zelfbouw-v3':
 				return ( 'test' === $mode ) ? 'abnamro-ideal-zelfbouw-test' : 'abnamro-ideal-zelfbouw';
+			case 'buckaroo':
+				return ( 'test' === $mode ) ? 'buckaroo-test' : 'buckaroo';
 			case 'deutschebank-ideal-expert-v3':
 				return ( 'test' === $mode ) ? 'deutschebank-ideal-expert-test' : 'deutschebank-ideal-expert';
 			case 'ing-ideal-advanced-v3':
@@ -283,7 +285,23 @@ add_filter(
 		);
 
 		// Buckaroo.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(
+			array(
+				'id'   => 'buckaroo',
+				'name' => 'Buckaroo',
+				'mode' => 'live',
+				'host' => 'checkout.buckaroo.nl',
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(
+			array(
+				'id'   => 'buckaroo-test',
+				'name' => 'Buckaroo - Test',
+				'mode' => 'test',
+				'host' => 'testcheckout.buckaroo.nl',
+			)
+		);
 
 		// Deutsche Bank - iDEAL Expert.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
