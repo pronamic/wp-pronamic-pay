@@ -232,6 +232,8 @@ add_filter(
 				return ( 'test' === $mode ) ? 'ing-ideal-basic-test' : 'ing-ideal-basic';
 			case 'rabobank-ideal-professional-v3':
 				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
+			case 'rabobank-omnikassa-2':
+				return ( 'test' === $mode ) ? 'rabobank-omnikassa-2-sandbox' : 'rabobank-omnikassa-2';
 			case 'sisow-ideal-basic':
 				return ( 'test' === $mode ) ? 'sisow-ideal-basic-test' : 'sisow-ideal-basic';
 		}
@@ -447,7 +449,23 @@ add_filter(
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration();
 
 		// Rabobank - OmniKassa 2.0.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration(
+			array(
+				'id'      => 'rabobank-omnikassa-2',
+				'name'    => 'Rabobank - OmniKassa 2.0',
+				'mode'    => 'live',
+				'api_url' => 'https://betalen.rabobank.nl/omnikassa-api/',
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration(
+			array(
+				'id'      => 'rabobank-omnikassa-2-sandbox',
+				'name'    => 'Rabobank - OmniKassa 2.0 - Sandbox',
+				'mode'    => 'test',
+				'api_url' => 'https://betalen.rabobank.nl/omnikassa-api-sandbox/',
+			)
+		);
 
 		// Pay.nl.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\PayNL\Integration();
