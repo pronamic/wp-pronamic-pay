@@ -234,6 +234,8 @@ add_filter(
 				return ( 'test' === $mode ) ? 'ing-ideal-advanced-2022-sandbox' : 'ing-ideal-advanced-2022-production';
 			case 'ing-ideal-basic':
 				return ( 'test' === $mode ) ? 'ing-ideal-basic-test' : 'ing-ideal-basic';
+			case 'multisafepay-connect':
+				return ( 'test' === $mode ) ? 'multisafepay-connect-test' : 'multisafepay-connect';
 			case 'rabobank-ideal-professional-v3':
 				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
 			case 'rabobank-omnikassa-2':
@@ -478,7 +480,23 @@ add_filter(
 		);
 
 		// MultiSafePay - Connect.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\MultiSafepay\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\MultiSafepay\Integration(
+			array(
+				'id'      => 'multisafepay-connect',
+				'name'    => 'MultiSafepay - Connect',
+				'mode'    => 'live',
+				'api_url' => 'https://api.multisafepay.com/ewx/',
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\MultiSafepay\Integration(
+			array(
+				'id'      => 'multisafepay-connect-test',
+				'name'    => 'MultiSafepay - Connect - Test',
+				'mode'    => 'test',
+				'api_url' => 'https://testapi.multisafepay.com/ewx/',
+			)
+		);
 
 		// Ingenico - DirectLink.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\Integration();
