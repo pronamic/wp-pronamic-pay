@@ -533,19 +533,21 @@ add_filter(
 		// Ingenico - OrderStandard.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration(
 			array(
-				'id'         => 'ingenico-orderstandard',
-				'name'       => 'Ingenico/Ogone - e-Commerce',
-				'mode'       => 'live',
-				'action_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/prod/orderstandard_utf8.asp' : 'https://secure.ogone.com/ncol/prod/orderstandard.asp',
+				'id'               => 'ingenico-orderstandard',
+				'name'             => 'Ingenico/Ogone - e-Commerce',
+				'mode'             => 'live',
+				'action_url'       => $is_utf8 ? 'https://secure.ogone.com/ncol/prod/orderstandard_utf8.asp' : 'https://secure.ogone.com/ncol/prod/orderstandard.asp',
+				'direct_query_url' => 'https://secure.ogone.com/ncol/prod/querydirect.asp',
 			)
 		);
 
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration(
 			array(
-				'id'         => 'ingenico-orderstandard-test',
-				'name'       => 'Ingenico/Ogone - e-Commerce - Test',
-				'mode'       => 'test',
-				'action_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/test/orderstandard_utf8.asp' : 'https://secure.ogone.com/ncol/test/orderstandard.asp',
+				'id'               => 'ingenico-orderstandard-test',
+				'name'             => 'Ingenico/Ogone - e-Commerce - Test',
+				'mode'             => 'test',
+				'action_url'       => $is_utf8 ? 'https://secure.ogone.com/ncol/test/orderstandard_utf8.asp' : 'https://secure.ogone.com/ncol/test/orderstandard.asp',
+				'direct_query_url' => 'https://secure.ogone.com/ncol/test/querydirect.asp',
 			)
 		);
 
