@@ -237,9 +237,9 @@ add_filter(
 			case 'multisafepay-connect':
 				return ( 'test' === $mode ) ? 'multisafepay-connect-test' : 'multisafepay-connect';
 			case 'ogone-directlink':
-				return ( 'test' === $mode ) ? 'ogone-directlink-test' : 'ogone-directlink';
+				return ( 'test' === $mode ) ? 'ingenico-directlink-test' : 'ingenico-directlink';
 			case 'ogone-orderstandard':
-				return ( 'test' === $mode ) ? 'ogone-orderstandard-test' : 'ogone-orderstandard';
+				return ( 'test' === $mode ) ? 'ingenico-orderstandard-test' : 'ingenico-orderstandard';
 			case 'rabobank-ideal-professional-v3':
 				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
 			case 'rabobank-omnikassa-2':
@@ -508,7 +508,7 @@ add_filter(
 		// Ingenico - DirectLink.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\Integration(
 			array(
-				'id'      => 'ogone-directlink',
+				'id'      => 'ingenico-directlink',
 				'name'    => 'Ingenico/Ogone - DirectLink',
 				'mode'    => 'live',
 				'api_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/prod/orderdirect_utf8.asp' : 'https://secure.ogone.com/ncol/prod/orderdirect.asp',
@@ -517,7 +517,7 @@ add_filter(
 
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\Integration(
 			array(
-				'id'      => 'ogone-directlink-test',
+				'id'      => 'ingenico-directlink-test',
 				'name'    => 'Ingenico/Ogone - DirectLink - Test',
 				'mode'    => 'test',
 				'api_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/test/orderdirect_utf8.asp' : 'https://secure.ogone.com/ncol/test/orderdirect.asp',
@@ -527,7 +527,7 @@ add_filter(
 		// Ingenico - OrderStandard.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration(
 			array(
-				'id'         => 'ogone-orderstandard',
+				'id'         => 'ingenico-orderstandard',
 				'name'       => 'Ingenico/Ogone - e-Commerce',
 				'mode'       => 'live',
 				'action_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/prod/orderstandard_utf8.asp' : 'https://secure.ogone.com/ncol/prod/orderstandard.asp',
@@ -536,7 +536,7 @@ add_filter(
 
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration(
 			array(
-				'id'         => 'ogone-orderstandard-test',
+				'id'         => 'ingenico-orderstandard-test',
 				'name'       => 'Ingenico/Ogone - e-Commerce - Test',
 				'mode'       => 'test',
 				'action_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/test/orderstandard_utf8.asp' : 'https://secure.ogone.com/ncol/test/orderstandard.asp',
