@@ -222,6 +222,8 @@ add_filter(
 		switch ( $value ) {
 			case 'abnamro-ideal-zelfbouw-v3':
 				return ( 'test' === $mode ) ? 'abnamro-ideal-zelfbouw-test' : 'abnamro-ideal-zelfbouw';
+			case 'adyen':
+				return ( 'test' === $mode ) ? 'adyen-test' : 'adyen';
 			case 'buckaroo':
 				return ( 'test' === $mode ) ? 'buckaroo-test' : 'buckaroo';
 			case 'deutschebank-ideal-expert-v3':
