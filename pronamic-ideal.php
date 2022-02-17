@@ -226,6 +226,8 @@ add_filter(
 				return ( 'test' === $mode ) ? 'buckaroo-test' : 'buckaroo';
 			case 'deutschebank-ideal-expert-v3':
 				return ( 'test' === $mode ) ? 'deutschebank-ideal-expert-test' : 'deutschebank-ideal-expert';
+			case 'ems-ecommerce':
+				return ( 'test' === $mode ) ? 'ems-ecommerce-test' : 'ems-ecommerce';
 			case 'ing-ideal-advanced-v3':
 				return ( 'test' === $mode ) ? 'ing-ideal-advanced-test' : 'ing-ideal-advanced';
 			case 'ing-ideal-advanced-2022':
@@ -331,7 +333,25 @@ add_filter(
 		);
 
 		// EMS - eCommerce.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\EMS\ECommerce\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\EMS\ECommerce\Integration(
+			array(
+				'id'            => 'ems-ecommerce',
+				'name'          => 'EMS e-Commerce',
+				'mode'          => 'live',
+				'action_url'    => 'https://www.ipg-online.com/connect/gateway/processing',
+				'dashboard_url' => 'https://www.ipg-online.com/vt/login',
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\EMS\ECommerce\Integration(
+			array(
+				'id'            => 'ems-ecommerce-test',
+				'name'          => 'EMS e-Commerce - Test',
+				'mode'          => 'test',
+				'action_url'    => 'https://test.ipg-online.com/connect/gateway/processing',
+				'dashboard_url' => 'https://test.ipg-online.com/vt/login',
+			)
+		);
 
 		// ICEPAY.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Icepay\Integration();
