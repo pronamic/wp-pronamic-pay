@@ -236,6 +236,10 @@ add_filter(
 				return ( 'test' === $mode ) ? 'ing-ideal-basic-test' : 'ing-ideal-basic';
 			case 'multisafepay-connect':
 				return ( 'test' === $mode ) ? 'multisafepay-connect-test' : 'multisafepay-connect';
+			case 'ogone-directlink':
+				return ( 'test' === $mode ) ? 'ogone-directlink-test' : 'ogone-directlink';
+			case 'ogone-orderstandard':
+				return ( 'test' === $mode ) ? 'ogone-orderstandard-test' : 'ogone-orderstandard';
 			case 'rabobank-ideal-professional-v3':
 				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
 			case 'rabobank-omnikassa-2':
@@ -498,11 +502,46 @@ add_filter(
 			)
 		);
 
+		// Ingenico.
+		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
+
 		// Ingenico - DirectLink.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\Integration(
+			array(
+				'id'      => 'ogone-directlink',
+				'name'    => 'Ingenico/Ogone - DirectLink',
+				'mode'    => 'live',
+				'api_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/prod/orderdirect_utf8.asp' : 'https://secure.ogone.com/ncol/prod/orderdirect.asp',
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\Integration(
+			array(
+				'id'      => 'ogone-directlink-test',
+				'name'    => 'Ingenico/Ogone - DirectLink - Test',
+				'mode'    => 'test',
+				'api_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/test/orderdirect_utf8.asp' : 'https://secure.ogone.com/ncol/test/orderdirect.asp',
+			)
+		);
 
 		// Ingenico - OrderStandard.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration(
+			array(
+				'id'         => 'ogone-orderstandard',
+				'name'       => 'Ingenico/Ogone - e-Commerce',
+				'mode'       => 'live',
+				'action_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/prod/orderstandard_utf8.asp' : 'https://secure.ogone.com/ncol/prod/orderstandard.asp',
+			)
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration(
+			array(
+				'id'         => 'ogone-orderstandard-test',
+				'name'       => 'Ingenico/Ogone - e-Commerce - Test',
+				'mode'       => 'test',
+				'action_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/test/orderstandard_utf8.asp' : 'https://secure.ogone.com/ncol/test/orderstandard.asp',
+			)
+		);
 
 		// Rabobank - OmniKassa 2.0.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration(
