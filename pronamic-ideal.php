@@ -129,67 +129,6 @@ add_filter(
 				'slug'                   => 'restrict-content-pro',
 				'db_version_option_name' => 'pronamic_pay_restrictcontentpro_db_version',
 				'name'                   => 'Restrict Content Pro',
-				'manual_url'             => null,
-				/**
-				 * Affiliate link.
-				 *
-				 * @link https://restrictcontentpro.com/affiliates/
-				 * @link https://restrictcontentpro.com/affiliate-agreement/
-				 * @todo Request a Restrict Content Pro affiliate link.
-				 */
-				'affiliate_url'          => null,
-				/**
-				 * Requirements.
-				 *
-				 * @link https://github.com/dsawardekar/wp-requirements
-				 * @link https://github.com/afragen/wp-dependency-installer
-				 * @link https://github.com/wearerequired/wp-requirements-check
-				 * @link https://github.com/ultraleettech/wp-requirements-checker
-				 * @link https://waclawjacek.com/check-wordpress-plugin-dependencies/
-				 * @link https://github.com/xwp/wp-plugin-dependencies
-				 * @link https://wordpress.org/plugins/plugin-dependencies/
-				 * @link https://github.com/joshbetz/wp-plugin-dependencies
-				 * @link https://github.com/jrfnl/wp-known-plugin-dependencies
-				 * @link https://github.com/xwp/wp-plugin-dependencies/issues/34
-				 * @link https://github.com/WordPress/WordPress/blob/master/wp-includes/class.wp-dependencies.php
-				 * @link https://github.com/WordPress/WordPress/blob/master/wp-includes/class-wp-dependency.php
-				 * @link https://github.com/Yoast/yoast-acf-analysis/blob/2.3.0/inc/ac-yoast-seo-acf-content-analysis.php#L30-L32
-				 * @link https://github.com/Yoast/yoast-acf-analysis/blob/2.3.0/inc/requirements.php
-				 */
-				'requirements'           => array(
-					array(
-						'type'              => 'php',
-						'requires_at_least' => '5.6.20',
-					),
-					array(
-						'type'      => 'php-ext',
-						'name'      => 'Internationalization',
-						'slug'      => 'intl',
-						'is_active' => function() {
-							return \extension_loaded( 'intl' );
-						},
-					),
-					array(
-						'type'              => 'wp',
-						'requires_at_least' => '4.7',
-					),
-					array(
-						'type'              => 'wp-plugin',
-						'name'              => 'Restrict Content Pro',
-						'slug'              => 'restrict-content-pro',
-						'uri'               => 'https://restrictcontentpro.com/',
-						'requires_at_least' => '3.0.0',
-						'tested_up_to'      => '3.1.2',
-						'is_active'         => function() {
-							return \defined( 'RCP_PLUGIN_VERSION' );
-						},
-						'get_version'       => function() {
-							if ( \defined( 'RCP_PLUGIN_VERSION' ) ) {
-								return RCP_PLUGIN_VERSION;
-							}
-						},
-					),
-				),
 			)
 		);
 
