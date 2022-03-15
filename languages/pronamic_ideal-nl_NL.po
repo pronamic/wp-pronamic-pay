@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-02-16T11:08:14+00:00\n"
-"PO-Revision-Date: 2022-03-15 10:44+0100\n"
+"POT-Creation-Date: 2022-03-15T11:05:17+00:00\n"
+"PO-Revision-Date: 2022-03-15 12:06+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -408,14 +408,15 @@ msgstr "s2Member"
 msgid "WP eCommerce"
 msgstr "WP eCommerce"
 
-#: pronamic-ideal.php:273
+#: pronamic-ideal.php:333 pronamic-ideal.php:346
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-"
 "wordpress-via-pronamic-pay/"
 msgstr ""
 "https://www.pronamic.nl/support/pronamic-ideal-koppelen-aan-ing-ideal-basic/"
 
-#: pronamic-ideal.php:290 pronamic-ideal.php:311
+#: pronamic-ideal.php:360 pronamic-ideal.php:377 pronamic-ideal.php:395
+#: pronamic-ideal.php:412
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-"
 "wordpress-via-pronamic-pay/"
@@ -423,13 +424,13 @@ msgstr ""
 "https://www.pronamic.nl/support/pronamic-ideal-koppelen-met-ing-bank-ideal-"
 "advanced-v3/"
 
-#: pronamic-ideal.php:329
+#: pronamic-ideal.php:425
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
 "pronamic-pay/"
 msgstr "https://www.pronamic.nl/support/pronamic-ideal-koppelen-aan-mollie/"
 
-#: pronamic-ideal.php:370
+#: pronamic-ideal.php:523 pronamic-ideal.php:540
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-"
 "v3-with-wordpress-via-pronamic-pay/"
@@ -437,11 +438,11 @@ msgstr ""
 "https://www.pronamic.nl/support/pronamic-ideal-koppelen-met-rabobank-ideal-"
 "professional-v3/"
 
-#: pronamic-ideal.php:406
+#: pronamic-ideal.php:585
 msgid "https://www.targetpay.com/info/ideal?setlang=en"
 msgstr "https://www.targetpay.com/info/ideal?setlang=nl"
 
-#: pronamic-ideal.php:409
+#: pronamic-ideal.php:588
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-targetpay-with-wordpress-via-"
 "pronamic-pay/"
@@ -5929,10 +5930,9 @@ msgstr "D j M Y \\o\\m H:i"
 
 #: vendor/wp-pay/core/src/Plugin.php:720
 msgid ""
-"Something went wrong with the payment. Please try again later or pay another "
-"way."
+"Something went wrong with the payment. Please try again or pay another way."
 msgstr ""
-"Betalen is nu niet mogelijk. Probeer het later nogmaals of betaal op een "
+"Er ging iets mis met de betaling. Probeer het opnieuw of betaal op een "
 "andere manier."
 
 #: vendor/wp-pay/core/src/Plugin.php:763
