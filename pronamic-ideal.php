@@ -64,6 +64,10 @@ if ( is_readable( $autoload_after ) ) {
 		$plugin['Name'],
 		array(
 			'Pronamic Pay Adyen Add-On',
+			'Pronamic Pay Contact Form 7 Add-On',
+			'Pronamic Pay DigiWallet Add-On',
+			'Pronamic Pay Fundraising Add-On',
+			'Pronamic Pay Restrict Content Pro Add-On',
 			'Pronamic Pay PayPal Add-On',
 			'Pronamic Pay Payvision Add-On',
 		),
