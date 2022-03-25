@@ -67,7 +67,7 @@ if ( is_readable( $autoload_after ) ) {
 			'Pronamic Pay PayPal Add-On',
 			'Pronamic Pay Payvision Add-On',
 		),
-	true
+		true
 	);
 } );
 
