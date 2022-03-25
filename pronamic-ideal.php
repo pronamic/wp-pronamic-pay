@@ -59,6 +59,18 @@ if ( is_readable( $autoload_after ) ) {
 	)
 );
 
+\Pronamic\WordPress\Pay\Updater::instance( function( $plugin ) {
+	return \in_array(
+		$plugin['Name'],
+		array(
+			'Pronamic Pay Adyen Add-On',
+			'Pronamic Pay PayPal Add-On',
+			'Pronamic Pay Payvision Add-On',
+		),
+	true
+	);
+} );
+
 add_filter(
 	'pronamic_pay_removed_extension_notifications',
 	function( $notifications ) {
