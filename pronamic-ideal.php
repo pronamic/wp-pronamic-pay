@@ -60,21 +60,23 @@ if ( is_readable( $autoload_after ) ) {
 	)
 );
 
-\Pronamic\WordPress\Pay\Updater::instance( function( $plugin ) {
-	return \in_array(
-		$plugin['Name'],
-		array(
-			'Pronamic Pay Adyen Add-On',
-			'Pronamic Pay Contact Form 7 Add-On',
-			'Pronamic Pay DigiWallet Add-On',
-			'Pronamic Pay Fundraising Add-On',
-			'Pronamic Pay Restrict Content Pro Add-On',
-			'Pronamic Pay PayPal Add-On',
-			'Pronamic Pay Payvision Add-On',
-		),
-		true
-	);
-} );
+\Pronamic\WordPress\Pay\Updater::instance(
+	function ( $plugin ) {
+		return \in_array(
+			$plugin['Name'],
+			array(
+				'Pronamic Pay Adyen Add-On',
+				'Pronamic Pay Contact Form 7 Add-On',
+				'Pronamic Pay DigiWallet Add-On',
+				'Pronamic Pay Fundraising Add-On',
+				'Pronamic Pay Restrict Content Pro Add-On',
+				'Pronamic Pay PayPal Add-On',
+				'Pronamic Pay Payvision Add-On',
+			),
+			true
+		);
+	}
+);
 
 add_filter(
 	'pronamic_pay_removed_extension_notifications',
@@ -226,10 +228,10 @@ add_filter(
 				'name'          => 'ABN AMRO - iDEAL Zelfbouw',
 				'mode'          => 'live',
 				'provider'      => 'abnamro',
-				'url'           => 'https://abnamro.ideal-payment.de/',
+				'url'           => 'https://ecommerce.abnamro.nl/',
 				'product_url'   => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
-				'dashboard_url' => 'https://abnamro.ideal-payment.de/',
-				'acquirer_url'  => 'https://abnamro.ideal-payment.de/ideal/iDEALv3',
+				'dashboard_url' => 'https://ecommerce.abnamro.nl/',
+				'acquirer_url'  => 'https://ecommerce.abnamro.nl/ideal/iDEALv3',
 				'certificates'  => array(
 					__DIR__ . '/certificates/abnamro-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/abnamro-2021-10-01-2026-09-30.cer',
@@ -243,10 +245,10 @@ add_filter(
 				'name'          => 'ABN AMRO - iDEAL Zelfbouw - Test',
 				'mode'          => 'test',
 				'provider'      => 'abnamro',
-				'url'           => 'https://abnamro.ideal-payment.de/',
+				'url'           => 'https://ecommerce-test.abnamro.nl/',
 				'product_url'   => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
-				'dashboard_url' => 'https://abnamro-test.ideal-payment.de/',
-				'acquirer_url'  => 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3',
+				'dashboard_url' => 'https://ecommerce-test.abnamro.nl/',
+				'acquirer_url'  => 'https://ecommerce-test.abnamro.nl/ideal/iDEALv3',
 				'certificates'  => array(
 					__DIR__ . '/certificates/abnamro-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/abnamro-2021-10-01-2026-09-30.cer',
