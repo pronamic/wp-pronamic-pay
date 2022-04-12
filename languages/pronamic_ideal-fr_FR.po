@@ -4,17 +4,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-02-16T11:08:14+00:00\n"
-"PO-Revision-Date: 2021-09-03 12:30+0200\n"
+"POT-Creation-Date: 2022-03-15T11:05:17+00:00\n"
+"PO-Revision-Date: 2022-03-15 12:08+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
-"X-Domain: pronamic_ideal\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Domain: pronamic_ideal\n"
 
 #. Plugin Name of the plugin
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:30
@@ -417,7 +417,7 @@ msgstr "s2Member"
 msgid "WP eCommerce"
 msgstr "WP eCommerce"
 
-#: pronamic-ideal.php:273
+#: pronamic-ideal.php:333 pronamic-ideal.php:346
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-"
 "wordpress-via-pronamic-pay/"
@@ -425,7 +425,8 @@ msgstr ""
 "https://www.pronamic.eu/support/how-to-connect-ing-ideal-basic-with-"
 "wordpress-via-pronamic-pay/"
 
-#: pronamic-ideal.php:290 pronamic-ideal.php:311
+#: pronamic-ideal.php:360 pronamic-ideal.php:377 pronamic-ideal.php:395
+#: pronamic-ideal.php:412
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-"
 "wordpress-via-pronamic-pay/"
@@ -433,7 +434,7 @@ msgstr ""
 "https://www.pronamic.eu/support/how-to-connect-ing-ideal-advanced-v3-with-"
 "wordpress-via-pronamic-pay/"
 
-#: pronamic-ideal.php:329
+#: pronamic-ideal.php:425
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
 "pronamic-pay/"
@@ -441,7 +442,7 @@ msgstr ""
 "https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
 "pronamic-pay/"
 
-#: pronamic-ideal.php:370
+#: pronamic-ideal.php:523 pronamic-ideal.php:540
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-"
 "v3-with-wordpress-via-pronamic-pay/"
@@ -449,11 +450,11 @@ msgstr ""
 "https://www.pronamic.eu/support/how-to-connect-rabobank-ideal-professional-"
 "v3-with-wordpress-via-pronamic-pay/"
 
-#: pronamic-ideal.php:406
+#: pronamic-ideal.php:585
 msgid "https://www.targetpay.com/info/ideal?setlang=en"
 msgstr "https://www.targetpay.com/info/ideal?setlang=en"
 
-#: pronamic-ideal.php:409
+#: pronamic-ideal.php:588
 msgid ""
 "https://www.pronamic.eu/support/how-to-connect-targetpay-with-wordpress-via-"
 "pronamic-pay/"
@@ -5469,7 +5470,7 @@ msgstr "Bitcoin"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:424
 msgid "BLIK"
-msgstr ""
+msgstr "BLIK"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:426
 msgid "Capayable"
@@ -5530,7 +5531,7 @@ msgstr "Klarna Pay Later"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:458
 msgid "MB WAY"
-msgstr ""
+msgstr "MB WAY"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:459
 msgid "Payconiq"
@@ -5562,7 +5563,7 @@ msgstr "Swish"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:466
 msgid "TWINT"
-msgstr ""
+msgstr "TWINT"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:467
 msgid "V PAY"
@@ -6064,11 +6065,10 @@ msgstr "D j M Y \\a\\t H:i"
 
 #: vendor/wp-pay/core/src/Plugin.php:720
 msgid ""
-"Something went wrong with the payment. Please try again later or pay another "
-"way."
+"Something went wrong with the payment. Please try again or pay another way."
 msgstr ""
-"Quelque chose s’est mal passé avec le paiement. Veuillez réessayer plus tard "
-"ou payer d’une autre manière."
+"Quelque chose s’est mal passé avec le paiement. Veuillez réessayer ou payer "
+"d’une autre manière."
 
 #: vendor/wp-pay/core/src/Plugin.php:763
 msgid "— Select Configuration —"

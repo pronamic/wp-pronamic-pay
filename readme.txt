@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.2
 Tested up to: 5.9
 Requires PHP: 7.4
-Stable tag: 8.1.0
+Stable tag: 8.2.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -115,6 +115,51 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 8.2.0 - 2022-04-12 =
+*	Updated WordPress core library to version 4.1.0.
+	*	Added a user interface to change a subscription's next payment date.
+	*	Added a count badge in the WordPress admin menu for the number of subscriptions on hold.
+	*	The next payment date is now stored in the subscription and no longer in the subscription phases.
+	*	The general / global gateway integration mode setting for test or live mode is removed.
+	*	Sorting payments by customer or transaction number in the WordPress admin dashboard has been removed.
+*	Updated WordPress WooCommerce library to version 4.1.0.
+	*	Transform expired WooCommerce subscription status to Pronamic status Completed.
+	*	Add failure reason notice on 'Pay for order' page (pronamic/wp-pronamic-pay-adyen#2).
+	*	Added support for WooCommerce Blocks.
+	*	Fix resetting trial phase next payment date on payment status update.
+	*	Ignore seconds in calculation of subscription trial phase interval.
+*	Updated WordPress Restrict Content Pro library to version 4.1.0.
+	*	Transform expired Restrict Content Pro membership to Pronamic status Completed.
+	*	Fix missing gateway registration key.
+	*	Simplify gateway registration and supported features.
+*	Updated WordPress MemberPress library to version 4.1.0.
+	*	Call limit reached actions on subscription completion.
+*	Updated WordPress Gravity Forms library to version 4.1.0.
+	*	Improve payment and subscription source text when Gravity Forms plugin is not active.
+	*	Fix possible invalid empty conditional logic object.
+	*	Add support for gf_list_* CSS classes in payment methods field.
+*	Updated WordPress Formidable Forms library to version 4.1.0.
+	*	Add payment action setting for gateway configuration.
+*	Updated WordPress Easy Digital Downloads library to version 4.1.0.
+	*	Add company name controller.
+*	Updated WordPress Charitable library to version 4.1.0.
+*	Updated WordPress Sisow library to version 4.1.0.
+*	Updated WordPress Payvision library to version 3.1.0.
+*	Updated WordPress PayPal library to version 2.1.0.
+*	Updated WordPress Pay.nl library to version 4.1.0.
+*	Updated WordPress OmniKassa 2.0 library to version 4.1.0.
+	*	Added support for iDEAL issuers.
+*	Updated WordPress Ingenico library to version 4.1.0.
+*	Updated WordPress MultiSafepay library to version 4.1.0.
+*	Updated WordPress Mollie library to version 4.1.0.
+*	Updated WordPress iDEAL Basic library to version 4.1.0.
+*	Updated WordPress iDEAL Advanced v3 library to version 4.1.0.
+*	Updated WordPress ICEPAY library to version 4.1.0.
+*	Updated WordPress EMS e-Commerce library to version 4.1.0.
+*	Updated WordPress DigiWallet library to version 3.1.0.
+*	Updated WordPress Buckaroo library to version 4.1.0.
+*	Updated WordPress Adyen library to version 3.1.0.
+
 = 8.1.0 - 2022-02-16 =
 *	Added support for new ING iDEAL Advanced platform.
 *	Updated WordPress core library to version 4.0.2.
@@ -194,34 +239,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 	*	Fixed empty merge tags in 'Form is submitted' notification event.
 *	Updated WordPress core library to version 3.1.1.
 *	Updated WordPress pay Charitable library to version 3.0.1.
-
-= 7.0.0 - 2021-09-03 =
-*	Updated WordPress core library to version 3.1.0.
-	*	No longer create recurring payments for subscriptions with the status `Failed` (see https://github.com/pronamic/wp-pronamic-pay/issues/188#issuecomment-907155800).
-	*	No longer set payments with an empty amount to success (gateways and extensions should handle this).
-	*	Subscription renewal page uses last failed period for manual renewal, if failed period has not yet passed.
-	*	Fixed block titles (pronamic/wp-pronamic-pay#185).
-	*	Fixed layout issue with input HTML on subscription renewal page.
-	*	Fixed script error in payment form block.
-*	Updated WordPress pay Mollie library to version 3.1.0.
-	*	Added `pronamic_pay_mollie_payment_description` filter (with example).
-	*	Removed check for empty amount, `0` amount is allowed for credit card authorizations.
-*	Updated WordPress pay Gravity Forms library to version 3.0.1.
-	*	Updated processing of free payments (allows credit card authorizations for subscriptions).
-*	Updated WordPress pay MemberPress library to version 3.1.0.
-	*	Completely revised integration.
-	*	Improved support for free (amount = 0) transactions.
-	*	Improved support for subscription upgrades and downgrades.
-	*	Account page 'Update' allows users to manually pay for last period if payment failed.
-	*	Added Pronamic payment column to the MemberPress transactions table in WordPress admin dashboard.
-	*	Temporarily removed support for suspend and resume subscriptions due to unintended behavior.
-*	Updated WordPress pay WooCommerce library to version 3.0.2.
-	*	Set pending order status when awaiting payment.
-	*	Fixed using non-existing `shipping_phone` order property.
-*	Updated Pronamic WordPress DateTime library to version 1.2.2.
-*	Updated WordPress pay Adyen library to version 2.0.3.
-*	Updated WordPress pay Fundraising library to version 2.0.1.
-*	Updated WordPress pay PayPal library to version 1.0.2.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

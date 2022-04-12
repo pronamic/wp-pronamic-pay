@@ -6,6 +6,53 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [8.2.0] - 2022-04-12
+
+### Changed
+- Updated WordPress core library to version 4.1.0.
+  - Added a user interface to change a subscription's next payment date.
+  - Added a count badge in the WordPress admin menu for the number of subscriptions on hold.
+  - The next payment date is now stored in the subscription and no longer in the subscription phases.
+  - The general / global gateway integration mode setting for test or live mode is removed.
+  - Sorting payments by customer or transaction number in the WordPress admin dashboard has been removed.
+- Updated WordPress WooCommerce library to version 4.1.0.
+  - Transform expired WooCommerce subscription status to Pronamic status Completed.
+  - Add failure reason notice on 'Pay for order' page (pronamic/wp-pronamic-pay-adyen#2).
+  - Added support for WooCommerce Blocks.
+  - Fix resetting trial phase next payment date on payment status update.
+  - Ignore seconds in calculation of subscription trial phase interval.
+- Updated WordPress Restrict Content Pro library to version 4.1.0.
+  - Transform expired Restrict Content Pro membership to Pronamic status Completed.
+  - Fix missing gateway registration key.
+  - Simplify gateway registration and supported features.
+- Updated WordPress MemberPress library to version 4.1.0.
+  - Call limit reached actions on subscription completion.
+- Updated WordPress Gravity Forms library to version 4.1.0.
+  - Improve payment and subscription source text when Gravity Forms plugin is not active.
+  - Fix possible invalid empty conditional logic object.
+  - Add support for gf_list_* CSS classes in payment methods field.
+- Updated WordPress Formidable Forms library to version 4.1.0.
+  - Add payment action setting for gateway configuration.
+- Updated WordPress Easy Digital Downloads library to version 4.1.0.
+  - Add company name controller.
+- Updated WordPress Charitable library to version 4.1.0.
+- Updated WordPress Sisow library to version 4.1.0.
+- Updated WordPress Payvision library to version 3.1.0.
+- Updated WordPress PayPal library to version 2.1.0.
+- Updated WordPress Pay.nl library to version 4.1.0.
+- Updated WordPress OmniKassa 2.0 library to version 4.1.0.
+  - Added support for iDEAL issuers.
+- Updated WordPress Ingenico library to version 4.1.0.
+- Updated WordPress MultiSafepay library to version 4.1.0.
+- Updated WordPress Mollie library to version 4.1.0.
+- Updated WordPress iDEAL Basic library to version 4.1.0.
+- Updated WordPress iDEAL Advanced v3 library to version 4.1.0.
+- Updated WordPress ICEPAY library to version 4.1.0.
+- Updated WordPress EMS e-Commerce library to version 4.1.0.
+- Updated WordPress DigiWallet library to version 3.1.0.
+- Updated WordPress Buckaroo library to version 4.1.0.
+- Updated WordPress Adyen library to version 3.1.0.
+
 ## [8.1.0] - 2022-02-16
 
 ### Added
@@ -3040,7 +3087,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.1.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.0...HEAD
+[8.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.1.0...8.2.0
 [8.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.0.0...8.1.0
 [8.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.2...8.0.0
 [7.0.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.1...7.0.2
