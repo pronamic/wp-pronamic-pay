@@ -4,6 +4,92 @@
 		"changes": {}
 	},
 	{
+		"version": "8.2.0",
+		"date": "2022-04-12",
+		"changes": [
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress core library to version 4.1.0.",
+						"changes": [
+							"Added a user interface to change a subscription's next payment date.",
+							"Added a count badge in the WordPress admin menu for the number of subscriptions on hold.",
+							"The next payment date is now stored in the subscription and no longer in the subscription phases.",
+							"The general / global gateway integration mode setting for test or live mode is removed.",
+							"Sorting payments by customer or transaction number in the WordPress admin dashboard has been removed."
+						]
+					},
+					{
+						"description": "Updated WordPress WooCommerce library to version 4.1.0.",
+						"changes": [
+							"Transform expired WooCommerce subscription status to Pronamic status Completed.",
+							"Add failure reason notice on 'Pay for order' page (pronamic/wp-pronamic-pay-adyen#2).",
+							"Added support for WooCommerce Blocks.",
+							"Fix resetting trial phase next payment date on payment status update.",
+							"Ignore seconds in calculation of subscription trial phase interval."
+						]
+					},
+					{
+						"description": "Updated WordPress Restrict Content Pro library to version 4.1.0.",
+						"changes": [
+							"Transform expired Restrict Content Pro membership to Pronamic status Completed.",
+							"Fix missing gateway registration key.",
+							"Simplify gateway registration and supported features."
+						]
+					},
+					{
+						"description": "Updated WordPress MemberPress library to version 4.1.0.",
+						"changes": [
+							"Call limit reached actions on subscription completion."
+						]
+					},
+					{
+						"description": "Updated WordPress Gravity Forms library to version 4.1.0.",
+						"changes": [
+							"Improve payment and subscription source text when Gravity Forms plugin is not active.",
+							"Fix possible invalid empty conditional logic object.",
+							"Add support for gf_list_* CSS classes in payment methods field."
+						]
+					},
+					{
+						"description": "Updated WordPress Formidable Forms library to version 4.1.0.",
+						"changes": [
+							"Add payment action setting for gateway configuration."
+						]
+					},
+					{
+						"description": "Updated WordPress Easy Digital Downloads library to version 4.1.0.",
+						"changes": [
+							"Add company name controller."
+						]
+					},
+					"Updated WordPress Charitable library to version 4.1.0.",
+					"Updated WordPress Sisow library to version 4.1.0.",
+					"Updated WordPress Payvision library to version 3.1.0.",
+					"Updated WordPress PayPal library to version 2.1.0.",
+					"Updated WordPress Pay.nl library to version 4.1.0.",
+					{
+						"description": "Updated WordPress OmniKassa 2.0 library to version 4.1.0.",
+						"changes": [
+							"Added support for iDEAL issuers."
+						]
+					},
+					"Updated WordPress Ingenico library to version 4.1.0.",
+					"Updated WordPress MultiSafepay library to version 4.1.0.",
+					"Updated WordPress Mollie library to version 4.1.0.",
+					"Updated WordPress iDEAL Basic library to version 4.1.0.",
+					"Updated WordPress iDEAL Advanced v3 library to version 4.1.0.",
+					"Updated WordPress ICEPAY library to version 4.1.0.",
+					"Updated WordPress EMS e-Commerce library to version 4.1.0.",
+					"Updated WordPress DigiWallet library to version 3.1.0.",
+					"Updated WordPress Buckaroo library to version 4.1.0.",
+					"Updated WordPress Adyen library to version 3.1.0."
+				]
+			}
+		]
+	},
+	{
 		"version": "8.1.0",
 		"date": "2022-02-16",
 		"changes": [
