@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2022-04-11T13:40:53+00:00\n"
-"PO-Revision-Date: 2022-04-11 15:42+0200\n"
+"PO-Revision-Date: 2022-04-12 09:31+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -4816,8 +4816,8 @@ msgstr[1] "%d betalingen in afwachting"
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:941
 msgid "%d subscription on hold"
 msgid_plural "%d subscriptions on hold"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d abonnement in de wacht"
+msgstr[1] "%d abonnementen in de wacht"
 
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:983
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:984
@@ -5203,7 +5203,7 @@ msgstr "Abonnement bijgewerkt."
 #. translators: %s: date and time of the revision
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:741
 msgid "Subscription restored to revision from %s."
-msgstr ""
+msgstr "Abonnement hersteld naar revisie van %s."
 
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:744
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionPostType.php:71
@@ -5212,20 +5212,20 @@ msgstr "Abonnement gepubliceerd."
 
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:746
 msgid "Subscription saved."
-msgstr ""
+msgstr "Abonnement opgeslagen."
 
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:748
 msgid "Subscription submitted."
-msgstr ""
+msgstr "Abonnement ingediend."
 
 #. translators: %s: scheduled date
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:751
 msgid "Subscription scheduled for: %s."
-msgstr ""
+msgstr "Abonnement gepland voor: %s."
 
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:753
 msgid "Subscription draft updated."
-msgstr ""
+msgstr "Abonnement concept bijgewerkt."
 
 #: vendor/wp-pay/core/src/Admin/Install.php:240
 msgid "Payer"
@@ -6125,7 +6125,7 @@ msgstr[1] "Actief <span class=\"count\">(% s)</span>"
 #. translators: %1: old formatted date, %2: new formatted date
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:246
 msgid "Next payment date updated from %1$s to %2$s."
-msgstr ""
+msgstr "Volgende betalingsdatum bijgewerkt van %1$s naar %2$s."
 
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:523
 #: vendor/wp-pay/core/views/meta-box-gateway-test.php:183
@@ -6172,11 +6172,11 @@ msgstr "Kon abonnementsfase met volgnummer `%s` niet vinden."
 
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:727
 msgid "Subscription payment method change"
-msgstr ""
+msgstr "Abonnement betaalmethode wijziging"
 
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:737
 msgid "subscription payment method change"
-msgstr ""
+msgstr "abonnement betaalmethode wijziging"
 
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsPrivacy.php:196
 msgid "Subscription anonymized for personal data erasure request."
@@ -6590,7 +6590,7 @@ msgstr "Versie"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:907
 msgid "Pay Redirect URL"
-msgstr ""
+msgstr "Betaal redirect URL"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:925
 msgid "Return URL"
@@ -6598,7 +6598,7 @@ msgstr "Return URL"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:943
 msgid "Return Redirect URL"
-msgstr ""
+msgstr "Retour redirect URL"
 
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:964
 #: vendor/wp-pay/core/views/meta-box-subscription-info.php:331
@@ -6678,18 +6678,18 @@ msgstr "Herhaling"
 #: vendor/wp-pay/core/views/meta-box-payment-update.php:43
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:37
 msgid "Status:"
-msgstr ""
+msgstr "Status:"
 
 #: vendor/wp-pay/core/views/meta-box-payment-update.php:56
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:52
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:129
 msgid "Edit"
-msgstr ""
+msgstr "Bewerken"
 
 #: vendor/wp-pay/core/views/meta-box-payment-update.php:57
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:53
 msgid "Edit status"
-msgstr ""
+msgstr "Status bewerken"
 
 #: vendor/wp-pay/core/views/meta-box-payment-update.php:107
 msgid "Check status"
@@ -6773,28 +6773,33 @@ msgid ""
 "Recurring payments will not be created until manual reactivation of this "
 "subscription."
 msgstr ""
+"Terugkerende betalingen worden pas gemaakt na handmatige heractivering van "
+"dit abonnement."
 
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:98
 msgid "See subscription and payment notes for details about status changes."
 msgstr ""
+"Zie abonnements- en betalingsnotities voor details over statuswijzigingen."
 
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:121
 msgid "Next payment:"
-msgstr ""
+msgstr "Volgende betaling:"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:130
 msgid "Edit next payment date"
-msgstr ""
+msgstr "Volgende betalingsdatum bewerken"
 
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:169
 msgid ""
 "Set the next payment date to a future date to continue payments for this "
 "subscription."
 msgstr ""
+"Stel de volgende betalingsdatum in op een toekomstige datum om de betalingen "
+"voor dit abonnement voort te zetten."
 
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:175
 msgid "Please select a future date."
-msgstr ""
+msgstr "Selecteer een toekomstige datum."
 
 #. translators: %s subscription source description
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:184
@@ -6802,6 +6807,8 @@ msgid ""
 "Editing the next payment date does not affect the current status or validity "
 "of %s."
 msgstr ""
+"Het wijzigen van de volgende betalingsdatum heeft geen invloed op de huidige "
+"status of geldigheid van %s."
 
 #. translators: %s: Pronamic Pay
 #: vendor/wp-pay/core/views/notice-license.php:31
