@@ -6,6 +6,15 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [8.2.1] - 2022-04-13
+
+### Fixed
+- Updated WordPress core library to version 4.1.1.
+- Updated WordPress Charitable library to version 4.1.0.
+- Updated WordPress Adyen library to version 3.1.1.
+- Updated WordPress OmniKassa 2.0 library to version 4.1.1.
+- Updated WordPress Sisow library to version 4.1.1.
+
 ## [8.2.0] - 2022-04-12
 
 ### Changed
@@ -3087,7 +3096,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.1...HEAD
+[8.2.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.0...8.2.1
 [8.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.1.0...8.2.0
 [8.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.0.0...8.1.0
 [8.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/7.0.2...8.0.0
