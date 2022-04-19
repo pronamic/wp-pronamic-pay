@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.2
 Tested up to: 5.9
 Requires PHP: 7.4
-Stable tag: 8.2.1
+Stable tag: 8.2.2
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -115,6 +115,11 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 8.2.2 - 2022-04-19 =
+*	Updated WordPress core library to version 4.1.2.
+	*	Fixed plugin updater.
+*	Updated WordPress WooCommerce library to version 4.1.1.
+
 = 8.2.1 - 2022-04-13 =
 *	Updated WordPress core library to version 4.1.1.
 *	Updated WordPress Charitable library to version 4.1.0.
@@ -221,18 +226,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 *	Added new ABN ARMO signing certificate for iDEAL (valid until 29-09-2026).
 *	Added new ING signing certificate for iDEAL (valid until 29-09-2026).
 *	Added new Rabobank signing certificate for iDEAL (valid until 29-09-2026).
-
-= 7.0.2 - 2021-09-30 =
-*	Updated WordPress core library to version `3.2.0`.
-	*	Start using `<input type="number">` in payment forms en test meta box.
-	*	Removed deprecated `Util::string_to_amount( $value )` function.
-	*	Updated logo library to version `1.6.8` for new Bancontact logo.
-	*	Improved security by using correct escaping functions.
-*	Updated WordPress pay Fundraising library to version `2.0.3`.
-	*	Load assets from relative links.
-	*	Added Update URI in plugin file.
-	*	Included and use `block.json`.
-	*	Improved security by using correct escaping functions.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

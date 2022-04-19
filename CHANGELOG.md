@@ -6,6 +6,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [8.2.2] - 2022-04-19
+
+### Fixed
+- Updated WordPress core library to version 4.1.2.
+  - Fixed plugin updater.
+- Updated WordPress WooCommerce library to version 4.1.1.
+
 ## [8.2.1] - 2022-04-13
 
 ### Fixed
@@ -3096,7 +3103,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.2...HEAD
+[8.2.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.1...8.2.2
 [8.2.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.0...8.2.1
 [8.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.1.0...8.2.0
 [8.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.0.0...8.1.0
