@@ -12,8 +12,8 @@ $working_dir      = getcwd();
 $project_dir      = dirname( __DIR__ );
 $repositories_dir = $project_dir . '/repositories';
 
-$organisations = array(
-	'pronamic' => array(
+$organisations = [
+	'pronamic' => [
 		'wp-datetime'                            => 'DateTime',
 		'wp-html'                                => 'HTML',
 		'wp-http'                                => 'HTTP',
@@ -52,8 +52,8 @@ $organisations = array(
 		'wp-pronamic-pay-ninjaforms'             => 'Ninja Forms',
 		'wp-pronamic-pay-restrict-content-pro'   => 'Restrict Content Pro',
 		'wp-pronamic-pay-woocommerce'            => 'WooCommerce',
-	),
-);
+	],
+];
 
 /**
  * Version update `awk` actions.
@@ -206,7 +206,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 		}
 
 		if ( null !== $command ) {
-			if ( ! isset( $argv[1] ) || ( isset( $argv[1] ) && ! in_array( $argv[1], array( 'release-start', 'release-finish' ), true ) ) ) {
+			if ( ! isset( $argv[1] ) || ( isset( $argv[1] ) && ! in_array( $argv[1], [ 'release-start', 'release-finish' ], true ) ) ) {
 				echo $command, PHP_EOL;
 			}
 
@@ -238,16 +238,16 @@ if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 
 	$package = json_decode( $package );
 
-	$release = array(
-		array(
+	$release = [
+		[
 			'version' => $package->version,
 			'date'    => gmdate( 'Y-m-d' ),
-			'changes' => array(
+			'changes' => [
 				'name'    => 'Changed',
 				'changes' => $updates,
-			),
-		),
-	);
+			],
+		],
+	];
 
 	// Insert in changelog after 'Unreleased' item.
 	$changelog = file_get_contents( __DIR__ . '/changelog.json' );

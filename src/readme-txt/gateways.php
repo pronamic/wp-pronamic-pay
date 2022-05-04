@@ -18,7 +18,7 @@ if ( false === $data ) {
 
 $data = json_decode( $data );
 
-$providers = array();
+$providers = [];
 
 foreach ( $data as $provider ) {
 	$providers[ $provider->slug ] = $provider;
@@ -42,7 +42,7 @@ foreach ( $gateways as $gateway ) {
 	$provider = $providers[ $gateway->provider ];
 
 	if ( ! isset( $provider->gateways ) ) {
-		$provider->gateways = array();
+		$provider->gateways = [];
 	}
 
 	$provider->gateways[ $gateway->slug ] = $gateway;
