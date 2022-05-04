@@ -90,9 +90,9 @@ see the "Transaction Feedback" tab of the configuration for details.',
 				'» <a href="%1$s" title="%2$s">%2$s</a>',
 				esc_url(
 					add_query_arg(
-						array(
+						[
 							'post_type' => 'pronamic_gateway',
-						),
+						],
 						admin_url( 'post-new.php' )
 					)
 				),

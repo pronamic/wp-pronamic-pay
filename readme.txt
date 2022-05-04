@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.2
 Tested up to: 5.9
 Requires PHP: 7.4
-Stable tag: 8.2.2
+Stable tag: 8.3.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -115,6 +115,13 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 8.3.0 - 2022-05-04 =
+*	Updated WordPress core library to version 4.1.3.
+*	Updated WordPress MemberPress library to version 4.2.0.
+	*	Update subscription phases on MemberPress subscription updates.
+	*	Added subscription status and next payment date to MemberPress subscription form.
+	*	Added payment status to MemberPress transaction form.
+
 = 8.2.2 - 2022-04-19 =
 *	Updated WordPress core library to version 4.1.2.
 	*	Fixed plugin updater.
@@ -208,24 +215,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 	*	Updated AfterPay.nl and Afterpay.com method descriptions to clarify differences in target countries.
 	*	Updated subscription source texts.
 *	Updated WordPress Mollie library to version 4.0.1.
-
-= 8.0.0 - 2022-01-13 =
-*	Removed support for Event Espresso 3 → https://www.pronamic.eu/pronamic-pay-support-for-event-espresso-3-removed/.
-*	Removed support for s2Member → https://www.pronamic.eu/pronamic-pay-support-for-s2member-removed/.
-*	Removed support for WP eCommerce → https://www.pronamic.eu/pronamic-pay-support-for-wp-ecommerce-removed/.
-*	Updated WordPress core library to version `4.0.0`.
-*	Refactored subscription follow-up payments processes.
-*	Increased WordPress requirement to version `5.2` or higher.
-*	Updated all extension libraries → https://github.com/wp-pay-extensions.
-*	Updated all gateway libraries → https://github.com/wp-pay-gateways.
-*	Added https://actionscheduler.org/ library for subscription processes.
-*	Added payment method icon to amount column and info meta boxes.
-*	Added BLIK payment method.
-*	Added MB WAY payment method.
-*	Added TWINT payment method.
-*	Added new ABN ARMO signing certificate for iDEAL (valid until 29-09-2026).
-*	Added new ING signing certificate for iDEAL (valid until 29-09-2026).
-*	Added new Rabobank signing certificate for iDEAL (valid until 29-09-2026).
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

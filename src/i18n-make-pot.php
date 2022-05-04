@@ -43,14 +43,14 @@ if ( ! \class_exists( 'WP_CLI' ) ) {
 				// @link https://github.com/wp-cli/i18n-command/blob/v2.0.1/src/MakePotCommand.php#L36-L44
 				$this->exclude = array_diff(
 					$this->exclude,
-					array(
+					[
 						'vendor',
-					)
+					]
 				);
 
 				$this->exclude = array_merge(
 					$this->exclude,
-					array(
+					[
 						'build',
 						'deploy',
 						'documentation',
@@ -59,17 +59,17 @@ if ( ! \class_exists( 'WP_CLI' ) ) {
 						'vendor/wp-phpunit',
 						'wordpress',
 						'wp-content',
-					)
+					]
 				);
 
-				$this->include = array(
+				$this->include = [
 					'admin',
 					'includes',
 					'templates',
 					'vendor',
 					'views',
 					'*.php',
-				);
+				];
 			}
 		}
 

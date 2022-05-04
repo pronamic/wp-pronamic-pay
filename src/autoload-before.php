@@ -13,7 +13,7 @@ if ( ! defined( 'PRONAMIC_PAY_DEBUG' ) || ! PRONAMIC_PAY_DEBUG ) {
 }
 
 if ( ! isset( $GLOBALS['__composer_autoload_files'] ) ) {
-	$GLOBALS['__composer_autoload_files'] = array();
+	$GLOBALS['__composer_autoload_files'] = [];
 }
 
 $files = glob( __DIR__ . '/../repositories/*/*/vendor/composer/autoload_files.php' );
