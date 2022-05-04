@@ -6,6 +6,15 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [8.3.0] - 2022-05-04
+
+### Changed
+- Updated WordPress core library to version 4.1.3.
+- Updated WordPress MemberPress library to version 4.2.0.
+  - Update subscription phases on MemberPress subscription updates.
+  - Added subscription status and next payment date to MemberPress subscription form.
+  - Added payment status to MemberPress transaction form.
+
 ## [8.2.2] - 2022-04-19
 
 ### Fixed
@@ -3103,7 +3112,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.3.0...HEAD
+[8.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.2...8.3.0
 [8.2.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.1...8.2.2
 [8.2.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.0...8.2.1
 [8.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.1.0...8.2.0
