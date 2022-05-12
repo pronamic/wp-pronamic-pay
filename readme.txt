@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.2
 Tested up to: 5.9
 Requires PHP: 7.4
-Stable tag: 8.3.0
+Stable tag: 8.4.0-RC-1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -115,6 +115,9 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 8.4.0-RC-1 - 2022-05-12 =
+*	Updated WordPress Adyen library to version `4.0.0-RC-1`.
+
 = 8.3.0 - 2022-05-04 =
 *	Updated WordPress core library to version 4.1.3.
 *	Updated WordPress MemberPress library to version 4.2.0.
@@ -178,43 +181,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 *	Updated WordPress DigiWallet library to version 3.1.0.
 *	Updated WordPress Buckaroo library to version 4.1.0.
 *	Updated WordPress Adyen library to version 3.1.0.
-
-= 8.1.0 - 2022-02-16 =
-*	Added support for new ING iDEAL Advanced platform.
-*	Updated WordPress core library to version 4.0.2.
-	*	Changed minimum PHP version requirement to `7.4` (https://github.com/pronamic/wp-pronamic-pay/issues/274).
-	*	Changed follow-up payments query to subscriptions which needed renewal in past 24 hours only.
-	*	Added next payment date column in subscriptions admin (https://github.com/pronamic/wp-pronamic-pay/issues/288).
-	*	Fixed empty payment description admin column.
-	*	Fixed error on subscription mandate selection page with invalid Mollie customer.
-	*	Fixed possible infinite loop on updating active payment methods (https://github.com/pronamic/wp-pay-core/issues/54).
-	*	Fixed setting Mollie sequence type when manually re-trying payment for a period.
-	*	Updated scheduling follow-up payments pages.
-	*	Updated site health tests and debug information.
-	*	Updated pronamic/wp-pay-logos library to version `1.7.1`.
-	*	Removed time from next payment dates in admin.
-*	Updated WordPress Adyen library to version 3.0.1.
-	*	Added support for Klarna Pay Now and Klarna Pay Over Time.
-	*	Added support for Afterpay and the Adyen `afterpaytouch` payment method indicator.
-	*	Updated drop-in error handling (https://github.com/pronamic/wp-pronamic-pay-adyen/issues/2).
-*	Updated WordPress MultiSafepay library to version 4.0.1.
-	*	Fixed possible error "Call to a member function get_total() on null".
-*	Updated WordPress Gravity Forms library to version 4.0.1.
-	*	Fixed processing delayed feeds during fulfilment of free payments (e.g. user registration for entry with discount; https://github.com/pronamic/wp-pronamic-pay/issues/279).
-*	Updated WordPress MemberPress library to version 4.0.1.
-	*	Fixed MemberPress gateway capabilities based on gateway support.
-	*	Fixed confirming subscription confirmation transaction only for recurring payments.
-*	Updated WordPress Ninja Forms library to version 3.0.1.
-	*	Fixed delaying all actions (https://github.com/pronamic/wp-pronamic-pay-ninjaforms/issues/4).
-*	Updated WordPress WooCommerce library to version 4.0.1.
-	*	Added Klarna Pay Now and Klarna Pay Over Time gateways.
-	*	Added support for multiple subscriptions.
-	*	Fixed adding periods to payments.
-	*	Fixed handling subscription payment method changes.
-	*	Fixed setting input fields only if gateway is enabled.
-	*	Updated AfterPay.nl and Afterpay.com method descriptions to clarify differences in target countries.
-	*	Updated subscription source texts.
-*	Updated WordPress Mollie library to version 4.0.1.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
