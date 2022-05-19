@@ -1,0 +1,54 @@
+name: Nightly
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  phplint:
+    uses: pronamic/actions/.github/workflows/phplint.yml@main
+
+  phpcs:
+    uses: pronamic/actions/.github/workflows/phpcs.yml@main
+
+  phpstan:
+    uses: pronamic/actions/.github/workflows/phpstan.yml@main
+
+  psalm:
+    uses: pronamic/actions/.github/workflows/psalm.yml@main
+
+  phpunit:
+    uses: pronamic/actions/.github/workflows/phpunit.yml@main
+
+  build:
+    runs-on: ubuntu-latest
+
+    needs: [phplint, phpcs, phpstan]
+
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: bcmath, intl, mbstring, mysql
+          ini-values: memory_limit=2048M
+          tools: composer
+          coverage: none
+
+      - name: Checkout pronamic/wp-deployer
+        uses: actions/checkout@v2
+        with:
+          repository: pronamic/wp-deployer
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Build Pronamic Pay
+        run: bin/wp-deployer deploy pronamic-ideal https://github.com/pronamic/wp-pronamic-ideal.git --branch=develop --non-interactive -vvv
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: pronamic-pay-nightly
+          path: deploy/build/**/*
