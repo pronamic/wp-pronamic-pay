@@ -52,3 +52,16 @@ jobs:
         with:
           name: pronamic-pay-nightly
           path: deploy/build/**/*
+
+  update:
+    name: Update nightly tag
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Update nightly tag
+        uses: richardsimko/github-tag-action@v1.0.5
+        with:
+          tag_name: nightly
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
