@@ -22,6 +22,8 @@ jobs:
     uses: pronamic/actions/.github/workflows/phpunit.yml@main
 
   build:
+    name: Build
+
     runs-on: ubuntu-latest
 
     needs: [phplint, phpcs, phpstan]
@@ -52,6 +54,21 @@ jobs:
         with:
           name: pronamic-pay-nightly
           path: deploy/build/**/*
+
+      - name: Rename archive
+        run: mv deploy/zip/pronamic-ideal/* deploy/zip/pronamic-ideal/pronamic-pay.zip
+
+      - name: Deploy nightly build
+        uses: WebFreak001/deploy-nightly@v1.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: https://uploads.github.com/repos/pronamic/wp-pronamic-pay/releases/67360977/assets{?name,label}
+          release_id: 67360977
+          asset_path: deploy/zip/pronamic-pay.zip
+          asset_name: pronamic-pay-nightly.zip
+          asset_content_type: application/zip
+          max_releases: 1
 
   update:
     name: Update nightly tag
