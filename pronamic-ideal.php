@@ -57,6 +57,7 @@ if ( is_readable( $autoload_after ) ) {
 			'about_page_file' => __DIR__ . '/admin/page-about.php',
 		],
 		'action_scheduler' => __DIR__ . '/packages/action-scheduler/action-scheduler.php',
+		'pronamic_api_url' => 'https://api.wp-pay.org/wp-json/pronamic-pay/v1/payments',
 	]
 );
 
