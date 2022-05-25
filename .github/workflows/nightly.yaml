@@ -1,0 +1,84 @@
+name: Nightly
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  phplint:
+    uses: pronamic/actions/.github/workflows/phplint.yml@main
+
+  phpcs:
+    uses: pronamic/actions/.github/workflows/phpcs.yml@main
+
+  phpstan:
+    uses: pronamic/actions/.github/workflows/phpstan.yml@main
+
+  psalm:
+    uses: pronamic/actions/.github/workflows/psalm.yml@main
+
+  phpunit:
+    uses: pronamic/actions/.github/workflows/phpunit.yml@main
+
+  build:
+    name: Build
+
+    runs-on: ubuntu-latest
+
+    needs: [phplint, phpcs, phpstan]
+
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: bcmath, intl, mbstring, mysql
+          ini-values: memory_limit=2048M
+          tools: composer
+          coverage: none
+
+      - name: Checkout pronamic/wp-deployer
+        uses: actions/checkout@v2
+        with:
+          repository: pronamic/wp-deployer
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Build Pronamic Pay
+        run: bin/wp-deployer deploy pronamic-ideal https://github.com/pronamic/wp-pronamic-ideal.git --branch=develop --non-interactive -vvv
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: pronamic-pay-nightly
+          path: deploy/build/**/*
+
+      - name: Rename archive
+        run: mv deploy/zip/pronamic-ideal/* deploy/zip/pronamic-ideal/pronamic-pay.zip
+
+      - name: Deploy nightly build
+        uses: WebFreak001/deploy-nightly@v1.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: https://uploads.github.com/repos/pronamic/wp-pronamic-pay/releases/67360977/assets{?name,label}
+          release_id: 67360977
+          asset_path: deploy/zip/pronamic-ideal/pronamic-pay.zip
+          asset_name: pronamic-pay-nightly.zip
+          asset_content_type: application/zip
+          max_releases: 1
+
+  update:
+    name: Update nightly tag
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Update nightly tag
+        uses: richardsimko/github-tag-action@v1.0.5
+        with:
+          tag_name: nightly
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

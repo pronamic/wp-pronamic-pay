@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9600e66e535fe9a28fe619b3ef01d058",
+    "content-hash": "ab16ed061318e6ffb1977b142d3a7f80",
     "packages": [
         {
             "name": "composer/installers",
@@ -1590,16 +1590,16 @@
         },
         {
             "name": "wp-pay-gateways/adyen",
-            "version": "3.1.1",
+            "version": "4.0.0-RC-1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-adyen.git",
-                "reference": "d56839215b78a41f185f72a2b19fbeb7ff80c8be"
+                "reference": "6e6132668266720e124cea9380011f8ad1e1117c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-adyen/zipball/d56839215b78a41f185f72a2b19fbeb7ff80c8be",
-                "reference": "d56839215b78a41f185f72a2b19fbeb7ff80c8be",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-adyen/zipball/6e6132668266720e124cea9380011f8ad1e1117c",
+                "reference": "6e6132668266720e124cea9380011f8ad1e1117c",
                 "shasum": ""
             },
             "require": {
@@ -1662,7 +1662,7 @@
                 "issues": "https://github.com/wp-pay-gateways/adyen/issues",
                 "source": "https://github.com/wp-pay-gateways/adyen"
             },
-            "time": "2022-04-12T07:54:55+00:00"
+            "time": "2022-05-12T11:48:52+00:00"
         },
         {
             "name": "wp-pay-gateways/buckaroo",
@@ -7315,7 +7315,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-gateways/adyen": 5
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
