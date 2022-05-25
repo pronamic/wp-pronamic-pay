@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay 8.3.0\n"
+"Project-Id-Version: Pronamic Pay 8.4.0-RC-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-05-04T11:12:09+00:00\n"
+"POT-Creation-Date: 2022-05-12T12:07:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: pronamic_ideal\n"
@@ -654,8 +654,7 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:197
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:280
-#: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:37
-#: vendor/wp-pay-gateways/adyen/views/checkout-web-sdk.php:37
+#: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:58
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:295
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:532
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:566
@@ -836,8 +835,7 @@ msgid "Choose a payment method"
 msgstr ""
 
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:23
-#: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:40
-#: vendor/wp-pay-gateways/adyen/views/checkout-web-sdk.php:40
+#: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:61
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:304
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:297
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:302
@@ -911,7 +909,7 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/give/src/Gateway.php:243
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:409
-#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:123
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:119
 #: vendor/wp-pay/core/src/Plugin.php:1180
 #: vendor/wp-pay/core/views/form.php:195
 msgid "Error"
@@ -1028,8 +1026,7 @@ msgid "Form"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:65
-#: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:34
-#: vendor/wp-pay-gateways/adyen/views/checkout-web-sdk.php:34
+#: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:55
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:77
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:298
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:305
@@ -1360,7 +1357,7 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:173
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:236
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:298
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:285
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:107
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:98
 #: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:93
@@ -2121,7 +2118,7 @@ msgstr ""
 #. translators: %s: default code
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:318
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:334
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:306
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:293
 #: vendor/wp-pay-gateways/buckaroo/src/Integration.php:166
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:115
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:106
@@ -2177,296 +2174,151 @@ msgstr ""
 msgid "A required field for the %s payment method is empty."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:319
-msgid "Payment completed successfully."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:320
-msgid "The order has been received and we are waiting for the payment to clear."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:321
-msgid "The payment has been refused. Please try again using a different method or card."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:322
-msgid "Received an invalid response while processing your request. Please try reloading this page."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:323
-msgid "An unknown error occurred while processing your request. Please try reloading this page."
-msgstr ""
-
-#. translators: %s: exception message
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:372
-#: vendor/wp-pay-gateways/adyen/src/WebSdkGateway.php:307
-msgid "Error getting payment result: %s"
-msgstr ""
-
-#. translators: %s: exception message
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:435
-msgid "Error getting payment details: %s"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/DropInGateway.php:605
-msgid "Credit or debit card"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:45
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:41
 msgid "https://www.adyen.com/"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:46
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:42
 msgid "https://www.adyen.com/pricing"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:48
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:44
 msgid "https://www.pronamic.eu/manuals/using-adyen-pronamic-pay/"
 msgstr ""
 
 #. translators: Translate 'notification' the same as in the Adyen dashboard.
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:144
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:132
 msgctxt "Adyen"
 msgid "Adyen Notification Authentication"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:151
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:139
 msgid "User Name"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:162
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:150
 msgid "Password"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:180
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:168
 msgid "Set the user name and password below and in the webhook authentication settings in the Adyen dashboard for increased security (recommended)."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:220
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:208
 msgctxt "adyen"
 msgid "Merchant Account"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:223
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:211
 msgid "The merchant account identifier, with which you want to process the transaction."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:231
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:219
 msgctxt "adyen"
 msgid "API Key"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:234
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:222
 msgid "API key as mentioned in the payment provider dashboard."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:238
-msgid "Adyen documentation: \"How to get the API key\"."
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:226
+msgid "Adyen documentation: \"API credentials\"."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:248
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:236
 msgctxt "adyen"
 msgid "API Live URL Prefix"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:251
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:239
 msgid "The unique prefix for the live API URL, as mentioned at <strong>Account » API URLs</strong> in the Adyen dashboard."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:255
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:243
 msgid "Adyen documentation: \"Live URL prefix\"."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:265
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:253
 msgctxt "adyen"
-msgid "Origin Key"
+msgid "Client Key"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:272
-msgid "An origin key is a client-side key that is used to validate Adyen's JavaScript component library. It is required for the Drop-in and Component integrations."
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:263
+msgid "Adyen documentation: \"Get your client key\"."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:276
-msgid "Adyen documentation: \"How to get an origin key\"."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:288
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:275
 msgid "Merchant Order Reference"
 msgstr ""
 
 #. translators: %s: <code>parameterName</code>
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:293
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:280
 msgid "The Adyen %s parameter."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:317
-msgctxt "adyen"
-msgid "Apple Pay Merchant ID"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:320
-msgid "Your Apple Pay Merchant ID. Required for accepting live payments."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:324
-msgid "Adyen documentation: \"Apple Pay Drop-in - Before you begin\"."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:326
-msgid "Apple documentation: \"Configuring your environment\"."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:335
-msgid "Apple Pay Merchant Identity Certificate"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:339
-msgid "The Apple Pay Merchant Identity certificate required for secure communication with Apple."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:343
-msgid "Adyen documentation: \"Enable Apple Pay - Create a merchant identity certificate\"."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:352
-msgid "Apple Pay Merchant Identity Private Key"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:356
-msgid "The private key of the Apple Pay Merchant Identity certificate for secure communication with Apple."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:364
-msgctxt "adyen"
-msgid "Apple Pay Merchant Identity Private Key Password"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:367
-msgid "Your Apple Pay Merchant Identity Certificate private key password."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:375
-msgctxt "adyen"
-msgid "Google Pay Merchant ID"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:378
-msgid "Your Google Merchant ID. Required for accepting live payments."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:382
-msgid "Adyen documentation: \"Google Pay Drop-in - Test and go live\"."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:384
-msgid "Google documentation: \"Deploy production environment\"."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:391
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:302
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:196
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:255
 msgid "Webhook URL"
 msgstr ""
 
 #. translators: %s: payment provider name
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:398
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:309
 msgid "Copy the Webhook URL to the %s dashboard to receive automatic transaction status updates."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:399
-#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:169
-#: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:39
-#: vendor/wp-pay-gateways/adyen/src/PaymentResultHelper.php:37
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:310
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:165
+#: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:34
 msgid "Adyen"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:411
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:322
 msgid "SSL Version"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:413
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:324
 msgid "Choose the SSL Version of your server on the Adyen Customer Area."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:424
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:335
 msgctxt "adyen notification"
 msgid "Method"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:426
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:337
 msgid "JSON"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:432
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:343
 msgid "Authentication"
 msgstr ""
 
 #. translators: %s: Pronamic Pay settings page URL.
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:436
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:347
 msgid "Go to the <a href=\"%s\">Pronamic Pay settings page</a> for webhook authentication settings."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:480
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:398
-msgid "SHA Fingerprint"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:487
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:404
-msgid "M j, Y @ G:i"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:490
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:407
-msgid "Valid From"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:495
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:412
-msgid "Valid To"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:504
-msgid "Upload an Apple Pay Merchant Identity certificate, which can be exported from Keychain Access on Mac as a PKCS#12 (*.p12) file."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:514
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:559
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:310
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:426
-msgid "Download"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:525
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:577
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:321
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:437
-msgid "Upload"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:571
-msgid "Leave empty to auto fill when uploading an Apple Pay Merchant Identity PKCS#12 certificate file."
-msgstr ""
-
 #. translators: %s: Help URL.
-#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:114
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:110
 msgid "HTTP Authorization header is missing, read %s for more information."
 msgstr ""
 
 #. translators: Translate 'notification' the same as in the Adyen dashboard.
-#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:129
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:125
 msgctxt "Adyen"
 msgid "Sorry, you are not allowed to post Adyen notifications."
 msgstr ""
 
 #. translators: Translate 'notification' the same as in the Adyen dashboard.
-#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:151
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:147
 msgctxt "Adyen"
 msgid "Cannot parse JSON notification."
 msgstr ""
 
 #. translators: %s: payment provider name
-#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:168
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:164
 #: vendor/wp-pay-gateways/digiwallet/src/ReportController.php:135
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:39
 #: vendor/wp-pay-gateways/icepay/src/Listener.php:50
@@ -2476,164 +2328,73 @@ msgid "Webhook requested by %s."
 msgstr ""
 
 #. translators: %s: item index
-#: vendor/wp-pay-gateways/adyen/src/PaymentRequestHelper.php:105
+#: vendor/wp-pay-gateways/adyen/src/PaymentRequestHelper.php:140
 #: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:220
 #: vendor/wp-pay-gateways/paypal/src/Gateway.php:294
 msgid "Item %s"
 msgstr ""
 
 #. translators: %s: payment provider name
-#: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:38
-#: vendor/wp-pay-gateways/adyen/src/PaymentResultHelper.php:36
+#: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:33
 msgid "Verified payment result."
 msgstr ""
 
 #. translators: %s: refusal reason
-#: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:93
+#: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:73
 msgid "The payment has been refused. (%s)"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:55
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:72
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:89
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:56
 #: vendor/wp-pay-gateways/mollie/src/WebhookController.php:73
 #: vendor/wp-pay-gateways/paypal/src/NotificationsController.php:130
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:247
 msgid "Payment ID."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:111
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:252
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:366
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:61
+msgid "The unique identifier for the shopper's payment session."
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:66
+msgid "Details you need to submit to handle the redirect."
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:88
 msgid "No payment ID given in `payment_id` parameter."
 msgstr ""
 
 #. translators: %s: payment ID
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:122
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:263
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:377
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:99
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:271
 msgid "Could not find payment with ID `%s`."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:135
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:276
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:390
-msgid "No data given in request body."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:145
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:286
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:400
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:112
 msgid "No gateway configuration ID given in payment."
 msgstr ""
 
 #. translators: %s: Gateway configuration ID
 #. translators: %s: Subscription ID
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:156
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:297
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:411
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:123
 #: vendor/wp-pay/core/src/GatewayPostType.php:225
 #: vendor/wp-pay/core/src/GatewayPostType.php:258
 msgid "Could not find gateway with ID `%s`."
 msgstr ""
 
 #. translators: %s: Gateway configuration ID
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:168
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:309
-msgid "Unable to handle payment `%s` because it was not processed through the Adyen drop-in integration."
-msgstr ""
-
-#. translators: %s: Gateway configuration ID
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:180
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:321
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:423
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:135
 msgid "Could not find client in gateway with ID `%s`."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:192
-msgid "No payment method given."
-msgstr ""
-
-#. translators: 1: error message, 2: error code
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:217
-msgid "%1$s (error %2$s)"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:230
-msgid "Error message could not be logged."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:440
-msgid "Apple Pay merchant identifier not configured in gateway settings."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:447
-msgid "No Apple Pay merchant validation URL given."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:472
-msgid "Invalid Apple Pay Merchant Identity configuration."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:480
-msgid "Error creating merchant identity files."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsController.php:550
-msgid "Error reading merchant identity files."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:55
-#: vendor/wp-pay/core/src/GatewayPostType.php:174
-#: vendor/wp-pay/core/src/GatewayPostType.php:192
-msgid "Gateway configuration ID."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:59
-msgid "Payload."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:63
-msgid "Result code."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:67
-msgid "Result text."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:87
-msgid "No gateway configuration ID given in `config_id` parameter."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:96
-msgid "No payload given in `payload` parameter."
-msgstr ""
-
-#. translators: %s: Gateway configuration ID
-#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:108
-msgid "Could not found gateway with ID `%s`."
-msgstr ""
-
-#. translators: %s: Gateway configuration ID
-#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:120
-msgid "Could not found client in gateway with ID `%s`."
-msgstr ""
-
-#. translators: %s: Adyen merchant reference
-#: vendor/wp-pay-gateways/adyen/src/PaymentsResultController.php:142
-msgid "Could not found payment with ID `%s`."
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:63
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:59
 msgid "HTTP Authorization header test"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:87
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:83
 msgid "HTTP Basic authentication is working"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:90
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:86
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:171
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:299
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:335
@@ -2654,26 +2415,25 @@ msgstr ""
 msgid "Payments"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:95
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:91
 msgid "HTTP Basic authentication is required to securely receive Adyen notifications."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:117
+#: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:113
 msgid "Could not reach HTTP Authorization header test endpoint."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:31
-#: vendor/wp-pay-gateways/adyen/views/checkout-web-sdk.php:31
+#: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:19
+msgid "Checkout"
+msgstr ""
+
+#: vendor/wp-pay-gateways/adyen/views/checkout-drop-in.php:52
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:292
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:591
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:53
 #: vendor/wp-pay/core/views/meta-box-subscription-payments.php:33
 #: views/redirect-via-html.php:72
 msgid "Payment"
-msgstr ""
-
-#: vendor/wp-pay-gateways/adyen/views/head.php:15
-msgid "Checkout"
 msgstr ""
 
 #. translators: 1: payment provider name, 2: status message, 3: status sub message
@@ -3095,12 +2855,38 @@ msgstr ""
 msgid "Leave empty and save the configuration to generate the private key or view the OpenSSL command."
 msgstr ""
 
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:310
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:426
+msgid "Download"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:321
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:437
+msgid "Upload"
+msgstr ""
+
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:345
 msgid "ideal.cer"
 msgstr ""
 
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:387
 msgid "Leave empty and save the configuration to generate the certificate or view the OpenSSL command."
+msgstr ""
+
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:398
+msgid "SHA Fingerprint"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:404
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:407
+msgid "Valid From"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:412
+msgid "Valid To"
 msgstr ""
 
 #: vendor/wp-pay-gateways/ideal-basic/src/Integration.php:89
@@ -5072,6 +4858,11 @@ msgstr ""
 
 #: vendor/wp-pay/core/src/GatewayPostType.php:84
 msgid "Payment gateway configuration updated."
+msgstr ""
+
+#: vendor/wp-pay/core/src/GatewayPostType.php:174
+#: vendor/wp-pay/core/src/GatewayPostType.php:192
+msgid "Gateway configuration ID."
 msgstr ""
 
 #: vendor/wp-pay/core/src/GatewayPostType.php:196
