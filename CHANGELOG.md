@@ -6,6 +6,16 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [8.4.0] - 2022-05-30
+
+### Changed
+- Updated WordPress core library to version [`4.2.0`](https://github.com/pronamic/wp-pay-core/releases/tag/4.2.0).
+- Updated WordPress Adyen library to version [`4.0.0`](https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/4.0.0).
+- Updated WordPress Mollie library to version [`4.2.0`](https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/4.2.0).
+- Updated WordPress MultiSafepay library to version [`4.1.1`](https://github.com/pronamic/wp-pronamic-pay-multisafepay/releases/tag/4.1.1).
+- Updated WordPress Contact Form 7 library to version [`3.0.2`](https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/3.0.2).
+- Updated WordPress MemberPress library to version [`4.3.0`](https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/4.3.0).
+
 ## [8.3.0] - 2022-05-04
 
 ### Changed
@@ -3112,7 +3122,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.3.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.0...HEAD
+[8.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.3.0...8.4.0
 [8.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.2...8.3.0
 [8.2.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.1...8.2.2
 [8.2.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.0...8.2.1
