@@ -6,6 +6,11 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [8.4.1] - 2022-06-03
+
+### Fixed
+- Updated WordPress Contact Form 7 library to version [`3.0.3`](https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/3.0.3).
+
 ## [8.4.0] - 2022-05-30
 
 ### Changed
@@ -3122,7 +3127,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.1...HEAD
+[8.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.0...8.4.1
 [8.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.3.0...8.4.0
 [8.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.2...8.3.0
 [8.2.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.1...8.2.2
