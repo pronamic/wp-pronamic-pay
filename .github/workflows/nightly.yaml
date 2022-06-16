@@ -5,6 +5,10 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+env:
+  COMPOSER_NO_INTERACTION: 1
+  WP_TESTS_DB_PASS: password
+
 jobs:
   phplint:
     uses: pronamic/actions/.github/workflows/phplint.yml@main
@@ -27,6 +31,17 @@ jobs:
     runs-on: ubuntu-latest
 
     needs: [phplint, phpcs, phpstan]
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: wp_phpunit_tests
+        ports:
+          - 3306/tcp
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Setup PHP
