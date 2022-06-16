@@ -10,7 +10,7 @@
 
 namespace Pronamic\WordPress\Pay;
 
-use WP_UnitTestCase;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 /**
  * Version number test
@@ -18,7 +18,7 @@ use WP_UnitTestCase;
  * @author Remco Tolsma
  * @version 1.0.0
  */
-class VersionNumberTest extends WP_UnitTestCase {
+class VersionNumberTest extends TestCase {
 	/**
 	 * Setup version number test.
 	 */
