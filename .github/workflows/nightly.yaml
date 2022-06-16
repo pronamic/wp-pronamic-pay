@@ -5,6 +5,10 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+env:
+  COMPOSER_NO_INTERACTION: 1
+  WP_TESTS_DB_PASS: password
+
 jobs:
   phplint:
     uses: pronamic/actions/.github/workflows/phplint.yml@main
