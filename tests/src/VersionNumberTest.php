@@ -22,8 +22,8 @@ class VersionNumberTest extends WP_UnitTestCase {
 	/**
 	 * Setup version number test.
 	 */
-	public function setUp() {
-		parent::setUp();
+	public function set_up() {
+		parent::set_up();
 
 		$this->plugin_dir = realpath( __DIR__ . '/../..' );
 
