@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.2
 Tested up to: 6.0
 Requires PHP: 7.4
-Stable tag: 8.4.1
+Stable tag: 8.5.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -115,6 +115,20 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 8.5.0 - 2022-07-04 =
+*	Updated WordPress core library to version 4.3.1.
+	*	Added billing and shipping address details to test payments.
+	*	Added tax details to test payments.
+	*	Added `Authorized` payment status. ([pronamic/wp-pay-core#66](https://github.com/pronamic/wp-pay-core/issues/66))
+	*	Updated logos library to version `1.8.3`.
+*	Updated WordPress Adyen library to version 4.1.0.
+	*	Added WordPress network ID and blog ID to merchant reference ([#1](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/1)).
+*	Updated WordPress MemberPress library to version 4.4.0.
+	*	Added support for Klarna Pay Now, Klarna Pay Later and Klarna Pay Over Time ([pronamic/wp-pronamic-pay#190](https://github.com/pronamic/wp-pronamic-pay/issues/190)).
+*	Updated WordPress Mollie library to version 4.3.0.
+	*	Added support for Mollie orders API. [pronamic/wp-pronamic-pay#190](https://github.com/pronamic/wp-pronamic-pay/issues/190)
+	*	Improved JSON serialization for communication towards Mollie API.
+
 = 8.4.1 - 2022-06-03 =
 *	Updated WordPress Contact Form 7 library to version [`3.0.3`](https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/3.0.3).
 
@@ -137,13 +151,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 *	Updated WordPress core library to version 4.1.2.
 	*	Fixed plugin updater.
 *	Updated WordPress WooCommerce library to version 4.1.1.
-
-= 8.2.1 - 2022-04-13 =
-*	Updated WordPress core library to version 4.1.1.
-*	Updated WordPress Charitable library to version 4.1.0.
-*	Updated WordPress Adyen library to version 3.1.1.
-*	Updated WordPress OmniKassa 2.0 library to version 4.1.1.
-*	Updated WordPress Sisow library to version 4.1.1.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

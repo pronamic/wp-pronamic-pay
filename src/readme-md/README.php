@@ -13,11 +13,11 @@ header( 'Content-Type: text/plain' );
 ?>
 # [Pronamic Pay](https://www.pronamic.eu/plugins/pronamic-pay/)
 
-[![WordPress plugin](https://img.shields.io/wordpress/plugin/v/pronamic-pay.svg)](https://www.pronamic.eu/plugins/pronamic-pay/)
-[![WordPress](https://img.shields.io/wordpress/plugin/dt/pronamic-pay.svg)](https://www.pronamic.eu/plugins/pronamic-pay/)
-[![WordPress rating](https://img.shields.io/wordpress/plugin/r/pronamic-pay.svg)](https://www.pronamic.eu/plugins/pronamic-pay/)
-[![WordPress](https://img.shields.io/wordpress/v/pronamic-pay.svg)](https://www.pronamic.eu/plugins/pronamic-pay/)
-[![WP compatibility](https://plugintests.com/plugins/pronamic-pay/wp-badge.svg)](https://plugintests.com/plugins/pronamic-pay/latest-report)
+[![WordPress plugin](https://img.shields.io/wordpress/plugin/v/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-pay/)
+[![WordPress](https://img.shields.io/wordpress/plugin/dt/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-pay/)
+[![WordPress rating](https://img.shields.io/wordpress/plugin/r/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-pay/)
+[![WordPress](https://img.shields.io/wordpress/v/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-pay/)
+[![WP compatibility](https://plugintests.com/plugins/pronamic-ideal/wp-badge.svg)](https://plugintests.com/plugins/pronamic-ideal/latest-report)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/wp-pay/core.svg)]()
 [![Build Status](https://travis-ci.org/pronamic/wp-pronamic-pay.svg?branch=develop)](https://travis-ci.org/pronamic/wp-pronamic-pay)
 [![Coverage Status](https://coveralls.io/repos/github/pronamic/wp-pronamic-pay/badge.svg?branch=develop)](https://coveralls.io/github/pronamic/wp-pronamic-pay?branch=develop)

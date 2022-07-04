@@ -6,6 +6,22 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [8.5.0] - 2022-07-04
+
+### Changed
+- Updated WordPress core library to version 4.3.1.
+  - Added billing and shipping address details to test payments.
+  - Added tax details to test payments.
+  - Added `Authorized` payment status. ([pronamic/wp-pay-core#66](https://github.com/pronamic/wp-pay-core/issues/66))
+  - Updated logos library to version `1.8.3`.
+- Updated WordPress Adyen library to version 4.1.0.
+  - Added WordPress network ID and blog ID to merchant reference ([#1](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/1)).
+- Updated WordPress MemberPress library to version 4.4.0.
+  - Added support for Klarna Pay Now, Klarna Pay Later and Klarna Pay Over Time ([pronamic/wp-pronamic-pay#190](https://github.com/pronamic/wp-pronamic-pay/issues/190)).
+- Updated WordPress Mollie library to version 4.3.0.
+  - Added support for Mollie orders API. [pronamic/wp-pronamic-pay#190](https://github.com/pronamic/wp-pronamic-pay/issues/190)
+  - Improved JSON serialization for communication towards Mollie API.
+
 ## [8.4.1] - 2022-06-03
 
 ### Fixed
@@ -3127,7 +3143,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.5.0...HEAD
+[8.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.1...8.5.0
 [8.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.0...8.4.1
 [8.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.3.0...8.4.0
 [8.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.2.2...8.3.0
