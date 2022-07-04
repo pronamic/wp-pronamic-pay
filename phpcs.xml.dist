@@ -23,6 +23,7 @@
 	<exclude-pattern>tests/bootstrap.php</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>wordpress/*</exclude-pattern>
+	<exclude-pattern>wp-content/*</exclude-pattern>
 
 	<rule ref="PronamicWP">
 		<exclude name="WordPress.DB.DirectDatabaseQuery.DirectQuery" />

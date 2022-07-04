@@ -5,6 +5,9 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+env:
+  COMPOSER_NO_INTERACTION: 1
+
 jobs:
   phplint:
     uses: pronamic/actions/.github/workflows/phplint.yml@main
