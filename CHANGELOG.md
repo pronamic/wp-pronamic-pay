@@ -18,6 +18,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress pay Gravity Forms library to version 4.1.1.
   - Fixed compatibility issue with plugins producing output in `gform_admin_pre_render` filter.
   - Fixed duplicate configurations in payment gateway configuration field setting ([#8](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/8)).
+- Updated WordPress pay ICEPAY library to version 4.1.1.
 
 ## [8.5.0] - 2022-07-04
 

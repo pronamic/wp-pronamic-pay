@@ -158,59 +158,6 @@
             "time": "2021-09-13T08:19:44+00:00"
         },
         {
-            "name": "icepay/icepay",
-            "version": "2.5.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ICEPAYdev/icepay.git",
-                "reference": "0c517325a6fd55edf64fadfd50eacf044fb6055e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ICEPAYdev/icepay/zipball/0c517325a6fd55edf64fadfd50eacf044fb6055e",
-                "reference": "0c517325a6fd55edf64fadfd50eacf044fb6055e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "ICEPAY library to integrate ICEPAY in your projects.",
-            "homepage": "https://icepay.com/",
-            "keywords": [
-                "afterpay",
-                "api",
-                "bancontact",
-                "banktransfer",
-                "creditcard",
-                "gateway",
-                "icepay",
-                "ideal",
-                "mistercash",
-                "payment",
-                "payments",
-                "paypal",
-                "paysafecard",
-                "phone",
-                "refund",
-                "service",
-                "sofort",
-                "sofortbanking",
-                "yourgift"
-            ],
-            "support": {
-                "issues": "https://github.com/icepay/icepay/issues",
-                "source": "https://github.com/icepay/icepay"
-            },
-            "time": "2015-09-17T08:32:44+00:00"
-        },
-        {
             "name": "justinrainbow/json-schema",
             "version": "5.2.12",
             "source": {
@@ -279,6 +226,59 @@
                 "source": "https://github.com/justinrainbow/json-schema/tree/5.2.12"
             },
             "time": "2022-04-13T08:02:27+00:00"
+        },
+        {
+            "name": "pronamic/icepay-soap-api",
+            "version": "2.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/icepay-soap-api.git",
+                "reference": "0c517325a6fd55edf64fadfd50eacf044fb6055e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/icepay-soap-api/zipball/0c517325a6fd55edf64fadfd50eacf044fb6055e",
+                "reference": "0c517325a6fd55edf64fadfd50eacf044fb6055e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "ICEPAY library to integrate ICEPAY in your projects.",
+            "homepage": "https://icepay.com/",
+            "keywords": [
+                "afterpay",
+                "api",
+                "bancontact",
+                "banktransfer",
+                "creditcard",
+                "gateway",
+                "icepay",
+                "ideal",
+                "mistercash",
+                "payment",
+                "payments",
+                "paypal",
+                "paysafecard",
+                "phone",
+                "refund",
+                "service",
+                "sofort",
+                "sofortbanking",
+                "yourgift"
+            ],
+            "support": {
+                "issues": "https://github.com/icepay/icepay/issues",
+                "source": "https://github.com/icepay/icepay"
+            },
+            "time": "2015-09-17T08:32:44+00:00"
         },
         {
             "name": "pronamic/wp-datetime",
@@ -1883,21 +1883,21 @@
         },
         {
             "name": "wp-pay-gateways/icepay",
-            "version": "4.1.0",
+            "version": "4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-icepay.git",
-                "reference": "f145b6c0b6a729cbc4d5f40a3bc009f0b932c617"
+                "reference": "cc30ff08a40575e7fe99f017c775f24da51913f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-icepay/zipball/f145b6c0b6a729cbc4d5f40a3bc009f0b932c617",
-                "reference": "f145b6c0b6a729cbc4d5f40a3bc009f0b932c617",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-icepay/zipball/cc30ff08a40575e7fe99f017c775f24da51913f2",
+                "reference": "cc30ff08a40575e7fe99f017c775f24da51913f2",
                 "shasum": ""
             },
             "require": {
-                "icepay/icepay": "^2.5.0",
                 "php": ">=5.6.20",
+                "pronamic/icepay-soap-api": "^2.5",
                 "wp-pay/core": "^4.0"
             },
             "require-dev": {
@@ -1951,7 +1951,7 @@
                 "issues": "https://github.com/wp-pay-gateways/icepay/issues",
                 "source": "https://github.com/wp-pay-gateways/icepay"
             },
-            "time": "2022-04-11T14:22:33+00:00"
+            "time": "2022-08-15T12:19:03+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal",
