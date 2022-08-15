@@ -567,7 +567,29 @@ add_filter(
 		);
 
 		// Sisow.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Sisow\Integration();
+		// $gateways[] = new \Pronamic\WordPress\Pay\Gateways\Sisow\Integration();
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(
+			[
+				'id'                   => 'sisow-ideal',
+				'name'                 => 'Sisow',
+				'mode'                 => 'live',
+				'host'                 => 'checkout.buckaroo.nl',
+				'meta_key_website_key' => 'sisow_merchant_id',
+				'meta_key_secret_key'  => 'sisow_merchant_key',
+			]
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(
+			[
+				'id'                   => 'sisow-ideal-test',
+				'name'                 => 'Sisow - Test',
+				'mode'                 => 'test',
+				'host'                 => 'testcheckout.buckaroo.nl',
+				'meta_key_website_key' => 'sisow_merchant_id',
+				'meta_key_secret_key'  => 'sisow_merchant_key',
+			]
+		);
 
 		// Sisow - iDEAL Basic.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
