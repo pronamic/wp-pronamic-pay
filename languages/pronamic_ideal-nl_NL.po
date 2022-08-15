@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-07-04T14:00:21+00:00\n"
-"PO-Revision-Date: 2022-07-04 16:17+0200\n"
+"POT-Creation-Date: 2022-08-15T11:52:26+00:00\n"
+"PO-Revision-Date: 2022-08-15 13:55+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.1.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Plugin Name of the plugin
@@ -977,23 +977,23 @@ msgstr "Inzending"
 msgid "Formidable entry %s"
 msgstr "Formidable inzending %s"
 
-#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:529
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:544
 msgid "Pronamic payment pending"
 msgstr "Pronamic betaling in afwachting"
 
-#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:530
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:545
 msgid "Pronamic payment success"
 msgstr "Pronamic betaling voltooid"
 
-#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:531
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:546
 msgid "Pronamic payment cancelled"
 msgstr "Pronamic betaling geannuleerd"
 
-#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:532
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:547
 msgid "Pronamic payment expired"
 msgstr "Pronamic betaling verlopen"
 
-#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:533
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:548
 msgid "Pronamic payment failed"
 msgstr "Pronamic betaling mislukt"
 
@@ -1299,30 +1299,30 @@ msgstr "Betaalvelden"
 msgid "— Use Payment Feed Setting —"
 msgstr "— Gebruik betalingsfeed instelling —"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:126
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:130
 msgid "Display Mode"
 msgstr "Weergavemodus"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:132
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:136
 msgid "— Use field default —"
 msgstr "— Gebruik veld standaard —"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:133
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:137
 msgctxt "Field display mode"
 msgid "Select"
 msgstr "Uitschuifkeuzelijst"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:134
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:138
 msgctxt "Field display mode"
 msgid "List with icons"
 msgstr "Lijst met iconen"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:135
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:139
 msgctxt "Field display mode"
 msgid "Small icons"
 msgstr "Kleine iconen"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:136
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:140
 msgctxt "Field display mode"
 msgid "Large icons"
 msgstr "Grote iconen"
@@ -1902,11 +1902,11 @@ msgid "Optional settings for advanced usage only."
 msgstr "Optionele instellingen voor geavanceerd gebruik."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:923
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:985
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:994
 msgid "Conditional Logic"
 msgstr "Voorwaardelijke logica"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:998
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1007
 msgid ""
 "Set conditional logic to only use this gateway if the entry matches the "
 "condition(s)."
@@ -1914,7 +1914,7 @@ msgstr ""
 "Stel voorwaarden in om deze gateway alleen te gebruiken als de inzending aan "
 "de voorwaarden voldoet."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1005
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1014
 msgid "Update user role"
 msgstr "Gebruikersrol bijwerken"
 
@@ -2615,7 +2615,7 @@ msgstr ""
 "status updates te ontvangen."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:361
-#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:165
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:177
 #: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:34
 msgid "Adyen"
 msgstr "Adyen"
@@ -2674,7 +2674,7 @@ msgid "Cannot parse JSON notification."
 msgstr "Kan JSON-notificatie niet verwerken."
 
 #. translators: %s: payment provider name
-#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:164
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:176
 #: vendor/wp-pay-gateways/digiwallet/src/ReportController.php:135
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:39
 #: vendor/wp-pay-gateways/icepay/src/Listener.php:50
@@ -3460,6 +3460,11 @@ msgid ""
 msgstr ""
 "Betaling transactie ID bijgewerkt van `%1$s` naar succesvolle betaling `"
 "%2$s` van bestelling."
+
+#. translators: 1: Mollie shipment ID, 2: Mollie order ID
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:784
+msgid "Shipment `%1$s` created for Mollie order `%2$s`."
+msgstr "Zending `%1$s` aangemaakt voor Mollie bestelling `%2$s`."
 
 #. translators: 1: Mollie chargeback ID, 2: Mollie payment ID
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:1138
