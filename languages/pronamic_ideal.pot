@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay 8.5.0\n"
+"Project-Id-Version: Pronamic Pay 8.5.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-07-04T14:09:24+00:00\n"
+"POT-Creation-Date: 2022-08-15T12:22:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: pronamic_ideal\n"
@@ -790,23 +790,23 @@ msgstr ""
 msgid "Formidable entry %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:529
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:544
 msgid "Pronamic payment pending"
 msgstr ""
 
-#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:530
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:545
 msgid "Pronamic payment success"
 msgstr ""
 
-#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:531
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:546
 msgid "Pronamic payment cancelled"
 msgstr ""
 
-#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:532
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:547
 msgid "Pronamic payment expired"
 msgstr ""
 
-#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:533
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:548
 msgid "Pronamic payment failed"
 msgstr ""
 
@@ -1105,30 +1105,30 @@ msgstr ""
 msgid "— Use Payment Feed Setting —"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:126
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:130
 msgid "Display Mode"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:132
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:136
 msgid "— Use field default —"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:133
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:137
 msgctxt "Field display mode"
 msgid "Select"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:134
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:138
 msgctxt "Field display mode"
 msgid "List with icons"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:135
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:139
 msgctxt "Field display mode"
 msgid "Small icons"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:136
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:140
 msgctxt "Field display mode"
 msgid "Large icons"
 msgstr ""
@@ -1670,15 +1670,15 @@ msgid "Optional settings for advanced usage only."
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:923
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:985
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:994
 msgid "Conditional Logic"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:998
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1007
 msgid "Set conditional logic to only use this gateway if the entry matches the condition(s)."
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1005
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1014
 msgid "Update user role"
 msgstr ""
 
@@ -2290,7 +2290,7 @@ msgid "Copy the Webhook URL to the %s dashboard to receive automatic transaction
 msgstr ""
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:361
-#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:165
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:177
 #: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:34
 msgid "Adyen"
 msgstr ""
@@ -2343,7 +2343,7 @@ msgid "Cannot parse JSON notification."
 msgstr ""
 
 #. translators: %s: payment provider name
-#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:164
+#: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:176
 #: vendor/wp-pay-gateways/digiwallet/src/ReportController.php:135
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:39
 #: vendor/wp-pay-gateways/icepay/src/Listener.php:50
@@ -3036,6 +3036,11 @@ msgstr ""
 #. translators: 1: payment transaction ID, 2: Mollie payment ID
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:768
 msgid "Payment transaction ID updated from `%1$s` to successful order payment `%2$s`."
+msgstr ""
+
+#. translators: 1: Mollie shipment ID, 2: Mollie order ID
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:784
+msgid "Shipment `%1$s` created for Mollie order `%2$s`."
 msgstr ""
 
 #. translators: 1: Mollie chargeback ID, 2: Mollie payment ID

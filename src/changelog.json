@@ -4,6 +4,41 @@
 		"changes": {}
 	},
 	{
+		"version": "8.5.1",
+		"date": "2022-08-15",
+		"changes": {
+			"name": "Changed",
+			"changes": [
+				{
+					"description": "Updated WordPress pay Mollie library to version 4.3.1.",
+					"changes": [
+						"Updated payment provider URL from `www.mollie.com` to `my.mollie.com` ([#8](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/8))."
+					]
+				},
+				{
+					"description": "Updated WordPress pay MultiSafepay library to version 4.1.2.",
+					"changes": [
+						"Fixed parsing gateways response message ([#3](https://github.com/pronamic/wp-pronamic-pay-multisafepay/issues/3))."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Formidable Forms library to version 4.1.1.",
+					"changes": [
+						"Fixed not showing error messages if form success action is not 'message'."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Gravity Forms library to version 4.1.1.",
+					"changes": [
+						"Fixed compatibility issue with plugins producing output in `gform_admin_pre_render` filter.",
+						"Fixed duplicate configurations in payment gateway configuration field setting ([#8](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/8))."
+					]
+				},
+				"Updated WordPress pay ICEPAY library to version 4.1.1."
+			]
+		}
+	},
+	{
 		"version": "8.5.0",
 		"date": "2022-07-04",
 		"changes": [
@@ -17,7 +52,7 @@
 							"Added tax details to test payments.",
 							"Added `Authorized` payment status. ([pronamic/wp-pay-core#66](https://github.com/pronamic/wp-pay-core/issues/66))",
 							"Updated logos library to version `1.8.3`."
-					]
+						]
 					},
 					{
 						"description": "Updated WordPress Adyen library to version 4.1.0.",
