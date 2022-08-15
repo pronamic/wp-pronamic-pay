@@ -6,6 +6,19 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [8.5.1] - 2022-08-15
+
+### Changed
+- Updated WordPress pay Mollie library to version 4.3.1.
+  - Updated payment provider URL from `www.mollie.com` to `my.mollie.com` ([#8](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/8)).
+- Updated WordPress pay MultiSafepay library to version 4.1.2.
+  - Fixed parsing gateways response message ([#3](https://github.com/pronamic/wp-pronamic-pay-multisafepay/issues/3)).
+- Updated WordPress pay Formidable Forms library to version 4.1.1.
+  - Fixed not showing error messages if form success action is not 'message'.
+- Updated WordPress pay Gravity Forms library to version 4.1.1.
+  - Fixed compatibility issue with plugins producing output in `gform_admin_pre_render` filter.
+  - Fixed duplicate configurations in payment gateway configuration field setting ([#8](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/8)).
+
 ## [8.5.0] - 2022-07-04
 
 ### Changed
@@ -3143,7 +3156,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.5.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-pay/compare/8.5.1...HEAD
+[8.5.1]: https://github.com/pronamic/wp-pronamic-pay/compare/8.5.0...8.5.1
 [8.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.1...8.5.0
 [8.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.0...8.4.1
 [8.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.3.0...8.4.0

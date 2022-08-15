@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.2
 Tested up to: 6.0
 Requires PHP: 7.4
-Stable tag: 8.5.0
+Stable tag: 8.5.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -115,6 +115,17 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 8.5.1 - 2022-08-15 =
+*	Updated WordPress pay Mollie library to version 4.3.1.
+	*	Updated payment provider URL from `www.mollie.com` to `my.mollie.com` ([#8](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/8)).
+*	Updated WordPress pay MultiSafepay library to version 4.1.2.
+	*	Fixed parsing gateways response message ([#3](https://github.com/pronamic/wp-pronamic-pay-multisafepay/issues/3)).
+*	Updated WordPress pay Formidable Forms library to version 4.1.1.
+	*	Fixed not showing error messages if form success action is not 'message'.
+*	Updated WordPress pay Gravity Forms library to version 4.1.1.
+	*	Fixed compatibility issue with plugins producing output in `gform_admin_pre_render` filter.
+	*	Fixed duplicate configurations in payment gateway configuration field setting ([#8](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/8)).
+
 = 8.5.0 - 2022-07-04 =
 *	Updated WordPress core library to version 4.3.1.
 	*	Added billing and shipping address details to test payments.
@@ -146,11 +157,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 	*	Update subscription phases on MemberPress subscription updates.
 	*	Added subscription status and next payment date to MemberPress subscription form.
 	*	Added payment status to MemberPress transaction form.
-
-= 8.2.2 - 2022-04-19 =
-*	Updated WordPress core library to version 4.1.2.
-	*	Fixed plugin updater.
-*	Updated WordPress WooCommerce library to version 4.1.1.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
