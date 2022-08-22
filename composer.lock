@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50213c95a2f2a8f6d72c612320d7a188",
+    "content-hash": "0d56bfdaa4c6af5f3884b742caf0d914",
     "packages": [
         {
             "name": "composer/installers",
@@ -2597,84 +2597,6 @@
             "time": "2022-04-11T14:43:19+00:00"
         },
         {
-            "name": "wp-pay-gateways/payvision",
-            "version": "3.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pronamic/wp-pronamic-pay-payvision.git",
-                "reference": "5356b2c986e5ec02b23d2d8cdee910d13de49a91"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-payvision/zipball/5356b2c986e5ec02b23d2d8cdee910d13de49a91",
-                "reference": "5356b2c986e5ec02b23d2d8cdee910d13de49a91",
-                "shasum": ""
-            },
-            "require": {
-                "ext-intl": "*",
-                "ext-json": "*",
-                "justinrainbow/json-schema": "^5.2",
-                "php": ">=5.6.20",
-                "pronamic/wp-http": "^1.1",
-                "pronamic/wp-money": "^2.0",
-                "wp-pay/core": "^4.0"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4",
-                "overtrue/phplint": "^1.2",
-                "php-coveralls/php-coveralls": "^2.4",
-                "phpmd/phpmd": "^2.8",
-                "phpunit/phpunit": "^5.7 || ^6.0",
-                "pronamic/wp-coding-standards": "^1.0",
-                "roots/wordpress": "^5.8",
-                "sirbrillig/phpcs-import-detection": "^1.2",
-                "sirbrillig/phpcs-variable-analysis": "^2.9",
-                "slevomat/coding-standard": "^6.4",
-                "wp-phpunit/wp-phpunit": "^5.8",
-                "yoast/phpunit-polyfills": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Pronamic\\WordPress\\Pay\\Gateways\\Payvision\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
-                },
-                {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Payvision driver for the WordPress payment processing library.",
-            "homepage": "http://www.wp-pay.org/gateways/payvision/",
-            "keywords": [
-                "gateway",
-                "pay",
-                "payvision",
-                "pronamic",
-                "wordpress",
-                "wp"
-            ],
-            "support": {
-                "email": "support@wp-pay.org",
-                "issues": "https://github.com/wp-pay-gateways/payvision/issues",
-                "source": "https://github.com/wp-pay-gateways/payvision"
-            },
-            "time": "2022-04-11T14:45:23+00:00"
-        },
-        {
             "name": "wp-pay-gateways/sisow",
             "version": "4.1.1",
             "source": {
@@ -4563,23 +4485,23 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.15",
+            "version": "9.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "2e9da11878c4202f97915c1cb4bb1ca318a63f5f"
+                "reference": "2593003befdcc10db5e213f9f28814f5aa8ac073"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2e9da11878c4202f97915c1cb4bb1ca318a63f5f",
-                "reference": "2e9da11878c4202f97915c1cb4bb1ca318a63f5f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2593003befdcc10db5e213f9f28814f5aa8ac073",
+                "reference": "2593003befdcc10db5e213f9f28814f5aa8ac073",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "ext-xmlwriter": "*",
-                "nikic/php-parser": "^4.13.0",
+                "nikic/php-parser": "^4.14",
                 "php": ">=7.3",
                 "phpunit/php-file-iterator": "^3.0.3",
                 "phpunit/php-text-template": "^2.0.2",
@@ -4628,7 +4550,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.15"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.16"
             },
             "funding": [
                 {
@@ -4636,7 +4558,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-07T09:28:20+00:00"
+            "time": "2022-08-20T05:26:47+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -4881,16 +4803,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.21",
+            "version": "9.5.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "0e32b76be457de00e83213528f6bb37e2a38fcb1"
+                "reference": "e329ac6e8744f461518272612a479fde958752fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0e32b76be457de00e83213528f6bb37e2a38fcb1",
-                "reference": "0e32b76be457de00e83213528f6bb37e2a38fcb1",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e329ac6e8744f461518272612a479fde958752fe",
+                "reference": "e329ac6e8744f461518272612a479fde958752fe",
                 "shasum": ""
             },
             "require": {
@@ -4967,7 +4889,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.21"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.22"
             },
             "funding": [
                 {
@@ -4979,7 +4901,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-19T12:14:25+00:00"
+            "time": "2022-08-20T08:25:46+00:00"
         },
         {
             "name": "pronamic/wp-coding-standards",
@@ -6305,16 +6227,16 @@
         },
         {
             "name": "sirbrillig/phpcs-variable-analysis",
-            "version": "v2.11.5",
+            "version": "v2.11.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sirbrillig/phpcs-variable-analysis.git",
-                "reference": "567221efd5d1ab53260fb76f16c77610454a5d6a"
+                "reference": "ad2b0b57803a48bb3495777bee2a9a13c8e9da53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sirbrillig/phpcs-variable-analysis/zipball/567221efd5d1ab53260fb76f16c77610454a5d6a",
-                "reference": "567221efd5d1ab53260fb76f16c77610454a5d6a",
+                "url": "https://api.github.com/repos/sirbrillig/phpcs-variable-analysis/zipball/ad2b0b57803a48bb3495777bee2a9a13c8e9da53",
+                "reference": "ad2b0b57803a48bb3495777bee2a9a13c8e9da53",
                 "shasum": ""
             },
             "require": {
@@ -6355,7 +6277,7 @@
                 "source": "https://github.com/sirbrillig/phpcs-variable-analysis",
                 "wiki": "https://github.com/sirbrillig/phpcs-variable-analysis/wiki"
             },
-            "time": "2022-08-13T21:40:42+00:00"
+            "time": "2022-08-16T22:19:00+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
