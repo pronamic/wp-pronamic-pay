@@ -26,5 +26,4 @@ fi
 ./bin/wp-deployer deploy pronamic-pay-adyen https://github.com/wp-pay-gateways/adyen.git -vvvv --non-interactive --to-s3
 ./bin/wp-deployer deploy pronamic-pay-digiwallet https://github.com/wp-pay-gateways/digiwallet.git --branch main -vvvv --non-interactive --to-s3
 ./bin/wp-deployer deploy pronamic-pay-paypal https://github.com/wp-pay-gateways/paypal.git -vvvv --non-interactive --to-s3
-./bin/wp-deployer deploy pronamic-pay-payvision https://github.com/wp-pay-gateways/payvision.git --branch main -vvvv --non-interactive --to-s3
 ./bin/wp-deployer deploy pronamic-pay-fundraising https://github.com/wp-pay/fundraising.git -vvvv --non-interactive --to-s3
