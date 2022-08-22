@@ -122,7 +122,11 @@ add_filter(
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\Give\Extension();
 
 		// WooCommerce.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension();
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension(
+			[
+				'db_version_option_name' => 'pronamic_pay_woocommerce_db_version',
+			]
+		);
 
 		// Gravity Forms.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\GravityForms\Extension();
