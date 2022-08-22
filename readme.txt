@@ -64,7 +64,6 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	Ingenico/Ogone - DirectLink
 *	Ingenico/Ogone - OrderStandard
 *	Pay.nl
-*	Payvision (requires [Basic license](https://www.pronamic.eu/plugins/pronamic-pay/))
 *	Rabobank - OmniKassa 2.0
 *	Rabobank - iDEAL Professional
 *	Sisow
