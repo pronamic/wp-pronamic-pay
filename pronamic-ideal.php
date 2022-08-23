@@ -212,6 +212,10 @@ add_filter(
 				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
 			case 'rabobank-omnikassa-2':
 				return ( 'test' === $mode ) ? 'rabobank-omnikassa-2-sandbox' : 'rabobank-omnikassa-2';
+			case 'sisow-ideal':
+				$sisow_test_mode = get_post_meta( $post_id, '_pronamic_gateway_sisow_test_mode', true );
+
+				return ( 'test' === $mode || '' !== $sisow_test_mode ) ? 'sisow-buckaroo-test' : 'sisow-buckaroo';
 			case 'sisow-ideal-basic':
 				return ( 'test' === $mode ) ? 'sisow-ideal-basic-test' : 'sisow-ideal-basic';
 		}
@@ -571,7 +575,37 @@ add_filter(
 		);
 
 		// Sisow.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Sisow\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(
+			[
+				'id'                   => 'sisow-buckaroo',
+				'name'                 => 'Sisow via Buckaroo',
+				'mode'                 => 'live',
+				'host'                 => 'checkout.buckaroo.nl',
+				'callback_website_key' => function( $post_id ) {
+					return \get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_id', true );
+				},
+				'callback_secret_key'  => function( $post_id ) {
+					return \get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_key', true );
+				},
+				'deprecated'           => true,
+			]
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(
+			[
+				'id'                   => 'sisow-buckaroo-test',
+				'name'                 => 'Sisow via Buckaroo - Test',
+				'mode'                 => 'test',
+				'host'                 => 'testcheckout.buckaroo.nl',
+				'callback_website_key' => function( $post_id ) {
+					return \get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_id', true );
+				},
+				'callback_secret_key'  => function( $post_id ) {
+					return \get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_key', true );
+				},
+				'deprecated'           => true,
+			]
+		);
 
 		// Sisow - iDEAL Basic.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
