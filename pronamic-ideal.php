@@ -208,6 +208,10 @@ add_filter(
 				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
 			case 'rabobank-omnikassa-2':
 				return ( 'test' === $mode ) ? 'rabobank-omnikassa-2-sandbox' : 'rabobank-omnikassa-2';
+			case 'sisow-ideal':
+				$sisow_test_mode = get_post_meta( $post_id, '_pronamic_gateway_sisow_test_mode', true );
+
+				return ( 'test' === $mode || '' !== $sisow_test_mode ) ? 'buckaroo-test' : 'buckaroo';
 			case 'sisow-ideal-basic':
 				return ( 'test' === $mode ) ? 'sisow-ideal-basic-test' : 'sisow-ideal-basic';
 		}
@@ -563,18 +567,6 @@ add_filter(
 					__DIR__ . '/certificates/rabobank-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/rabobank-2021-10-01-2026-09-30.cer',
 				],
-			]
-		);
-
-		// Sisow.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(
-			[
-				'id'                   => 'sisow-ideal',
-				'name'                 => 'Sisow',
-				'mode'                 => 'live',
-				'meta_key_website_key' => 'sisow_merchant_id',
-				'meta_key_secret_key'  => 'sisow_merchant_key',
-				'deprecated'           => true,
 			]
 		);
 
