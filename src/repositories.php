@@ -38,7 +38,6 @@ $organisations = [
 		'wp-pronamic-pay-omnikassa-2'            => 'OmniKassa 2.0',
 		'wp-pronamic-pay-pay-nl'                 => 'Pay.nl',
 		'wp-pronamic-pay-paypal'                 => 'PayPal',
-		'wp-pronamic-pay-sisow'                  => 'Sisow',
 		// Extensions.
 		'wp-pronamic-pay-charitable'             => 'Charitable',
 		'wp-pronamic-pay-contact-form-7'         => 'Contact Form 7',

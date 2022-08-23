@@ -40,7 +40,6 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Pay.nl](https://www.pay.nl/) | Pay.nl |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - OmniKassa 2.0 |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - iDEAL Professional |
-| [Sisow](https://www.sisow.nl/) | Sisow |
 | [TargetPay](https://www.targetpay.com/) | TargetPay - iDEAL |
 
 
