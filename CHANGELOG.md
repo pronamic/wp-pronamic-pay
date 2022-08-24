@@ -6,6 +6,10 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.0.0-alpha.1] - 2022-08-24
+
+### Changed
+
 ## [8.5.1] - 2022-08-15
 
 ### Changed
@@ -3157,8 +3161,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-pay/compare/8.5.1...HEAD
-[8.5.1]: https://github.com/pronamic/wp-pronamic-pay/compare/8.5.0...8.5.1
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.0.0-alpha.1...HEAD
+[9.0.0-alpha.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.5.1...9.0.0-alpha.1
+[8.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.5.0...8.5.1
 [8.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.1...8.5.0
 [8.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.0...8.4.1
 [8.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.3.0...8.4.0

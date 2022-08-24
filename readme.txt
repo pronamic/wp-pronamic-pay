@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.2
 Tested up to: 6.0
 Requires PHP: 7.4
-Stable tag: 8.5.1
+Stable tag: 9.0.0-alpha.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -113,6 +113,8 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 9.0.0-alpha.1 - 2022-08-24 =
+
 = 8.5.1 - 2022-08-15 =
 *	Updated WordPress pay Mollie library to version 4.3.1.
 	*	Updated payment provider URL from `www.mollie.com` to `my.mollie.com` ([#8](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/8)).
@@ -149,13 +151,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 *	Updated WordPress MultiSafepay library to version [`4.1.1`](https://github.com/pronamic/wp-pronamic-pay-multisafepay/releases/tag/4.1.1).
 *	Updated WordPress Contact Form 7 library to version [`3.0.2`](https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/3.0.2).
 *	Updated WordPress MemberPress library to version [`4.3.0`](https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/4.3.0).
-
-= 8.3.0 - 2022-05-04 =
-*	Updated WordPress core library to version 4.1.3.
-*	Updated WordPress MemberPress library to version 4.2.0.
-	*	Update subscription phases on MemberPress subscription updates.
-	*	Added subscription status and next payment date to MemberPress subscription form.
-	*	Added payment status to MemberPress transaction form.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
