@@ -580,12 +580,8 @@ add_filter(
 				'name'                 => 'Sisow via Buckaroo',
 				'mode'                 => 'live',
 				'host'                 => 'checkout.buckaroo.nl',
-				'callback_website_key' => function( $post_id ) {
-					return \get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_id', true );
-				},
-				'callback_secret_key'  => function( $post_id ) {
-					return \get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_key', true );
-				},
+				'meta_key_website_key' => 'sisow_merchant_id',
+				'meta_key_secret_key'  => 'sisow_merchant_key',
 				'deprecated'           => true,
 			]
 		);
@@ -596,12 +592,8 @@ add_filter(
 				'name'                 => 'Sisow via Buckaroo - Test',
 				'mode'                 => 'test',
 				'host'                 => 'testcheckout.buckaroo.nl',
-				'callback_website_key' => function( $post_id ) {
-					return \get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_id', true );
-				},
-				'callback_secret_key'  => function( $post_id ) {
-					return \get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_key', true );
-				},
+				'meta_key_website_key' => 'sisow_merchant_id',
+				'meta_key_secret_key'  => 'sisow_merchant_key',
 				'deprecated'           => true,
 			]
 		);
