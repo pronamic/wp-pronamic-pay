@@ -71,7 +71,6 @@ if ( is_readable( $autoload_after ) ) {
 				'Pronamic Pay DigiWallet Add-On',
 				'Pronamic Pay Fundraising Add-On',
 				'Pronamic Pay PayPal Add-On',
-				'Pronamic Pay Payvision Add-On',
 			],
 			true
 		);
