@@ -1,5 +1,8 @@
 #!/bin/bash
 
+cd `dirname $0`
+cd ..
+
 # Pronamic Deployer.
 if [ ! -d "deployer" ]; then
   git clone https://github.com/pronamic/deployer.git
