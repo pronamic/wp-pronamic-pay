@@ -114,7 +114,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 == Changelog ==
 
 = 9.0.0 - 2022-09-26 =
-*	Updated WordPress pay core library to version 5.0.0.
+*	Updated WordPress pay core library to version 4.4.0.
 	*	Fixed list table styling on mobile ([pronamic/wp-pay-core#72](https://github.com/pronamic/wp-pay-core/issues/72)).
 	*	Refactored payments methods and fields support.
 	*	Removed phone number field from test meta box.
