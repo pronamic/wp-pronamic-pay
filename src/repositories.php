@@ -127,28 +127,61 @@ foreach ( $organisations as $organisation => $repositories ) {
 				echo "    ${CURRENT_TAG}"
 				echo ""
 
+				if [ `git status --porcelain` ]; then
+					echo "❗️ ${bold}Found uncommited changes, please commit/resolve before continuing${normal}"
+					
+					read -p "Press a key to continue..."
+				fi
+
+				LOG=$(git --no-pager log ${CURRENT_TAG}..HEAD --oneline| awk \'{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }\')
+
+				if [ $(echo "$LOG" | wc -l) -eq 1 ]; then
+					echo "❌ ${bold}No changes in Git since release of version ${CURRENT_TAG}${normal}"
+					echo ""
+
+					echo "📖 ${bold}Version ${CURRENT_TAG} in changelog:${normal}"
+					echo ""
+
+					CHANGELOG_RELEASE=$(grep -zoP "## \[${CURRENT_TAG}\](.|\n)*?(?=\n\n)" CHANGELOG.md)
+					CHANGELOG_RELEASE_LOG=$(echo "$CHANGELOG_RELEASE" | tail -n +2)
+
+					echo "$CHANGELOG_RELEASE"
+					echo ""
+
+					sleep .1
+
+					select ACTION in "Include version ${bold}${CURRENT_TAG}${normal} in release" "Check coding standards" "Skip"; do
+						case $ACTION in
+							*release*)      $(echo ",{\"description\":\"Updated WordPress ' . ( false === strpos( $repository, '-pay-' ) ? '' : 'pay ' ) . $name . ' library to version ${CURRENT_TAG}.\",\"changes\":$(echo "${CHANGELOG_RELEASE_LOG}" | sed \'s/^- //\' | jq --raw-input --raw-output --slurp \'split("\\n") | .[0:-1]\')}" >> ../../../src/changelog-release.json)
+											exit
+											break;;
+							*standards*)    break;;
+							Skip*)          exit
+											break;;
+						esac
+					done
+				fi;
+
 				if [ -f "composer.json" ]; then
 					echo "🕵 ${bold}Checking coding standards...${normal}"
 
 					if ! composer phpcs; then
+						echo ""
 						echo "🕵 ${bold}Fix or continue?${normal}"
 
 						sleep .1
 
-						select ACTION in "Fix with PHPCBF" "Fix manually" "Check again" "Continue"; do
+						select ACTION in "Fix with PHPCBF" "Retry" "Ignore and continue"; do
 							case $ACTION in
 								*PHPCBF*)   composer phpcbf
 											read -p "Press a key to commit and continue..."
 											git commit -a -m "Coding standards." --no-verify
 											break;;
-								*manual*)   read -p "Press a key to commit and continue..."
-											git commit -a -m "Coding standards." --no-verify
-											break;;
-								*again*)    composer phpcs
+								Retry*)     composer phpcs
 											read -p "Press a key to commit and continue..."
 											git commit -a -m "Coding standards." --no-verify
 											break;;
-								Continue*) break;;
+								Ignore*)    break;;
 							esac
 						done
 
@@ -165,7 +198,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 					exit
 				fi;
 
-				echo "📖 ${bold}Commits since latest release${normal}"
+				echo "📖 ${bold}Commits since latest release:${normal}"
 				echo "$LOG" | while read line; do echo "https://github.com/' . $organisation .'/' . $repository .'/commit/$line"; done
 				echo ""
 
@@ -175,6 +208,8 @@ foreach ( $organisations as $organisation => $repositories ) {
 				NEW_MAJOR_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'NR==1{printf "%s.0.0", ++$NR};\')
 				NEW_MINOR_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'NF==2{print ++$NF}; NF>0{$(NF-1)++; $NF=0; print};\')
 				NEW_PATCH_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'NF==1{print ++$NF}; NF>1{if(length($NF+1)>length($NF))$(NF-1)++; $NF=sprintf("%0*d", length($NF), ($NF+1)%(10^length($NF))); print};\')
+
+				sleep .1
 
 				select NEW_VERSION in "$NEW_MAJOR_VERSION" "$NEW_MINOR_VERSION" "$NEW_PATCH_VERSION" "Skip release"; do
 					if [ "Skip release" == "$NEW_VERSION" ]; then
@@ -228,7 +263,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 				git flow release start "${NEW_VERSION}"
 
 				# Update package version number.
-				sed -i -e "s/\"version\": \"${CURRENT_TAG}\"/\"version\": \"${NEW_VERSION}\"/g" package.json
+				sed -i "" -e "s/\"version\": \"${CURRENT_TAG}\"/\"version\": \"${NEW_VERSION}\"/g" package.json
 
 				# Update changelog title and add log.
 				TITLE_LINENR=$(grep -n "## \[" CHANGELOG.md | head -2 | tail -1 | cut -d: -f1)
@@ -237,7 +272,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 				ex -s -c "${TITLE_LINENR}i|${TITLE}${LOG}' . str_repeat( \PHP_EOL, 2 ) . '" -c x CHANGELOG.md
 
 				# Update changelog footer links.
-				sed -i -e "s/\/${CURRENT_TAG}...HEAD/\/${NEW_VERSION}...HEAD/g" CHANGELOG.md
+				sed -i "" -e "s/\/${CURRENT_TAG}...HEAD/\/${NEW_VERSION}...HEAD/g" CHANGELOG.md
 				LINK_LINENR=$(grep -n "\[unreleased\]" CHANGELOG.md | tail -1 | cut -d: -f1)
 				LINK="[${NEW_VERSION}]: https://github.com/' . $organisation . '/' . $repository . '/compare/${CURRENT_TAG}...${NEW_VERSION}"
 				ex -s -c "$(( ${LINK_LINENR} + 1 ))i|${LINK}" -c x CHANGELOG.md
