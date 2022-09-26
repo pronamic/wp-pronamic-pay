@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.2
 Tested up to: 6.0
 Requires PHP: 7.4
-Stable tag: 9.0.0-alpha.1
+Stable tag: 9.0.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
