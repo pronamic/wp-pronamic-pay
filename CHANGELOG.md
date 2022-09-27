@@ -61,14 +61,14 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changed
 - Updated WordPress pay Mollie library to version 4.3.1.
-  - Updated payment provider URL from `www.mollie.com` to `my.mollie.com` (/github.com/pronamic/wp-pronamic-pay-mollie#8).
+  - Updated payment provider URL from `www.mollie.com` to `my.mollie.com` ([#8](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/8)).
 - Updated WordPress pay MultiSafepay library to version 4.1.2.
-  - Fixed parsing gateways response message (/github.com/pronamic/wp-pronamic-pay-multisafepay#3).
+  - Fixed parsing gateways response message ([#3](https://github.com/pronamic/wp-pronamic-pay-multisafepay/issues/3)).
 - Updated WordPress pay Formidable Forms library to version 4.1.1.
   - Fixed not showing error messages if form success action is not 'message'.
 - Updated WordPress pay Gravity Forms library to version 4.1.1.
   - Fixed compatibility issue with plugins producing output in `gform_admin_pre_render` filter.
-  - Fixed duplicate configurations in payment gateway configuration field setting (/github.com/pronamic/wp-pronamic-pay-gravityforms#8).
+  - Fixed duplicate configurations in payment gateway configuration field setting ([#8](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/8)).
 - Updated WordPress pay ICEPAY library to version 4.1.1.
 
 ## [8.5.0] - 2022-07-04
@@ -77,12 +77,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress core library to version 4.3.1.
   - Added billing and shipping address details to test payments.
   - Added tax details to test payments.
-  - Added `Authorized` payment status. (pronamic/wp-pay-core#66)
+  - Added `Authorized` payment status. ([pronamic/wp-pay-core#66](https://github.com/pronamic/wp-pay-core/issues/66))
   - Updated logos library to version `1.8.3`.
 - Updated WordPress Adyen library to version 4.1.0.
-  - Added WordPress network ID and blog ID to merchant reference (/github.com/pronamic/wp-pronamic-pay-adyen#1).
+  - Added WordPress network ID and blog ID to merchant reference ([#1](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/1)).
 - Updated WordPress MemberPress library to version 4.4.0.
-  - Added support for Klarna Pay Now, Klarna Pay Later and Klarna Pay Over Time (pronamic/wp-pronamic-pay#190).
+  - Added support for Klarna Pay Now, Klarna Pay Later and Klarna Pay Over Time ([pronamic/wp-pronamic-pay#190](https://github.com/pronamic/wp-pronamic-pay/issues/190)).
 - Updated WordPress Mollie library to version 4.3.0.
   - Added support for Mollie orders API. [pronamic/wp-pronamic-pay#190](https://github.com/pronamic/wp-pronamic-pay/issues/190)
   - Improved JSON serialization for communication towards Mollie API.
