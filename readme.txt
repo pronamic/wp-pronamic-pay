@@ -113,36 +113,36 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
-= 9.0.0 - 2022-09-26 =
+= 9.0.0 - 2022-09-27 =
 *	Updated WordPress pay core library to version 4.4.0.
 	*	Fixed list table styling on mobile ([pronamic/wp-pay-core#72](https://github.com/pronamic/wp-pay-core/issues/72)).
 	*	Refactored payments methods and fields support.
 	*	Removed phone number field from test meta box.
 	*	Removed Sisow reservation payments support.
-*	Updated WordPress pay Buckaroo library to version 4.2.0.
+*	Updated WordPress pay Buckaroo library to version 4.2.1.
 	*	Updated payment methods registration.
 	*	Updated for Sisow via Buckaroo integration ([pronamic/wp-pronamic-pay-sisow#3](https://github.compronamic/wp-pronamic-pay-sisow/issues/3)).
 *	Updated WordPress pay Mollie library to version 4.4.0.
 	*	Fixed empty billing email address causing `Unprocessable Entity - The email address '' is invalid` error.
 	*	Updated payment methods registration.
-*	Updated WordPress pay Easy Digital Downloads library to version 4.2.0.
+*	Updated WordPress pay Easy Digital Downloads library to version 4.2.1.
 	*	Fixed Easy Digital Downloads 3 compatibility.
 	*	Updated for new payment methods and fields registration.
-*	Updated WordPress pay Gravity Forms library to version 4.2.0.
+*	Updated WordPress pay Gravity Forms library to version 4.2.1.
 	*	Fixed conditional logic object without any logic.
 	*	Updated for new payment methods and fields registration.
 *	Updated WordPress pay WooCommerce library to version 4.2.0.
 	*	Added upgrade script to add missing Pronamic subscription ID to WooCommerce subscription meta ([pronamic/wp-pronamic-pay-woocommerce#11](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/11)).
 	*	Updated for new payment methods and fields registration.
 	*	Improved WooCommerce Blocks support.
-*	Updated WordPress DateTime library to version 2.0.2.
+*	Updated WordPress DateTime library to version 2.0.3.
 *	Updated WordPress HTML library to version 2.0.2.
 *	Updated WordPress HTTP library to version 1.1.3.
-*	Updated WordPress Money library to version 2.0.2.
+*	Updated WordPress Money library to version 2.0.3.
 *	Updated WordPress Number library to version 1.1.1.
-*	Updated WordPress pay Fundraising library to version 3.0.1.
-*	Updated WordPress pay Adyen library to version 4.2.0.
-*	Updated WordPress pay DigiWallet library to version 3.2.0.
+*	Updated WordPress pay Fundraising library to version 3.0.2.
+*	Updated WordPress pay Adyen library to version 4.2.1.
+*	Updated WordPress pay DigiWallet library to version 3.2.1.
 *	Updated WordPress pay EMS e-Commerce; library to version 4.2.0.
 *	Updated WordPress pay ICEPAY library to version 4.2.0.
 *	Updated WordPress pay iDEAL library to version 4.0.1.
@@ -152,15 +152,15 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 *	Updated WordPress pay Ingenico library to version 4.2.0.
 *	Updated WordPress pay OmniKassa 2.0 library to version 4.2.0.
 *	Updated WordPress pay Pay.nl library to version 4.2.0.
-*	Updated WordPress pay PayPal library to version 2.2.0.
-*	Updated WordPress pay Charitable library to version 4.2.0.
-*	Updated WordPress pay Contact Form 7 library to version 3.1.0.
-*	Updated WordPress pay Event Espresso library to version 4.1.0.
-*	Updated WordPress pay Formidable Forms library to version 4.2.0.
-*	Updated WordPress pay Give library to version 4.1.0.
-*	Updated WordPress pay MemberPress library to version 4.5.0.
-*	Updated WordPress pay Ninja Forms library to version 3.1.0.
-*	Updated WordPress pay Restrict Content Pro library to version 4.2.0.
+*	Updated WordPress pay PayPal library to version 2.2.1.
+*	Updated WordPress pay Charitable library to version 4.2.1.
+*	Updated WordPress pay Contact Form 7 library to version 3.1.1.
+*	Updated WordPress pay Event Espresso library to version 4.1.1.
+*	Updated WordPress pay Formidable Forms library to version 4.2.1.
+*	Updated WordPress pay Give library to version 4.1.1.
+*	Updated WordPress pay MemberPress library to version 4.5.1.
+*	Updated WordPress pay Ninja Forms library to version 3.1.1.
+*	Updated WordPress pay Restrict Content Pro library to version 4.2.1.
 
 = 8.5.1 - 2022-08-15 =
 *	Updated WordPress pay Mollie library to version 4.3.1.

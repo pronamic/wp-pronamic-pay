@@ -6,7 +6,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [9.0.0] - 2022-09-26
+## [9.0.0] - 2022-09-27
 
 ### Changed
 - Updated WordPress pay core library to version 4.4.0.
@@ -14,30 +14,30 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Refactored payments methods and fields support.
   - Removed phone number field from test meta box.
   - Removed Sisow reservation payments support.
-- Updated WordPress pay Buckaroo library to version 4.2.0.
+- Updated WordPress pay Buckaroo library to version 4.2.1.
   - Updated payment methods registration.
   - Updated for Sisow via Buckaroo integration ([pronamic/wp-pronamic-pay-sisow#3](https://github.com/pronamic/wp-pronamic-pay-sisow/issues/3)).
 - Updated WordPress pay Mollie library to version 4.4.0.
   - Fixed empty billing email address causing `Unprocessable Entity - The email address '' is invalid` error.
   - Updated payment methods registration.
-- Updated WordPress pay Easy Digital Downloads library to version 4.2.0.
+- Updated WordPress pay Easy Digital Downloads library to version 4.2.1.
   - Fixed Easy Digital Downloads 3 compatibility.
   - Updated for new payment methods and fields registration.
-- Updated WordPress pay Gravity Forms library to version 4.2.0.
+- Updated WordPress pay Gravity Forms library to version 4.2.1.
   - Fixed conditional logic object without any logic.
   - Updated for new payment methods and fields registration.
 - Updated WordPress pay WooCommerce library to version 4.2.0.
   - Added upgrade script to add missing Pronamic subscription ID to WooCommerce subscription meta ([pronamic/wp-pronamic-pay-woocommerce#11](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/11)).
   - Updated for new payment methods and fields registration.
   - Improved WooCommerce Blocks support.
-- Updated WordPress DateTime library to version 2.0.2.
+- Updated WordPress DateTime library to version 2.0.3.
 - Updated WordPress HTML library to version 2.0.2.
 - Updated WordPress HTTP library to version 1.1.3.
-- Updated WordPress Money library to version 2.0.2.
+- Updated WordPress Money library to version 2.0.3.
 - Updated WordPress Number library to version 1.1.1.
-- Updated WordPress pay Fundraising library to version 3.0.1.
-- Updated WordPress pay Adyen library to version 4.2.0.
-- Updated WordPress pay DigiWallet library to version 3.2.0.
+- Updated WordPress pay Fundraising library to version 3.0.2.
+- Updated WordPress pay Adyen library to version 4.2.1.
+- Updated WordPress pay DigiWallet library to version 3.2.1.
 - Updated WordPress pay EMS e-Commerce; library to version 4.2.0.
 - Updated WordPress pay ICEPAY library to version 4.2.0.
 - Updated WordPress pay iDEAL library to version 4.0.1.
@@ -47,28 +47,28 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress pay Ingenico library to version 4.2.0.
 - Updated WordPress pay OmniKassa 2.0 library to version 4.2.0.
 - Updated WordPress pay Pay.nl library to version 4.2.0.
-- Updated WordPress pay PayPal library to version 2.2.0.
-- Updated WordPress pay Charitable library to version 4.2.0.
-- Updated WordPress pay Contact Form 7 library to version 3.1.0.
-- Updated WordPress pay Event Espresso library to version 4.1.0.
-- Updated WordPress pay Formidable Forms library to version 4.2.0.
-- Updated WordPress pay Give library to version 4.1.0.
-- Updated WordPress pay MemberPress library to version 4.5.0.
-- Updated WordPress pay Ninja Forms library to version 3.1.0.
-- Updated WordPress pay Restrict Content Pro library to version 4.2.0.
+- Updated WordPress pay PayPal library to version 2.2.1.
+- Updated WordPress pay Charitable library to version 4.2.1.
+- Updated WordPress pay Contact Form 7 library to version 3.1.1.
+- Updated WordPress pay Event Espresso library to version 4.1.1.
+- Updated WordPress pay Formidable Forms library to version 4.2.1.
+- Updated WordPress pay Give library to version 4.1.1.
+- Updated WordPress pay MemberPress library to version 4.5.1.
+- Updated WordPress pay Ninja Forms library to version 3.1.1.
+- Updated WordPress pay Restrict Content Pro library to version 4.2.1.
 
 ## [8.5.1] - 2022-08-15
 
 ### Changed
 - Updated WordPress pay Mollie library to version 4.3.1.
-  - Updated payment provider URL from `www.mollie.com` to `my.mollie.com` ([#8](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/8)).
+  - Updated payment provider URL from `www.mollie.com` to `my.mollie.com` (/github.com/pronamic/wp-pronamic-pay-mollie#8).
 - Updated WordPress pay MultiSafepay library to version 4.1.2.
-  - Fixed parsing gateways response message ([#3](https://github.com/pronamic/wp-pronamic-pay-multisafepay/issues/3)).
+  - Fixed parsing gateways response message (/github.com/pronamic/wp-pronamic-pay-multisafepay#3).
 - Updated WordPress pay Formidable Forms library to version 4.1.1.
   - Fixed not showing error messages if form success action is not 'message'.
 - Updated WordPress pay Gravity Forms library to version 4.1.1.
   - Fixed compatibility issue with plugins producing output in `gform_admin_pre_render` filter.
-  - Fixed duplicate configurations in payment gateway configuration field setting ([#8](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/8)).
+  - Fixed duplicate configurations in payment gateway configuration field setting (/github.com/pronamic/wp-pronamic-pay-gravityforms#8).
 - Updated WordPress pay ICEPAY library to version 4.1.1.
 
 ## [8.5.0] - 2022-07-04
@@ -77,12 +77,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress core library to version 4.3.1.
   - Added billing and shipping address details to test payments.
   - Added tax details to test payments.
-  - Added `Authorized` payment status. ([pronamic/wp-pay-core#66](https://github.com/pronamic/wp-pay-core/issues/66))
+  - Added `Authorized` payment status. (pronamic/wp-pay-core#66)
   - Updated logos library to version `1.8.3`.
 - Updated WordPress Adyen library to version 4.1.0.
-  - Added WordPress network ID and blog ID to merchant reference ([#1](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/1)).
+  - Added WordPress network ID and blog ID to merchant reference (/github.com/pronamic/wp-pronamic-pay-adyen#1).
 - Updated WordPress MemberPress library to version 4.4.0.
-  - Added support for Klarna Pay Now, Klarna Pay Later and Klarna Pay Over Time ([pronamic/wp-pronamic-pay#190](https://github.com/pronamic/wp-pronamic-pay/issues/190)).
+  - Added support for Klarna Pay Now, Klarna Pay Later and Klarna Pay Over Time (pronamic/wp-pronamic-pay#190).
 - Updated WordPress Mollie library to version 4.3.0.
   - Added support for Mollie orders API. [pronamic/wp-pronamic-pay#190](https://github.com/pronamic/wp-pronamic-pay/issues/190)
   - Improved JSON serialization for communication towards Mollie API.
