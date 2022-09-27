@@ -4,7 +4,7 @@
  * Plugin URI: https://www.pronamic.eu/plugins/pronamic-pay/
  * Description: The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
  *
- * Version: 8.5.1
+ * Version: 9.0.0
  * Requires at least: 5.2
  * Requires PHP: 7.4
  *
@@ -122,7 +122,11 @@ add_filter(
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\Give\Extension();
 
 		// WooCommerce.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension();
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension(
+			[
+				'db_version_option_name' => 'pronamic_pay_woocommerce_db_version',
+			]
+		);
 
 		// Gravity Forms.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\GravityForms\Extension();
@@ -208,6 +212,10 @@ add_filter(
 				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
 			case 'rabobank-omnikassa-2':
 				return ( 'test' === $mode ) ? 'rabobank-omnikassa-2-sandbox' : 'rabobank-omnikassa-2';
+			case 'sisow-ideal':
+				$sisow_test_mode = get_post_meta( $post_id, '_pronamic_gateway_sisow_test_mode', true );
+
+				return ( 'test' === $mode || '' !== $sisow_test_mode ) ? 'sisow-buckaroo-test' : 'sisow-buckaroo';
 			case 'sisow-ideal-basic':
 				return ( 'test' === $mode ) ? 'sisow-ideal-basic-test' : 'sisow-ideal-basic';
 		}
@@ -567,7 +575,29 @@ add_filter(
 		);
 
 		// Sisow.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Sisow\Integration();
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(
+			[
+				'id'                   => 'sisow-buckaroo',
+				'name'                 => 'Sisow via Buckaroo',
+				'mode'                 => 'live',
+				'host'                 => 'checkout.buckaroo.nl',
+				'meta_key_website_key' => 'sisow_merchant_id',
+				'meta_key_secret_key'  => 'sisow_merchant_key',
+				'deprecated'           => true,
+			]
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(
+			[
+				'id'                   => 'sisow-buckaroo-test',
+				'name'                 => 'Sisow via Buckaroo - Test',
+				'mode'                 => 'test',
+				'host'                 => 'testcheckout.buckaroo.nl',
+				'meta_key_website_key' => 'sisow_merchant_id',
+				'meta_key_secret_key'  => 'sisow_merchant_key',
+				'deprecated'           => true,
+			]
+		);
 
 		// Sisow - iDEAL Basic.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(

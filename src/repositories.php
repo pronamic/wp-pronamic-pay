@@ -38,8 +38,6 @@ $organisations = [
 		'wp-pronamic-pay-omnikassa-2'            => 'OmniKassa 2.0',
 		'wp-pronamic-pay-pay-nl'                 => 'Pay.nl',
 		'wp-pronamic-pay-paypal'                 => 'PayPal',
-		'wp-pronamic-pay-payvision'              => 'Payvision',
-		'wp-pronamic-pay-sisow'                  => 'Sisow',
 		// Extensions.
 		'wp-pronamic-pay-charitable'             => 'Charitable',
 		'wp-pronamic-pay-contact-form-7'         => 'Contact Form 7',
@@ -55,30 +53,7 @@ $organisations = [
 	],
 ];
 
-/**
- * Version update `awk` actions.
- *
- * @return string
- */
-function version_update_awk_actions() {
-	global $argv;
-
-	$version_update = isset( $argv[2] ) ? $argv[2] : 'patch';
-
-	switch ( $version_update ) {
-		case 'major':
-			return 'NR==1{printf "%s.0.0", ++$NR};';
-
-		case 'minor':
-			return 'NF==2{print ++$NF}; NF>0{$(NF-1)++; $NF=0; print};';
-
-		case 'patch':
-		default:
-			return 'NF==1{print ++$NF}; NF>1{if(length($NF+1)>length($NF))$(NF-1)++; $NF=sprintf("%0*d", length($NF), ($NF+1)%(10^length($NF))); print};';
-	}
-}
-
-if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
+if ( isset( $argv[1] ) && 'release' === $argv[1] ) {
 	$changelog_release = fopen( __DIR__ . '/changelog-release.json', 'w+' );
 
 	if ( false !== $changelog_release ) {
@@ -88,10 +63,14 @@ if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
 }
 
 foreach ( $organisations as $organisation => $repositories ) {
-	echo '# ', $organisation, PHP_EOL;
-
 	foreach ( $repositories as $repository => $name ) {
-		echo '- ', $repository, PHP_EOL;
+		$title = sprintf( '#   %s/%s - %s   #', $organisation, $repository, $name );
+
+		echo str_repeat( '#', strlen( $title ) ) . \PHP_EOL;
+		echo '#' . str_repeat( ' ', strlen( $title ) - 2 ) . '#' . \PHP_EOL;
+		echo $title . \PHP_EOL;
+		echo '#' . str_repeat( ' ', strlen( $title ) - 2 ) . '#' . \PHP_EOL;
+		echo str_repeat( '#', strlen( $title ) ) . \PHP_EOL;
 
 		$git_url = sprintf(
 			'https://github.com/%s/%s.git',
@@ -134,27 +113,157 @@ foreach ( $organisations as $organisation => $repositories ) {
 			$command = 'git --no-pager log $(git describe --tags --abbrev=0)..HEAD --oneline';
 		}
 
-		if ( isset( $argv[1] ) && 'release-start' === $argv[1] ) {
+		if ( isset( $argv[1] ) && 'release' === $argv[1] ) {
 			$command = '
+				bold=$(tput bold)
+				normal=$(tput sgr0)
+
 				CURRENT_TAG=$(git describe --tags --abbrev=0)
-				LOG=$(git --no-pager log ${CURRENT_TAG}..HEAD --oneline)
+
+				echo "🌐 ${bold}GitHub URL${normal}"
+				echo "    https://github.com/' . $organisation . '/' . $repository . '"
+				echo ""
+				echo "🔢 ${bold}Latest version${normal}"
+				echo "    ${CURRENT_TAG}"
+				echo ""
+
+				if [ `git status --porcelain` ]; then
+					echo "❗️ ${bold}Found uncommited changes, please commit/resolve before continuing${normal}"
+					
+					read -p "Press a key to continue..."
+				fi
+
+				LOG=$(git --no-pager log ${CURRENT_TAG}..HEAD --oneline| awk \'{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }\')
+
+				if [ $(echo "$LOG" | wc -l) -eq 1 ]; then
+					echo "❌ ${bold}No changes in Git since release of version ${CURRENT_TAG}${normal}"
+					echo ""
+
+					echo "📖 ${bold}Version ${CURRENT_TAG} in changelog:${normal}"
+					echo ""
+
+					CHANGELOG_RELEASE=$(grep -zoP "## \[${CURRENT_TAG}\](.|\n)*?(?=\n\n)" CHANGELOG.md)
+					CHANGELOG_RELEASE_LOG=$(echo "$CHANGELOG_RELEASE" | tail -n +2)
+
+					echo "$CHANGELOG_RELEASE"
+					echo ""
+
+					sleep .1
+
+					select ACTION in "Include version ${bold}${CURRENT_TAG}${normal} in release" "Check coding standards" "Skip"; do
+						case $ACTION in
+							*release*)      $(echo ",{\"description\":\"Updated WordPress ' . ( false === strpos( $repository, '-pay-' ) ? '' : 'pay ' ) . $name . ' library to version ${CURRENT_TAG}.\",\"changes\":$(echo "${CHANGELOG_RELEASE_LOG}" | sed \'s/^- //\' | jq --raw-input --raw-output --slurp \'split("\\n") | .[0:-1]\')}" >> ../../../src/changelog-release.json)
+											exit
+											break;;
+							*standards*)    break;;
+							Skip*)          exit
+											break;;
+						esac
+					done
+				fi;
+
+				if [ -f "composer.json" ]; then
+					echo "🕵 ${bold}Checking coding standards...${normal}"
+
+					if ! composer phpcs; then
+						echo ""
+						echo "🕵 ${bold}Fix or continue?${normal}"
+
+						sleep .1
+
+						select ACTION in "Fix with PHPCBF" "Retry" "Ignore and continue"; do
+							case $ACTION in
+								*PHPCBF*)   composer phpcbf
+											read -p "Press a key to commit and continue..."
+											git commit -a -m "Coding standards." --no-verify
+											break;;
+								Retry*)     composer phpcs
+											read -p "Press a key to commit and continue..."
+											git commit -a -m "Coding standards." --no-verify
+											break;;
+								Ignore*)    break;;
+							esac
+						done
+
+						echo ""
+					fi
+				fi
+
+				LOG=$(git --no-pager log ${CURRENT_TAG}..HEAD --oneline| awk \'{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }\')
 
 				# Exit if there are no changes in Git repository.
 				if [ $(echo "$LOG" | wc -l) -eq 1 ]; then
-					echo "Version: ${CURRENT_TAG}"
+					echo "❌ No changes in Git since last release."
+
 					exit
 				fi;
 
+				echo "📖 ${bold}Commits since latest release:${normal}"
+				echo "$LOG" | while read line; do echo "https://github.com/' . $organisation .'/' . $repository .'/commit/$line"; done
+				echo ""
+
 				# Set version numbers.
-				NEW_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'' . version_update_awk_actions() . '\')
-				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}"
+				echo "🔢 ${bold}Select version number for release:${normal}"
+				
+				NEW_MAJOR_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'NR==1{printf "%s.0.0", ++$NR};\')
+				NEW_MINOR_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'NF==2{print ++$NF}; NF>0{$(NF-1)++; $NF=0; print};\')
+				NEW_PATCH_VERSION=$(echo "$CURRENT_TAG" | awk -F. -v OFS=. \'NF==1{print ++$NF}; NF>1{if(length($NF+1)>length($NF))$(NF-1)++; $NF=sprintf("%0*d", length($NF), ($NF+1)%(10^length($NF))); print};\')
+
+				sleep .1
+
+				select NEW_VERSION in "$NEW_MAJOR_VERSION" "$NEW_MINOR_VERSION" "$NEW_PATCH_VERSION" "Skip release"; do
+					if [ "Skip release" == "$NEW_VERSION" ]; then
+						exit
+					fi
+
+					break
+				done
+
+				echo ""
+				echo "🆙 Updating ' . $name . ' library from version ${bold}${CURRENT_TAG}${normal} to ${bold}${NEW_VERSION}${normal}."
+				echo ""
+
+				echo "$LOG" | sed \'s/^[a-z0-9]\{7\} //\' | sed \'s/^Merge tag.*//\' | sed \'s/^Add /Added /\' | sed \'s/^Fix /Fixed /\' | sed \'s/^Update /Updated /\' | sed \'s/^Remove /Removed /\' | sed \'s/^Delete /Deleted /\' | awk \'NF\' - > "$TMPDIR/release-changelog.txt" 
+
+				if [ -n "$VISUAL" ]; then
+					echo "⏳ Waiting for changelog to be saved in external editor..."
+					echo ""
+
+					if [ "nova" == "$VISUAL" ]; then
+						LASTMOD=$(date -r "$TMPDIR/release-changelog.txt")
+ 
+						$VISUAL "$TMPDIR/release-changelog.txt" > /dev/null 2>&1 &
+
+						while sleep 3; do
+							MODIFIED=$(date -r "$TMPDIR/release-changelog.txt")
+
+							if [ "$LASTMOD" != "$MODIFIED" ]; then
+								break
+							fi
+						done
+					else
+						$VISUAL "$TMPDIR/release-changelog.txt"
+					fi
+				elif [ -n "$EDITOR" ]; then
+					$EDITOR "$TMPDIR/release-changelog.txt"
+				else
+					nano "$TMPDIR/release-changelog.txt"
+				fi
+
+				LOG=$(cat "$TMPDIR/release-changelog.txt" | awk \'NF\' - | while read line; do echo "- $line"; done)
+
+				rm "$TMPDIR/release-changelog.txt"
+
+				echo "📃 ${bold}Changelog${normal}"
+				echo "$LOG"
+				echo ""
 
 				# Start Gitflow release.
 				git flow init -d
 				git flow release start "${NEW_VERSION}"
 
 				# Update package version number.
-				sed -i -e "s/\"version\": \"${CURRENT_TAG}\"/\"version\": \"${NEW_VERSION}\"/g" package.json
+				sed -i "" -e "s/\"version\": \"${CURRENT_TAG}\"/\"version\": \"${NEW_VERSION}\"/g" package.json
 
 				# Update changelog title and add log.
 				TITLE_LINENR=$(grep -n "## \[" CHANGELOG.md | head -2 | tail -1 | cut -d: -f1)
@@ -163,25 +272,10 @@ foreach ( $organisations as $organisation => $repositories ) {
 				ex -s -c "${TITLE_LINENR}i|${TITLE}${LOG}' . str_repeat( \PHP_EOL, 2 ) . '" -c x CHANGELOG.md
 
 				# Update changelog footer links.
-				sed -i -e "s/\/${CURRENT_TAG}...HEAD/\/${NEW_VERSION}...HEAD/g" CHANGELOG.md
+				sed -i "" -e "s/\/${CURRENT_TAG}...HEAD/\/${NEW_VERSION}...HEAD/g" CHANGELOG.md
 				LINK_LINENR=$(grep -n "\[unreleased\]" CHANGELOG.md | tail -1 | cut -d: -f1)
 				LINK="[${NEW_VERSION}]: https://github.com/' . $organisation . '/' . $repository . '/compare/${CURRENT_TAG}...${NEW_VERSION}"
-				ex -s -c "$(( ${LINK_LINENR} + 1 ))i|${LINK}" -c x CHANGELOG.md';
-		}
-
-		if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
-			$command = '
-				CURRENT_TAG=$(git describe --tags --abbrev=0)
-				NEW_VERSION=$(cat package.json | jq --raw-output \'.version\' )
-
-				# Exit if there are no changes in Git repository.
-				if [[ "" == "$NEW_VERSION" || "$CURRENT_TAG" == "$NEW_VERSION" ]]; then
-					echo "Version: ${CURRENT_TAG}"
-					exit
-				fi;
-
-				# Echo new version number.
-				echo "Version: ${CURRENT_TAG} --> ${NEW_VERSION}"
+				ex -s -c "$(( ${LINK_LINENR} + 1 ))i|${LINK}" -c x CHANGELOG.md
 
 				# Write temporary changelog JSON.
 				FROM=$(( $(grep -n "## \[" CHANGELOG.md | head -2 | tail -1 | cut -d: -f1) + 1 ))
@@ -202,20 +296,25 @@ foreach ( $organisations as $organisation => $repositories ) {
 				git push origin --tags && echo ""
 				git rev-parse --verify --quiet master && git push origin master && echo ""
 				git rev-parse --verify --quiet main && git push origin main && echo ""
-				git push origin develop';
+				git push origin develop
+
+				echo ""
+				echo "✅ Tag https://github.com/' . $organisation . '/' . $repository . '/tree/${NEW_VERSION}"
+				echo ""
+				echo "🎉 Released ' . $name . ' version ${bold}${NEW_VERSION}${normal}."';
 		}
 
 		if ( null !== $command ) {
-			if ( ! isset( $argv[1] ) || ( isset( $argv[1] ) && ! in_array( $argv[1], [ 'release-start', 'release-finish' ], true ) ) ) {
+			if ( ! isset( $argv[1] ) || 'release' !== $argv[1] ) {
 				echo $command, PHP_EOL;
 			}
 
-			echo shell_exec( $command ), PHP_EOL;
+			echo passthru( $command ), PHP_EOL;
 		}
 	}
 }
 
-if ( isset( $argv[1] ) && 'release-finish' === $argv[1] ) {
+if ( isset( $argv[1] ) && 'release' === $argv[1] ) {
 	// Get release changelog items from temporary file.
 	$changelog_plugin = file_get_contents( __DIR__ . '/changelog-release.json' ) . ']';
 	$changelog_plugin = str_replace( '\\', '\\\\', $changelog_plugin );

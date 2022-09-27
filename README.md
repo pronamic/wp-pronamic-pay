@@ -38,10 +38,8 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - DirectLink |
 | [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - OrderStandard |
 | [Pay.nl](https://www.pay.nl/) | Pay.nl |
-| [Payvision](https://www.payvision.com) | Payvision |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - OmniKassa 2.0 |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - iDEAL Professional |
-| [Sisow](https://www.sisow.nl/) | Sisow |
 | [TargetPay](https://www.targetpay.com/) | TargetPay - iDEAL |
 
 
