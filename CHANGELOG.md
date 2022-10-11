@@ -6,11 +6,28 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.0.1] - 2022-10-11
+
+### Fixed
+- Updated WordPress pay core library to version 4.4.1.
+  - Added support for multi-dimensional array in `Util::html_hidden_fields()` method ([#73](https://github.com/pronamic/wp-pay-core/issues/73)).
+  - Fixed setting empty consumer bank details object ([pronamic/wp-pronamic-pay-mollie#11](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/11)).
+  - Removed unused gateway subscription methods.
+- Updated WordPress pay Adyen library to version 4.2.3.
+  - Updated Adyen Drop-in to version `5.27.0` ([#14](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/14)).
+  - Fixed error triggered by Adyen drop-in with Swish payment method on mobile.
+- Updated WordPress pay Buckaroo library to version 4.2.2.
+  - Fixed possible "Warning: Invalid argument supplied for foreach()" when enriching payment methods ([#7](https://github.com/pronamic/wp-pronamic-pay-buckaroo/issues/7)).
+- Updated WordPress pay Mollie library to version 4.4.1.
+  - Fixed recurring payments using latest mandate of Mollie customer instead of subscription mandate ([#11](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/11)).
+- Updated WordPress pay Gravity Forms library to version 4.2.2.
+  - Fixed catching exceptions in issuer field ([#10](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/10)).
+
 ## [9.0.0] - 2022-09-27
 
 ### Changed
 - Updated WordPress pay core library to version 4.4.0.
-  - Fixed list table styling on mobile ([pronamic/wp-pay-core#72](https://github.com/pronamic/wp-pay-core/issues/72)).
+  - Fixed list table styling on mobile ([#72](https://github.com/pronamic/wp-pay-core/issues/72)).
   - Refactored payments methods and fields support.
   - Removed phone number field from test meta box.
   - Removed Sisow reservation payments support.
@@ -27,7 +44,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Fixed conditional logic object without any logic.
   - Updated for new payment methods and fields registration.
 - Updated WordPress pay WooCommerce library to version 4.2.0.
-  - Added upgrade script to add missing Pronamic subscription ID to WooCommerce subscription meta ([pronamic/wp-pronamic-pay-woocommerce#11](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/11)).
+  - Added upgrade script to add missing Pronamic subscription ID to WooCommerce subscription meta ([#11](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/11)).
   - Updated for new payment methods and fields registration.
   - Improved WooCommerce Blocks support.
 - Updated WordPress DateTime library to version 2.0.3.
@@ -3208,7 +3225,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.0.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.0.1...HEAD
+[9.0.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.0.0...9.0.1
 [9.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.5.1...9.0.0
 [8.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.5.0...8.5.1
 [8.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.4.1...8.5.0

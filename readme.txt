@@ -113,15 +113,30 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 9.0.1 - 2022-10-11 =
+*	Updated WordPress pay core library to version 4.4.1.
+	*	Added support for multi-dimensional array in `Util::html_hidden_fields()` method ([#73](https://github.com/pronamic/wp-pay-core/issues/73)).
+	*	Fixed setting empty consumer bank details object ([pronamic/wp-pronamic-pay-mollie#11](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/11)).
+	*	Removed unused gateway subscription methods.
+*	Updated WordPress pay Adyen library to version 4.2.3.
+	*	Updated Adyen Drop-in to version `5.27.0` ([#14](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/14)).
+	*	Fixed error triggered by Adyen drop-in with Swish payment method on mobile.
+*	Updated WordPress pay Buckaroo library to version 4.2.2.
+	*	Fixed possible "Warning: Invalid argument supplied for foreach()" when enriching payment methods ([#7](https://github.com/pronamic/wp-pronamic-pay-buckaroo/issues/7)).
+*	Updated WordPress pay Mollie library to version 4.4.1.
+	*	Fixed recurring payments using latest mandate of Mollie customer instead of subscription mandate ([#11](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/11)).
+*	Updated WordPress pay Gravity Forms library to version 4.2.2.
+	*	Fixed catching exceptions in issuer field ([#10](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/10)).
+
 = 9.0.0 - 2022-09-27 =
 *	Updated WordPress pay core library to version 4.4.0.
-	*	Fixed list table styling on mobile ([pronamic/wp-pay-core#72](https://github.com/pronamic/wp-pay-core/issues/72)).
+	*	Fixed list table styling on mobile ([#72](https://github.com/pronamic/wp-pay-core/issues/72)).
 	*	Refactored payments methods and fields support.
 	*	Removed phone number field from test meta box.
 	*	Removed Sisow reservation payments support.
 *	Updated WordPress pay Buckaroo library to version 4.2.1.
 	*	Updated payment methods registration.
-	*	Updated for Sisow via Buckaroo integration ([pronamic/wp-pronamic-pay-sisow#3](https://github.compronamic/wp-pronamic-pay-sisow/issues/3)).
+	*	Updated for Sisow via Buckaroo integration ([pronamic/wp-pronamic-pay-sisow#3](https://github.com/pronamic/wp-pronamic-pay-sisow/issues/3)).
 *	Updated WordPress pay Mollie library to version 4.4.0.
 	*	Fixed empty billing email address causing `Unprocessable Entity - The email address '' is invalid` error.
 	*	Updated payment methods registration.
@@ -132,7 +147,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 	*	Fixed conditional logic object without any logic.
 	*	Updated for new payment methods and fields registration.
 *	Updated WordPress pay WooCommerce library to version 4.2.0.
-	*	Added upgrade script to add missing Pronamic subscription ID to WooCommerce subscription meta ([pronamic/wp-pronamic-pay-woocommerce#11](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/11)).
+	*	Added upgrade script to add missing Pronamic subscription ID to WooCommerce subscription meta ([#11](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/11)).
 	*	Updated for new payment methods and fields registration.
 	*	Improved WooCommerce Blocks support.
 *	Updated WordPress DateTime library to version 2.0.3.
@@ -190,14 +205,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 = 8.4.1 - 2022-06-03 =
 *	Updated WordPress Contact Form 7 library to version [`3.0.3`](https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/3.0.3).
-
-= 8.4.0 - 2022-05-30 =
-*	Updated WordPress core library to version [`4.2.0`](https://github.com/pronamic/wp-pay-core/releases/tag/4.2.0).
-*	Updated WordPress Adyen library to version [`4.0.0`](https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/4.0.0).
-*	Updated WordPress Mollie library to version [`4.2.0`](https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/4.2.0).
-*	Updated WordPress MultiSafepay library to version [`4.1.1`](https://github.com/pronamic/wp-pronamic-pay-multisafepay/releases/tag/4.1.1).
-*	Updated WordPress Contact Form 7 library to version [`3.0.2`](https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/3.0.2).
-*	Updated WordPress MemberPress library to version [`4.3.0`](https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/4.3.0).
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
