@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-09-26T19:22:59+00:00\n"
+"POT-Creation-Date: 2022-10-11T10:27:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: pronamic_ideal\n"
@@ -743,7 +743,7 @@ msgid "Banks"
 msgstr ""
 
 #: vendor/wp-pay-extensions/formidable-forms/src/BankSelectFieldType.php:75
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:587
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:611
 msgid "Choose a bank for iDEAL payment"
 msgstr ""
 
@@ -892,7 +892,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/give/src/Gateway.php:260
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:409
 #: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:119
-#: vendor/wp-pay/core/src/Plugin.php:1361
+#: vendor/wp-pay/core/src/Plugin.php:1362
 #: vendor/wp-pay/core/views/form.php:186
 msgid "Error"
 msgstr ""
@@ -912,7 +912,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:282
 #: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:729
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:1078
-#: vendor/wp-pay/core/src/Core/Gateway.php:346
+#: vendor/wp-pay/core/src/Core/Gateway.php:326
 #: vendor/wp-pay/core/views/subscription-mandate.php:259
 #: vendor/wp-pay/core/views/subscription-renew.php:90
 msgid "Pay"
@@ -1123,23 +1123,23 @@ msgctxt "Field display mode"
 msgid "Large icons"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:515
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:539
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:53
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:584
 msgid "New Payment Feed"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:525
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:549
 msgid "This field is not supported by your payment gateway."
 msgstr ""
 
 #. translators: %s: new feed URL
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:528
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:552
 msgid "Please remove it from this form or <a href=\"%s\" target=\"_blank\">add a supported payment gateway</a>."
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:548
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:560
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:572
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:584
 #: vendor/wp-pay-extensions/ninjaforms/src/IssuersField.php:95
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:480
 msgid "Issuer"
@@ -1410,7 +1410,7 @@ msgid "Success"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:408
-#: vendor/wp-pay/core/src/Plugin.php:1360
+#: vendor/wp-pay/core/src/Plugin.php:1361
 msgid "Expired"
 msgstr ""
 
@@ -2493,26 +2493,26 @@ msgid "Payment"
 msgstr ""
 
 #. translators: 1: payment provider name, 2: status message, 3: status sub message
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:647
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:649
 msgid "Unable to create payment at gateway: %1$s%2$s"
 msgstr ""
 
 #. translators: %s: transaction key
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:871
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:873
 msgid "Unable to create refund for transaction with transaction key: %s"
 msgstr ""
 
 #. translators: %s: transaction key
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:883
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:885
 msgid "Unable to create refund for transaction without service name. Transaction key: %s"
 msgstr ""
 
 #. translators: 1: payment provider name, 2: status message, 3: status sub message
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:940
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:942
 msgid "Unable to create refund at %1$s gateway: %2$s%3$s"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:941
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:943
 msgid "Buckaroo"
 msgstr ""
 
@@ -3041,27 +3041,27 @@ msgid "Account number (IBAN)"
 msgstr ""
 
 #. translators: 1: payment transaction ID, 2: Mollie payment ID
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:877
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:903
 msgid "Payment transaction ID updated from `%1$s` to successful order payment `%2$s`."
 msgstr ""
 
 #. translators: 1: Mollie shipment ID, 2: Mollie order ID
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:893
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:919
 msgid "Shipment `%1$s` created for Mollie order `%2$s`."
 msgstr ""
 
 #. translators: 1: Mollie chargeback ID, 2: Mollie payment ID
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1257
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1283
 msgid "Subscription put on hold due to chargeback `%1$s` of payment `%2$s`."
 msgstr ""
 
 #. translators: 1: old mandate ID, 2: new mandate ID
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1312
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1338
 msgid "Mandate for subscription changed from \"%1$s\" to \"%2$s\"."
 msgstr ""
 
 #. translators: 1: old payment method, 2: new payment method
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1330
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1356
 msgid "Payment method for subscription changed from \"%1$s\" to \"%2$s\"."
 msgstr ""
 
@@ -4139,7 +4139,7 @@ msgstr ""
 
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:336
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:363
-#: vendor/wp-pay/core/src/Plugin.php:1362
+#: vendor/wp-pay/core/src/Plugin.php:1363
 msgid "Unknown"
 msgstr ""
 
@@ -5143,40 +5143,40 @@ msgstr ""
 msgid "— Select Configuration —"
 msgstr ""
 
-#: vendor/wp-pay/core/src/Plugin.php:1297
+#: vendor/wp-pay/core/src/Plugin.php:1298
 msgid "Unable to process refund as gateway does not support refunds."
 msgstr ""
 
 #. translators: %s: formatted amount
-#: vendor/wp-pay/core/src/Plugin.php:1305
+#: vendor/wp-pay/core/src/Plugin.php:1306
 msgid "Unable to process refund because of invalid amount (%s)."
 msgstr ""
 
 #. translators: 1: refunded amount
-#: vendor/wp-pay/core/src/Plugin.php:1319
+#: vendor/wp-pay/core/src/Plugin.php:1320
 msgid "Refunded %1$s."
 msgstr ""
 
 #. translators: 1: refunded amount, 3: refund reference
-#: vendor/wp-pay/core/src/Plugin.php:1323
+#: vendor/wp-pay/core/src/Plugin.php:1324
 msgid "Refunded %1$s with gateway reference `%3$s`."
 msgstr ""
 
 #. translators: 1: refunded amount, 2: refund description
-#: vendor/wp-pay/core/src/Plugin.php:1328
+#: vendor/wp-pay/core/src/Plugin.php:1329
 msgid "Refunded %1$s (\"%2$s\")."
 msgstr ""
 
 #. translators: 1: refunded amount, 2: refund description, 3: refund reference
-#: vendor/wp-pay/core/src/Plugin.php:1332
+#: vendor/wp-pay/core/src/Plugin.php:1333
 msgid "Refunded %1$s (\"%2$s\") with gateway reference `%3$s`."
 msgstr ""
 
-#: vendor/wp-pay/core/src/Plugin.php:1358
+#: vendor/wp-pay/core/src/Plugin.php:1359
 msgid "Completed"
 msgstr ""
 
-#: vendor/wp-pay/core/src/Plugin.php:1359
+#: vendor/wp-pay/core/src/Plugin.php:1360
 msgid "Canceled"
 msgstr ""
 
