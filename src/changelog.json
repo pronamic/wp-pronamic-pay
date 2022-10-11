@@ -4,6 +4,48 @@
 		"changes": {}
 	},
 	{
+		"version": "9.0.1",
+		"date": "2022-10-11",
+		"changes": {
+			"name": "Fixed",
+			"changes": [
+				{
+					"description": "Updated WordPress pay core library to version 4.4.1.",
+					"changes": [
+						"Added support for multi-dimensional array in `Util::html_hidden_fields()` method ([#73](https://github.com/pronamic/wp-pay-core/issues/73)).",
+						"Fixed setting empty consumer bank details object ([pronamic/wp-pronamic-pay-mollie#11](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/11)).",
+						"Removed unused gateway subscription methods."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Adyen library to version 4.2.3.",
+					"changes": [
+						"Updated Adyen Drop-in to version `5.27.0` ([#14](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/14)).",
+						"Fixed error triggered by Adyen drop-in with Swish payment method on mobile."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Buckaroo library to version 4.2.2.",
+					"changes": [
+						"Fixed possible \"Warning: Invalid argument supplied for foreach()\" when enriching payment methods ([#7](https://github.com/pronamic/wp-pronamic-pay-buckaroo/issues/7))."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Mollie library to version 4.4.1.",
+					"changes": [
+						"Fixed recurring payments using latest mandate of Mollie customer instead of subscription mandate ([#11](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/11))."
+					]
+				},
+				{
+					"description": "Updated WordPress pay Gravity Forms library to version 4.2.2.",
+					"changes": [
+						"Fixed catching exceptions in issuer field ([#10](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/10))."
+					]
+				}
+			]
+		}
+	},
+	{
 		"version": "9.0.0",
 		"date": "2022-09-27",
 		"changes": {
@@ -12,7 +54,7 @@
 				{
 					"description": "Updated WordPress pay core library to version 4.4.0.",
 					"changes": [
-						"Fixed list table styling on mobile (pronamic/wp-pay-core#72).",
+						"Fixed list table styling on mobile ([#72](https://github.com/pronamic/wp-pay-core/issues/72)).",
 						"Refactored payments methods and fields support.",
 						"Removed phone number field from test meta box.",
 						"Removed Sisow reservation payments support."
@@ -22,7 +64,7 @@
 					"description": "Updated WordPress pay Buckaroo library to version 4.2.1.",
 					"changes": [
 						"Updated payment methods registration.",
-						"Updated for Sisow via Buckaroo integration (pronamic/wp-pronamic-pay-sisow#3)."
+						"Updated for Sisow via Buckaroo integration ([pronamic/wp-pronamic-pay-sisow#3](https://github.com/pronamic/wp-pronamic-pay-sisow/issues/3))."
 					]
 				},
 				{
@@ -49,7 +91,7 @@
 				{
 					"description": "Updated WordPress pay WooCommerce library to version 4.2.0.",
 					"changes": [
-						"Added upgrade script to add missing Pronamic subscription ID to WooCommerce subscription meta (pronamic/wp-pronamic-pay-woocommerce#11).",
+						"Added upgrade script to add missing Pronamic subscription ID to WooCommerce subscription meta ([#11](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/11)).",
 						"Updated for new payment methods and fields registration.",
 						"Improved WooCommerce Blocks support."
 					]
