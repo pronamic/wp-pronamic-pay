@@ -517,7 +517,7 @@ add_filter(
 			]
 		);
 
-		// Rabobank - Smart Pay.
+		// Rabobank - Rabo Smart Pay.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration(
 			[
 				'id'      => 'rabobank-omnikassa-2',
