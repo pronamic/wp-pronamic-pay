@@ -517,11 +517,11 @@ add_filter(
 			]
 		);
 
-		// Rabobank - OmniKassa 2.0.
+		// Rabobank - Rabo Smart Pay.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration(
 			[
 				'id'      => 'rabobank-omnikassa-2',
-				'name'    => 'Rabobank - OmniKassa 2.0',
+				'name'    => 'Rabobank - Rabo Smart Pay',
 				'mode'    => 'live',
 				'api_url' => 'https://betalen.rabobank.nl/omnikassa-api/',
 			]
@@ -530,7 +530,7 @@ add_filter(
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration(
 			[
 				'id'      => 'rabobank-omnikassa-2-sandbox',
-				'name'    => 'Rabobank - OmniKassa 2.0 - Sandbox',
+				'name'    => 'Rabobank - Rabo Smart Pay - Sandbox',
 				'mode'    => 'test',
 				'api_url' => 'https://betalen.rabobank.nl/omnikassa-api-sandbox/',
 			]
