@@ -6,6 +6,37 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.1.0] - 2022-11-07
+
+### Changed
+- Updated WordPress pay core library to version `4.5.0`.
+  - Catch exceptions while retrieving options from for example iDEAL issuer select fields. ([#78](https://github.com/pronamic/wp-pay-core/issues/78))
+  - Allow subscription payments at gateways that don't have support for recurring payments. ([pronamic/wp-pronamic-pay-woocommerce#15](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/15))
+  - Added MobilePay payment method. ([pronamic/wp-pronamic-pay-adyen#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16))
+- Updated WordPress pay Event Espresso library to version `4.1.2`.
+  - Fixed "Expected type 'null|array'. Found 'string'.".
+- Updated WordPress pay Gravity Forms library to version `4.3.0`.
+  - No support for manual renewals with Gravity Forms.
+- Updated WordPress pay MemberPress library to version `4.6.0`.
+  - Prevent recurring payment at gateways without recurring support. [#7](https://github.com/pronamic/wp-pronamic-pay-memberpress/pull/7)
+- Updated WordPress pay WooCommerce library to version `4.3.0`.
+  - Fixed subscription status not updated if admin reactivates a WooCommerce subscription. [#25](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/25)
+  - Fixed fatal error while cancelling subscription. Props @knit-pay. [#14](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/14)
+  - Fixed payment method field errors not displayed in WooCommerce checkout block. [#22](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/22)
+  - Added MobilePay payment method. [pronamic/wp-pronamic-pay-adyen#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16)
+- Updated WordPress pay Adyen library to version `4.3.0`.
+  - Added MobilePay payment method. [#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16)
+- Updated WordPress pay Mollie library to version `4.5.0`.
+  - Added user agent to HTTP requests to Mollie. [#13](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/13)
+- Updated WordPress pay Rabo Smart Pay (formerly OmniKassa) library to version `4.3.0`.
+  - Changed name from "OmniKassa" to "Rabo Smart Pay". [#13](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/13)
+  - Enrich payments methods from new `order/server/api/payment-brands` endpoint. [#15](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/15)
+  - Added support for SOFORT payment method. [#16](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/16)
+- Updated WordPress pay Pay. library to version `4.3.0`.
+  - Updated dashboard URL to https://my.pay.nl/. [#3](https://github.com/pronamic/wp-pronamic-pay-pay-nl/pull/3)
+  - Added payment provider URL filter. [#3](https://github.com/pronamic/wp-pronamic-pay-pay-nl/pull/3)
+  - Update integration name from "Pay.nl" to "Pay.". [#2](https://github.com/pronamic/wp-pronamic-pay-pay-nl/issues/2)
+
 ## [9.0.1] - 2022-10-11
 
 ### Fixed
@@ -3225,7 +3256,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.0.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.0...HEAD
+[9.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.0.1...9.1.0
 [9.0.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.0.0...9.0.1
 [9.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.5.1...9.0.0
 [8.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.5.0...8.5.1

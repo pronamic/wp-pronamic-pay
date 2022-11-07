@@ -3,9 +3,9 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
 Requires at least: 5.2
-Tested up to: 6.0
+Tested up to: 6.1
 Requires PHP: 7.4
-Stable tag: 9.0.1
+Stable tag: 9.1.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -113,6 +113,35 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 9.1.0 - 2022-11-07 =
+*	Updated WordPress pay core library to version `4.5.0`.
+	*	Catch exceptions while retrieving options from for example iDEAL issuer select fields. ([#78](https://github.com/pronamic/wp-pay-core/issues/78))
+	*	Allow subscription payments at gateways that don't have support for recurring payments. ([pronamic/wp-pronamic-pay-woocommerce#15](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/15))
+	*	Added MobilePay payment method. ([pronamic/wp-pronamic-pay-adyen#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16))
+*	Updated WordPress pay Event Espresso library to version `4.1.2`.
+	*	Fixed "Expected type 'null|array'. Found 'string'.".
+*	Updated WordPress pay Gravity Forms library to version `4.3.0`.
+	*	No support for manual renewals with Gravity Forms.
+*	Updated WordPress pay MemberPress library to version `4.6.0`.
+	*	Prevent recurring payment at gateways without recurring support. [#7](https://github.com/pronamic/wp-pronamic-pay-memberpress/pull/7)
+*	Updated WordPress pay WooCommerce library to version `4.3.0`.
+	*	Fixed subscription status not updated if admin reactivates a WooCommerce subscription. [#25](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/25)
+	*	Fixed fatal error while cancelling subscription. Props @knit-pay. [#14](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/14)
+	*	Fixed payment method field errors not displayed in WooCommerce checkout block. [#22](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/22)
+	*	Added MobilePay payment method. [pronamic/wp-pronamic-pay-adyen#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16)
+*	Updated WordPress pay Adyen library to version `4.3.0`.
+	*	Added MobilePay payment method. [#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16)
+*	Updated WordPress pay Mollie library to version `4.5.0`.
+	*	Added user agent to HTTP requests to Mollie. [#13](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/13)
+*	Updated WordPress pay Rabo Smart Pay (formerly OmniKassa) library to version `4.3.0`.
+	*	Changed name from "OmniKassa" to "Rabo Smart Pay". [#13](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/13)
+	*	Enrich payments methods from new `order/server/api/payment-brands` endpoint. [#15](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/15)
+	*	Added support for SOFORT payment method. [#16](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/16)
+*	Updated WordPress pay Pay. library to version `4.3.0`.
+	*	Updated dashboard URL to https://my.pay.nl/. [#3](https://github.com/pronamic/wp-pronamic-pay-pay-nl/pull/3)
+	*	Added payment provider URL filter. [#3](https://github.com/pronamic/wp-pronamic-pay-pay-nl/pull/3)
+	*	Update integration name from "Pay.nl" to "Pay.". [#2](https://github.com/pronamic/wp-pronamic-pay-pay-nl/issues/2)
+
 = 9.0.1 - 2022-10-11 =
 *	Updated WordPress pay core library to version 4.4.1.
 	*	Added support for multi-dimensional array in `Util::html_hidden_fields()` method ([#73](https://github.com/pronamic/wp-pay-core/issues/73)).
@@ -202,9 +231,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 *	Updated WordPress Mollie library to version 4.3.0.
 	*	Added support for Mollie orders API. [pronamic/wp-pronamic-pay#190](https://github.com/pronamic/wp-pronamic-pay/issues/190)
 	*	Improved JSON serialization for communication towards Mollie API.
-
-= 8.4.1 - 2022-06-03 =
-*	Updated WordPress Contact Form 7 library to version [`3.0.3`](https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/3.0.3).
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
