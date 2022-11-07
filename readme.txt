@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.2
 Tested up to: 6.1
 Requires PHP: 7.4
-Stable tag: 9.1.0
+Stable tag: 9.1.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -113,6 +113,10 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 9.1.1 - 2022-11-07 =
+*	Updated WordPress pay WooCommerce library to version `4.3.1`.
+	*	Fixed "Fatal error: Uncaught Error: Call to undefined function wcs_get_subscription()". Props @jeffreyvr. [#28](https://github.com/pronamic/wp-pronamic-pay-woocommerce/pull/28)
+
 = 9.1.0 - 2022-11-07 =
 *	Updated WordPress pay core library to version `4.5.0`.
 	*	Catch exceptions while retrieving options from for example iDEAL issuer select fields. ([#78](https://github.com/pronamic/wp-pay-core/issues/78))
@@ -217,20 +221,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 	*	Fixed compatibility issue with plugins producing output in `gform_admin_pre_render` filter.
 	*	Fixed duplicate configurations in payment gateway configuration field setting ([#8](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/8)).
 *	Updated WordPress pay ICEPAY library to version 4.1.1.
-
-= 8.5.0 - 2022-07-04 =
-*	Updated WordPress core library to version 4.3.1.
-	*	Added billing and shipping address details to test payments.
-	*	Added tax details to test payments.
-	*	Added `Authorized` payment status. ([pronamic/wp-pay-core#66](https://github.com/pronamic/wp-pay-core/issues/66))
-	*	Updated logos library to version `1.8.3`.
-*	Updated WordPress Adyen library to version 4.1.0.
-	*	Added WordPress network ID and blog ID to merchant reference ([#1](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/1)).
-*	Updated WordPress MemberPress library to version 4.4.0.
-	*	Added support for Klarna Pay Now, Klarna Pay Later and Klarna Pay Over Time ([pronamic/wp-pronamic-pay#190](https://github.com/pronamic/wp-pronamic-pay/issues/190)).
-*	Updated WordPress Mollie library to version 4.3.0.
-	*	Added support for Mollie orders API. [pronamic/wp-pronamic-pay#190](https://github.com/pronamic/wp-pronamic-pay/issues/190)
-	*	Improved JSON serialization for communication towards Mollie API.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

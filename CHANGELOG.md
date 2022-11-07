@@ -6,6 +6,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.1.1] - 2022-11-07
+
+### Fixed
+- Updated WordPress pay WooCommerce library to version `4.3.1`.
+  - Fixed "Fatal error: Uncaught Error: Call to undefined function wcs_get_subscription()". Props @jeffreyvr. [#28](https://github.com/pronamic/wp-pronamic-pay-woocommerce/pull/28)
+
 ## [9.1.0] - 2022-11-07
 
 ### Changed
@@ -3256,7 +3262,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.1...HEAD
+[9.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.0...9.1.1
 [9.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.0.1...9.1.0
 [9.0.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.0.0...9.0.1
 [9.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/8.5.1...9.0.0
