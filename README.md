@@ -1,4 +1,4 @@
-<p align="center"><img src="/branding/banner-772x250" alt="Banner of Pronamic Pay plugin"></p>
+<p align="center"><img src="/branding/banner-772x250.svg" alt="Banner of Pronamic Pay plugin"></p>
 
 # [Pronamic Pay](https://www.pronamic.eu/plugins/pronamic-pay/)
 
