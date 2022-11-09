@@ -115,7 +115,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 = 9.1.2 - 2022-11-09 =
 *	Updated WordPress pay WooCommerce library to version 4.3.2.
-	*	Fixed "Fatal error: Uncaught Error: Call to undefined function wcs_get_subscriptions_for_order()". ([#29](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/29)
+	*	Fixed "Fatal error: Uncaught Error: Call to undefined function wcs_get_subscriptions_for_order()". ([#29](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/29))
 
 = 9.1.1 - 2022-11-07 =
 *	Updated WordPress pay WooCommerce library to version `4.3.1`.
