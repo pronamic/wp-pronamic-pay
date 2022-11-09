@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.2
 Tested up to: 6.1
 Requires PHP: 7.4
-Stable tag: 9.1.1
+Stable tag: 9.1.2
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -113,6 +113,10 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 9.1.2 - 2022-11-09 =
+*	Updated WordPress pay WooCommerce library to version 4.3.2.
+	*	Fixed "Fatal error: Uncaught Error: Call to undefined function wcs_get_subscriptions_for_order()". ([#29](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/29)
+
 = 9.1.1 - 2022-11-07 =
 *	Updated WordPress pay WooCommerce library to version `4.3.1`.
 	*	Fixed "Fatal error: Uncaught Error: Call to undefined function wcs_get_subscription()". Props @jeffreyvr. [#28](https://github.com/pronamic/wp-pronamic-pay-woocommerce/pull/28)
@@ -209,18 +213,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 *	Updated WordPress pay MemberPress library to version 4.5.1.
 *	Updated WordPress pay Ninja Forms library to version 3.1.1.
 *	Updated WordPress pay Restrict Content Pro library to version 4.2.1.
-
-= 8.5.1 - 2022-08-15 =
-*	Updated WordPress pay Mollie library to version 4.3.1.
-	*	Updated payment provider URL from `www.mollie.com` to `my.mollie.com` ([#8](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/8)).
-*	Updated WordPress pay MultiSafepay library to version 4.1.2.
-	*	Fixed parsing gateways response message ([#3](https://github.com/pronamic/wp-pronamic-pay-multisafepay/issues/3)).
-*	Updated WordPress pay Formidable Forms library to version 4.1.1.
-	*	Fixed not showing error messages if form success action is not 'message'.
-*	Updated WordPress pay Gravity Forms library to version 4.1.1.
-	*	Fixed compatibility issue with plugins producing output in `gform_admin_pre_render` filter.
-	*	Fixed duplicate configurations in payment gateway configuration field setting ([#8](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/8)).
-*	Updated WordPress pay ICEPAY library to version 4.1.1.
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
