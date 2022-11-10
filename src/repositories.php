@@ -33,6 +33,7 @@ $organisations = [
 		'wp-pronamic-pay-ideal-advanced-v3'      => 'iDEAL Advanced v3',
 		'wp-pronamic-pay-ideal-basic'            => 'iDEAL Basic',
 		'wp-pronamic-pay-mollie'                 => 'Mollie',
+		'wp-mollie'                              => 'Mollie (library)',
 		'wp-pronamic-pay-multisafepay'           => 'MultiSafepay',
 		'wp-pronamic-pay-ingenico'               => 'Ingenico',
 		'wp-pronamic-pay-omnikassa-2'            => 'OmniKassa 2.0',
