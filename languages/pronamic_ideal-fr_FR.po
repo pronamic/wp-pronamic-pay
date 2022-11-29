@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-11-29T08:00:53+00:00\n"
+"POT-Creation-Date: 2022-11-29T14:09:33+00:00\n"
 "PO-Revision-Date: 2022-03-15 12:08+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: \n"
@@ -555,7 +555,7 @@ msgstr "Contact Form 7 Entrée @ %s"
 #: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:218
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:324
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:582
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:67
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:68
 msgid "Payment %s"
 msgstr "Paiement %s"
 
@@ -623,7 +623,7 @@ msgstr "Champ obligatoire"
 #: vendor/wp-pay-extensions/contact-form-7/views/issuer-tag-generator.php:59
 #: vendor/wp-pay-extensions/contact-form-7/views/payment-method-tag-generator.php:78
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:450
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:128
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:130
 #: vendor/wp-pay-gateways/mollie/views/user-profile.php:54
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:502
 #: vendor/wp-pay/core/views/meta-box-payment-lines.php:33
@@ -839,8 +839,8 @@ msgstr "﻿Par défaut: %s"
 msgid "Available Tags: %s"
 msgstr "Tags disponibles: %s"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:312
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:593
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:307
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:588
 #: vendor/wp-pay-extensions/give/src/Gateway.php:289
 #: vendor/wp-pay-extensions/give/src/Gateway.php:367
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Gateway.php:259
@@ -849,8 +849,8 @@ msgid "Payment Error"
 msgstr "Erreur de paiement"
 
 #. translators: %s: payment data JSON
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:315
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:596
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:310
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:591
 #, fuzzy
 msgid ""
 "Payment creation failed before sending buyer to the payment provider. "
@@ -860,12 +860,12 @@ msgstr ""
 "de paiement. Données de paiement : %s"
 
 #. translators: %s: order id
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:375
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:370
 msgid "Easy Digital Downloads order %s"
 msgstr "Ordre Easy Digital Downloads %s"
 
 #. translators: %s: payment id
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:636
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:631
 msgid "Payment %s pending."
 msgstr "Paiement %s en attente."
 
@@ -1899,8 +1899,8 @@ msgid "Telephone Number"
 msgstr "Numéro de téléphone"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:863
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:134
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:433
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:136
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:435
 #: vendor/wp-pay-gateways/mollie/views/user-profile.php:55
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:560
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:577
@@ -1993,7 +1993,7 @@ msgstr "%s abonnement supprimé."
 #. translators: %s: payment source id
 #. translators: %s: order number
 #: vendor/wp-pay-extensions/memberpress/src/Extension.php:748
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1233
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1235
 msgid "Subscription %s"
 msgstr "Abonnement %s"
 
@@ -2252,14 +2252,14 @@ msgid "Pronamic Pay Subscription:"
 msgstr "Abonnement Pronamic Pay:"
 
 #: vendor/wp-pay-extensions/restrict-content-pro/views/edit-payment.php:16
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:138
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:139
 msgid "Pronamic Pay Payment"
 msgstr "Paiement Pronamic Pay"
 
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:51
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:856
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1162
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1216
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:858
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1164
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1218
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -2324,37 +2324,37 @@ msgstr ""
 "jour à « % 4 $ »."
 
 #. translators: %s: error message
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:799
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:801
 msgid "Unable to create WooCommerce refund: %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:864
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:866
 msgid "Date of birth checkout field"
 msgstr "Champ de la date de naissance"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:875
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:880
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:877
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:882
 msgid "Add date of birth field"
 msgstr "Ajouter le champ date de naissance"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:881
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:883
 msgid "Add date of birth field to billing checkout fields"
 msgstr "Ajouter un champ de date de naissance aux champs de facturation"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:890
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:892
 msgid "Gender checkout field"
 msgstr "Champ de genre au la caisse"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:901
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:906
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:903
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:908
 msgid "Add gender field"
 msgstr "Ajouter le champ de genre"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:907
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:909
 msgid "Add gender field to billing checkout fields"
 msgstr "Ajouter le champ de genre aux champs de caisse de facturation"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:925
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:927
 #, fuzzy
 msgid ""
 "Extra fields are used for post-pay payment methods such as AfterPay and "
@@ -2363,54 +2363,54 @@ msgstr ""
 "Des champs supplémentaires sont utilisés pour les méthodes de paiement post-"
 "paiement telles que AfterPay et Klarna."
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1039
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1041
 msgid "— Select a checkout field —"
 msgstr "— Sélectionnez un champ de caisse —"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1085
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1087
 #: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:115
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:573
 msgid "Date of birth"
 msgstr "Date de naissance"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1096
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1098
 #: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:98
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:595
 msgid "Gender"
 msgstr "Sexe"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1099
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1101
 msgid "— Select gender —"
 msgstr "— Sélectionnez le sexe —"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1100
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1102
 #: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:102
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:602
 msgid "Female"
 msgstr "Femme"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1101
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1103
 #: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:103
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:606
 msgid "Male"
 msgstr "Homme"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1102
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1104
 #: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:104
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:610
 msgid "Other"
 msgstr "Autre"
 
 #. translators: %s: order number
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1177
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1179
 msgid "Order %s"
 msgstr "Commande %s"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1192
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1194
 msgid "WooCommerce Order"
 msgstr "Commande WooCommerce"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1248
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:1250
 #, fuzzy
 msgid "WooCommerce Subscription"
 msgstr "Recherche d'abonnements"
@@ -2513,18 +2513,18 @@ msgstr "En attente de paiement."
 msgid "WooCommerce order %s"
 msgstr "Ordre WooCommerce %s"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:903
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:907
 #, fuzzy
 msgid "Unable to process refund as gateway configuration does not exist."
 msgstr "Liste des configurations de passerelle de paiement de filtre"
 
 #. translators: 1: formatted refund amount, 2: refund gateway reference
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:918
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:922
 msgid "Created refund of %1$s with gateway reference `%2$s`."
 msgstr ""
 
 #. translators: %s: payment method title
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:1065
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:1073
 msgid "A required field for the %s payment method is empty."
 msgstr "Un champ requis pour le mode de paiement %s est vide."
 
@@ -2660,7 +2660,7 @@ msgid "The Adyen %s parameter."
 msgstr "Le Adyen paramètre %s."
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:353
-#: vendor/wp-pay-gateways/mollie/src/Integration.php:186
+#: vendor/wp-pay-gateways/mollie/src/Integration.php:193
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:255
 msgid "Webhook URL"
 msgstr "URL Webhook"
@@ -2759,8 +2759,8 @@ msgid "The payment has been refused. (%s)"
 msgstr "Le paiement a été effectué avec succès."
 
 #: vendor/wp-pay-gateways/adyen/src/ReturnController.php:58
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:90
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:121
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:98
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:129
 #: vendor/wp-pay-gateways/mollie/src/WebhookController.php:69
 #: vendor/wp-pay-gateways/mollie/src/WebhookController.php:91
 #: vendor/wp-pay-gateways/mollie/src/WebhookController.php:113
@@ -2778,37 +2778,37 @@ msgstr "Liste des configurations de passerelle de paiement de filtre"
 msgid "Details you need to submit to handle the redirect."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:95
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:126
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:103
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:134
 msgid "Nonce."
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:131
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:139
 #, fuzzy
 msgid "Error name."
 msgstr "URL de la page d'erreur"
 
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:136
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:144
 #, fuzzy
 msgid "Error message."
 msgstr "URL de la page d'erreur"
 
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:158
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:278
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:360
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:166
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:287
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:369
 msgid "No payment ID given in `payment_id` parameter."
 msgstr "Aucun ID de paiement donné dans le paramètre `payment_id`."
 
 #. translators: %s: payment ID
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:169
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:289
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:371
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:177
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:298
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:380
 #: vendor/wp-pay/core/src/Payments/PaymentsModule.php:271
 #, fuzzy
 msgid "Could not find payment with ID `%s`."
 msgstr "Impossible de trouver le paiement avec ID `%s`."
 
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:182
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:190
 #, fuzzy
 msgid "No gateway configuration ID given in payment."
 msgstr ""
@@ -2816,7 +2816,7 @@ msgstr ""
 
 #. translators: %s: Gateway configuration ID
 #. translators: %s: Subscription ID
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:193
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:201
 #: vendor/wp-pay/core/src/GatewayPostType.php:225
 #: vendor/wp-pay/core/src/GatewayPostType.php:258
 #, fuzzy
@@ -2824,20 +2824,20 @@ msgid "Could not find gateway with ID `%s`."
 msgstr "Impossible de trouver passerelle avec ID `%s`."
 
 #. translators: %s: Gateway configuration ID
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:205
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:213
 #, fuzzy
 msgid "Could not find client in gateway with ID `%s`."
 msgstr "Impossible de trouver le client dans la passerelle avec ID `%s`."
 
 #. translators: %s: Adyen payment result code.
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:312
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:321
 msgid ""
 "Result code `%s` was received via the Adyen web drop-in, awaiting the "
 "webhook to update payment status."
 msgstr ""
 
 #. translators: %s: Adyen error name.
-#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:398
+#: vendor/wp-pay-gateways/adyen/src/ReturnController.php:407
 #, fuzzy
 msgid "An `%s` error occurred while processing payment."
 msgstr "Une erreur s'est produite pendant le paiement."
@@ -3057,7 +3057,7 @@ msgid "Reference number"
 msgstr "N° de référence"
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:188
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:201
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:203
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:295
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:247
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:248
@@ -3552,40 +3552,40 @@ msgstr "Clients"
 msgid "Mollie Payments"
 msgstr "Paiements Mollie"
 
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:107
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:118
 msgid "Account holder name"
 msgstr "Nom du titulaire du compte"
 
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:111
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:122
 #, fuzzy
 msgid "Account number (IBAN)"
 msgstr "Numéro de compte"
 
 #. translators: 1: payment transaction ID, 2: Mollie payment ID
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:900
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:990
 msgid ""
 "Payment transaction ID updated from `%1$s` to successful order payment "
 "`%2$s`."
 msgstr ""
 
 #. translators: 1: Mollie shipment ID, 2: Mollie order ID
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:916
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1006
 msgid "Shipment `%1$s` created for Mollie order `%2$s`."
 msgstr ""
 
 #. translators: 1: Mollie chargeback ID, 2: Mollie payment ID
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1280
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1374
 msgid "Subscription put on hold due to chargeback `%1$s` of payment `%2$s`."
 msgstr ""
 
 #. translators: 1: old mandate ID, 2: new mandate ID
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1335
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1429
 #, fuzzy
 msgid "Mandate for subscription changed from \"%1$s\" to \"%2$s\"."
 msgstr "Le statut d'abonnement est passé de \"%1$s\" à \"%2$s\"."
 
 #. translators: 1: old payment method, 2: new payment method
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1353
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:1449
 #, fuzzy
 msgid "Payment method for subscription changed from \"%1$s\" to \"%2$s\"."
 msgstr "Le statut de paiement est passé de \"%1$s\" à \"%2$s\"."
@@ -3594,31 +3594,31 @@ msgstr "Le statut de paiement est passé de \"%1$s\" à \"%2$s\"."
 msgid "https://www.mollie.com/en/pricing"
 msgstr "https://www.mollie.com/fr/pricing"
 
-#: vendor/wp-pay-gateways/mollie/src/Integration.php:156
+#: vendor/wp-pay-gateways/mollie/src/Integration.php:163
 msgctxt "mollie"
 msgid "API Key"
 msgstr "Clé API"
 
-#: vendor/wp-pay-gateways/mollie/src/Integration.php:159
+#: vendor/wp-pay-gateways/mollie/src/Integration.php:166
 #, fuzzy
 msgid "API key as mentioned in the payment provider dashboard"
 msgstr "Clé API mentionnée dans le tableau de bord du fournisseur de paiement"
 
-#: vendor/wp-pay-gateways/mollie/src/Integration.php:168
+#: vendor/wp-pay-gateways/mollie/src/Integration.php:175
 msgctxt "mollie"
 msgid "Due date days"
 msgstr "Jours d'échéance"
 
-#: vendor/wp-pay-gateways/mollie/src/Integration.php:173
+#: vendor/wp-pay-gateways/mollie/src/Integration.php:180
 msgid "Number of days after which a bank transfer payment expires."
 msgstr "Nombre de jours après l’expiration d’un paiement de virement bancaire."
 
 #. translators: 1: <code>1</code>, 2: <code>100</code>, 3: <code>12</code>
-#: vendor/wp-pay-gateways/mollie/src/Integration.php:176
+#: vendor/wp-pay-gateways/mollie/src/Integration.php:183
 msgid "Minimum %1$s and maximum %2$s days. Default: %3$s days."
 msgstr "Minimum %1$s et maximum %2$s jours. Par défaut : %3$s jours."
 
-#: vendor/wp-pay-gateways/mollie/src/Integration.php:191
+#: vendor/wp-pay-gateways/mollie/src/Integration.php:198
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:260
 #, fuzzy
 msgid ""
@@ -3674,14 +3674,14 @@ msgid "Order: %s"
 msgstr "Commande %s"
 
 #. translators: %s: Mollie customer ID.
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:99
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:101
 msgid "Customer %s"
 msgstr "Client %s"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:116
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:199
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:432
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:84
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:118
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:201
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:434
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:85
 #: vendor/wp-pay-gateways/mollie/views/user-profile.php:52
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:77
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:62
@@ -3690,15 +3690,15 @@ msgstr "Client %s"
 msgid "ID"
 msgstr "ID"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:122
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:200
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:157
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:124
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:202
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:158
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:822
 msgid "Mode"
 msgstr "Mode"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:124
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:231
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:126
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:233
 #: vendor/wp-pay-gateways/mollie/views/user-profile.php:53
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:245
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:758
@@ -3707,130 +3707,130 @@ msgstr "Mode"
 msgid "Test"
 msgstr "Test"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:124
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:235
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:126
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:237
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:829
 msgid "Live"
 msgstr "Live"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:153
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:155
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:551
 msgid "Locale"
 msgstr "Lieu"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:171
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:90
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:173
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:91
 msgid "Link"
 msgstr "Lien"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:194
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:196
 msgid "Mandates"
 msgstr "Mandats"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:202
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:204
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:455
 msgid "Method"
 msgstr "Méthode"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:203
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:205
 msgid "Details"
 msgstr "Détails"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:204
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:206
 msgid "Mandate Reference"
 msgstr "Référence du mandat"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:205
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:207
 msgid "Signature Date"
 msgstr "Date de signature"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:206
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:208
 msgid "Created On"
 msgstr "Créé le"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:215
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:217
 msgid "No mandates found."
 msgstr "Aucun mandat n’a été trouvé."
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:251
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:253
 msgid "Pending"
 msgstr "En attente"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:255
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:257
 #: vendor/wp-pay/core/src/LicenseManager.php:234
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:494
 #: vendor/wp-pay/core/views/tab-system_status.php:36
 msgid "Valid"
 msgstr "Valide"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:271
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:273
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:429
 msgid "Credit Card"
 msgstr "Carte de crédit"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:275
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:277
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:430
 msgid "Direct Debit"
 msgstr "Domiciliation"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:296
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:298
 msgid "Card Holder"
 msgstr "Titulaire de la carte"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:305
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:307
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:301
 msgid "Card Number"
 msgstr "Numéro de la carte"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:314
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:316
 msgid "Card Label"
 msgstr "Étiquette de carte"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:323
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:325
 msgid "Card Fingerprint"
 msgstr "Empreinte digitale de la carte"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:332
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:334
 msgid "Card Expiry Date"
 msgstr "Date d'expiration"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:348
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:350
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:631
 msgid "Consumer Name"
 msgstr "Nom du consommateur"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:357
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:359
 msgid "Consumer Account"
 msgstr "Compte consommateur"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:366
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:368
 #: vendor/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:658
 msgid "Consumer BIC"
 msgstr "Consommateur BIC"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:427
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:429
 msgid "WordPress Users"
 msgstr "Utilisateurs WordPress"
 
-#: vendor/wp-pay-gateways/mollie/views/page-customer.php:434
+#: vendor/wp-pay-gateways/mollie/views/page-customer.php:436
 msgid "Display Name"
 msgstr "Afficher le nom"
 
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:120
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:127
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:121
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:128
 msgid "Change Payment State"
 msgstr "Modifier l’état de paiement"
 
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:163
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:164
 msgid "Metadata"
 msgstr ""
 
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:176
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:177
 #: vendor/wp-pay/core/views/tab-system_status.php:256
 msgid "cURL"
 msgstr "cURL"
 
-#: vendor/wp-pay-gateways/mollie/views/page-payment.php:187
+#: vendor/wp-pay-gateways/mollie/views/page-payment.php:188
 msgid "HTTPie"
 msgstr ""
 

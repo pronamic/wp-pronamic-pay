@@ -4,6 +4,49 @@
 		"changes": {}
 	},
 	{
+		"version": "9.1.3",
+		"date": "2022-11-29",
+		"changes": [
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Easy Digital Downloads library to version 4.2.2.",
+						"changes": [
+							"Fix required field indicator HTML escaped. [#5](https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/issues/5)"
+						]
+					},
+					{
+						"description": "Updated WordPress pay WooCommerce library to version 4.3.3.",
+						"changes": [
+							"Fix creating zero amount refunds. [#31](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/31)"
+						]
+					},
+					{
+						"description": "Updated WordPress pay Adyen library to version 4.3.1.",
+						"changes": [
+							"Redirect API-only payment methods to payment action URL. [#18](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/18)",
+							"Make `redirectResult` no longer required in return endpoint. [#19](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/19)"
+
+						]
+					}
+				]
+			},
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Mollie library to version 4.6.0.",
+						"changes": [
+							"Use new `pronamic/wp-mollie` library.",
+							"Use new `str_*_with` functions, requires WordPress `5.9` or higher."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "9.1.2",
 		"date": "2022-11-09",
 		"changes": {

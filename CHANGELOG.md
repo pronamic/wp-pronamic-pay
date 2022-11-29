@@ -6,6 +6,22 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.1.3] - 2022-11-29
+
+### Fixed
+- Updated WordPress pay Easy Digital Downloads library to version 4.2.2.
+  - Fix required field indicator HTML escaped. [#5](https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/issues/5)
+- Updated WordPress pay WooCommerce library to version 4.3.3.
+  - Fix creating zero amount refunds. [#31](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/31)
+- Updated WordPress pay Adyen library to version 4.3.1.
+  - Redirect API-only payment methods to payment action URL. [#18](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/18)
+  - Make `redirectResult` no longer required in return endpoint. [#19](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/19)
+
+### Changed
+- Updated WordPress pay Mollie library to version 4.6.0.
+  - Use new `pronamic/wp-mollie` library.
+  - Use new `str_*_with` functions, requires WordPress `5.9` or higher.
+
 ## [9.1.2] - 2022-11-09
 
 ### Fixed
@@ -3268,7 +3284,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.3...HEAD
+[9.1.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.2...9.1.3
 [9.1.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.1...9.1.2
 [9.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.0...9.1.1
 [9.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.0.1...9.1.0
