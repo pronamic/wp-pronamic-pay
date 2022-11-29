@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-11-09T09:58:57+00:00\n"
+"POT-Creation-Date: 2022-11-29T08:00:53+00:00\n"
 "PO-Revision-Date: 2022-03-15 12:08+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: \n"
@@ -2498,8 +2498,8 @@ msgstr "La passerelle de paiement n'a pas pu être trouvée."
 #. translators: %s: WooCommerce checkout settings URL
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:357
 msgid ""
-"You have to select an gateway configuration on the <a href=\"%s"
-"\">WooCommerce checkout settings page</a>."
+"You have to select an gateway configuration on the <a "
+"href=\"%s\">WooCommerce checkout settings page</a>."
 msgstr ""
 "Vous devez sélectionner une configuration de passerelle sur la page des "
 "paramètres de <a href=\"%s\">caisse WooCommerce</a>."
@@ -2513,18 +2513,18 @@ msgstr "En attente de paiement."
 msgid "WooCommerce order %s"
 msgstr "Ordre WooCommerce %s"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:907
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:903
 #, fuzzy
 msgid "Unable to process refund as gateway configuration does not exist."
 msgstr "Liste des configurations de passerelle de paiement de filtre"
 
 #. translators: 1: formatted refund amount, 2: refund gateway reference
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:922
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:918
 msgid "Created refund of %1$s with gateway reference `%2$s`."
 msgstr ""
 
 #. translators: %s: payment method title
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:1069
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:1065
 msgid "A required field for the %s payment method is empty."
 msgstr "Un champ requis pour le mode de paiement %s est vide."
 
@@ -3564,8 +3564,8 @@ msgstr "Numéro de compte"
 #. translators: 1: payment transaction ID, 2: Mollie payment ID
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:900
 msgid ""
-"Payment transaction ID updated from `%1$s` to successful order payment `"
-"%2$s`."
+"Payment transaction ID updated from `%1$s` to successful order payment "
+"`%2$s`."
 msgstr ""
 
 #. translators: 1: Mollie shipment ID, 2: Mollie order ID
@@ -4778,28 +4778,28 @@ msgstr "Outils"
 #: vendor/wp-pay/core/src/Admin/AdminNotices.php:62
 #, fuzzy
 msgid ""
-"<strong>Pronamic Pay</strong> — You have not entered a valid <a href=\"%1$s"
-"\">support license key</a>, please <a href=\"%2$s\" target=\"_blank\">get "
-"your key at pronamic.eu</a>."
+"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
+"href=\"%1$s\">support license key</a>, please <a href=\"%2$s\" "
+"target=\"_blank\">get your key at pronamic.eu</a>."
 msgstr ""
 "<strong>Rémunération pronamic</strong> - Vous n'avez pas entré une clé de "
-"licence de <a href=\"%1$s\">support</a>valide , s'il vous plaît <a href="
-"\"%2$s\" target=\"_blank\">obtenir votre clé à pronamic.eu</a>."
+"licence de <a href=\"%1$s\">support</a>valide , s'il vous plaît <a "
+"href=\"%2$s\" target=\"_blank\">obtenir votre clé à pronamic.eu</a>."
 
 #. translators: 1: Pronamic Pay settings page URL, 2: Pronamic.eu plugin page URL, 3: Pronamic.eu account page URL
 #: vendor/wp-pay/core/src/Admin/AdminNotices.php:69
 #, fuzzy
 msgid ""
-"<strong>Pronamic Pay</strong> — You have not entered a valid <a href=\"%1$s"
-"\">support license key</a>. Please <a href=\"%2$s\" target=\"_blank\">get "
-"your key at pronamic.eu</a> or login to <a href=\"%3$s\" target=\"_blank"
-"\">check your license status</a>."
+"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
+"href=\"%1$s\">support license key</a>. Please <a href=\"%2$s\" "
+"target=\"_blank\">get your key at pronamic.eu</a> or login to <a "
+"href=\"%3$s\" target=\"_blank\">check your license status</a>."
 msgstr ""
 "<strong>Rémunération pronamic</strong> — Vous n'avez pas saisi la clé de "
-"licence de <a href=\"%1$s\">support</a>valide . S'il vous plaît <a href="
-"\"%2$s\" target=\"_blank\">obtenir votre clé à pronamic.eu</a> ou de "
-"connexion pour vérifier votre statut de <a href=\"%3$s\" target=\"_blank"
-"\">licence</a>."
+"licence de <a href=\"%1$s\">support</a>valide . S'il vous plaît <a "
+"href=\"%2$s\" target=\"_blank\">obtenir votre clé à pronamic.eu</a> ou de "
+"connexion pour vérifier votre statut de <a href=\"%3$s\" "
+"target=\"_blank\">licence</a>."
 
 #: vendor/wp-pay/core/src/Admin/AdminNotices.php:134
 msgid "Dismiss this notice."
@@ -6433,8 +6433,8 @@ msgid ""
 "Last webhook request processed on %1$s for <a href=\"%2$s\" title=\"Payment "
 "%3$s\">payment #%3$s</a>."
 msgstr ""
-"Dernière demande webhook traitées sur %1$s pour le <a href=\"%2$s\" title="
-"\"Paiement %3$s\">paiement #%3$s</a>."
+"Dernière demande webhook traitées sur %1$s pour le <a href=\"%2$s\" "
+"title=\"Paiement %3$s\">paiement #%3$s</a>."
 
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:58
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:69
@@ -7292,11 +7292,11 @@ msgstr "Limite de mémoire WP"
 #. translators: %s: WordPress Codex link
 #: vendor/wp-pay/core/views/tab-system_status.php:208
 msgid ""
-"We recommend setting memory to at least 64MB. See: <a href=\"%s\" target="
-"\"_blank\">Increasing memory allocated to PHP</a>"
+"We recommend setting memory to at least 64MB. See: <a href=\"%s\" "
+"target=\"_blank\">Increasing memory allocated to PHP</a>"
 msgstr ""
-"Nous recommandons de régler la mémoire à au moins 64 Mo. Voir : <a href=\"%s"
-"\" target=\"blank\">Augmentation de la mémoire allouée au PHP</a>"
+"Nous recommandons de régler la mémoire à au moins 64 Mo. Voir : <a "
+"href=\"%s\" target=\"blank\">Augmentation de la mémoire allouée au PHP</a>"
 
 #: vendor/wp-pay/core/views/tab-system_status.php:225
 msgid "Character Set"
@@ -7418,8 +7418,8 @@ msgstr "Formulaire de paiement"
 #~ "Create an invoice at payment gateway for <a href=\"%1$s\">payment #%2$s</"
 #~ "a> after processing the order."
 #~ msgstr ""
-#~ "Créez une facture à la passerelle de paiement pour le <a href=\"%1$s"
-#~ "\">paiement de 2 $s</a> après le traitement de la commande."
+#~ "Créez une facture à la passerelle de paiement pour le <a "
+#~ "href=\"%1$s\">paiement de 2 $s</a> après le traitement de la commande."
 
 #, fuzzy
 #~ msgid "Mollie Checkout"
@@ -7829,8 +7829,8 @@ msgstr "Formulaire de paiement"
 
 #, fuzzy
 #~ msgid ""
-#~ "Update user \"%1$s\" to role \"%2$s\" and added custom capability \"%3$s"
-#~ "\"."
+#~ "Update user \"%1$s\" to role \"%2$s\" and added custom capability "
+#~ "\"%3$s\"."
 #~ msgstr ""
 #~ "Mettre à jour l'utilisateur \"%1$s\" pour le rôle \"%2$s\" et a ajouté la "
 #~ "capacité personnalisée \"%3$s\"."
@@ -8267,8 +8267,8 @@ msgstr "Formulaire de paiement"
 
 #, fuzzy
 #~ msgid ""
-#~ "You can find the key version in the <a href=\"%s\" target=\"_blank"
-#~ "\">OmniKassa Download Dashboard</a>."
+#~ "You can find the key version in the <a href=\"%s\" "
+#~ "target=\"_blank\">OmniKassa Download Dashboard</a>."
 #~ msgstr ""
 #~ "Vous pouvez trouver la version clé dans le tableau de <a href=\"%s\" "
 #~ "target=\"_blank\">bord omnikassa Télécharger</a>."

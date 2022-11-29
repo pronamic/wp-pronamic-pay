@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-11-09T09:58:57+00:00\n"
+"POT-Creation-Date: 2022-11-29T08:00:53+00:00\n"
 "PO-Revision-Date: 2022-07-04 16:22+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -1345,8 +1345,8 @@ msgid ""
 "Please remove it from this form or <a href=\"%s\" target=\"_blank\">add a "
 "supported payment gateway</a>."
 msgstr ""
-"Bitte entfernen Sie es aus diesem Formular oder <a href=\"%s\" target="
-"\"_blank\">fügen Sie ein unterstütztes Zahlungsgateway hinzu</a>."
+"Bitte entfernen Sie es aus diesem Formular oder <a href=\"%s\" "
+"target=\"_blank\">fügen Sie ein unterstütztes Zahlungsgateway hinzu</a>."
 
 #: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:572
 #: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:584
@@ -2465,8 +2465,8 @@ msgstr "Das Zahlungsgateway wurde nicht gefunden."
 #. translators: %s: WooCommerce checkout settings URL
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:357
 msgid ""
-"You have to select an gateway configuration on the <a href=\"%s"
-"\">WooCommerce checkout settings page</a>."
+"You have to select an gateway configuration on the <a "
+"href=\"%s\">WooCommerce checkout settings page</a>."
 msgstr ""
 "Sie müssen eine Gateway-Konfiguration auf der <a href=\"%s\">WooCommerce "
 "Kasse-Einstellungsseite</a> auswählen."
@@ -2480,18 +2480,18 @@ msgstr "Zahlung erwartet."
 msgid "WooCommerce order %s"
 msgstr "WooCommerce Bestellung %s"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:907
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:903
 #, fuzzy
 msgid "Unable to process refund as gateway configuration does not exist."
 msgstr "Zahlungsgatewaykonfigurationenliste filtern"
 
 #. translators: 1: formatted refund amount, 2: refund gateway reference
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:922
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:918
 msgid "Created refund of %1$s with gateway reference `%2$s`."
 msgstr ""
 
 #. translators: %s: payment method title
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:1069
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:1065
 msgid "A required field for the %s payment method is empty."
 msgstr "Ein benötigtes Feld für die Zahlungsmethode von% ist leer."
 
@@ -3509,8 +3509,8 @@ msgstr "Kontonummer"
 #. translators: 1: payment transaction ID, 2: Mollie payment ID
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:900
 msgid ""
-"Payment transaction ID updated from `%1$s` to successful order payment `"
-"%2$s`."
+"Payment transaction ID updated from `%1$s` to successful order payment "
+"`%2$s`."
 msgstr ""
 
 #. translators: 1: Mollie shipment ID, 2: Mollie order ID
@@ -4685,27 +4685,27 @@ msgstr "Werkzeuge"
 #. translators: 1: Pronamic Pay settings page URL, 2: Pronamic.eu plugin page URL
 #: vendor/wp-pay/core/src/Admin/AdminNotices.php:62
 msgid ""
-"<strong>Pronamic Pay</strong> — You have not entered a valid <a href=\"%1$s"
-"\">support license key</a>, please <a href=\"%2$s\" target=\"_blank\">get "
-"your key at pronamic.eu</a>."
+"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
+"href=\"%1$s\">support license key</a>, please <a href=\"%2$s\" "
+"target=\"_blank\">get your key at pronamic.eu</a>."
 msgstr ""
-"<strong>Pronamic Pay</strong> - Sie haben keinen gültigen <a href=\"%1$s"
-"\">Support-Lizenzschlüssel eingegeben</a>, bitte <a href=\"%2$s\" target="
-"\"_blank\">holen Sie Ihren Schlüssel bei pronamic.eu</a> ."
+"<strong>Pronamic Pay</strong> - Sie haben keinen gültigen <a "
+"href=\"%1$s\">Support-Lizenzschlüssel eingegeben</a>, bitte <a href=\"%2$s\" "
+"target=\"_blank\">holen Sie Ihren Schlüssel bei pronamic.eu</a> ."
 
 #. translators: 1: Pronamic Pay settings page URL, 2: Pronamic.eu plugin page URL, 3: Pronamic.eu account page URL
 #: vendor/wp-pay/core/src/Admin/AdminNotices.php:69
 msgid ""
-"<strong>Pronamic Pay</strong> — You have not entered a valid <a href=\"%1$s"
-"\">support license key</a>. Please <a href=\"%2$s\" target=\"_blank\">get "
-"your key at pronamic.eu</a> or login to <a href=\"%3$s\" target=\"_blank"
-"\">check your license status</a>."
+"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
+"href=\"%1$s\">support license key</a>. Please <a href=\"%2$s\" "
+"target=\"_blank\">get your key at pronamic.eu</a> or login to <a "
+"href=\"%3$s\" target=\"_blank\">check your license status</a>."
 msgstr ""
-"<strong>Pronamic Pay</strong> - Sie haben keinen gültigen <a href=\"%1$s"
-"\">Support-Lizenzschlüssel eingegeben</a>. Bitte <a href=\"%2$s\" target="
-"\"_blank\">besorgen Sie sich Ihren Schlüssel bei pronamic.eu</a> oder loggen "
-"Sie sich ein <a href=\"%3$s\" target=\"_blank\">um Ihren Lizenzstatus zu "
-"überprüfen</a>."
+"<strong>Pronamic Pay</strong> - Sie haben keinen gültigen <a "
+"href=\"%1$s\">Support-Lizenzschlüssel eingegeben</a>. Bitte <a href=\"%2$s\" "
+"target=\"_blank\">besorgen Sie sich Ihren Schlüssel bei pronamic.eu</a> oder "
+"loggen Sie sich ein <a href=\"%3$s\" target=\"_blank\">um Ihren Lizenzstatus "
+"zu überprüfen</a>."
 
 #: vendor/wp-pay/core/src/Admin/AdminNotices.php:134
 msgid "Dismiss this notice."
@@ -6331,8 +6331,8 @@ msgid ""
 "Last webhook request processed on %1$s for <a href=\"%2$s\" title=\"Payment "
 "%3$s\">payment #%3$s</a>."
 msgstr ""
-"Letzte Webhook-Anforderung verarbeitet am %1$s für <a href=\"%2$s\" title="
-"\"Payment %3$s\">Zahlung #%3$s</a>."
+"Letzte Webhook-Anforderung verarbeitet am %1$s für <a href=\"%2$s\" "
+"title=\"Payment %3$s\">Zahlung #%3$s</a>."
 
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:58
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:69
@@ -7173,8 +7173,8 @@ msgstr "WP-Speicher-Limit"
 #. translators: %s: WordPress Codex link
 #: vendor/wp-pay/core/views/tab-system_status.php:208
 msgid ""
-"We recommend setting memory to at least 64MB. See: <a href=\"%s\" target="
-"\"_blank\">Increasing memory allocated to PHP</a>"
+"We recommend setting memory to at least 64MB. See: <a href=\"%s\" "
+"target=\"_blank\">Increasing memory allocated to PHP</a>"
 msgstr ""
 "Wir empfehlen eine Einstellung von mindestens 64MB. Siehe: <a href=\"%s\" "
 "target=\"_blank\">Von PHP genutzten Speicher erhöhen</a>"
@@ -7295,8 +7295,8 @@ msgstr "Zahlungsformular"
 #~ "Create an invoice at payment gateway for <a href=\"%1$s\">payment #%2$s</"
 #~ "a> after processing the order."
 #~ msgstr ""
-#~ "Erstellen Sie eine Rechnung am Zahlungsportal für <a href=\"%1$s"
-#~ "\">Zahlung #%2$s</a> nach Abwicklung der Bestellung."
+#~ "Erstellen Sie eine Rechnung am Zahlungsportal für <a "
+#~ "href=\"%1$s\">Zahlung #%2$s</a> nach Abwicklung der Bestellung."
 
 #, fuzzy
 #~ msgid "Mollie Checkout"
@@ -7719,8 +7719,8 @@ msgstr "Zahlungsformular"
 #~ msgstr "Kontobestätigung"
 
 #~ msgid ""
-#~ "Update user \"%1$s\" to role \"%2$s\" and added custom capability \"%3$s"
-#~ "\"."
+#~ "Update user \"%1$s\" to role \"%2$s\" and added custom capability "
+#~ "\"%3$s\"."
 #~ msgstr ""
 #~ "Benutzer \"%1$s\" Rolle \"%2$s\" zu aktualisieren und benutzerdefinierte "
 #~ "Funktion \"%3$s\" hinzugefügt."
@@ -8145,11 +8145,11 @@ msgstr "Zahlungsformular"
 #~ msgstr "Download"
 
 #~ msgid ""
-#~ "You can find the key version in the <a href=\"%s\" target=\"_blank"
-#~ "\">OmniKassa Download Dashboard</a>."
+#~ "You can find the key version in the <a href=\"%s\" "
+#~ "target=\"_blank\">OmniKassa Download Dashboard</a>."
 #~ msgstr ""
-#~ "Sie finden die Schlüsselversion im <a href=\"%s\" target=\"_blank"
-#~ "\">OmniKassa Download Dashboard</a> ."
+#~ "Sie finden die Schlüsselversion im <a href=\"%s\" "
+#~ "target=\"_blank\">OmniKassa Download Dashboard</a> ."
 
 #~ msgid "The OmniKassa %s parameter."
 #~ msgstr "Der OmniKassa %s Parameter."
@@ -8593,8 +8593,8 @@ msgstr "Zahlungsformular"
 #~ "target=\"%2$s\">how you can update</a>."
 #~ msgstr ""
 #~ "Leider funktioniert das Pronamic Pay Plugin in PHP Versionen älter als "
-#~ "5.3 nicht mehr korrekt. Lesen Sie mehr darüber, <a href=\"%1$s\" target="
-#~ "\"%2$s\">wie Sie aktualisieren können</a>."
+#~ "5.3 nicht mehr korrekt. Lesen Sie mehr darüber, <a href=\"%1$s\" "
+#~ "target=\"%2$s\">wie Sie aktualisieren können</a>."
 
 #~ msgid "http://www.wpupdatephp.com/update/"
 #~ msgstr "http://www.wpupdatephp.com/update/"
