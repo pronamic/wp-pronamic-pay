@@ -24,10 +24,6 @@ header( 'Content-Type: text/plain' );
 [![Build Status](https://travis-ci.org/pronamic/wp-pronamic-pay.svg?branch=develop)](https://travis-ci.org/pronamic/wp-pronamic-pay)
 [![Coverage Status](https://coveralls.io/repos/github/pronamic/wp-pronamic-pay/badge.svg?branch=develop)](https://coveralls.io/github/pronamic/wp-pronamic-pay?branch=develop)
 [![Built with Grunt](https://gruntjs.com/cdn/builtwith.svg)](http://gruntjs.com/)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-pay/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-pay/?branch=develop)
-[![Code Coverage](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-pay/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-pay/?branch=develop)
-[![Build Status](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-pay/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-pay/build-status/develop)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-pay/badges/code-intelligence.svg?b=develop)](https://scrutinizer-ci.com/code-intelligence)
 [![codecov](https://codecov.io/gh/pronamic/wp-pronamic-pay/branch/develop/graph/badge.svg)](https://codecov.io/gh/pronamic/wp-pronamic-pay)
 
 <?php require __DIR__ . '/../general/description-short.php'; ?>
