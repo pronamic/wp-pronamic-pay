@@ -6,7 +6,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [9.1.3] - 2022-11-29
+## [9.1.3] - 2022-12-01
 
 ### Fixed
 - Updated WordPress pay Easy Digital Downloads library to version 4.2.2.
@@ -21,6 +21,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress pay Mollie library to version 4.6.0.
   - Use new `pronamic/wp-mollie` library.
   - Use new `str_*_with` functions, requires WordPress `5.9` or higher.
+- Updated WordPress pay Pay. library to version 4.4.0.
+  - Updated to REST API version 13: https://rest-api.pay.nl/v13/.
+  - Added `statsData` to transaction requests. [#18](https://github.com/pronamic/pronamic-pay/issues/18)
 
 ## [9.1.2] - 2022-11-09
 

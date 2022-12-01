@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-11-29T21:39:35+00:00\n"
+"POT-Creation-Date: 2022-12-01T10:14:46+00:00\n"
 "PO-Revision-Date: 2022-11-29 22:44+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -2456,8 +2456,8 @@ msgstr "De betalingsgateway kon niet worden gevonden."
 #. translators: %s: WooCommerce checkout settings URL
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:357
 msgid ""
-"You have to select an gateway configuration on the <a href=\"%s"
-"\">WooCommerce checkout settings page</a>."
+"You have to select an gateway configuration on the <a "
+"href=\"%s\">WooCommerce checkout settings page</a>."
 msgstr ""
 "Je moet een gateway configuratie selecteren op de <a href=\"%s\">WooCommerce "
 "afrekenen instellingen pagina</a>."
@@ -3473,11 +3473,11 @@ msgstr "Rekeningnummer (IBAN)"
 #. translators: 1: payment transaction ID, 2: Mollie payment ID
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:990
 msgid ""
-"Payment transaction ID updated from `%1$s` to successful order payment `"
-"%2$s`."
+"Payment transaction ID updated from `%1$s` to successful order payment "
+"`%2$s`."
 msgstr ""
-"Betaling transactie ID bijgewerkt van `%1$s` naar succesvolle betaling `"
-"%2$s` van bestelling."
+"Betaling transactie ID bijgewerkt van `%1$s` naar succesvolle betaling "
+"`%2$s` van bestelling."
 
 #. translators: 1: Mollie shipment ID, 2: Mollie order ID
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:1006
@@ -4138,24 +4138,31 @@ msgstr "Unieke ID voor de gateway configuratie."
 msgid "No gateway ID given in `id` parameter."
 msgstr "Geen configuratie ID opgegeven in de parameter `id`."
 
-#: vendor/wp-pay-gateways/pay-nl/src/Client.php:93
+#: vendor/wp-pay-gateways/pay-nl/src/Client.php:92
 msgid "Unknown response from Pay.nl."
 msgstr "Onbekend antwoord van Pay.nl."
 
-#: vendor/wp-pay-gateways/pay-nl/src/Client.php:109
+#: vendor/wp-pay-gateways/pay-nl/src/Client.php:108
 msgid "Unknown response from Pay.nl error."
 msgstr "Onbekend antwoord van Pay.nl fout."
 
-#: vendor/wp-pay-gateways/pay-nl/src/Client.php:126
-#: vendor/wp-pay-gateways/pay-nl/src/Client.php:219
+#: vendor/wp-pay-gateways/pay-nl/src/Client.php:125
 msgid "Unknown Pay.nl error."
 msgstr "Onbekende Pay.nl fout."
 
-#: vendor/wp-pay-gateways/pay-nl/src/Integration.php:35
+#: vendor/wp-pay-gateways/pay-nl/src/Client.php:208
 msgid ""
-"https://www.pronamic.eu/support/how-to-connect-pay-nl-with-wordpress-via-"
-"pronamic-pay/"
-msgstr "https://www.pronamic.nl/support/pronamic-ideal-koppelen-aan-pay-nl/"
+"Failed to request banks from Pay., received an unexpected answer from Pay."
+msgstr ""
+
+#: vendor/wp-pay-gateways/pay-nl/src/Integration.php:35
+#, fuzzy
+msgid ""
+"https://www.pronamicpay.com/en/manuals/how-to-connect-pay-nl-to-wordpress-"
+"with-pronamic-pay/"
+msgstr ""
+"https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-targetpay-aan-"
+"wordpress-met-pronamic-pay/"
 
 #. translators: 1: payment provider name
 #: vendor/wp-pay-gateways/pay-nl/src/Integration.php:58
@@ -4639,26 +4646,26 @@ msgstr "Extra"
 #. translators: 1: Pronamic Pay settings page URL, 2: Pronamic.eu plugin page URL
 #: vendor/wp-pay/core/src/Admin/AdminNotices.php:62
 msgid ""
-"<strong>Pronamic Pay</strong> — You have not entered a valid <a href=\"%1$s"
-"\">support license key</a>, please <a href=\"%2$s\" target=\"_blank\">get "
-"your key at pronamic.eu</a>."
+"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
+"href=\"%1$s\">support license key</a>, please <a href=\"%2$s\" "
+"target=\"_blank\">get your key at pronamic.eu</a>."
 msgstr ""
-"<strong>Pronamic Pay</strong> — Je hebt geen geldige <a href=\"%1$s"
-"\">support licentiesleutel</a> ingevuld, bestel je licentiesleutel op <a "
-"href=\"%2$s\" target=\"_blank\">pronamic.eu</a>."
+"<strong>Pronamic Pay</strong> — Je hebt geen geldige <a "
+"href=\"%1$s\">support licentiesleutel</a> ingevuld, bestel je "
+"licentiesleutel op <a href=\"%2$s\" target=\"_blank\">pronamic.eu</a>."
 
 #. translators: 1: Pronamic Pay settings page URL, 2: Pronamic.eu plugin page URL, 3: Pronamic.eu account page URL
 #: vendor/wp-pay/core/src/Admin/AdminNotices.php:69
 msgid ""
-"<strong>Pronamic Pay</strong> — You have not entered a valid <a href=\"%1$s"
-"\">support license key</a>. Please <a href=\"%2$s\" target=\"_blank\">get "
-"your key at pronamic.eu</a> or login to <a href=\"%3$s\" target=\"_blank"
-"\">check your license status</a>."
+"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
+"href=\"%1$s\">support license key</a>. Please <a href=\"%2$s\" "
+"target=\"_blank\">get your key at pronamic.eu</a> or login to <a "
+"href=\"%3$s\" target=\"_blank\">check your license status</a>."
 msgstr ""
-"<strong>Pronamic Pay</strong> — Je hebt geen geldige <a href=\"%1$s"
-"\">support licentiesleutel</a> ingevuld. Bestel je licentie op <a href=\"%2$s"
-"\" target=\"_blank\">pronamic.eu</a> of login om <a href=\"%3$s\" target="
-"\"_blank\">de licentie te controleren</a>."
+"<strong>Pronamic Pay</strong> — Je hebt geen geldige <a "
+"href=\"%1$s\">support licentiesleutel</a> ingevuld. Bestel je licentie op <a "
+"href=\"%2$s\" target=\"_blank\">pronamic.eu</a> of login om <a href=\"%3$s\" "
+"target=\"_blank\">de licentie te controleren</a>."
 
 #: vendor/wp-pay/core/src/Admin/AdminNotices.php:134
 msgid "Dismiss this notice."
@@ -5251,8 +5258,8 @@ msgid ""
 "The response code (<code>%1$s</code>) was incorrect, required response code "
 "<code>%2$s</code>."
 msgstr ""
-"De antwoordcode (<code>%1$s<code>) was onjuist, vereist antwoordecode <code>"
-"%2$s</code>."
+"De antwoordcode (<code>%1$s<code>) was onjuist, vereist antwoordecode "
+"<code>%2$s</code>."
 
 #: vendor/wp-pay/core/src/Fields/IDealIssuerSelectField.php:27
 msgid "Bank"
@@ -6265,8 +6272,8 @@ msgid ""
 "Last webhook request processed on %1$s for <a href=\"%2$s\" title=\"Payment "
 "%3$s\">payment #%3$s</a>."
 msgstr ""
-"Laatste webhook verzoek verwerkt op %1$s voor <a href=\"%2$s\" title="
-"\"Betaling %3$s\">betaling #%3$s</a>."
+"Laatste webhook verzoek verwerkt op %1$s voor <a href=\"%2$s\" "
+"title=\"Betaling %3$s\">betaling #%3$s</a>."
 
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:58
 #: vendor/wp-pay/core/views/meta-box-gateway-webhook-log.php:69
@@ -7098,8 +7105,8 @@ msgstr "WP geheugenlimiet"
 #. translators: %s: WordPress Codex link
 #: vendor/wp-pay/core/views/tab-system_status.php:208
 msgid ""
-"We recommend setting memory to at least 64MB. See: <a href=\"%s\" target="
-"\"_blank\">Increasing memory allocated to PHP</a>"
+"We recommend setting memory to at least 64MB. See: <a href=\"%s\" "
+"target=\"_blank\">Increasing memory allocated to PHP</a>"
 msgstr ""
 "We adviseren om het geheugenlimiet in te stellen op minimaal 64MB. Zie: <a "
 "href=\"%s\">Verhoog aan PHP toegewezen geheugen</a>"
@@ -7205,6 +7212,11 @@ msgctxt "block title"
 msgid "Payment Form"
 msgstr "Betalingsformulier"
 
+#~ msgid ""
+#~ "https://www.pronamic.eu/support/how-to-connect-pay-nl-with-wordpress-via-"
+#~ "pronamic-pay/"
+#~ msgstr "https://www.pronamic.nl/support/pronamic-ideal-koppelen-aan-pay-nl/"
+
 #~ msgid "payment reserved at gateway"
 #~ msgstr "betaling gereserveerd bij betalingsprovider"
 
@@ -7218,8 +7230,8 @@ msgstr "Betalingsformulier"
 #~ "Create an invoice at payment gateway for <a href=\"%1$s\">payment #%2$s</"
 #~ "a> after processing the order."
 #~ msgstr ""
-#~ "Maak een factuur bij de betalingsprovider voor <a href=\"%1$s\">betaling #"
-#~ "%2$s</a> na het verwerken van de bestelling."
+#~ "Maak een factuur bij de betalingsprovider voor <a href=\"%1$s\">betaling "
+#~ "#%2$s</a> na het verwerken van de bestelling."
 
 #~ msgid "Mollie Checkout"
 #~ msgstr "Mollie Checkout"
@@ -7330,8 +7342,8 @@ msgstr "Betalingsformulier"
 #~ "Shop ID as mentioned at <strong>My Profile</strong> in the Sisow "
 #~ "dashboard."
 #~ msgstr ""
-#~ "Shop ID zoals vermeld in het Sisow dashboard op de pagina \"Mijn profiel"
-#~ "\"."
+#~ "Shop ID zoals vermeld in het Sisow dashboard op de pagina \"Mijn "
+#~ "profiel\"."
 
 #~ msgctxt "sisow"
 #~ msgid "Test Mode"
@@ -7670,8 +7682,8 @@ msgstr "Betalingsformulier"
 #~ msgstr "Account bevestiging"
 
 #~ msgid ""
-#~ "Update user \"%1$s\" to role \"%2$s\" and added custom capability \"%3$s"
-#~ "\"."
+#~ "Update user \"%1$s\" to role \"%2$s\" and added custom capability "
+#~ "\"%3$s\"."
 #~ msgstr ""
 #~ "Gebruiker “%1$s” bijgewerkt naar rol “%2$s” en maatwerk capability “%3$s” "
 #~ "toegevoegd."
@@ -8112,8 +8124,8 @@ msgstr "Betalingsformulier"
 #~ msgstr "download"
 
 #~ msgid ""
-#~ "You can find the key version in the <a href=\"%s\" target=\"_blank"
-#~ "\">OmniKassa Download Dashboard</a>."
+#~ "You can find the key version in the <a href=\"%s\" "
+#~ "target=\"_blank\">OmniKassa Download Dashboard</a>."
 #~ msgstr "De sleutelversie zoals vermeld in het OmniKassa download dashboard."
 
 #~ msgid "The OmniKassa %s parameter."
@@ -8568,8 +8580,8 @@ msgstr "Betalingsformulier"
 #~ "target=\"%2$s\">how you can update</a>."
 #~ msgstr ""
 #~ "Helaas zal de Pronamic Pay plugin niet langer correct functioneren op PHP "
-#~ "versies lager dan 5.3. Lees meer over <a href=\"%1$s\" target=\"%2$s"
-#~ "\">hoe je kunt bijwerken</a>."
+#~ "versies lager dan 5.3. Lees meer over <a href=\"%1$s\" "
+#~ "target=\"%2$s\">hoe je kunt bijwerken</a>."
 
 #~ msgid "http://www.wpupdatephp.com/update/"
 #~ msgstr "http://www.wpupdatephp.com/update/"

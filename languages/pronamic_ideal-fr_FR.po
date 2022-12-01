@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-11-29T21:39:35+00:00\n"
+"POT-Creation-Date: 2022-12-01T10:14:46+00:00\n"
 "PO-Revision-Date: 2022-03-15 12:08+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: \n"
@@ -4270,25 +4270,30 @@ msgstr "Liste des configurations de passerelle de paiement de filtre"
 msgid "No gateway ID given in `id` parameter."
 msgstr "Aucun ID de paiement donné dans le paramètre `payment_id`."
 
-#: vendor/wp-pay-gateways/pay-nl/src/Client.php:93
+#: vendor/wp-pay-gateways/pay-nl/src/Client.php:92
 msgid "Unknown response from Pay.nl."
 msgstr "Réponse inconnue de Pay.nl."
 
-#: vendor/wp-pay-gateways/pay-nl/src/Client.php:109
+#: vendor/wp-pay-gateways/pay-nl/src/Client.php:108
 msgid "Unknown response from Pay.nl error."
 msgstr "Réponse inconnue de Pay.nl erreur."
 
-#: vendor/wp-pay-gateways/pay-nl/src/Client.php:126
-#: vendor/wp-pay-gateways/pay-nl/src/Client.php:219
+#: vendor/wp-pay-gateways/pay-nl/src/Client.php:125
 msgid "Unknown Pay.nl error."
 msgstr "Erreur de Pay.nl inconnue."
 
-#: vendor/wp-pay-gateways/pay-nl/src/Integration.php:35
+#: vendor/wp-pay-gateways/pay-nl/src/Client.php:208
 msgid ""
-"https://www.pronamic.eu/support/how-to-connect-pay-nl-with-wordpress-via-"
-"pronamic-pay/"
+"Failed to request banks from Pay., received an unexpected answer from Pay."
 msgstr ""
-"https://www.pronamic.eu/support/how-to-connect-pay-nl-with-wordpress-via-"
+
+#: vendor/wp-pay-gateways/pay-nl/src/Integration.php:35
+#, fuzzy
+msgid ""
+"https://www.pronamicpay.com/en/manuals/how-to-connect-pay-nl-to-wordpress-"
+"with-pronamic-pay/"
+msgstr ""
+"https://www.pronamic.eu/support/how-to-connect-targetpay-with-wordpress-via-"
 "pronamic-pay/"
 
 #. translators: 1: payment provider name
@@ -7410,6 +7415,13 @@ msgstr ""
 msgctxt "block title"
 msgid "Payment Form"
 msgstr "Formulaire de paiement"
+
+#~ msgid ""
+#~ "https://www.pronamic.eu/support/how-to-connect-pay-nl-with-wordpress-via-"
+#~ "pronamic-pay/"
+#~ msgstr ""
+#~ "https://www.pronamic.eu/support/how-to-connect-pay-nl-with-wordpress-via-"
+#~ "pronamic-pay/"
 
 #~ msgid "payment reserved at gateway"
 #~ msgstr "paiement réservé à la passerelle"
