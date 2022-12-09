@@ -37,11 +37,13 @@
 	<config name="prefixes" value="" />
 	<config name="text_domain" value="" />
 
+	<!-- Exclude patterns -->
 	<exclude-pattern>*/bower_components/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/vendor-bin/*</exclude-pattern>
 	<exclude-pattern>*/wordpress/*</exclude-pattern>
 	<exclude-pattern>*/wp-content/*</exclude-pattern>
+	<exclude-pattern>*/js/dist/*</exclude-pattern>
 	<exclude-pattern>wp-config.php</exclude-pattern>
 </ruleset>
