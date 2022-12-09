@@ -5,10 +5,31 @@
 
 	<rule ref="PHPCompatibility" />
 
+	<!-- Use colors in output. -->
+	<arg name="colors" />
+
+	<!-- A comma separated list of file extensions to check. -->
 	<arg name="extensions" value="php" />
 
+	<!-- @link https://github.com/squizlabs/PHP_CodeSniffer/issues/1732 -->
+	<arg name="parallel" value="8" />
+
+	<!-- Show show sniff codes and progress. -->
+	<arg value="sp" />
+
+	<!-- Minimum WordPress version to check. -->
+	<!-- @link https://github.com/WordPress/WordPress-Coding-Standards/wiki/Customizable-sniff-properties#minimum-wp-version-to-check-for-usage-of-deprecated-functions-classes-and-function-parameters -->
+	<config name="minimum_supported_wp_version" value="5.9" />
+
+	<!-- PHP compatibility test version 8.0 and higher. -->
 	<config name="testVersion" value="8.0-" />
 
+	<!-- Fix `trim` error on PHP 8.1 -->
+	<!-- @link https://github.com/pronamic/wp-coding-standards/issues/1 -->
+	<config name="prefixes" value="" />
+	<config name="text_domain" value="" />
+
+	<!-- Exclude patterns -->
 	<exclude-pattern>*/bower_components/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
