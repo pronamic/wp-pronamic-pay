@@ -57,8 +57,8 @@ if ( ! defined( 'WPINC' ) ) {
 			'getting-started' => __( 'Getting started', 'pronamic_ideal' ),
 		];
 
-		$current_tab = filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_STRING );
-		$current_tab = empty( $current_tab ) ? key( $nav_tabs ) : $current_tab;
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce is not necessary because this parameter does not trigger an action.
+		$current_tab = \array_key_exists( 'tab', $_GET ) ? \sanitize_title( \wp_unslash( $_GET['tab'] ) ) : 'new';
 
 		foreach ( $nav_tabs as $tab_id => $tab_title ) {
 			$classes = [ 'nav-tab' ];
