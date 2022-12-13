@@ -1,3 +1,14 @@
+<?php
+/**
+ * Section "Screenshots" in `readme.txt`
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2022 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+?>
 1. Payment provider configurations
 2. Edit configuration
 3. Built-in payment forms
