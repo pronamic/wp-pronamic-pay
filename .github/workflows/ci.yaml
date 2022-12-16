@@ -1,0 +1,24 @@
+name: CI
+
+on: [ push, pull_request ]
+
+jobs:
+  phplint:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
+    uses: pronamic/actions/.github/workflows/phplint.yml@main
+
+  phpcs:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
+    uses: pronamic/actions/.github/workflows/phpcs.yml@main
+
+  phpstan:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
+    uses: pronamic/actions/.github/workflows/phpstan.yml@main
+
+  phpunit:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
+    uses: pronamic/actions/.github/workflows/phpunit.yml@main
+
+  coverage:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
+    uses: pronamic/actions/.github/workflows/coverage.yml@main
