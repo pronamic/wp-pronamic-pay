@@ -65,13 +65,13 @@ if ( isset( $argv[1] ) && 'release' === $argv[1] ) {
 
 foreach ( $organisations as $organisation => $repositories ) {
 	foreach ( $repositories as $repository => $name ) {
-		$title = sprintf( '#   %s/%s - %s   #', $organisation, $repository, $name );
+		$header = sprintf( '#   %s/%s - %s   #', $organisation, $repository, $name );
 
-		echo str_repeat( '#', strlen( $title ) ) . \PHP_EOL;
-		echo '#' . str_repeat( ' ', strlen( $title ) - 2 ) . '#' . \PHP_EOL;
-		echo $title . \PHP_EOL;
-		echo '#' . str_repeat( ' ', strlen( $title ) - 2 ) . '#' . \PHP_EOL;
-		echo str_repeat( '#', strlen( $title ) ) . \PHP_EOL;
+		echo str_repeat( '#', strlen( $header ) ) . \PHP_EOL;
+		echo '#' . str_repeat( ' ', strlen( $header ) - 2 ) . '#' . \PHP_EOL;
+		echo $header . \PHP_EOL;
+		echo '#' . str_repeat( ' ', strlen( $header ) - 2 ) . '#' . \PHP_EOL;
+		echo str_repeat( '#', strlen( $header ) ) . \PHP_EOL;
 
 		$git_url = sprintf(
 			'https://github.com/%s/%s.git',
@@ -200,7 +200,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 				fi;
 
 				echo "📖 ${bold}Commits since latest release:${normal}"
-				echo "$LOG" | while read line; do echo "https://github.com/' . $organisation .'/' . $repository .'/commit/$line"; done
+				echo "$LOG" | while read line; do echo "https://github.com/' . $organisation . '/' . $repository . '/commit/$line"; done
 				echo ""
 
 				# Set version numbers.
