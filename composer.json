@@ -109,7 +109,6 @@
 	"scripts": {
 		"build": [
 			"@generate-readme",
-			"@generate-changelog",
 
 			"rm -rf ./build/",
 			"mkdir ./build/",
@@ -144,11 +143,6 @@
 		"generate-readme": [
 			"@generate-readme-txt",
 			"@generate-readme-md"
-		],
-		"generate-changelog-md": "php src/changelog-md/CHANGELOG.php > CHANGELOG.md",
-		"generate-changelog": [
-			"@generate-readme-txt",
-			"@generate-changelog-md"
 		]
 	}
 }
