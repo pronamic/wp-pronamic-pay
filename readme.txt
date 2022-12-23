@@ -113,72 +113,23 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
-= 9.1.3 - 2022-12-01 =
-*	Updated WordPress pay Easy Digital Downloads library to version 4.2.2.
-	*	Fix required field indicator HTML escaped. [#5](https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/issues/5)
-*	Updated WordPress pay WooCommerce library to version 4.3.3.
-	*	Fix creating zero amount refunds. [#31](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/31)
-*	Updated WordPress pay Adyen library to version 4.3.1.
-	*	Redirect API-only payment methods to payment action URL. [#18](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/18)
-	*	Make `redirectResult` no longer required in return endpoint. [#19](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/19)
-*	Updated WordPress pay Mollie library to version 4.6.0.
-	*	Use new `pronamic/wp-mollie` library.
-	*	Use new `str_*_with` functions, requires WordPress `5.9` or higher.
-*	Updated WordPress pay Pay. library to version 4.4.0.
-	*	Updated to REST API version 13: https://rest-api.pay.nl/v13/.
-	*	Added `statsData` to transaction requests. [#18](https://github.com/pronamic/pronamic-pay/issues/18)
+= 9.1.3 =
+### Fixed
+- Updated WordPress pay Easy Digital Downloads library to version 4.2.2.
+  - Fix required field indicator HTML escaped. [#5](https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/issues/5)
+- Updated WordPress pay WooCommerce library to version 4.3.3.
+  - Fix creating zero amount refunds. [#31](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/31)
+- Updated WordPress pay Adyen library to version 4.3.1.
+  - Redirect API-only payment methods to payment action URL. [#18](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/18)
+  - Make `redirectResult` no longer required in return endpoint. [#19](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/19)
 
-= 9.1.2 - 2022-11-09 =
-*	Updated WordPress pay WooCommerce library to version 4.3.2.
-	*	Fixed "Fatal error: Uncaught Error: Call to undefined function wcs_get_subscriptions_for_order()". ([#29](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/29))
-
-= 9.1.1 - 2022-11-07 =
-*	Updated WordPress pay WooCommerce library to version `4.3.1`.
-	*	Fixed "Fatal error: Uncaught Error: Call to undefined function wcs_get_subscription()". Props @jeffreyvr. [#28](https://github.com/pronamic/wp-pronamic-pay-woocommerce/pull/28)
-
-= 9.1.0 - 2022-11-07 =
-*	Updated WordPress pay core library to version `4.5.0`.
-	*	Catch exceptions while retrieving options from for example iDEAL issuer select fields. ([#78](https://github.com/pronamic/wp-pay-core/issues/78))
-	*	Allow subscription payments at gateways that don't have support for recurring payments. ([pronamic/wp-pronamic-pay-woocommerce#15](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/15))
-	*	Added MobilePay payment method. ([pronamic/wp-pronamic-pay-adyen#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16))
-*	Updated WordPress pay Event Espresso library to version `4.1.2`.
-	*	Fixed "Expected type 'null|array'. Found 'string'.".
-*	Updated WordPress pay Gravity Forms library to version `4.3.0`.
-	*	No support for manual renewals with Gravity Forms.
-*	Updated WordPress pay MemberPress library to version `4.6.0`.
-	*	Prevent recurring payment at gateways without recurring support. [#7](https://github.com/pronamic/wp-pronamic-pay-memberpress/pull/7)
-*	Updated WordPress pay WooCommerce library to version `4.3.0`.
-	*	Fixed subscription status not updated if admin reactivates a WooCommerce subscription. [#25](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/25)
-	*	Fixed fatal error while cancelling subscription. Props @knit-pay. [#14](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/14)
-	*	Fixed payment method field errors not displayed in WooCommerce checkout block. [#22](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/22)
-	*	Added MobilePay payment method. [pronamic/wp-pronamic-pay-adyen#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16)
-*	Updated WordPress pay Adyen library to version `4.3.0`.
-	*	Added MobilePay payment method. [#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16)
-*	Updated WordPress pay Mollie library to version `4.5.0`.
-	*	Added user agent to HTTP requests to Mollie. [#13](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/13)
-*	Updated WordPress pay Rabo Smart Pay (formerly OmniKassa) library to version `4.3.0`.
-	*	Changed name from "OmniKassa" to "Rabo Smart Pay". [#13](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/13)
-	*	Enrich payments methods from new `order/server/api/payment-brands` endpoint. [#15](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/15)
-	*	Added support for SOFORT payment method. [#16](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/16)
-*	Updated WordPress pay Pay. library to version `4.3.0`.
-	*	Updated dashboard URL to https://my.pay.nl/. [#3](https://github.com/pronamic/wp-pronamic-pay-pay-nl/pull/3)
-	*	Added payment provider URL filter. [#3](https://github.com/pronamic/wp-pronamic-pay-pay-nl/pull/3)
-	*	Update integration name from "Pay.nl" to "Pay.". [#2](https://github.com/pronamic/wp-pronamic-pay-pay-nl/issues/2)
-
-= 9.0.1 - 2022-10-11 =
-*	Updated WordPress pay core library to version 4.4.1.
-	*	Added support for multi-dimensional array in `Util::html_hidden_fields()` method ([#73](https://github.com/pronamic/wp-pay-core/issues/73)).
-	*	Fixed setting empty consumer bank details object ([pronamic/wp-pronamic-pay-mollie#11](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/11)).
-	*	Removed unused gateway subscription methods.
-*	Updated WordPress pay Adyen library to version 4.2.3.
-	*	Updated Adyen Drop-in to version `5.27.0` ([#14](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/14)).
-	*	Fixed error triggered by Adyen drop-in with Swish payment method on mobile.
-*	Updated WordPress pay Buckaroo library to version 4.2.2.
-	*	Fixed possible "Warning: Invalid argument supplied for foreach()" when enriching payment methods ([#7](https://github.com/pronamic/wp-pronamic-pay-buckaroo/issues/7)).
-*	Updated WordPress pay Mollie library to version 4.4.1.
-	*	Fixed recurring payments using latest mandate of Mollie customer instead of subscription mandate ([#11](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/11)).
-*	Updated WordPress pay Gravity Forms library to version 4.2.2.
-	*	Fixed catching exceptions in issuer field ([#10](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/10)).
+### Changed
+- Updated WordPress pay Mollie library to version 4.6.0.
+  - Use new `pronamic/wp-mollie` library.
+  - Use new `str_*_with` functions, requires WordPress `5.9` or higher.
+- Updated WordPress pay Pay. library to version 4.4.0.
+  - Updated to REST API version 13: https://rest-api.pay.nl/v13/.
+  - Added `statsData` to transaction requests. [#18](https://github.com/pronamic/pronamic-pay/issues/18)
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
