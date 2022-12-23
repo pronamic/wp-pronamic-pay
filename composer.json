@@ -113,8 +113,10 @@
 
 			"rm -rf ./build/",
 			"mkdir ./build/",
-			"rsync --recursive --delete --exclude-from=.distignore ./ ./build/",
-			"composer install --no-dev --prefer-dist --optimize-autoloader --working-dir=./build/"
+			"mkdir ./build/plugin/",
+			"rsync --recursive --delete --exclude-from=.distignore ./ ./build/plugin/",
+			"composer install --no-dev --prefer-dist --optimize-autoloader --working-dir=./build/plugin/",
+			"vendor/bin/wp dist-archive ./build/plugin/ --plugin-dirname=pronamic-ideal"
 		],
 		"translate": [
 			"@make-pot",
