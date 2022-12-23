@@ -36,6 +36,10 @@
 		<exclude name="WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown" />
 	</rule>
 
+	<rule ref="Generic.Files.EndFileNewline.NotFound">
+		<exclude-pattern>src/readme-md/installation.php</exclude-pattern>
+	</rule>
+
 	<rule ref="Generic.WhiteSpace.ScopeIndent.Incorrect">
 		<exclude-pattern>admin/tab-*.php</exclude-pattern>
 	</rule>
@@ -83,6 +87,10 @@
 	</rule>
 
 	<rule ref="WordPress.WP.AlternativeFunctions.file_system_read_fwrite">
+		<exclude-pattern>src/repositories.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.system_calls_passthru">
 		<exclude-pattern>src/repositories.php</exclude-pattern>
 	</rule>
 
