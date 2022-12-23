@@ -45,23 +45,23 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 
 | Name | Author | WordPress.org | GitHub | Requires at least | Tested up to |
 | ---- | ------ | ------------- | ------ | ----------------- | ------------ |
-| [Charitable](https://www.wpcharitable.com/) | [Studio 164a](https://www.164a.com/) | [WordPress.org](https://wordpress.org/plugins/charitable/) | [GitHub](https://github.com/Charitable/Charitable) | `1.3` | `1.6.54` |
-| [Contact Form 7](https://contactform7.com/) | [Takayuki Miyoshi](https://ideasilo.wordpress.com/) | [WordPress.org](https://nl.wordpress.org/plugins/contact-form-7/) | [GitHub](https://github.com/takayukister/contact-form-7) | `5.2.0` | `5.5.5` |
-| [Easy Digital Downloads](https://easydigitaldownloads.com/) | [Pippin Williamson](https://pippinsplugins.com/) | [WordPress.org](https://wordpress.org/plugins/easy-digital-downloads/) | [GitHub](https://github.com/easydigitaldownloads/Easy-Digital-Downloads) | `1.8.6` | `2.11.5` |
+| [Charitable](https://www.wpcharitable.com/) | [Studio 164a](https://www.164a.com/) | [WordPress.org](https://wordpress.org/plugins/charitable/) | [GitHub](https://github.com/Charitable/Charitable) | `1.3` | `1.7.0.7` |
+| [Contact Form 7](https://contactform7.com/) | [Takayuki Miyoshi](https://ideasilo.wordpress.com/) | [WordPress.org](https://nl.wordpress.org/plugins/contact-form-7/) | [GitHub](https://github.com/takayukister/contact-form-7) | `5.2.0` | `5.7.1` |
+| [Easy Digital Downloads](https://easydigitaldownloads.com/) | [Pippin Williamson](https://pippinsplugins.com/) | [WordPress.org](https://wordpress.org/plugins/easy-digital-downloads/) | [GitHub](https://github.com/easydigitaldownloads/Easy-Digital-Downloads) | `1.8.6` | `3.1.0.3` |
 | [Event Espresso 4](https://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.7.p` | `4.10.8.p` |
 | [Event Espresso 4 Decaf](https://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-decaf/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.4.decaf` | `4.10.8.decaf` |
-| [Formidable Forms](https://formidableforms.com/) | [Strategy11](https://strategy11.com/) | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `4.11` |
-| [Give](https://givewp.com/) |  | [WordPress.org](https://wordpress.org/plugins/give/) | [GitHub](https://github.com/WordImpress/Give) | `1.8.0` | `2.11.1` |
-| [Gravity Forms](https://www.gravityforms.com/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.9` | `2.5.16` |
+| [Formidable Forms](https://formidableforms.com/) | [Strategy11](https://strategy11.com/) | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `5.5.5` |
+| [Give](https://givewp.com/) |  | [WordPress.org](https://wordpress.org/plugins/give/) | [GitHub](https://github.com/WordImpress/Give) | `1.8.0` | `2.23.2` |
+| [Gravity Forms](https://www.gravityforms.com/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.9` | `2.6.8` |
 | [Gravity Forms AWeber Add-On](https://www.gravityforms.com/add-ons/aweber/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.4.2` | `2.9` |
 | [Gravity Forms Campaign Monitor Add-On](https://www.gravityforms.com/add-ons/campaign-monitor/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `2.5.1` | `3.7` |
 | [Gravity Forms MailChimp Add-On](https://www.gravityforms.com/add-ons/mailchimp/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `2.4.1` | `4.6.3` |
 | [Gravity Forms User Registration Add-On](https://www.gravityforms.com/add-ons/user-registration/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.8` | `4.9` |
 | [Gravity Forms Zapier Add-On](https://www.gravityforms.com/add-ons/zapier/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.4.2` | `3.2` |
-| [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](https://caseproof.com/) |  |  | `1.9.21` | `1.9.27` |
-| [Ninja Forms](https://ninjaforms.com/) | [The WP Ninjas](https://ninjaforms.com/) | [WordPress.org](https://wordpress.org/plugins/ninja-forms/) | [GitHub](https://github.com/wpninjas/ninja-forms) | `3.3.15` | `3.6.7` |
+| [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](https://caseproof.com/) |  |  | `1.9.21` | `1.9.53` |
+| [Ninja Forms](https://ninjaforms.com/) | [The WP Ninjas](https://ninjaforms.com/) | [WordPress.org](https://wordpress.org/plugins/ninja-forms/) | [GitHub](https://github.com/wpninjas/ninja-forms) | `3.3.15` | `3.6.14` |
 | [Restrict Content Pro](https://restrictcontentpro.com/) | [Sandhills Development, LLC](https://sandhillsdev.com/) |  |  | `3.0.0` | `3.4.4` |
-| [WooCommerce](https://woocommerce.com/) | [Automattic](https://automattic.com/) | [WordPress.org](https://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woocommerce/woocommerce) | `2.3.0` | `6.2.0` |
+| [WooCommerce](https://woocommerce.com/) | [Automattic](https://automattic.com/) | [WordPress.org](https://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woocommerce/woocommerce) | `2.3.0` | `7.2.1` |
 
 
 ## Installation

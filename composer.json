@@ -107,6 +107,19 @@
 		}
 	},
 	"scripts": {
+		"build": [
+			"@generate-readme",
+			"@generate-changelog",
+
+			"rm -rf ./build/",
+			"mkdir ./build/",
+			"rsync --recursive --delete --exclude-from=.distignore ./ ./build/",
+			"composer install --no-dev --prefer-dist --optimize-autoloader --working-dir=./build/"
+		],
+		"translate": [
+			"@make-pot",
+			"@update-po"
+		],
 		"coveralls": "vendor/bin/php-coveralls -v",
 		"phpcbf": "XDEBUG_MODE=off vendor/bin/phpcbf",
 		"phpcs": "XDEBUG_MODE=off vendor/bin/phpcs -s -v",
@@ -134,12 +147,6 @@
 		"generate-changelog": [
 			"@generate-readme-txt",
 			"@generate-changelog-md"
-		],
-		"build": [
-		    "@generate-readme",
-		    "@generate-changelog",
-		    "@make-pot",
-		    "@update-po"
 		]
 	}
 }
