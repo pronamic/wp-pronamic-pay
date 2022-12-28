@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a0af08dc8c2b6dd2ec9d4cef92aa3f0",
+    "content-hash": "b89343cc55c1f29771086a70fdae3f9a",
     "packages": [
         {
             "name": "composer/installers",
@@ -282,35 +282,36 @@
         },
         {
             "name": "pronamic/wp-datetime",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-datetime.git",
-                "reference": "7c37b0dbe781273fa0e72ddfd92bcd6c1bd7ef31"
+                "reference": "fdc8c36fba5048787db090396b4cced195cded12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-datetime/zipball/7c37b0dbe781273fa0e72ddfd92bcd6c1bd7ef31",
-                "reference": "7c37b0dbe781273fa0e72ddfd92bcd6c1bd7ef31",
+                "url": "https://api.github.com/repos/pronamic/wp-datetime/zipball/fdc8c36fba5048787db090396b4cced195cded12",
+                "reference": "fdc8c36fba5048787db090396b4cced195cded12",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.0"
             },
             "require-dev": {
+                "automattic/wordbless": "^0.3 || ^0.4",
                 "bamarni/composer-bin-plugin": "^1.4",
                 "koodimonni-language/de_de": "*",
+                "koodimonni-language/en_gb": "*",
                 "koodimonni-language/fr_fr": "*",
                 "koodimonni-language/ja": "*",
                 "koodimonni-language/nl_nl": "*",
                 "php-coveralls/php-coveralls": "^2.4",
+                "php-stubs/wordpress-globals": "^0.2.0",
                 "phpmd/phpmd": "^2.9",
                 "pronamic/wp-coding-standards": "^1.3",
-                "pronamic/wp-deployer": "^1.0",
+                "pronamic/wp-deployer": "^1.1",
                 "roots/wordpress": "^6.0",
-                "squizlabs/php_codesniffer": "^3.5",
                 "vlucas/phpdotenv": "^2.0",
-                "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "library",
@@ -326,9 +327,9 @@
             "description": "WordPress DateTime library.",
             "support": {
                 "issues": "https://github.com/pronamic/wp-datetime/issues",
-                "source": "https://github.com/pronamic/wp-datetime/tree/v2.1.0"
+                "source": "https://github.com/pronamic/wp-datetime/tree/v2.1.1"
             },
-            "time": "2022-12-19T14:40:00+00:00"
+            "time": "2022-12-28T13:23:11+00:00"
         },
         {
             "name": "pronamic/wp-gravityforms-nl",
@@ -720,31 +721,31 @@
         },
         {
             "name": "wp-pay-extensions/charitable",
-            "version": "4.2.1",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-charitable.git",
-                "reference": "5d5cda687bb652be735020c68efd134478ce7b5c"
+                "reference": "b906cc2ecf111af4307e05f09d9be8392a48e579"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-charitable/zipball/5d5cda687bb652be735020c68efd134478ce7b5c",
-                "reference": "5d5cda687bb652be735020c68efd134478ce7b5c",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-charitable/zipball/b906cc2ecf111af4307e05f09d9be8392a48e579",
+                "reference": "b906cc2ecf111af4307e05f09d9be8392a48e579",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.20",
-                "wp-pay/core": "^4.4"
+                "php": ">=8.0",
+                "wp-pay/core": "^4.6"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
                 "charitable/charitable": "^1.6",
-                "php-coveralls/php-coveralls": "^2.4",
+                "php-coveralls/php-coveralls": "^2.5",
                 "phpmd/phpmd": "^2.9",
-                "phpunit/phpunit": "^5.7 || ^6.0",
-                "pronamic/wp-coding-standards": "^1.0",
-                "roots/wordpress": "^5.8",
-                "wp-phpunit/wp-phpunit": "^5.8",
+                "pronamic/wp-coding-standards": "^1.3",
+                "pronamic/wp-deployer": "^1.2",
+                "roots/wordpress": "^6.0",
+                "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "library",
@@ -786,7 +787,7 @@
                 "issues": "https://github.com/wp-pay-extensions/charitable/issues",
                 "source": "https://github.com/wp-pay-extensions/charitable"
             },
-            "time": "2022-09-27T09:32:34+00:00"
+            "time": "2022-12-23T07:55:24+00:00"
         },
         {
             "name": "wp-pay-extensions/contact-form-7",
@@ -4886,16 +4887,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.22",
+            "version": "9.2.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "e4bf60d2220b4baaa0572986b5d69870226b06df"
+                "reference": "9f1f0f9a2fbb680b26d1cf9b61b6eac43a6e4e9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/e4bf60d2220b4baaa0572986b5d69870226b06df",
-                "reference": "e4bf60d2220b4baaa0572986b5d69870226b06df",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/9f1f0f9a2fbb680b26d1cf9b61b6eac43a6e4e9c",
+                "reference": "9f1f0f9a2fbb680b26d1cf9b61b6eac43a6e4e9c",
                 "shasum": ""
             },
             "require": {
@@ -4951,7 +4952,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.22"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.23"
             },
             "funding": [
                 {
@@ -4959,7 +4960,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-18T16:40:55+00:00"
+            "time": "2022-12-28T12:41:10+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
