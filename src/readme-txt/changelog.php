@@ -12,13 +12,14 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 $changelog = new \Pronamic\Deployer\Changelog( __DIR__ . '/../../CHANGELOG.md' );
 
-$entry = $changelog->get_entry( $pkg->version );
+$entries = array_slice( $changelog->get_entries(), 0, 5 );
 
-if ( null !== $entry ) {
-	echo '= ', $pkg->version, ' =', "\n";
+foreach ( $entries as $entry ) {
+	echo '= ', $entry->version, ' =', "\n";
+
 	echo implode( "\n", $entry->get_lines() );
-	echo "\n";
+
+	echo str_repeat( "\n", 2 );
 }
 
-echo "\n";
 echo '[See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)';
