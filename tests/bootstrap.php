@@ -30,4 +30,9 @@ if ( defined( 'PSALM_VERSION' ) ) {
 /**
  * Plugin.
  */
-require_once __DIR__ . '/../pronamic-ideal.php';
+\Pronamic\WordPress\Pay\Plugin::instance(
+	[
+		'file'                 => __DIR__ . '/../pronamic-ideal.php',
+		'action_scheduler'     => __DIR__ . '/../index.php',
+	]
+);

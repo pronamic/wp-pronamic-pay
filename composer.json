@@ -97,7 +97,6 @@
 		"roots/wordpress": "^6.0",
 		"wp-cli/wp-cli": "dev-main",
 		"wp-cli/wp-cli-bundle": "dev-main",
-		"wp-phpunit/wp-phpunit": "^6.1",
 		"yoast/phpunit-polyfills": "^1.0"
 	},
 	"extra": {
@@ -122,16 +121,23 @@
 			"@make-pot",
 			"@update-po"
 		],
+		"coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text",
+		"coverage-clover": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover build/logs/clover.xml",
+		"coverage-html": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-html build/coverage-html",
+		"coverage-text": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text",
 		"coveralls": "vendor/bin/php-coveralls -v",
 		"phpcbf": "XDEBUG_MODE=off vendor/bin/phpcbf",
 		"phpcs": "XDEBUG_MODE=off vendor/bin/phpcs -s -v",
 		"phplint": "find src tests -name '*.php' | xargs -n 1 -P 4 php -l",
 		"phpmd": "vendor/bin/phpmd src,tests text phpmd.ruleset.xml --suffixes php",
-		"phpstan": "vendor/bin/phpstan analyse --memory-limit=-1",
-		"phpunit": "vendor/bin/phpunit --colors=always",
+		"phpstan": "XDEBUG_MODE=off vendor/bin/phpstan analyse --memory-limit=-1",
+		"phpunit": "XDEBUG_MODE=off vendor/bin/phpunit --colors=always",
 		"php-lint-plugin": "find -L . -type f -path ./.git -prune -o -path ./deploy -prune -o -path ./node_modules -prune -o -path ./repositories -prune -o -path ./vendor -prune -o -path ./wordpress -prune -o -path ./wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
 		"php-lint-wp-pay": "find -L ./repositories/ -type f -name .git -prune -o -name node_modules -prune -o -name vendor -prune -o -name wordpress -prune -o -name wp-content -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l -n",
-		"post-install-cmd": "echo 'Optionally run: composer bin all install'",
+		"post-install-cmd": [
+			"echo 'Optionally run: composer bin all install'",
+			"mkdir -p wordpress/wp-content && cp wp-content/wordbless/src/dbless-wpdb.php wordpress/wp-content/db.php"
+		],
 		"post-update-cmd": [
 			"echo 'Optionally run: composer bin all update'",
 			"mkdir -p wordpress/wp-content && cp wp-content/wordbless/src/dbless-wpdb.php wordpress/wp-content/db.php"
