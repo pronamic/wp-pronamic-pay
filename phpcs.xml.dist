@@ -26,6 +26,8 @@
 	<exclude-pattern>wp-content/*</exclude-pattern>
 
 	<rule ref="PronamicWP">
+		<exclude name="Squiz.Commenting.FileComment.Missing">src/readme-txt/changelog.php</exclude>
+
 		<exclude name="WordPress.DB.DirectDatabaseQuery.DirectQuery" />
 		<exclude name="WordPress.DB.DirectDatabaseQuery.NoCaching" />
 
