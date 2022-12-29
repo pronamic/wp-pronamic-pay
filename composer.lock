@@ -1513,37 +1513,37 @@
         },
         {
             "name": "wp-pay-gateways/adyen",
-            "version": "4.3.1",
+            "version": "v4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-adyen.git",
-                "reference": "5432b8964768fdd34160092a2fcf2e27943eeed0"
+                "reference": "fe845656de41efdce26a515d74e809b22ad1013f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-adyen/zipball/5432b8964768fdd34160092a2fcf2e27943eeed0",
-                "reference": "5432b8964768fdd34160092a2fcf2e27943eeed0",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-adyen/zipball/fe845656de41efdce26a515d74e809b22ad1013f",
+                "reference": "fe845656de41efdce26a515d74e809b22ad1013f",
                 "shasum": ""
             },
             "require": {
                 "ext-intl": "*",
                 "justinrainbow/json-schema": "^5.2",
-                "php": ">=5.6.20",
-                "pronamic/wp-http": "^1.0",
-                "pronamic/wp-money": "^2.0",
-                "wp-pay/core": "^4.5"
+                "php": ">=8.0",
+                "pronamic/wp-http": "^1.2",
+                "pronamic/wp-money": "^2.2",
+                "wp-pay/core": "^4.6"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
-                "overtrue/phplint": "^1.2",
-                "php-coveralls/php-coveralls": "^2.4",
+                "overtrue/phplint": "^5.3",
+                "php-coveralls/php-coveralls": "^2.5",
                 "phpmd/phpmd": "^2.8",
-                "phpunit/phpunit": "^5.7",
-                "pronamic/wp-coding-standards": "^1.0",
-                "roots/wordpress": "^5.8",
+                "pronamic/wp-coding-standards": "^1.3",
+                "pronamic/wp-deployer": "^1.1",
+                "roots/wordpress": "^6.0",
                 "sirbrillig/phpcs-import-detection": "^1.2",
                 "sirbrillig/phpcs-variable-analysis": "^2.8",
-                "wp-phpunit/wp-phpunit": "^5.8",
+                "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "library",
@@ -1585,7 +1585,7 @@
                 "issues": "https://github.com/wp-pay-gateways/adyen/issues",
                 "source": "https://github.com/wp-pay-gateways/adyen"
             },
-            "time": "2022-11-29T12:43:15+00:00"
+            "time": "2022-12-20T09:27:24+00:00"
         },
         {
             "name": "wp-pay-gateways/buckaroo",
@@ -5363,16 +5363,16 @@
         },
         {
             "name": "pronamic/wp-deployer",
-            "version": "v1.2.6",
+            "version": "v1.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-deployer.git",
-                "reference": "2fab61cfce2ae09eefa2cffe0974c4560b42070d"
+                "reference": "778fa74c200fd5d9d6d34dabd2b83af593ddbd29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-deployer/zipball/2fab61cfce2ae09eefa2cffe0974c4560b42070d",
-                "reference": "2fab61cfce2ae09eefa2cffe0974c4560b42070d",
+                "url": "https://api.github.com/repos/pronamic/wp-deployer/zipball/778fa74c200fd5d9d6d34dabd2b83af593ddbd29",
+                "reference": "778fa74c200fd5d9d6d34dabd2b83af593ddbd29",
                 "shasum": ""
             },
             "require": {
@@ -5404,9 +5404,9 @@
             "description": "WordPress deployer.",
             "support": {
                 "issues": "https://github.com/pronamic/wp-deployer/issues",
-                "source": "https://github.com/pronamic/wp-deployer/tree/v1.2.6"
+                "source": "https://github.com/pronamic/wp-deployer/tree/v1.2.8"
             },
-            "time": "2022-12-23T09:27:28+00:00"
+            "time": "2022-12-29T14:47:01+00:00"
         },
         {
             "name": "psr/container",
