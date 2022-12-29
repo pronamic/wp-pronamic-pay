@@ -1,3 +1,6 @@
+# Distribution ignore
+/.distignore
+
 # Git (https://git-scm.com/)
 /.git/
 /.gitignore
@@ -5,6 +8,9 @@
 
 # .DS_Store (https://en.wikipedia.org/wiki/.DS_Store)
 .DS_Store
+
+# Documentation
+/documentation/
 
 # WordPress
 /wordpress/
@@ -22,6 +28,9 @@
 # Node.js (https://nodejs.org/)
 /node_modules/
 
+# pNpm (https://pnpm.io/)
+/pnpm-lock.yaml
+
 # IntelliJ's project specific settings files
 # @link https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 /.idea/
@@ -34,6 +43,12 @@
 
 # Grunt (https://gruntjs.com/)
 /Gruntfile.js
+
+# Nova (https://nova.app)
+/.nova/
+
+# PHP error logs
+/php_errors.log
 
 # PHP_CodeSniffer (https://github.com/squizlabs/PHP_CodeSniffer)
 /phpcs.xml.dist
