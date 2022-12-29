@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-12-23T14:00:28+00:00\n"
-"PO-Revision-Date: 2022-11-29 22:44+0100\n"
+"POT-Creation-Date: 2022-12-29T15:02:56+00:00\n"
+"PO-Revision-Date: 2022-12-29 16:08+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Plugin Name of the plugin
@@ -21,7 +21,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:84
 #: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:127
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:52
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:519
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:520
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:163
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:106
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:566
@@ -1547,7 +1547,7 @@ msgstr "Standaard:"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:173
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:236
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:336
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:337
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:109
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:99
 #: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:90
@@ -2425,7 +2425,7 @@ msgstr "Hiermee beheer je de betalingsomschrijving."
 #. translators: %s: default code
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:307
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:323
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:344
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:345
 #: vendor/wp-pay-gateways/buckaroo/src/Integration.php:180
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:117
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:107
@@ -2503,8 +2503,12 @@ msgid "https://www.adyen.com/pricing"
 msgstr "https://www.adyen.com/pricing"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:50
-msgid "https://www.pronamic.eu/manuals/using-adyen-pronamic-pay/"
-msgstr "https://www.pronamic.nl/support/pronamic-pay-koppelen-met-adyen/"
+msgid ""
+"https://www.pronamicpay.com/en/manuals/how-to-connect-adyen-to-wordpress-"
+"with-pronamic-pay/"
+msgstr ""
+"https://www.pronamicpay.com/nl/handleidingen/hoe-je-adyen-aan-wordpress-"
+"koppelt-met-pronamic-pay/"
 
 #. translators: Translate 'notification' the same as in the Adyen dashboard.
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:159
@@ -2529,57 +2533,57 @@ msgstr ""
 "authenticatie instellingen in het Adyen-dashboard in voor een betere "
 "beveiliging (aanbevolen)."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:235
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:234
 msgctxt "adyen"
 msgid "Merchant Account"
 msgstr "Merchant account"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:238
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:237
 msgid ""
 "The merchant account identifier, with which you want to process the "
 "transaction."
 msgstr "De merchant account waarmee je transacties wilt verwerken."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:247
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:251
 msgctxt "adyen"
 msgid "API Key"
 msgstr "API-key"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:250
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:254
 msgid "API key as mentioned in the payment provider dashboard."
 msgstr "API-key zoals vermeld in het dashboard van de betalingsprovider."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:254
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:258
 msgid "Adyen documentation: \"API credentials\"."
 msgstr "Adyen documentatie: “API credentials”."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:265
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:268
 msgctxt "adyen"
 msgid "Environment"
 msgstr "Omgeving"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:270
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:273
 msgid "Live - Europe"
 msgstr "Live - Europa"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:271
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:274
 msgid "Live - Asia Pacific South East"
 msgstr "Live - Azië-Pacific Zuid-Oost"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:272
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:275
 msgid "Live - Australia"
 msgstr "Live - Australië"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:273
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:276
 msgid "Live - United States"
 msgstr "Live - Verenigde Staten"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:285
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:287
 msgctxt "adyen"
 msgid "API Live URL Prefix"
 msgstr "API live URL prefix"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:288
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:290
 msgid ""
 "The unique prefix for the live API URL, as mentioned at <strong>Account » "
 "API URLs</strong> in the Adyen dashboard."
@@ -2587,36 +2591,36 @@ msgstr ""
 "De unieke prefix voor de live API URL, zoals genoemd onder <strong>Account » "
 "API URLs</strong> in het Adyen dashboard."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:292
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:294
 msgid "Adyen documentation: \"Live URL prefix\"."
 msgstr "Adyen documentatie: \"Live URL prefix\"."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:303
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:304
 msgctxt "adyen"
 msgid "Client Key"
 msgstr "Client Key"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:313
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:314
 msgid "Adyen documentation: \"Get your client key\"."
 msgstr "Adyen documentatie: “Get your client key”."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:326
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:327
 msgid "Merchant Order Reference"
 msgstr "Merchant bestelreferentie"
 
 #. translators: %s: <code>parameterName</code>
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:331
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:332
 msgid "The Adyen %s parameter."
 msgstr "De Adyen parameter %s."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:353
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:354
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:192
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:252
 msgid "Webhook URL"
 msgstr "Webhook URL"
 
 #. translators: %s: payment provider name
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:360
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:361
 msgid ""
 "Copy the Webhook URL to the %s dashboard to receive automatic transaction "
 "status updates."
@@ -2624,35 +2628,35 @@ msgstr ""
 "Kopieer de Webhook URL naar het %s dashboard om automatische transactie "
 "status updates te ontvangen."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:361
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:362
 #: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:177
 #: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:34
 msgid "Adyen"
 msgstr "Adyen"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:373
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:374
 msgid "SSL Version"
 msgstr "SSL-versie"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:375
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:376
 msgid "Choose the SSL Version of your server on the Adyen Customer Area."
 msgstr "Kies de SSL-versie van je server in de Adyen klantomgeving."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:386
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:387
 msgctxt "adyen notification"
 msgid "Method"
 msgstr "Methode"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:388
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:389
 msgid "JSON"
 msgstr "JSON"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:394
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:395
 msgid "Authentication"
 msgstr "Authenticatie"
 
 #. translators: %s: Pronamic Pay settings page URL.
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:398
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:399
 msgid ""
 "Go to the <a href=\"%s\">Pronamic Pay settings page</a> for webhook "
 "authentication settings."
@@ -2660,7 +2664,7 @@ msgstr ""
 "Ga naar de <a href=\"%s\">Pronamic Pay instellingen pagina</a> voor webhook "
 "authenticatie instellingen."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:520
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:521
 msgid "The following Ayden configurations must be migrated to a client key:"
 msgstr ""
 "De volgende Ayden-configuraties moeten worden gemigreerd naar een "
@@ -3112,12 +3116,11 @@ msgid "https://icepay.com/nl/en/pricing-and-accounts/"
 msgstr "https://icepay.com/nl/prijzen-en-accounts/"
 
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:31
-#, fuzzy
 msgid ""
 "https://www.pronamicpay.com/en/manuals/how-to-connect-icepay-to-wordpress-"
 "with-pronamic-pay/"
 msgstr ""
-"https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-targetpay-aan-"
+"https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-icepay-aan-"
 "wordpress-met-pronamic-pay/"
 
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:63
@@ -3393,7 +3396,7 @@ msgstr "De iDEAL Basic notificatie is leeg."
 
 #: vendor/wp-pay-gateways/ideal-basic/src/NotificationController.php:78
 msgid "The PHP SimpleXML extension could not interpret the XML."
-msgstr ""
+msgstr "De PHP SimpleXML extensie kon de XML niet interpreteren."
 
 #. translators: %s: Purchase ID.
 #: vendor/wp-pay-gateways/ideal-basic/src/NotificationController.php:98
@@ -3782,12 +3785,11 @@ msgid "http://www.multisafepay.com/"
 msgstr "https://www.multisafepay.com/nl_nl/"
 
 #: vendor/wp-pay-gateways/multisafepay/src/Integration.php:46
-#, fuzzy
 msgid ""
 "https://www.pronamicpay.com/en/manuals/how-to-connect-multisafepay-to-"
 "wordpress-with-pronamic-pay/"
 msgstr ""
-"https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-targetpay-aan-"
+"https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-multisafepay-aan-"
 "wordpress-met-pronamic-pay/"
 
 #: vendor/wp-pay-gateways/multisafepay/src/Integration.php:74
@@ -3844,13 +3846,12 @@ msgid "https://payment-services.ingenico.com/nl/en"
 msgstr "https://payment-services.ingenico.com/nl/nl"
 
 #: vendor/wp-pay-gateways/ogone/src/AbstractIntegration.php:16
-#, fuzzy
 msgid ""
 "https://www.pronamicpay.com/en/manuals/how-to-connect-ingenico-to-wordpress-"
 "with-pronamic-pay/"
 msgstr ""
-"https://www.pronamicpay.com/nl/handleidingen/hoe-je-mollie-aan-wordpress-"
-"koppelt-met-pronamic-pay/"
+"https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-ingenico-aan-"
+"wordpress-met-pronamic-pay/"
 
 #: vendor/wp-pay-gateways/ogone/src/Listener.php:42
 msgid "Webhook requested."
@@ -4092,13 +4093,12 @@ msgid "Rabo Smart Pay webhook URL requested:"
 msgstr "Rabo Smart Pay webhook URL aangevraagd:"
 
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:56
-#, fuzzy
 msgid ""
 "https://www.pronamicpay.com/en/manuals/how-to-connect-rabo-smart-pay-to-"
 "wordpress-with-pronamic-pay/"
 msgstr ""
-"https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-targetpay-aan-"
-"wordpress-met-pronamic-pay/"
+"https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-rabobank-"
+"omnikassa-2-0-aan-wordpress-met-pronamic-pay/"
 
 #. translators: 1: Pronamic Pay, 2: Documentation link, 3: <code>.test</code>
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:157
@@ -4140,7 +4140,7 @@ msgstr "Unieke ID voor de gateway configuratie."
 
 #: vendor/wp-pay-gateways/omnikassa-2/src/WebhookController.php:131
 msgid "Invalid Rabo Smart Pay notification."
-msgstr ""
+msgstr "Ongeldige Rabo Smart Pay notificatie."
 
 #: vendor/wp-pay-gateways/omnikassa-2/src/WebhookController.php:145
 msgid "No gateway ID given in `id` parameter."
@@ -4148,7 +4148,7 @@ msgstr "Geen configuratie ID opgegeven in de parameter `id`."
 
 #: vendor/wp-pay-gateways/omnikassa-2/src/WebhookController.php:155
 msgid "Invalid Rabo Smart Pay gateway."
-msgstr ""
+msgstr "Ongeldige Rabo Smart Pay gateway."
 
 #: vendor/wp-pay-gateways/pay-nl/src/Client.php:91
 msgid "Unknown response from Pay.nl."
@@ -4166,14 +4166,14 @@ msgstr "Onbekende Pay.nl fout."
 msgid ""
 "Failed to request banks from Pay., received an unexpected answer from Pay."
 msgstr ""
+"Banken opvragen bij Pay. is mislukt, onverwacht antwoord van Pay. ontvangen."
 
 #: vendor/wp-pay-gateways/pay-nl/src/Integration.php:35
-#, fuzzy
 msgid ""
 "https://www.pronamicpay.com/en/manuals/how-to-connect-pay-nl-to-wordpress-"
 "with-pronamic-pay/"
 msgstr ""
-"https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-targetpay-aan-"
+"https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-pay-nl-aan-"
 "wordpress-met-pronamic-pay/"
 
 #. translators: 1: payment provider name
@@ -4219,13 +4219,12 @@ msgid "https://www.paypal.com/"
 msgstr "https://www.paypal.com/"
 
 #: vendor/wp-pay-gateways/paypal/src/Integration.php:63
-#, fuzzy
 msgid ""
 "https://www.pronamicpay.com/en/manuals/how-to-connect-paypal-to-wordpress-"
 "with-pronamic-pay/"
 msgstr ""
-"https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-targetpay-aan-"
-"wordpress-met-pronamic-pay/"
+"https://www.pronamicpay.com/nl/handleidingen/hoe-je-paypal-aan-wordpress-"
+"koppelt-met-pronamic-pay/"
 
 #: vendor/wp-pay-gateways/paypal/src/Integration.php:138
 msgctxt "paypal"
@@ -5243,7 +5242,7 @@ msgstr "Przelewy24"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:474
 msgid "Riverty"
-msgstr ""
+msgstr "Riverty"
 
 #: vendor/wp-pay/core/src/Core/PaymentMethods.php:475
 msgid "Santander"
@@ -7223,6 +7222,9 @@ msgstr "Klik op de knop als de doorsturing niet automatisch wordt uitgevoerd."
 msgctxt "block title"
 msgid "Payment Form"
 msgstr "Betalingsformulier"
+
+#~ msgid "https://www.pronamic.eu/manuals/using-adyen-pronamic-pay/"
+#~ msgstr "https://www.pronamic.nl/support/pronamic-pay-koppelen-met-adyen/"
 
 #, fuzzy
 #~ msgid ""

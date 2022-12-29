@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-12-23T14:00:28+00:00\n"
+"POT-Creation-Date: 2022-12-29T15:02:56+00:00\n"
 "PO-Revision-Date: 2022-07-04 16:22+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:84
 #: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:127
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:52
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:519
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:520
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:163
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:106
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:566
@@ -1564,7 +1564,7 @@ msgstr "Standard:"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:173
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:236
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:336
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:337
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:109
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:99
 #: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:90
@@ -2441,7 +2441,7 @@ msgstr "Dies steuert die Zahlungsbeschreibung."
 #. translators: %s: default code
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:307
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:323
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:344
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:345
 #: vendor/wp-pay-gateways/buckaroo/src/Integration.php:180
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:117
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:107
@@ -2516,8 +2516,13 @@ msgid "https://www.adyen.com/pricing"
 msgstr "https://www.adyen.com/de_DE/pricing"
 
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:50
-msgid "https://www.pronamic.eu/manuals/using-adyen-pronamic-pay/"
-msgstr "https://www.pronamic.eu/manuals/using-adyen-pronamic-pay/"
+#, fuzzy
+msgid ""
+"https://www.pronamicpay.com/en/manuals/how-to-connect-adyen-to-wordpress-"
+"with-pronamic-pay/"
+msgstr ""
+"https://www.pronamic.eu/support/how-to-connect-targetpay-with-wordpress-via-"
+"pronamic-pay/"
 
 #. translators: Translate 'notification' the same as in the Adyen dashboard.
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:159
@@ -2542,61 +2547,61 @@ msgstr ""
 "Authentifizierungseinstellungen im Adyen-Dashboard für mehr Sicherheit "
 "(empfohlen)."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:235
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:234
 msgctxt "adyen"
 msgid "Merchant Account"
 msgstr "Handelskonto"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:238
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:237
 msgid ""
 "The merchant account identifier, with which you want to process the "
 "transaction."
 msgstr ""
 "Der Händlerkonto-Kennzeichen, mit dem Sie die Transaktion bearbeiten wollen."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:247
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:251
 msgctxt "adyen"
 msgid "API Key"
 msgstr "API Schlüssel"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:250
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:254
 msgid "API key as mentioned in the payment provider dashboard."
 msgstr "API-Schlüssel wie im Dashboard des Zahlungsanbieters angegeben."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:254
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:258
 #, fuzzy
 msgid "Adyen documentation: \"API credentials\"."
 msgstr "Adyen-Dokumentation: \"Live URL prefix\"."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:265
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:268
 #, fuzzy
 msgctxt "adyen"
 msgid "Environment"
 msgstr "WordPress-Umgebung"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:270
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:273
 msgid "Live - Europe"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:271
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:274
 msgid "Live - Asia Pacific South East"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:272
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:275
 msgid "Live - Australia"
 msgstr ""
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:273
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:276
 #, fuzzy
 msgid "Live - United States"
 msgstr "Lizenz Status"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:285
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:287
 msgctxt "adyen"
 msgid "API Live URL Prefix"
 msgstr "API Live URL Prefix"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:288
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:290
 msgid ""
 "The unique prefix for the live API URL, as mentioned at <strong>Account » "
 "API URLs</strong> in the Adyen dashboard."
@@ -2604,38 +2609,38 @@ msgstr ""
 "Das einzigartige Präfix für die Live-API-URL, wie es bei <strong>Account » "
 "API-URLs</strong> im Adyen-Dashboard erwähnt wird."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:292
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:294
 msgid "Adyen documentation: \"Live URL prefix\"."
 msgstr "Adyen-Dokumentation: \"Live URL prefix\"."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:303
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:304
 #, fuzzy
 msgctxt "adyen"
 msgid "Client Key"
 msgstr "Händlerschlüssel"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:313
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:314
 #, fuzzy
 msgid "Adyen documentation: \"Get your client key\"."
 msgstr "Adyen-Dokumentation: \"How to get an origin key\"."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:326
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:327
 msgid "Merchant Order Reference"
 msgstr "Händlerbestellreferenz"
 
 #. translators: %s: <code>parameterName</code>
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:331
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:332
 msgid "The Adyen %s parameter."
 msgstr "Der Adyen %s Parameter."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:353
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:354
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:192
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:252
 msgid "Webhook URL"
 msgstr "Webhook-URL"
 
 #. translators: %s: payment provider name
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:360
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:361
 msgid ""
 "Copy the Webhook URL to the %s dashboard to receive automatic transaction "
 "status updates."
@@ -2643,35 +2648,35 @@ msgstr ""
 "Kopieren Sie die Webhook-URL in das Dashboard %s, um automatische "
 "Aktualisierungen des Transaktionsstatus zu erhalten."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:361
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:362
 #: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:177
 #: vendor/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:34
 msgid "Adyen"
 msgstr "Adyen"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:373
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:374
 msgid "SSL Version"
 msgstr "SSL Version"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:375
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:376
 msgid "Choose the SSL Version of your server on the Adyen Customer Area."
 msgstr "Wählen Sie die SSL-Version Ihres Servers im Adyen-Kundenbereich."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:386
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:387
 msgctxt "adyen notification"
 msgid "Method"
 msgstr "Methode"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:388
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:389
 msgid "JSON"
 msgstr "JSON"
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:394
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:395
 msgid "Authentication"
 msgstr "Authentifizierung"
 
 #. translators: %s: Pronamic Pay settings page URL.
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:398
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:399
 msgid ""
 "Go to the <a href=\"%s\">Pronamic Pay settings page</a> for webhook "
 "authentication settings."
@@ -2679,7 +2684,7 @@ msgstr ""
 "Wechseln Sie zur <a href=\"%s\">Seite Pronamic Pay-Einstellungen</a> für "
 "Webhook-Authentifizierungseinstellungen."
 
-#: vendor/wp-pay-gateways/adyen/src/Integration.php:520
+#: vendor/wp-pay-gateways/adyen/src/Integration.php:521
 msgid "The following Ayden configurations must be migrated to a client key:"
 msgstr ""
 
@@ -7299,6 +7304,9 @@ msgstr ""
 msgctxt "block title"
 msgid "Payment Form"
 msgstr "Zahlungsformular"
+
+#~ msgid "https://www.pronamic.eu/manuals/using-adyen-pronamic-pay/"
+#~ msgstr "https://www.pronamic.eu/manuals/using-adyen-pronamic-pay/"
 
 #, fuzzy
 #~ msgid ""
