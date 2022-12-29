@@ -118,6 +118,9 @@
 			"vendor/bin/wp package path wp-cli/dist-archive-command || vendor/bin/wp package install wp-cli/dist-archive-command",
 			"vendor/bin/wp dist-archive ./build/plugin/ --plugin-dirname=pronamic-ideal"
 		],
+		"version": [
+			"@build"
+		],
 		"translate": [
 			"@make-pot",
 			"@update-po"
