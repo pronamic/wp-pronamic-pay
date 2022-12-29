@@ -109,7 +109,7 @@
 	"scripts": {
 		"build": [
 			"@generate-readme",
-
+			"@translate",
 			"rm -rf ./build/",
 			"mkdir ./build/",
 			"mkdir ./build/plugin/",
@@ -147,7 +147,7 @@
 			"test -f wp-content/wordbless/src/dbless-wpdb.php && mkdir -p wordpress/wp-content && cp wp-content/wordbless/src/dbless-wpdb.php wordpress/wp-content/db.php || echo 0"
 		],
 		"psalm": "vendor/bin/psalm",
-		"make-pot": "vendor/bin/wp pronamic i18n make-pot . languages/pronamic_ideal.pot --slug='pronamic-ideal'",
+		"make-pot": "XDEBUG_MODE=off vendor/bin/wp pronamic i18n make-pot . languages/pronamic_ideal.pot --slug='pronamic-ideal'",
 		"update-po": "find languages/*.po -type f -exec msgmerge --update --backup=off {} languages/pronamic_ideal.pot \\;",
 		"generate-readme-txt": "php src/readme-txt/readme.php > readme.txt",
 		"generate-readme-md": "php src/readme-md/README.php > README.md",
