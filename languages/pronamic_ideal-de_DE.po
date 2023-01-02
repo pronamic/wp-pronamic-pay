@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2022-12-29T15:02:56+00:00\n"
+"POT-Creation-Date: 2023-01-02T15:21:46+00:00\n"
 "PO-Revision-Date: 2022-07-04 16:22+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -487,7 +487,7 @@ msgstr "Charitable Spende {donation_id}"
 #: vendor/wp-pay-extensions/charitable/src/Gateway.php:94
 #: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:138
 #: vendor/wp-pay-extensions/give/src/Gateway.php:138
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:178
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:174
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:164
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:189
 msgid "Available tags: %s"
@@ -1542,7 +1542,7 @@ msgstr ""
 "strong> ."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:137
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:186
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:205
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:99
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:89
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:296
@@ -2442,7 +2442,7 @@ msgstr "Dies steuert die Zahlungsbeschreibung."
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:307
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:323
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:345
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:180
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:176
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:117
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:107
 #: vendor/wp-pay-gateways/ideal/src/AbstractIntegration.php:66
@@ -2710,7 +2710,7 @@ msgstr "Kann JSON-Benachrichtigung nicht verarbeiten."
 #. translators: %s: payment provider name
 #: vendor/wp-pay-gateways/adyen/src/NotificationsController.php:176
 #: vendor/wp-pay-gateways/digiwallet/src/ReportController.php:135
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:39
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:40
 #: vendor/wp-pay-gateways/icepay/src/Listener.php:55
 #: vendor/wp-pay-gateways/ideal-basic/src/NotificationController.php:108
 msgid "Webhook requested by %s."
@@ -2898,18 +2898,19 @@ msgid "http://www.buckaroo-payments.com"
 msgstr "http://www.buckaroo-payments.com"
 
 #: vendor/wp-pay-gateways/buckaroo/src/Integration.php:56
+#, fuzzy
 msgid ""
-"https://www.pronamic.eu/support/how-to-connect-buckaroo-with-wordpress-via-"
-"pronamic-pay/"
+"https://www.pronamicpay.com/en/manuals/how-to-connect-buckaroo-to-wordpress-"
+"with-pronamic-pay/"
 msgstr ""
-"https://www.pronamic.eu/support/how-to-connect-buckaroo-with-wordpress-via-"
+"https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
 "pronamic-pay/"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:126
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:125
 msgid "Website Key"
 msgstr "Website Key"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:129
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:128
 msgid ""
 "Website key as mentioned in the Buckaroo dashboard on the page \"Profile » "
 "Website\"."
@@ -2917,12 +2918,12 @@ msgstr ""
 "Website-Schlüssel wie im Buckaroo-Dashboard auf der Seite \"Profile\" "
 "Website erwähnt."
 
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:139
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:137
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Integration.php:190
 msgid "Secret Key"
 msgstr "Secret Key"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:142
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:140
 #, fuzzy
 msgid ""
 "Secret key as mentioned in the Buckaroo dashboard on the page "
@@ -2931,25 +2932,25 @@ msgstr ""
 "Geheimschlüssel wie im Buckaroo-Dashboard auf der Seite \"Konfiguration\" "
 "geheimer Schlüssel für digitale Signatur \"erwähnt."
 
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:152
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:149
 msgid "Excluded services"
 msgstr "Exkludierte Serviceleistungen"
 
 #. translators: %s: <code>brq_parameter</code>
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:157
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:172
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:154
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:168
 msgid "This controls the Buckaroo %s parameter."
 msgstr "Dies steuert den Buckaroo%s-Parameter."
 
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:167
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:163
 msgid "Invoice number"
 msgstr "Rechnungsnummer"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:187
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:183
 msgid "Push URL"
 msgstr "Push URL"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:192
+#: vendor/wp-pay-gateways/buckaroo/src/Integration.php:188
 msgid ""
 "The Push URL as sent with each transaction to receive automatic payment "
 "status updates on."
@@ -2967,10 +2968,15 @@ msgid "https://www.digiwallet.nl/"
 msgstr "https://www.digiwallet.nl/"
 
 #: vendor/wp-pay-gateways/digiwallet/src/Integration.php:52
-msgid "https://www.pronamic.eu/manuals/using-digiwallet-pronamic-pay/"
-msgstr "https://www.pronamic.eu/manuals/using-digiwallet-pronamic-pay/"
+#, fuzzy
+msgid ""
+"https://www.pronamicpay.com/en/manuals/how-to-connect-digiwallet-to-"
+"wordpress-with-pronamic-pay/"
+msgstr ""
+"https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
+"pronamic-pay/"
 
-#: vendor/wp-pay-gateways/digiwallet/src/Integration.php:116
+#: vendor/wp-pay-gateways/digiwallet/src/Integration.php:115
 msgctxt "digiwallet"
 msgid "Shop ID (layoutcode)"
 msgstr "Shop-ID (Layoutcode)"
@@ -3014,16 +3020,16 @@ msgstr "Pronamic Zahlung Erfolg"
 msgid "DigiWallet"
 msgstr "DigiWallet"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:185
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:204
 msgid "Approval code"
 msgstr "Genehmigungscode"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:187
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:206
 msgctxt "creditcard"
 msgid "Reference number"
 msgstr "Referenz-Nummer"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:188
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:207
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:212
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:295
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:247
@@ -3039,56 +3045,57 @@ msgstr "Referenz-Nummer"
 msgid "Status"
 msgstr "Status"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:189
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:208
 msgid "Time of transaction processing"
 msgstr "Zeitpunkt der Transaktionsverarbeitung"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:190
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:209
 msgid "Identification for transaction"
 msgstr "Identifikation für die Transaktion"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:191
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:210
 msgid "Fail reason"
 msgstr "Fehlergrund"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:192
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:211
 msgid "Response hash"
 msgstr "Antwort-Hash"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:193
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:212
 msgid "Processor response code"
 msgstr "Prozessor-Antwortcode"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:194
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:213
 msgid "Fail code"
 msgstr "Fehlercode"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:195
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:214
 msgid "Terminal ID"
 msgstr "Terminal-ID"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:196
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:215
 msgid "Creditcard issuing bank"
 msgstr "Kreditkartenausgebende Bank"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:197
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:216
 msgid "Creditcard country"
 msgstr "Kreditkartenland"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:198
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:217
 msgid "Creditcard brand"
 msgstr "Kreditkarten-Marke"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:204
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:222
 msgid "EMS e-Commerce transaction data in response message:"
 msgstr "EMS-E-Commerce-Transaktionsdaten in Antwortnachricht:"
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:45
+#, fuzzy
 msgid ""
-"https://www.pronamic.eu/support/how-to-connect-ems-with-wordpress-via-"
+"https://www.pronamicpay.com/en/manuals/how-to-connect-ems-to-wordpress-with-"
 "pronamic-pay/"
 msgstr ""
-"https://www.pronamic.eu/support/how-to-connect-ems-with-wordpress-via-"
+"https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
 "pronamic-pay/"
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:74
@@ -3122,7 +3129,7 @@ msgstr ""
 "Die Benachrichtigung-URL wird mit jeder Transaktion gesendet, um "
 "automatische Zahlungsstatus-Updates zu erhalten."
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:40
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Listener.php:41
 msgid "EMS"
 msgstr "EMS"
 
@@ -7305,32 +7312,25 @@ msgctxt "block title"
 msgid "Payment Form"
 msgstr "Zahlungsformular"
 
+#~ msgid ""
+#~ "https://www.pronamic.eu/support/how-to-connect-buckaroo-with-wordpress-"
+#~ "via-pronamic-pay/"
+#~ msgstr ""
+#~ "https://www.pronamic.eu/support/how-to-connect-buckaroo-with-wordpress-"
+#~ "via-pronamic-pay/"
+
+#~ msgid "https://www.pronamic.eu/manuals/using-digiwallet-pronamic-pay/"
+#~ msgstr "https://www.pronamic.eu/manuals/using-digiwallet-pronamic-pay/"
+
+#~ msgid ""
+#~ "https://www.pronamic.eu/support/how-to-connect-ems-with-wordpress-via-"
+#~ "pronamic-pay/"
+#~ msgstr ""
+#~ "https://www.pronamic.eu/support/how-to-connect-ems-with-wordpress-via-"
+#~ "pronamic-pay/"
+
 #~ msgid "https://www.pronamic.eu/manuals/using-adyen-pronamic-pay/"
 #~ msgstr "https://www.pronamic.eu/manuals/using-adyen-pronamic-pay/"
-
-#, fuzzy
-#~ msgid ""
-#~ "https://www.pronamicpay.com/en/manuals/how-to-connect-buckaroo-to-"
-#~ "wordpress-with-pronamic-pay/"
-#~ msgstr ""
-#~ "https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
-#~ "pronamic-pay/"
-
-#, fuzzy
-#~ msgid ""
-#~ "https://www.pronamicpay.com/en/manuals/how-to-connect-digiwallet-to-"
-#~ "wordpress-with-pronamic-pay/"
-#~ msgstr ""
-#~ "https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
-#~ "pronamic-pay/"
-
-#, fuzzy
-#~ msgid ""
-#~ "https://www.pronamicpay.com/en/manuals/how-to-connect-ems-to-wordpress-"
-#~ "with-pronamic-pay/"
-#~ msgstr ""
-#~ "https://www.pronamic.eu/support/how-to-connect-mollie-with-wordpress-via-"
-#~ "pronamic-pay/"
 
 #~ msgid ""
 #~ "https://www.pronamic.eu/support/how-to-connect-icepay-with-wordpress-via-"
