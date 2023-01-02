@@ -26,7 +26,7 @@ fi
 ./vendor/bin/wp-deployer deploy pronamic-pay-formidable-forms https://github.com/pronamic/wp-pronamic-pay-formidable-forms.git -vvvv --branch main --non-interactive --to-s3
 ./vendor/bin/wp-deployer deploy pronamic-pay-fundraising https://github.com/pronamic/wp-pronamic-pay-fundraising.git -vvvv --branch main --non-interactive --to-s3
 ./vendor/bin/wp-deployer deploy pronamic-pay-give https://github.com/pronamic/wp-pronamic-pay-give.git -vvvv --branch main --non-interactive --to-s3
-./vendor/bin/wp-deployer deploy pronamic-pay-gravitforms https://github.com/pronamic/wp-pronamic-pay-gravityforms.git -vvvv --branch main --non-interactive --to-s3
+./vendor/bin/wp-deployer deploy pronamic-pay-gravityforms https://github.com/pronamic/wp-pronamic-pay-gravityforms.git -vvvv --branch main --non-interactive --to-s3
 ./vendor/bin/wp-deployer deploy pronamic-pay-memberpress https://github.com/pronamic/wp-pronamic-pay-memberpress.git -vvvv --branch main --non-interactive --to-s3
 ./vendor/bin/wp-deployer deploy pronamic-pay-mollie https://github.com/pronamic/wp-pronamic-pay-mollie.git -vvvv --branch main --non-interactive --to-s3
 ./vendor/bin/wp-deployer deploy pronamic-pay-ninjaforms https://github.com/pronamic/wp-pronamic-pay-ninjaforms.git -vvvv --branch main --non-interactive --to-s3
