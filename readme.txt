@@ -29,7 +29,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 = Supported WordPress e-commerce plugins =
 
 *	[Charitable](https://www.wpcharitable.com/)
-*	[Contact Form 7](https://contactform7.com/) (requires [Basic license](https://www.pronamic.eu/plugins/pronamic-pay/))
+*	[Contact Form 7](https://contactform7.com/) (requires [Basic license](https://www.pronamicpay.com/))
 *	[Easy Digital Downloads](https://easydigitaldownloads.com/)
 *	[Event Espresso 4](https://eventespresso.com/)
 *	[Event Espresso 4 Decaf](https://eventespresso.com/)
@@ -49,7 +49,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 = Supported payment providers =
 
 *	ABN AMRO - iDEAL Zelfbouw
-*	Adyen (requires [Pro license](https://www.pronamic.eu/plugins/pronamic-pay/))
+*	Adyen (requires [Pro license](https://www.pronamicpay.com/))
 *	Buckaroo - HTML
 *	Deutsche Bank - iDEAL Expert
 *	DigiWallet
