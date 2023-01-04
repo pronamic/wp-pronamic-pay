@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.1
 Requires PHP: 8.0
-Stable tag: 9.2.0
+Stable tag: 9.2.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -113,6 +113,22 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 9.2.1 =
+### Fixed
+
+- Gravity Forms - Fixed problem with saving status page settings in payment feed. ([#14](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/14))
+
+### Composer
+
+- Changed `composer/installers` from `v1.12.0` to `v2.2.0`.
+	Release notes: https://github.com/composer/installers/releases/tag/v2.2.0
+- Changed `wp-pay-extensions/gravityforms` from `v4.4.1` to `v4.4.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.4.2
+
+Full set of changes: [`9.2.0...9.2.1`][9.2.1]
+
+[9.2.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.2.0...v9.2.1
+
 = 9.2.0 =
 ### Changed
 
@@ -215,36 +231,6 @@ Full set of changes: [`9.1.3...9.2.0`][9.2.0]
 ### Fixed
 - Updated WordPress pay WooCommerce library to version `4.3.1`.
   - Fixed "Fatal error: Uncaught Error: Call to undefined function wcs_get_subscription()". Props @jeffreyvr. [#28](https://github.com/pronamic/wp-pronamic-pay-woocommerce/pull/28)
-
-= 9.1.0 =
-### Changed
-- Updated WordPress pay core library to version `4.5.0`.
-  - Catch exceptions while retrieving options from for example iDEAL issuer select fields. ([#78](https://github.com/pronamic/wp-pay-core/issues/78))
-  - Allow subscription payments at gateways that don't have support for recurring payments. ([pronamic/wp-pronamic-pay-woocommerce#15](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/15))
-  - Added MobilePay payment method. ([pronamic/wp-pronamic-pay-adyen#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16))
-- Updated WordPress pay Event Espresso library to version `4.1.2`.
-  - Fixed "Expected type 'null|array'. Found 'string'.".
-- Updated WordPress pay Gravity Forms library to version `4.3.0`.
-  - No support for manual renewals with Gravity Forms.
-- Updated WordPress pay MemberPress library to version `4.6.0`.
-  - Prevent recurring payment at gateways without recurring support. [#7](https://github.com/pronamic/wp-pronamic-pay-memberpress/pull/7)
-- Updated WordPress pay WooCommerce library to version `4.3.0`.
-  - Fixed subscription status not updated if admin reactivates a WooCommerce subscription. [#25](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/25)
-  - Fixed fatal error while cancelling subscription. Props @knit-pay. [#14](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/14)
-  - Fixed payment method field errors not displayed in WooCommerce checkout block. [#22](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/22)
-  - Added MobilePay payment method. [pronamic/wp-pronamic-pay-adyen#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16)
-- Updated WordPress pay Adyen library to version `4.3.0`.
-  - Added MobilePay payment method. [#16](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/16)
-- Updated WordPress pay Mollie library to version `4.5.0`.
-  - Added user agent to HTTP requests to Mollie. [#13](https://github.com/pronamic/wp-pronamic-pay-mollie/issues/13)
-- Updated WordPress pay Rabo Smart Pay (formerly OmniKassa) library to version `4.3.0`.
-  - Changed name from "OmniKassa" to "Rabo Smart Pay". [#13](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/13)
-  - Enrich payments methods from new `order/server/api/payment-brands` endpoint. [#15](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/15)
-  - Added support for SOFORT payment method. [#16](https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/issues/16)
-- Updated WordPress pay Pay. library to version `4.3.0`.
-  - Updated dashboard URL to https://my.pay.nl/. [#3](https://github.com/pronamic/wp-pronamic-pay-pay-nl/pull/3)
-  - Added payment provider URL filter. [#3](https://github.com/pronamic/wp-pronamic-pay-pay-nl/pull/3)
-  - Update integration name from "Pay.nl" to "Pay.". [#2](https://github.com/pronamic/wp-pronamic-pay-pay-nl/issues/2)
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

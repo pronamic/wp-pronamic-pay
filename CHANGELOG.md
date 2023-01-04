@@ -6,6 +6,23 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.2.1] - 2023-01-04
+
+### Fixed
+
+- Gravity Forms - Fixed problem with saving status page settings in payment feed. ([#14](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/14))
+
+### Composer
+
+- Changed `composer/installers` from `v1.12.0` to `v2.2.0`.
+	Release notes: https://github.com/composer/installers/releases/tag/v2.2.0
+- Changed `wp-pay-extensions/gravityforms` from `v4.4.1` to `v4.4.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.4.2
+
+Full set of changes: [`9.2.0...9.2.1`][9.2.1]
+
+[9.2.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.2.0...v9.2.1
+
 ## [9.2.0] - 2023-01-02
 
 ### Changed
