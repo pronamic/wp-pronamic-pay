@@ -146,7 +146,7 @@
 			"echo 'Optionally run: composer bin all update'",
 			"test -f wp-content/wordbless/src/dbless-wpdb.php && mkdir -p wordpress/wp-content && cp wp-content/wordbless/src/dbless-wpdb.php wordpress/wp-content/db.php || echo 0"
 		],
-		"psalm": "vendor/bin/psalm",
+		"psalm": "XDEBUG_MODE=off vendor/bin/psalm",
 		"make-pot": "XDEBUG_MODE=off vendor/bin/wp pronamic i18n make-pot . languages/pronamic_ideal.pot --slug='pronamic-ideal'",
 		"update-po": "find languages/*.po -type f -exec msgmerge --update --backup=off {} languages/pronamic_ideal.pot \\;",
 		"generate-readme-txt": "php src/readme-txt/readme.php > readme.txt",

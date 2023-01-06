@@ -33,6 +33,6 @@ if ( ! \class_exists( 'WP_CLI' ) ) {
 		 * 
 		 * @link https://github.com/wp-cli/i18n-command/blob/v2.0.1/i18n-command.php
 		 */
-		\WP_CLI::add_command( 'pronamic i18n make-pot', '\Pronamic\WordPress\Pay\MakePotCommand' );
+		\WP_CLI::add_command( 'pronamic i18n make-pot', \Pronamic\WordPress\Pay\MakePotCommand::class );
 	}
 );

@@ -310,7 +310,9 @@ foreach ( $organisations as $organisation => $repositories ) {
 				echo $command, PHP_EOL;
 			}
 
-			echo passthru( $command ), PHP_EOL;
+			passthru( $command );
+
+			echo PHP_EOL;
 		}
 	}
 }
