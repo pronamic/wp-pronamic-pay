@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.1
 Requires PHP: 8.0
-Stable tag: 9.2.0
+Stable tag: 9.3.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -112,6 +112,51 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 
 == Changelog ==
+
+= 9.3.0 =
+### Added
+
+- Added support for Gravity Forms subscription trial period.
+- Added support for WooCommerce → Mollie → Klarna Pay Later via Mollie Orders API.
+
+### Changed
+
+- Built-in payment forms now show a payment method selection list.
+- iDEAL Advanced integration error/exception handling is improved.
+- Mollie Orders API integration is improved.
+- Ingenico iDEAL payment method is extended with a built-in banks selection list.
+
+### Fixed
+
+- Fixed "Undefined array key" notices in Formidable Forms integration.
+
+### Composer
+
+- Changed `composer/installers` from `v1.12.0` to `v2.2.0`.
+	Release notes: https://github.com/composer/installers/releases/tag/v2.2.0
+- Changed `woocommerce/action-scheduler` from `3.5.3` to `3.5.4`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.5.4
+- Changed `wp-pay-extensions/formidable-forms` from `v4.3.0` to `v4.3.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-formidable-forms/releases/tag/v4.3.1
+- Changed `wp-pay-extensions/gravityforms` from `v4.4.1` to `v4.5.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.5.0
+- Changed `wp-pay-extensions/memberpress` from `v4.7.0` to `v4.7.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.1
+- Changed `wp-pay-extensions/woocommerce` from `v4.4.0` to `v4.5.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.5.0
+- Changed `wp-pay-gateways/ideal-advanced-v3` from `v4.3.0` to `v4.3.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ideal-advanced-v3/releases/tag/v4.3.1
+- Changed `wp-pay-gateways/mollie` from `v4.7.0` to `v4.7.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.7.1
+- Changed `wp-pay-gateways/ogone` from `v4.3.0` to `v4.4.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ingenico/releases/tag/v4.4.0
+- Changed `wp-pay-gateways/omnikassa-2` from `v4.4.0` to `v4.4.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/releases/tag/v4.4.1
+- Changed `wp-pay/core` from `v4.6.0` to `v4.7.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.7.0
+Full set of changes: [`9.2.0...9.3.0`][9.3.0]
+
+[9.3.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.2.0...v9.3.0
 
 = 9.2.1 =
 ### Fixed
@@ -226,11 +271,6 @@ Full set of changes: [`9.1.3...9.2.0`][9.2.0]
 ### Fixed
 - Updated WordPress pay WooCommerce library to version 4.3.2.
   - Fixed "Fatal error: Uncaught Error: Call to undefined function wcs_get_subscriptions_for_order()". ([#29](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/29))
-
-= 9.1.1 =
-### Fixed
-- Updated WordPress pay WooCommerce library to version `4.3.1`.
-  - Fixed "Fatal error: Uncaught Error: Call to undefined function wcs_get_subscription()". Props @jeffreyvr. [#28](https://github.com/pronamic/wp-pronamic-pay-woocommerce/pull/28)
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
