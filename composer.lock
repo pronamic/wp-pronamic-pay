@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5eb51e07db025904212a78b606c4251",
+    "content-hash": "bc0e22fa5db19b7d0eaa7024a3f48e46",
     "packages": [
         {
             "name": "composer/installers",
@@ -1144,16 +1144,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "dev-develop",
+            "version": "v4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-gravityforms.git",
-                "reference": "a3e9f829dac365f847c443165426a0aa2ec50fe1"
+                "reference": "63a34b17282dc2f934376841334cd92179b7c1e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-gravityforms/zipball/a3e9f829dac365f847c443165426a0aa2ec50fe1",
-                "reference": "a3e9f829dac365f847c443165426a0aa2ec50fe1",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-gravityforms/zipball/63a34b17282dc2f934376841334cd92179b7c1e8",
+                "reference": "63a34b17282dc2f934376841334cd92179b7c1e8",
                 "shasum": ""
             },
             "require": {
@@ -1175,7 +1175,6 @@
                 "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1215,7 +1214,7 @@
                 "issues": "https://github.com/wp-pay-extensions/gravityforms/issues",
                 "source": "https://github.com/wp-pay-extensions/gravityforms"
             },
-            "time": "2023-01-16T14:13:00+00:00"
+            "time": "2023-01-18T13:29:55+00:00"
         },
         {
             "name": "wp-pay-extensions/memberpress",
@@ -10895,17 +10894,9 @@
             "time": "2022-11-16T09:07:52+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "wp-pay-extensions/gravityforms",
-            "version": "dev-develop",
-            "alias": "4.5",
-            "alias_normalized": "4.5.0.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "wp-pay-extensions/gravityforms": 20,
         "wp-cli/wp-cli": 20,
         "wp-cli/wp-cli-bundle": 20
     },
