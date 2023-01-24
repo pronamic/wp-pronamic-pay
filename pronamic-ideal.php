@@ -81,6 +81,17 @@ if ( is_readable( $autoload_after ) ) {
 );
 
 add_filter(
+	'pronamic_pay_modules',
+	function( $moddules ) {
+		$moddules[] = 'forms';
+		$moddules[] = 'reports';
+		$moddules[] = 'subscriptions';
+
+		return $moddules;
+	}
+);
+
+add_filter(
 	'pronamic_pay_removed_extension_notifications',
 	function( $notifications ) {
 		$notifications[] = new \Pronamic\WordPress\Pay\Admin\AdminNotification(
