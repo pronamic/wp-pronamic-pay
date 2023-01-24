@@ -61,6 +61,8 @@ if ( is_readable( $autoload_after ) ) {
 	]
 );
 
+\Pronamic\WordPress\Pay\LicenseManager::instance();
+
 \Pronamic\WordPress\Pay\Updater::instance(
 	function ( $plugin ) {
 		return \in_array(
