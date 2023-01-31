@@ -82,12 +82,12 @@ if ( is_readable( $autoload_after ) ) {
 
 add_filter(
 	'pronamic_pay_modules',
-	function( $moddules ) {
-		$moddules[] = 'forms';
-		$moddules[] = 'reports';
-		$moddules[] = 'subscriptions';
+	function( $modules ) {
+		$modules[] = 'forms';
+		$modules[] = 'reports';
+		$modules[] = 'subscriptions';
 
-		return $moddules;
+		return $modules;
 	}
 );
 
