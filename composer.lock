@@ -276,20 +276,20 @@
         },
         {
             "name": "pronamic/wp-datetime",
-            "version": "v2.1.1",
+            "version": "v2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-datetime.git",
-                "reference": "fdc8c36fba5048787db090396b4cced195cded12"
+                "reference": "f66878dadc594389a1af2ef563d963e6017e9724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-datetime/zipball/fdc8c36fba5048787db090396b4cced195cded12",
-                "reference": "fdc8c36fba5048787db090396b4cced195cded12",
+                "url": "https://api.github.com/repos/pronamic/wp-datetime/zipball/f66878dadc594389a1af2ef563d963e6017e9724",
+                "reference": "f66878dadc594389a1af2ef563d963e6017e9724",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0"
+                "php": ">=7.4"
             },
             "require-dev": {
                 "automattic/wordbless": "^0.3 || ^0.4",
@@ -321,39 +321,36 @@
             "description": "WordPress DateTime library.",
             "support": {
                 "issues": "https://github.com/pronamic/wp-datetime/issues",
-                "source": "https://github.com/pronamic/wp-datetime/tree/v2.1.1"
+                "source": "https://github.com/pronamic/wp-datetime/tree/v2.1.2"
             },
-            "time": "2022-12-28T13:23:11+00:00"
+            "time": "2023-01-31T10:59:59+00:00"
         },
         {
             "name": "pronamic/wp-gravityforms-nl",
-            "version": "3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-gravityforms-nl.git",
-                "reference": "0a03eced2eaafcb6d30c5dfe74b7d3ee2ca5912b"
+                "reference": "36d1a15de6649b0fc73ff7579462fb242ec13e6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-gravityforms-nl/zipball/0a03eced2eaafcb6d30c5dfe74b7d3ee2ca5912b",
-                "reference": "0a03eced2eaafcb6d30c5dfe74b7d3ee2ca5912b",
+                "url": "https://api.github.com/repos/pronamic/wp-gravityforms-nl/zipball/36d1a15de6649b0fc73ff7579462fb242ec13e6b",
+                "reference": "36d1a15de6649b0fc73ff7579462fb242ec13e6b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.20"
+                "php": ">=7.4"
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+                "bamarni/composer-bin-plugin": "^1.4",
                 "koodimonni-language/nl_nl": "*",
                 "php-coveralls/php-coveralls": "^2.4",
-                "phpcompatibility/php-compatibility": "^9.3",
-                "phpcompatibility/phpcompatibility-wp": "^2.1",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^5.7 || ^6.0",
-                "roots/wordpress": "^5.8",
-                "squizlabs/php_codesniffer": "^3.5",
-                "wp-coding-standards/wpcs": "^2.3",
-                "wp-phpunit/wp-phpunit": "^5.8",
+                "phpmd/phpmd": "^2.9",
+                "pronamic/wp-coding-standards": "^1.3",
+                "pronamic/wp-deployer": "^1.2",
+                "roots/wordpress": "^6.0",
+                "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "library",
@@ -369,35 +366,36 @@
             "description": "WordPress Gravity Forms (nl) library.",
             "support": {
                 "issues": "https://github.com/pronamic/wp-gravityforms-nl/issues",
-                "source": "https://github.com/pronamic/wp-gravityforms-nl/tree/3.0.2"
+                "source": "https://github.com/pronamic/wp-gravityforms-nl/tree/v3.0.3"
             },
-            "time": "2022-04-11T14:00:49+00:00"
+            "time": "2023-01-31T11:31:44+00:00"
         },
         {
             "name": "pronamic/wp-html",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-html.git",
-                "reference": "71e13fb833cb883ba5c3f20d5530d0b35ffe21d9"
+                "reference": "87d8165b46eaaba65471828b797945508be77102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-html/zipball/71e13fb833cb883ba5c3f20d5530d0b35ffe21d9",
-                "reference": "71e13fb833cb883ba5c3f20d5530d0b35ffe21d9",
+                "url": "https://api.github.com/repos/pronamic/wp-html/zipball/87d8165b46eaaba65471828b797945508be77102",
+                "reference": "87d8165b46eaaba65471828b797945508be77102",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0"
+                "php": ">=7.4"
             },
             "require-dev": {
+                "automattic/wordbless": "^0.3 || ^0.4",
                 "bamarni/composer-bin-plugin": "^1.4",
                 "php-coveralls/php-coveralls": "^2.4",
+                "php-stubs/wordpress-globals": "^0.2.0",
                 "phpmd/phpmd": "^2.9",
                 "pronamic/wp-coding-standards": "^1.3",
-                "pronamic/wp-deployer": "^1.0",
+                "pronamic/wp-deployer": "^1.1",
                 "roots/wordpress": "^6.0",
-                "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "library",
@@ -410,35 +408,35 @@
             "description": "WordPress HTML library.",
             "support": {
                 "issues": "https://github.com/pronamic/wp-html/issues",
-                "source": "https://github.com/pronamic/wp-html/tree/v2.1.0"
+                "source": "https://github.com/pronamic/wp-html/tree/v2.1.1"
             },
-            "time": "2022-12-19T14:20:05+00:00"
+            "time": "2023-01-31T11:10:28+00:00"
         },
         {
             "name": "pronamic/wp-http",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-http.git",
-                "reference": "13d0d3917d10ecf5815dacf0034c6abe8a27af75"
+                "reference": "b9bf0879a0194d32016b5802df00c3c0aa1510d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-http/zipball/13d0d3917d10ecf5815dacf0034c6abe8a27af75",
-                "reference": "13d0d3917d10ecf5815dacf0034c6abe8a27af75",
+                "url": "https://api.github.com/repos/pronamic/wp-http/zipball/b9bf0879a0194d32016b5802df00c3c0aa1510d8",
+                "reference": "b9bf0879a0194d32016b5802df00c3c0aa1510d8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0"
+                "php": ">=7.4"
             },
             "require-dev": {
+                "automattic/wordbless": "^0.3 || ^0.4",
                 "bamarni/composer-bin-plugin": "^1.4",
                 "php-coveralls/php-coveralls": "^2.4",
                 "phpmd/phpmd": "^2.9",
                 "pronamic/wp-coding-standards": "^1.3",
                 "pronamic/wp-deployer": "^1.1",
                 "roots/wordpress": "^6.0",
-                "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "library",
@@ -451,28 +449,28 @@
             "description": "WordPress HTTP library.",
             "support": {
                 "issues": "https://github.com/pronamic/wp-http/issues",
-                "source": "https://github.com/pronamic/wp-http/tree/v1.2.0"
+                "source": "https://github.com/pronamic/wp-http/tree/v1.2.1"
             },
-            "time": "2022-12-20T09:05:55+00:00"
+            "time": "2023-01-31T11:15:08+00:00"
         },
         {
             "name": "pronamic/wp-mollie",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-mollie.git",
-                "reference": "f67153992ab351a44699bbd63c44e22cd64d9952"
+                "reference": "83f3d10362ac976f47329afde64caed4f915f672"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-mollie/zipball/f67153992ab351a44699bbd63c44e22cd64d9952",
-                "reference": "f67153992ab351a44699bbd63c44e22cd64d9952",
+                "url": "https://api.github.com/repos/pronamic/wp-mollie/zipball/83f3d10362ac976f47329afde64caed4f915f672",
+                "reference": "83f3d10362ac976f47329afde64caed4f915f672",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "justinrainbow/json-schema": "^5.2",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-http": "^1.1",
                 "pronamic/wp-money": "^2.0",
                 "pronamic/wp-number": "^1.1"
@@ -506,26 +504,26 @@
             "description": "Mollie library for WordPress.",
             "support": {
                 "issues": "https://github.com/pronamic/wp-mollie/issues",
-                "source": "https://github.com/pronamic/wp-mollie/tree/v1.1.0"
+                "source": "https://github.com/pronamic/wp-mollie/tree/v1.1.1"
             },
-            "time": "2022-12-22T14:48:32+00:00"
+            "time": "2023-01-31T11:27:27+00:00"
         },
         {
             "name": "pronamic/wp-money",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-money.git",
-                "reference": "3b4578e65481b031c37c3f710cd91dda4a16fd65"
+                "reference": "1947a2186f86416b65337246a65b6b46a2bad42a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-money/zipball/3b4578e65481b031c37c3f710cd91dda4a16fd65",
-                "reference": "3b4578e65481b031c37c3f710cd91dda4a16fd65",
+                "url": "https://api.github.com/repos/pronamic/wp-money/zipball/1947a2186f86416b65337246a65b6b46a2bad42a",
+                "reference": "1947a2186f86416b65337246a65b6b46a2bad42a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-number": "^1.2"
             },
             "require-dev": {
@@ -555,37 +553,37 @@
             "description": "WordPress Money library.",
             "support": {
                 "issues": "https://github.com/pronamic/wp-money/issues",
-                "source": "https://github.com/pronamic/wp-money/tree/v2.2.0"
+                "source": "https://github.com/pronamic/wp-money/tree/v2.2.1"
             },
-            "time": "2022-12-19T15:11:43+00:00"
+            "time": "2023-01-31T11:22:56+00:00"
         },
         {
             "name": "pronamic/wp-number",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-number.git",
-                "reference": "9c2415dee6da45276315a6fdeb4385fe6c2cdb68"
+                "reference": "ac0d625671ed786b178a821544b4175f33c6bd90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-number/zipball/9c2415dee6da45276315a6fdeb4385fe6c2cdb68",
-                "reference": "9c2415dee6da45276315a6fdeb4385fe6c2cdb68",
+                "url": "https://api.github.com/repos/pronamic/wp-number/zipball/ac0d625671ed786b178a821544b4175f33c6bd90",
+                "reference": "ac0d625671ed786b178a821544b4175f33c6bd90",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0"
+                "php": ">=7.4"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
                 "koodimonni-language/de_de": "*",
                 "koodimonni-language/fr_fr": "*",
                 "koodimonni-language/nl_nl": "*",
-                "overtrue/phplint": "^5.3",
+                "overtrue/phplint": "^4.5",
                 "php-coveralls/php-coveralls": "^2.5",
-                "phpmd/phpmd": "^2.9",
+                "phpmd/phpmd": "^2.13",
                 "pronamic/wp-coding-standards": "^1.3",
-                "pronamic/wp-deployer": "^1.0",
+                "pronamic/wp-deployer": "^1.2",
                 "roots/wordpress": "^6.0",
                 "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
@@ -626,9 +624,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pronamic/wp-number/issues",
-                "source": "https://github.com/pronamic/wp-number/tree/v1.2.0"
+                "source": "https://github.com/pronamic/wp-number/tree/v1.2.1"
             },
-            "time": "2022-12-19T15:08:02+00:00"
+            "time": "2023-01-31T11:20:00+00:00"
         },
         {
             "name": "viison/address-splitter",
@@ -785,21 +783,21 @@
         },
         {
             "name": "wp-pay-extensions/contact-form-7",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-contact-form-7.git",
-                "reference": "8a405765e7774c8463600780bd3a9daacca2c39b"
+                "reference": "d593087ee9eadab5581a93d98017270c82816398"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-contact-form-7/zipball/8a405765e7774c8463600780bd3a9daacca2c39b",
-                "reference": "8a405765e7774c8463600780bd3a9daacca2c39b",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-contact-form-7/zipball/d593087ee9eadab5581a93d98017270c82816398",
+                "reference": "d593087ee9eadab5581a93d98017270c82816398",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
@@ -854,24 +852,24 @@
                 "issues": "https://github.com/wp-pay-extensions/contact-form-7/issues",
                 "source": "https://github.com/wp-pay-extensions/contact-form-7/"
             },
-            "time": "2022-12-23T07:58:26+00:00"
+            "time": "2023-01-31T12:50:31+00:00"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
-            "version": "v4.3.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads.git",
-                "reference": "11fa13429c6a1880042ce18bf2db84f788776277"
+                "reference": "8fdeca9fc2c5ee10e3a24ac91f68b93c172355a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-easy-digital-downloads/zipball/11fa13429c6a1880042ce18bf2db84f788776277",
-                "reference": "11fa13429c6a1880042ce18bf2db84f788776277",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-easy-digital-downloads/zipball/8fdeca9fc2c5ee10e3a24ac91f68b93c172355a0",
+                "reference": "8fdeca9fc2c5ee10e3a24ac91f68b93c172355a0",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
@@ -928,24 +926,24 @@
                 "issues": "https://github.com/wp-pay-extensions/easy-digital-downloads/issues",
                 "source": "https://github.com/wp-pay-extensions/easy-digital-downloads"
             },
-            "time": "2022-12-23T08:01:32+00:00"
+            "time": "2023-01-31T12:51:49+00:00"
         },
         {
             "name": "wp-pay-extensions/event-espresso",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-event-espresso.git",
-                "reference": "a5294b598623df10d3dfec97d3506e61835669dc"
+                "reference": "8ac0df1613638925974affdf430426db264855c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-event-espresso/zipball/a5294b598623df10d3dfec97d3506e61835669dc",
-                "reference": "a5294b598623df10d3dfec97d3506e61835669dc",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-event-espresso/zipball/8ac0df1613638925974affdf430426db264855c9",
+                "reference": "8ac0df1613638925974affdf430426db264855c9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
@@ -999,24 +997,24 @@
                 "issues": "https://github.com/wp-pay-extensions/event-espresso/issues",
                 "source": "https://github.com/wp-pay-extensions/event-espresso"
             },
-            "time": "2022-12-23T08:05:01+00:00"
+            "time": "2023-01-31T12:52:28+00:00"
         },
         {
             "name": "wp-pay-extensions/formidable-forms",
-            "version": "v4.3.1",
+            "version": "v4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-formidable-forms.git",
-                "reference": "2b0b00fe5378ef1e6cb485331d99d670d057c658"
+                "reference": "ab17434bad289c9a999ad13ec3e22abe11f9facd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-formidable-forms/zipball/2b0b00fe5378ef1e6cb485331d99d670d057c658",
-                "reference": "2b0b00fe5378ef1e6cb485331d99d670d057c658",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-formidable-forms/zipball/ab17434bad289c9a999ad13ec3e22abe11f9facd",
+                "reference": "ab17434bad289c9a999ad13ec3e22abe11f9facd",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
@@ -1070,24 +1068,24 @@
                 "issues": "https://github.com/wp-pay-extensions/formidable-forms/issues",
                 "source": "https://github.com/wp-pay-extensions/formidable-forms"
             },
-            "time": "2023-01-18T12:53:20+00:00"
+            "time": "2023-01-31T12:53:49+00:00"
         },
         {
             "name": "wp-pay-extensions/give",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-give.git",
-                "reference": "96cf0ab78257f2828d47d2cb2f7aa5a713bc29c6"
+                "reference": "df6783ccd332e36960b1c846103ed268a6c23a95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-give/zipball/96cf0ab78257f2828d47d2cb2f7aa5a713bc29c6",
-                "reference": "96cf0ab78257f2828d47d2cb2f7aa5a713bc29c6",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-give/zipball/df6783ccd332e36960b1c846103ed268a6c23a95",
+                "reference": "df6783ccd332e36960b1c846103ed268a6c23a95",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
@@ -1140,24 +1138,24 @@
                 "issues": "https://github.com/wp-pay-extensions/give/issues",
                 "source": "https://github.com/wp-pay-extensions/give"
             },
-            "time": "2022-12-23T08:10:28+00:00"
+            "time": "2023-01-31T12:54:45+00:00"
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "v4.5.0",
+            "version": "v4.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-gravityforms.git",
-                "reference": "63a34b17282dc2f934376841334cd92179b7c1e8"
+                "reference": "898a5d6f7aae1f770ebfc23f0c098e321109ea57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-gravityforms/zipball/63a34b17282dc2f934376841334cd92179b7c1e8",
-                "reference": "63a34b17282dc2f934376841334cd92179b7c1e8",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-gravityforms/zipball/898a5d6f7aae1f770ebfc23f0c098e321109ea57",
+                "reference": "898a5d6f7aae1f770ebfc23f0c098e321109ea57",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-datetime": "^2.1",
                 "pronamic/wp-gravityforms-nl": "^3.0",
                 "pronamic/wp-money": "^2.2",
@@ -1214,24 +1212,24 @@
                 "issues": "https://github.com/wp-pay-extensions/gravityforms/issues",
                 "source": "https://github.com/wp-pay-extensions/gravityforms"
             },
-            "time": "2023-01-18T13:29:55+00:00"
+            "time": "2023-01-31T12:56:12+00:00"
         },
         {
             "name": "wp-pay-extensions/memberpress",
-            "version": "v4.7.1",
+            "version": "v4.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-memberpress.git",
-                "reference": "ab50927697dda9d51178375a6fe05ffd2912a210"
+                "reference": "368d67e010259d04760f2d66cddb265b038c4ccd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-memberpress/zipball/ab50927697dda9d51178375a6fe05ffd2912a210",
-                "reference": "ab50927697dda9d51178375a6fe05ffd2912a210",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-memberpress/zipball/368d67e010259d04760f2d66cddb265b038c4ccd",
+                "reference": "368d67e010259d04760f2d66cddb265b038c4ccd",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
@@ -1285,24 +1283,24 @@
                 "issues": "https://github.com/wp-pay-extensions/memberpress/issues",
                 "source": "https://github.com/wp-pay-extensions/memberpress"
             },
-            "time": "2023-01-18T12:54:19+00:00"
+            "time": "2023-01-31T12:56:59+00:00"
         },
         {
             "name": "wp-pay-extensions/ninjaforms",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-ninjaforms.git",
-                "reference": "5133358c33b253cb13c19d799d5cf0f971c7fff8"
+                "reference": "88e311046b485f18bf4c158b8540980bd9f2e81a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ninjaforms/zipball/5133358c33b253cb13c19d799d5cf0f971c7fff8",
-                "reference": "5133358c33b253cb13c19d799d5cf0f971c7fff8",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ninjaforms/zipball/88e311046b485f18bf4c158b8540980bd9f2e81a",
+                "reference": "88e311046b485f18bf4c158b8540980bd9f2e81a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
@@ -1354,24 +1352,24 @@
                 "issues": "https://github.com/wp-pay-extensions/ninjaforms/issues",
                 "source": "https://github.com/wp-pay-extensions/ninjaforms"
             },
-            "time": "2022-12-23T08:19:26+00:00"
+            "time": "2023-01-31T12:58:27+00:00"
         },
         {
             "name": "wp-pay-extensions/restrict-content-pro",
-            "version": "v4.3.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro.git",
-                "reference": "c6e947214bed0a42bf450a3d7815136c97039f5d"
+                "reference": "295b6e4e6a05a1a9e8ab45339e54286a1a648408"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-restrict-content-pro/zipball/c6e947214bed0a42bf450a3d7815136c97039f5d",
-                "reference": "c6e947214bed0a42bf450a3d7815136c97039f5d",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-restrict-content-pro/zipball/295b6e4e6a05a1a9e8ab45339e54286a1a648408",
+                "reference": "295b6e4e6a05a1a9e8ab45339e54286a1a648408",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-money": "^2.2",
                 "wp-pay/core": "^4.6"
             },
@@ -1427,24 +1425,24 @@
                 "issues": "https://github.com/wp-pay-extensions/restrict-content-pro/issues",
                 "source": "https://github.com/wp-pay-extensions/restrict-content-pro"
             },
-            "time": "2022-12-23T08:22:27+00:00"
+            "time": "2023-01-31T12:59:08+00:00"
         },
         {
             "name": "wp-pay-extensions/woocommerce",
-            "version": "v4.5.0",
+            "version": "v4.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-woocommerce.git",
-                "reference": "634c70fcc960a2536676ca63395d8e7424195196"
+                "reference": "47fc4489b1d7583781bb91cbf496f095d6626219"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-woocommerce/zipball/634c70fcc960a2536676ca63395d8e7424195196",
-                "reference": "634c70fcc960a2536676ca63395d8e7424195196",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-woocommerce/zipball/47fc4489b1d7583781bb91cbf496f095d6626219",
+                "reference": "47fc4489b1d7583781bb91cbf496f095d6626219",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
@@ -1503,7 +1501,7 @@
                 "issues": "https://github.com/wp-pay-extensions/woocommerce/issues",
                 "source": "https://github.com/wp-pay-extensions/woocommerce"
             },
-            "time": "2023-01-18T12:56:56+00:00"
+            "time": "2023-01-31T13:00:12+00:00"
         },
         {
             "name": "wp-pay-gateways/adyen",
@@ -1583,30 +1581,30 @@
         },
         {
             "name": "wp-pay-gateways/buckaroo",
-            "version": "v4.3.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-buckaroo.git",
-                "reference": "f8f837188f89bed1bf0f17796c5d85aa232b2f01"
+                "reference": "adbeb4b15b24fdfdf76c4ebd0cab5c4fc82a8856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-buckaroo/zipball/f8f837188f89bed1bf0f17796c5d85aa232b2f01",
-                "reference": "f8f837188f89bed1bf0f17796c5d85aa232b2f01",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-buckaroo/zipball/adbeb4b15b24fdfdf76c4ebd0cab5c4fc82a8856",
+                "reference": "adbeb4b15b24fdfdf76c4ebd0cab5c4fc82a8856",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-http": "^1.1",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
-                "overtrue/phplint": "^5.5",
+                "overtrue/phplint": "^4.5",
                 "php-coveralls/php-coveralls": "^2.4",
                 "phpmd/phpmd": "^2.7",
                 "pronamic/wp-coding-standards": "^1.3",
-                "pronamic/wp-deployer": "^1.1",
+                "pronamic/wp-deployer": "^1.2",
                 "roots/wordpress": "^6.0",
                 "wp-cli/wp-cli": "^2.3",
                 "wp-phpunit/wp-phpunit": "^6.1",
@@ -1651,37 +1649,38 @@
                 "issues": "https://github.com/wp-pay-gateways/buckaroo/issues",
                 "source": "https://github.com/wp-pay-gateways/buckaroo"
             },
-            "time": "2022-12-29T15:56:52+00:00"
+            "time": "2023-01-31T13:06:19+00:00"
         },
         {
             "name": "wp-pay-gateways/digiwallet",
-            "version": "v3.3.0",
+            "version": "v3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-digiwallet.git",
-                "reference": "c5c3611180179a729e1b014fe002d9cc706da8ae"
+                "reference": "e04986e34e68248a3621f0574f15902e6a3ed37e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-digiwallet/zipball/c5c3611180179a729e1b014fe002d9cc706da8ae",
-                "reference": "c5c3611180179a729e1b014fe002d9cc706da8ae",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-digiwallet/zipball/e04986e34e68248a3621f0574f15902e6a3ed37e",
+                "reference": "e04986e34e68248a3621f0574f15902e6a3ed37e",
                 "shasum": ""
             },
             "require": {
                 "justinrainbow/json-schema": "^5.2",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-http": "^1.1",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
-                "overtrue/phplint": "^5.5",
+                "overtrue/phplint": "^4.5",
                 "php-coveralls/php-coveralls": "^2.4",
                 "phpmd/phpmd": "^2.9",
                 "pronamic/wp-coding-standards": "^1.3",
                 "pronamic/wp-deployer": "^1.2",
                 "pronamic/wp-file-header": "dev-main",
                 "roots/wordpress": "^6.0",
+                "slevomat/coding-standard": "^6.4",
                 "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
             },
@@ -1725,24 +1724,24 @@
                 "issues": "https://github.com/wp-pay-gateways/digiwallet/issues",
                 "source": "https://github.com/wp-pay-gateways/digiwallet"
             },
-            "time": "2022-12-29T18:55:28+00:00"
+            "time": "2023-01-31T12:29:52+00:00"
         },
         {
             "name": "wp-pay-gateways/ems-e-commerce",
-            "version": "v4.3.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-ems-e-commerce.git",
-                "reference": "8a66299d75b418fcca5ef1dae9b9ed4ac6beaa25"
+                "reference": "60cd0b35b0480c589e4c2f3538f064cff86b01dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ems-e-commerce/zipball/8a66299d75b418fcca5ef1dae9b9ed4ac6beaa25",
-                "reference": "8a66299d75b418fcca5ef1dae9b9ed4ac6beaa25",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ems-e-commerce/zipball/60cd0b35b0480c589e4c2f3538f064cff86b01dc",
+                "reference": "60cd0b35b0480c589e4c2f3538f064cff86b01dc",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-money": "^2.0",
                 "wp-pay/core": "^4.6"
             },
@@ -1796,24 +1795,24 @@
                 "issues": "https://github.com/wp-pay-gateways/ems-e-commerce/issues",
                 "source": "https://github.com/wp-pay-gateways/ems-e-commerce"
             },
-            "time": "2022-12-29T19:51:21+00:00"
+            "time": "2023-01-31T12:30:55+00:00"
         },
         {
             "name": "wp-pay-gateways/icepay",
-            "version": "v4.3.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-icepay.git",
-                "reference": "83f0951342bb7d2810f80c24f411a5982a86e42c"
+                "reference": "efb4126c11433de4c727c59a960922abbb2c05f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-icepay/zipball/83f0951342bb7d2810f80c24f411a5982a86e42c",
-                "reference": "83f0951342bb7d2810f80c24f411a5982a86e42c",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-icepay/zipball/efb4126c11433de4c727c59a960922abbb2c05f7",
+                "reference": "efb4126c11433de4c727c59a960922abbb2c05f7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/icepay-soap-api": "^2.5",
                 "wp-pay/core": "^4.6"
             },
@@ -1868,24 +1867,24 @@
                 "issues": "https://github.com/wp-pay-gateways/icepay/issues",
                 "source": "https://github.com/wp-pay-gateways/icepay"
             },
-            "time": "2022-12-22T14:17:43+00:00"
+            "time": "2023-01-31T12:32:43+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal",
-            "version": "v4.1.0",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-ideal.git",
-                "reference": "24b3b651bf6a1e674ba9861317f2ba4362b251e5"
+                "reference": "80a4fdeddd5d503453dd2be45ab8cd09f72540ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ideal/zipball/24b3b651bf6a1e674ba9861317f2ba4362b251e5",
-                "reference": "24b3b651bf6a1e674ba9861317f2ba4362b251e5",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ideal/zipball/80a4fdeddd5d503453dd2be45ab8cd09f72540ce",
+                "reference": "80a4fdeddd5d503453dd2be45ab8cd09f72540ce",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
@@ -1921,28 +1920,28 @@
             ],
             "support": {
                 "issues": "https://github.com/pronamic/wp-pronamic-pay-ideal/issues",
-                "source": "https://github.com/pronamic/wp-pronamic-pay-ideal/tree/v4.1.0"
+                "source": "https://github.com/pronamic/wp-pronamic-pay-ideal/tree/v4.1.1"
             },
-            "time": "2022-12-22T14:28:03+00:00"
+            "time": "2023-01-31T12:33:49+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal-advanced-v3",
-            "version": "v4.3.1",
+            "version": "v4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-ideal-advanced-v3.git",
-                "reference": "78698863d3dc0605625577512e92055d3716ebdc"
+                "reference": "1b0a5f74c81d3061f36d1d943582edf47f2d5f96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ideal-advanced-v3/zipball/78698863d3dc0605625577512e92055d3716ebdc",
-                "reference": "78698863d3dc0605625577512e92055d3716ebdc",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ideal-advanced-v3/zipball/1b0a5f74c81d3061f36d1d943582edf47f2d5f96",
+                "reference": "1b0a5f74c81d3061f36d1d943582edf47f2d5f96",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-openssl": "*",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-http": "^1.1",
                 "wp-pay-gateways/ideal": "^4.1",
                 "wp-pay/core": "^4.6"
@@ -2000,24 +1999,24 @@
                 "issues": "https://github.com/wp-pay-gateways/ideal-advanced-v3/issues",
                 "source": "https://github.com/wp-pay-gateways/ideal-advanced-v3"
             },
-            "time": "2023-01-18T12:45:10+00:00"
+            "time": "2023-01-31T12:34:40+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal-basic",
-            "version": "v4.3.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-ideal-basic.git",
-                "reference": "c71fdd329a84b09231bff1988a4875225cafe7df"
+                "reference": "66d5747915db073cdeaa0fb123a9feb7489299ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ideal-basic/zipball/c71fdd329a84b09231bff1988a4875225cafe7df",
-                "reference": "c71fdd329a84b09231bff1988a4875225cafe7df",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ideal-basic/zipball/66d5747915db073cdeaa0fb123a9feb7489299ac",
+                "reference": "66d5747915db073cdeaa0fb123a9feb7489299ac",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay-gateways/ideal": "^4.1",
                 "wp-pay/core": "^4.6"
             },
@@ -2072,26 +2071,26 @@
                 "issues": "https://github.com/wp-pay-gateways/ideal-basic/issues",
                 "source": "https://github.com/wp-pay-gateways/ideal-basic"
             },
-            "time": "2022-12-22T14:38:03+00:00"
+            "time": "2023-01-31T12:35:46+00:00"
         },
         {
             "name": "wp-pay-gateways/mollie",
-            "version": "v4.7.1",
+            "version": "v4.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-mollie.git",
-                "reference": "ed9332cfb9d8a6cf0405eba8a88cf6aaeccb013e"
+                "reference": "79962e1511983bb25a56f0f20d5a58bcc4b0b567"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-mollie/zipball/ed9332cfb9d8a6cf0405eba8a88cf6aaeccb013e",
-                "reference": "ed9332cfb9d8a6cf0405eba8a88cf6aaeccb013e",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-mollie/zipball/79962e1511983bb25a56f0f20d5a58bcc4b0b567",
+                "reference": "79962e1511983bb25a56f0f20d5a58bcc4b0b567",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "justinrainbow/json-schema": "^5.2",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-http": "^1.2",
                 "pronamic/wp-mollie": "^1.1",
                 "woocommerce/action-scheduler": "^3.4",
@@ -2149,25 +2148,25 @@
                 "issues": "https://github.com/wp-pay-gateways/mollie/issues",
                 "source": "https://github.com/wp-pay-gateways/mollie"
             },
-            "time": "2023-01-18T12:49:16+00:00"
+            "time": "2023-01-31T13:01:26+00:00"
         },
         {
             "name": "wp-pay-gateways/multisafepay",
-            "version": "v4.3.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-multisafepay.git",
-                "reference": "37278d5af26a8327272d701105eb181298e8231f"
+                "reference": "a7704b3313f21d9fcd976aa7dacceafcd361dd2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-multisafepay/zipball/37278d5af26a8327272d701105eb181298e8231f",
-                "reference": "37278d5af26a8327272d701105eb181298e8231f",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-multisafepay/zipball/a7704b3313f21d9fcd976aa7dacceafcd361dd2e",
+                "reference": "a7704b3313f21d9fcd976aa7dacceafcd361dd2e",
                 "shasum": ""
             },
             "require": {
                 "ext-simplexml": "*",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-http": "^1.1",
                 "wp-pay/core": "^4.6"
             },
@@ -2222,25 +2221,25 @@
                 "issues": "https://github.com/wp-pay-gateways/multisafepay/issues",
                 "source": "https://github.com/wp-pay-gateways/multisafepay"
             },
-            "time": "2022-12-22T15:12:21+00:00"
+            "time": "2023-01-31T12:43:56+00:00"
         },
         {
             "name": "wp-pay-gateways/ogone",
-            "version": "v4.4.0",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-ingenico.git",
-                "reference": "21e64c89ae039c99302d491d12922d881d609fe4"
+                "reference": "969e26961cc51a7691cb91115937a5fb4f36443f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ingenico/zipball/21e64c89ae039c99302d491d12922d881d609fe4",
-                "reference": "21e64c89ae039c99302d491d12922d881d609fe4",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ingenico/zipball/969e26961cc51a7691cb91115937a5fb4f36443f",
+                "reference": "969e26961cc51a7691cb91115937a5fb4f36443f",
                 "shasum": ""
             },
             "require": {
                 "ext-simplexml": "*",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-http": "^1.2",
                 "wp-pay/core": "^4.6"
             },
@@ -2295,25 +2294,25 @@
                 "issues": "https://github.com/wp-pay-gateways/ogone/issues",
                 "source": "https://github.com/wp-pay-gateways/ogone"
             },
-            "time": "2023-01-18T12:50:35+00:00"
+            "time": "2023-01-31T12:45:10+00:00"
         },
         {
             "name": "wp-pay-gateways/omnikassa-2",
-            "version": "v4.4.1",
+            "version": "v4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-omnikassa-2.git",
-                "reference": "65d6409dc36936f87712f03a08d63005b16785a6"
+                "reference": "3303751bf1d145ea616ffe3e817acc680ace02e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-omnikassa-2/zipball/65d6409dc36936f87712f03a08d63005b16785a6",
-                "reference": "65d6409dc36936f87712f03a08d63005b16785a6",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-omnikassa-2/zipball/3303751bf1d145ea616ffe3e817acc680ace02e0",
+                "reference": "3303751bf1d145ea616ffe3e817acc680ace02e0",
                 "shasum": ""
             },
             "require": {
                 "justinrainbow/json-schema": "^5.2",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-http": "^1.2",
                 "wp-pay/core": "^4.6"
             },
@@ -2371,24 +2370,24 @@
                 "issues": "https://github.com/wp-pay-gateways/omnikassa-2/issues",
                 "source": "https://github.com/wp-pay-gateways/omnikassa-2"
             },
-            "time": "2023-01-18T12:51:58+00:00"
+            "time": "2023-01-31T12:46:07+00:00"
         },
         {
             "name": "wp-pay-gateways/pay-nl",
-            "version": "v4.5.0",
+            "version": "v4.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-pay-nl.git",
-                "reference": "3d2cf4e00b30fbdb615e5b5e1e70355d63b5c4bc"
+                "reference": "883206f15dfbbbd9945c15750759e5374e833395"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-pay-nl/zipball/3d2cf4e00b30fbdb615e5b5e1e70355d63b5c4bc",
-                "reference": "3d2cf4e00b30fbdb615e5b5e1e70355d63b5c4bc",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-pay-nl/zipball/883206f15dfbbbd9945c15750759e5374e833395",
+                "reference": "883206f15dfbbbd9945c15750759e5374e833395",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
@@ -2442,27 +2441,27 @@
                 "issues": "https://github.com/wp-pay-gateways/pay-nl/issues",
                 "source": "https://github.com/wp-pay-gateways/pay-nl"
             },
-            "time": "2022-12-23T07:49:26+00:00"
+            "time": "2023-01-31T12:47:23+00:00"
         },
         {
             "name": "wp-pay-gateways/paypal",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-paypal.git",
-                "reference": "941b71a9ee8e5f804d1e3f6fc9aa7ed7998a66cb"
+                "reference": "30977e6b0b47adebdeb034518efe4023084b42bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-paypal/zipball/941b71a9ee8e5f804d1e3f6fc9aa7ed7998a66cb",
-                "reference": "941b71a9ee8e5f804d1e3f6fc9aa7ed7998a66cb",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-paypal/zipball/30977e6b0b47adebdeb034518efe4023084b42bf",
+                "reference": "30977e6b0b47adebdeb034518efe4023084b42bf",
                 "shasum": ""
             },
             "require": {
                 "ext-intl": "*",
                 "ext-json": "*",
                 "justinrainbow/json-schema": "^5.2",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-http": "^1.2",
                 "pronamic/wp-money": "^2.2",
                 "wp-pay/core": "^4.6"
@@ -2519,27 +2518,27 @@
                 "issues": "https://github.com/wp-pay-gateways/paypal/issues",
                 "source": "https://github.com/wp-pay-gateways/paypal"
             },
-            "time": "2022-12-23T07:52:10+00:00"
+            "time": "2023-01-31T12:48:15+00:00"
         },
         {
             "name": "wp-pay/core",
-            "version": "v4.7.0",
+            "version": "v4.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pay-core.git",
-                "reference": "0714f834ecf3d158fc4f4303926a9ffd255f69da"
+                "reference": "3a2a9902d0f9e32e4fdecda7af3a960d654ce51e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/0714f834ecf3d158fc4f4303926a9ffd255f69da",
-                "reference": "0714f834ecf3d158fc4f4303926a9ffd255f69da",
+                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/3a2a9902d0f9e32e4fdecda7af3a960d654ce51e",
+                "reference": "3a2a9902d0f9e32e4fdecda7af3a960d654ce51e",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "ext-simplexml": "*",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-datetime": "^2.1",
                 "pronamic/wp-html": "^2.1",
                 "pronamic/wp-http": "^1.2",
@@ -2605,24 +2604,24 @@
                 "issues": "https://github.com/wp-pay/core/issues",
                 "source": "https://github.com/wp-pay/core"
             },
-            "time": "2023-01-18T12:37:09+00:00"
+            "time": "2023-01-31T11:26:11+00:00"
         },
         {
             "name": "wp-pay/fundraising",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-fundraising.git",
-                "reference": "aad8b2214dacf49a9fbe48296acc764a8b019a43"
+                "reference": "dd2d4a1c50312c8fc2af7562f21cc80f71ec320a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-fundraising/zipball/aad8b2214dacf49a9fbe48296acc764a8b019a43",
-                "reference": "aad8b2214dacf49a9fbe48296acc764a8b019a43",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-fundraising/zipball/dd2d4a1c50312c8fc2af7562f21cc80f71ec320a",
+                "reference": "dd2d4a1c50312c8fc2af7562f21cc80f71ec320a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-money": "^2.2",
                 "wp-pay/core": "^4.6"
             },
@@ -2682,7 +2681,7 @@
                 "issues": "https://github.com/wp-pay/fundraising/issues",
                 "source": "https://github.com/wp-pay/fundraising"
             },
-            "time": "2022-12-23T08:30:50+00:00"
+            "time": "2023-01-31T11:29:14+00:00"
         }
     ],
     "packages-dev": [
@@ -4072,16 +4071,16 @@
         },
         {
             "name": "mck89/peast",
-            "version": "v1.15.0",
+            "version": "v1.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mck89/peast.git",
-                "reference": "733cd8f62dcb8239094688063a92766bbfcbf523"
+                "reference": "cf06286910b7efc9dce7503553ebee314df3d3d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mck89/peast/zipball/733cd8f62dcb8239094688063a92766bbfcbf523",
-                "reference": "733cd8f62dcb8239094688063a92766bbfcbf523",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/cf06286910b7efc9dce7503553ebee314df3d3d3",
+                "reference": "cf06286910b7efc9dce7503553ebee314df3d3d3",
                 "shasum": ""
             },
             "require": {
@@ -4094,7 +4093,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.15.0-dev"
+                    "dev-master": "1.15.1-dev"
                 }
             },
             "autoload": {
@@ -4116,9 +4115,9 @@
             "description": "Peast is PHP library that generates AST for JavaScript code",
             "support": {
                 "issues": "https://github.com/mck89/peast/issues",
-                "source": "https://github.com/mck89/peast/tree/v1.15.0"
+                "source": "https://github.com/mck89/peast/tree/v1.15.1"
             },
-            "time": "2022-09-13T15:56:53+00:00"
+            "time": "2023-01-21T13:18:17+00:00"
         },
         {
             "name": "mustache/mustache",
@@ -4881,16 +4880,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.23",
+            "version": "9.2.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "9f1f0f9a2fbb680b26d1cf9b61b6eac43a6e4e9c"
+                "reference": "2cf940ebc6355a9d430462811b5aaa308b174bed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/9f1f0f9a2fbb680b26d1cf9b61b6eac43a6e4e9c",
-                "reference": "9f1f0f9a2fbb680b26d1cf9b61b6eac43a6e4e9c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2cf940ebc6355a9d430462811b5aaa308b174bed",
+                "reference": "2cf940ebc6355a9d430462811b5aaa308b174bed",
                 "shasum": ""
             },
             "require": {
@@ -4946,7 +4945,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.23"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.24"
             },
             "funding": [
                 {
@@ -4954,7 +4953,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-28T12:41:10+00:00"
+            "time": "2023-01-26T08:26:55+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -7220,16 +7219,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v5.4.11",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "ec79e03125c1d2477e43dde8528535d90cc78379"
+                "reference": "9bd60843443cda9638efdca7c41eb82ed0026179"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/ec79e03125c1d2477e43dde8528535d90cc78379",
-                "reference": "ec79e03125c1d2477e43dde8528535d90cc78379",
+                "url": "https://api.github.com/repos/symfony/config/zipball/9bd60843443cda9638efdca7c41eb82ed0026179",
+                "reference": "9bd60843443cda9638efdca7c41eb82ed0026179",
                 "shasum": ""
             },
             "require": {
@@ -7279,7 +7278,7 @@
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/config/tree/v5.4.11"
+                "source": "https://github.com/symfony/config/tree/v5.4.19"
             },
             "funding": [
                 {
@@ -7295,20 +7294,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-20T13:00:38+00:00"
+            "time": "2023-01-08T13:23:55+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v5.4.17",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f"
+                "reference": "dccb8d251a9017d5994c988b034d3e18aaabf740"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f",
-                "reference": "58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f",
+                "url": "https://api.github.com/repos/symfony/console/zipball/dccb8d251a9017d5994c988b034d3e18aaabf740",
+                "reference": "dccb8d251a9017d5994c988b034d3e18aaabf740",
                 "shasum": ""
             },
             "require": {
@@ -7378,7 +7377,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v5.4.17"
+                "source": "https://github.com/symfony/console/tree/v5.4.19"
             },
             "funding": [
                 {
@@ -7394,20 +7393,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-28T14:15:31+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v5.4.17",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "58f2988128d2d278280781db037677a32cf720db"
+                "reference": "99dae35f2b7d1bd9b800fcda4173215fc9f79ba3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/58f2988128d2d278280781db037677a32cf720db",
-                "reference": "58f2988128d2d278280781db037677a32cf720db",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/99dae35f2b7d1bd9b800fcda4173215fc9f79ba3",
+                "reference": "99dae35f2b7d1bd9b800fcda4173215fc9f79ba3",
                 "shasum": ""
             },
             "require": {
@@ -7467,7 +7466,7 @@
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v5.4.17"
+                "source": "https://github.com/symfony/dependency-injection/tree/v5.4.19"
             },
             "funding": [
                 {
@@ -7483,7 +7482,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-28T13:55:51+00:00"
+            "time": "2023-01-23T15:37:22+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -7554,16 +7553,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v5.4.13",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "ac09569844a9109a5966b9438fc29113ce77cf51"
+                "reference": "648bfaca6a494f3e22378123bcee2894045dc9d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/ac09569844a9109a5966b9438fc29113ce77cf51",
-                "reference": "ac09569844a9109a5966b9438fc29113ce77cf51",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/648bfaca6a494f3e22378123bcee2894045dc9d8",
+                "reference": "648bfaca6a494f3e22378123bcee2894045dc9d8",
                 "shasum": ""
             },
             "require": {
@@ -7598,7 +7597,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v5.4.13"
+                "source": "https://github.com/symfony/filesystem/tree/v5.4.19"
             },
             "funding": [
                 {
@@ -7614,20 +7613,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-21T19:53:16+00:00"
+            "time": "2023-01-14T19:14:44+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v5.4.17",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "40c08632019838dfb3350f18cf5563b8080055fc"
+                "reference": "6071aebf810ad13fe8200c224f36103abb37cf1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/40c08632019838dfb3350f18cf5563b8080055fc",
-                "reference": "40c08632019838dfb3350f18cf5563b8080055fc",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/6071aebf810ad13fe8200c224f36103abb37cf1f",
+                "reference": "6071aebf810ad13fe8200c224f36103abb37cf1f",
                 "shasum": ""
             },
             "require": {
@@ -7661,7 +7660,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v5.4.17"
+                "source": "https://github.com/symfony/finder/tree/v5.4.19"
             },
             "funding": [
                 {
@@ -7677,7 +7676,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-22T10:31:03+00:00"
+            "time": "2023-01-14T19:14:44+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -8252,16 +8251,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.4.11",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "6e75fe6874cbc7e4773d049616ab450eff537bf1"
+                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/6e75fe6874cbc7e4773d049616ab450eff537bf1",
-                "reference": "6e75fe6874cbc7e4773d049616ab450eff537bf1",
+                "url": "https://api.github.com/repos/symfony/process/zipball/c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
+                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
                 "shasum": ""
             },
             "require": {
@@ -8294,7 +8293,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v5.4.11"
+                "source": "https://github.com/symfony/process/tree/v5.4.19"
             },
             "funding": [
                 {
@@ -8310,7 +8309,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-27T16:58:25+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -8397,16 +8396,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v5.4.13",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "6df7a3effde34d81717bbef4591e5ffe32226d69"
+                "reference": "bd2b066090fd6a67039371098fa25a84cb2679ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/6df7a3effde34d81717bbef4591e5ffe32226d69",
-                "reference": "6df7a3effde34d81717bbef4591e5ffe32226d69",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/bd2b066090fd6a67039371098fa25a84cb2679ec",
+                "reference": "bd2b066090fd6a67039371098fa25a84cb2679ec",
                 "shasum": ""
             },
             "require": {
@@ -8439,7 +8438,7 @@
             "description": "Provides a way to profile code",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/stopwatch/tree/v5.4.13"
+                "source": "https://github.com/symfony/stopwatch/tree/v5.4.19"
             },
             "funding": [
                 {
@@ -8455,20 +8454,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-28T13:19:49+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/string",
-            "version": "v5.4.17",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "55733a8664b8853b003e70251c58bc8cb2d82a6b"
+                "reference": "0a01071610fd861cc160dfb7e2682ceec66064cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/55733a8664b8853b003e70251c58bc8cb2d82a6b",
-                "reference": "55733a8664b8853b003e70251c58bc8cb2d82a6b",
+                "url": "https://api.github.com/repos/symfony/string/zipball/0a01071610fd861cc160dfb7e2682ceec66064cb",
+                "reference": "0a01071610fd861cc160dfb7e2682ceec66064cb",
                 "shasum": ""
             },
             "require": {
@@ -8525,7 +8524,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v5.4.17"
+                "source": "https://github.com/symfony/string/tree/v5.4.19"
             },
             "funding": [
                 {
@@ -8541,20 +8540,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-12T15:54:21+00:00"
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.4.17",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "edcdc11498108f8967fe95118a7ec8624b94760e"
+                "reference": "71c05db20cb9b54d381a28255f17580e2b7e36a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/edcdc11498108f8967fe95118a7ec8624b94760e",
-                "reference": "edcdc11498108f8967fe95118a7ec8624b94760e",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/71c05db20cb9b54d381a28255f17580e2b7e36a5",
+                "reference": "71c05db20cb9b54d381a28255f17580e2b7e36a5",
                 "shasum": ""
             },
             "require": {
@@ -8600,7 +8599,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.4.17"
+                "source": "https://github.com/symfony/yaml/tree/v5.4.19"
             },
             "funding": [
                 {
@@ -8616,7 +8615,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-13T09:57:04+00:00"
+            "time": "2023-01-10T18:51:14+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -10596,12 +10595,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli.git",
-                "reference": "61c86b92fa9ac146b1886d4977dd7e924dfaf118"
+                "reference": "e62f6f4615eedc6150ffb451fb99b96cf8590cba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/61c86b92fa9ac146b1886d4977dd7e924dfaf118",
-                "reference": "61c86b92fa9ac146b1886d4977dd7e924dfaf118",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/e62f6f4615eedc6150ffb451fb99b96cf8590cba",
+                "reference": "e62f6f4615eedc6150ffb451fb99b96cf8590cba",
                 "shasum": ""
             },
             "require": {
@@ -10660,7 +10659,7 @@
                 "issues": "https://github.com/wp-cli/wp-cli/issues",
                 "source": "https://github.com/wp-cli/wp-cli"
             },
-            "time": "2023-01-17T06:53:29+00:00"
+            "time": "2023-01-30T19:25:25+00:00"
         },
         {
             "name": "wp-cli/wp-cli-bundle",
@@ -10668,12 +10667,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli-bundle.git",
-                "reference": "9dfa9668dd06ea1f948d9b60e2e97baa95d6daaf"
+                "reference": "bc91d8f12e885ff1832a283c45aaee9b326bb282"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/9dfa9668dd06ea1f948d9b60e2e97baa95d6daaf",
-                "reference": "9dfa9668dd06ea1f948d9b60e2e97baa95d6daaf",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/bc91d8f12e885ff1832a283c45aaee9b326bb282",
+                "reference": "bc91d8f12e885ff1832a283c45aaee9b326bb282",
                 "shasum": ""
             },
             "require": {
@@ -10735,7 +10734,7 @@
                 "issues": "https://github.com/wp-cli/wp-cli-bundle/issues",
                 "source": "https://github.com/wp-cli/wp-cli-bundle"
             },
-            "time": "2023-01-17T05:50:40+00:00"
+            "time": "2023-01-30T19:22:16+00:00"
         },
         {
             "name": "wp-cli/wp-config-transformer",
