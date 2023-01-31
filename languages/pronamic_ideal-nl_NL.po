@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2023-01-18T13:44:52+00:00\n"
-"PO-Revision-Date: 2023-01-18 14:03+0100\n"
+"POT-Creation-Date: 2023-01-31T13:08:59+00:00\n"
+"PO-Revision-Date: 2023-01-31 14:09+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -23,12 +23,13 @@ msgstr ""
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:52
 #: vendor/wp-pay-gateways/adyen/src/Integration.php:520
 #: vendor/wp-pay-gateways/omnikassa-2/src/Integration.php:163
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:106
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:566
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:575
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:582
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1079
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:130
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:87
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:547
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:556
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:563
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1087
+#: vendor/wp-pay/core/src/Admin/AdminNotices.php:100
+#: vendor/wp-pay/core/src/LicenseManager.php:408
 #: vendor/wp-pay/core/src/Payments/StatusChecker.php:156
 #: vendor/wp-pay/core/views/notice-license.php:24
 #: vendor/wp-pay/core/views/notice-license.php:32
@@ -378,19 +379,19 @@ msgstr "Betalingsformulier %d"
 msgid "Payment %d"
 msgstr "Betaling %d"
 
-#: pronamic-ideal.php:86
+#: pronamic-ideal.php:99
 msgid "Event Espresso 3"
 msgstr "Event Espresso 3"
 
-#: pronamic-ideal.php:93
+#: pronamic-ideal.php:106
 msgid "s2Member"
 msgstr "s2Member"
 
-#: pronamic-ideal.php:100
+#: pronamic-ideal.php:113
 msgid "WP eCommerce"
 msgstr "WP eCommerce"
 
-#: pronamic-ideal.php:360 pronamic-ideal.php:373
+#: pronamic-ideal.php:373 pronamic-ideal.php:386
 msgid ""
 "https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-basic-to-"
 "wordpress-with-pronamic-pay/"
@@ -398,8 +399,8 @@ msgstr ""
 "https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-ing-ideal-basic-"
 "aan-wordpress-met-pronamic-pay/"
 
-#: pronamic-ideal.php:387 pronamic-ideal.php:404 pronamic-ideal.php:422
-#: pronamic-ideal.php:439
+#: pronamic-ideal.php:400 pronamic-ideal.php:417 pronamic-ideal.php:435
+#: pronamic-ideal.php:452
 msgid ""
 "https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-"
 "to-wordpress-with-pronamic-pay/"
@@ -407,7 +408,7 @@ msgstr ""
 "https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-ing-ideal-"
 "advanced-v3-aan-wordpress-met-pronamic-pay/"
 
-#: pronamic-ideal.php:452
+#: pronamic-ideal.php:465
 msgid ""
 "https://www.pronamicpay.com/en/manuals/how-to-connect-mollie-to-wordpress-"
 "with-pronamic-pay/"
@@ -415,7 +416,7 @@ msgstr ""
 "https://www.pronamicpay.com/nl/handleidingen/hoe-je-mollie-aan-wordpress-"
 "koppelt-met-pronamic-pay/"
 
-#: pronamic-ideal.php:550 pronamic-ideal.php:567
+#: pronamic-ideal.php:563 pronamic-ideal.php:580
 msgid ""
 "https://www.pronamicpay.com/en/manuals/how-to-connect-rabobank-ideal-"
 "professional-v3-to-wordpress-with-pronamic-pay/"
@@ -423,11 +424,11 @@ msgstr ""
 "https://www.pronamicpay.com/nl/handleidingen/hoe-koppel-je-rabobank-ideal-"
 "professional-v3-aan-wordpress-met-pronamic-pay/"
 
-#: pronamic-ideal.php:634
+#: pronamic-ideal.php:647
 msgid "https://www.targetpay.com/info/ideal?setlang=en"
 msgstr "https://www.targetpay.com/info/ideal?setlang=nl"
 
-#: pronamic-ideal.php:637
+#: pronamic-ideal.php:650
 msgid ""
 "https://www.pronamicpay.com/en/manuals/how-to-connect-targetpay-to-wordpress-"
 "with-pronamic-pay/"
@@ -666,7 +667,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:173
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:314
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentMethodsField.php:88
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:180
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:168
 #: vendor/wp-pay/core/views/meta-box-gateway-settings.php:43
 msgid "Payment Methods"
 msgstr "Betaalmethoden"
@@ -873,7 +874,7 @@ msgid "Unable to create refund at gateway."
 msgstr "Kan geen terugbetaling aanmaken bij betalingsprovider."
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/RefundsManager.php:216
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:412
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:407
 msgid "payment"
 msgstr "betaling"
 
@@ -983,8 +984,8 @@ msgid "Pronamic payment failed"
 msgstr "Pronamic betaling mislukt"
 
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:95
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:712
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:725
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:711
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:724
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:349
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:595
 #: vendor/wp-pay/core/views/meta-box-gateway-payment-methods.php:30
@@ -995,7 +996,7 @@ msgid "Payment Method"
 msgstr "Betaalmethode"
 
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:115
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:789
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:788
 msgid "Choose a payment method"
 msgstr "Kies een betaalmethode"
 
@@ -1085,7 +1086,7 @@ msgstr "Nonce verificatie is mislukt"
 #: vendor/wp-pay-extensions/give/src/Gateway.php:260
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:410
 #: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:119
-#: vendor/wp-pay/core/src/Plugin.php:1367 vendor/wp-pay/core/views/form.php:254
+#: vendor/wp-pay/core/src/Plugin.php:1357 vendor/wp-pay/core/views/form.php:254
 msgid "Error"
 msgstr "Fout"
 
@@ -1107,7 +1108,7 @@ msgstr "Give donatie %s"
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:112
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:293
 #: vendor/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:725
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1080
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1088
 #: vendor/wp-pay/core/src/Core/Gateway.php:321
 #: vendor/wp-pay/core/views/subscription-mandate.php:259
 #: vendor/wp-pay/core/views/subscription-renew.php:90
@@ -1115,7 +1116,7 @@ msgid "Pay"
 msgstr "Betalen"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:100
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:411
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:406
 msgid "Payment Status"
 msgstr "Betalingsstatus"
 
@@ -1320,7 +1321,7 @@ msgstr "Grote iconen"
 
 #: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:548
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:55
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:592
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:585
 msgid "New Payment Feed"
 msgstr "Nieuwe betalingsfeed"
 
@@ -1397,8 +1398,8 @@ msgid "Subscription Created"
 msgstr "Abonnement aangemaakt"
 
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:562
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:481
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:161
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:476
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:149
 #: vendor/wp-pay/core/src/Settings.php:109
 msgid "Subscription Canceled"
 msgstr "Abonnement geannuleerd"
@@ -1490,7 +1491,7 @@ msgstr "Statuspagina's"
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:116
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:252
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:253
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:592
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:595
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:311
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:551
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionPostType.php:52
@@ -1621,7 +1622,7 @@ msgid "Success"
 msgstr "Succes"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:409
-#: vendor/wp-pay/core/src/Plugin.php:1366
+#: vendor/wp-pay/core/src/Plugin.php:1356
 msgid "Expired"
 msgstr "Verlopen"
 
@@ -1634,18 +1635,16 @@ msgid "Confirmation:"
 msgstr "Bevestiging:"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:467
-#, fuzzy
 msgid "— Select Confirmation —"
-msgstr "— Selecteer configuratie —"
+msgstr "— Selecteer bevestiging —"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:486
 msgid "Page:"
 msgstr "Pagina:"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:495
-#, fuzzy
 msgid "— Select Page —"
-msgstr "— Selecteer een pagina —"
+msgstr "— Selecteer pagina —"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:504
 msgid "URL:"
@@ -1661,8 +1660,8 @@ msgid "Recurring amount"
 msgstr "Terugkerend bedrag"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:541
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:132
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:173
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:113
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:154
 msgid "None"
 msgstr "Geen"
 
@@ -2114,7 +2113,7 @@ msgid "— Default Gateway —"
 msgstr "— Standaardgateway —"
 
 #: vendor/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:221
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:154
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:142
 msgid "Payment Status Pages"
 msgstr "Betalingsstatus pagina's"
 
@@ -2823,13 +2822,13 @@ msgstr "HTTP Basic authenticatie functioneert"
 
 #: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:86
 #: vendor/wp-pay-gateways/mollie/src/Admin.php:164
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:299
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:335
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:368
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:397
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:594
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:997
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:998
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:280
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:316
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:349
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:378
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:575
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:995
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:996
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:578
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:158
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:50
@@ -2872,13 +2871,13 @@ msgid "Unable to create payment at gateway: %1$s%2$s"
 msgstr "Kan betaling niet aanmaken bij gateway: %1$s%2$s"
 
 #. translators: %s: transaction key
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:873
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:893
 msgid "Unable to create refund for transaction with transaction key: %s"
 msgstr ""
 "Kan geen terugbetaling aanmaken voor transactie met transactiesleutel: %s"
 
 #. translators: %s: transaction key
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:885
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:905
 msgid ""
 "Unable to create refund for transaction without service name. Transaction "
 "key: %s"
@@ -2887,11 +2886,11 @@ msgstr ""
 "Transactiesleutel: %s"
 
 #. translators: 1: payment provider name, 2: status message, 3: status sub message
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:942
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:962
 msgid "Unable to create refund at %1$s gateway: %2$s%3$s"
 msgstr "Kan geen terugbetaling aanmaken bij betalingsprovider %1$s: %2$s%3$s"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:943
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:963
 msgid "Buckaroo"
 msgstr "Buckaroo"
 
@@ -3637,7 +3636,7 @@ msgstr "Modus"
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:242
 #: vendor/wp-pay-gateways/mollie/views/user-profile.php:53
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:245
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:760
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:755
 #: vendor/wp-pay/core/views/meta-box-gateway-test.php:335
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:833
 msgid "Test"
@@ -3693,7 +3692,7 @@ msgid "Pending"
 msgstr "In afwachting"
 
 #: vendor/wp-pay-gateways/mollie/views/page-customer.php:266
-#: vendor/wp-pay/core/src/LicenseManager.php:234
+#: vendor/wp-pay/core/src/LicenseManager.php:363
 #: vendor/wp-pay/core/views/meta-box-payment-info.php:494
 #: vendor/wp-pay/core/views/tab-system_status.php:36
 msgid "Valid"
@@ -4389,8 +4388,8 @@ msgstr "Variant"
 
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:78
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:177
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1124
-#: vendor/wp-pay/core/views/meta-box-gateway-config.php:69
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1132
+#: vendor/wp-pay/core/views/meta-box-gateway-config.php:78
 #: vendor/wp-pay/core/views/pointer-dashboard.php:16
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -4400,7 +4399,7 @@ msgid "Default"
 msgstr "Standaard"
 
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:467
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:730
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:734
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:736
 msgid "M j, Y @ H:i"
 msgstr "j F Y H:i"
@@ -4437,52 +4436,36 @@ msgid "Configuration draft updated."
 msgstr "Concept configuratie bijgewerkt."
 
 #: vendor/wp-pay/core/src/Admin/AdminHealth.php:57
-msgid "Support license key"
-msgstr "Support licentiesleutel"
-
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:58
-msgid "No license key found"
-msgstr "Geen licentiesleutel gevonden"
-
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:64
-msgid "License status"
-msgstr "Licentiestatus"
-
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:70
-msgid "Next scheduled license check"
-msgstr "Volgende geplande licentie controle"
-
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:76
 #: vendor/wp-pay/core/views/tab-system_status.php:245
 msgid "Time (UTC)"
 msgstr "Tijd (UTC)"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:77
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:58
 #: vendor/wp-pay/core/views/tab-system_status.php:248
 msgid "Y/m/d g:i:s A"
 msgstr "d-m-Y H:i"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:81
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:62
 msgid "Not available"
 msgstr "Niet beschikbaar"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:88
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:69
 msgid "OpenSSL version"
 msgstr "OpenSSL versie"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:94
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:75
 msgid "Active plugin integrations"
 msgstr "Actieve plugin integraties"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:100
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:81
 msgid "Active gateway integrations"
 msgstr "Actieve gateway integraties"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:237
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:218
 msgid "Pronamic Pay license key is valid"
 msgstr "Pronamic Pay licentiesleutel is geldig"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:240
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:221
 msgid ""
 "A valid license is required for technical support and continued plugin "
 "updates."
@@ -4490,29 +4473,29 @@ msgstr ""
 "Een geldige licentiesleutel is vereist voor technische ondersteuning en "
 "verdere plugin updates."
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:253
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:234
 msgid "No valid license key for Pronamic Pay"
 msgstr "Geen geldige licentiesleutel voor Pronamic Pay"
 
 #. translators: %s: WordPress version number
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:294
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:275
 msgid "WordPress version is supported by Pronamic Pay (%s)"
 msgstr "WordPress-versie wordt ondersteund door Pronamic Pay (%s)"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:297
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:278
 msgid "Pronamic Pay requires at least WordPress 4.7."
 msgstr "Pronamic Pay vereist minimaal WordPress 4.7."
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:309
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:290
 msgid "Pronamic Pay requires at least WordPress 4.7"
 msgstr "Pronamic Pay vereist minimaal WordPress 4.7"
 
 #. translators: %s: WordPress memory limit
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:330
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:311
 msgid "WordPress memory limit is sufficient (%s)"
 msgstr "WordPress geheugenlimiet is voldoende (%s)"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:333
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:314
 msgid ""
 "Pronamic Pay recommends setting the WordPress memory limit to at least 64 MB."
 msgstr ""
@@ -4520,30 +4503,30 @@ msgstr ""
 "minimaal 64 MB."
 
 #. translators: %s: WordPress memory limit
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:348
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:329
 msgid "Increase WordPress memory limit (%s) to at least 64 MB"
 msgstr "Verhoog het WordPress geheugenlimiet (%s) tot ten minste 64 MB"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:365
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:346
 msgid "Character encoding is set to UTF-8"
 msgstr "Tekencodering is ingesteld op UTF-8"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:366
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:347
 msgid ""
 "Pronamic Pay recommends to use the UTF-8 character encoding for payments."
 msgstr ""
 "Pronamic Pay raadt aan om de UTF-8 tekencodering te gebruiken voor "
 "betalingen."
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:379
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:360
 msgid "Character encoding is not set to UTF-8"
 msgstr "Tekencodering is niet ingesteld op UTF-8"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:394
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:375
 msgid "SHA1 hashing algorithm is available"
 msgstr "SHA1 hashing algoritme is beschikbaar"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:395
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:376
 msgid ""
 "Payment gateways often use the SHA1 hashing algorithm, therefore Pronamic "
 "Pay advises to enable this hashing algorithm."
@@ -4551,31 +4534,31 @@ msgstr ""
 "Betalingsproviders gebruiken vaak het SHA1 hashing algoritme, daarom raadt "
 "Pronamic Pay aan om dit hashing algoritme in te schakelen."
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:410
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:391
 msgid "SHA1 hashing algorithm is not available for Pronamic Pay"
 msgstr "SHA1 hashing algoritme is niet beschikbaar"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:538
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:519
 msgid "Untested plugin versions:"
 msgstr "Niet-geteste plugin versies:"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:548
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:529
 msgid ""
 "Outdated unsupported plugin versions for which payments can not be processed:"
 msgstr ""
 "Verouderde niet-ondersteunde plugin versies waarvoor betalingen niet kunnen "
 "worden verwerkt:"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:557
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:538
 msgid "Supported plugin versions:"
 msgstr "Ondersteunde plugin versies:"
 
 #. translators: %s: plugin name
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:565
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:546
 msgid "%s extensions are compatible"
 msgstr "%s extensies zijn compatibel"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:569
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:550
 msgid ""
 "Pronamic Pay uses extensions to integrate with form, booking and other e-"
 "commerce plugins. All extensions support the currently activated plugin "
@@ -4586,16 +4569,16 @@ msgstr ""
 "momenteel geactiveerde plugin versies."
 
 #. translators: %s: plugin name
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:574
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:555
 msgid "%s extensions are incompatible"
 msgstr "%s extensies zijn niet compatibel"
 
 #. translators: %s: plugin name
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:581
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:562
 msgid "%s extensions might be incompatible"
 msgstr "%s extensies zijn mogelijk niet compatibel"
 
-#: vendor/wp-pay/core/src/Admin/AdminHealth.php:586
+#: vendor/wp-pay/core/src/Admin/AdminHealth.php:567
 msgid ""
 "Pronamic Pay uses extensions to integrate with form, booking and other e-"
 "commerce plugins. We have found that not all extensions are tested with or "
@@ -4610,88 +4593,88 @@ msgstr ""
 "ontvangen, maar als je probleem ervaart met de betalingen dan is het aan te "
 "raden om de ‘Plugins’ pagina te controleren voor beschikbare updates."
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:419
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:414
 msgid "Payment completed"
 msgstr "Betaling voltooid"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:420
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:415
 msgid "completed"
 msgstr "voltooid"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:423
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:418
 msgid "The payment has been successfully completed."
 msgstr "Het betalingsproces is succesvol voltooid."
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:431
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:426
 msgid "Payment cancelled"
 msgstr "Betaling geannuleerd"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:432
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:427
 msgid "cancelled"
 msgstr "geannuleerd"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:435
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:430
 msgid "You have cancelled the payment."
 msgstr "De betaling is geannuleerd."
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:443
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:438
 msgid "Payment expired"
 msgstr "Betaling verlopen"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:444
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:439
 msgid "expired"
 msgstr "verlopen"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:447
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:442
 msgid "Your payment session has expired."
 msgstr "De betalingssessie is verlopen."
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:455
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:450
 msgid "Payment error"
 msgstr "Betalingsfout"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:456
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:451
 msgid "error"
 msgstr "fout"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:459
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:454
 msgid "An error has occurred during payment."
 msgstr "Er is een fout opgetreden tijdens het betalen."
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:467
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:462
 msgid "Payment status unknown"
 msgstr "Betalingsstatus onbekend"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:468
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:463
 msgid "unknown"
 msgstr "onbekend"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:471
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:466
 msgid "The payment status is unknown."
 msgstr "De status van de betaling is onbekend."
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:482
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:477
 msgid "subscription"
 msgstr "abonnement"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:485
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:480
 msgid "The subscription has been canceled."
 msgstr "Het abonnement is opgezegd."
 
 #. translators: %s: order ID
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:675
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:670
 msgid "Test %s"
 msgstr "Test %s"
 
 #. translators: %d: payments pending count
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:952
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:947
 msgid "%d payment pending"
 msgid_plural "%d payments pending"
 msgstr[0] "%d betaling in afwachting"
 msgstr[1] "%d betalingen in afwachting"
 
 #. translators: %d: subscriptions on hold count
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:961
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:956
 msgid "%d subscription on hold"
 msgid_plural "%d subscriptions on hold"
 msgstr[0] "%d abonnement in de wacht"
@@ -4708,13 +4691,13 @@ msgstr[1] "%d abonnementen in de wacht"
 msgid "Subscriptions"
 msgstr "Abonnementen"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1009
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1010
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1012
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1013
 #: vendor/wp-pay/core/views/pointer-reports.php:16
 msgid "Reports"
 msgstr "Rapporten"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1018
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1024
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:99
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:101
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:112
@@ -4722,62 +4705,38 @@ msgstr "Rapporten"
 msgid "Payment Forms"
 msgstr "Betalingsformulieren"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1019
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1025
 msgid "Forms"
 msgstr "Formulieren"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1024
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1025
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1032
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1033
 #: vendor/wp-pay/core/src/GatewayPostType.php:71
 #: vendor/wp-pay/core/views/pointer-gateways.php:16
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1030
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1031
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1039
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1040
 #: vendor/wp-pay/core/views/pointer-settings.php:16
 msgid "Settings"
 msgstr "Instellingen"
 
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1042
-#: vendor/wp-pay/core/src/Admin/AdminModule.php:1043
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1050
+#: vendor/wp-pay/core/src/Admin/AdminModule.php:1051
 msgid "Tools"
 msgstr "Extra"
 
-#. translators: 1: Pronamic Pay settings page URL, 2: Pronamic.eu plugin page URL
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:62
-msgid ""
-"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
-"href=\"%1$s\">support license key</a>, please <a href=\"%2$s\" "
-"target=\"_blank\">get your key at pronamic.eu</a>."
-msgstr ""
-"<strong>Pronamic Pay</strong> — Je hebt geen geldige <a "
-"href=\"%1$s\">support licentiesleutel</a> ingevuld, bestel je "
-"licentiesleutel op <a href=\"%2$s\" target=\"_blank\">pronamic.eu</a>."
-
-#. translators: 1: Pronamic Pay settings page URL, 2: Pronamic.eu plugin page URL, 3: Pronamic.eu account page URL
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:69
-msgid ""
-"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
-"href=\"%1$s\">support license key</a>. Please <a href=\"%2$s\" "
-"target=\"_blank\">get your key at pronamic.eu</a> or login to <a "
-"href=\"%3$s\" target=\"_blank\">check your license status</a>."
-msgstr ""
-"<strong>Pronamic Pay</strong> — Je hebt geen geldige <a "
-"href=\"%1$s\">support licentiesleutel</a> ingevuld. Bestel je licentie op <a "
-"href=\"%2$s\" target=\"_blank\">pronamic.eu</a> of login om <a href=\"%3$s\" "
-"target=\"_blank\">de licentie te controleren</a>."
-
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:134
+#: vendor/wp-pay/core/src/Admin/AdminNotices.php:104
 msgid "Dismiss this notice."
 msgstr "Negeer deze melding."
 
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:158
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:168
+#: vendor/wp-pay/core/src/Admin/AdminNotices.php:128
+#: vendor/wp-pay/core/src/Admin/AdminNotices.php:138
 msgid "Action failed. Please refresh the page and retry."
 msgstr "Actie mislukt. Ververs de pagina en probeer het opnieuw."
 
-#: vendor/wp-pay/core/src/Admin/AdminNotices.php:162
+#: vendor/wp-pay/core/src/Admin/AdminNotices.php:132
 msgid "You don’t have permission to do this."
 msgstr "Je hebt hier geen toestemming voor."
 
@@ -4854,7 +4813,7 @@ msgstr "Gateway"
 
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:336
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:374
-#: vendor/wp-pay/core/src/Plugin.php:1368
+#: vendor/wp-pay/core/src/Plugin.php:1358
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -4887,48 +4846,48 @@ msgstr "%s teruggeboekt"
 msgid "Payment Lines"
 msgstr "Betalingsregels"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:601
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:605
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:587
 msgid "Notes"
 msgstr "Notities"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:610
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:614
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:596
 #: vendor/wp-pay/core/views/meta-box-payment-update.php:148
 #: vendor/wp-pay/core/views/meta-box-subscription-update.php:210
 msgid "Update"
 msgstr "Bijwerken"
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:734
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:740
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:738
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:744
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:76
 msgid "Payment updated."
 msgstr "Betaling bijgewerkt."
 
 #. translators: %s: date and time of the revision
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:744
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:748
 msgid "Payment restored to revision from %s."
 msgstr "Betaling hersteld naar revisie van %s."
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:747
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:751
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:72
 msgid "Payment published."
 msgstr "Betaling gepubliceerd."
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:749
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:753
 msgid "Payment saved."
 msgstr "Betaling opgeslagen."
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:751
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:755
 msgid "Payment submitted."
 msgstr "Betaling geplaatst."
 
 #. translators: %s: scheduled date
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:754
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:758
 msgid "Payment scheduled for: %s."
 msgstr "Betaling ingepland voor: %s."
 
-#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:756
+#: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:760
 msgid "Payment draft updated."
 msgstr "Concept betaling bijgewerkt."
 
@@ -4956,56 +4915,52 @@ msgstr "Verlopen betalingen"
 msgid "Failed payments"
 msgstr "Mislukte betalingen"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:59
-msgid "Support License Key"
-msgstr "Support licentiecode"
-
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:72
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:60
 msgid "Default Gateway"
 msgstr "Standaard gateway"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:78
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:66
 msgid "— Select a gateway —"
 msgstr "— Selecteer een gateway —"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:86
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:74
 msgid "Google Analytics tracking ID"
 msgstr "Google Analytics tracking-ID"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:91
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:79
 msgid "Set a Google Analytics tracking UA code to track ecommerce revenue."
 msgstr ""
 "Stel een Google Analytics tracking UA code in om ecommerce inkomsten bij te "
 "houden."
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:100
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:105
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:88
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:93
 msgid "Remove Data"
 msgstr "Verwijder gegevens"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:106
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:94
 msgid "Remove all plugin data on uninstall"
 msgstr "Verwijder alle gegevens bij verwijderen van plugin"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:115
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:128
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:103
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:116
 msgid "Debug Mode"
 msgstr "Debug mode"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:116
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:104
 msgid "Enable debug mode"
 msgstr "Schakel foutopsporingsmodus in"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:138
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:126
 msgid "Disable Recurring Payments"
 msgstr "Terugkerende betalingen uitschakelen"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:143
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:144
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:131
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:132
 msgid "Disable starting recurring payments at gateway"
 msgstr "Schakel het starten van terugkerende betalingen bij gateway uit"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:212
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:200
 msgid ""
 "The page an user will get redirected to after payment, based on the payment "
 "status."
@@ -5013,19 +4968,19 @@ msgstr ""
 "De pagina waarnaar een gebruiker op basis van de de betalingsstatus wordt "
 "doorgestuurd na betaling."
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:229
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:217
 msgid "Set default pages"
 msgstr "Standaardpagina's instellen"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:362
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:329
 msgid "— Select a page —"
 msgstr "— Selecteer een pagina —"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:380
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:347
 msgid "Active"
 msgstr "Actief"
 
-#: vendor/wp-pay/core/src/Admin/AdminSettings.php:381
+#: vendor/wp-pay/core/src/Admin/AdminSettings.php:348
 msgid "Inactive"
 msgstr "Inactief"
 
@@ -5102,8 +5057,8 @@ msgstr "Formulier toevoegen"
 
 #: vendor/wp-pay/core/src/Blocks/BlocksModule.php:111
 #: vendor/wp-pay/core/src/Forms/FormPostType.php:102
-#: vendor/wp-pay/core/src/Forms/FormsModule.php:160
-#: vendor/wp-pay/core/src/Forms/FormsModule.php:191
+#: vendor/wp-pay/core/src/Forms/FormsModule.php:157
+#: vendor/wp-pay/core/src/Forms/FormsModule.php:188
 msgid "Payment Form"
 msgstr "Betalingsformulier"
 
@@ -5447,7 +5402,7 @@ msgstr "Voer een geldige voornaam in"
 msgid "Please enter a valid email address"
 msgstr "Voer een geldig e-mailadres in"
 
-#: vendor/wp-pay/core/src/Forms/FormsModule.php:127
+#: vendor/wp-pay/core/src/Forms/FormsModule.php:124
 #: vendor/wp-pay/core/views/meta-box-form-options.php:52
 msgid "Pay Now"
 msgstr "Betaal nu"
@@ -5534,20 +5489,64 @@ msgstr "Gateway ID."
 msgid "Gateway mode."
 msgstr "Gateway mode."
 
-#: vendor/wp-pay/core/src/LicenseManager.php:237
+#: vendor/wp-pay/core/src/LicenseManager.php:70
+msgid "Support License Key"
+msgstr "Support licentiecode"
+
+#. translators: 1: Pronamic Pay settings page URL, 2: Pronamic.eu plugin page URL
+#: vendor/wp-pay/core/src/LicenseManager.php:161
+msgid ""
+"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
+"href=\"%1$s\">support license key</a>, please <a href=\"%2$s\" "
+"target=\"_blank\">get your key at pronamic.eu</a>."
+msgstr ""
+"<strong>Pronamic Pay</strong> — Je hebt geen geldige <a "
+"href=\"%1$s\">support licentiesleutel</a> ingevuld, bestel je "
+"licentiesleutel op <a href=\"%2$s\" target=\"_blank\">pronamic.eu</a>."
+
+#. translators: 1: Pronamic Pay settings page URL, 2: Pronamic.eu plugin page URL, 3: Pronamic.eu account page URL
+#: vendor/wp-pay/core/src/LicenseManager.php:168
+msgid ""
+"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
+"href=\"%1$s\">support license key</a>. Please <a href=\"%2$s\" "
+"target=\"_blank\">get your key at pronamic.eu</a> or login to <a "
+"href=\"%3$s\" target=\"_blank\">check your license status</a>."
+msgstr ""
+"<strong>Pronamic Pay</strong> — Je hebt geen geldige <a "
+"href=\"%1$s\">support licentiesleutel</a> ingevuld. Bestel je licentie op <a "
+"href=\"%2$s\" target=\"_blank\">pronamic.eu</a> of login om <a href=\"%3$s\" "
+"target=\"_blank\">de licentie te controleren</a>."
+
+#: vendor/wp-pay/core/src/LicenseManager.php:366
 #: vendor/wp-pay/core/views/tab-system_status.php:40
 msgid "Invalid"
 msgstr "Ongeldig"
 
-#: vendor/wp-pay/core/src/LicenseManager.php:240
+#: vendor/wp-pay/core/src/LicenseManager.php:369
 #: vendor/wp-pay/core/views/tab-system_status.php:44
 msgid "Site Inactive"
 msgstr "Website inactief"
 
-#: vendor/wp-pay/core/src/LicenseManager.php:252
+#: vendor/wp-pay/core/src/LicenseManager.php:381
 #: vendor/wp-pay/core/views/tab-system_status.php:72
 msgid "Not scheduled"
 msgstr "Niet ingepland"
+
+#: vendor/wp-pay/core/src/LicenseManager.php:416
+msgid "Support license key"
+msgstr "Support licentiesleutel"
+
+#: vendor/wp-pay/core/src/LicenseManager.php:417
+msgid "No license key found"
+msgstr "Geen licentiesleutel gevonden"
+
+#: vendor/wp-pay/core/src/LicenseManager.php:423
+msgid "License status"
+msgstr "Licentiestatus"
+
+#: vendor/wp-pay/core/src/LicenseManager.php:429
+msgid "Next scheduled license check"
+msgstr "Volgende geplande licentie controle"
 
 #: vendor/wp-pay/core/src/Payments/PaymentPostType.php:55
 msgid "Add New Payment"
@@ -5835,58 +5834,58 @@ msgstr "Betaling ID %s geanonimiseerd."
 msgid "Payment status check at gateway by %s."
 msgstr "Status opvragen bij betalingsprovider door %s."
 
-#: vendor/wp-pay/core/src/Plugin.php:794
+#: vendor/wp-pay/core/src/Plugin.php:784
 msgctxt "default datetime format"
 msgid "D j M Y \\a\\t H:i"
 msgstr "D j M Y \\o\\m H:i"
 
-#: vendor/wp-pay/core/src/Plugin.php:805
+#: vendor/wp-pay/core/src/Plugin.php:795
 msgid ""
 "Something went wrong with the payment. Please try again or pay another way."
 msgstr ""
 "Er ging iets mis met de betaling. Probeer het opnieuw of betaal op een "
 "andere manier."
 
-#: vendor/wp-pay/core/src/Plugin.php:848
+#: vendor/wp-pay/core/src/Plugin.php:838
 msgid "— Select Configuration —"
 msgstr "— Selecteer configuratie —"
 
-#: vendor/wp-pay/core/src/Plugin.php:1303
+#: vendor/wp-pay/core/src/Plugin.php:1293
 msgid "Unable to process refund as gateway does not support refunds."
 msgstr ""
 "Kan terugbetaling niet verwerken, omdat de betalingsprovider geen "
 "terugbetalingen ondersteunt."
 
 #. translators: %s: formatted amount
-#: vendor/wp-pay/core/src/Plugin.php:1311
+#: vendor/wp-pay/core/src/Plugin.php:1301
 msgid "Unable to process refund because of invalid amount (%s)."
 msgstr "Kan terugbetaling niet verwerken door een ongeldig bedrag (%s)."
 
 #. translators: 1: refunded amount
-#: vendor/wp-pay/core/src/Plugin.php:1325
+#: vendor/wp-pay/core/src/Plugin.php:1315
 msgid "Refunded %1$s."
 msgstr "%1$s terugbetaald."
 
 #. translators: 1: refunded amount, 3: refund reference
-#: vendor/wp-pay/core/src/Plugin.php:1329
+#: vendor/wp-pay/core/src/Plugin.php:1319
 msgid "Refunded %1$s with gateway reference `%3$s`."
 msgstr "%1$s terugbetaald met gateway referentie `%3$s`."
 
 #. translators: 1: refunded amount, 2: refund description
-#: vendor/wp-pay/core/src/Plugin.php:1334
+#: vendor/wp-pay/core/src/Plugin.php:1324
 msgid "Refunded %1$s (\"%2$s\")."
 msgstr "%1$s terugbetaald (\"%2$s\")."
 
 #. translators: 1: refunded amount, 2: refund description, 3: refund reference
-#: vendor/wp-pay/core/src/Plugin.php:1338
+#: vendor/wp-pay/core/src/Plugin.php:1328
 msgid "Refunded %1$s (\"%2$s\") with gateway reference `%3$s`."
 msgstr "%1$s terugbetaald (\"%2$s\") met gateway referentie `%3$s`."
 
-#: vendor/wp-pay/core/src/Plugin.php:1364
+#: vendor/wp-pay/core/src/Plugin.php:1354
 msgid "Completed"
 msgstr "Voltooid"
 
-#: vendor/wp-pay/core/src/Plugin.php:1365
+#: vendor/wp-pay/core/src/Plugin.php:1355
 msgid "Canceled"
 msgstr "Geannuleerd"
 
@@ -6201,22 +6200,22 @@ msgstr "Toon als keuzes"
 msgid "Show as choices with input field"
 msgstr "Toon als keuzes met tekstveld"
 
-#: vendor/wp-pay/core/views/meta-box-gateway-config.php:35
+#: vendor/wp-pay/core/views/meta-box-gateway-config.php:44
 #: vendor/wp-pay/core/views/tab-gateways.php:25
 msgid "Payment provider"
 msgstr "Betalingsprovider"
 
 #. translators: %s: Integration name
-#: vendor/wp-pay/core/views/meta-box-gateway-config.php:55
+#: vendor/wp-pay/core/views/meta-box-gateway-config.php:64
 #: vendor/wp-pay/core/views/tab-gateways.php:69
 msgid "%s (obsoleted)"
 msgstr "%s (verouderd)"
 
-#: vendor/wp-pay/core/views/meta-box-gateway-config.php:78
+#: vendor/wp-pay/core/views/meta-box-gateway-config.php:87
 msgid "Product information"
 msgstr "Productinformatie"
 
-#: vendor/wp-pay/core/views/meta-box-gateway-config.php:89
+#: vendor/wp-pay/core/views/meta-box-gateway-config.php:98
 msgid "Manual"
 msgstr "Handleiding"
 
