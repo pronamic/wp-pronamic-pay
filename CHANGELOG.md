@@ -10,7 +10,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Commits
 
-- Lower PHP requirement tot PHP 7.4. ([785a9c3](https://github.com/pronamic/wp-pronamic-pay/commit/785a9c385f843e218128c4f924fa0cac1c5d25d6))
+- Lower PHP requirement to PHP 7.4. ([785a9c3](https://github.com/pronamic/wp-pronamic-pay/commit/785a9c385f843e218128c4f924fa0cac1c5d25d6))
 
 ### Composer
 
@@ -19,6 +19,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 	Release notes: https://github.com/pronamic/wp-pronamic-pay-charitable/releases/tag/v4.3.1
 - Changed `wp-pay-gateways/adyen` from `v4.4.0` to `v4.4.1`.
 	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.1
+
 Full set of changes: [`9.3.1...9.3.2`][9.3.2]
 
 [9.3.2]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.1...v9.3.2
@@ -88,6 +89,7 @@ Full set of changes: [`9.3.1...9.3.2`][9.3.2]
 	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.7.1
 - Changed `wp-pay/fundraising` from `v3.1.0` to `v3.1.1`.
 	Release notes: https://github.com/pronamic/wp-pronamic-pay-fundraising/releases/tag/v3.1.1
+
 Full set of changes: [`9.3.0...9.3.1`][9.3.1]
 
 [9.3.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.0...v9.3.1
@@ -133,6 +135,7 @@ Full set of changes: [`9.3.0...9.3.1`][9.3.1]
 	Release notes: https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/releases/tag/v4.4.1
 - Changed `wp-pay/core` from `v4.6.0` to `v4.7.0`.
 	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.7.0
+
 Full set of changes: [`9.2.0...9.3.0`][9.3.0]
 
 [9.3.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.2.0...v9.3.0
