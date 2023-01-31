@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc0e22fa5db19b7d0eaa7024a3f48e46",
+    "content-hash": "099478b505ef196b9946fdfba9311e54",
     "packages": [
         {
             "name": "composer/installers",
@@ -713,20 +713,20 @@
         },
         {
             "name": "wp-pay-extensions/charitable",
-            "version": "v4.3.0",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-charitable.git",
-                "reference": "b906cc2ecf111af4307e05f09d9be8392a48e579"
+                "reference": "d7fe5f238f88d8003dc0609906f2d62451864a5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-charitable/zipball/b906cc2ecf111af4307e05f09d9be8392a48e579",
-                "reference": "b906cc2ecf111af4307e05f09d9be8392a48e579",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-charitable/zipball/d7fe5f238f88d8003dc0609906f2d62451864a5f",
+                "reference": "d7fe5f238f88d8003dc0609906f2d62451864a5f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
@@ -779,7 +779,7 @@
                 "issues": "https://github.com/wp-pay-extensions/charitable/issues",
                 "source": "https://github.com/wp-pay-extensions/charitable"
             },
-            "time": "2022-12-23T07:55:24+00:00"
+            "time": "2023-01-31T12:49:41+00:00"
         },
         {
             "name": "wp-pay-extensions/contact-form-7",
@@ -1505,33 +1505,33 @@
         },
         {
             "name": "wp-pay-gateways/adyen",
-            "version": "v4.4.0",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-adyen.git",
-                "reference": "fe845656de41efdce26a515d74e809b22ad1013f"
+                "reference": "24b5105e623ec40890181ec22e12642b4596e84d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-adyen/zipball/fe845656de41efdce26a515d74e809b22ad1013f",
-                "reference": "fe845656de41efdce26a515d74e809b22ad1013f",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-adyen/zipball/24b5105e623ec40890181ec22e12642b4596e84d",
+                "reference": "24b5105e623ec40890181ec22e12642b4596e84d",
                 "shasum": ""
             },
             "require": {
                 "ext-intl": "*",
                 "justinrainbow/json-schema": "^5.2",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "pronamic/wp-http": "^1.2",
                 "pronamic/wp-money": "^2.2",
                 "wp-pay/core": "^4.6"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
-                "overtrue/phplint": "^5.3",
+                "overtrue/phplint": "^4.5",
                 "php-coveralls/php-coveralls": "^2.5",
-                "phpmd/phpmd": "^2.8",
+                "phpmd/phpmd": "^2.13",
                 "pronamic/wp-coding-standards": "^1.3",
-                "pronamic/wp-deployer": "^1.1",
+                "pronamic/wp-deployer": "^1.2",
                 "roots/wordpress": "^6.0",
                 "sirbrillig/phpcs-import-detection": "^1.2",
                 "sirbrillig/phpcs-variable-analysis": "^2.8",
@@ -1577,7 +1577,7 @@
                 "issues": "https://github.com/wp-pay-gateways/adyen/issues",
                 "source": "https://github.com/wp-pay-gateways/adyen"
             },
-            "time": "2022-12-20T09:27:24+00:00"
+            "time": "2023-01-31T12:27:43+00:00"
         },
         {
             "name": "wp-pay-gateways/buckaroo",
@@ -5300,22 +5300,22 @@
         },
         {
             "name": "pronamic/wp-coding-standards",
-            "version": "1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-coding-standards.git",
-                "reference": "345a234c74c6a287761513cddd1d9c65937e982d"
+                "reference": "9ebf21339d925a01696e12d43b5c738252d151a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-coding-standards/zipball/345a234c74c6a287761513cddd1d9c65937e982d",
-                "reference": "345a234c74c6a287761513cddd1d9c65937e982d",
+                "url": "https://api.github.com/repos/pronamic/wp-coding-standards/zipball/9ebf21339d925a01696e12d43b5c738252d151a2",
+                "reference": "9ebf21339d925a01696e12d43b5c738252d151a2",
                 "shasum": ""
             },
             "require": {
                 "automattic/vipwpcs": "^2.3",
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "phpcompatibility/phpcompatibility-wp": "^2.1",
                 "sirbrillig/phpcs-variable-analysis": "^2.11",
                 "squizlabs/php_codesniffer": "^3.7",
@@ -5352,24 +5352,24 @@
                 "issues": "https://github.com/pronamic/wp-coding-standards/issues",
                 "source": "https://github.com/pronamic/wp-coding-standards"
             },
-            "time": "2022-12-01T11:56:34+00:00"
+            "time": "2023-01-31T13:16:21+00:00"
         },
         {
             "name": "pronamic/wp-deployer",
-            "version": "v1.2.10",
+            "version": "v1.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-deployer.git",
-                "reference": "60ac28714cca2f187d20a24596ebb48509537bcf"
+                "reference": "4e5b80f98083b2f2c1bc812da0409d1e98774cf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-deployer/zipball/60ac28714cca2f187d20a24596ebb48509537bcf",
-                "reference": "60ac28714cca2f187d20a24596ebb48509537bcf",
+                "url": "https://api.github.com/repos/pronamic/wp-deployer/zipball/4e5b80f98083b2f2c1bc812da0409d1e98774cf1",
+                "reference": "4e5b80f98083b2f2c1bc812da0409d1e98774cf1",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0",
+                "php": ">=7.4",
                 "symfony/console": "^5.0 || ^6.0 || ^6.1 || ^6.2",
                 "symfony/filesystem": "^5.0 || ^6.0 || ^6.1 || ^6.2",
                 "symfony/process": "^5.0 || ^6.0 || ^6.1 || ^6.2"
@@ -5397,9 +5397,9 @@
             "description": "WordPress deployer.",
             "support": {
                 "issues": "https://github.com/pronamic/wp-deployer/issues",
-                "source": "https://github.com/pronamic/wp-deployer/tree/v1.2.10"
+                "source": "https://github.com/pronamic/wp-deployer/tree/v1.2.11"
             },
-            "time": "2023-01-04T20:05:12+00:00"
+            "time": "2023-01-31T13:19:39+00:00"
         },
         {
             "name": "psr/container",
@@ -5611,30 +5611,30 @@
         },
         {
             "name": "psr/log",
-            "version": "2.0.0",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376"
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/ef29f6d262798707a9edd554e2b82517ef3a9376",
-                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.0"
+                "php": ">=5.3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Log\\": "src"
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5655,9 +5655,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/2.0.0"
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
-            "time": "2021-07-14T16:41:46+00:00"
+            "time": "2021-05-03T11:20:27+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -10902,11 +10902,11 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.0"
+        "php": ">=7.4"
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "8.0"
+        "php": "7.4"
     },
     "plugin-api-version": "2.3.0"
 }
