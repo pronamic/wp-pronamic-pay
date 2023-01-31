@@ -4,8 +4,8 @@ Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurrin
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
 Requires at least: 5.9
 Tested up to: 6.1
-Requires PHP: 7.4
-Stable tag: 9.3.1
+Requires PHP: 8.0
+Stable tag: 9.3.2
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -112,6 +112,22 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 
 == Changelog ==
+
+= 9.3.2 =
+### Commits
+
+- Lower PHP requirement tot PHP 7.4. ([785a9c3](https://github.com/pronamic/wp-pronamic-pay/commit/785a9c385f843e218128c4f924fa0cac1c5d25d6))
+
+### Composer
+
+- Changed `php` from `>=8.0` to `>=7.4`.
+- Changed `wp-pay-extensions/charitable` from `v4.3.0` to `v4.3.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-charitable/releases/tag/v4.3.1
+- Changed `wp-pay-gateways/adyen` from `v4.4.0` to `v4.4.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.1
+Full set of changes: [`9.3.1...9.3.2`][9.3.2]
+
+[9.3.2]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.1...v9.3.2
 
 = 9.3.1 =
 ### Commits
@@ -317,24 +333,6 @@ Full set of changes: [`9.2.0...9.2.1`][9.2.1]
 Full set of changes: [`9.1.3...9.2.0`][9.2.0]
 
 [9.2.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.1.3...v9.2.0
-
-= 9.1.3 =
-### Fixed
-- Updated WordPress pay Easy Digital Downloads library to version 4.2.2.
-  - Fix required field indicator HTML escaped. [#5](https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/issues/5)
-- Updated WordPress pay WooCommerce library to version 4.3.3.
-  - Fix creating zero amount refunds. [#31](https://github.com/pronamic/wp-pronamic-pay-woocommerce/issues/31)
-- Updated WordPress pay Adyen library to version 4.3.1.
-  - Redirect API-only payment methods to payment action URL. [#18](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/18)
-  - Make `redirectResult` no longer required in return endpoint. [#19](https://github.com/pronamic/wp-pronamic-pay-adyen/issues/19)
-
-### Changed
-- Updated WordPress pay Mollie library to version 4.6.0.
-  - Use new `pronamic/wp-mollie` library.
-  - Use new `str_*_with` functions, requires WordPress `5.9` or higher.
-- Updated WordPress pay Pay. library to version 4.4.0.
-  - Updated to REST API version 13: https://rest-api.pay.nl/v13/.
-  - Added `statsData` to transaction requests. [#18](https://github.com/pronamic/pronamic-pay/issues/18)
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

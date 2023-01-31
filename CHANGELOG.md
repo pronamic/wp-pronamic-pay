@@ -6,6 +6,23 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.3.2] - 2023-01-31
+
+### Commits
+
+- Lower PHP requirement tot PHP 7.4. ([785a9c3](https://github.com/pronamic/wp-pronamic-pay/commit/785a9c385f843e218128c4f924fa0cac1c5d25d6))
+
+### Composer
+
+- Changed `php` from `>=8.0` to `>=7.4`.
+- Changed `wp-pay-extensions/charitable` from `v4.3.0` to `v4.3.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-charitable/releases/tag/v4.3.1
+- Changed `wp-pay-gateways/adyen` from `v4.4.0` to `v4.4.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.1
+Full set of changes: [`9.3.1...9.3.2`][9.3.2]
+
+[9.3.2]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.1...v9.3.2
+
 ## [9.3.1] - 2023-01-31
 ### Commits
 
