@@ -135,11 +135,7 @@ add_filter(
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\Give\Extension();
 
 		// WooCommerce.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension(
-			[
-				'db_version_option_name' => 'pronamic_pay_woocommerce_db_version',
-			]
-		);
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension();
 
 		// Gravity Forms.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\GravityForms\Extension();
@@ -148,25 +144,13 @@ add_filter(
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension();
 
 		// MemberPress.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\MemberPress\Extension(
-			[
-				'slug'                   => 'memberpress',
-				'db_version_option_name' => 'pronamic_pay_memberpress_db_version',
-				'name'                   => 'MemberPress',
-			]
-		);
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\MemberPress\Extension();
 
 		// NinjaForms.
 		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension();
 
 		// Restrict Content Pro.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension(
-			[
-				'slug'                   => 'restrict-content-pro',
-				'db_version_option_name' => 'pronamic_pay_restrictcontentpro_db_version',
-				'name'                   => 'Restrict Content Pro',
-			]
-		);
+		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension();
 
 		// Return integrations.
 		return $integrations;
@@ -461,10 +445,8 @@ add_filter(
 		// Mollie.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration(
 			[
-				'register_url'           => 'https://www.mollie.com/nl/signup/665327',
-				'manual_url'             => \__( 'https://www.pronamicpay.com/en/manuals/how-to-connect-mollie-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
-				'version_option_name'    => 'pronamic_pay_mollie_version',
-				'db_version_option_name' => 'pronamic_pay_mollie_db_version',
+				'register_url' => 'https://www.mollie.com/nl/signup/665327',
+				'manual_url'   => \__( 'https://www.pronamicpay.com/en/manuals/how-to-connect-mollie-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
 			]
 		);
 
