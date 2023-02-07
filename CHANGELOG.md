@@ -6,6 +6,27 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.3.3] - 2023-02-07
+### Composer
+
+- Changed `wp-pay-extensions/memberpress` from `v4.7.2` to `v4.7.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.3
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.3.1` to `v4.3.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.3.2
+- Changed `wp-pay-extensions/woocommerce` from `v4.5.1` to `v4.5.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.5.2
+- Changed `wp-pay-gateways/icepay` from `v4.3.1` to `v4.3.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-icepay/releases/tag/v4.3.2
+- Changed `wp-pay-gateways/ideal-advanced-v3` from `v4.3.2` to `v4.3.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ideal-advanced-v3/releases/tag/v4.3.3
+- Changed `wp-pay-gateways/mollie` from `v4.7.2` to `v4.7.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.7.3
+- Changed `wp-pay/core` from `v4.7.1` to `v4.7.2`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.7.2
+Full set of changes: [`9.3.2...9.3.3`][9.3.3]
+
+[9.3.3]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.2...v9.3.3
+
 ## [9.3.2] - 2023-01-31
 
 ### Commits

@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.1
 Requires PHP: 7.4
-Stable tag: 9.3.2
+Stable tag: 9.3.3
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -113,10 +113,31 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 9.3.3 =
+### Composer
+
+- Changed `wp-pay-extensions/memberpress` from `v4.7.2` to `v4.7.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.3
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.3.1` to `v4.3.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.3.2
+- Changed `wp-pay-extensions/woocommerce` from `v4.5.1` to `v4.5.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.5.2
+- Changed `wp-pay-gateways/icepay` from `v4.3.1` to `v4.3.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-icepay/releases/tag/v4.3.2
+- Changed `wp-pay-gateways/ideal-advanced-v3` from `v4.3.2` to `v4.3.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ideal-advanced-v3/releases/tag/v4.3.3
+- Changed `wp-pay-gateways/mollie` from `v4.7.2` to `v4.7.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.7.3
+- Changed `wp-pay/core` from `v4.7.1` to `v4.7.2`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.7.2
+Full set of changes: [`9.3.2...9.3.3`][9.3.3]
+
+[9.3.3]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.2...v9.3.3
+
 = 9.3.2 =
 ### Commits
 
-- Lower PHP requirement tot PHP 7.4. ([785a9c3](https://github.com/pronamic/wp-pronamic-pay/commit/785a9c385f843e218128c4f924fa0cac1c5d25d6))
+- Lower PHP requirement to PHP 7.4. ([785a9c3](https://github.com/pronamic/wp-pronamic-pay/commit/785a9c385f843e218128c4f924fa0cac1c5d25d6))
 
 ### Composer
 
@@ -125,6 +146,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 	Release notes: https://github.com/pronamic/wp-pronamic-pay-charitable/releases/tag/v4.3.1
 - Changed `wp-pay-gateways/adyen` from `v4.4.0` to `v4.4.1`.
 	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.1
+
 Full set of changes: [`9.3.1...9.3.2`][9.3.2]
 
 [9.3.2]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.1...v9.3.2
@@ -194,6 +216,7 @@ Full set of changes: [`9.3.1...9.3.2`][9.3.2]
 	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.7.1
 - Changed `wp-pay/fundraising` from `v3.1.0` to `v3.1.1`.
 	Release notes: https://github.com/pronamic/wp-pronamic-pay-fundraising/releases/tag/v3.1.1
+
 Full set of changes: [`9.3.0...9.3.1`][9.3.1]
 
 [9.3.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.0...v9.3.1
@@ -239,6 +262,7 @@ Full set of changes: [`9.3.0...9.3.1`][9.3.1]
 	Release notes: https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/releases/tag/v4.4.1
 - Changed `wp-pay/core` from `v4.6.0` to `v4.7.0`.
 	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.7.0
+
 Full set of changes: [`9.2.0...9.3.0`][9.3.0]
 
 [9.3.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.2.0...v9.3.0
@@ -258,81 +282,6 @@ Full set of changes: [`9.2.0...9.3.0`][9.3.0]
 Full set of changes: [`9.2.0...9.2.1`][9.2.1]
 
 [9.2.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.2.0...v9.2.1
-
-= 9.2.0 =
-### Changed
-
-- Requires PHP 8.0. ([b511154](https://github.com/pronamic/wp-pronamic-pay/commit/b511154f25386a11c82f254d4d62b31ee1b26dc0))
-- Removed usage of deprecated constant `FILTER_SANITIZE_STRING`. ([883175b](https://github.com/pronamic/wp-pronamic-pay/commit/883175b99f0ffa1418ec192994e44a0ef094d92b))
-
-### Composer
-
-- Changed `php` from `>=7.4` to `>=8.0`.
-- Changed `pronamic/wp-datetime` from `2.0.3` to `v2.1.1`.
-	Release notes: https://github.com/pronamic/wp-datetime/releases/tag/v2.1.1
-- Changed `pronamic/wp-html` from `2.0.2` to `v2.1.0`.
-	Release notes: https://github.com/pronamic/wp-html/releases/tag/v2.1.0
-- Changed `pronamic/wp-money` from `2.0.3` to `v2.2.0`.
-	Release notes: https://github.com/pronamic/wp-money/releases/tag/v2.2.0
-- Changed `pronamic/wp-number` from `1.1.1` to `v1.2.0`.
-	Release notes: https://github.com/pronamic/wp-number/releases/tag/v1.2.0
-- Changed `wp-pay-extensions/charitable` from `4.2.1` to `v4.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-charitable/releases/tag/v4.3.0
-- Changed `wp-pay-extensions/contact-form-7` from `3.1.2` to `v3.2.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v3.2.0
-- Changed `wp-pay-extensions/easy-digital-downloads` from `4.2.2` to `v4.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/releases/tag/v4.3.0
-- Changed `wp-pay-extensions/event-espresso` from `4.1.2` to `v4.2.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-event-espresso/releases/tag/v4.2.0
-- Changed `wp-pay-extensions/formidable-forms` from `4.2.1` to `v4.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-formidable-forms/releases/tag/v4.3.0
-- Changed `wp-pay-extensions/give` from `4.1.1` to `v4.2.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-give/releases/tag/v4.2.0
-- Changed `wp-pay-extensions/gravityforms` from `4.3.0` to `v4.4.1`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.4.1
-- Changed `wp-pay-extensions/memberpress` from `4.6.0` to `v4.7.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.0
-- Changed `wp-pay-extensions/ninjaforms` from `3.1.1` to `v3.2.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ninjaforms/releases/tag/v3.2.0
-- Changed `wp-pay-extensions/restrict-content-pro` from `4.2.1` to `v4.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.3.0
-- Changed `wp-pay-extensions/woocommerce` from `4.3.3` to `v4.4.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.4.0
-- Changed `wp-pay-gateways/adyen` from `4.3.1` to `v4.4.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.0
-- Changed `wp-pay-gateways/buckaroo` from `4.2.2` to `v4.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-buckaroo/releases/tag/v4.3.0
-- Changed `wp-pay-gateways/digiwallet` from `3.2.1` to `v3.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-digiwallet/releases/tag/v3.3.0
-- Changed `wp-pay-gateways/ems-e-commerce` from `4.2.0` to `v4.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ems-e-commerce/releases/tag/v4.3.0
-- Changed `wp-pay-gateways/icepay` from `4.2.0` to `v4.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-icepay/releases/tag/v4.3.0
-- Changed `wp-pay-gateways/ideal` from `4.0.1` to `v4.1.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ideal/releases/tag/v4.1.0
-- Changed `wp-pay-gateways/ideal-advanced-v3` from `4.2.0` to `v4.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ideal-advanced-v3/releases/tag/v4.3.0
-- Changed `wp-pay-gateways/ideal-basic` from `4.2.0` to `v4.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ideal-basic/releases/tag/v4.3.0
-- Changed `wp-pay-gateways/mollie` from `4.6.0` to `v4.7.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.7.0
-- Changed `wp-pay-gateways/multisafepay` from `4.2.0` to `v4.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-multisafepay/releases/tag/v4.3.0
-- Changed `wp-pay-gateways/ogone` from `4.2.0` to `v4.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ingenico/releases/tag/v4.3.0
-- Changed `wp-pay-gateways/omnikassa-2` from `4.3.0` to `v4.4.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/releases/tag/v4.4.0
-- Changed `wp-pay-gateways/pay-nl` from `4.4.0` to `v4.5.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-pay-nl/releases/tag/v4.5.0
-- Changed `wp-pay-gateways/paypal` from `2.2.2` to `v2.3.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-paypal/releases/tag/v2.3.0
-- Changed `wp-pay/core` from `4.5.0` to `v4.6.0`.
-	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.6.0
-- Changed `wp-pay/fundraising` from `3.0.3` to `v3.1.0`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-fundraising/releases/tag/v3.1.0
-Full set of changes: [`9.1.3...9.2.0`][9.2.0]
-
-[9.2.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.1.3...v9.2.0
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
