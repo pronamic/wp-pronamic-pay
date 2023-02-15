@@ -6,6 +6,17 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.3.4] - 2023-02-15
+### Composer
+
+- Changed `wp-pay-extensions/memberpress` from `v4.7.3` to `v4.7.4`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.4
+- Changed `wp-pay-gateways/adyen` from `v4.4.1` to `v4.4.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.3
+Full set of changes: [`9.3.3...9.3.4`][9.3.4]
+
+[9.3.4]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.3...v9.3.4
+
 ## [9.3.3] - 2023-02-07
 ### Composer
 

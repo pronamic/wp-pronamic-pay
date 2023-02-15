@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.1
 Requires PHP: 7.4
-Stable tag: 9.3.3
+Stable tag: 9.3.4
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -112,6 +112,17 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 
 == Changelog ==
+
+= 9.3.4 =
+### Composer
+
+- Changed `wp-pay-extensions/memberpress` from `v4.7.3` to `v4.7.4`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.4
+- Changed `wp-pay-gateways/adyen` from `v4.4.1` to `v4.4.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.3
+Full set of changes: [`9.3.3...9.3.4`][9.3.4]
+
+[9.3.4]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.3...v9.3.4
 
 = 9.3.3 =
 ### Composer
@@ -266,22 +277,6 @@ Full set of changes: [`9.3.0...9.3.1`][9.3.1]
 Full set of changes: [`9.2.0...9.3.0`][9.3.0]
 
 [9.3.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.2.0...v9.3.0
-
-= 9.2.1 =
-### Fixed
-
-- Gravity Forms - Fixed problem with saving status page settings in payment feed. ([#14](https://github.com/pronamic/wp-pronamic-pay-gravityforms/issues/14))
-
-### Composer
-
-- Changed `composer/installers` from `v1.12.0` to `v2.2.0`.
-	Release notes: https://github.com/composer/installers/releases/tag/v2.2.0
-- Changed `wp-pay-extensions/gravityforms` from `v4.4.1` to `v4.4.2`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.4.2
-
-Full set of changes: [`9.2.0...9.2.1`][9.2.1]
-
-[9.2.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.2.0...v9.2.1
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
