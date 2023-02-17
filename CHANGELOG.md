@@ -6,6 +6,26 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.3.5] - 2023-02-17
+
+### Fixed
+
+- Fixed field inputs options in recurring amount settings field of Gravity Forms.
+- Fixed expiry date of MemberPress transaction with trial period.
+- Fixed running Mollie integration installation.
+
+### Composer
+
+- Changed `wp-pay-extensions/gravityforms` from `v4.5.1` to `v4.5.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.5.2
+- Changed `wp-pay-extensions/memberpress` from `v4.7.4` to `v4.7.5`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.5
+- Changed `wp-pay-gateways/mollie` from `v4.7.3` to `v4.7.4`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.7.4
+Full set of changes: [`9.3.4...9.3.5`][9.3.5]
+
+[9.3.5]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.4...v9.3.5
+
 ## [9.3.4] - 2023-02-15
 ### Composer
 
