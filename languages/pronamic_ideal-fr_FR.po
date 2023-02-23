@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 6.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2023-02-17T11:09:24+00:00\n"
+"POT-Creation-Date: 2023-02-23T14:09:19+00:00\n"
 "PO-Revision-Date: 2022-03-15 12:08+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: \n"
@@ -510,23 +510,23 @@ msgstr ""
 "spécifiques au mode de paiement (comme 'iDEAL') pour permettre aux clients "
 "de choisir le mode de paiement souhaité à la caisse."
 
-#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:59
-#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:303
-#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:325
+#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:45
+#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:266
+#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:288
 msgid "Contact Form 7"
 msgstr "Contact Form 7"
 
-#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:162
+#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:166
 msgid "Please wait while redirecting for payment"
 msgstr "S’il vous plaît attendre tout en redirigeant pour le paiement"
 
-#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:314
-#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:336
+#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:277
+#: vendor/wp-pay-extensions/contact-form-7/src/Extension.php:299
 msgid "Contact Form 7 Entry"
 msgstr "Contact Form 7 Entrée"
 
 #. translators: %s: payment data title
-#: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:211
+#: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:214
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:390
 #: vendor/wp-pay-extensions/gravityforms/src/Processor.php:246
 #: vendor/wp-pay-extensions/memberpress/src/Pronamic.php:53
@@ -537,12 +537,12 @@ msgid "Payment for %s"
 msgstr "Paiement pour %s"
 
 #. translators: %s: order id
-#: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:214
+#: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:217
 msgid "Contact Form 7 Entry @ %s"
 msgstr "Contact Form 7 Entrée @ %s"
 
 #. translators: %s: payment number
-#: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:225
+#: vendor/wp-pay-extensions/contact-form-7/src/Pronamic.php:228
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:329
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:589
 #: vendor/wp-pay-gateways/mollie/views/page-payment.php:69
@@ -1090,7 +1090,7 @@ msgstr "La vérification a échoué"
 #: vendor/wp-pay-extensions/give/src/Gateway.php:260
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:414
 #: vendor/wp-pay-gateways/adyen/src/SiteHealthController.php:119
-#: vendor/wp-pay/core/src/Plugin.php:1357 vendor/wp-pay/core/views/form.php:254
+#: vendor/wp-pay/core/src/Plugin.php:1355 vendor/wp-pay/core/views/form.php:254
 msgid "Error"
 msgstr "Erreur"
 
@@ -1655,7 +1655,7 @@ msgid "Success"
 msgstr "Succès"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:413
-#: vendor/wp-pay/core/src/Plugin.php:1356
+#: vendor/wp-pay/core/src/Plugin.php:1354
 msgid "Expired"
 msgstr "Expiré"
 
@@ -4949,7 +4949,7 @@ msgstr "Passerelle"
 
 #: vendor/wp-pay/core/src/Admin/AdminPaymentPostType.php:336
 #: vendor/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:374
-#: vendor/wp-pay/core/src/Plugin.php:1358
+#: vendor/wp-pay/core/src/Plugin.php:1356
 msgid "Unknown"
 msgstr "Inconnu"
 
@@ -6009,57 +6009,57 @@ msgstr "Paiement ID %s anonymized."
 msgid "Payment status check at gateway by %s."
 msgstr "Vérification de l'état des paiements à la passerelle par %s."
 
-#: vendor/wp-pay/core/src/Plugin.php:784
+#: vendor/wp-pay/core/src/Plugin.php:782
 #, fuzzy
 msgctxt "default datetime format"
 msgid "D j M Y \\a\\t H:i"
 msgstr "D j M Y \\a\\t H:i"
 
-#: vendor/wp-pay/core/src/Plugin.php:795
+#: vendor/wp-pay/core/src/Plugin.php:793
 msgid ""
 "Something went wrong with the payment. Please try again or pay another way."
 msgstr ""
 "Quelque chose s’est mal passé avec le paiement. Veuillez réessayer ou payer "
 "d’une autre manière."
 
-#: vendor/wp-pay/core/src/Plugin.php:838
+#: vendor/wp-pay/core/src/Plugin.php:836
 msgid "— Select Configuration —"
 msgstr "— Sélectionner la configuration —"
 
-#: vendor/wp-pay/core/src/Plugin.php:1293
+#: vendor/wp-pay/core/src/Plugin.php:1291
 msgid "Unable to process refund as gateway does not support refunds."
 msgstr ""
 
 #. translators: %s: formatted amount
-#: vendor/wp-pay/core/src/Plugin.php:1301
+#: vendor/wp-pay/core/src/Plugin.php:1299
 msgid "Unable to process refund because of invalid amount (%s)."
 msgstr ""
 
 #. translators: 1: refunded amount
-#: vendor/wp-pay/core/src/Plugin.php:1315
+#: vendor/wp-pay/core/src/Plugin.php:1313
 msgid "Refunded %1$s."
 msgstr "Remboursement %1$s."
 
 #. translators: 1: refunded amount, 3: refund reference
-#: vendor/wp-pay/core/src/Plugin.php:1319
+#: vendor/wp-pay/core/src/Plugin.php:1317
 msgid "Refunded %1$s with gateway reference `%3$s`."
 msgstr ""
 
 #. translators: 1: refunded amount, 2: refund description
-#: vendor/wp-pay/core/src/Plugin.php:1324
+#: vendor/wp-pay/core/src/Plugin.php:1322
 msgid "Refunded %1$s (\"%2$s\")."
 msgstr "Remboursement %1$s (\"%2$s\")."
 
 #. translators: 1: refunded amount, 2: refund description, 3: refund reference
-#: vendor/wp-pay/core/src/Plugin.php:1328
+#: vendor/wp-pay/core/src/Plugin.php:1326
 msgid "Refunded %1$s (\"%2$s\") with gateway reference `%3$s`."
 msgstr ""
 
-#: vendor/wp-pay/core/src/Plugin.php:1354
+#: vendor/wp-pay/core/src/Plugin.php:1352
 msgid "Completed"
 msgstr "Terminé"
 
-#: vendor/wp-pay/core/src/Plugin.php:1355
+#: vendor/wp-pay/core/src/Plugin.php:1353
 msgid "Canceled"
 msgstr "Annulé"
 
@@ -6198,39 +6198,39 @@ msgstr "Abonnement créé avec le statut \"%1$s\"."
 msgid "Subscription status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Le statut d'abonnement est passé de \"%1$s\" à \"%2$s\"."
 
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:441
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:450
 #, fuzzy
 msgid "Gateway does not support subscription mandate updates."
 msgstr "Cette passerelle ne prend pas en charge l'enregistrement webhook."
 
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:625
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:643
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:640
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:658
 msgid "Subscription ID."
 msgstr "ID d'abonnement."
 
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:647
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:662
 msgid "Subscription phase sequence number."
 msgstr "Numéro de séquence de phase d’abonnement."
 
 #. translators: %s: Subscription ID
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:671
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:697
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:686
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:712
 #, fuzzy
 msgid "Could not find subscription with ID `%s`."
 msgstr "Impossible de trouver l'abonnement avec ID `%s`."
 
 #. translators: %s: Subscription ID
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:713
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:728
 #, fuzzy
 msgid "Could not find subscription phase with sequence number `%s`."
 msgstr "Impossible de trouver l'abonnement avec ID `%s`."
 
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:730
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:745
 #, fuzzy
 msgid "Subscription payment method change"
 msgstr "Paiement d'abonnement ajouté"
 
-#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:740
+#: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:755
 #, fuzzy
 msgid "subscription payment method change"
 msgstr "Paiement d'abonnement ajouté"
