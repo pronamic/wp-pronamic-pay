@@ -6,6 +6,35 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.3.6] - 2023-02-23
+
+### Added
+
+- Added payment method selection on manual subscription renewal. ([af9c0c9](https://github.com/pronamic/wp-pay-core/commit/af9c0c922b6abcbf5ff1c5bc9417a2ad9568db21))
+- Added support for border control in fundraising blocks. ([950af6b](https://github.com/wp-pay/fundraising/commit/950af6b120ea111c7ef9c5f493cfec81e96dbf5b))
+- Added support for multiple free text value options in Contact Form 7. ([84d9856](https://github.com/pronamic/wp-pronamic-pay-contact-form-7/commit/84d9856461da4f915fed5485bf60818162c120cf))
+
+### Fixed
+
+- Fixed duplicate execution of `$gateway->start( $payment )` in redirect routine of HTML form gateways. ([467aeb5](https://github.com/pronamic/wp-pay-core/commit/467aeb59e24846c0bbd01e88ff5e1191bcfde6b5))
+- Changed payment amount to `0.00` for credit card and PayPal authorizations when updating mandate. ([3132ff6](https://github.com/pronamic/wp-pay-core/commit/3132ff61a0a8f78f98c8f499e584364d7bfc869a))
+
+### Removed
+
+- Removed default border from fundraising blocks. ([a6b7bdf](https://github.com/wp-pay/fundraising/commit/a6b7bdfd831dff4c771159eee071b131c3f6a9b1))
+
+### Composer
+
+- Changed `wp-pay-extensions/contact-form-7` from `v3.2.1` to `v3.2.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v3.2.2
+- Changed `wp-pay/core` from `v4.7.2` to `v4.7.3`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.7.3
+- Changed `wp-pay/fundraising` from `v3.1.1` to `v3.2.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-fundraising/releases/tag/v3.2.0
+Full set of changes: [`9.3.5...9.3.6`][9.3.6]
+
+[9.3.6]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.5...v9.3.6
+
 ## [9.3.5] - 2023-02-17
 
 ### Fixed
