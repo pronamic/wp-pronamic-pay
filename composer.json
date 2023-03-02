@@ -100,11 +100,9 @@
 		"yoast/phpunit-polyfills": "^1.0"
 	},
 	"extra": {
-		"installer-paths": {
-			"packages/{$name}": [
-				"woocommerce/action-scheduler"
-			]
-		}
+		"installer-disable": [
+			"wordpress"
+		]
 	},
 	"scripts": {
 		"build": [
