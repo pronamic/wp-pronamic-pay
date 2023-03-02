@@ -113,10 +113,11 @@
 			"rm -rf ./build/",
 			"mkdir ./build/",
 			"mkdir ./build/plugin/",
-			"rsync --recursive --delete --exclude-from=.distignore ./ ./build/plugin/",
+			"rsync --recursive --delete --exclude-from=.pronamic-build-ignore ./ ./build/plugin/",
 			"composer install --no-dev --prefer-dist --optimize-autoloader --working-dir=./build/plugin/",
 			"vendor/bin/wp package path wp-cli/dist-archive-command || vendor/bin/wp package install wp-cli/dist-archive-command",
-			"vendor/bin/wp dist-archive ./build/plugin/ --plugin-dirname=pronamic-ideal"
+			"vendor/bin/wp dist-archive ./build/plugin/ --plugin-dirname=pronamic-ideal",
+			"vendor/bin/wp dist-archive ./build/plugin/ ./build/pronamic-ideal.zip --plugin-dirname=pronamic-ideal"
 		],
 		"version": [
 			"@build"
@@ -154,6 +155,11 @@
 		"generate-readme": [
 			"@generate-readme-txt",
 			"@generate-readme-md"
+		],
+		"release": [
+			"@build",
+			"gsutil cp build/*.zip gs://downloads.pronamic.eu/plugins/pronamic-ideal",
+			"curl --netrc --data version=$( npm pkg get version | jq . --raw-output ) --request PATCH https://www.pronamic.eu/wp-json/pronamic-wp-extensions/v1/plugins/pronamic-pay"
 		]
 	}
 }
