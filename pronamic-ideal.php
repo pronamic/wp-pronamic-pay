@@ -106,37 +106,25 @@ add_filter(
 add_filter(
 	'pronamic_pay_plugin_integrations',
 	function( $integrations ) {
-		// Charitable.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\Charitable\Extension();
+		$classes = [
+			\Pronamic\WordPress\Pay\Extensions\Charitable\Extension::class,
+			\Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension::class,
+			\Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension::class,
+			\Pronamic\WordPress\Pay\Extensions\Give\Extension::class,
+			\Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension::class,
+			\Pronamic\WordPress\Pay\Extensions\GravityForms\Extension::class,
+			\Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension::class,
+			\Pronamic\WordPress\Pay\Extensions\MemberPress\Extension::class,
+			\Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension::class,
+			\Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension::class,
+		];
 
-		// Easy Digital Downloads.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension();
+		foreach ( $classes as $class ) {
+			if ( ! array_key_exists( $class, $integrations ) ) {
+				$integrations[] = new $class();
+			}
+		}
 
-		// Event Espresso.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension();
-
-		// Give.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\Give\Extension();
-
-		// WooCommerce.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension();
-
-		// Gravity Forms.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\GravityForms\Extension();
-
-		// FormidableForms.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension();
-
-		// MemberPress.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\MemberPress\Extension();
-
-		// NinjaForms.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension();
-
-		// Restrict Content Pro.
-		$integrations[] = new \Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension();
-
-		// Return integrations.
 		return $integrations;
 	}
 );
