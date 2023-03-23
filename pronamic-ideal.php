@@ -29,23 +29,7 @@
 /**
  * Autoload.
  */
-if ( ! defined( 'PRONAMIC_PAY_DEBUG' ) ) {
-	define( 'PRONAMIC_PAY_DEBUG', false );
-}
-
-$autoload_before = __DIR__ . '/src/autoload-before.php';
-
-if ( is_readable( $autoload_before ) ) {
-	require $autoload_before;
-}
-
-$loader = require __DIR__ . '/vendor/autoload.php';
-
-$autoload_after = __DIR__ . '/src/autoload-after.php';
-
-if ( is_readable( $autoload_after ) ) {
-	require $autoload_after;
-}
+require_once __DIR__ . '/vendor/autoload_packages.php';
 
 /**
  * Bootstrap.
@@ -56,7 +40,7 @@ if ( is_readable( $autoload_after ) ) {
 		'options'              => [
 			'about_page_file' => __DIR__ . '/admin/page-about.php',
 		],
-		'action_scheduler'     => __DIR__ . '/vendor/woocommerce/action-scheduler/action-scheduler.php',
+		'action_scheduler'     => __DIR__ . '/packages/woocommerce/action-scheduler/action-scheduler.php',
 		'pronamic_service_url' => 'https://api.wp-pay.org/wp-json/pronamic-pay/v1/payments',
 	]
 );
