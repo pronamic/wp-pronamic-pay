@@ -121,7 +121,7 @@ add_filter(
 
 		foreach ( $classes as $class ) {
 			if ( ! array_key_exists( $class, $integrations ) ) {
-				$integrations[] = new $class();
+				$integrations[ $class ] = new $class();
 			}
 		}
 
