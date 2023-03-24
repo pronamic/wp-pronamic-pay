@@ -13,10 +13,11 @@ $packages = [
 	'pronamic/wp-mollie',
 	'pronamic/wp-money',
 	'pronamic/wp-number',
-	'pronamic/wp-pay-core',
 	'pronamic/wp-pay-logos',
-	'pronamic/wp-pronamic-pay-fundraising',
 	'pronamic/wp-gravityforms-nl',
+	// Core.
+	'wp-pay/core',
+	'wp-pay/fundraising',
 	// Gateways.
 	'wp-pay-gateways/adyen',
 	'wp-pay-gateways/buckaroo',
