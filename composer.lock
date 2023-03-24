@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2099af0aadc2d3bfa9a4414cb201c8ac",
+    "content-hash": "15bce6217ab9a8b2bba72b1da197ca0a",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -2573,16 +2573,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "v4.8.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pay-core.git",
-                "reference": "95304499915377d6874a8843263265da31d9d705"
+                "reference": "fdab503316f592a8d184c180fec26a886963fbf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/95304499915377d6874a8843263265da31d9d705",
-                "reference": "95304499915377d6874a8843263265da31d9d705",
+                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/fdab503316f592a8d184c180fec26a886963fbf4",
+                "reference": "fdab503316f592a8d184c180fec26a886963fbf4",
                 "shasum": ""
             },
             "require": {
@@ -2593,13 +2593,13 @@
                 "pronamic/wp-datetime": "^2.1",
                 "pronamic/wp-html": "^2.1",
                 "pronamic/wp-http": "^1.2",
-                "pronamic/wp-money": "^2.2",
-                "pronamic/wp-number": "^1.2",
+                "pronamic/wp-money": "^2.3",
+                "pronamic/wp-number": "^1.3",
                 "viison/address-splitter": "^0.3.4",
                 "woocommerce/action-scheduler": "^3.4"
             },
             "require-dev": {
-                "automattic/wordbless": "^0.4.0",
+                "automattic/wordbless": "^0.4.2",
                 "bamarni/composer-bin-plugin": "^1.4",
                 "overtrue/phplint": "^4.5",
                 "php-coveralls/php-coveralls": "^2.4",
@@ -2613,6 +2613,7 @@
                 "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
             "autoload": {
                 "files": [
@@ -2655,11 +2656,11 @@
                 "issues": "https://github.com/wp-pay/core/issues",
                 "source": "https://github.com/wp-pay/core"
             },
-            "time": "2023-03-10T14:32:06+00:00"
+            "time": "2023-03-23T09:05:01+00:00"
         },
         {
             "name": "wp-pay/fundraising",
-            "version": "v3.2.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-fundraising.git",
@@ -10945,9 +10946,24 @@
             "time": "2022-11-16T09:07:52+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "wp-pay/core",
+            "version": "dev-main",
+            "alias": "v4.8.0",
+            "alias_normalized": "4.8.0.0"
+        },
+        {
+            "package": "wp-pay/fundraising",
+            "version": "dev-main",
+            "alias": "v3.2.0",
+            "alias_normalized": "3.2.0.0"
+        }
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "wp-pay/core": 20,
+        "wp-pay/fundraising": 20,
         "wp-cli/wp-cli": 20,
         "wp-cli/wp-cli-bundle": 20
     },
