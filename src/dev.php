@@ -58,7 +58,11 @@ foreach ( $composer_lock->packages as $package ) {
 
 	$requirement = $package->name;
 
-	if ( '' !== $branch && ! str_starts_with( $package->version, 'dev-' ) ) {
+	if ( '' !== $branch ) {
+		if ( str_starts_with( $package->version, 'dev-' ) ) {
+			continue;
+		}
+
 		$requirement .= ':dev-' . $branch . ' as ' . $package->version;
 	}
 
