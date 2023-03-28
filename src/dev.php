@@ -47,7 +47,15 @@ $packages = [
 	'wp-pay-extensions/woocommerce',
 ];
 
-$composer_lock = json_decode( file_get_contents( __DIR__ . '/../composer.lock' ) );
+$json = file_get_contents( __DIR__ . '/../composer.lock' );
+
+if ( false === $json ) {
+	echo 'File `composer.lock` could not be read.';
+
+	exit;
+}
+
+$composer_lock = json_decode( $json );
 
 $requirements = [];
 
