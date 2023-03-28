@@ -29,7 +29,7 @@ $packages = [
 	'wp-pay-gateways/ideal-basic',
 	'wp-pay-gateways/mollie',
 	'wp-pay-gateways/multisafepay',
-	'wp-pay-gateways/ingenico',
+	'wp-pay-gateways/ogone',
 	'wp-pay-gateways/omnikassa-2',
 	'wp-pay-gateways/pay-nl',
 	'wp-pay-gateways/paypal',
