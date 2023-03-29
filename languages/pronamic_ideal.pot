@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-27T08:09:15+00:00\n"
+"POT-Creation-Date: 2023-03-29T10:08:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.0-alpha\n"
 "X-Domain: pronamic_ideal\n"
@@ -21,7 +21,6 @@ msgstr ""
 #: packages/wp-pay-extensions/ninjaforms/src/Extension.php:84
 #: packages/wp-pay-extensions/ninjaforms/src/Extension.php:127
 #: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:52
-#: packages/wp-pay-gateways/adyen/src/Integration.php:520
 #: packages/wp-pay-gateways/omnikassa-2/src/Integration.php:164
 #: packages/wp-pay/core/src/Admin/AdminHealth.php:87
 #: packages/wp-pay/core/src/Admin/AdminHealth.php:547
@@ -47,8 +46,6 @@ msgid "The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, cred
 msgstr ""
 
 #. Author of the plugin
-#: packages/wp-pay-extensions/charitable/src/Gateway.php:51
-#: packages/wp-pay-extensions/charitable/src/Gateway.php:62
 #: packages/wp-pay-extensions/easy-digital-downloads/src/Extension.php:82
 #: packages/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:92
 #: packages/wp-pay-extensions/event-espresso/src/PaymentMethod.php:53
@@ -230,67 +227,6 @@ msgstr ""
 
 #: packages/pronamic/wp-http/src/Response.php:146
 msgid "Could not load the XML string."
-msgstr ""
-
-#. translators: %s: Charitable donation ID
-#: packages/wp-pay-extensions/charitable/src/CharitableHelper.php:35
-msgid "Charitable donation %s"
-msgstr ""
-
-#: packages/wp-pay-extensions/charitable/src/Extension.php:45
-#: packages/wp-pay-extensions/charitable/src/Extension.php:291
-msgid "Charitable"
-msgstr ""
-
-#. translators: %s: source id
-#: packages/wp-pay-extensions/charitable/src/Extension.php:297
-#: packages/wp-pay-extensions/give/src/Extension.php:250
-msgid "Donation %s"
-msgstr ""
-
-#: packages/wp-pay-extensions/charitable/src/Extension.php:312
-msgid "Charitable Donation"
-msgstr ""
-
-#: packages/wp-pay-extensions/charitable/src/Gateway.php:82
-#: packages/wp-pay-extensions/event-espresso/src/PaymentMethod.php:130
-#: packages/wp-pay-extensions/give/src/Gateway.php:126
-#: packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:63
-#: packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:124
-#: packages/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:463
-#: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:134
-#: packages/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:822
-#: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:180
-#: packages/wp-pay-extensions/woocommerce/src/Gateway.php:290
-#: packages/wp-pay/core/src/Admin/AdminGatewayPostType.php:236
-msgid "Configuration"
-msgstr ""
-
-#: packages/wp-pay-extensions/charitable/src/Gateway.php:90
-#: packages/wp-pay-extensions/event-espresso/src/PaymentMethod.php:136
-#: packages/wp-pay-extensions/give/src/Gateway.php:135
-#: packages/wp-pay/core/views/meta-box-form-options.php:121
-msgid "Transaction description"
-msgstr ""
-
-#: packages/wp-pay-extensions/charitable/src/Gateway.php:92
-msgid "Charitable donation {donation_id}"
-msgstr ""
-
-#. translators: %s: <code>{tag}</code>
-#: packages/wp-pay-extensions/charitable/src/Gateway.php:94
-#: packages/wp-pay-extensions/event-espresso/src/PaymentMethod.php:138
-#: packages/wp-pay-extensions/give/src/Gateway.php:138
-#: packages/wp-pay-gateways/buckaroo/src/Integration.php:174
-#: packages/wp-pay-gateways/ogone/src/Settings.php:164
-#: packages/wp-pay-gateways/ogone/src/Settings.php:189
-msgid "Available tags: %s"
-msgstr ""
-
-#: packages/wp-pay-extensions/charitable/src/Gateway.php:102
-#: packages/wp-pay-extensions/give/src/Gateway.php:116
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:215
-msgid "This payment method does not use a predefined payment method for the payment. Some payment providers list all activated payment methods for your account to choose from. Use payment method specific gateways (such as 'iDEAL') to let customers choose their desired payment method at checkout."
 msgstr ""
 
 #: packages/wp-pay-extensions/contact-form-7/src/Extension.php:45
@@ -568,12 +504,11 @@ msgstr ""
 
 #: packages/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:197
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:270
-#: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:58
 #: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:259
 #: packages/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:534
 #: packages/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:568
 #: packages/wp-pay/core/views/meta-box-payment-info.php:78
-#: packages/wp-pay/core/views/meta-box-payment-refunds.php:29
+#: packages/wp-pay/core/views/meta-box-payment-refunds.php:28
 #: packages/wp-pay/core/views/meta-box-payment-subscription.php:69
 #: packages/wp-pay/core/views/meta-box-subscription-info.php:45
 #: packages/wp-pay/core/views/subscription-details.php:27
@@ -674,6 +609,34 @@ msgstr ""
 msgid "Errors communicating with gateway: %s"
 msgstr ""
 
+#: packages/wp-pay-extensions/event-espresso/src/PaymentMethod.php:130
+#: packages/wp-pay-extensions/give/src/Gateway.php:126
+#: packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:63
+#: packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:124
+#: packages/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:463
+#: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:134
+#: packages/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:822
+#: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:180
+#: packages/wp-pay-extensions/woocommerce/src/Gateway.php:290
+#: packages/wp-pay/core/src/Admin/AdminGatewayPostType.php:236
+msgid "Configuration"
+msgstr ""
+
+#: packages/wp-pay-extensions/event-espresso/src/PaymentMethod.php:136
+#: packages/wp-pay-extensions/give/src/Gateway.php:135
+#: packages/wp-pay/core/views/meta-box-form-options.php:121
+msgid "Transaction description"
+msgstr ""
+
+#. translators: %s: <code>{tag}</code>
+#: packages/wp-pay-extensions/event-espresso/src/PaymentMethod.php:138
+#: packages/wp-pay-extensions/give/src/Gateway.php:138
+#: packages/wp-pay-gateways/buckaroo/src/Integration.php:174
+#: packages/wp-pay-gateways/ogone/src/Settings.php:164
+#: packages/wp-pay-gateways/ogone/src/Settings.php:189
+msgid "Available tags: %s"
+msgstr ""
+
 #: packages/wp-pay-extensions/event-espresso/src/PaymentMethod.php:139
 msgid "Event Espresso transaction {transaction_id}"
 msgstr ""
@@ -683,7 +646,7 @@ msgid "Banks"
 msgstr ""
 
 #: packages/wp-pay-extensions/formidable-forms/src/BankSelectFieldType.php:75
-#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:632
+#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:620
 msgid "Choose a bank for iDEAL payment"
 msgstr ""
 
@@ -735,8 +698,8 @@ msgid "Pronamic payment failed"
 msgstr ""
 
 #: packages/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:95
-#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:723
-#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:736
+#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:711
+#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:724
 #: packages/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:350
 #: packages/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:595
 #: packages/wp-pay/core/views/meta-box-gateway-payment-methods.php:30
@@ -747,12 +710,11 @@ msgid "Payment Method"
 msgstr ""
 
 #: packages/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:115
-#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:800
+#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:788
 msgid "Choose a payment method"
 msgstr ""
 
 #: packages/wp-pay-extensions/formidable-forms/views/payment-settings.php:53
-#: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:61
 #: packages/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:349
 #: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:261
 #: packages/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:313
@@ -763,7 +725,7 @@ msgstr ""
 #: packages/wp-pay/core/views/meta-box-form-options.php:58
 #: packages/wp-pay/core/views/meta-box-gateway-test.php:141
 #: packages/wp-pay/core/views/meta-box-payment-info.php:86
-#: packages/wp-pay/core/views/meta-box-payment-refunds.php:27
+#: packages/wp-pay/core/views/meta-box-payment-refunds.php:26
 #: packages/wp-pay/core/views/meta-box-payment-subscription.php:77
 #: packages/wp-pay/core/views/meta-box-subscription-info.php:93
 #: packages/wp-pay/core/views/meta-box-subscription-payments.php:41
@@ -819,8 +781,18 @@ msgstr ""
 msgid "Give"
 msgstr ""
 
+#. translators: %s: source id
+#: packages/wp-pay-extensions/give/src/Extension.php:250
+msgid "Donation %s"
+msgstr ""
+
 #: packages/wp-pay-extensions/give/src/Extension.php:265
 msgid "Give Donation"
+msgstr ""
+
+#: packages/wp-pay-extensions/give/src/Gateway.php:116
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:215
+msgid "This payment method does not use a predefined payment method for the payment. Some payment providers list all activated payment methods for your account to choose from. Use payment method specific gateways (such as 'iDEAL') to let customers choose their desired payment method at checkout."
 msgstr ""
 
 #: packages/wp-pay-extensions/give/src/Gateway.php:143
@@ -834,7 +806,6 @@ msgstr ""
 #: packages/wp-pay-extensions/give/src/Gateway.php:260
 #: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:414
 #: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:245
-#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:119
 #: packages/wp-pay/core/views/form.php:254
 msgid "Error"
 msgstr ""
@@ -948,7 +919,6 @@ msgid "Form"
 msgstr ""
 
 #: packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:65
-#: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:55
 #: packages/wp-pay/core/src/Admin/AdminGatewayPostType.php:79
 #: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:262
 #: packages/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:316
@@ -1064,23 +1034,23 @@ msgctxt "Field display mode"
 msgid "Large icons"
 msgstr ""
 
-#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:560
+#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:548
 #: packages/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:55
-#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:597
+#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:585
 msgid "New Payment Feed"
 msgstr ""
 
-#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:570
+#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:558
 msgid "This field is not supported by your payment gateway."
 msgstr ""
 
 #. translators: %s: new feed URL
-#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:573
+#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:561
 msgid "Please remove it from this form or <a href=\"%s\" target=\"_blank\">add a supported payment gateway</a>."
 msgstr ""
 
+#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:581
 #: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:593
-#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:605
 #: packages/wp-pay-extensions/ninjaforms/src/IssuersField.php:95
 #: packages/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:480
 msgid "Issuer"
@@ -1277,7 +1247,6 @@ msgstr ""
 
 #: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:197
 #: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:260
-#: packages/wp-pay-gateways/adyen/src/Integration.php:337
 #: packages/wp-pay-gateways/ems-e-commerce/src/Integration.php:109
 #: packages/wp-pay-gateways/icepay/src/Integration.php:99
 #: packages/wp-pay-gateways/ideal/src/AbstractIntegration.php:90
@@ -1807,6 +1776,7 @@ msgstr ""
 #: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:246
 #: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:336
 #: packages/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:374
+#: packages/wp-pay/core/views/meta-box-payment-refunds.php:55
 msgid "Unknown"
 msgstr ""
 
@@ -2086,7 +2056,6 @@ msgstr ""
 #. translators: %s: default code
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:308
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:324
-#: packages/wp-pay-gateways/adyen/src/Integration.php:345
 #: packages/wp-pay-gateways/buckaroo/src/Integration.php:176
 #: packages/wp-pay-gateways/ems-e-commerce/src/Integration.php:117
 #: packages/wp-pay-gateways/icepay/src/Integration.php:107
@@ -2147,322 +2116,6 @@ msgstr ""
 #. translators: WooCommerce subscription ID.
 #: packages/wp-pay-extensions/woocommerce/src/Upgrade420.php:241
 msgid "Linked WooCommerce subscription with ID `%s` to this subscription during WooCommerce integration update (version 4.2.0)."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:47
-msgid "https://www.adyen.com/"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:48
-msgid "https://www.adyen.com/pricing"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:50
-msgid "https://www.pronamicpay.com/en/manuals/how-to-connect-adyen-to-wordpress-with-pronamic-pay/"
-msgstr ""
-
-#. translators: Translate 'notification' the same as in the Adyen dashboard.
-#: packages/wp-pay-gateways/adyen/src/Integration.php:159
-msgctxt "Adyen"
-msgid "Adyen Notification Authentication"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:166
-msgid "User Name"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:177
-msgid "Password"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:195
-msgid "Set the user name and password below and in the webhook authentication settings in the Adyen dashboard for increased security (recommended)."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:234
-msgctxt "adyen"
-msgid "Merchant Account"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:237
-msgid "The merchant account identifier, with which you want to process the transaction."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:251
-msgctxt "adyen"
-msgid "API Key"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:254
-msgid "API key as mentioned in the payment provider dashboard."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:258
-msgid "Adyen documentation: \"API credentials\"."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:268
-msgctxt "adyen"
-msgid "Environment"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:273
-msgid "Live - Europe"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:274
-msgid "Live - Asia Pacific South East"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:275
-msgid "Live - Australia"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:276
-msgid "Live - United States"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:287
-msgctxt "adyen"
-msgid "API Live URL Prefix"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:290
-msgid "The unique prefix for the live API URL, as mentioned at <strong>Account » API URLs</strong> in the Adyen dashboard."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:294
-msgid "Adyen documentation: \"Live URL prefix\"."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:304
-msgctxt "adyen"
-msgid "Client Key"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:314
-msgid "Adyen documentation: \"Get your client key\"."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:327
-msgid "Merchant Order Reference"
-msgstr ""
-
-#. translators: %s: <code>parameterName</code>
-#: packages/wp-pay-gateways/adyen/src/Integration.php:332
-msgid "The Adyen %s parameter."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:354
-#: packages/wp-pay-gateways/mollie/src/Integration.php:199
-#: packages/wp-pay-gateways/omnikassa-2/src/Integration.php:253
-msgid "Webhook URL"
-msgstr ""
-
-#. translators: %s: payment provider name
-#: packages/wp-pay-gateways/adyen/src/Integration.php:361
-msgid "Copy the Webhook URL to the %s dashboard to receive automatic transaction status updates."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:362
-#: packages/wp-pay-gateways/adyen/src/NotificationsController.php:177
-#: packages/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:34
-msgid "Adyen"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:374
-msgid "SSL Version"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:376
-msgid "Choose the SSL Version of your server on the Adyen Customer Area."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:387
-msgctxt "adyen notification"
-msgid "Method"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:389
-msgid "JSON"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:395
-msgid "Authentication"
-msgstr ""
-
-#. translators: %s: Pronamic Pay settings page URL.
-#: packages/wp-pay-gateways/adyen/src/Integration.php:399
-msgid "Go to the <a href=\"%s\">Pronamic Pay settings page</a> for webhook authentication settings."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/Integration.php:521
-msgid "The following Ayden configurations must be migrated to a client key:"
-msgstr ""
-
-#. translators: %s: Help URL.
-#: packages/wp-pay-gateways/adyen/src/NotificationsController.php:110
-msgid "HTTP Authorization header is missing, read %s for more information."
-msgstr ""
-
-#. translators: Translate 'notification' the same as in the Adyen dashboard.
-#: packages/wp-pay-gateways/adyen/src/NotificationsController.php:125
-msgctxt "Adyen"
-msgid "Sorry, you are not allowed to post Adyen notifications."
-msgstr ""
-
-#. translators: Translate 'notification' the same as in the Adyen dashboard.
-#: packages/wp-pay-gateways/adyen/src/NotificationsController.php:147
-msgctxt "Adyen"
-msgid "Cannot parse JSON notification."
-msgstr ""
-
-#. translators: %s: payment provider name
-#: packages/wp-pay-gateways/adyen/src/NotificationsController.php:176
-#: packages/wp-pay-gateways/digiwallet/src/ReportController.php:135
-#: packages/wp-pay-gateways/ems-e-commerce/src/Listener.php:40
-#: packages/wp-pay-gateways/icepay/src/Listener.php:55
-#: packages/wp-pay-gateways/ideal-basic/src/NotificationController.php:108
-msgid "Webhook requested by %s."
-msgstr ""
-
-#. translators: %s: item index
-#: packages/wp-pay-gateways/adyen/src/PaymentRequestHelper.php:140
-#: packages/wp-pay-gateways/omnikassa-2/src/Gateway.php:359
-#: packages/wp-pay-gateways/paypal/src/Gateway.php:309
-msgid "Item %s"
-msgstr ""
-
-#. translators: %s: payment provider name
-#: packages/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:33
-msgid "Verified payment result."
-msgstr ""
-
-#. translators: %s: refusal reason
-#: packages/wp-pay-gateways/adyen/src/PaymentResponseHelper.php:73
-msgid "The payment has been refused. (%s)"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:58
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:98
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:129
-#: packages/wp-pay-gateways/mollie/src/WebhookController.php:69
-#: packages/wp-pay-gateways/mollie/src/WebhookController.php:91
-#: packages/wp-pay-gateways/mollie/src/WebhookController.php:113
-#: packages/wp-pay-gateways/paypal/src/NotificationsController.php:130
-#: packages/wp-pay/core/src/Payments/PaymentsModule.php:247
-msgid "Payment ID."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:63
-msgid "The unique identifier for the shopper's payment session."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:68
-msgid "Details you need to submit to handle the redirect."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:103
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:134
-msgid "Nonce."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:139
-msgid "Error name."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:144
-msgid "Error message."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:166
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:287
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:369
-msgid "No payment ID given in `payment_id` parameter."
-msgstr ""
-
-#. translators: %s: payment ID
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:177
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:298
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:380
-#: packages/wp-pay/core/src/Payments/PaymentsModule.php:271
-msgid "Could not find payment with ID `%s`."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:190
-msgid "No gateway configuration ID given in payment."
-msgstr ""
-
-#. translators: %s: Gateway configuration ID
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:201
-#: packages/wp-pay/core/src/GatewayPostType.php:225
-#: packages/wp-pay/core/src/GatewayPostType.php:258
-msgid "Could not find gateway with ID `%s`."
-msgstr ""
-
-#. translators: %s: Gateway configuration ID
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:213
-msgid "Could not find client in gateway with ID `%s`."
-msgstr ""
-
-#. translators: %s: Adyen payment result code.
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:321
-msgid "Result code `%s` was received via the Adyen web drop-in, awaiting the webhook to update payment status."
-msgstr ""
-
-#. translators: %s: Adyen error name.
-#: packages/wp-pay-gateways/adyen/src/ReturnController.php:407
-msgid "An `%s` error occurred while processing payment."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:59
-msgid "HTTP Authorization header test"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:83
-msgid "HTTP Basic authentication is working"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:86
-#: packages/wp-pay-gateways/mollie/src/Admin.php:164
-#: packages/wp-pay/core/src/Admin/AdminHealth.php:280
-#: packages/wp-pay/core/src/Admin/AdminHealth.php:316
-#: packages/wp-pay/core/src/Admin/AdminHealth.php:349
-#: packages/wp-pay/core/src/Admin/AdminHealth.php:378
-#: packages/wp-pay/core/src/Admin/AdminHealth.php:575
-#: packages/wp-pay/core/src/Admin/AdminModule.php:822
-#: packages/wp-pay/core/src/Admin/AdminModule.php:823
-#: packages/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:578
-#: packages/wp-pay/core/src/Forms/FormPostType.php:158
-#: packages/wp-pay/core/src/Payments/PaymentPostType.php:50
-#: packages/wp-pay/core/src/Payments/PaymentPostType.php:52
-#: packages/wp-pay/core/src/Payments/PaymentPostType.php:63
-#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:46
-#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:62
-#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:127
-#: packages/wp-pay/core/views/pointer-payments.php:12
-msgid "Payments"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:91
-msgid "HTTP Basic authentication is required to securely receive Adyen notifications."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:113
-msgid "Could not reach HTTP Authorization header test endpoint."
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:19
-msgid "Checkout"
-msgstr ""
-
-#: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:52
-#: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:256
-#: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:574
-#: packages/wp-pay/core/src/Payments/PaymentPostType.php:53
-#: packages/wp-pay/core/views/meta-box-subscription-payments.php:39
-#: views/redirect-via-html.php:72
-msgid "Payment"
 msgstr ""
 
 #. translators: 1: payment provider name, 2: status message, 3: status sub message
@@ -2584,6 +2237,14 @@ msgstr ""
 
 #: packages/wp-pay-gateways/digiwallet/src/ReportController.php:77
 msgid "customer's BIC number, if payment was successful"
+msgstr ""
+
+#. translators: %s: payment provider name
+#: packages/wp-pay-gateways/digiwallet/src/ReportController.php:135
+#: packages/wp-pay-gateways/ems-e-commerce/src/Listener.php:40
+#: packages/wp-pay-gateways/icepay/src/Listener.php:55
+#: packages/wp-pay-gateways/ideal-basic/src/NotificationController.php:108
+msgid "Webhook requested by %s."
 msgstr ""
 
 #: packages/wp-pay-gateways/digiwallet/src/ReportController.php:136
@@ -3009,6 +2670,26 @@ msgstr ""
 msgid "Mollie Payments"
 msgstr ""
 
+#: packages/wp-pay-gateways/mollie/src/Admin.php:164
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:280
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:316
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:349
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:378
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:575
+#: packages/wp-pay/core/src/Admin/AdminModule.php:822
+#: packages/wp-pay/core/src/Admin/AdminModule.php:823
+#: packages/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:578
+#: packages/wp-pay/core/src/Forms/FormPostType.php:158
+#: packages/wp-pay/core/src/Payments/PaymentPostType.php:50
+#: packages/wp-pay/core/src/Payments/PaymentPostType.php:52
+#: packages/wp-pay/core/src/Payments/PaymentPostType.php:63
+#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:46
+#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:62
+#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:127
+#: packages/wp-pay/core/views/pointer-payments.php:12
+msgid "Payments"
+msgstr ""
+
 #: packages/wp-pay-gateways/mollie/src/Gateway.php:121
 msgid "Account holder name"
 msgstr ""
@@ -3069,6 +2750,11 @@ msgstr ""
 msgid "Minimum %1$s and maximum %2$s days. Default: %3$s days."
 msgstr ""
 
+#: packages/wp-pay-gateways/mollie/src/Integration.php:199
+#: packages/wp-pay-gateways/omnikassa-2/src/Integration.php:253
+msgid "Webhook URL"
+msgstr ""
+
 #: packages/wp-pay-gateways/mollie/src/Integration.php:204
 #: packages/wp-pay-gateways/omnikassa-2/src/Integration.php:258
 msgid "The Webhook URL as sent with each transaction to receive automatic payment status updates on."
@@ -3078,6 +2764,14 @@ msgstr ""
 #: packages/wp-pay-gateways/mollie/src/WebhookController.php:74
 #: packages/wp-pay-gateways/mollie/src/WebhookController.php:96
 msgid "Mollie transaction ID."
+msgstr ""
+
+#: packages/wp-pay-gateways/mollie/src/WebhookController.php:69
+#: packages/wp-pay-gateways/mollie/src/WebhookController.php:91
+#: packages/wp-pay-gateways/mollie/src/WebhookController.php:113
+#: packages/wp-pay-gateways/paypal/src/NotificationsController.php:130
+#: packages/wp-pay/core/src/Payments/PaymentsModule.php:247
+msgid "Payment ID."
 msgstr ""
 
 #: packages/wp-pay-gateways/mollie/src/WebhookController.php:118
@@ -3610,6 +3304,12 @@ msgstr ""
 msgid "Direct HTTP server-to-server request URL for payment statuses \"cancelled by the client\" or \"too many rejections by the acquirer\"."
 msgstr ""
 
+#. translators: %s: item index
+#: packages/wp-pay-gateways/omnikassa-2/src/Gateway.php:359
+#: packages/wp-pay-gateways/paypal/src/Gateway.php:309
+msgid "Item %s"
+msgstr ""
+
 #: packages/wp-pay-gateways/omnikassa-2/src/Gateway.php:481
 msgid "Rabo Smart Pay return URL requested:"
 msgstr ""
@@ -4072,6 +3772,14 @@ msgstr ""
 
 #: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:217
 msgid "This payment has been anonymized. Personal details are not available anymore."
+msgstr ""
+
+#: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:256
+#: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:574
+#: packages/wp-pay/core/src/Payments/PaymentPostType.php:53
+#: packages/wp-pay/core/views/meta-box-subscription-payments.php:39
+#: views/redirect-via-html.php:72
+msgid "Payment"
 msgstr ""
 
 #: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:257
@@ -4668,15 +4376,15 @@ msgstr ""
 msgid "Payment Form %s"
 msgstr ""
 
-#: packages/wp-pay/core/src/Forms/FormProcessor.php:275
+#: packages/wp-pay/core/src/Forms/FormProcessor.php:236
 msgid "Please enter a valid amount"
 msgstr ""
 
-#: packages/wp-pay/core/src/Forms/FormProcessor.php:285
+#: packages/wp-pay/core/src/Forms/FormProcessor.php:246
 msgid "Please enter your first name"
 msgstr ""
 
-#: packages/wp-pay/core/src/Forms/FormProcessor.php:295
+#: packages/wp-pay/core/src/Forms/FormProcessor.php:256
 msgid "Please enter a valid email address"
 msgstr ""
 
@@ -4766,6 +4474,12 @@ msgstr ""
 
 #: packages/wp-pay/core/src/GatewayPostType.php:200
 msgid "Gateway mode."
+msgstr ""
+
+#. translators: %s: Gateway configuration ID
+#: packages/wp-pay/core/src/GatewayPostType.php:225
+#: packages/wp-pay/core/src/GatewayPostType.php:258
+msgid "Could not find gateway with ID `%s`."
 msgstr ""
 
 #: packages/wp-pay/core/src/HomeUrlController.php:47
@@ -5158,6 +4872,11 @@ msgstr ""
 #. translators: 1: old status, 2: new status
 #: packages/wp-pay/core/src/Payments/PaymentsModule.php:205
 msgid "Payment status changed from \"%1$s\" to \"%2$s\"."
+msgstr ""
+
+#. translators: %s: payment ID
+#: packages/wp-pay/core/src/Payments/PaymentsModule.php:271
+msgid "Could not find payment with ID `%s`."
 msgstr ""
 
 #: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:228
@@ -5658,7 +5377,7 @@ msgstr ""
 
 #: packages/wp-pay/core/views/meta-box-notes.php:35
 #: packages/wp-pay/core/views/meta-box-payment-info.php:630
-#: packages/wp-pay/core/views/meta-box-payment-refunds.php:26
+#: packages/wp-pay/core/views/meta-box-payment-refunds.php:29
 #: packages/wp-pay/core/views/meta-box-subscription-info.php:209
 msgid "User"
 msgstr ""
@@ -5835,7 +5554,7 @@ msgstr ""
 msgid "No refunds found for this payment."
 msgstr ""
 
-#: packages/wp-pay/core/views/meta-box-payment-refunds.php:28
+#: packages/wp-pay/core/views/meta-box-payment-refunds.php:27
 msgid "PSP ID"
 msgstr ""
 
