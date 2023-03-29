@@ -18,12 +18,6 @@
     </fileExtensions>
 
     <issueHandlers>
-        <ForbiddenCode>
-            <errorLevel type="suppress">
-                <file name="src/repositories.php" />
-            </errorLevel>
-        </ForbiddenCode>
-
         <LessSpecificReturnType errorLevel="info" />
 
         <!-- level 3 issues - slightly lazy code writing, but provably low false-negatives -->
@@ -53,12 +47,6 @@
 
         <DocblockTypeContradiction errorLevel="info" />
         <RedundantConditionGivenDocblockType errorLevel="info" />
-
-        <UnresolvableInclude errorLevel="info">
-            <errorLevel type="suppress">
-                <file name="src/autoload-before.php" />
-            </errorLevel>
-        </UnresolvableInclude>
 
         <RawObjectIteration errorLevel="info" />
 
