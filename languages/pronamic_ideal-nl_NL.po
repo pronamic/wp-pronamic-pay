@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2023-03-29T10:08:34+00:00\n"
-"PO-Revision-Date: 2023-03-29 12:17+0200\n"
+"POT-Creation-Date: 2023-03-30T10:29:50+00:00\n"
+"PO-Revision-Date: 2023-03-30 12:39+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -606,7 +606,7 @@ msgid "Cancelled"
 msgstr "Geannuleerd"
 
 #: packages/wp-pay-extensions/easy-digital-downloads/src/Extension.php:414
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1668
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1666
 msgid "Partially Refunded"
 msgstr "Gedeeltelijk terugbetaald"
 
@@ -724,26 +724,26 @@ msgstr "Terugbetalen via betalingsprovider"
 msgid "Unable to process refund because gateway does not exist."
 msgstr "Kan terugbetaling niet verwerken omdat de gateway niet bestaat."
 
-#: packages/wp-pay-extensions/easy-digital-downloads/src/RefundsManager.php:215
+#: packages/wp-pay-extensions/easy-digital-downloads/src/RefundsManager.php:203
 msgid "payment"
 msgstr "betaling"
 
 #. translators: %s: payment id
-#: packages/wp-pay-extensions/easy-digital-downloads/src/RefundsManager.php:223
+#: packages/wp-pay-extensions/easy-digital-downloads/src/RefundsManager.php:211
 msgid "payment #%s"
 msgstr "betaling #%s"
 
 #. translators: 1: refunded amount, 2: edit payment anchor
-#: packages/wp-pay-extensions/easy-digital-downloads/src/RefundsManager.php:231
+#: packages/wp-pay-extensions/easy-digital-downloads/src/RefundsManager.php:219
 msgid "Refunded %1$s for %2$s."
 msgstr "%1$s terugbetaald voor %2$s."
 
 #. translators: 1: refunded amount, 2: edit payment anchor, 3: gateway refund reference
-#: packages/wp-pay-extensions/easy-digital-downloads/src/RefundsManager.php:239
+#: packages/wp-pay-extensions/easy-digital-downloads/src/RefundsManager.php:227
 msgid "Refunded %1$s for %2$s (gateway reference `%3$s`)."
 msgstr "%1$s terugbetaald voor %2$s (betalingsprovider referentie `%3$s`)."
 
-#: packages/wp-pay-extensions/easy-digital-downloads/src/RefundsManager.php:273
+#: packages/wp-pay-extensions/easy-digital-downloads/src/RefundsManager.php:261
 #: packages/wp-pay/core/views/meta-box-payment-info.php:107
 msgid "Refunded Amount"
 msgstr "Terugbetaald bedrag"
@@ -810,7 +810,7 @@ msgid "Banks"
 msgstr "Banken"
 
 #: packages/wp-pay-extensions/formidable-forms/src/BankSelectFieldType.php:75
-#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:620
+#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:632
 msgid "Choose a bank for iDEAL payment"
 msgstr "Kies een bank voor iDEAL-betaling"
 
@@ -862,8 +862,8 @@ msgid "Pronamic payment failed"
 msgstr "Pronamic betaling mislukt"
 
 #: packages/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:95
-#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:711
-#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:724
+#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:723
+#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:736
 #: packages/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:350
 #: packages/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:595
 #: packages/wp-pay/core/views/meta-box-gateway-payment-methods.php:30
@@ -874,7 +874,7 @@ msgid "Payment Method"
 msgstr "Betaalmethode"
 
 #: packages/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:115
-#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:788
+#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:800
 msgid "Choose a payment method"
 msgstr "Kies een betaalmethode"
 
@@ -1119,63 +1119,63 @@ msgid "Gravity Forms Entry"
 msgstr "Gravity Forms inzending"
 
 #. translators: %s: refunded amount
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:759
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:758
 msgid "Payment has been (partially) refunded. Amount: %s."
 msgstr "Betaling is (gedeeltelijk) terugbetaald. Bedrag: %s."
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:815
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:813
 msgid "Subscription manually activated."
 msgstr "Abonnement handmatig geactiveerd."
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:969
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:967
 msgid "Subscription manually canceled."
 msgstr "Abonnement handmatig geannuleerd."
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1329
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1327
 msgid "Subscribing the user to ActiveCampaign"
 msgstr "De gebruiker inschrijven bij ActiveCampaign"
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1335
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1333
 msgid "Subscribing the user to AWeber"
 msgstr "De gebruiker inschrijven bij AWeber"
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1350
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1348
 msgid "Subscribing the user to Campaign Monitor"
 msgstr "De gebruiker inschrijven bij Campaign Monitor"
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1366
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1364
 msgid "Subscribing the user to MailChimp"
 msgstr "De gebruiker inschrijven bij MailChimp"
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1382
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1380
 msgid "Creating quotes and invoices with Sliced Invoices"
 msgstr "Offertes en facturen aanmaken met Sliced Invoices"
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1388
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1386
 msgid "Sending estimates and invoices with Moneybird"
 msgstr "Offertes en facturen versturen met Moneybird"
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1394
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1392
 msgid "Sending data to Twilio"
 msgstr "Gegevens versturen naar Twilio"
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1400
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1398
 msgid "Sending a trigger to Webhooks"
 msgstr "Een trigger naar Webhooks sturen"
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1406
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1404
 msgid "Uploading files to Dropbox"
 msgstr "Bestanden uploaden naar Dropbox"
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1412
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1410
 msgid "Sending data to Zapier"
 msgstr "Gegevens versturen naar Zapier"
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1428
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1426
 msgid "Registering the user"
 msgstr "De gebruiker registreren"
 
-#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1434
+#: packages/wp-pay-extensions/gravityforms/src/Extension.php:1432
 msgid "Start the Workflow once payment has been received."
 msgstr "Start de workflow zodra betaling is ontvangen."
 
@@ -1215,18 +1215,18 @@ msgctxt "Field display mode"
 msgid "Large icons"
 msgstr "Grote iconen"
 
-#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:548
+#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:560
 #: packages/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:55
-#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:585
+#: packages/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:597
 msgid "New Payment Feed"
 msgstr "Nieuwe betalingsfeed"
 
-#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:558
+#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:570
 msgid "This field is not supported by your payment gateway."
 msgstr "Dit veld wordt niet ondersteund door je betalingsgateway."
 
 #. translators: %s: new feed URL
-#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:561
+#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:573
 msgid ""
 "Please remove it from this form or <a href=\"%s\" target=\"_blank\">add a "
 "supported payment gateway</a>."
@@ -1234,8 +1234,8 @@ msgstr ""
 "Verwijder het van dit formulier of <a href=\"%s\" target=\"_blank\">voeg een "
 "ondersteunde betalingsgateway toe</a>."
 
-#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:581
 #: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:593
+#: packages/wp-pay-extensions/gravityforms/src/IssuersField.php:605
 #: packages/wp-pay-extensions/ninjaforms/src/IssuersField.php:95
 #: packages/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:480
 msgid "Issuer"
@@ -4096,6 +4096,18 @@ msgstr ""
 msgid "No valid license key for Pronamic Pay"
 msgstr "Geen geldige licentiesleutel voor Pronamic Pay"
 
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:242
+msgid "Purchase license"
+msgstr "Licentie aanschaffen"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:249
+msgid "License settings"
+msgstr "Licentie instellingen"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:255
+msgid "Check existing license"
+msgstr "Controleer bestaande licentie"
+
 #. translators: %s: WordPress version number
 #: packages/wp-pay/core/src/Admin/AdminHealth.php:275
 msgid "WordPress version is supported by Pronamic Pay (%s)"
@@ -5067,6 +5079,23 @@ msgid "Home URL setting to detect changes in the WordPress home URL."
 msgstr ""
 "Home URL instelling om wijzigingen in de WordPress home URL te detecteren."
 
+#. translators: 1: Pronamic Pay home URL option, 2: home URL
+#: packages/wp-pay/core/src/HomeUrlController.php:76
+msgid ""
+"We noticed the WordPress home URL has changed from %1$s to %2$s. Please "
+"verify the payment gateway settings. For example, you might want to switch "
+"between live and test mode or need to update an URL at the gateway to "
+"continue receiving payment status updates. Also keep an eye on pending "
+"payments to discover possible configuration issues."
+msgstr ""
+"We hebben opgemerkt dat het WordPress site adres (URL) is gewijzigd van %1$s "
+"naar %2$. Controleer de configuratie voor de betalingsprovider. Misschien "
+"wil je bijvoorbeeld wisselen tussen live en test modus of moet er een URL "
+"bijgewerkt worden bij de betalingsprovider om terugkoppelingen over de "
+"betalingsstatus te blijven ontvangen. Houd ook de betalingen met de status "
+"‘In afwachting’ in de gaten om mogelijke problemen in de configuratie te "
+"ontdekken."
+
 #: packages/wp-pay/core/src/HomeUrlController.php:93
 msgid ""
 "If you use subscriptions, you may want to update processing of recurring "
@@ -5157,19 +5186,19 @@ msgid "The payment has been successfully completed."
 msgstr "Het betalingsproces is succesvol voltooid."
 
 #: packages/wp-pay/core/src/PagesController.php:232
-msgid "Payment Cancelled"
+msgid "Payment Canceled"
 msgstr "Betaling geannuleerd"
 
 #: packages/wp-pay/core/src/PagesController.php:233
-msgid "payment-cancelled"
+msgid "payment-canceled"
 msgstr "betaling-geannuleerd"
 
 #: packages/wp-pay/core/src/PagesController.php:236
-msgid "You have cancelled the payment."
+msgid "You have canceled the payment."
 msgstr "De betaling is geannuleerd."
 
 #: packages/wp-pay/core/src/PagesController.php:241
-msgid "Payment expired"
+msgid "Payment Expired"
 msgstr "Betaling verlopen"
 
 #: packages/wp-pay/core/src/PagesController.php:242
@@ -7891,9 +7920,6 @@ msgstr "Betalingsformulier"
 
 #~ msgid "WP e-Commerce"
 #~ msgstr "WP e-Commerce"
-
-#~ msgid "Purchase #%s"
-#~ msgstr "Aankoop #%s"
 
 #~ msgid "WP e-Commerce Purchase"
 #~ msgstr "WP e-Commerce bestelling"
