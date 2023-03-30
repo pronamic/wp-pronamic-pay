@@ -6,6 +6,30 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.4.1] - 2023-03-30
+
+### Fixed
+
+- Fixed refunded amount checks.
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v2.11.17` to `v2.11.18`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v2.11.18
+- Changed `wp-pay-extensions/easy-digital-downloads` from `v4.3.2` to `v4.3.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/releases/tag/v4.3.3
+- Changed `wp-pay-extensions/gravityforms` from `v4.5.3` to `v4.5.4`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.5.4
+- Changed `wp-pay-extensions/memberpress` from `v4.7.6` to `v4.7.7`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.7
+- Changed `wp-pay-extensions/woocommerce` from `v4.5.4` to `v4.5.5`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.5.5
+- Changed `wp-pay/core` from `v4.9.0` to `v4.9.1`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.9.1
+Full set of changes: [`9.4.0...9.4.1`][9.4.1]
+
+[9.4.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.0...v9.4.1
+
 ## [9.4.0] - 2023-03-29
 ### Changed
 
