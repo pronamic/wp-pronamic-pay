@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77b9eceea75e1fc8ec097ed933048d9a",
+    "content-hash": "d302584fbb492f2f175ca28c1153b10f",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -764,16 +764,16 @@
         },
         {
             "name": "wp-pay-extensions/charitable",
-            "version": "v4.3.1",
+            "version": "v4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-charitable.git",
-                "reference": "d7fe5f238f88d8003dc0609906f2d62451864a5f"
+                "reference": "eb0927c2cc24f88c3345f475d1472f037926dfb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-charitable/zipball/d7fe5f238f88d8003dc0609906f2d62451864a5f",
-                "reference": "d7fe5f238f88d8003dc0609906f2d62451864a5f",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-charitable/zipball/eb0927c2cc24f88c3345f475d1472f037926dfb7",
+                "reference": "eb0927c2cc24f88c3345f475d1472f037926dfb7",
                 "shasum": ""
             },
             "require": {
@@ -791,7 +791,7 @@
                 "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
             },
-            "type": "library",
+            "type": "wordpress-plugin",
             "autoload": {
                 "psr-4": {
                     "Pronamic\\WordPress\\Pay\\Extensions\\Charitable\\": "src/"
@@ -830,7 +830,7 @@
                 "issues": "https://github.com/wp-pay-extensions/charitable/issues",
                 "source": "https://github.com/wp-pay-extensions/charitable"
             },
-            "time": "2023-01-31T12:49:41+00:00"
+            "time": "2023-03-27T09:35:49+00:00"
         },
         {
             "name": "wp-pay-extensions/contact-form-7",
@@ -1557,25 +1557,26 @@
         },
         {
             "name": "wp-pay-gateways/adyen",
-            "version": "v4.4.3",
+            "version": "v4.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-adyen.git",
-                "reference": "a3b3e943e6da86d7856c9a60d646b40e221cc09b"
+                "reference": "0aecf305a2c11f67858448bb7d071cb1a6bfafbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-adyen/zipball/a3b3e943e6da86d7856c9a60d646b40e221cc09b",
-                "reference": "a3b3e943e6da86d7856c9a60d646b40e221cc09b",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-adyen/zipball/0aecf305a2c11f67858448bb7d071cb1a6bfafbb",
+                "reference": "0aecf305a2c11f67858448bb7d071cb1a6bfafbb",
                 "shasum": ""
             },
             "require": {
+                "automattic/jetpack-autoloader": "^2.11",
                 "ext-intl": "*",
                 "justinrainbow/json-schema": "^5.2",
                 "php": ">=7.4",
                 "pronamic/wp-http": "^1.2",
                 "pronamic/wp-money": "^2.2",
-                "wp-pay/core": "^4.6"
+                "wp-pay/core": "^4.8"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
@@ -1590,7 +1591,7 @@
                 "wp-phpunit/wp-phpunit": "^6.1",
                 "yoast/phpunit-polyfills": "^1.0"
             },
-            "type": "library",
+            "type": "wordpress-plugin",
             "autoload": {
                 "psr-4": {
                     "Pronamic\\WordPress\\Pay\\Gateways\\Adyen\\": "src/"
@@ -1629,7 +1630,7 @@
                 "issues": "https://github.com/wp-pay-gateways/adyen/issues",
                 "source": "https://github.com/wp-pay-gateways/adyen"
             },
-            "time": "2023-02-15T08:06:58+00:00"
+            "time": "2023-03-27T09:19:03+00:00"
         },
         {
             "name": "wp-pay-gateways/buckaroo",
@@ -5409,16 +5410,16 @@
         },
         {
             "name": "pronamic/wp-deployer",
-            "version": "v1.3.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-deployer.git",
-                "reference": "414a22e9ff115dd49cd5921bc0051275aa85148d"
+                "reference": "39ef3febf391dacb781dd2a90a0c2d46a79a61c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-deployer/zipball/414a22e9ff115dd49cd5921bc0051275aa85148d",
-                "reference": "414a22e9ff115dd49cd5921bc0051275aa85148d",
+                "url": "https://api.github.com/repos/pronamic/wp-deployer/zipball/39ef3febf391dacb781dd2a90a0c2d46a79a61c5",
+                "reference": "39ef3febf391dacb781dd2a90a0c2d46a79a61c5",
                 "shasum": ""
             },
             "require": {
@@ -5431,6 +5432,7 @@
                 "pronamic/wp-coding-standards": "^1.3",
                 "yoast/phpunit-polyfills": "^1.0"
             },
+            "default-branch": true,
             "bin": [
                 "bin/wp-deployer"
             ],
@@ -5450,9 +5452,9 @@
             "description": "WordPress deployer.",
             "support": {
                 "issues": "https://github.com/pronamic/wp-deployer/issues",
-                "source": "https://github.com/pronamic/wp-deployer/tree/v1.3.0"
+                "source": "https://github.com/pronamic/wp-deployer/tree/main"
             },
-            "time": "2023-03-03T14:25:10+00:00"
+            "time": "2023-03-29T09:08:19+00:00"
         },
         {
             "name": "psr/container",
@@ -10945,6 +10947,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "pronamic/wp-deployer": 20,
         "wp-cli/wp-cli": 20,
         "wp-cli/wp-cli-bundle": 20
     },
