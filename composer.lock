@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
-            "version": "v2.11.17",
+            "version": "v2.11.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Automattic/jetpack-autoloader.git",
-                "reference": "e4d395e0800f0e0f496ce30cb7906829e0a01038"
+                "reference": "53cbf0528fa6931c4fa6465bccd37514f9eda720"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/e4d395e0800f0e0f496ce30cb7906829e0a01038",
-                "reference": "e4d395e0800f0e0f496ce30cb7906829e0a01038",
+                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/53cbf0528fa6931c4fa6465bccd37514f9eda720",
+                "reference": "53cbf0528fa6931c4fa6465bccd37514f9eda720",
                 "shasum": ""
             },
             "require": {
@@ -53,9 +53,9 @@
             ],
             "description": "Creates a custom autoloader for a plugin or theme.",
             "support": {
-                "source": "https://github.com/Automattic/jetpack-autoloader/tree/v2.11.17"
+                "source": "https://github.com/Automattic/jetpack-autoloader/tree/v2.11.18"
             },
-            "time": "2023-03-27T20:39:25+00:00"
+            "time": "2023-03-29T12:51:59+00:00"
         },
         {
             "name": "composer/installers",
@@ -907,16 +907,16 @@
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
-            "version": "v4.3.2",
+            "version": "v4.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads.git",
-                "reference": "d4217ff5137a6d4934852358ed6e706b446e00da"
+                "reference": "1341795f765a4b6133b94e74a9bd6148f3b89d81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-easy-digital-downloads/zipball/d4217ff5137a6d4934852358ed6e706b446e00da",
-                "reference": "d4217ff5137a6d4934852358ed6e706b446e00da",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-easy-digital-downloads/zipball/1341795f765a4b6133b94e74a9bd6148f3b89d81",
+                "reference": "1341795f765a4b6133b94e74a9bd6148f3b89d81",
                 "shasum": ""
             },
             "require": {
@@ -977,7 +977,7 @@
                 "issues": "https://github.com/wp-pay-extensions/easy-digital-downloads/issues",
                 "source": "https://github.com/wp-pay-extensions/easy-digital-downloads"
             },
-            "time": "2023-03-29T07:41:39+00:00"
+            "time": "2023-03-30T10:05:58+00:00"
         },
         {
             "name": "wp-pay-extensions/event-espresso",
@@ -1193,16 +1193,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "v4.5.3",
+            "version": "v4.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-gravityforms.git",
-                "reference": "c021538380dc1f3413284b8e51a3f1fa67f86675"
+                "reference": "bf664c11b703e53f4158713deb9624815ca91775"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-gravityforms/zipball/c021538380dc1f3413284b8e51a3f1fa67f86675",
-                "reference": "c021538380dc1f3413284b8e51a3f1fa67f86675",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-gravityforms/zipball/bf664c11b703e53f4158713deb9624815ca91775",
+                "reference": "bf664c11b703e53f4158713deb9624815ca91775",
                 "shasum": ""
             },
             "require": {
@@ -1263,24 +1263,25 @@
                 "issues": "https://github.com/wp-pay-extensions/gravityforms/issues",
                 "source": "https://github.com/wp-pay-extensions/gravityforms"
             },
-            "time": "2023-03-10T14:22:49+00:00"
+            "time": "2023-03-30T10:23:50+00:00"
         },
         {
             "name": "wp-pay-extensions/memberpress",
-            "version": "v4.7.6",
+            "version": "v4.7.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-memberpress.git",
-                "reference": "6ba0275b89ff8946e7aa878d0e10093188d9dd68"
+                "reference": "159f1e56391bdb94c666350c0094acd5b4c2d205"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-memberpress/zipball/6ba0275b89ff8946e7aa878d0e10093188d9dd68",
-                "reference": "6ba0275b89ff8946e7aa878d0e10093188d9dd68",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-memberpress/zipball/159f1e56391bdb94c666350c0094acd5b4c2d205",
+                "reference": "159f1e56391bdb94c666350c0094acd5b4c2d205",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.4",
+                "woocommerce/action-scheduler": "^3.4",
                 "wp-pay/core": "^4.9"
             },
             "require-dev": {
@@ -1334,7 +1335,7 @@
                 "issues": "https://github.com/wp-pay-extensions/memberpress/issues",
                 "source": "https://github.com/wp-pay-extensions/memberpress"
             },
-            "time": "2023-03-29T07:43:20+00:00"
+            "time": "2023-03-30T10:07:06+00:00"
         },
         {
             "name": "wp-pay-extensions/ninjaforms",
@@ -1480,16 +1481,16 @@
         },
         {
             "name": "wp-pay-extensions/woocommerce",
-            "version": "v4.5.4",
+            "version": "v4.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-woocommerce.git",
-                "reference": "2cc94505603b36190440a2678c3d8fb4d4458ab0"
+                "reference": "5cdf809cd80746fc2d6509262821c9abd34b34b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-woocommerce/zipball/2cc94505603b36190440a2678c3d8fb4d4458ab0",
-                "reference": "2cc94505603b36190440a2678c3d8fb4d4458ab0",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-woocommerce/zipball/5cdf809cd80746fc2d6509262821c9abd34b34b6",
+                "reference": "5cdf809cd80746fc2d6509262821c9abd34b34b6",
                 "shasum": ""
             },
             "require": {
@@ -1552,7 +1553,7 @@
                 "issues": "https://github.com/wp-pay-extensions/woocommerce/issues",
                 "source": "https://github.com/wp-pay-extensions/woocommerce"
             },
-            "time": "2023-03-29T07:46:45+00:00"
+            "time": "2023-03-30T10:25:22+00:00"
         },
         {
             "name": "wp-pay-gateways/adyen",
@@ -2572,16 +2573,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "v4.9.0",
+            "version": "v4.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pay-core.git",
-                "reference": "a275c34fe587c660655e2828b019118f76237581"
+                "reference": "88410de90c0ae5cdea64569d3a912392cf4c85ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/a275c34fe587c660655e2828b019118f76237581",
-                "reference": "a275c34fe587c660655e2828b019118f76237581",
+                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/88410de90c0ae5cdea64569d3a912392cf4c85ae",
+                "reference": "88410de90c0ae5cdea64569d3a912392cf4c85ae",
                 "shasum": ""
             },
             "require": {
@@ -2654,7 +2655,7 @@
                 "issues": "https://github.com/wp-pay/core/issues",
                 "source": "https://github.com/wp-pay/core"
             },
-            "time": "2023-03-29T07:24:44+00:00"
+            "time": "2023-03-30T10:17:17+00:00"
         },
         {
             "name": "wp-pay/fundraising",
@@ -5893,7 +5894,7 @@
         },
         {
             "name": "roots/wordpress",
-            "version": "6.1.1",
+            "version": "6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/roots/wordpress.git",
@@ -5924,16 +5925,12 @@
             ],
             "support": {
                 "issues": "https://github.com/roots/wordpress/issues",
-                "source": "https://github.com/roots/wordpress/tree/6.1.1"
+                "source": "https://github.com/roots/wordpress/tree/6.2"
             },
             "funding": [
                 {
                     "url": "https://github.com/roots",
                     "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/rootsdev",
-                    "type": "patreon"
                 }
             ],
             "time": "2022-06-01T16:54:37+00:00"
@@ -6011,22 +6008,22 @@
         },
         {
             "name": "roots/wordpress-no-content",
-            "version": "6.1.1",
+            "version": "6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress.git",
-                "reference": "6.1.1"
+                "reference": "6.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/release/wordpress-6.1.1-no-content.zip",
-                "shasum": "ad2d202747c5356e7b6246fbc339b46aebfa0665"
+                "url": "https://downloads.wordpress.org/release/wordpress-6.2-no-content.zip",
+                "shasum": "f584c96734b9b7d3f770dbc176740cf92e54aa6c"
             },
             "require": {
                 "php": ">= 5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "6.1.1"
+                "wordpress/core-implementation": "6.2"
             },
             "suggest": {
                 "ext-curl": "Performs remote request operations.",
@@ -6077,7 +6074,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2022-11-15T19:14:34+00:00"
+            "time": "2023-03-29T18:03:09+00:00"
         },
         {
             "name": "sebastian/cli-parser",
