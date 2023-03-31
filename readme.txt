@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 9.4.1
+Stable tag: 9.4.2
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -112,6 +112,28 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 
 == Changelog ==
+
+= 9.4.2 =
+### Fixed
+
+- Fixed fatal error due to errorneous translations.
+
+### Commits
+
+- Updated translations. ([a416552](https://github.com/pronamic/wp-pronamic-pay/commit/a41655239944cf37900daca960c3468dc51fd59d))
+
+### Composer
+
+- Changed `wp-pay-extensions/charitable` from `v4.3.1` to `v4.3.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-charitable/releases/tag/v4.3.2
+- Changed `wp-pay-gateways/adyen` from `v4.4.3` to `v4.4.4`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.4
+- Changed `wp-pay/core` from `v4.9.1` to `v4.9.2`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.9.2
+
+Full set of changes: [`9.4.1...9.4.2`][9.4.2]
+
+[9.4.2]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.1...v9.4.2
 
 = 9.4.1 =
 ### Fixed
@@ -273,17 +295,6 @@ Full set of changes: [`9.3.5...9.3.6`][9.3.6]
 Full set of changes: [`9.3.4...9.3.5`][9.3.5]
 
 [9.3.5]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.4...v9.3.5
-
-= 9.3.4 =
-### Composer
-
-- Changed `wp-pay-extensions/memberpress` from `v4.7.3` to `v4.7.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.4
-- Changed `wp-pay-gateways/adyen` from `v4.4.1` to `v4.4.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.3
-Full set of changes: [`9.3.3...9.3.4`][9.3.4]
-
-[9.3.4]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.3...v9.3.4
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
