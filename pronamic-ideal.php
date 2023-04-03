@@ -360,6 +360,7 @@ add_filter(
 					__DIR__ . '/certificates/ing-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/ing-2021-10-01-2016-09-30.cer',
 				],
+				'deprecated'    => true,
 			]
 		);
 
@@ -377,6 +378,7 @@ add_filter(
 					__DIR__ . '/certificates/ing-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/ing-2021-10-01-2016-09-30.cer',
 				],
+				'deprecated'    => true,
 			]
 		);
 
