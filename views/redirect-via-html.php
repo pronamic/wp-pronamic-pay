@@ -35,7 +35,7 @@ if ( ! isset( $payment ) ) {
 
 	$auto_submit = true;
 
-	if ( PRONAMIC_PAY_DEBUG ) {
+	if ( defined( '\PRONAMIC_PAY_DEBUG' ) && \PRONAMIC_PAY_DEBUG ) {
 		$auto_submit = false;
 	}
 
