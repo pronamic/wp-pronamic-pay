@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-04-05T09:40:28+00:00\n"
+"POT-Creation-Date: 2023-04-05T12:23:33+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.0-alpha\n"
 "X-Domain: pronamic_ideal\n"
@@ -2453,6 +2453,11 @@ msgstr ""
 msgid "Could not reach HTTP Authorization header test endpoint."
 msgstr ""
 
+#. translators: %s: The error returned by the lookup.
+#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:122
+msgid "Your site is unable to test the HTTP Authorization header, and returned the error: %s"
+msgstr ""
+
 #: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:19
 msgid "Checkout"
 msgstr ""
@@ -3849,6 +3854,30 @@ msgstr ""
 
 #: packages/wp-pay/core/src/Admin/AdminHealth.php:81
 msgid "Active gateway integrations"
+msgstr ""
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:172
+msgid "Pronamic Pay support license key test"
+msgstr ""
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:178
+msgid "Pronamic Pay WordPress version test"
+msgstr ""
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:184
+msgid "Pronamic Pay memory limit test"
+msgstr ""
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:190
+msgid "Pronamic Pay UTF-8 character set test"
+msgstr ""
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:196
+msgid "Pronamic Pay hashing algorithms test"
+msgstr ""
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:202
+msgid "Pronamic Pay extensions support test"
 msgstr ""
 
 #: packages/wp-pay/core/src/Admin/AdminHealth.php:218
@@ -5880,6 +5909,23 @@ msgstr ""
 #: packages/wp-pay/core/views/meta-box-payment-update.php:57
 #: packages/wp-pay/core/views/meta-box-subscription-update.php:53
 msgid "Edit status"
+msgstr ""
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:62
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:58
+msgid "Set status"
+msgstr ""
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:78
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:84
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:157
+msgid "OK"
+msgstr ""
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:79
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:85
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:158
+msgid "Cancel"
 msgstr ""
 
 #: packages/wp-pay/core/views/meta-box-payment-update.php:107

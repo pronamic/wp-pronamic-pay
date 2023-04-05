@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 9.4.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2023-04-05T09:40:28+00:00\n"
-"PO-Revision-Date: 2023-04-05 11:51+0200\n"
+"POT-Creation-Date: 2023-04-05T12:23:33+00:00\n"
+"PO-Revision-Date: 2023-04-05 14:26+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -2799,6 +2799,15 @@ msgstr ""
 msgid "Could not reach HTTP Authorization header test endpoint."
 msgstr "Kon het HTTP autorisatie header test eindpunt niet bereiken."
 
+#. translators: %s: The error returned by the lookup.
+#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:122
+msgid ""
+"Your site is unable to test the HTTP Authorization header, and returned the "
+"error: %s"
+msgstr ""
+"Je site kan de HTTP Autorisatie header niet testen en gaf de volgende "
+"foutmelding: %s"
+
 #: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:19
 msgid "Checkout"
 msgstr "Afrekenen"
@@ -4413,6 +4422,30 @@ msgstr "Actieve plugin integraties"
 msgid "Active gateway integrations"
 msgstr "Actieve gateway integraties"
 
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:172
+msgid "Pronamic Pay support license key test"
+msgstr "Pronamic Pay support licentiesleutel test"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:178
+msgid "Pronamic Pay WordPress version test"
+msgstr "Pronamic Pay WordPress versie test"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:184
+msgid "Pronamic Pay memory limit test"
+msgstr "Pronamic Pay geheugenlimiet test"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:190
+msgid "Pronamic Pay UTF-8 character set test"
+msgstr "Pronamic Pay UTF-8 tekenset test"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:196
+msgid "Pronamic Pay hashing algorithms test"
+msgstr "Pronamic Pay hashing-algoritmen test"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:202
+msgid "Pronamic Pay extensions support test"
+msgstr "Pronamic Pay extensies ondersteuning test"
+
 #: packages/wp-pay/core/src/Admin/AdminHealth.php:218
 msgid "Pronamic Pay license key is valid"
 msgstr "Pronamic Pay licentiesleutel is geldig"
@@ -5830,7 +5863,7 @@ msgstr "Betalingsstatus gewijzigd van “%1$s” naar “%2$s”."
 #: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:228
 msgid "Payment anonymized for personal data erasure request."
 msgstr ""
-"Betaling geanonimiseerd voor verzoek om persoonlijke data te verwijderen."
+"Betaling geanonimiseerd voor aanvraag om persoonlijke data te verwijderen."
 
 #. translators: %s: Payment ID
 #: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:232
@@ -6033,7 +6066,7 @@ msgstr "abonnement betaalmethode wijziging"
 #: packages/wp-pay/core/src/Subscriptions/SubscriptionsPrivacy.php:196
 msgid "Subscription anonymized for personal data erasure request."
 msgstr ""
-"Abonnement geanonimiseerd voor verzoek om persoonlijke data te verwijderen."
+"Abonnement geanonimiseerd voor aanvraag om persoonlijke data te verwijderen."
 
 #. translators: %s = subscription id
 #: packages/wp-pay/core/src/Subscriptions/SubscriptionsPrivacy.php:198
@@ -6045,7 +6078,7 @@ msgid ""
 "Subscription not anonymized for personal data erasure request because of "
 "active status."
 msgstr ""
-"Abonnement niet geanonimiseerd voor verzoek om persoonlijke date te "
+"Abonnement niet geanonimiseerd voor aanvraag om persoonlijke date te "
 "verwijderen door actieve status."
 
 #. translators: %s: Subscription ID
@@ -6162,11 +6195,11 @@ msgstr "Dit veld kon niet getoond worden door de volgende foutmelding: \"%s\"."
 
 #: packages/wp-pay/core/views/meta-box-form-options.php:46
 msgid "Button Text"
-msgstr "Button tekst"
+msgstr "Knoptekst"
 
 #: packages/wp-pay/core/views/meta-box-form-options.php:68
 msgid "Show as input field"
-msgstr "Toon als tekstveld"
+msgstr "Toon als invoerveld"
 
 #: packages/wp-pay/core/views/meta-box-form-options.php:69
 msgid "Show as choices"
@@ -6174,7 +6207,7 @@ msgstr "Toon als keuzes"
 
 #: packages/wp-pay/core/views/meta-box-form-options.php:70
 msgid "Show as choices with input field"
-msgstr "Toon als keuzes met tekstveld"
+msgstr "Toon als keuzes met invoerveld"
 
 #: packages/wp-pay/core/views/meta-box-gateway-config.php:44
 #: packages/wp-pay/core/views/tab-gateways.php:25
@@ -6316,7 +6349,7 @@ msgstr "Deze gateway ondersteunt geen webhook registratie."
 
 #: packages/wp-pay/core/views/meta-box-gateway-webhook-log.php:30
 msgid "No webhook request processed yet."
-msgstr "Nog geen webhook verzoek verwerkt."
+msgstr "Nog geen webhook aanvraag verwerkt."
 
 #. translators: 1: formatted date, 2: payment edit url, 3: payment id
 #: packages/wp-pay/core/views/meta-box-gateway-webhook-log.php:54
@@ -6553,6 +6586,23 @@ msgstr "Bewerken"
 #: packages/wp-pay/core/views/meta-box-subscription-update.php:53
 msgid "Edit status"
 msgstr "Status bewerken"
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:62
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:58
+msgid "Set status"
+msgstr "Status instellen"
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:78
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:84
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:157
+msgid "OK"
+msgstr "OK"
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:79
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:85
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:158
+msgid "Cancel"
+msgstr "Annuleren"
 
 #: packages/wp-pay/core/views/meta-box-payment-update.php:107
 msgid "Check status"
@@ -6814,8 +6864,8 @@ msgid ""
 "Here you can find an overview of all the gateway configurations on your "
 "WordPress site."
 msgstr ""
-"Hier vind je een overzicht van al de betalingsconfiguraties op je WordPress "
-"website."
+"Hier vind je een overzicht van alle betalingsconfiguraties op je WordPress "
+"site."
 
 #: packages/wp-pay/core/views/pointer-gateways.php:16
 msgid ""
@@ -6839,7 +6889,7 @@ msgid ""
 "on your WordPress site."
 msgstr ""
 "Op de betalingen pagina vind je een overzicht van alle betalingen die "
-"gestart zijn op je WordPress website."
+"gestart zijn op je WordPress site."
 
 #: packages/wp-pay/core/views/pointer-payments.php:16
 msgid ""

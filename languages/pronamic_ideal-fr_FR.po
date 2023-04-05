@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 9.4.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2023-04-05T09:40:28+00:00\n"
+"POT-Creation-Date: 2023-04-05T12:23:33+00:00\n"
 "PO-Revision-Date: 2022-03-15 12:08+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: \n"
@@ -2859,6 +2859,13 @@ msgstr ""
 "N’a pas pu atteindre le point de terminaison de test de l’en-tête HTTP "
 "Authorization."
 
+#. translators: %s: The error returned by the lookup.
+#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:122
+msgid ""
+"Your site is unable to test the HTTP Authorization header, and returned the "
+"error: %s"
+msgstr ""
+
 #: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:19
 msgid "Checkout"
 msgstr "Commander"
@@ -4544,6 +4551,38 @@ msgstr "Intégrations actives de plugin"
 #, fuzzy
 msgid "Active gateway integrations"
 msgstr "Intégrations actives de plugin"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:172
+#, fuzzy
+msgid "Pronamic Pay support license key test"
+msgstr "La clé de licence de Pronamic Pay est valide"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:178
+#, fuzzy
+msgid "Pronamic Pay WordPress version test"
+msgstr "Pronamic Pay nécessite WordPress 3.2 ou plus."
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:184
+#, fuzzy
+msgid "Pronamic Pay memory limit test"
+msgstr "Paiement Pronamic Pay"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:190
+#, fuzzy
+msgid "Pronamic Pay UTF-8 character set test"
+msgstr ""
+"Pronamic Pay recommande d'utiliser l'encodage de caractères UTF-8 pour les "
+"paiements."
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:196
+#, fuzzy
+msgid "Pronamic Pay hashing algorithms test"
+msgstr "Pronamic Pay nécessite l'algorithme de hachage \"sha1\"."
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:202
+#, fuzzy
+msgid "Pronamic Pay extensions support test"
+msgstr "Pronamic paiement succès"
 
 #: packages/wp-pay/core/src/Admin/AdminHealth.php:218
 msgid "Pronamic Pay license key is valid"
@@ -6735,6 +6774,25 @@ msgstr ""
 #, fuzzy
 msgid "Edit status"
 msgstr "Statut de la licence"
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:62
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:58
+#, fuzzy
+msgid "Set status"
+msgstr "Statut de la licence"
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:78
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:84
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:157
+msgid "OK"
+msgstr ""
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:79
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:85
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:158
+#, fuzzy
+msgid "Cancel"
+msgstr "Annulé"
 
 #: packages/wp-pay/core/views/meta-box-payment-update.php:107
 msgid "Check status"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 9.4.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2023-04-05T08:36:45+00:00\n"
-"PO-Revision-Date: 2023-04-05 12:20+0200\n"
+"POT-Creation-Date: 2023-04-05T12:23:33+00:00\n"
+"PO-Revision-Date: 2023-04-05 14:28+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: de_DE\n"
@@ -2806,6 +2806,15 @@ msgid "Could not reach HTTP Authorization header test endpoint."
 msgstr ""
 "Der HTTP Authentifizierung-Header-Testendpunkt konnte nicht erreicht werden."
 
+#. translators: %s: The error returned by the lookup.
+#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:122
+msgid ""
+"Your site is unable to test the HTTP Authorization header, and returned the "
+"error: %s"
+msgstr ""
+"Ihre Website kann den HTTP-Autorisierungs-Header nicht testen und hat den "
+"Fehler zurückgegeben: %s"
+
 #: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:19
 msgid "Checkout"
 msgstr "Kasse"
@@ -4402,6 +4411,30 @@ msgstr "Aktive Plugin-Integrationen"
 #: packages/wp-pay/core/src/Admin/AdminHealth.php:81
 msgid "Active gateway integrations"
 msgstr "Aktive Gateway-Integrationen"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:172
+msgid "Pronamic Pay support license key test"
+msgstr "Pronamic Pay Support Lizenzschlüsseltest"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:178
+msgid "Pronamic Pay WordPress version test"
+msgstr "Pronamic Pay WordPress-Versionstest"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:184
+msgid "Pronamic Pay memory limit test"
+msgstr "Pronamic Pay-Speichergrenze-Test"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:190
+msgid "Pronamic Pay UTF-8 character set test"
+msgstr "Pronamic Pay UTF-8 Zeichensatztest"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:196
+msgid "Pronamic Pay hashing algorithms test"
+msgstr "Pronamic Pay Hashing-Algorithmen-Test"
+
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:202
+msgid "Pronamic Pay extensions support test"
+msgstr "Pronamic Pay-Erweiterungs-Unterstützungstest"
 
 #: packages/wp-pay/core/src/Admin/AdminHealth.php:218
 msgid "Pronamic Pay license key is valid"
@@ -6549,6 +6582,23 @@ msgstr "Bearbeiten"
 #: packages/wp-pay/core/views/meta-box-subscription-update.php:53
 msgid "Edit status"
 msgstr "Status bearbeiten"
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:62
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:58
+msgid "Set status"
+msgstr "Status festlegen"
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:78
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:84
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:157
+msgid "OK"
+msgstr "OK"
+
+#: packages/wp-pay/core/views/meta-box-payment-update.php:79
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:85
+#: packages/wp-pay/core/views/meta-box-subscription-update.php:158
+msgid "Cancel"
+msgstr "Abbrechen"
 
 #: packages/wp-pay/core/views/meta-box-payment-update.php:107
 msgid "Check status"
