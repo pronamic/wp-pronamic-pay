@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 9.4.2
+Stable tag: 9.4.3
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -112,6 +112,28 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 
 == Changelog ==
+
+= 9.4.3 =
+### Fixed
+
+- Fixed error caused by undefined `PRONAMIC_PAY_DEBUG` constant.
+- Fixed warning about missing `package.json` file in Mollie integration.
+
+### Commits
+
+- Check if `PRONAMIC_PAY_DEBUG` constant is defined. ([10c8e53](https://github.com/pronamic/wp-pronamic-pay/commit/10c8e5374fc6e28564f9fe5499b81005f8736a03))
+- Make sure to define `PRONAMIC_PAY_DEBUG` constant (accidentally removed in 778b554b). ([6e41f23](https://github.com/pronamic/wp-pronamic-pay/commit/6e41f234654a4e192718907728746e569449be07))
+- Mark 'Old platform' integrations for ING iDEAL Advanced as deprecated. ([82cd05e](https://github.com/pronamic/wp-pronamic-pay/commit/82cd05ee7615d96075ee7484138a6b4687e418d0))
+- Updated translations. ([b056794](https://github.com/pronamic/wp-pronamic-pay/commit/b0567941d165a7209972d9e64e82b7280200ef13))
+
+### Composer
+
+- Changed `pronamic/wp-mollie` from `v1.2.0` to `v1.2.1`.
+	Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v1.2.1
+
+Full set of changes: [`9.4.2...9.4.3`][9.4.3]
+
+[9.4.3]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.2...v9.4.3
 
 = 9.4.2 =
 ### Fixed
@@ -276,25 +298,6 @@ Full set of changes: [`9.3.6...9.4.0`][9.4.0]
 Full set of changes: [`9.3.5...9.3.6`][9.3.6]
 
 [9.3.6]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.5...v9.3.6
-
-= 9.3.5 =
-### Fixed
-
-- Fixed field inputs options in recurring amount settings field of Gravity Forms.
-- Fixed expiry date of MemberPress transaction with trial period.
-- Fixed running Mollie integration installation.
-
-### Composer
-
-- Changed `wp-pay-extensions/gravityforms` from `v4.5.1` to `v4.5.2`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.5.2
-- Changed `wp-pay-extensions/memberpress` from `v4.7.4` to `v4.7.5`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.5
-- Changed `wp-pay-gateways/mollie` from `v4.7.3` to `v4.7.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.7.4
-Full set of changes: [`9.3.4...9.3.5`][9.3.5]
-
-[9.3.5]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.3.4...v9.3.5
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 
