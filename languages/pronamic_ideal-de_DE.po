@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic Pay 9.4.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2023-04-05T08:36:45+00:00\n"
-"PO-Revision-Date: 2023-04-05 11:34+0200\n"
+"PO-Revision-Date: 2023-04-05 12:20+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: de_DE\n"
@@ -2457,7 +2457,7 @@ msgstr "Erstellte Rückerstattung von %1$s mit Referenz `%2$s`."
 #. translators: %s: payment method title
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:1143
 msgid "A required field for the %s payment method is empty."
-msgstr "Ein benötigtes Feld für die Zahlungsmethode von% ist leer."
+msgstr "Ein erforderliches Feld für die %s Zahlungsmethode ist leer."
 
 #. translators: WooCommerce subscription ID.
 #: packages/wp-pay-extensions/woocommerce/src/Upgrade420.php:241
@@ -3533,11 +3533,11 @@ msgstr "Mollie Bestellnummer."
 
 #: packages/wp-pay-gateways/mollie/src/WebhookController.php:197
 msgid "Payment webhook requested by Mollie."
-msgstr "Zahlung Webhook angefordert von %s."
+msgstr "Zahlung Webhook angefordert von Mollie."
 
 #: packages/wp-pay-gateways/mollie/src/WebhookController.php:257
 msgid "Order webhook requested by Mollie."
-msgstr "Bestellung Webhook angefordert von %s."
+msgstr "Bestellung Webhook angefordert von Mollie."
 
 #. translators: %s: Mollie payment ID anchor.
 #: packages/wp-pay-gateways/mollie/views/meta-box-payment.php:41
@@ -4650,10 +4650,10 @@ msgid ""
 msgid_plural ""
 "%s payments are not updated because they already have a final payment status."
 msgstr[0] ""
-"% Zahlung wird nicht aktualisiert, weil sie bereits einen endgültigen "
+"%s Zahlung wird nicht aktualisiert, weil sie bereits einen endgültigen "
 "Zahlungsstatus hat."
 msgstr[1] ""
-"% Zahlungen wird nicht aktualisiert, weil sie bereits einen endgültigen "
+"%s Zahlungen wird nicht aktualisiert, weil sie bereits einen endgültigen "
 "Zahlungsstatus hat."
 
 #. translators: %s: gateways lists
@@ -5819,7 +5819,7 @@ msgstr "Zahlung mit Status \"%1$s\" erstellt."
 #. translators: 1: old status, 2: new status
 #: packages/wp-pay/core/src/Payments/PaymentsModule.php:205
 msgid "Payment status changed from \"%1$s\" to \"%2$s\"."
-msgstr "Bezahlstatus wurde von \"%s\" zu \"%s\" geändert."
+msgstr "Bezahlstatus wurde von \"%1$s\" zu \"%2$s\" geändert."
 
 #: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:228
 msgid "Payment anonymized for personal data erasure request."
@@ -6441,7 +6441,7 @@ msgstr "Ingenico Alias"
 
 #: packages/wp-pay/core/views/meta-box-payment-info.php:809
 msgid "Version"
-msgstr "Version: %s"
+msgstr "Version"
 
 #: packages/wp-pay/core/views/meta-box-payment-info.php:896
 msgid "Pay Redirect URL"
