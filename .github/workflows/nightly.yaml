@@ -32,6 +32,8 @@ jobs:
     needs: [phplint, phpcs, phpstan]
 
     steps:
+      - uses: actions/checkout@v3
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
