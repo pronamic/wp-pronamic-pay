@@ -46,6 +46,9 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
+      - name: Switch to packages development
+        run: php src/dev.php main
+
       - name: Build Pronamic Pay
         run: composer build
 
