@@ -23,14 +23,14 @@ if ( ! defined( 'WPINC' ) ) {
 
 ?>
 <div class="wrap about-wrap">
-	<h1><?php esc_html_e( 'Welcome to Pronamic Pay', 'pronamic_ideal' ); ?></h1>
+	<h1><?php esc_html_e( 'Welcome to Pronamic Pay', 'pronamic-ideal' ); ?></h1>
 
 	<div class="about-text">
 		<?php
 
 		printf(
 			/* translators: %s: Plugin version number */
-			esc_html__( 'Thanks for installing Pronamic Pay. Version %s is more powerful, stable and secure than ever before. We hope you enjoy using it.', 'pronamic_ideal' ),
+			esc_html__( 'Thanks for installing Pronamic Pay. Version %s is more powerful, stable and secure than ever before. We hope you enjoy using it.', 'pronamic-ideal' ),
 			esc_html( $this->plugin->get_version() )
 		);
 
@@ -42,7 +42,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 		printf(
 			/* translators: %s: Plugin version number */
-			esc_html__( 'Version: %s', 'pronamic_ideal' ),
+			esc_html__( 'Version: %s', 'pronamic-ideal' ),
 			esc_html( $this->plugin->get_version() )
 		);
 
@@ -53,8 +53,8 @@ if ( ! defined( 'WPINC' ) ) {
 		<?php
 
 		$nav_tabs = [
-			'new'             => __( 'What is new?', 'pronamic_ideal' ),
-			'getting-started' => __( 'Getting started', 'pronamic_ideal' ),
+			'new'             => __( 'What is new?', 'pronamic-ideal' ),
+			'getting-started' => __( 'Getting started', 'pronamic-ideal' ),
 		];
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce is not necessary because this parameter does not trigger an action.

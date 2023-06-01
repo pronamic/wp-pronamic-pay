@@ -11,7 +11,7 @@
  * Author: Pronamic
  * Author URI: https://www.pronamic.eu/
  *
- * Text Domain: pronamic_ideal
+ * Text Domain: pronamic-ideal
  * Domain Path: /languages/
  *
  * Provides: wp-pay/core
@@ -38,6 +38,13 @@ require_once __DIR__ . '/vendor/autoload_packages.php';
 /**
  * Bootstrap.
  */
+add_action(
+	'plugins_loaded',
+	function() {
+		load_plugin_textdomain( 'pronamic-ideal', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+	}
+);
+
 \Pronamic\WordPress\Pay\Plugin::instance(
 	[
 		'file'                 => __FILE__,
@@ -84,21 +91,21 @@ add_filter(
 	function( $notifications ) {
 		$notifications[] = new \Pronamic\WordPress\Pay\Admin\AdminNotification(
 			'removed-extension-active-event-espresso-legacy',
-			\__( 'Event Espresso 3', 'pronamic_ideal' ),
+			\__( 'Event Espresso 3', 'pronamic-ideal' ),
 			\defined( '\EVENT_ESPRESSO_VERSION' ) && \version_compare( \EVENT_ESPRESSO_VERSION, '4.0.0', '<' ),
 			'8'
 		);
 
 		$notifications[] = new \Pronamic\WordPress\Pay\Admin\AdminNotification(
 			'removed-extension-active-s2member',
-			\__( 's2Member', 'pronamic_ideal' ),
+			\__( 's2Member', 'pronamic-ideal' ),
 			\defined( '\WS_PLUGIN__S2MEMBER_VERSION' ),
 			'8'
 		);
 
 		$notifications[] = new \Pronamic\WordPress\Pay\Admin\AdminNotification(
 			'removed-extension-active-wp-e-commerce',
-			\__( 'WP eCommerce', 'pronamic_ideal' ),
+			\__( 'WP eCommerce', 'pronamic-ideal' ),
 			\class_exists( '\WP_eCommerce' ),
 			'8'
 		);
@@ -330,7 +337,7 @@ add_filter(
 				'mode'          => 'live',
 				'provider'      => 'ing',
 				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-basic-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
+				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-basic-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 				'dashboard_url' => 'https://ideal.secure-ing.com/',
 				'acquirer_url'  => 'https://ideal.secure-ing.com/ideal/mpiPayInitIng.do',
 			]
@@ -343,7 +350,7 @@ add_filter(
 				'mode'          => 'test',
 				'provider'      => 'ing',
 				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-basic-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
+				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-basic-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 				'dashboard_url' => 'https://idealtest.secure-ing.com/',
 				'acquirer_url'  => 'https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do',
 			]
@@ -357,7 +364,7 @@ add_filter(
 				'mode'          => 'live',
 				'provider'      => 'ing',
 				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
+				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 				'dashboard_url' => 'https://ideal.secure-ing.com/',
 				'acquirer_url'  => 'https://ideal.secure-ing.com/ideal/iDEALv3',
 				'certificates'  => [
@@ -375,7 +382,7 @@ add_filter(
 				'mode'          => 'test',
 				'provider'      => 'ing',
 				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
+				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 				'dashboard_url' => 'https://idealtest.secure-ing.com/',
 				'acquirer_url'  => 'https://idealtest.secure-ing.com/ideal/iDEALv3',
 				'certificates'  => [
@@ -394,7 +401,7 @@ add_filter(
 				'mode'          => 'live',
 				'provider'      => 'ing',
 				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
+				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 				'dashboard_url' => 'https://ideal-portal.ing.nl/',
 				'acquirer_url'  => 'https://ideal-acquiring.ing.nl/ideal/iDEALv3',
 				'certificates'  => [
@@ -411,7 +418,7 @@ add_filter(
 				'mode'          => 'test',
 				'provider'      => 'ing',
 				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
+				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 				'dashboard_url' => 'https://sandbox.ideal-portal.ing.nl/',
 				'acquirer_url'  => 'https://sandbox.ideal-acquiring.ing.nl/ideal/iDEALv3',
 				'certificates'  => [
@@ -424,7 +431,7 @@ add_filter(
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration(
 			[
 				'register_url' => 'https://www.mollie.com/nl/signup/665327',
-				'manual_url'   => \__( 'https://www.pronamicpay.com/en/manuals/how-to-connect-mollie-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
+				'manual_url'   => \__( 'https://www.pronamicpay.com/en/manuals/how-to-connect-mollie-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 			]
 		);
 
@@ -520,7 +527,7 @@ add_filter(
 				'mode'          => 'live',
 				'provider'      => 'rabobank',
 				'product_url'   => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-rabobank-ideal-professional-v3-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
+				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-rabobank-ideal-professional-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 				'dashboard_url' => 'https://ideal.rabobank.nl/',
 				'acquirer_url'  => 'https://ideal.rabobank.nl/ideal/iDEALv3',
 				'certificates'  => [
@@ -537,7 +544,7 @@ add_filter(
 				'mode'          => 'test',
 				'provider'      => 'rabobank',
 				'product_url'   => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-rabobank-ideal-professional-v3-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
+				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-rabobank-ideal-professional-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 				'dashboard_url' => 'https://idealtest.rabobank.nl/',
 				'acquirer_url'  => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
 				'certificates'  => [
@@ -604,10 +611,10 @@ add_filter(
 			[
 				'id'            => 'targetpay-ideal',
 				'name'          => 'TargetPay',
-				'product_url'   => \__( 'https://www.targetpay.com/info/ideal?setlang=en', 'pronamic_ideal' ),
+				'product_url'   => \__( 'https://www.targetpay.com/info/ideal?setlang=en', 'pronamic-ideal' ),
 				'dashboard_url' => 'https://www.targetpay.com/login',
 				'provider'      => 'targetpay',
-				'manual_url'    => \__( 'https://www.pronamicpay.com/en/manuals/how-to-connect-targetpay-to-wordpress-with-pronamic-pay/', 'pronamic_ideal' ),
+				'manual_url'    => \__( 'https://www.pronamicpay.com/en/manuals/how-to-connect-targetpay-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 				'deprecated'    => true,
 				'meta_key_rtlo' => 'targetpay_layoutcode',
 			]

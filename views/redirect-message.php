@@ -15,7 +15,7 @@
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 
-		<title><?php esc_html_e( 'Payment notice', 'pronamic_ideal' ); ?></title>
+		<title><?php esc_html_e( 'Payment notice', 'pronamic-ideal' ); ?></title>
 
 		<?php wp_print_styles( 'pronamic-pay-redirect' ); ?>
 	</head>

@@ -16,19 +16,19 @@ if ( ! $exception instanceof \Exception ) {
 
 <div class="error">
 	<dl>
-		<dt><?php esc_html_e( 'Message', 'pronamic_ideal' ); ?></dt>
+		<dt><?php esc_html_e( 'Message', 'pronamic-ideal' ); ?></dt>
 		<dd><?php echo esc_html( $exception->getMessage() ); ?></dd>
 
 		<?php if ( 0 !== $exception->getCode() ) : ?>
 
-			<dt><?php esc_html_e( 'Code', 'pronamic_ideal' ); ?></dt>
+			<dt><?php esc_html_e( 'Code', 'pronamic-ideal' ); ?></dt>
 			<dd><?php echo esc_html( $exception->getCode() ); ?></dd>
 
 		<?php endif; ?>
 
 		<?php if ( pronamic_pay_plugin()->is_debug_mode() && current_user_can( 'manage_options' ) ) : ?>
 
-			<dt><?php esc_html_e( 'Trace', 'pronamic_ideal' ); ?></dt>
+			<dt><?php esc_html_e( 'Trace', 'pronamic-ideal' ); ?></dt>
 			<dd>
 				<?php
 

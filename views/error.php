@@ -16,10 +16,10 @@ if ( is_wp_error( $pay_error ) ) : ?>
 		foreach ( $pay_error->get_error_codes() as $code ) {
 			?>
 			<dl>
-				<dt><?php esc_html_e( 'Code', 'pronamic_ideal' ); ?></dt>
+				<dt><?php esc_html_e( 'Code', 'pronamic-ideal' ); ?></dt>
 				<dd><?php echo esc_html( $code ); ?></dd>
 
-				<dt><?php esc_html_e( 'Message', 'pronamic_ideal' ); ?></dt>
+				<dt><?php esc_html_e( 'Message', 'pronamic-ideal' ); ?></dt>
 				<dd><?php echo esc_html( $pay_error->get_error_message( $code ) ); ?></dd>
 			</dl>
 
@@ -33,19 +33,19 @@ if ( is_wp_error( $pay_error ) ) : ?>
 					?>
 
 					<dl>
-						<dt><?php esc_html_e( 'Code', 'pronamic_ideal' ); ?></dt>
+						<dt><?php esc_html_e( 'Code', 'pronamic-ideal' ); ?></dt>
 						<dd><?php echo esc_html( $ideal_error->get_code() ); ?></dd>
 
-						<dt><?php esc_html_e( 'Message', 'pronamic_ideal' ); ?></dt>
+						<dt><?php esc_html_e( 'Message', 'pronamic-ideal' ); ?></dt>
 						<dd><?php echo esc_html( $ideal_error->get_message() ); ?></dd>
 
-						<dt><?php esc_html_e( 'Detail', 'pronamic_ideal' ); ?></dt>
+						<dt><?php esc_html_e( 'Detail', 'pronamic-ideal' ); ?></dt>
 						<dd><?php echo esc_html( $ideal_error->get_detail() ); ?></dd>
 
-						<dt><?php esc_html_e( 'Suggested Action', 'pronamic_ideal' ); ?></dt>
+						<dt><?php esc_html_e( 'Suggested Action', 'pronamic-ideal' ); ?></dt>
 						<dd><?php echo esc_html( $ideal_error->get_suggested_action() ); ?></dd>
 
-						<dt><?php esc_html_e( 'Consumer Message', 'pronamic_ideal' ); ?></dt>
+						<dt><?php esc_html_e( 'Consumer Message', 'pronamic-ideal' ); ?></dt>
 						<dd><?php echo esc_html( $ideal_error->get_consumer_message() ); ?></dd>
 					</dl>
 
