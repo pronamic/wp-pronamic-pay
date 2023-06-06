@@ -10,7 +10,7 @@
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-$changelog = new \Pronamic\Deployer\Changelog( __DIR__ . '/../../CHANGELOG.md' );
+$changelog = new \Pronamic\CLI\Changelog( __DIR__ . '/../../CHANGELOG.md' );
 
 $entries = array_slice( $changelog->get_entries(), 0, 5 );
 
