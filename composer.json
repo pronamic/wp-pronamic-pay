@@ -156,10 +156,6 @@
 			"@generate-readme-txt",
 			"@generate-readme-md"
 		],
-		"release": [
-			"@build",
-			"gsutil cp build/*.zip gs://downloads.pronamic.eu/plugins/pronamic-ideal",
-			"curl --netrc --data version=$( npm pkg get version | jq . --raw-output ) --request PATCH https://www.pronamic.eu/wp-json/pronamic-wp-extensions/v1/plugins/pronamic-pay"
-		]
+		"release": "vendor/bin/pronamic release --gcloud-storage --pronamic-directory --github --wp-org"
 	}
 }
