@@ -125,7 +125,8 @@
 			"@update-po"
 		],
 		"version": [
-			"@build"
+			"@build",
+			"@generate-readme"
 		],
 		"coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text",
 		"coverage-clover": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover build/logs/clover.xml",
