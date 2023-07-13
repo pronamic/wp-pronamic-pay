@@ -15,6 +15,7 @@ $packages = [
 	'pronamic/wp-number',
 	'pronamic/wp-pay-logos',
 	'pronamic/wp-gravityforms-nl',
+	'pronamic/wp-pronamic-pay-forms',
 	// Core.
 	'wp-pay/core',
 	'wp-pay/fundraising',
