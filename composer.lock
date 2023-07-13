@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05023cd5d8189afdf0f885fd7436876a",
+    "content-hash": "ec6800559df950f63fdce1ef35f47cea",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -686,6 +686,47 @@
                 "source": "https://github.com/pronamic/wp-number/tree/v1.3.0"
             },
             "time": "2023-03-21T11:18:55+00:00"
+        },
+        {
+            "name": "pronamic/wp-pronamic-pay-forms",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/wp-pronamic-pay-forms.git",
+                "reference": "44c031d36345abe5222edeaf7b95ad8d00b1d945"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-forms/zipball/44c031d36345abe5222edeaf7b95ad8d00b1d945",
+                "reference": "44c031d36345abe5222edeaf7b95ad8d00b1d945",
+                "shasum": ""
+            },
+            "require": {
+                "wp-pay/core": "^4.9"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Forms\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu"
+                }
+            ],
+            "description": "The Pronamic Pay forms module.",
+            "support": {
+                "issues": "https://github.com/pronamic/wp-pronamic-pay-forms/issues",
+                "source": "https://github.com/pronamic/wp-pronamic-pay-forms/tree/main"
+            },
+            "time": "2023-07-13T11:43:38+00:00"
         },
         {
             "name": "viison/address-splitter",
@@ -10894,6 +10935,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "pronamic/wp-pronamic-pay-forms": 20,
         "pronamic/pronamic-cli": 20,
         "wp-cli/wp-cli": 20,
         "wp-cli/wp-cli-bundle": 20
