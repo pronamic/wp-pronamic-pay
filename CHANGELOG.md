@@ -6,6 +6,22 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.4.6] - 2023-07-18
+
+### Composer
+
+- Added `pronamic/wp-pronamic-pay-forms` `^1.0`.
+- Changed `wp-pay-extensions/memberpress` from `v4.7.9` to `v4.7.10`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.10
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.3.5` to `v4.3.6`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.3.6
+- Changed `wp-pay/core` from `v4.9.4` to `v4.10.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.10.0
+
+Full set of changes: [`9.4.5...9.4.6`][9.4.6]
+
+[9.4.6]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.5...v9.4.6
+
 ## [9.4.5] - 2023-07-12
 
 ### Changed
