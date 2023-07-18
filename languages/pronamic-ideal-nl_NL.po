@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 9.4.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2023-07-12T09:42:34+00:00\n"
+"POT-Creation-Date: 2023-07-18T07:52:12+00:00\n"
 "PO-Revision-Date: 2023-04-05 14:26+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -28,7 +28,7 @@ msgstr ""
 #: packages/wp-pay/core/src/Admin/AdminHealth.php:556
 #: packages/wp-pay/core/src/Admin/AdminHealth.php:563
 #: packages/wp-pay/core/src/Admin/AdminModule.php:894
-#: packages/wp-pay/core/src/Blocks/BlocksModule.php:66
+#: packages/wp-pay/core/src/Blocks/BlocksModule.php:55
 #: packages/wp-pay/core/src/HomeUrlController.php:87
 #: packages/wp-pay/core/src/LicenseManager.php:426
 #: packages/wp-pay/core/src/Payments/StatusChecker.php:156
@@ -327,12 +327,12 @@ msgstr ""
 
 #: admin/tab-new.php:113
 #: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:50
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:444
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:452
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:460
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:468
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:575
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:667
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:445
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:453
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:461
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:469
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:576
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:668
 msgid "Restrict Content Pro"
 msgstr "Restrict Content Pro"
 
@@ -1097,6 +1097,302 @@ msgstr ""
 msgctxt "money format"
 msgid "%1$s%2$s %3$s"
 msgstr "%1$s voor %2$s %3$s"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:71
+msgctxt "Block"
+msgid "Payment Form"
+msgstr "Betaalformulier"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:72
+msgid "Add form"
+msgstr "Formulier toevoegen"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:73
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:91
+#: packages/pronamic/wp-pronamic-pay-forms/views/meta-box-form-options.php:58
+#: packages/wp-pay-extensions/formidable-forms/views/payment-settings.php:53
+#: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:61
+#: packages/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:360
+#: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:233
+#: packages/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:313
+#: packages/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:472
+#: packages/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:524
+#: packages/wp-pay/core/views/meta-box-gateway-test.php:141
+#: packages/wp-pay/core/views/meta-box-payment-info.php:86
+#: packages/wp-pay/core/views/meta-box-payment-refunds.php:26
+#: packages/wp-pay/core/views/meta-box-payment-subscription.php:77
+#: packages/wp-pay/core/views/meta-box-subscription-info.php:93
+#: packages/wp-pay/core/views/meta-box-subscription-payments.php:113
+#: packages/wp-pay/core/views/meta-box-subscription-phases.php:43
+#: packages/wp-pay/core/views/subscription-details.php:40
+#: views/redirect-via-html.php:90
+msgid "Amount"
+msgstr "Bedrag"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:87
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:102
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormsModule.php:163
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormsModule.php:194
+msgid "Payment Form"
+msgstr "Betalingsformulier"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:158
+msgid "Unable to process payments with default gateway."
+msgstr "Kan betalingen niet verwerken met standaard gateway."
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:186
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:218
+msgid "Payment Form Block"
+msgstr "Betalingsformulier blok"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:99
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:101
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:112
+#: packages/wp-pay/core/src/Admin/AdminModule.php:843
+#: packages/wp-pay/core/views/pointer-forms.php:12
+msgid "Payment Forms"
+msgstr "Betalingsformulieren"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:103
+#: packages/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:310
+#: packages/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:52
+#: packages/wp-pay/core/src/GatewayPostType.php:62
+#: packages/wp-pay/core/src/Payments/PaymentPostType.php:54
+#: packages/wp-pay/core/src/Subscriptions/SubscriptionPostType.php:53
+msgid "Add New"
+msgstr "Nieuwe toevoegen"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:104
+msgid "Add New Payment Form"
+msgstr "Nieuwe betalingsformulier toevoegen"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:105
+msgid "Edit Payment Form"
+msgstr "Betalingsformulier bewerken"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:106
+msgid "New Payment Form"
+msgstr "Nieuwe betalingsformulier"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:107
+msgid "All Payment Forms"
+msgstr "Alle betalingsformulieren"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:108
+msgid "View Payment Form"
+msgstr "Betalingsformulier bekijken"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:109
+msgid "Search Payment Forms"
+msgstr "Betalingsformulieren zoeken"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:110
+msgid "No payment forms found."
+msgstr "Geen betalingsformulieren gevonden."
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:111
+msgid "No payment forms found in Trash."
+msgstr "Geen betalingsformulieren gevonden in prullenbak."
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:113
+msgid "Filter payment forms list"
+msgstr "Filter betalingsformulieren lijst"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:114
+msgid "Payment forms list navigation"
+msgstr "Betalingsformulieren lijst navigatie"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:115
+msgid "Payment forms list"
+msgstr "Betalingsformulieren lijst"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:121
+msgid "Payment form published."
+msgstr "Betalingsformulier gepubliceerd."
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:122
+msgid "Payment form published privately."
+msgstr "Betalingsformulier privé gepubliceerd."
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:123
+msgid "Payment form reverted to draft."
+msgstr "Betalingsformulier teruggezet naar concept."
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:124
+msgid "Payment form scheduled."
+msgstr "Betalingsformulier ingepland."
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:125
+msgid "Payment form updated."
+msgstr "Betalingsformulier bijgewerkt."
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:138
+msgctxt "slug"
+msgid "payment-forms"
+msgstr "betalingsformulieren"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:156
+#: packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:61
+#: packages/wp-pay-extensions/woocommerce/src/Gateway.php:264
+#: packages/wp-pay/core/src/Admin/AdminGatewayPostType.php:75
+msgid "Title"
+msgstr "Titel"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:157
+#: packages/pronamic/wp-pronamic-pay-forms/views/meta-box-form-options.php:25
+#: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:230
+#: packages/wp-pay/core/views/meta-box-payment-info.php:172
+#: packages/wp-pay/core/views/meta-box-subscription-info.php:56
+msgid "Gateway"
+msgstr "Gateway"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:158
+#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:86
+#: packages/wp-pay-gateways/mollie/src/Admin.php:173
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:280
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:316
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:349
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:378
+#: packages/wp-pay/core/src/Admin/AdminHealth.php:575
+#: packages/wp-pay/core/src/Admin/AdminModule.php:814
+#: packages/wp-pay/core/src/Admin/AdminModule.php:815
+#: packages/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:578
+#: packages/wp-pay/core/src/Payments/PaymentPostType.php:50
+#: packages/wp-pay/core/src/Payments/PaymentPostType.php:52
+#: packages/wp-pay/core/src/Payments/PaymentPostType.php:63
+#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:46
+#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:62
+#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:127
+#: packages/wp-pay/core/views/pointer-payments.php:12
+msgid "Payments"
+msgstr "Betalingen"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:159
+msgid "Earnings"
+msgstr "Inkomsten"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:160
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:161
+#: packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:65
+#: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:55
+#: packages/wp-pay/core/src/Admin/AdminGatewayPostType.php:79
+#: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:234
+#: packages/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:316
+#: packages/wp-pay/core/views/meta-box-notes.php:33
+#: packages/wp-pay/core/views/meta-box-payment-info.php:23
+#: packages/wp-pay/core/views/meta-box-payment-refunds.php:25
+#: packages/wp-pay/core/views/meta-box-subscription-info.php:29
+#: packages/wp-pay/core/views/meta-box-subscription-payments.php:114
+#: views/redirect-via-html.php:75
+msgid "Date"
+msgstr "Datum"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:289
+msgid "Form Options"
+msgstr "Formulier opties"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:413
+msgid "Shortcode:"
+msgstr "Shortcode:"
+
+#. translators: %s: order id
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:132
+msgid "Payment Form %s"
+msgstr "Betalingsformulier %s"
+
+#. translators: %s: payment data title
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:141
+#: packages/wp-pay-extensions/contact-form-7/src/Pronamic.php:214
+#: packages/wp-pay-extensions/formidable-forms/src/Extension.php:390
+#: packages/wp-pay-extensions/gravityforms/src/Processor.php:246
+#: packages/wp-pay-extensions/memberpress/src/Pronamic.php:62
+#: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:102
+#: packages/wp-pay-extensions/woocommerce/src/Gateway.php:500
+msgid "Payment for %s"
+msgstr "Betaling voor %s"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:236
+msgid "Please enter a valid amount"
+msgstr "Voer een geldig bedrag in"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:246
+msgid "Please enter your first name"
+msgstr "Voer een geldige voornaam in"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:256
+msgid "Please enter a valid email address"
+msgstr "Voer een geldig e-mailadres in"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormsModule.php:130
+#: packages/pronamic/wp-pronamic-pay-forms/views/meta-box-form-options.php:52
+msgid "Pay Now"
+msgstr "Betaal nu"
+
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:148
+msgid "Personal Info"
+msgstr "Persoonlijke informatie"
+
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:152
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:155
+#: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1001
+msgid "First Name"
+msgstr "Voornaam"
+
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:160
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:163
+#: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1003
+msgid "Last Name"
+msgstr "Achternaam"
+
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:168
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:172
+msgid "Email Address"
+msgstr "E-mailadres"
+
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:177
+msgid "Payment Info"
+msgstr "Betalingsinformatie"
+
+#. translators: %s: Exception message.
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:226
+#: packages/wp-pay/core/views/meta-box-gateway-test.php:90
+msgid ""
+"This field could not be displayed due to the following error message: \"%s\"."
+msgstr "Dit veld kon niet getoond worden door de volgende foutmelding: \"%s\"."
+
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:254
+#: packages/wp-pay-extensions/give/src/Gateway.php:260
+#: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:414
+#: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:245
+#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:119
+msgid "Error"
+msgstr "Fout"
+
+#: packages/pronamic/wp-pronamic-pay-forms/views/meta-box-form-options.php:46
+msgid "Button Text"
+msgstr "Knoptekst"
+
+#: packages/pronamic/wp-pronamic-pay-forms/views/meta-box-form-options.php:68
+msgid "Show as input field"
+msgstr "Toon als invoerveld"
+
+#: packages/pronamic/wp-pronamic-pay-forms/views/meta-box-form-options.php:69
+msgid "Show as choices"
+msgstr "Toon als keuzes"
+
+#: packages/pronamic/wp-pronamic-pay-forms/views/meta-box-form-options.php:70
+msgid "Show as choices with input field"
+msgstr "Toon als keuzes met invoerveld"
+
+#: packages/pronamic/wp-pronamic-pay-forms/views/meta-box-form-options.php:121
+#: packages/wp-pay-extensions/charitable/src/Gateway.php:90
+#: packages/wp-pay-extensions/event-espresso/src/PaymentMethod.php:136
+#: packages/wp-pay-extensions/give/src/Gateway.php:135
+msgid "Transaction description"
+msgstr "Transactiebeschrijving"
 
 #. translators: %s function name.
 #: packages/woocommerce/action-scheduler/classes/abstracts/ActionScheduler.php:226
@@ -2042,13 +2338,6 @@ msgstr "Charitable donatie"
 msgid "Configuration"
 msgstr "Configuratie"
 
-#: packages/wp-pay-extensions/charitable/src/Gateway.php:90
-#: packages/wp-pay-extensions/event-espresso/src/PaymentMethod.php:136
-#: packages/wp-pay-extensions/give/src/Gateway.php:135
-#: packages/wp-pay/core/views/meta-box-form-options.php:121
-msgid "Transaction description"
-msgstr "Transactiebeschrijving"
-
 #: packages/wp-pay-extensions/charitable/src/Gateway.php:92
 msgid "Charitable donation {donation_id}"
 msgstr "Charitable donatie {donation_id}"
@@ -2094,17 +2383,6 @@ msgstr "Een ogenblik geduld tijdens het doorsturen voor de betaling"
 msgid "Contact Form 7 Entry"
 msgstr "Contact Form 7 inzending"
 
-#. translators: %s: payment data title
-#: packages/wp-pay-extensions/contact-form-7/src/Pronamic.php:214
-#: packages/wp-pay-extensions/formidable-forms/src/Extension.php:390
-#: packages/wp-pay-extensions/gravityforms/src/Processor.php:246
-#: packages/wp-pay-extensions/memberpress/src/Pronamic.php:53
-#: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:102
-#: packages/wp-pay-extensions/woocommerce/src/Gateway.php:500
-#: packages/wp-pay/core/src/Forms/FormProcessor.php:141
-msgid "Payment for %s"
-msgstr "Betaling voor %s"
-
 #. translators: %s: order id
 #: packages/wp-pay-extensions/contact-form-7/src/Pronamic.php:217
 msgid "Contact Form 7 Entry @ %s"
@@ -2113,7 +2391,7 @@ msgstr "Contact Form 7 inzending @ %s"
 #. translators: %s: payment number
 #: packages/wp-pay-extensions/contact-form-7/src/Pronamic.php:228
 #: packages/wp-pay-extensions/easy-digital-downloads/src/Extension.php:329
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:590
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:591
 #: packages/wp-pay-gateways/mollie/views/page-payment.php:69
 msgid "Payment %s"
 msgstr "Betaling %s"
@@ -2564,28 +2842,6 @@ msgstr "Betaalmethode"
 msgid "Choose a payment method"
 msgstr "Kies een betaalmethode"
 
-#: packages/wp-pay-extensions/formidable-forms/views/payment-settings.php:53
-#: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:61
-#: packages/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:360
-#: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:233
-#: packages/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:313
-#: packages/wp-pay/core/src/Blocks/BlocksModule.php:97
-#: packages/wp-pay/core/src/Payments/PaymentsDataStoreCPT.php:472
-#: packages/wp-pay/core/src/Subscriptions/SubscriptionsDataStoreCPT.php:524
-#: packages/wp-pay/core/views/form.php:91
-#: packages/wp-pay/core/views/meta-box-form-options.php:58
-#: packages/wp-pay/core/views/meta-box-gateway-test.php:141
-#: packages/wp-pay/core/views/meta-box-payment-info.php:86
-#: packages/wp-pay/core/views/meta-box-payment-refunds.php:26
-#: packages/wp-pay/core/views/meta-box-payment-subscription.php:77
-#: packages/wp-pay/core/views/meta-box-subscription-info.php:93
-#: packages/wp-pay/core/views/meta-box-subscription-payments.php:113
-#: packages/wp-pay/core/views/meta-box-subscription-phases.php:43
-#: packages/wp-pay/core/views/subscription-details.php:40
-#: views/redirect-via-html.php:90
-msgid "Amount"
-msgstr "Bedrag"
-
 #: packages/wp-pay-extensions/formidable-forms/views/payment-settings.php:64
 #: packages/wp-pay-extensions/formidable-forms/views/payment-settings.php:98
 #: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1196
@@ -2647,14 +2903,6 @@ msgstr "Give donatie {donation_id}"
 #: packages/wp-pay-extensions/give/src/Gateway.php:260
 msgid "Nonce verification has failed"
 msgstr "Nonce verificatie is mislukt"
-
-#: packages/wp-pay-extensions/give/src/Gateway.php:260
-#: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:414
-#: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:245
-#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:119
-#: packages/wp-pay/core/views/form.php:254
-msgid "Error"
-msgstr "Fout"
 
 #. translators: %s: payment data as JSON
 #: packages/wp-pay-extensions/give/src/Gateway.php:292
@@ -2762,31 +3010,9 @@ msgstr "Pronamic abonnement vernieuwen URL"
 msgid "Pronamic Subscription Renewal Date"
 msgstr "Pronamic abonnement vernieuwingsdatum"
 
-#: packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:61
-#: packages/wp-pay-extensions/woocommerce/src/Gateway.php:264
-#: packages/wp-pay/core/src/Admin/AdminGatewayPostType.php:75
-#: packages/wp-pay/core/src/Forms/FormPostType.php:156
-msgid "Title"
-msgstr "Titel"
-
 #: packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:62
 msgid "Form"
 msgstr "Formulier"
-
-#: packages/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:65
-#: packages/wp-pay-gateways/adyen/views/checkout-drop-in.php:55
-#: packages/wp-pay/core/src/Admin/AdminGatewayPostType.php:79
-#: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:234
-#: packages/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:316
-#: packages/wp-pay/core/src/Forms/FormPostType.php:161
-#: packages/wp-pay/core/views/meta-box-notes.php:33
-#: packages/wp-pay/core/views/meta-box-payment-info.php:23
-#: packages/wp-pay/core/views/meta-box-payment-refunds.php:25
-#: packages/wp-pay/core/views/meta-box-subscription-info.php:29
-#: packages/wp-pay/core/views/meta-box-subscription-payments.php:114
-#: views/redirect-via-html.php:75
-msgid "Date"
-msgstr "Datum"
 
 #: packages/wp-pay-extensions/gravityforms/src/Extension.php:297
 #: packages/wp-pay-extensions/gravityforms/src/Extension.php:355
@@ -2933,15 +3159,6 @@ msgstr "Betalingsfeed #%d"
 #: packages/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:298
 msgid "Pay Feeds"
 msgstr "Betalen feeds"
-
-#: packages/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:310
-#: packages/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:52
-#: packages/wp-pay/core/src/Forms/FormPostType.php:103
-#: packages/wp-pay/core/src/GatewayPostType.php:62
-#: packages/wp-pay/core/src/Payments/PaymentPostType.php:54
-#: packages/wp-pay/core/src/Subscriptions/SubscriptionPostType.php:53
-msgid "Add New"
-msgstr "Nieuwe toevoegen"
 
 #: packages/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:478
 msgid "Default pay feed"
@@ -3390,21 +3607,9 @@ msgstr ""
 msgid "Prefix Name"
 msgstr "Voorvoegsel"
 
-#: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1001
-#: packages/wp-pay/core/views/form.php:152
-#: packages/wp-pay/core/views/form.php:155
-msgid "First Name"
-msgstr "Voornaam"
-
 #: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1002
 msgid "Middle Name"
 msgstr "Middelnaam"
-
-#: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1003
-#: packages/wp-pay/core/views/form.php:160
-#: packages/wp-pay/core/views/form.php:163
-msgid "Last Name"
-msgstr "Achternaam"
 
 #: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1004
 msgid "Suffix Name"
@@ -3628,7 +3833,7 @@ msgid "Update payment method"
 msgstr "Betaalmethode wijzigen"
 
 #. translators: %s: order id
-#: packages/wp-pay-extensions/memberpress/src/Pronamic.php:56
+#: packages/wp-pay-extensions/memberpress/src/Pronamic.php:65
 msgid "MemberPress transaction %s"
 msgstr "MemberPress transactie %s"
 
@@ -3708,35 +3913,35 @@ msgid "Delayed actions"
 msgstr "Uitgestelde acties"
 
 #. translators: %s: Restrict Content Pro
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:443
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:444
 msgid "Subscription activated by %s."
 msgstr "Abonnement geactiveerd door %s."
 
 #. translators: %s: Restrict Content Pro
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:451
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:452
 msgid "Subscription canceled by %s."
 msgstr "Abonnement geannuleerd door %s."
 
 #. translators: %s: Restrict Content Pro
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:459
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:460
 msgid "Subscription expired by %s."
 msgstr "Abonnement verlopen door %s."
 
 #. translators: %s: Restrict Content Pro
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:467
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:468
 msgid "Subscription pending by %s."
 msgstr "Abonnement in afwachting door %s."
 
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:609
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:610
 msgid "Restrict Content Pro Payment"
 msgstr "Restrict Content Pro betaling"
 
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:652
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:653
 msgid "Restrict Content Pro Membership"
 msgstr "Restrict Content Pro lidmaatschap"
 
 #. translators: %s: source id
-#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:682
+#: packages/wp-pay-extensions/restrict-content-pro/src/Extension.php:683
 msgid "Membership %s"
 msgstr "Membership %s"
 
@@ -4410,27 +4615,6 @@ msgstr "HTTP autorisatie header test"
 #: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:83
 msgid "HTTP Basic authentication is working"
 msgstr "HTTP Basic authenticatie functioneert"
-
-#: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:86
-#: packages/wp-pay-gateways/mollie/src/Admin.php:173
-#: packages/wp-pay/core/src/Admin/AdminHealth.php:280
-#: packages/wp-pay/core/src/Admin/AdminHealth.php:316
-#: packages/wp-pay/core/src/Admin/AdminHealth.php:349
-#: packages/wp-pay/core/src/Admin/AdminHealth.php:378
-#: packages/wp-pay/core/src/Admin/AdminHealth.php:575
-#: packages/wp-pay/core/src/Admin/AdminModule.php:814
-#: packages/wp-pay/core/src/Admin/AdminModule.php:815
-#: packages/wp-pay/core/src/Admin/AdminSubscriptionPostType.php:578
-#: packages/wp-pay/core/src/Forms/FormPostType.php:158
-#: packages/wp-pay/core/src/Payments/PaymentPostType.php:50
-#: packages/wp-pay/core/src/Payments/PaymentPostType.php:52
-#: packages/wp-pay/core/src/Payments/PaymentPostType.php:63
-#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:46
-#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:62
-#: packages/wp-pay/core/src/Payments/PaymentsPrivacy.php:127
-#: packages/wp-pay/core/views/pointer-payments.php:12
-msgid "Payments"
-msgstr "Betalingen"
 
 #: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:91
 msgid ""
@@ -6342,14 +6526,6 @@ msgstr "Abonnementen"
 msgid "Reports"
 msgstr "Rapporten"
 
-#: packages/wp-pay/core/src/Admin/AdminModule.php:843
-#: packages/wp-pay/core/src/Forms/FormPostType.php:99
-#: packages/wp-pay/core/src/Forms/FormPostType.php:101
-#: packages/wp-pay/core/src/Forms/FormPostType.php:112
-#: packages/wp-pay/core/views/pointer-forms.php:12
-msgid "Payment Forms"
-msgstr "Betalingsformulieren"
-
 #: packages/wp-pay/core/src/Admin/AdminModule.php:844
 msgid "Forms"
 msgstr "Formulieren"
@@ -6412,14 +6588,6 @@ msgstr ""
 #: packages/wp-pay/core/views/meta-box-subscription-payments.php:112
 msgid "Transaction"
 msgstr "Transactie"
-
-#: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:230
-#: packages/wp-pay/core/src/Forms/FormPostType.php:157
-#: packages/wp-pay/core/views/meta-box-form-options.php:25
-#: packages/wp-pay/core/views/meta-box-payment-info.php:172
-#: packages/wp-pay/core/views/meta-box-subscription-info.php:56
-msgid "Gateway"
-msgstr "Gateway"
 
 #: packages/wp-pay/core/src/Admin/AdminPaymentPostType.php:332
 msgid "Recurring payment"
@@ -6629,31 +6797,6 @@ msgstr "Sluiten"
 #: packages/wp-pay/core/src/Admin/Install.php:163
 msgid "Payer"
 msgstr "Betaler"
-
-#: packages/wp-pay/core/src/Blocks/BlocksModule.php:95
-msgctxt "Block"
-msgid "Payment Form"
-msgstr "Betaalformulier"
-
-#: packages/wp-pay/core/src/Blocks/BlocksModule.php:96
-msgid "Add form"
-msgstr "Formulier toevoegen"
-
-#: packages/wp-pay/core/src/Blocks/BlocksModule.php:111
-#: packages/wp-pay/core/src/Forms/FormPostType.php:102
-#: packages/wp-pay/core/src/Forms/FormsModule.php:157
-#: packages/wp-pay/core/src/Forms/FormsModule.php:188
-msgid "Payment Form"
-msgstr "Betalingsformulier"
-
-#: packages/wp-pay/core/src/Blocks/BlocksModule.php:182
-msgid "Unable to process payments with default gateway."
-msgstr "Kan betalingen niet verwerken met standaard gateway."
-
-#: packages/wp-pay/core/src/Blocks/BlocksModule.php:210
-#: packages/wp-pay/core/src/Blocks/BlocksModule.php:242
-msgid "Payment Form Block"
-msgstr "Betalingsformulier blok"
 
 #: packages/wp-pay/core/src/Cards.php:46
 #: packages/wp-pay/core/src/Core/PaymentMethods.php:436
@@ -6884,113 +7027,6 @@ msgstr "Bank"
 #: packages/wp-pay/core/src/Fields/IDealIssuerSelectField.php:57
 msgid "— Choose your bank —"
 msgstr "— Kies je bank —"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:104
-msgid "Add New Payment Form"
-msgstr "Nieuwe betalingsformulier toevoegen"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:105
-msgid "Edit Payment Form"
-msgstr "Betalingsformulier bewerken"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:106
-msgid "New Payment Form"
-msgstr "Nieuwe betalingsformulier"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:107
-msgid "All Payment Forms"
-msgstr "Alle betalingsformulieren"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:108
-msgid "View Payment Form"
-msgstr "Betalingsformulier bekijken"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:109
-msgid "Search Payment Forms"
-msgstr "Betalingsformulieren zoeken"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:110
-msgid "No payment forms found."
-msgstr "Geen betalingsformulieren gevonden."
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:111
-msgid "No payment forms found in Trash."
-msgstr "Geen betalingsformulieren gevonden in prullenbak."
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:113
-msgid "Filter payment forms list"
-msgstr "Filter betalingsformulieren lijst"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:114
-msgid "Payment forms list navigation"
-msgstr "Betalingsformulieren lijst navigatie"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:115
-msgid "Payment forms list"
-msgstr "Betalingsformulieren lijst"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:121
-msgid "Payment form published."
-msgstr "Betalingsformulier gepubliceerd."
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:122
-msgid "Payment form published privately."
-msgstr "Betalingsformulier privé gepubliceerd."
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:123
-msgid "Payment form reverted to draft."
-msgstr "Betalingsformulier teruggezet naar concept."
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:124
-msgid "Payment form scheduled."
-msgstr "Betalingsformulier ingepland."
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:125
-msgid "Payment form updated."
-msgstr "Betalingsformulier bijgewerkt."
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:138
-msgctxt "slug"
-msgid "payment-forms"
-msgstr "betalingsformulieren"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:159
-msgid "Earnings"
-msgstr "Inkomsten"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:160
-msgid "Shortcode"
-msgstr "Shortcode"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:289
-msgid "Form Options"
-msgstr "Formulier opties"
-
-#: packages/wp-pay/core/src/Forms/FormPostType.php:413
-msgid "Shortcode:"
-msgstr "Shortcode:"
-
-#. translators: %s: order id
-#: packages/wp-pay/core/src/Forms/FormProcessor.php:132
-msgid "Payment Form %s"
-msgstr "Betalingsformulier %s"
-
-#: packages/wp-pay/core/src/Forms/FormProcessor.php:236
-msgid "Please enter a valid amount"
-msgstr "Voer een geldig bedrag in"
-
-#: packages/wp-pay/core/src/Forms/FormProcessor.php:246
-msgid "Please enter your first name"
-msgstr "Voer een geldige voornaam in"
-
-#: packages/wp-pay/core/src/Forms/FormProcessor.php:256
-msgid "Please enter a valid email address"
-msgstr "Voer een geldig e-mailadres in"
-
-#: packages/wp-pay/core/src/Forms/FormsModule.php:124
-#: packages/wp-pay/core/views/meta-box-form-options.php:52
-msgid "Pay Now"
-msgstr "Betaal nu"
 
 #: packages/wp-pay/core/src/GatewayPostType.php:58
 #: packages/wp-pay/core/src/GatewayPostType.php:60
@@ -7778,42 +7814,6 @@ msgid "%s period"
 msgid_plural "%s periods"
 msgstr[0] "%s periode"
 msgstr[1] "%s perioden"
-
-#: packages/wp-pay/core/views/form.php:148
-msgid "Personal Info"
-msgstr "Persoonlijke informatie"
-
-#: packages/wp-pay/core/views/form.php:168
-#: packages/wp-pay/core/views/form.php:172
-msgid "Email Address"
-msgstr "E-mailadres"
-
-#: packages/wp-pay/core/views/form.php:177
-msgid "Payment Info"
-msgstr "Betalingsinformatie"
-
-#. translators: %s: Exception message.
-#: packages/wp-pay/core/views/form.php:226
-#: packages/wp-pay/core/views/meta-box-gateway-test.php:90
-msgid ""
-"This field could not be displayed due to the following error message: \"%s\"."
-msgstr "Dit veld kon niet getoond worden door de volgende foutmelding: \"%s\"."
-
-#: packages/wp-pay/core/views/meta-box-form-options.php:46
-msgid "Button Text"
-msgstr "Knoptekst"
-
-#: packages/wp-pay/core/views/meta-box-form-options.php:68
-msgid "Show as input field"
-msgstr "Toon als invoerveld"
-
-#: packages/wp-pay/core/views/meta-box-form-options.php:69
-msgid "Show as choices"
-msgstr "Toon als keuzes"
-
-#: packages/wp-pay/core/views/meta-box-form-options.php:70
-msgid "Show as choices with input field"
-msgstr "Toon als keuzes met invoerveld"
 
 #: packages/wp-pay/core/views/meta-box-gateway-config.php:44
 msgid "Payment provider"
