@@ -90,6 +90,7 @@ add_filter(
 	'pronamic_pay_plugin_integrations',
 	function( $integrations ) {
 		$classes = [
+			\Pronamic\WordPress\Pay\Forms\Integration::class,
 			\Pronamic\WordPress\Pay\Extensions\Charitable\Extension::class,
 			\Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension::class,
 			\Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension::class,
