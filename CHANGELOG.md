@@ -6,6 +6,23 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.4.7] - 2023-07-19
+
+### Commits
+
+- Added forms plugin integration. ([6174b96](https://github.com/pronamic/wp-pronamic-pay/commit/6174b96f3924828f3a8429f92e128a5413769bcd))
+
+### Composer
+
+- Changed `pronamic/wp-pronamic-pay-forms` from `v1.0.0` to `v1.0.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-forms/releases/tag/v1.0.1
+- Changed `wp-pay/core` from `v4.10.0` to `v4.10.1`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.10.1
+
+Full set of changes: [`9.4.6...9.4.7`][9.4.7]
+
+[9.4.7]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.6...v9.4.7
+
 ## [9.4.6] - 2023-07-18
 
 ### Composer
