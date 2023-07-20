@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 9.4.8
+Stable tag: 9.4.9
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -113,6 +113,20 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 9.4.9 =
+### Fixed
+
+- Fixed 'Forms' admin menu item not shown with new plugin installations.
+
+### Composer
+
+- Changed `pronamic/wp-pronamic-pay-forms` from `v1.0.1` to `v1.0.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-forms/releases/tag/v1.0.3
+
+Full set of changes: [`9.4.8...9.4.9`][9.4.9]
+
+[9.4.9]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.8...v9.4.9
+
 = 9.4.8 =
 ### Fixed
 
@@ -218,75 +232,6 @@ Full set of changes: [`9.4.5...9.4.6`][9.4.6]
 Full set of changes: [`9.4.4...9.4.5`][9.4.5]
 
 [9.4.5]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.4...v9.4.5
-
-= 9.4.4 =
-### Commits
-
-- Changed text domain from `pronamic_ideal` to `pronamic-ideal`. ([a61ad49](https://github.com/pronamic/wp-pronamic-pay/commit/a61ad497b56e6f2b54901bac4a15875b66fa3ccb))
-- Updated extensions tested up to versions. ([555b376](https://github.com/pronamic/wp-pronamic-pay/commit/555b376c5c4a28c5e5b9ae827304538e431049b6))
-
-### Composer
-
-- Changed `automattic/jetpack-autoloader` from `v2.11.18` to `v2.11.21`.
-	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v2.11.21
-- Changed `pronamic/wp-gravityforms-nl` from `v3.0.4` to `v3.0.5`.
-	Release notes: https://github.com/pronamic/wp-gravityforms-nl/releases/tag/v3.0.5
-- Changed `woocommerce/action-scheduler` from `3.5.4` to `3.6.0`.
-	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.6.0
-- Changed `wp-pay-extensions/contact-form-7` from `v3.2.4` to `v3.2.5`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v3.2.5
-- Changed `wp-pay-extensions/easy-digital-downloads` from `v4.3.3` to `v4.3.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/releases/tag/v4.3.4
-- Changed `wp-pay-extensions/event-espresso` from `v4.2.2` to `v4.2.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-event-espresso/releases/tag/v4.2.3
-- Changed `wp-pay-extensions/formidable-forms` from `v4.3.3` to `v4.3.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-formidable-forms/releases/tag/v4.3.4
-- Changed `wp-pay-extensions/give` from `v4.2.2` to `v4.2.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-give/releases/tag/v4.2.3
-- Changed `wp-pay-extensions/gravityforms` from `v4.5.4` to `v4.5.5`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.5.5
-- Changed `wp-pay-extensions/memberpress` from `v4.7.7` to `v4.7.8`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.8
-- Changed `wp-pay-extensions/ninjaforms` from `v3.2.2` to `v3.2.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ninjaforms/releases/tag/v3.2.3
-- Changed `wp-pay-extensions/restrict-content-pro` from `v4.3.3` to `v4.3.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.3.4
-- Changed `wp-pay-extensions/woocommerce` from `v4.5.5` to `v4.5.6`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.5.6
-- Changed `wp-pay-gateways/buckaroo` from `v4.3.2` to `v4.3.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-buckaroo/releases/tag/v4.3.3
-- Changed `wp-pay-gateways/digiwallet` from `v3.3.2` to `v3.3.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-digiwallet/releases/tag/v3.3.3
-- Changed `wp-pay-gateways/ems-e-commerce` from `v4.3.2` to `v4.3.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ems-e-commerce/releases/tag/v4.3.3
-- Changed `wp-pay-gateways/icepay` from `v4.3.3` to `v4.3.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-icepay/releases/tag/v4.3.4
-- Changed `wp-pay-gateways/ideal` from `v4.1.2` to `v4.1.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ideal/releases/tag/v4.1.3
-- Changed `wp-pay-gateways/ideal-advanced-v3` from `v4.3.4` to `v4.3.5`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ideal-advanced-v3/releases/tag/v4.3.5
-- Changed `wp-pay-gateways/ideal-basic` from `v4.3.2` to `v4.3.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ideal-basic/releases/tag/v4.3.3
-- Changed `wp-pay-gateways/mollie` from `v4.7.6` to `v4.7.7`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.7.7
-- Changed `wp-pay-gateways/multisafepay` from `v4.3.2` to `v4.3.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-multisafepay/releases/tag/v4.3.3
-- Changed `wp-pay-gateways/ogone` from `v4.5.0` to `v4.5.1`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ingenico/releases/tag/v4.5.1
-- Changed `wp-pay-gateways/omnikassa-2` from `v4.4.3` to `v4.4.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/releases/tag/v4.4.4
-- Changed `wp-pay-gateways/pay-nl` from `v4.5.2` to `v4.5.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-pay-nl/releases/tag/v4.5.3
-- Changed `wp-pay-gateways/paypal` from `v2.3.2` to `v2.3.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-paypal/releases/tag/v2.3.4
-- Changed `wp-pay/core` from `v4.9.2` to `v4.9.3`.
-	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.9.3
-- Changed `wp-pay/fundraising` from `v3.2.1` to `v3.2.2`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-fundraising/releases/tag/v3.2.2
-
-Full set of changes: [`9.4.3...9.4.4`][9.4.4]
-
-[9.4.4]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.3...v9.4.4
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

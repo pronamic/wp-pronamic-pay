@@ -6,6 +6,21 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.4.9] - 2023-07-20
+
+### Fixed
+
+- Fixed 'Forms' admin menu item not shown with new plugin installations.
+
+### Composer
+
+- Changed `pronamic/wp-pronamic-pay-forms` from `v1.0.1` to `v1.0.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-forms/releases/tag/v1.0.3
+
+Full set of changes: [`9.4.8...9.4.9`][9.4.9]
+
+[9.4.9]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.8...v9.4.9
+
 ## [9.4.8] - 2023-07-20
 
 ### Fixed
