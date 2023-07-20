@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 9.4.7
+Stable tag: 9.4.8
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -112,6 +112,19 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 
 == Changelog ==
+
+= 9.4.8 =
+### Fixed
+
+- Fixed untranslated plugin.
+
+### Commits
+
+- Use relative `^wp-content/` path in PHPCS config. ([1950c8f](https://github.com/pronamic/wp-pronamic-pay/commit/1950c8f0eebaca92602274fab22b20e928bdcd07))
+
+Full set of changes: [`9.4.7...9.4.8`][9.4.8]
+
+[9.4.8]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.7...v9.4.8
 
 = 9.4.7 =
 ### Commits
@@ -274,28 +287,6 @@ Full set of changes: [`9.4.4...9.4.5`][9.4.5]
 Full set of changes: [`9.4.3...9.4.4`][9.4.4]
 
 [9.4.4]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.3...v9.4.4
-
-= 9.4.3 =
-### Fixed
-
-- Fixed error caused by undefined `PRONAMIC_PAY_DEBUG` constant.
-- Fixed warning about missing `package.json` file in Mollie integration.
-
-### Commits
-
-- Check if `PRONAMIC_PAY_DEBUG` constant is defined. ([10c8e53](https://github.com/pronamic/wp-pronamic-pay/commit/10c8e5374fc6e28564f9fe5499b81005f8736a03))
-- Make sure to define `PRONAMIC_PAY_DEBUG` constant (accidentally removed in 778b554b). ([6e41f23](https://github.com/pronamic/wp-pronamic-pay/commit/6e41f234654a4e192718907728746e569449be07))
-- Mark 'Old platform' integrations for ING iDEAL Advanced as deprecated. ([82cd05e](https://github.com/pronamic/wp-pronamic-pay/commit/82cd05ee7615d96075ee7484138a6b4687e418d0))
-- Updated translations. ([b056794](https://github.com/pronamic/wp-pronamic-pay/commit/b0567941d165a7209972d9e64e82b7280200ef13))
-
-### Composer
-
-- Changed `pronamic/wp-mollie` from `v1.2.0` to `v1.2.1`.
-	Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v1.2.1
-
-Full set of changes: [`9.4.2...9.4.3`][9.4.3]
-
-[9.4.3]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.2...v9.4.3
 
 [See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
 

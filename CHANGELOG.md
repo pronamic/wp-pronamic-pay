@@ -6,6 +6,20 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.4.8] - 2023-07-20
+
+### Fixed
+
+- Fixed untranslated plugin.
+
+### Commits
+
+- Use relative `^wp-content/` path in PHPCS config. ([1950c8f](https://github.com/pronamic/wp-pronamic-pay/commit/1950c8f0eebaca92602274fab22b20e928bdcd07))
+
+Full set of changes: [`9.4.7...9.4.8`][9.4.8]
+
+[9.4.8]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.7...v9.4.8
+
 ## [9.4.7] - 2023-07-19
 
 ### Commits
