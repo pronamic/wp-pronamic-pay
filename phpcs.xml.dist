@@ -4,9 +4,8 @@
 	<file>.</file>
 
 	<exclude-pattern>.idea/*</exclude-pattern>
-	<exclude-pattern>assets/*</exclude-pattern>
-	<exclude-pattern>css/*</exclude-pattern>
-	<exclude-pattern>documentation/*</exclude-pattern>
+
+
 	<exclude-pattern>fonts/*</exclude-pattern>
 	<exclude-pattern>html/*</exclude-pattern>
 	<exclude-pattern>images/*</exclude-pattern>
@@ -15,10 +14,15 @@
 	<exclude-pattern>languages/*</exclude-pattern>
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>other/*</exclude-pattern>
-	<exclude-pattern>tests/bootstrap.php</exclude-pattern>
+
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>wordpress/*</exclude-pattern>
+
+	<exclude-pattern type="relative">^build/*</exclude-pattern>
+	<exclude-pattern type="relative">^documentation/*</exclude-pattern>
 	<exclude-pattern type="relative">^wp-content/*</exclude-pattern>
+	<exclude-pattern type="relative">^packages/*</exclude-pattern>
+	<exclude-pattern type="relative">^deploy/*</exclude-pattern>
 
 	<rule ref="PronamicWP">
 		<exclude name="Squiz.Commenting.FileComment.Missing">src/readme-txt/changelog.php</exclude>
