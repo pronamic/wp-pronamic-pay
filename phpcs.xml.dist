@@ -3,21 +3,18 @@
 <ruleset name="Pronamic Pay">
 	<file>.</file>
 
-	<exclude-pattern>.idea/*</exclude-pattern>
-
-	<exclude-pattern>images/*</exclude-pattern>
-	<exclude-pattern>index.php</exclude-pattern>
-
-	<exclude-pattern>node_modules/*</exclude-pattern>
-
-	<exclude-pattern>vendor/*</exclude-pattern>
-	<exclude-pattern>wordpress/*</exclude-pattern>
-
+	<exclude-pattern type="relative">^index.php</exclude-pattern>
+	<exclude-pattern type="relative">^.idea/*</exclude-pattern>
 	<exclude-pattern type="relative">^build/*</exclude-pattern>
-	<exclude-pattern type="relative">^documentation/*</exclude-pattern>
-	<exclude-pattern type="relative">^wp-content/*</exclude-pattern>
-	<exclude-pattern type="relative">^packages/*</exclude-pattern>
 	<exclude-pattern type="relative">^deploy/*</exclude-pattern>
+	<exclude-pattern type="relative">^documentation/*</exclude-pattern>
+	<exclude-pattern type="relative">^node_modules/*</exclude-pattern>
+	<exclude-pattern type="relative">^packages/*</exclude-pattern>
+	<exclude-pattern type="relative">^src/phpcompatibility/*</exclude-pattern>
+	<exclude-pattern type="relative">^src/wpcs/*</exclude-pattern>
+	<exclude-pattern type="relative">^vendor/*</exclude-pattern>
+	<exclude-pattern type="relative">^wp-content/*</exclude-pattern>
+	<exclude-pattern type="relative">^wordpress/*</exclude-pattern>
 
 	<rule ref="PronamicWP">
 		<exclude name="Squiz.Commenting.FileComment.Missing">src/readme-txt/changelog.php</exclude>
