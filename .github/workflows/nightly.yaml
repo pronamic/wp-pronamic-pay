@@ -48,8 +48,8 @@ jobs:
 
       - name: Install WP-CLI packages
         run: |
-          - alias wp=vendor/bin/wp
-          - wp package install wp-cli/dist-archive-command
+          alias wp=vendor/bin/wp
+          wp package install wp-cli/dist-archive-command
 
       - name: Switch to packages development
         run: php src/dev.php main
