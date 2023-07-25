@@ -59,7 +59,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: pronamic-pay-nightly
-          path: build/**/*
+          path: build/project/**/*
 
       - name: Copy build asset
         run: cp build/pronamic-ideal.*.zip build/pronamic-ideal.zip
