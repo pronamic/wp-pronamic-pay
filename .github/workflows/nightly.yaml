@@ -61,6 +61,9 @@ jobs:
           name: pronamic-pay-nightly
           path: build/**/*
 
+      - name: Copy build asset
+        run: cp build/pronamic-ideal.*.zip build/pronamic-ideal.zip
+
       - name: Deploy nightly build
         uses: WebFreak001/deploy-nightly@v1.1.0
         env:
