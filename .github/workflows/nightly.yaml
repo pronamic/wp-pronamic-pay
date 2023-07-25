@@ -50,7 +50,7 @@ jobs:
         run: php src/dev.php main
 
       - name: Install WP-CLI packages
-        run: wp package install wp-cli/dist-archive-command
+        run: composer exec wp package install wp-cli/dist-archive-command
 
       - name: Build Pronamic Pay
         run: composer build
