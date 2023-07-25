@@ -43,6 +43,9 @@ jobs:
           tools: composer
           coverage: none
 
+      - name: Install WP-CLI packages
+        run: wp package install wp-cli/dist-archive-command
+
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
