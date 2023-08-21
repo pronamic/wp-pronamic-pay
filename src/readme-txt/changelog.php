@@ -22,4 +22,4 @@ foreach ( $entries as $entry ) {
 	echo str_repeat( "\n", 2 );
 }
 
-echo '[See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)';
+echo '[See changelog for all versions.](https://github.com/pronamic/wp-pronamic-pay/blob/main/CHANGELOG.md)';
