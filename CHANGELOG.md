@@ -6,6 +6,45 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.4.10] - 2023-08-28
+
+### Changed
+
+- Improved processing of Contact Form 7 form submission data.
+
+### Fixed
+
+- Fixed compatibility with plugin "Send PDF for Contact Form 7".
+
+### Commits
+
+- Updated translations. ([f4010df](https://github.com/pronamic/wp-pronamic-pay/commit/f4010dff0272f2324f8cb7d1ca02d49292c75b62))
+- Updated libraries. ([b5c46c7](https://github.com/pronamic/wp-pronamic-pay/commit/b5c46c7eb7391c4fbabcd0ed46d17b3b7fc087ef))
+- Tested up to 6.3. ([f0f003a](https://github.com/pronamic/wp-pronamic-pay/commit/f0f003af6a95bfd2da5477d37a1732ed96f1e0ba))
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v2.11.21` to `v2.11.22`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v2.11.22
+- Changed `pronamic/wp-mollie` from `v1.2.2` to `v1.2.3`.
+	Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v1.2.3
+- Changed `woocommerce/action-scheduler` from `3.6.1` to `3.6.2`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.6.2
+- Changed `wp-pay-extensions/contact-form-7` from `v3.2.5` to `v3.3.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v3.3.0
+- Changed `wp-pay-extensions/woocommerce` from `v4.5.7` to `v4.5.8`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.5.8
+- Changed `wp-pay-gateways/adyen` from `v4.4.5` to `v4.4.6`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.6
+- Changed `wp-pay-gateways/mollie` from `v4.7.8` to `v4.7.9`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.7.9
+- Changed `wp-pay/core` from `v4.10.1` to `v4.11.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.11.0
+
+Full set of changes: [`9.4.9...9.4.10`][9.4.10]
+
+[9.4.10]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.9...v9.4.10
+
 ## [9.4.9] - 2023-07-20
 
 ### Fixed

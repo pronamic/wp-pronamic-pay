@@ -3,9 +3,9 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
 Requires at least: 5.9
-Tested up to: 6.2
+Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 9.4.9
+Stable tag: 9.4.10
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -113,6 +113,44 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 9.4.10 =
+### Changed
+
+- Improved processing of Contact Form 7 form submission data.
+
+### Fixed
+
+- Fixed compatibility with plugin "Send PDF for Contact Form 7".
+
+### Commits
+
+- Updated translations. ([f4010df](https://github.com/pronamic/wp-pronamic-pay/commit/f4010dff0272f2324f8cb7d1ca02d49292c75b62))
+- Updated libraries. ([b5c46c7](https://github.com/pronamic/wp-pronamic-pay/commit/b5c46c7eb7391c4fbabcd0ed46d17b3b7fc087ef))
+- Tested up to 6.3. ([f0f003a](https://github.com/pronamic/wp-pronamic-pay/commit/f0f003af6a95bfd2da5477d37a1732ed96f1e0ba))
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v2.11.21` to `v2.11.22`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v2.11.22
+- Changed `pronamic/wp-mollie` from `v1.2.2` to `v1.2.3`.
+	Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v1.2.3
+- Changed `woocommerce/action-scheduler` from `3.6.1` to `3.6.2`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.6.2
+- Changed `wp-pay-extensions/contact-form-7` from `v3.2.5` to `v3.3.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v3.3.0
+- Changed `wp-pay-extensions/woocommerce` from `v4.5.7` to `v4.5.8`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.5.8
+- Changed `wp-pay-gateways/adyen` from `v4.4.5` to `v4.4.6`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.6
+- Changed `wp-pay-gateways/mollie` from `v4.7.8` to `v4.7.9`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.7.9
+- Changed `wp-pay/core` from `v4.10.1` to `v4.11.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.11.0
+
+Full set of changes: [`9.4.9...9.4.10`][9.4.10]
+
+[9.4.10]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.9...v9.4.10
+
 = 9.4.9 =
 ### Fixed
 
@@ -171,69 +209,7 @@ Full set of changes: [`9.4.5...9.4.6`][9.4.6]
 
 [9.4.6]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.5...v9.4.6
 
-= 9.4.5 =
-### Changed
-
-- 📣 Mollie payment methods that can be used as a first payment for recurring
-  payments are marked with support for recurring payments. For extensions such
-  as WooCommerce Subscriptions, MemberPress and Restrict Content Pro, this may
-  mean that payment methods such as Bancontact, Belfius, EPS, Giropay, iDEAL,
-  KBC and Sofort can now also be visible when paying for subscriptions. Where
-  previously the "Direct Debit (mandate via iDEAL)" payment method/gateway had
-  to be used, the regular iDEAL payment method/gateway can now also be used.
-
-### Commits
-
-- Removed notifications about removed extensions. ([d9bdd88](https://github.com/pronamic/wp-pronamic-pay/commit/d9bdd88cfd44b85192340876dd92562629a3891c))
-- Also replace `pronamic-money` text domain. ([eec3016](https://github.com/pronamic/wp-pronamic-pay/commit/eec30169e695392ee8b7dbccad22dab630c24e51))
-- Added `nl_NL_formal` based on `nl_NL`. ([23400f4](https://github.com/pronamic/wp-pronamic-pay/commit/23400f49b5599b49121bcb4382d9c1abe07628de))
-- Added `nl_BE` based on `nl_NL`. ([d4864c5](https://github.com/pronamic/wp-pronamic-pay/commit/d4864c5039dc32c14c645eb1a3430ead27c8afda))
-- Fixed "PHP Fatal error:  Uncaught Error: Class "Pronamic\Deployer\Changelog" not found". ([f06ed60](https://github.com/pronamic/wp-pronamic-pay/commit/f06ed602ad9151771a9011b32a91617d1c2a4c89))
-
-### Composer
-
-- Changed `pronamic/wp-mollie` from `v1.2.1` to `v1.2.2`.
-	Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v1.2.2
-- Changed `woocommerce/action-scheduler` from `3.6.0` to `3.6.1`.
-	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.6.1
-- Changed `wp-pay-extensions/charitable` from `v4.3.2` to `v4.3.3`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-charitable/releases/tag/v4.3.3
-- Changed `wp-pay-extensions/gravityforms` from `v4.5.5` to `v4.5.6`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.5.6
-- Changed `wp-pay-extensions/memberpress` from `v4.7.8` to `v4.7.9`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.9
-- Changed `wp-pay-extensions/restrict-content-pro` from `v4.3.4` to `v4.3.5`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.3.5
-- Changed `wp-pay-extensions/woocommerce` from `v4.5.6` to `v4.5.7`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.5.7
-- Changed `wp-pay-gateways/adyen` from `v4.4.4` to `v4.4.5`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.4.5
-- Changed `wp-pay-gateways/digiwallet` from `v3.3.3` to `v3.3.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-digiwallet/releases/tag/v3.3.4
-- Changed `wp-pay-gateways/ems-e-commerce` from `v4.3.3` to `v4.3.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ems-e-commerce/releases/tag/v4.3.4
-- Changed `wp-pay-gateways/icepay` from `v4.3.4` to `v4.3.5`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-icepay/releases/tag/v4.3.5
-- Changed `wp-pay-gateways/ideal-advanced-v3` from `v4.3.5` to `v4.3.6`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ideal-advanced-v3/releases/tag/v4.3.6
-- Changed `wp-pay-gateways/ideal-basic` from `v4.3.3` to `v4.3.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ideal-basic/releases/tag/v4.3.4
-- Changed `wp-pay-gateways/mollie` from `v4.7.7` to `v4.7.8`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.7.8
-- Changed `wp-pay-gateways/ogone` from `v4.5.1` to `v4.5.2`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-ingenico/releases/tag/v4.5.2
-- Changed `wp-pay-gateways/omnikassa-2` from `v4.4.4` to `v4.4.5`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/releases/tag/v4.4.5
-- Changed `wp-pay-gateways/pay-nl` from `v4.5.3` to `v4.5.4`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-pay-nl/releases/tag/v4.5.4
-- Changed `wp-pay/core` from `v4.9.3` to `v4.9.4`.
-	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.9.4
-
-Full set of changes: [`9.4.4...9.4.5`][9.4.5]
-
-[9.4.5]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.4...v9.4.5
-
-[See changelog for all versions.](https://www.pronamic.eu/plugins/pronamic-pay/changelog/)
+[See changelog for all versions.](https://github.com/pronamic/wp-pronamic-pay/blob/main/CHANGELOG.md)
 
 == Links ==
 
