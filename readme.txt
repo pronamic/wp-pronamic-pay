@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 9.4.10
+Stable tag: 9.4.11
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -113,6 +113,28 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+= 9.4.11 =
+### Fixed
+
+- Fixed setting Billie payment method status.
+
+### Commits
+
+- Updated Mollie library. ([b8e1384](https://github.com/pronamic/wp-pronamic-pay/commit/b8e138490f2cf882336356d30632e0ff989eeabe))
+
+### Composer
+
+- Changed `wp-pay-extensions/contact-form-7` from `v3.3.0` to `v3.3.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v3.3.0
+- Changed `wp-pay-gateways/mollie` from `v4.7.9` to `v4.7.10`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.7.10
+- Changed `wp-pay/core` from `v4.11.0` to `v4.11.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.11.0
+
+Full set of changes: [`9.4.10...9.4.11`][9.4.11]
+
+[9.4.11]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.10...v9.4.11
+
 = 9.4.10 =
 ### Changed
 
@@ -193,21 +215,6 @@ Full set of changes: [`9.4.7...9.4.8`][9.4.8]
 Full set of changes: [`9.4.6...9.4.7`][9.4.7]
 
 [9.4.7]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.6...v9.4.7
-
-= 9.4.6 =
-### Composer
-
-- Added `pronamic/wp-pronamic-pay-forms` `^1.0`.
-- Changed `wp-pay-extensions/memberpress` from `v4.7.9` to `v4.7.10`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.10
-- Changed `wp-pay-extensions/restrict-content-pro` from `v4.3.5` to `v4.3.6`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.3.6
-- Changed `wp-pay/core` from `v4.9.4` to `v4.10.0`.
-	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.10.0
-
-Full set of changes: [`9.4.5...9.4.6`][9.4.6]
-
-[9.4.6]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.5...v9.4.6
 
 [See changelog for all versions.](https://github.com/pronamic/wp-pronamic-pay/blob/main/CHANGELOG.md)
 
