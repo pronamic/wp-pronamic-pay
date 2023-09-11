@@ -40,7 +40,7 @@ require_once __DIR__ . '/vendor/autoload_packages.php';
  */
 add_action(
 	'plugins_loaded',
-	function() {
+	function () {
 		load_plugin_textdomain( 'pronamic-ideal', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 );
@@ -77,7 +77,7 @@ add_action(
 
 add_filter(
 	'pronamic_pay_modules',
-	function( $modules ) {
+	function ( $modules ) {
 		$modules[] = 'forms';
 		$modules[] = 'reports';
 		$modules[] = 'subscriptions';
@@ -88,7 +88,7 @@ add_filter(
 
 add_filter(
 	'pronamic_pay_plugin_integrations',
-	function( $integrations ) {
+	function ( $integrations ) {
 		$classes = [
 			\Pronamic\WordPress\Pay\Forms\Integration::class,
 			\Pronamic\WordPress\Pay\Extensions\Charitable\Extension::class,
@@ -115,7 +115,7 @@ add_filter(
 
 add_filter(
 	'get_post_metadata',
-	function( $value, $post_id, $meta_key, $single ) {
+	function ( $value, $post_id, $meta_key, $single ) {
 		static $filter = true;
 
 		if ( false === $filter ) {
@@ -181,7 +181,7 @@ add_filter(
 
 add_filter(
 	'pronamic_pay_gateways',
-	function( $gateways ) {
+	function ( $gateways ) {
 		// ABN AMRO - iDEAL Zelfbouw.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			[
