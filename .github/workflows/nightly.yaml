@@ -49,6 +49,9 @@ jobs:
       - name: Switch to packages development
         run: php src/dev.php main
 
+      - name: Install WP-CLI packages
+        run: composer exec wp package install wp-cli/dist-archive-command
+
       - name: Build Pronamic Pay
         run: composer build
 
@@ -56,7 +59,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: pronamic-pay-nightly
-          path: build/**/*
+          path: build/project/**/*
+
+      - name: Copy build asset
+        run: cp build/pronamic-ideal.*.zip build/pronamic-ideal.zip
 
       - name: Deploy nightly build
         uses: WebFreak001/deploy-nightly@v1.1.0
