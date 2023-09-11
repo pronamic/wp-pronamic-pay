@@ -21,7 +21,7 @@ $pkg = json_decode( $data );
 
 ?>
 === Pronamic Pay ===
-Contributors: pronamic, remcotolsma 
+Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
 Requires at least: 5.9
