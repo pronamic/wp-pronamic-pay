@@ -105,8 +105,4 @@
 	<rule ref="WordPress.Security.EscapeOutput.OutputNotEscaped">
 		<exclude-pattern>src/*.php</exclude-pattern>
 	</rule>
-
-	<rule ref="WordPress.PHP.DisallowShortTernary">
-		<exclude-pattern>tests/wp-config.php</exclude-pattern>
-	</rule>
 </ruleset>
