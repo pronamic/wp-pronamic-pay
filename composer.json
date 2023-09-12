@@ -158,6 +158,11 @@
 			"@generate-readme-txt",
 			"@generate-readme-md"
 		],
-		"release": "vendor/bin/pronamic release --gcloud-storage --pronamic-directory --github --wp-org"
+		"release": [
+			"@build",
+			"vendor/bin/pronamic release-to-github",
+			"vendor/bin/pronamic release-to-pronamic",
+			"vendor/bin/pronamic release-to-wp-org"
+		]
 	}
 }
