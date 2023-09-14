@@ -598,6 +598,8 @@ add_filter(
 	}
 );
 
+\Pronamic\WooCommercePaymentGatewaysCountriesCondition\Plugin::instance()->setup();
+
 /**
  * Backward compatibility.
  */
