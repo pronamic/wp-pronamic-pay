@@ -6,6 +6,25 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.5.1] - 2023-09-29
+
+### Fixed
+
+- Fixed duplicate payment status email with Restrict Content Pro.
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v2.11.22` to `v2.12.0`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v2.12.0
+- Changed `woocommerce/action-scheduler` from `3.6.2` to `3.6.3`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.6.3
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.4.0` to `v4.4.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.4.1
+
+Full set of changes: [`9.5.0...9.5.1`][9.5.1]
+
+[9.5.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.5.0...v9.5.1
+
 ## [9.5.0] - 2023-09-11
 
 ### Composer

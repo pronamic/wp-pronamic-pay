@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 9.5.0
+Stable tag: 9.5.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -112,6 +112,24 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 
 == Changelog ==
+
+= 9.5.1 =
+### Fixed
+
+- Fixed duplicate payment status email with Restrict Content Pro.
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v2.11.22` to `v2.12.0`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v2.12.0
+- Changed `woocommerce/action-scheduler` from `3.6.2` to `3.6.3`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.6.3
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.4.0` to `v4.4.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.4.1
+
+Full set of changes: [`9.5.0...9.5.1`][9.5.1]
+
+[9.5.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.5.0...v9.5.1
 
 = 9.5.0 =
 ### Composer
@@ -220,19 +238,6 @@ Full set of changes: [`9.4.9...9.4.10`][9.4.10]
 Full set of changes: [`9.4.8...9.4.9`][9.4.9]
 
 [9.4.9]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.8...v9.4.9
-
-= 9.4.8 =
-### Fixed
-
-- Fixed untranslated plugin.
-
-### Commits
-
-- Use relative `^wp-content/` path in PHPCS config. ([1950c8f](https://github.com/pronamic/wp-pronamic-pay/commit/1950c8f0eebaca92602274fab22b20e928bdcd07))
-
-Full set of changes: [`9.4.7...9.4.8`][9.4.8]
-
-[9.4.8]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.4.7...v9.4.8
 
 [See changelog for all versions.](https://github.com/pronamic/wp-pronamic-pay/blob/main/CHANGELOG.md)
 
