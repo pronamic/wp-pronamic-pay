@@ -6,15 +6,11 @@
  * @copyright 2005-2023 Pronamic
  * @license   GPL-3.0-or-later
  * @package   Pronamic\WordPress\Pay
+ * @wordpress
+ * Version: 5.8.0
  */
 
 use Pronamic\WordPress\Pay\Plugin;
-
-/**
- * Page about
- *
- * @version 5.8.0
- */
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
