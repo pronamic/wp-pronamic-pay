@@ -584,10 +584,3 @@ add_filter(
 );
 
 \Pronamic\WooCommercePaymentGatewaysCountriesCondition\Plugin::instance()->setup();
-
-/**
- * Backward compatibility.
- */
-global $pronamic_ideal;
-
-$pronamic_ideal = pronamic_pay_plugin();
