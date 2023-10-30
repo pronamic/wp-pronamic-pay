@@ -58,22 +58,7 @@ add_action(
 
 \Pronamic\WordPress\Pay\LicenseManager::instance();
 
-\Pronamic\WordPress\Pay\Updater::instance(
-	function ( $plugin ) {
-		return \in_array(
-			$plugin['Name'],
-			[
-				'Pronamic Pay Adyen Add-On',
-				'Pronamic Pay Contact Form 7 Add-On',
-				'Pronamic Pay DigiWallet Add-On',
-				'Pronamic Pay Fundraising Add-On',
-				'Pronamic Pay PayPal Add-On',
-				'Pronamic Pay Payvision Add-On',
-			],
-			true
-		);
-	}
-);
+\Pronamic\WordPress\Updater\Plugin::instance()->setup();
 
 add_filter(
 	'pronamic_pay_modules',
