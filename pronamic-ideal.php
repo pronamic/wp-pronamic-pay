@@ -144,8 +144,6 @@ add_filter(
 				return ( 'test' === $mode ) ? 'ingenico-orderstandard-test' : 'ingenico-orderstandard';
 			case 'paypal':
 				return ( 'test' === $mode ) ? 'paypal-sandbox' : 'paypal';
-			case 'payvision':
-				return ( 'test' === $mode ) ? 'payvision-staging' : 'payvision';
 			case 'rabobank-ideal-professional-v3':
 				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
 			case 'rabobank-omnikassa-2':
