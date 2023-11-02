@@ -177,7 +177,6 @@ add_filter(
 				'dashboard_url' => 'https://ecommerce.abnamro.nl/',
 				'acquirer_url'  => 'https://ecommerce.abnamro.nl/ideal/iDEALv3',
 				'certificates'  => [
-					__DIR__ . '/certificates/abnamro-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/abnamro-2021-10-01-2026-09-30.cer',
 				],
 			]
@@ -194,7 +193,6 @@ add_filter(
 				'dashboard_url' => 'https://ecommerce-test.abnamro.nl/',
 				'acquirer_url'  => 'https://ecommerce-test.abnamro.nl/ideal/iDEALv3',
 				'certificates'  => [
-					__DIR__ . '/certificates/abnamro-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/abnamro-2021-10-01-2026-09-30.cer',
 				],
 			]
@@ -323,10 +321,7 @@ add_filter(
 				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 				'dashboard_url' => 'https://ideal.secure-ing.com/',
 				'acquirer_url'  => 'https://ideal.secure-ing.com/ideal/iDEALv3',
-				'certificates'  => [
-					__DIR__ . '/certificates/ing-2017-01-26-2022-01-25.cer',
-					__DIR__ . '/certificates/ing-2021-10-01-2016-09-30.cer',
-				],
+				'certificates'  => [],
 				'deprecated'    => true,
 			]
 		);
@@ -341,10 +336,7 @@ add_filter(
 				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
 				'dashboard_url' => 'https://idealtest.secure-ing.com/',
 				'acquirer_url'  => 'https://idealtest.secure-ing.com/ideal/iDEALv3',
-				'certificates'  => [
-					__DIR__ . '/certificates/ing-2017-01-26-2022-01-25.cer',
-					__DIR__ . '/certificates/ing-2021-10-01-2016-09-30.cer',
-				],
+				'certificates'  => [],
 				'deprecated'    => true,
 			]
 		);
@@ -487,7 +479,6 @@ add_filter(
 				'dashboard_url' => 'https://ideal.rabobank.nl/',
 				'acquirer_url'  => 'https://ideal.rabobank.nl/ideal/iDEALv3',
 				'certificates'  => [
-					__DIR__ . '/certificates/rabobank-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/rabobank-2021-10-01-2026-09-30.cer',
 				],
 			]
@@ -504,7 +495,6 @@ add_filter(
 				'dashboard_url' => 'https://idealtest.rabobank.nl/',
 				'acquirer_url'  => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
 				'certificates'  => [
-					__DIR__ . '/certificates/rabobank-2017-01-26-2022-01-25.cer',
 					__DIR__ . '/certificates/rabobank-2021-10-01-2026-09-30.cer',
 				],
 			]
