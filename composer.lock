@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c71fbaad5393c538faa82b4989cb7c05",
+    "content-hash": "90737e948a435d16d6621cf8653df5a4",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -335,69 +335,6 @@
                 "source": "https://github.com/icepay/icepay"
             },
             "time": "2015-09-17T08:32:44+00:00"
-        },
-        {
-            "name": "pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce.git",
-                "reference": "7fbd312eaac28d7be87b4b8e885a9cc9422d7654"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/zipball/7fbd312eaac28d7be87b4b8e885a9cc9422d7654",
-                "reference": "7fbd312eaac28d7be87b4b8e885a9cc9422d7654",
-                "shasum": ""
-            },
-            "require": {
-                "automattic/jetpack-autoloader": "^2.11",
-                "php": ">=8.0",
-                "pronamic/pronamic-wp-updater": "^1.0"
-            },
-            "require-dev": {
-                "pronamic/pronamic-cli": "^1.1",
-                "pronamic/wp-coding-standards": "^2.0"
-            },
-            "type": "wordpress-plugin",
-            "autoload": {
-                "psr-4": {
-                    "Pronamic\\WooCommercePaymentGatewaysCountriesCondition\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "https://www.pronamic.eu/"
-                }
-            ],
-            "description": "This plugin allows you to specify the countries in which each WooCommerce payment gateway is available.",
-            "homepage": "https://www.pronamic.shop/product/pronamic-payment-gateways-countries-condition-for-woocommerce/",
-            "keywords": [
-                "condition",
-                "countries",
-                "country",
-                "gateway",
-                "gateways",
-                "payment",
-                "payments",
-                "pronamic",
-                "woocommerce",
-                "woocommerce-plugin",
-                "wordpress",
-                "wordpress-plugin"
-            ],
-            "support": {
-                "email": "support@pronamic.eu",
-                "issues": "https://github.com/pronamic/pronamic-payment-gateways-fees-for-woocommerce/issues",
-                "source": "https://github.com/pronamic/pronamic-payment-gateways-countries-condition-for-woocommerce/tree/v1.0.0"
-            },
-            "time": "2023-10-31T14:07:49+00:00"
         },
         {
             "name": "pronamic/pronamic-wp-updater",
@@ -5661,7 +5598,7 @@
         },
         {
             "name": "pronamic/pronamic-cli",
-            "version": "dev-main",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/pronamic-cli.git",
@@ -5684,7 +5621,6 @@
                 "pronamic/wp-coding-standards": "^2.0",
                 "yoast/phpunit-polyfills": "^2.0"
             },
-            "default-branch": true,
             "bin": [
                 "bin/pronamic"
             ],
@@ -5710,16 +5646,16 @@
         },
         {
             "name": "pronamic/wp-coding-standards",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-coding-standards.git",
-                "reference": "8c437c0494b8b9d6e7c71db2582c735a9410857a"
+                "reference": "ada2792e01f8a0fab2053e2eaacf382c36235258"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-coding-standards/zipball/8c437c0494b8b9d6e7c71db2582c735a9410857a",
-                "reference": "8c437c0494b8b9d6e7c71db2582c735a9410857a",
+                "url": "https://api.github.com/repos/pronamic/wp-coding-standards/zipball/ada2792e01f8a0fab2053e2eaacf382c36235258",
+                "reference": "ada2792e01f8a0fab2053e2eaacf382c36235258",
                 "shasum": ""
             },
             "require": {
@@ -5762,7 +5698,7 @@
                 "issues": "https://github.com/pronamic/wp-coding-standards/issues",
                 "source": "https://github.com/pronamic/wp-coding-standards"
             },
-            "time": "2023-09-11T14:02:24+00:00"
+            "time": "2023-11-02T13:45:21+00:00"
         },
         {
             "name": "psr/container",
@@ -8840,16 +8776,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.4.23",
+            "version": "v5.4.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "4cd2e3ea301aadd76a4172756296fe552fb45b0b"
+                "reference": "c6980e82a6656f6ebfabfd82f7585794cb122554"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/4cd2e3ea301aadd76a4172756296fe552fb45b0b",
-                "reference": "4cd2e3ea301aadd76a4172756296fe552fb45b0b",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/c6980e82a6656f6ebfabfd82f7585794cb122554",
+                "reference": "c6980e82a6656f6ebfabfd82f7585794cb122554",
                 "shasum": ""
             },
             "require": {
@@ -8895,7 +8831,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.4.23"
+                "source": "https://github.com/symfony/yaml/tree/v5.4.30"
             },
             "funding": [
                 {
@@ -8911,7 +8847,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-23T19:33:36+00:00"
+            "time": "2023-10-27T18:36:14+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -10893,12 +10829,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli.git",
-                "reference": "f4f783fc3db8996e01d35fae530bed14a0eaee5b"
+                "reference": "9239cffe122b5b78bddf171b008e6e10daa1a320"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/f4f783fc3db8996e01d35fae530bed14a0eaee5b",
-                "reference": "f4f783fc3db8996e01d35fae530bed14a0eaee5b",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/9239cffe122b5b78bddf171b008e6e10daa1a320",
+                "reference": "9239cffe122b5b78bddf171b008e6e10daa1a320",
                 "shasum": ""
             },
             "require": {
@@ -10956,7 +10892,7 @@
                 "issues": "https://github.com/wp-cli/wp-cli/issues",
                 "source": "https://github.com/wp-cli/wp-cli"
             },
-            "time": "2023-10-25T11:26:58+00:00"
+            "time": "2023-11-01T23:22:34+00:00"
         },
         {
             "name": "wp-cli/wp-cli-bundle",
@@ -10964,12 +10900,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli-bundle.git",
-                "reference": "4142af1d9a676507edf373706b96419ae0b7317c"
+                "reference": "2638a2601dcbedf7b6a905a57e8761946032505a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/4142af1d9a676507edf373706b96419ae0b7317c",
-                "reference": "4142af1d9a676507edf373706b96419ae0b7317c",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli-bundle/zipball/2638a2601dcbedf7b6a905a57e8761946032505a",
+                "reference": "2638a2601dcbedf7b6a905a57e8761946032505a",
                 "shasum": ""
             },
             "require": {
@@ -11031,7 +10967,7 @@
                 "issues": "https://github.com/wp-cli/wp-cli-bundle/issues",
                 "source": "https://github.com/wp-cli/wp-cli-bundle"
             },
-            "time": "2023-10-27T08:49:19+00:00"
+            "time": "2023-11-01T22:50:13+00:00"
         },
         {
             "name": "wp-cli/wp-config-transformer",
@@ -11207,7 +11143,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "pronamic/pronamic-cli": 20,
         "wp-cli/wp-cli": 20,
         "wp-cli/wp-cli-bundle": 20
     },
