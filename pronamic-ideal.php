@@ -570,5 +570,3 @@ add_filter(
 		return $gateways;
 	}
 );
-
-\Pronamic\WooCommercePaymentGatewaysCountriesCondition\Plugin::instance()->setup();
