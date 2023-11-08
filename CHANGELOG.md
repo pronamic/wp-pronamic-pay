@@ -6,6 +6,17 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.6.1] - 2023-11-08
+
+### Composer
+
+- Changed `wp-pay-gateways/omnikassa-2` from `v4.5.1` to `v4.5.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/releases/tag/v4.5.2
+
+Full set of changes: [`9.6.0...9.6.1`][9.6.1]
+
+[9.6.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.6.0...v9.6.1
+
 ## [9.6.0] - 2023-11-06
 
 ### Changed
