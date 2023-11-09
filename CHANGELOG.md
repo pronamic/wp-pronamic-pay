@@ -6,6 +6,25 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.6.2] - 2023-11-09
+
+### Fixed
+
+- Fixed setting Mollie sequence type. ([163](https://github.com/pronamic/wp-pay-core/issues/163))
+
+### Commits
+
+- Updated libraries. ([9175eba](https://github.com/pronamic/wp-pronamic-pay/commit/9175eba920555d62295bcd2f5ef1a265d6cba4a6))
+
+### Composer
+
+- Changed `wp-pay/core` from `v4.14.1` to `v4.14.2`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.14.2
+
+Full set of changes: [`9.6.1...9.6.2`][9.6.2]
+
+[9.6.2]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.6.1...v9.6.2
+
 ## [9.6.1] - 2023-11-08
 
 ### Composer
