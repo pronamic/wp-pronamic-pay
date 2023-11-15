@@ -6,6 +6,27 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.6.3] - 2023-11-15
+
+### Fixed
+
+- Fixed fatal error in Formidable Forms bank select field.
+
+### Commits
+
+- WooCommerce tested up to 8.2.2. ([c7bb73c](https://github.com/pronamic/wp-pronamic-pay/commit/c7bb73c30cbf3eb24d700e70b27ca7e8fac6f570))
+- Formidable Forms tested up to 6.5.4. ([cdcd068](https://github.com/pronamic/wp-pronamic-pay/commit/cdcd068623c9befe91eb26d12cbb838f29cdf92d))
+- WordPress tested up to 6.4. ([78ba625](https://github.com/pronamic/wp-pronamic-pay/commit/78ba625833028741c1d15f2500187a8dc9fa9d25))
+
+### Composer
+
+- Changed `wp-pay-extensions/formidable-forms` from `v4.4.0` to `v4.4.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-formidable-forms/releases/tag/v4.4.1
+
+Full set of changes: [`9.6.2...9.6.3`][9.6.3]
+
+[9.6.3]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.6.2...v9.6.3
+
 ## [9.6.2] - 2023-11-09
 
 ### Fixed

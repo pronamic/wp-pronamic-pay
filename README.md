@@ -50,7 +50,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Easy Digital Downloads](https://easydigitaldownloads.com/) | [Pippin Williamson](https://pippinsplugins.com/) | [WordPress.org](https://wordpress.org/plugins/easy-digital-downloads/) | [GitHub](https://github.com/easydigitaldownloads/Easy-Digital-Downloads) | `1.8.6` | `3.1.0.3` |
 | [Event Espresso 4](https://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.7.p` | `4.10.8.p` |
 | [Event Espresso 4 Decaf](https://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-decaf/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.4.decaf` | `4.10.8.decaf` |
-| [Formidable Forms](https://formidableforms.com/) | [Strategy11](https://strategy11.com/) | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `6.3` |
+| [Formidable Forms](https://formidableforms.com/) | [Strategy11](https://strategy11.com/) | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `6.5.4` |
 | [Give](https://givewp.com/) |  | [WordPress.org](https://wordpress.org/plugins/give/) | [GitHub](https://github.com/WordImpress/Give) | `1.8.0` | `2.27.0` |
 | [Gravity Forms](https://www.gravityforms.com/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.9` | `2.7.5` |
 | [Gravity Forms AWeber Add-On](https://www.gravityforms.com/add-ons/aweber/) | [Rocketgenius](https://www.rocketgenius.com/) |  |  | `1.4.2` | `3.0` |
@@ -61,7 +61,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](https://caseproof.com/) |  |  | `1.9.21` | `1.9.53` |
 | [Ninja Forms](https://ninjaforms.com/) | [The WP Ninjas](https://ninjaforms.com/) | [WordPress.org](https://wordpress.org/plugins/ninja-forms/) | [GitHub](https://github.com/wpninjas/ninja-forms) | `3.3.15` | `3.6.23` |
 | [Restrict Content Pro](https://restrictcontentpro.com/) | [Sandhills Development, LLC](https://sandhillsdev.com/) |  |  | `3.0.0` | `3.4.4` |
-| [WooCommerce](https://woocommerce.com/) | [Automattic](https://automattic.com/) | [WordPress.org](https://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woocommerce/woocommerce) | `2.3.0` | `7.7.2` |
+| [WooCommerce](https://woocommerce.com/) | [Automattic](https://automattic.com/) | [WordPress.org](https://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woocommerce/woocommerce) | `2.3.0` | `8.2.2` |
 
 
 ## Installation
