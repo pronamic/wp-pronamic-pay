@@ -405,25 +405,6 @@ add_filter(
 		// Ingenico.
 		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
 
-		// Ingenico - DirectLink.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\Integration(
-			[
-				'id'      => 'ingenico-directlink',
-				'name'    => 'Ingenico/Ogone - DirectLink',
-				'mode'    => 'live',
-				'api_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/prod/orderdirect_utf8.asp' : 'https://secure.ogone.com/ncol/prod/orderdirect.asp',
-			]
-		);
-
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\DirectLink\Integration(
-			[
-				'id'      => 'ingenico-directlink-test',
-				'name'    => 'Ingenico/Ogone - DirectLink - Test',
-				'mode'    => 'test',
-				'api_url' => $is_utf8 ? 'https://secure.ogone.com/ncol/test/orderdirect_utf8.asp' : 'https://secure.ogone.com/ncol/test/orderdirect.asp',
-			]
-		);
-
 		// Ingenico - OrderStandard.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration(
 			[
