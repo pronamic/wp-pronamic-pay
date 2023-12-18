@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.4
 Requires PHP: 8.0
-Stable tag: 9.6.3
+Stable tag: 9.6.4
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -111,6 +111,34 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 
 == Changelog ==
+
+= 9.6.4 =
+### Removed
+
+- Removed 'Ingenico - DirectLink' integration (pronamic/wp-pronamic-pay-ingenico/15). ([5322ba9](https://github.com/pronamic/wp-pronamic-pay/commit/5322ba9862e7af3196b8b2dda26723b953933c34))
+
+### Composer
+
+- Changed `woocommerce/action-scheduler` from `3.6.4` to `3.7.1`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.7.1
+- Changed `wp-pay-extensions/contact-form-7` from `v3.3.2` to `v3.4.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v3.4.0
+- Changed `wp-pay-extensions/formidable-forms` from `v4.4.1` to `v4.4.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-formidable-forms/releases/tag/v4.4.2
+- Changed `wp-pay-extensions/memberpress` from `v4.7.10` to `v4.7.11`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.7.11
+- Changed `wp-pay-extensions/woocommerce` from `v4.6.3` to `v4.7.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.7.0
+- Changed `wp-pay-gateways/ogone` from `v4.5.4` to `v4.6.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ingenico/releases/tag/v4.6.0
+- Changed `wp-pay-gateways/omnikassa-2` from `v4.5.2` to `v4.5.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-omnikassa-2/releases/tag/v4.5.3
+- Changed `wp-pay/core` from `v4.14.2` to `v4.14.3`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.14.3
+
+Full set of changes: [`9.6.3...9.6.4`][9.6.4]
+
+[9.6.4]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.6.3...v9.6.4
 
 = 9.6.3 =
 ### Fixed
@@ -234,24 +262,6 @@ Full set of changes: [`9.6.0...9.6.1`][9.6.1]
 Full set of changes: [`9.5.0...9.6.0`][9.6.0]
 
 [9.6.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.5.0...v9.6.0
-
-= 9.5.1 =
-### Fixed
-
-- Fixed duplicate payment status email with Restrict Content Pro.
-
-### Composer
-
-- Changed `automattic/jetpack-autoloader` from `v2.11.22` to `v2.12.0`.
-	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v2.12.0
-- Changed `woocommerce/action-scheduler` from `3.6.2` to `3.6.3`.
-	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.6.3
-- Changed `wp-pay-extensions/restrict-content-pro` from `v4.4.0` to `v4.4.1`.
-	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.4.1
-
-Full set of changes: [`9.5.0...9.5.1`][9.5.1]
-
-[9.5.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.5.0...v9.5.1
 
 [See changelog for all versions.](https://github.com/pronamic/wp-pronamic-pay/blob/main/CHANGELOG.md)
 
