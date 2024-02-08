@@ -26,6 +26,10 @@
  * @package   Pronamic\WordPress\Pay
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( ! defined( 'PRONAMIC_PAY_DEBUG' ) ) {
 	define( 'PRONAMIC_PAY_DEBUG', false );
 }
