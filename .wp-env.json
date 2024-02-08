@@ -1,0 +1,32 @@
+{
+	"core": null,
+	"config": {
+		"PRONAMIC_PAY_DEBUG": true,
+		"WPLANG": "nl_NL"
+	},
+	"plugins": [
+		"pronamic/wp-env-quick-login",
+		"https://downloads.wordpress.org/plugin/code-profiler.zip",
+		"https://downloads.wordpress.org/plugin/log-http-requests.zip",
+		"https://downloads.wordpress.org/plugin/one-time-login.zip",
+		"https://downloads.wordpress.org/plugin/plugin-check.0.2.3.zip",
+		"https://downloads.wordpress.org/plugin/pronamic-client.zip",
+		"https://downloads.wordpress.org/plugin/query-monitor.zip",
+		"https://downloads.wordpress.org/plugin/wp-rest-api-log.zip",
+		"https://downloads.wordpress.org/plugin/wp-plugin-dependencies.zip"
+	],
+	"mappings": {
+		"wp-content/plugins/pronamic-pay-premium-dev": "./",
+		"wp-content/plugins/pronamic-pay-premium": "./build/project/",
+		"wp-content/plugins/charitable": "https://downloads.wordpress.org/plugin/charitable.zip",
+		"wp-content/plugins/contact-form-7": "https://downloads.wordpress.org/plugin/contact-form-7.zip",
+		"wp-content/plugins/easy-digital-downloads": "https://downloads.wordpress.org/plugin/easy-digital-downloads.zip",
+		"wp-content/plugins/formidable": "https://downloads.wordpress.org/plugin/formidable.zip",
+		"wp-content/plugins/give": "https://downloads.wordpress.org/plugin/give.zip",
+		"wp-content/plugins/gravityforms": "pronamic/gravityforms",
+		"wp-content/plugins/memberpress": "pronamic/memberpress",
+		"wp-content/plugins/ninja-forms": "https://downloads.wordpress.org/plugin/ninja-forms.zip",
+		"wp-content/plugins/restrict-content": "https://downloads.wordpress.org/plugin/restrict-content.zip",		
+		"wp-content/plugins/woocommerce": "https://downloads.wordpress.org/plugin/woocommerce.zip"
+	}
+}
