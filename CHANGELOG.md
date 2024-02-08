@@ -6,6 +6,58 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.7.0] - 2024-02-08
+
+### Added
+
+- Mollie → Added support for card token. [2941dee](https://github.com/pronamic/wp-mollie/commit/2941dee85b0c7ad2f510c9c1a34ceca1faa91585)
+- Mollie/WooCommerce → Added support for Mollie card field/component in WooCommerce legacy checkout. [#40](https://github.com/pronamic/wp-pronamic-pay-mollie/pull/40)
+
+### Changed
+
+- Contact Form 7 → Improved the support for Contact Form 7 checkbox fields used for the amount to be paid (`pronamic_pay_amount` tag option), multiple checked options/amounts are now added up. ([ba1322a](https://github.com/pronamic/wp-pronamic-pay-contact-form-7/commit/ba1322afb5d859f21281827a263dc94ed0dae350))
+- Gravity Forms → Optimize performance by reusing instances of `PayFeed` from memory. ([fa89eab](https://github.com/pronamic/wp-pronamic-pay-gravityforms/commit/fa89eaba746000d5c432b480f1b4f0b4b8e07994))
+- Mollie → The HTTP timeout option is increased when connecting to Mollie via WP-Cron, WP-CLI or the Action Scheduler library. [pronamic/wp-pay-core#170](https://github.com/pronamic/wp-pay-core/issues/170)
+
+### Fixed
+
+- Gravity Forms → Fixed deleting feeds through `PaymentAddOn::delete_feeds()`. ([89f88b7](https://github.com/pronamic/wp-pronamic-pay-gravityforms/commit/89f88b7ea1b27af52418bf34a04b5c31690f5ff3))
+- Mollie → Fixed `wp_register_script` and `wp_register_style` are called incorrectly https://github.com/pronamic/wp-pronamic-pay-mollie/issues/42. ([41bfb35](https://github.com/pronamic/wp-pronamic-pay-mollie/commit/41bfb35d058cb50012d2141d111c084f24ec1e3c))
+- WooCommerce → Fixed "Fatal error: Uncaught Error: Call to undefined function wc_get_order()" in source text if WooCommerce is not active. ([c4ccf37](https://github.com/pronamic/wp-pronamic-pay-woocommerce/commit/c4ccf3729ea994df23737181c5771abcaf8cd6c6))
+
+### Removed
+
+- Worldline (formerly Ingenico/Ogone) → Removed `DirectLink` integration. ([51047d6](https://github.com/pronamic/wp-pronamic-pay-ingenico/commit/51047d6c9c73b5b9d63ecd151fa6fff169e39638))
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v2.12.0` to `v2.12.0`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v2.12.0
+- Changed `pronamic/wp-mollie` from `v1.4.0` to `v1.5.0`.
+	Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v1.5.0
+- Changed `woocommerce/action-scheduler` from `3.7.1` to `3.7.1`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.7.1
+- Changed `wp-pay-extensions/contact-form-7` from `v3.4.0` to `v3.5.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v3.5.0
+- Changed `wp-pay-extensions/gravityforms` from `v4.5.8` to `v4.6.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.6.0
+- Changed `wp-pay-extensions/ninjaforms` from `v3.2.4` to `v3.3.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ninjaforms/releases/tag/v3.3.0
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.4.1` to `v4.4.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.4.2
+- Changed `wp-pay-extensions/woocommerce` from `v4.7.0` to `v4.7.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.7.1
+- Changed `wp-pay-gateways/mollie` from `v4.8.1` to `v4.9.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.9.0
+- Changed `wp-pay-gateways/ogone` from `v4.6.0` to `v4.6.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ingenico/releases/tag/v4.6.0
+- Changed `wp-pay/core` from `v4.14.3` to `v4.15.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.15.0
+
+Full set of changes: [`9.6.4...9.7.0`][9.7.0]
+
+[9.7.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.6.4...v9.7.0
+
 ## [9.6.4] - 2023-12-18
 
 ### Removed
