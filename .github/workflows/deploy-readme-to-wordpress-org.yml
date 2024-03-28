@@ -1,0 +1,27 @@
+name: Deploy readme.txt to WordPress.org
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: WordPress.org plugin directory
+      url: https://wordpress.org/plugins/pronamic-ideal/
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github
+            readme.txt
+
+      - name: Deploy
+        uses: pronamic/action-wordpress-plugin-readme-update@main
+        env:
+          SVN_USERNAME: pronamic
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          WP_SLUG: pronamic-ideal
