@@ -13,7 +13,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 
 Pronamic Pay is the best plugin available to accept payments on your site with support for payment methods like iDEAL (Netherlands), Bancontact (Belgium), Sofort (Europe) and credit card, among others. Easily add the configuration details of your payment service provider account and enable the payment method in one of the supported e-commerce plugins. With over 200,000 downloads, the plugin has proven itself as a reliable WordPress solution to use for your payments.
 
-= Key Benefits =
+### Key Benefits
 
 *   Supports a wide variety of payment providers.
 *   Seamless integration with popular e-commerce and form builder plugins.
@@ -25,7 +25,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *   Recurring payments support for Mollie.
 *   Reliable payment solution, with over 200,000 downloads.
 
-= Supported WordPress e-commerce plugins =
+### Supported WordPress e-commerce plugins
 
 *	[Charitable](https://www.wpcharitable.com/)
 *	[Contact Form 7](https://contactform7.com/) (requires [Basic license](https://www.pronamicpay.com/))
@@ -40,7 +40,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	[Restrict Content Pro](https://restrictcontentpro.com/)
 *	[WooCommerce](https://woocommerce.com/)
 
-= Supported payment providers =
+### Supported payment providers
 
 *	ABN AMRO - iDEAL Zelfbouw
 *	Adyen (requires [Pro license](https://www.pronamicpay.com/))
@@ -64,21 +64,21 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 
 == Installation ==
 
-= Requirements =
+### Requirements
 
 The Pronamic Pay plugin extends WordPress extensions with payment methods such as iDEAL, Bancontact, Sofort and credit cards. To offer the payment methods to the visitors of your WordPress website you also require one of these e-commerce or form builder extensions.
 
-= Automatic installation =
+### Automatic installation
 
 Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of Pronamic Pay, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
 
 In the search field type “Pronamic Pay” and click Search Plugins. Once you’ve found the plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.
 
-= Manual installation =
+### Manual installation
 
 The manual installation method involves downloading the plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex contains [instructions on how to do this](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
 
-= Updating =
+### Updating
 
 Automatic updates should work like a charm; as always though, ensure you backup your site just in case.
 
