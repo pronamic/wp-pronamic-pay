@@ -132,8 +132,7 @@
 			"@update-po"
 		],
 		"version": [
-			"@build",
-			"@generate-readme"
+			"@build"
 		],
 		"coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover build/logs/clover.xml --coverage-text",
 		"coverage-clover": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover build/logs/clover.xml",
@@ -158,12 +157,6 @@
 		],
 		"psalm": "XDEBUG_MODE=off vendor/bin/psalm",
 		"update-po": "find languages/*.po -type f -exec msgmerge --update --backup=off {} languages/pronamic-ideal.pot \\;",
-		"generate-readme-txt": "php src/readme-txt/readme.php > readme.txt",
-		"generate-readme-md": "php src/readme-md/README.php > README.md",
-		"generate-readme": [
-			"@generate-readme-txt",
-			"@generate-readme-md"
-		],
 		"release": [
 			"@build",
 			"vendor/bin/pronamic release-to-github",
