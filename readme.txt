@@ -58,7 +58,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	Ingenico/Ogone - OrderStandard
 *	Pay.nl
 *	Rabobank - Rabo Smart Pay
-*	Rabobank - iDEAL Professional
+*	Rabobank - Rabo iDEAL Professional
 *	TargetPay - iDEAL
 
 
