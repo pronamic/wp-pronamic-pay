@@ -63,7 +63,6 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	Rabobank - Rabo iDEAL Professional
 *	TargetPay - iDEAL
 
-
 == Installation ==
 
 ### Requirements
@@ -84,7 +83,6 @@ The manual installation method involves downloading the plugin and uploading it 
 
 Automatic updates should work like a charm; as always though, ensure you backup your site just in case.
 
-
 == Screenshots ==
 
 1. Payment provider configurations
@@ -102,9 +100,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 13. WooCommerce - Checkout settings
 14. WooCommerce - Checkout form
 15. WooCommerce - Checkout with credit card and valid mandate (mandates work with payment provider Mollie, subscriptions require WooCommerce Subscriptions)
-16. s2Member - Button generator
 17. Getting started
-
 
 == Changelog ==
 
