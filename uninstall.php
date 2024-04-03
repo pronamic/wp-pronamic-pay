@@ -24,11 +24,11 @@ $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}pronamic_ideal_payments" );
 $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}rg_ideal_feeds" );
 
 // Delete posts.
-$wpdb->query( "DELETE FROM wp_posts WHERE post_type = 'pronamic_gateway';" );
-$wpdb->query( "DELETE FROM wp_posts WHERE post_type = 'pronamic_payment';" );
-$wpdb->query( "DELETE FROM wp_posts WHERE post_type = 'pronamic_pay_gf';" );
+$wpdb->query( "DELETE FROM {$wpdb->prefix}posts WHERE post_type = 'pronamic_gateway';" );
+$wpdb->query( "DELETE FROM {$wpdb->prefix}posts WHERE post_type = 'pronamic_payment';" );
+$wpdb->query( "DELETE FROM {$wpdb->prefix}posts WHERE post_type = 'pronamic_pay_gf';" );
 
-$wpdb->query( 'DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );' );
+$wpdb->query( "DELETE FROM {$wpdb->prefix}postmeta WHERE post_id NOT IN ( SELECT ID FROM {$wpdb->prefix}posts );" );
 
 // Delete general options.
 delete_option( 'pronamic_pay_version' );
