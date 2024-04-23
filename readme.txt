@@ -48,7 +48,6 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	Adyen (requires [Pro license](https://www.pronamicpay.com/))
 *	Buckaroo - HTML
 *	Deutsche Bank - iDEAL Expert
-*	DigiWallet
 *	EMS - e-Commerce
 *	ICEPAY
 *	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw
@@ -61,7 +60,6 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	Pay.nl
 *	Rabobank - Rabo Smart Pay
 *	Rabobank - Rabo iDEAL Professional
-*	TargetPay - iDEAL
 
 == Installation ==
 

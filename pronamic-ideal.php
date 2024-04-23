@@ -536,20 +536,6 @@ add_filter(
 			]
 		);
 
-		// TargetPay.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\DigiWallet\Integration(
-			[
-				'id'            => 'targetpay-ideal',
-				'name'          => 'TargetPay',
-				'product_url'   => \__( 'https://www.targetpay.com/info/ideal?setlang=en', 'pronamic-ideal' ),
-				'dashboard_url' => 'https://www.targetpay.com/login',
-				'provider'      => 'targetpay',
-				'manual_url'    => \__( 'https://www.pronamicpay.com/en/manuals/how-to-connect-targetpay-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
-				'deprecated'    => true,
-				'meta_key_rtlo' => 'targetpay_layoutcode',
-			]
-		);
-
 		// Return gateways.
 		return $gateways;
 	}

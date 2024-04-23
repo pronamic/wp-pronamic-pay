@@ -23,7 +23,6 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Zelfbouw |
 | [Adyen](https://www.adyen.com/) | Adyen |
 | [Buckaroo](https://buckaroo.nl/) | Buckaroo - HTML |
-| [DigiWallet](https://www.digiwallet.nl/) | DigiWallet |
 | [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL Expert |
 | [European Merchant Services](https://emspay.nl/) | EMS - e-Commerce |
 | [ICEPAY](https://icepay.nl/) | ICEPAY |
@@ -37,7 +36,6 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Pay.nl](https://www.pay.nl/) | Pay.nl |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - OmniKassa 2.0 |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - iDEAL Professional |
-| [TargetPay](https://www.targetpay.com/) | TargetPay - iDEAL |
 
 
 ## Supported WordPress e-commerce extensions

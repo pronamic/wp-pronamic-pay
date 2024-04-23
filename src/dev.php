@@ -22,7 +22,6 @@ $packages = [
 	// Gateways.
 	'wp-pay-gateways/adyen',
 	'wp-pay-gateways/buckaroo',
-	'wp-pay-gateways/digiwallet',
 	'wp-pay-gateways/ems-e-commerce',
 	'wp-pay-gateways/icepay',
 	'wp-pay-gateways/ideal',
