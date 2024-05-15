@@ -89,7 +89,7 @@ add_filter(
 			\Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension::class,
 			\Pronamic\WordPress\Pay\Extensions\MemberPress\Extension::class,
 			\Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension::class,
-			\Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension::class,
+			\Pronamic\WordPress\Pay\Extensions\RestrictContent\Extension::class,
 		];
 
 		foreach ( $classes as $class ) {
