@@ -6,6 +6,40 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.8.1] - 2024-05-15
+
+### Commits
+
+- Removed DigiWallet and TargetPay. ([684ff99](https://github.com/pronamic/wp-pronamic-pay/commit/684ff993d6ae62fa98234f320d99e04603895994))
+- Use `$wpdb->prefix` for table names in uninstall (#375). ([51048f3](https://github.com/pronamic/wp-pronamic-pay/commit/51048f3aea11a927b07e1d67e0559c4536665e65))
+- Removed the s2Member screenshot. ([35b9fc9](https://github.com/pronamic/wp-pronamic-pay/commit/35b9fc98ac40998b5f817479bf0106c448557e7c))
+- Rename "iDEAL Professional" to "Rabo iDEAL Professional". ([3f49d35](https://github.com/pronamic/wp-pronamic-pay/commit/3f49d357d396ac063037bdc7ba05f4512d816a5c))
+- Rename "OmniKassa 2.0" to "Rabo Smart Pay". ([4ee5c3c](https://github.com/pronamic/wp-pronamic-pay/commit/4ee5c3cb454845ec22ef1ef8f94d61bb55ce12c1))
+
+### Composer
+
+- Removed `wp-pay-gateways/digiwallet` `^3.3`.
+- Changed `automattic/jetpack-autoloader` from `v3.0.4` to `v3.0.7`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v3.0.7
+- Changed `pronamic/pronamic-wp-updater` from `v1.0.1` to `v1.0.2`.
+	Release notes: https://github.com/pronamic/pronamic-wp-updater/releases/tag/v1.0.2
+- Changed `woocommerce/action-scheduler` from `3.7.3` to `3.7.4`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.7.4
+- Changed `wp-pay-extensions/gravityforms` from `v4.6.1` to `v4.7.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.7.0
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.4.4` to `v4.5.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.5.0
+- Changed `wp-pay-gateways/adyen` from `v4.5.0` to `v4.5.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.5.1
+- Changed `wp-pay-gateways/mollie` from `v4.10.0` to `v4.10.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.10.3
+- Changed `wp-pay/core` from `v4.16.0` to `v4.17.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.17.0
+
+Full set of changes: [`9.8.0...9.8.1`][9.8.1]
+
+[9.8.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.8.0...v9.8.1
+
 ## [9.8.0] - 2024-03-27
 
 ### Added
