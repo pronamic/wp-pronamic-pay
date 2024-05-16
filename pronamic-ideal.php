@@ -379,6 +379,25 @@ add_filter(
 			]
 		);
 
+		// ING Checkout.
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\PayNL\Integration(
+			[
+				'id'       => 'ing-checkout',
+				'name'     => 'ING - ING Checkout',
+				'mode'     => 'live',
+				'provider' => 'ing',
+			]
+		);
+
+		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\PayNL\Integration(
+			[
+				'id'       => 'ing-checkout-test',
+				'name'     => 'ING - ING Checkout - Test',
+				'mode'     => 'test',
+				'provider' => 'ing',
+			]
+		);
+
 		// Mollie.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration(
 			[
