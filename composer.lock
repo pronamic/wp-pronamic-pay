@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6ff5515791422e224988627d57daa28",
+    "content-hash": "9080e14d0f4c67dce5bd946c828e09c0",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -560,24 +560,24 @@
         },
         {
             "name": "pronamic/wp-mollie",
-            "version": "v1.5.1",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-mollie.git",
-                "reference": "6dfbf981b2292cbcf5841eae70bcda6d82992821"
+                "reference": "14b1ff530a54cf2c30367238d47fff293792a39c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-mollie/zipball/6dfbf981b2292cbcf5841eae70bcda6d82992821",
-                "reference": "6dfbf981b2292cbcf5841eae70bcda6d82992821",
+                "url": "https://api.github.com/repos/pronamic/wp-mollie/zipball/14b1ff530a54cf2c30367238d47fff293792a39c",
+                "reference": "14b1ff530a54cf2c30367238d47fff293792a39c",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": ">=8.0",
-                "pronamic/wp-http": "^1.1",
-                "pronamic/wp-money": "^2.0",
-                "pronamic/wp-number": "^1.1"
+                "pronamic/wp-http": "^1.2",
+                "pronamic/wp-money": "^2.4",
+                "pronamic/wp-number": "^1.3"
             },
             "require-dev": {
                 "automattic/wordbless": "^0.4.0",
@@ -608,9 +608,9 @@
             "description": "Mollie library for WordPress.",
             "support": {
                 "issues": "https://github.com/pronamic/wp-mollie/issues",
-                "source": "https://github.com/pronamic/wp-mollie/tree/v1.5.1"
+                "source": "https://github.com/pronamic/wp-mollie/tree/v1.6.0"
             },
-            "time": "2024-02-12T19:50:48+00:00"
+            "time": "2024-05-27T12:06:07+00:00"
         },
         {
             "name": "pronamic/wp-money",
@@ -2214,16 +2214,16 @@
         },
         {
             "name": "wp-pay-gateways/mollie",
-            "version": "v4.10.3",
+            "version": "v4.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-mollie.git",
-                "reference": "3f1d917c3c0c3200238ad7664a51d4e3f78c9b73"
+                "reference": "79e5f5ee5706d00e0b37b242be625a16c8f70889"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-mollie/zipball/3f1d917c3c0c3200238ad7664a51d4e3f78c9b73",
-                "reference": "3f1d917c3c0c3200238ad7664a51d4e3f78c9b73",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-mollie/zipball/79e5f5ee5706d00e0b37b242be625a16c8f70889",
+                "reference": "79e5f5ee5706d00e0b37b242be625a16c8f70889",
                 "shasum": ""
             },
             "require": {
@@ -2232,9 +2232,9 @@
                 "justinrainbow/json-schema": "^5.2",
                 "php": ">=8.0",
                 "pronamic/wp-http": "^1.2",
-                "pronamic/wp-mollie": "^1.5",
-                "woocommerce/action-scheduler": "^3.7",
-                "wp-pay/core": "^4.16"
+                "pronamic/wp-mollie": "^1.6",
+                "woocommerce/action-scheduler": "^3.8",
+                "wp-pay/core": "^4.18"
             },
             "require-dev": {
                 "overtrue/phplint": "^9.0",
@@ -2242,7 +2242,7 @@
                 "phpmd/phpmd": "^2.7",
                 "phpmetrics/phpmetrics": "^2.8",
                 "phpstan/extension-installer": "^1.3",
-                "phpstan/phpstan": "^1.10",
+                "phpstan/phpstan": "^1.11",
                 "pronamic/pronamic-cli": "^1.1",
                 "pronamic/wp-coding-standards": "^2.1",
                 "pronamic/wp-documentor": "^1.4",
@@ -2293,7 +2293,7 @@
                 "issues": "https://github.com/wp-pay-gateways/mollie/issues",
                 "source": "https://github.com/wp-pay-gateways/mollie"
             },
-            "time": "2024-05-06T09:17:46+00:00"
+            "time": "2024-05-27T12:10:25+00:00"
         },
         {
             "name": "wp-pay-gateways/multisafepay",
@@ -2677,16 +2677,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "v4.17.0",
+            "version": "v4.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pay-core.git",
-                "reference": "c892337bfd704ddae483fe5e51f79543bb8c0caf"
+                "reference": "23d3a8df8beef9413bc6543c5606b26e421e9d20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/c892337bfd704ddae483fe5e51f79543bb8c0caf",
-                "reference": "c892337bfd704ddae483fe5e51f79543bb8c0caf",
+                "url": "https://api.github.com/repos/pronamic/wp-pay-core/zipball/23d3a8df8beef9413bc6543c5606b26e421e9d20",
+                "reference": "23d3a8df8beef9413bc6543c5606b26e421e9d20",
                 "shasum": ""
             },
             "require": {
@@ -2701,10 +2701,10 @@
                 "pronamic/wp-money": "^2.3",
                 "pronamic/wp-number": "^1.3",
                 "viison/address-splitter": "^0.3.4",
-                "woocommerce/action-scheduler": "^3.6"
+                "woocommerce/action-scheduler": "^3.8"
             },
             "require-dev": {
-                "overtrue/phplint": "^9.0",
+                "overtrue/phplint": "^9.3",
                 "php-coveralls/php-coveralls": "^2.4",
                 "php-stubs/wordpress-globals": "^0.2.0",
                 "php-stubs/wp-cli-stubs": "^2.4",
@@ -2764,7 +2764,7 @@
                 "issues": "https://github.com/wp-pay/core/issues",
                 "source": "https://github.com/wp-pay/core"
             },
-            "time": "2024-05-15T08:03:50+00:00"
+            "time": "2024-05-27T12:01:51+00:00"
         },
         {
             "name": "wp-pay/fundraising",
