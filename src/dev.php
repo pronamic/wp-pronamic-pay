@@ -59,22 +59,24 @@ $composer_lock = json_decode( $json );
 
 $requirements = [];
 
-foreach ( $composer_lock->packages as $package ) {
-	if ( ! in_array( $package->name, $packages ) ) {
-		continue;
-	}
-
-	$requirement = $package->name;
-
-	if ( '' !== $branch ) {
-		if ( str_starts_with( $package->version, 'dev-' ) ) {
+if ( is_object( $composer_lock ) && isset( $composer_lock->packages ) ) {
+	foreach ( $composer_lock->packages as $package ) {
+		if ( ! in_array( $package->name, $packages ) ) {
 			continue;
 		}
 
-		$requirement .= ':dev-' . $branch . ' as ' . $package->version;
-	}
+		$requirement = $package->name;
 
-	$requirements[] = $requirement;
+		if ( '' !== $branch ) {
+			if ( str_starts_with( $package->version, 'dev-' ) ) {
+				continue;
+			}
+
+			$requirement .= ':dev-' . $branch . ' as ' . $package->version;
+		}
+
+		$requirements[] = $requirement;
+	}
 }
 
 if ( count( $requirements ) > 0 ) {
