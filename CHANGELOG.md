@@ -6,6 +6,32 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.9.0] - 2024-05-27
+
+### Composer
+
+- Changed `php` from `>=8.0` to `>=8.1`.
+- Changed `pronamic/wp-http` from `v1.2.2` to `v1.2.3`.
+	Release notes: https://github.com/pronamic/wp-http/releases/tag/v1.2.3
+- Changed `pronamic/wp-mollie` from `v1.5.1` to `v1.6.0`.
+	Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v1.6.0
+- Changed `pronamic/wp-number` from `v1.3.0` to `v1.3.1`.
+	Release notes: https://github.com/pronamic/wp-number/releases/tag/v1.3.1
+- Changed `woocommerce/action-scheduler` from `3.7.4` to `3.8.0`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.8.0
+- Changed `wp-pay-gateways/ems-e-commerce` from `v4.3.5` to `v4.4.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ems-e-commerce/releases/tag/v4.4.0
+- Changed `wp-pay-gateways/mollie` from `v4.10.3` to `v4.11.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.11.0
+- Changed `wp-pay-gateways/omnikassa-2` from `v4.6.0` to `v4.7.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-rabo-smart-pay/releases/tag/v4.7.1
+- Changed `wp-pay/core` from `v4.17.0` to `v4.18.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.18.0
+
+Full set of changes: [`9.8.1...9.9.0`][9.9.0]
+
+[9.9.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.8.1...v9.9.0
+
 ## [9.8.1] - 2024-05-15
 
 ### Commits
