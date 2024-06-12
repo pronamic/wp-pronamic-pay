@@ -6,6 +6,35 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.10.0] - 2024-06-12
+
+### Removed
+
+- Removed `images` folder.
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v3.0.7` to `v3.0.8`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v3.0.8
+- Changed `pronamic/wp-number` from `v1.3.1` to `v1.3.2`.
+	Release notes: https://github.com/pronamic/wp-number/releases/tag/v1.3.2
+- Changed `wp-pay-extensions/event-espresso` from `v4.2.4` to `v4.3.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-event-espresso/releases/tag/v4.3.0
+- Changed `wp-pay-extensions/gravityforms` from `v4.7.0` to `v4.8.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.8.0
+- Changed `wp-pay-extensions/woocommerce` from `v4.8.0` to `v4.9.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.9.0
+- Changed `wp-pay-gateways/mollie` from `v4.11.0` to `v4.12.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.12.0
+- Changed `wp-pay-gateways/ogone` from `v4.6.0` to `v4.7.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ingenico/releases/tag/v4.7.0
+- Changed `wp-pay/core` from `v4.18.0` to `v4.19.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.19.0
+
+Full set of changes: [`9.9.0...9.10.0`][9.10.0]
+
+[9.10.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.9.0...v9.10.0
+
 ## [9.9.0] - 2024-05-27
 
 ### Composer
