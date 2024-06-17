@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d292b62b89c4c95f00c1505b8689dee2",
+    "content-hash": "bee10bc98ae180cd8fc5395c5f36b4a0",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -384,6 +384,98 @@
                 "source": "https://github.com/pronamic/ideal-issuers/tree/v1.1.0"
             },
             "time": "2024-06-07T09:27:23+00:00"
+        },
+        {
+            "name": "pronamic/pronamic-pay-admin-reports",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/pronamic-pay-admin-reports.git",
+                "reference": "9c48bb49dbb3ac352239c5cd1e0fe467fa48dd94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/pronamic-pay-admin-reports/zipball/9c48bb49dbb3ac352239c5cd1e0fe467fa48dd94",
+                "reference": "9c48bb49dbb3ac352239c5cd1e0fe467fa48dd94",
+                "shasum": ""
+            },
+            "require": {
+                "automattic/jetpack-autoloader": "^3.0",
+                "php": ">=8.1",
+                "pronamic/wp-money": "^2.4",
+                "woocommerce/action-scheduler": "^3.8",
+                "wp-pay/core": "^4.19"
+            },
+            "require-dev": {
+                "overtrue/phplint": "^9.1",
+                "php-coveralls/php-coveralls": "^2.7",
+                "php-stubs/woocommerce-stubs": "^8.7",
+                "php-stubs/wp-cli-stubs": "^2.10",
+                "phpmd/phpmd": "^2.15",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^1.11",
+                "pronamic/pronamic-cli": "^1.1",
+                "pronamic/wp-coding-standards": "^2.2",
+                "roots/wordpress": "^6.4",
+                "szepeviktor/phpstan-wordpress": "^1.3",
+                "vimeo/psalm": "^0.3.14",
+                "wp-cli/wp-cli": "^2.10",
+                "wp-phpunit/wp-phpunit": "^6.4",
+                "yoast/phpunit-polyfills": "^2.0"
+            },
+            "type": "wordpress-plugin",
+            "extra": {
+                "installer-paths": {
+                    "packages/{$vendor}/{$name}": [
+                        "vendor:pronamic",
+                        "vendor:wp-pay",
+                        "vendor:wp-pay-extensions",
+                        "vendor:wp-pay-gateways",
+                        "woocommerce/action-scheduler"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\PronamicPayAdminReports\\": "php/classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                },
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This plugin adds simple reporting functionality in the WordPress admin dashboard for the Pronamic Pay plugin.",
+            "homepage": "https://www.pronamicpay.com/",
+            "keywords": [
+                "pay",
+                "pronamic",
+                "report",
+                "reporting",
+                "reports",
+                "wordpress",
+                "wp",
+                "wp-admin"
+            ],
+            "support": {
+                "email": "support@wp-pay.org",
+                "issues": "https://github.com/pronamic/pronamic-pay-admin-reports/issues",
+                "source": "https://github.com/pronamic/pronamic-pay-admin-reports"
+            },
+            "time": "2024-06-17T10:04:54+00:00"
         },
         {
             "name": "pronamic/pronamic-wp-updater",

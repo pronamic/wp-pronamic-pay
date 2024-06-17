@@ -64,11 +64,12 @@ add_action(
 
 \Pronamic\WordPress\Updater\Plugin::instance()->setup();
 
+\Pronamic\PronamicPayAdminReports\Plugin::instance()->setup();
+
 add_filter(
 	'pronamic_pay_modules',
 	function ( $modules ) {
 		$modules[] = 'forms';
-		$modules[] = 'reports';
 		$modules[] = 'subscriptions';
 
 		return $modules;
