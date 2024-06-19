@@ -6,6 +6,29 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.10.1] - 2024-06-19
+
+### Commits
+
+- Updated “Requires PHP” to PHP 8.1 (due to pronamic/ideal-issuers library). ([e3b34b7](https://github.com/pronamic/wp-pronamic-pay/commit/e3b34b7897174c70779b77735a1f185a48469a00))
+- Fixed warning on https://wordpress.org/plugins/pronamic-ideal/. ([0f327df](https://github.com/pronamic/wp-pronamic-pay/commit/0f327df635c0676d93b0257b905558a20b3751d4))
+
+### Composer
+
+- Added `pronamic/pronamic-pay-admin-reports` `^1.0`.
+- Changed `wp-pay-extensions/event-espresso` from `v4.3.0` to `v4.3.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-event-espresso/releases/tag/v4.3.1
+- Changed `wp-pay-extensions/woocommerce` from `v4.9.0` to `v4.9.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.9.1
+- Changed `wp-pay-gateways/omnikassa-2` from `v4.7.1` to `v4.7.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-rabo-smart-pay/releases/tag/v4.7.2
+- Changed `wp-pay/core` from `v4.19.0` to `v4.20.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.20.0
+
+Full set of changes: [`9.10.0...9.10.1`][9.10.1]
+
+[9.10.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.10.0...v9.10.1
+
 ## [9.10.0] - 2024-06-12
 
 ### Removed
