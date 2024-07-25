@@ -6,6 +6,36 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.11.0] - 2024-07-25
+
+### Added
+
+- Added support for Restrict Content Pro payment method updates. ([c056a4d](https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/commit/c056a4deef669cc4c21ed9191ca8dc62a9786ae2))
+
+### Changed
+
+- Send MemberPress refund notices also for chargebacks. ([024dd78](https://github.com/pronamic/wp-pronamic-pay-memberpress/commit/024dd78b533b12c8183b8872cd4d3d2f2efb5cde))
+- Use bundled images instead of https://cdn.wp-pay.org/. ([5d9bed0](https://github.com/pronamic/wp-pay-core/commit/5d9bed040df3dcae9eea819ace6acb4ce2b31ee7))
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v3.0.8` to `v3.0.9`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v3.0.9
+- Changed `composer/installers` from `v2.2.0` to `v2.3.0`.
+	Release notes: https://github.com/composer/installers/releases/tag/v2.3.0
+- Changed `woocommerce/action-scheduler` from `3.8.0` to `3.8.1`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.8.1
+- Changed `wp-pay-extensions/memberpress` from `v4.7.11` to `v4.8.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.8.0
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.5.0` to `v4.6.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.6.0
+- Changed `wp-pay/core` from `v4.20.0` to `v4.21.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.21.0
+
+Full set of changes: [`9.10.1...9.11.0`][9.11.0]
+
+[9.11.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.10.1...v9.11.0
+
 ## [9.10.1] - 2024-06-19
 
 ### Commits
