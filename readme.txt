@@ -32,7 +32,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 ### Supported WordPress e-commerce plugins
 
 *	[Charitable](https://www.wpcharitable.com/)
-*	[Contact Form 7](https://contactform7.com/) (requires [Basic license](https://www.pronamicpay.com/))
+*	[Contact Form 7](https://contactform7.com/) (requires [Premium](https://www.pronamicpay.com/))
 *	[Easy Digital Downloads](https://easydigitaldownloads.com/)
 *	[Event Espresso 4](https://eventespresso.com/)
 *	[Event Espresso 4 Decaf](https://eventespresso.com/)
@@ -47,7 +47,7 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 ### Supported payment providers
 
 *	ABN AMRO - iDEAL Zelfbouw
-*	Adyen (requires [Pro license](https://www.pronamicpay.com/))
+*	Adyen (requires [Add-On](https://www.pronamicpay.com/))
 *	Buckaroo - HTML
 *	Deutsche Bank - iDEAL Expert
 *	EMS - e-Commerce
@@ -103,6 +103,143 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 17. Getting started
 
 == Changelog ==
+
+= 9.11.0 =
+### Added
+
+- Added support for Restrict Content Pro payment method updates. ([c056a4d](https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/commit/c056a4deef669cc4c21ed9191ca8dc62a9786ae2))
+
+### Changed
+
+- Send MemberPress refund notices also for chargebacks. ([024dd78](https://github.com/pronamic/wp-pronamic-pay-memberpress/commit/024dd78b533b12c8183b8872cd4d3d2f2efb5cde))
+- Use bundled images instead of https://cdn.wp-pay.org/. ([5d9bed0](https://github.com/pronamic/wp-pay-core/commit/5d9bed040df3dcae9eea819ace6acb4ce2b31ee7))
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v3.0.8` to `v3.0.9`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v3.0.9
+- Changed `composer/installers` from `v2.2.0` to `v2.3.0`.
+	Release notes: https://github.com/composer/installers/releases/tag/v2.3.0
+- Changed `woocommerce/action-scheduler` from `3.8.0` to `3.8.1`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.8.1
+- Changed `wp-pay-extensions/memberpress` from `v4.7.11` to `v4.8.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.8.0
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.5.0` to `v4.6.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.6.0
+- Changed `wp-pay/core` from `v4.20.0` to `v4.21.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.21.0
+
+Full set of changes: [`9.10.1...9.11.0`][9.11.0]
+
+[9.11.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.10.1...v9.11.0
+
+= 9.10.1 =
+### Commits
+
+- Updated “Requires PHP” to PHP 8.1 (due to pronamic/ideal-issuers library). ([e3b34b7](https://github.com/pronamic/wp-pronamic-pay/commit/e3b34b7897174c70779b77735a1f185a48469a00))
+- Fixed warning on https://wordpress.org/plugins/pronamic-ideal/. ([0f327df](https://github.com/pronamic/wp-pronamic-pay/commit/0f327df635c0676d93b0257b905558a20b3751d4))
+
+### Composer
+
+- Added `pronamic/pronamic-pay-admin-reports` `^1.0`.
+- Changed `wp-pay-extensions/event-espresso` from `v4.3.0` to `v4.3.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-event-espresso/releases/tag/v4.3.1
+- Changed `wp-pay-extensions/woocommerce` from `v4.9.0` to `v4.9.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.9.1
+- Changed `wp-pay-gateways/omnikassa-2` from `v4.7.1` to `v4.7.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-rabo-smart-pay/releases/tag/v4.7.2
+- Changed `wp-pay/core` from `v4.19.0` to `v4.20.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.20.0
+
+Full set of changes: [`9.10.0...9.10.1`][9.10.1]
+
+[9.10.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.10.0...v9.10.1
+
+= 9.10.0 =
+### Removed
+
+- Removed `images` folder.
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v3.0.7` to `v3.0.8`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v3.0.8
+- Changed `pronamic/wp-number` from `v1.3.1` to `v1.3.2`.
+	Release notes: https://github.com/pronamic/wp-number/releases/tag/v1.3.2
+- Changed `wp-pay-extensions/event-espresso` from `v4.2.4` to `v4.3.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-event-espresso/releases/tag/v4.3.0
+- Changed `wp-pay-extensions/gravityforms` from `v4.7.0` to `v4.8.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.8.0
+- Changed `wp-pay-extensions/woocommerce` from `v4.8.0` to `v4.9.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.9.0
+- Changed `wp-pay-gateways/mollie` from `v4.11.0` to `v4.12.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.12.0
+- Changed `wp-pay-gateways/ogone` from `v4.6.0` to `v4.7.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ingenico/releases/tag/v4.7.0
+- Changed `wp-pay/core` from `v4.18.0` to `v4.19.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.19.0
+
+Full set of changes: [`9.9.0...9.10.0`][9.10.0]
+
+[9.10.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.9.0...v9.10.0
+
+= 9.9.0 =
+### Composer
+
+- Changed `php` from `>=8.0` to `>=8.1`.
+- Changed `pronamic/wp-http` from `v1.2.2` to `v1.2.3`.
+	Release notes: https://github.com/pronamic/wp-http/releases/tag/v1.2.3
+- Changed `pronamic/wp-mollie` from `v1.5.1` to `v1.6.0`.
+	Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v1.6.0
+- Changed `pronamic/wp-number` from `v1.3.0` to `v1.3.1`.
+	Release notes: https://github.com/pronamic/wp-number/releases/tag/v1.3.1
+- Changed `woocommerce/action-scheduler` from `3.7.4` to `3.8.0`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.8.0
+- Changed `wp-pay-gateways/ems-e-commerce` from `v4.3.5` to `v4.4.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ems-e-commerce/releases/tag/v4.4.0
+- Changed `wp-pay-gateways/mollie` from `v4.10.3` to `v4.11.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.11.0
+- Changed `wp-pay-gateways/omnikassa-2` from `v4.6.0` to `v4.7.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-rabo-smart-pay/releases/tag/v4.7.1
+- Changed `wp-pay/core` from `v4.17.0` to `v4.18.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.18.0
+
+Full set of changes: [`9.8.1...9.9.0`][9.9.0]
+
+[9.9.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.8.1...v9.9.0
+
+= 9.8.1 =
+### Commits
+
+- Removed DigiWallet and TargetPay. ([684ff99](https://github.com/pronamic/wp-pronamic-pay/commit/684ff993d6ae62fa98234f320d99e04603895994))
+- Use `$wpdb->prefix` for table names in uninstall (#375). ([51048f3](https://github.com/pronamic/wp-pronamic-pay/commit/51048f3aea11a927b07e1d67e0559c4536665e65))
+- Removed the s2Member screenshot. ([35b9fc9](https://github.com/pronamic/wp-pronamic-pay/commit/35b9fc98ac40998b5f817479bf0106c448557e7c))
+- Rename "iDEAL Professional" to "Rabo iDEAL Professional". ([3f49d35](https://github.com/pronamic/wp-pronamic-pay/commit/3f49d357d396ac063037bdc7ba05f4512d816a5c))
+- Rename "OmniKassa 2.0" to "Rabo Smart Pay". ([4ee5c3c](https://github.com/pronamic/wp-pronamic-pay/commit/4ee5c3cb454845ec22ef1ef8f94d61bb55ce12c1))
+
+### Composer
+
+- Removed `wp-pay-gateways/digiwallet` `^3.3`.
+- Changed `automattic/jetpack-autoloader` from `v3.0.4` to `v3.0.7`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v3.0.7
+- Changed `pronamic/pronamic-wp-updater` from `v1.0.1` to `v1.0.2`.
+	Release notes: https://github.com/pronamic/pronamic-wp-updater/releases/tag/v1.0.2
+- Changed `woocommerce/action-scheduler` from `3.7.3` to `3.7.4`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.7.4
+- Changed `wp-pay-extensions/gravityforms` from `v4.6.1` to `v4.7.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.7.0
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.4.4` to `v4.5.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.5.0
+- Changed `wp-pay-gateways/adyen` from `v4.5.0` to `v4.5.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.5.1
+- Changed `wp-pay-gateways/mollie` from `v4.10.0` to `v4.10.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.10.3
+- Changed `wp-pay/core` from `v4.16.0` to `v4.17.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.17.0
+
+Full set of changes: [`9.8.0...9.8.1`][9.8.1]
+
+[9.8.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.8.0...v9.8.1
 
 = 9.8.0 =
 ### Added
