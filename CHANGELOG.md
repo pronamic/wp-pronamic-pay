@@ -6,6 +6,25 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.11.1] - 2024-08-01
+
+### Fixed
+
+- Fixed calculated number of subscription periods created falling outside optional phase end date. ([0364e4f](https://github.com/pronamic/wp-pay-core/commit/0364e4f31d38c53b09e5a4505d7a7e1a2778beac))
+- Fixed time difference between Restrict Content Pro membership and subscription next payment date. ([2242a69](https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/commit/2242a692287f637cf3422159051988ee5b62face))
+- Tested up to: 6.6 ([977a350](https://github.com/pronamic/wp-pronamic-pay/commit/977a3501e0860448e234b3fcb15626dc71817dae))
+
+### Composer
+
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.6.0` to `v4.6.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.6.1
+- Changed `wp-pay/core` from `v4.21.0` to `v4.21.1`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.21.1
+
+Full set of changes: [`9.11.0...9.11.1`][9.11.1]
+
+[9.11.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.11.0...v9.11.1
+
 ## [9.11.0] - 2024-07-25
 
 ### Added
