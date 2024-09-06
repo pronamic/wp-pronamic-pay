@@ -1,0 +1,30 @@
+name: Deploy to WordPress.org
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to deploy to WordPress.org'
+        required: true
+        type: string
+  release:
+    types: [released]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: WordPress.org plugin directory
+      url: https://wordpress.org/plugins/pronamic-ideal/
+
+    steps:
+      - name: Deploy
+        uses: pronamic/action-wordpress-org-plugin-deploy@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          username: ${{ vars.WORDPRESS_ORG_PRONAMIC_USERNAME }}
+          password: ${{ secrets.WORDPRESS_ORG_PRONAMIC_PASSWORD }}
+          tag: ${{ inputs.tag || github.event.release.tag_name }}
+          slug: pronamic-ideal
