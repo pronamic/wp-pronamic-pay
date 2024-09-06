@@ -21,8 +21,8 @@ jobs:
             readme.txt
 
       - name: Deploy
-        uses: pronamic/action-wordpress-plugin-readme-update@main
+        uses: pronamic/action-wordpress-org-plugin-readme-deploy@main
         with:
-          svn-username: pronamic
-          svn-password: ${{ secrets.SVN_PASSWORD }}
+          username: ${{ vars.WORDPRESS_ORG_PRONAMIC_USERNAME }}
+          password: ${{ secrets.WORDPRESS_ORG_PRONAMIC_PASSWORD }}
           wp-slug: pronamic-ideal
