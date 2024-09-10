@@ -6,6 +6,31 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.12.0] - 2024-09-10
+
+### Removed
+
+- Removed VAT number validation from core. ([#189](https://github.com/pronamic/wp-pay-core/issues/189))
+
+### Changed
+
+- Update subscription action links UI ([#180](https://github.com/pronamic/wp-pay-core/pull/180))
+- Always show 'Disable Recurring Payments' setting. ([#165](https://github.com/pronamic/wp-pay-core/issues/165))
+- Added plugin information to MultiSafepay redirect transaction request. ([#5](https://github.com/pronamic/wp-pronamic-pay-multisafepay/issues/5))
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v3.0.9` to `v3.1.0`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v3.1.0
+- Changed `wp-pay-gateways/multisafepay` from `v4.4.0` to `v4.5.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-multisafepay/releases/tag/v4.5.0
+- Changed `wp-pay/core` from `v4.21.1` to `v4.22.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.22.0
+
+Full set of changes: [`9.11.1...9.12.0`][9.12.0]
+
+[9.12.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.11.1...v9.12.0
+
 ## [9.11.1] - 2024-08-01
 
 ### Fixed
