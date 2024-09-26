@@ -66,6 +66,23 @@ add_action(
 
 \Pronamic\PronamicPayAdminReports\Plugin::instance()->setup();
 
+/**
+ * Plugin dependencies.
+ *
+ * @link https://make.wordpress.org/core/2024/03/05/introducing-plugin-dependencies-in-wordpress-6-5/
+ * @link https://github.com/pronamic/wp-pronamic-pay-adyen/issues/25
+ */
+add_filter(
+	'wp_plugin_dependencies_slug',
+	function ( $slug ) {
+		if ( 'pronamic-ideal' === $slug ) {
+			return dirname( __DIR__ );
+		}
+
+		return $slug;
+	}
+);
+
 add_filter(
 	'pronamic_pay_modules',
 	function ( $modules ) {
