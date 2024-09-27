@@ -6,6 +6,34 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [9.12.1] - 2024-09-27
+
+### Fixed
+
+- Fixed active subscription put 'On Hold' by expired first payment. ([#194](https://github.com/pronamic/wp-pay-core/issues/194))
+- Fixed infinite loop when activating Restrict Content Pro subscription with past expiry date. ([#26](https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/issues/26))
+- Improved updating MemberPress subscription gateway only on payment method changes. ([#22](https://github.com/pronamic/wp-pronamic-pay-memberpress/issues/22))
+
+### Changed
+
+- Use directory name as plugin dependencies slug. ([#388](https://github.com/pronamic/wp-pronamic-pay/issues/388))
+- Only show admin tour within first day after plugin installation. ([#186](https://github.com/pronamic/wp-pay-core/issues/186))
+
+### Composer
+
+- Changed `woocommerce/action-scheduler` from `3.8.1` to `3.8.2`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.8.2
+- Changed `wp-pay-extensions/memberpress` from `v4.8.0` to `v4.8.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.8.1
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.6.1` to `v4.6.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.6.2
+- Changed `wp-pay/core` from `v4.22.0` to `v4.22.1`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.22.1
+
+Full set of changes: [`9.12.0...9.12.1`][9.12.1]
+
+[9.12.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.12.0...v9.12.1
+
 ## [9.12.0] - 2024-09-10
 
 ### Removed
