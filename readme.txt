@@ -104,6 +104,59 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
+### [9.12.1] - 2024-09-27
+
+### Fixed
+
+- Fixed active subscription put 'On Hold' by expired first payment. ([#194](https://github.com/pronamic/wp-pay-core/issues/194))
+- Fixed infinite loop when activating Restrict Content Pro subscription with past expiry date. ([#26](https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/issues/26))
+- Improved updating MemberPress subscription gateway only on payment method changes. ([#22](https://github.com/pronamic/wp-pronamic-pay-memberpress/issues/22))
+
+### Changed
+
+- Use directory name as plugin dependencies slug. ([#388](https://github.com/pronamic/wp-pronamic-pay/issues/388))
+- Only show admin tour within first day after plugin installation. ([#186](https://github.com/pronamic/wp-pay-core/issues/186))
+
+### Composer
+
+- Changed `woocommerce/action-scheduler` from `3.8.1` to `3.8.2`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.8.2
+- Changed `wp-pay-extensions/memberpress` from `v4.8.0` to `v4.8.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.8.1
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.6.1` to `v4.6.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.6.2
+- Changed `wp-pay/core` from `v4.22.0` to `v4.22.1`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.22.1
+
+Full set of changes: [`9.12.0...9.12.1`][9.12.1]
+
+[9.12.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.12.0...v9.12.1
+
+### [9.12.0] - 2024-09-10
+
+### Removed
+
+- Removed VAT number validation from core. ([#189](https://github.com/pronamic/wp-pay-core/issues/189))
+
+### Changed
+
+- Update subscription action links UI ([#180](https://github.com/pronamic/wp-pay-core/pull/180))
+- Always show 'Disable Recurring Payments' setting. ([#165](https://github.com/pronamic/wp-pay-core/issues/165))
+- Added plugin information to MultiSafepay redirect transaction request. ([#5](https://github.com/pronamic/wp-pronamic-pay-multisafepay/issues/5))
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v3.0.9` to `v3.1.0`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v3.1.0
+- Changed `wp-pay-gateways/multisafepay` from `v4.4.0` to `v4.5.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-multisafepay/releases/tag/v4.5.0
+- Changed `wp-pay/core` from `v4.21.1` to `v4.22.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.22.0
+
+Full set of changes: [`9.11.1...9.12.0`][9.12.0]
+
+[9.12.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.11.1...v9.12.0
+
 ### [9.11.1] - 2024-08-01
 
 #### Fixed
