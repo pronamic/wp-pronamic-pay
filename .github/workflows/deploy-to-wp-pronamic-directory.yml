@@ -1,0 +1,38 @@
+name: Deploy to Pronamic WordPress directory
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to deploy to Pronamic WordPress directory'
+        required: true
+        type: string
+      latest:
+        default: true
+        type: boolean
+        description: 'Deploy as "Latest"'
+  release:
+    types: [released]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: Pronamic WordPress directory
+      url: https://wp.pronamic.directory/plugins/pronamic-ideal/
+
+    permissions:
+      id-token: 'write'
+
+    steps:
+      - name: Deploy
+        uses: pronamic/action-wp-pronamic-directory-plugin-deploy@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          username: ${{ vars.WP_PRONAMIC_DIRECTORY_USERNAME }}
+          password: ${{ secrets.WP_PRONAMIC_DIRECTORY_PASSWORD }}
+          slug: pronamic-ideal
+          tag: ${{ inputs.tag || github.event.release.tag_name }}
+          latest: ${{ inputs.latest || github.event.release.latest }}
