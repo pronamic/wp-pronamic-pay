@@ -106,6 +106,7 @@
 		"php-stubs/wordpress-globals": "^0.2.0",
 		"phpmd/phpmd": "^2.15",
 		"phpstan/phpstan": "^1.11",
+		"pronamic/changelog-md-to-wordpress-plugin-readme-txt": "dev-main",
 		"pronamic/pronamic-cli": "^1.1",
 		"pronamic/wp-coding-standards": "^2.2",
 		"roots/wordpress-no-content": "^6.4",
@@ -126,7 +127,10 @@
 		}
 	},
 	"scripts": {
-		"build": "vendor/bin/pronamic wp-build --text-domain-fixer=phpcs-text-domain-fixer.xml",
+		"build": [
+			"Pronamic\\ChangelogMdToWordPressPluginReadmeTxt\\Synchronizer::run",
+			"vendor/bin/pronamic wp-build --text-domain-fixer=phpcs-text-domain-fixer.xml"
+		],
 		"translate": [
 			"@build",
 			"rsync --recursive --delete --verbose ./build/project/languages/ ./languages/",

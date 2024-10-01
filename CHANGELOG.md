@@ -6,6 +6,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+<!-- Start changelog -->
+
 ## [9.12.1] - 2024-09-27
 
 ### Fixed
@@ -530,6 +532,8 @@ Full set of changes: [`9.6.0...9.6.1`][9.6.1]
 Full set of changes: [`9.5.0...9.6.0`][9.6.0]
 
 [9.6.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.5.0...v9.6.0
+
+<!-- End changelog -->
 
 ## [9.5.1] - 2023-09-29
 
