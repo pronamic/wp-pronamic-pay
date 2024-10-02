@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c670c82ffad12b4722197c9491eb5381",
+    "content-hash": "2eeab3301906bbf97a221c399ee5fdc8",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -6672,6 +6672,47 @@
             "time": "2024-09-19T10:50:18+00:00"
         },
         {
+            "name": "pronamic/changelog-md-to-wordpress-plugin-readme-txt",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/pronamic-changelog-md-to-wordpress-plugin-readme-txt.git",
+                "reference": "6d14463de31a3a0257feba9f1996c3601ec1efca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/pronamic-changelog-md-to-wordpress-plugin-readme-txt/zipball/6d14463de31a3a0257feba9f1996c3601ec1efca",
+                "reference": "6d14463de31a3a0257feba9f1996c3601ec1efca",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "bin": [
+                "bin/pronamic-changelog-md-to-wordpress-plugin-readme-txt"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\ChangelogMdToWordPressPluginReadmeTxt\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu"
+                }
+            ],
+            "description": "Automates syncing of changelog entries from CHANGELOG.md to WordPress plugin readme.txt.",
+            "support": {
+                "issues": "https://github.com/pronamic/pronamic-changelog-md-to-wordpress-plugin-readme-txt/issues",
+                "source": "https://github.com/pronamic/pronamic-changelog-md-to-wordpress-plugin-readme-txt/tree/main"
+            },
+            "time": "2024-10-01T12:48:38+00:00"
+        },
+        {
             "name": "pronamic/pronamic-cli",
             "version": "v1.1.1",
             "source": {
@@ -12610,6 +12651,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "pronamic/changelog-md-to-wordpress-plugin-readme-txt": 20,
         "wp-cli/wp-cli": 20,
         "wp-cli/wp-cli-bundle": 20
     },
