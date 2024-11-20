@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, pay, ideal, payment, gateway
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
 Requires at least: 5.9
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 8.1
 Stable tag: 9.12.1
 License: GPLv2 or later
