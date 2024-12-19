@@ -174,8 +174,6 @@ add_filter(
 				$sisow_test_mode = get_post_meta( $post_id, '_pronamic_gateway_sisow_test_mode', true );
 
 				return ( 'test' === $mode || '' !== $sisow_test_mode ) ? 'sisow-buckaroo-test' : 'sisow-buckaroo';
-			case 'sisow-ideal-basic':
-				return ( 'test' === $mode ) ? 'sisow-ideal-basic-test' : 'sisow-ideal-basic';
 		}
 
 		return $value;
@@ -543,33 +541,6 @@ add_filter(
 				'meta_key_website_key' => 'sisow_merchant_id',
 				'meta_key_secret_key'  => 'sisow_merchant_key',
 				'deprecated'           => true,
-			]
-		);
-
-		// Sisow - iDEAL Basic.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
-			[
-				'id'            => 'sisow-ideal-basic',
-				'name'          => 'Sisow - iDEAL Basic',
-				'mode'          => 'live',
-				'provider'      => 'sisow',
-				'url'           => 'https://www.sisow.nl/',
-				'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
-				'deprecated'    => true,
-				'acquirer_url'  => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx',
-			]
-		);
-
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
-			[
-				'id'            => 'sisow-ideal-basic-test',
-				'name'          => 'Sisow - iDEAL Basic - Test',
-				'mode'          => 'test',
-				'provider'      => 'sisow',
-				'url'           => 'https://www.sisow.nl/',
-				'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
-				'deprecated'    => true,
-				'acquirer_url'  => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test',
 			]
 		);
 
