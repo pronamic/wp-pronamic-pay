@@ -142,8 +142,6 @@ add_filter(
 		$mode = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
 
 		switch ( $value ) {
-			case 'abnamro-ideal-zelfbouw-v3':
-				return ( 'test' === $mode ) ? 'abnamro-ideal-zelfbouw-test' : 'abnamro-ideal-zelfbouw';
 			case 'adyen':
 				return ( 'test' === $mode ) ? 'adyen-test' : 'adyen';
 			case 'buckaroo':
@@ -183,39 +181,6 @@ add_filter(
 add_filter(
 	'pronamic_pay_gateways',
 	function ( $gateways ) {
-		// ABN AMRO - iDEAL Zelfbouw.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-			[
-				'id'            => 'abnamro-ideal-zelfbouw',
-				'name'          => 'ABN AMRO - iDEAL Zelfbouw',
-				'mode'          => 'live',
-				'provider'      => 'abnamro',
-				'url'           => 'https://ecommerce.abnamro.nl/',
-				'product_url'   => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
-				'dashboard_url' => 'https://ecommerce.abnamro.nl/',
-				'acquirer_url'  => 'https://ecommerce.abnamro.nl/ideal/iDEALv3',
-				'certificates'  => [
-					__DIR__ . '/certificates/abnamro-2021-10-01-2026-09-30.cer',
-				],
-			]
-		);
-
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-			[
-				'id'            => 'abnamro-ideal-zelfbouw-test',
-				'name'          => 'ABN AMRO - iDEAL Zelfbouw - Test',
-				'mode'          => 'test',
-				'provider'      => 'abnamro',
-				'url'           => 'https://ecommerce-test.abnamro.nl/',
-				'product_url'   => 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/',
-				'dashboard_url' => 'https://ecommerce-test.abnamro.nl/',
-				'acquirer_url'  => 'https://ecommerce-test.abnamro.nl/ideal/iDEALv3',
-				'certificates'  => [
-					__DIR__ . '/certificates/abnamro-2021-10-01-2026-09-30.cer',
-				],
-			]
-		);
-
 		// Buckaroo.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(
 			[
