@@ -148,8 +148,6 @@ add_filter(
 				return ( 'test' === $mode ) ? 'adyen-test' : 'adyen';
 			case 'buckaroo':
 				return ( 'test' === $mode ) ? 'buckaroo-test' : 'buckaroo';
-			case 'deutschebank-ideal-expert-v3':
-				return ( 'test' === $mode ) ? 'deutschebank-ideal-expert-test' : 'deutschebank-ideal-expert';
 			case 'ems-ecommerce':
 				return ( 'test' === $mode ) ? 'ems-ecommerce-test' : 'ems-ecommerce';
 			case 'ing-ideal-advanced-v3':
@@ -234,33 +232,6 @@ add_filter(
 				'name' => 'Buckaroo - Test',
 				'mode' => 'test',
 				'host' => 'testcheckout.buckaroo.nl',
-			]
-		);
-
-		// Deutsche Bank - iDEAL Expert.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-			[
-				'id'            => 'deutschebank-ideal-expert',
-				'name'          => 'Deutsche Bank - iDEAL Expert',
-				'mode'          => 'live',
-				'provider'      => 'deutschebank',
-				'product_url'   => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
-				'dashboard_url' => 'https://myideal.db.com/',
-				'acquirer_url'  => 'https://myideal.db.com/ideal/iDealv3',
-				'certificates'  => [],
-			]
-		);
-
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-			[
-				'id'            => 'deutschebank-ideal-expert-test',
-				'name'          => 'Deutsche Bank - iDEAL Expert - Test',
-				'mode'          => 'test',
-				'provider'      => 'deutschebank',
-				'product_url'   => 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html',
-				'dashboard_url' => 'https://myideal.test.db.com/',
-				'acquirer_url'  => 'https://myideal.test.db.com/ideal/iDealv3',
-				'certificates'  => [],
 			]
 		);
 
