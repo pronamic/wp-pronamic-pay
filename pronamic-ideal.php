@@ -162,8 +162,6 @@ add_filter(
 				return ( 'test' === $mode ) ? 'ingenico-orderstandard-test' : 'ingenico-orderstandard';
 			case 'paypal':
 				return ( 'test' === $mode ) ? 'paypal-sandbox' : 'paypal';
-			case 'rabobank-ideal-professional-v3':
-				return ( 'test' === $mode ) ? 'rabobank-ideal-professional-test' : 'rabobank-ideal-professional';
 			case 'rabobank-omnikassa-2':
 				return ( 'test' === $mode ) ? 'rabobank-omnikassa-2-sandbox' : 'rabobank-omnikassa-2';
 			case 'sisow-ideal':
@@ -421,39 +419,6 @@ add_filter(
 
 		// Pay.nl.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\PayNL\Integration();
-
-		// Rabobank - iDEAL Professional.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-			[
-				'id'            => 'rabobank-ideal-professional',
-				'name'          => 'Rabobank - iDEAL Professional',
-				'mode'          => 'live',
-				'provider'      => 'rabobank',
-				'product_url'   => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-rabobank-ideal-professional-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
-				'dashboard_url' => 'https://ideal.rabobank.nl/',
-				'acquirer_url'  => 'https://ideal.rabobank.nl/ideal/iDEALv3',
-				'certificates'  => [
-					__DIR__ . '/certificates/rabobank-2021-10-01-2026-09-30.cer',
-				],
-			]
-		);
-
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-			[
-				'id'            => 'rabobank-ideal-professional-test',
-				'name'          => 'Rabobank - iDEAL Professional - Test',
-				'mode'          => 'test',
-				'provider'      => 'rabobank',
-				'product_url'   => 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-rabobank-ideal-professional-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
-				'dashboard_url' => 'https://idealtest.rabobank.nl/',
-				'acquirer_url'  => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
-				'certificates'  => [
-					__DIR__ . '/certificates/rabobank-2021-10-01-2026-09-30.cer',
-				],
-			]
-		);
 
 		// Sisow.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Buckaroo\Integration(
