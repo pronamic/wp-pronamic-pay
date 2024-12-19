@@ -152,8 +152,6 @@ add_filter(
 				return ( 'test' === $mode ) ? 'ing-ideal-advanced-test' : 'ing-ideal-advanced';
 			case 'ing-ideal-advanced-2022':
 				return ( 'test' === $mode ) ? 'ing-ideal-advanced-2022-sandbox' : 'ing-ideal-advanced-2022-production';
-			case 'ing-ideal-basic':
-				return ( 'test' === $mode ) ? 'ing-ideal-basic-test' : 'ing-ideal-basic';
 			case 'multisafepay-connect':
 				return ( 'test' === $mode ) ? 'multisafepay-connect-test' : 'multisafepay-connect';
 			case 'ogone-directlink':
@@ -234,33 +232,6 @@ add_filter(
 				'certificates' => [
 					__DIR__ . '/certificates/ideal-checkout-2019-02-27-2024-02-26.cer',
 				],
-			]
-		);
-
-		// ING - iDEAL Basic.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
-			[
-				'id'            => 'ing-ideal-basic',
-				'name'          => 'ING - iDEAL Basic',
-				'mode'          => 'live',
-				'provider'      => 'ing',
-				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-basic-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
-				'dashboard_url' => 'https://ideal.secure-ing.com/',
-				'acquirer_url'  => 'https://ideal.secure-ing.com/ideal/mpiPayInitIng.do',
-			]
-		);
-
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealBasic\Integration(
-			[
-				'id'            => 'ing-ideal-basic-test',
-				'name'          => 'ING - iDEAL Basic - Test',
-				'mode'          => 'test',
-				'provider'      => 'ing',
-				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-basic-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
-				'dashboard_url' => 'https://idealtest.secure-ing.com/',
-				'acquirer_url'  => 'https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do',
 			]
 		);
 
