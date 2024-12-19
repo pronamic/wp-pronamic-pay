@@ -383,7 +383,6 @@ add_filter(
 			]
 		);
 
-		// Return gateways.
 		return $gateways;
 	}
 );
