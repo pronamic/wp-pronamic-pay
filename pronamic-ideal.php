@@ -148,8 +148,6 @@ add_filter(
 				return ( 'test' === $mode ) ? 'buckaroo-test' : 'buckaroo';
 			case 'ems-ecommerce':
 				return ( 'test' === $mode ) ? 'ems-ecommerce-test' : 'ems-ecommerce';
-			case 'ing-ideal-advanced-v3':
-				return ( 'test' === $mode ) ? 'ing-ideal-advanced-test' : 'ing-ideal-advanced';
 			case 'ing-ideal-advanced-2022':
 				return ( 'test' === $mode ) ? 'ing-ideal-advanced-2022-sandbox' : 'ing-ideal-advanced-2022-production';
 			case 'multisafepay-connect':
