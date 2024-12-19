@@ -264,37 +264,6 @@ add_filter(
 			]
 		);
 
-		// ING - iDEAL Advanced.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-			[
-				'id'            => 'ing-ideal-advanced',
-				'name'          => 'ING - iDEAL Advanced - Old platform',
-				'mode'          => 'live',
-				'provider'      => 'ing',
-				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
-				'dashboard_url' => 'https://ideal.secure-ing.com/',
-				'acquirer_url'  => 'https://ideal.secure-ing.com/ideal/iDEALv3',
-				'certificates'  => [],
-				'deprecated'    => true,
-			]
-		);
-
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-			[
-				'id'            => 'ing-ideal-advanced-test',
-				'name'          => 'ING - iDEAL Advanced - Old platform - Test',
-				'mode'          => 'test',
-				'provider'      => 'ing',
-				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
-				'dashboard_url' => 'https://idealtest.secure-ing.com/',
-				'acquirer_url'  => 'https://idealtest.secure-ing.com/ideal/iDEALv3',
-				'certificates'  => [],
-				'deprecated'    => true,
-			]
-		);
-
 		// ING - iDEAL Advanced - New platform - Production.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			[
