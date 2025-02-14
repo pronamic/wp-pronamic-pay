@@ -8,6 +8,44 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [9.14.0] - 2025-02-14
+
+### Removed
+
+- Removed ING - iDEAL Advanced. ([46aff99](https://github.com/pronamic/wp-pronamic-pay/commit/46aff99d6fdf1bc63655f8437d3ca88e184921ea))
+- Removed ING - iDEAL Basic. ([60c646f](https://github.com/pronamic/wp-pronamic-pay/commit/60c646f765bb560de8d52899a0bba246ffcc1eb3))
+- Removed ING - iDEAL Advanced - Old platform. ([b5dbba6](https://github.com/pronamic/wp-pronamic-pay/commit/b5dbba64ec1b35dee02491fe8df728cec92a95db))
+- Removed Rabobank - iDEAL Professional. ([036c644](https://github.com/pronamic/wp-pronamic-pay/commit/036c644e711ccb039012d9501ce4faff0ccfb9ab))
+- Removed ABN AMRO - iDEAL Zelfbouw. ([c158f32](https://github.com/pronamic/wp-pronamic-pay/commit/c158f324e3a99204b2865d1ff3c6e77901f033b1))
+- Removed Deutsche Bank - iDEAL Expert. ([55ff42c](https://github.com/pronamic/wp-pronamic-pay/commit/55ff42cf529ea16c4253aea27cad78225eccd517))
+- Removed Sisow - iDEAL Basic. ([70e4ba1](https://github.com/pronamic/wp-pronamic-pay/commit/70e4ba1cde1f53aca84d7ba1f64f046b4cb4407b))
+
+### Composer
+
+- Added `pronamic/wp-pay-logos` `^2.2`.
+- Changed `pronamic/wp-mollie` from `v1.7.0` to `v1.8.0`.
+	Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v1.8.0
+- Changed `woocommerce/action-scheduler` from `3.9.0` to `3.9.2`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.9.2
+- Changed `wp-pay-extensions/charitable` from `v4.3.3` to `v4.3.4`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-charitable/releases/tag/v4.3.4
+- Changed `wp-pay-extensions/gravityforms` from `v4.8.1` to `v4.9.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.9.0
+- Changed `wp-pay-extensions/woocommerce` from `v4.10.0` to `v4.11.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.11.0
+- Changed `wp-pay-gateways/adyen` from `v4.5.1` to `v4.5.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.5.2
+- Changed `wp-pay-gateways/ems-e-commerce` from `v4.4.1` to `v4.4.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ems-e-commerce/releases/tag/v4.4.2
+- Changed `wp-pay-gateways/mollie` from `v4.13.0` to `v4.14.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.14.0
+- Changed `wp-pay/core` from `v4.24.0` to `v4.25.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.25.0
+
+Full set of changes: [`9.13.0...9.14.0`][9.14.0]
+
+[9.14.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.13.0...v9.14.0
+
 ## [9.13.0] - 2024-12-18
 
 ### Added
