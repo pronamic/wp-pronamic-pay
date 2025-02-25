@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.7
 Requires PHP: 8.1
-Stable tag: 9.14.0
+Stable tag: 9.14.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -105,6 +105,24 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [9.14.1] - 2025-02-25
+
+#### Changed
+
+- Improved Mollie error handling when updating subscription mandate. ([8f03de5](https://github.com/pronamic/wp-pronamic-pay-mollie/commit/8f03de511ccf3ebb0223919dd7fcf6185e4e9c3c))
+- Removed iDEAL issuer selection for Rabo Smart Pay. ([9916e49](https://github.com/pronamic/wp-pronamic-pay-rabo-smart-pay/commit/9916e49529d25cb61e3a669c5774acb8a9d62b1c))
+
+#### Composer
+
+- Changed `wp-pay-gateways/mollie` from `v4.14.0` to `v4.14.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.14.1
+- Changed `wp-pay-gateways/omnikassa-2` from `v4.8.0` to `v4.9.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-rabo-smart-pay/releases/tag/v4.9.0
+
+Full set of changes: [`9.14.0...9.14.1`][9.14.1]
+
+[9.14.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.14.0...v9.14.1
 
 ### [9.14.0] - 2025-02-14
 
