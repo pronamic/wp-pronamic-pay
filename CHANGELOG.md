@@ -8,6 +8,21 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [9.15.1] - 2025-03-03
+
+### Commits
+
+- Fixed fatal error with Contact Form 7 due to incorrect file path. ([#24](https://github.com/pronamic/wp-pronamic-pay-contact-form-7/issues/24))
+
+### Composer
+
+- Changed `wp-pay-extensions/contact-form-7` from `v4.0.0` to `v4.0.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v4.0.1
+
+Full set of changes: [`9.15.0...9.15.1`][9.15.1]
+
+[9.15.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.15.0...v9.15.1
+
 ## [9.15.0] - 2025-02-28
 
 ### Composer
