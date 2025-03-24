@@ -51,7 +51,6 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 *	Buckaroo - HTML
 *	Deutsche Bank - iDEAL Expert
 *	EMS - e-Commerce
-*	ICEPAY
 *	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw
 *	ING - iDEAL Basic
 *	ING - iDEAL Advanced

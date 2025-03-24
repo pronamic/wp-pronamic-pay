@@ -34,22 +34,6 @@ namespace Pronamic_Pay_Gateways_Buckaroo {
 	Pronamic_Pay.Config <|-- Config
 }
 
-namespace Pronamic_Pay_Gateways_Icepay {
-	class Gateway {
-	
-	}
-	
-	class Config {
-		merchant_id
-		secret_code
-	}
-	
-	Gateway -right-> Config
-	
-	Pronamic_Pay.Gateway <|-- Gateway
-	Pronamic_Pay.Config <|-- Config
-}
-
 namespace Pronamic_Pay_Gateways_IDealBasic {
 	class Gateway {
 	

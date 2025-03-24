@@ -23,7 +23,6 @@ $packages = [
 	'wp-pay-gateways/adyen',
 	'wp-pay-gateways/buckaroo',
 	'wp-pay-gateways/ems-e-commerce',
-	'wp-pay-gateways/icepay',
 	'wp-pay-gateways/ideal',
 	'wp-pay-gateways/ideal-advanced-v3',
 	'wp-pay-gateways/ideal-basic',

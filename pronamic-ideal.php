@@ -215,9 +215,6 @@ add_filter(
 			]
 		);
 
-		// ICEPAY.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Icepay\Integration();
-
 		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
 			[
