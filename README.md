@@ -25,7 +25,6 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Buckaroo](https://buckaroo.nl/) | Buckaroo - HTML |
 | [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL Expert |
 | [European Merchant Services](https://emspay.nl/) | EMS - e-Commerce |
-| [ICEPAY](https://icepay.nl/) | ICEPAY |
 | [iDEAL Simulator](https://www.ideal-simulator.nl/) | iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw |
 | [ING](https://www.ing.nl/) | ING - iDEAL Basic |
 | [ING](https://www.ing.nl/) | ING - iDEAL Advanced |
