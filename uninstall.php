@@ -89,12 +89,6 @@ delete_option( 'woocommerce_pronamic_pay_ideal_settings' );
 // WP e-Commerce.
 delete_option( 'pronamic_pay_ideal_wpsc_config_id' );
 
-// ClassiPress.
-delete_option( '' );
-
-// JobRoller.
-delete_option( '' );
-
 /**
  * Delete legacy options.
  */
