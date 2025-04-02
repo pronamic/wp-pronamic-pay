@@ -90,6 +90,16 @@ delete_option( 'woocommerce_pronamic_pay_ideal_settings' );
 delete_option( 'pronamic_pay_ideal_wpsc_config_id' );
 
 /**
+ * Delete gateway options.
+ */
+delete_option( 'pronamic_pay_mollie_version' );
+
+$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}pronamic_pay_mollie_customers" );
+$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}pronamic_pay_mollie_customer_users" );
+$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}pronamic_pay_mollie_organizations" );
+$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}pronamic_pay_mollie_profiles" );
+
+/**
  * Delete legacy options.
  */
 
