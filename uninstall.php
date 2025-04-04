@@ -33,6 +33,27 @@ $wpdb->query( "DELETE FROM {$wpdb->prefix}postmeta WHERE post_id NOT IN ( SELECT
 // Delete general options.
 delete_option( 'pronamic_pay_version' );
 delete_option( 'pronamic_pay_db_version' );
+delete_option( 'pronamic_pay_license_key' );
+delete_option( 'pronamic_pay_license_status' );
+delete_option( 'pronamic_pay_config_id' );
+
+delete_option( 'pronamic_pay_installation_date' );
+delete_option( 'pronamic_pay_uninstall_clear_data' );
+delete_option( 'pronamic_pay_debug_mode' );
+delete_option( 'pronamic_pay_subscriptions_processing_disabled' );
+delete_option( 'pronamic_pay_active_payment_methods' );
+delete_option( 'pronamic_pay_about_page_version' );
+delete_option( 'pronamic_pay_forms_version' );
+delete_option( 'pronamic_pay_home_url' );
+
+delete_option( 'pronamic_pay_completed_page_id' );
+delete_option( 'pronamic_pay_cancel_page_id' );
+delete_option( 'pronamic_pay_expired_page_id' );
+delete_option( 'pronamic_pay_error_page_id' );
+delete_option( 'pronamic_pay_unknown_page_id' );
+delete_option( 'pronamic_pay_subscription_canceled_page_id' );
+
+$wpdb->query( "DELETE FROM {$wpdb->prefix}options WHERE option_name LIKE '%pronamic_pay_payment_method_%_status%';" );
 
 /**
  * Delete extension options.
@@ -68,11 +89,15 @@ delete_option( 'woocommerce_pronamic_pay_ideal_settings' );
 // WP e-Commerce.
 delete_option( 'pronamic_pay_ideal_wpsc_config_id' );
 
-// ClassiPress.
-delete_option( '' );
+/**
+ * Delete gateway options.
+ */
+delete_option( 'pronamic_pay_mollie_version' );
 
-// JobRoller.
-delete_option( '' );
+$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}pronamic_pay_mollie_customers" );
+$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}pronamic_pay_mollie_customer_users" );
+$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}pronamic_pay_mollie_organizations" );
+$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}pronamic_pay_mollie_profiles" );
 
 /**
  * Delete legacy options.
