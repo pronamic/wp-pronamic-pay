@@ -6,10 +6,6 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-### Removed
-
-- Removed support for ICEPAY. ([#406](https://github.com/pronamic/wp-pronamic-pay/issues/406))
-
 <!-- Start changelog -->
 
 ## [9.16.0] - 2025-06-19
