@@ -20,21 +20,18 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 
 | Provider | Name |
 | -------- | ---- |
-| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Zelfbouw |
+| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Zelfbouw - iDEAL 2.0 |
 | [Adyen](https://www.adyen.com/) | Adyen |
 | [Buckaroo](https://buckaroo.nl/) | Buckaroo - HTML |
 | [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL Expert |
 | [European Merchant Services](https://emspay.nl/) | EMS - e-Commerce |
-| [iDEAL Simulator](https://www.ideal-simulator.nl/) | iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw |
-| [ING](https://www.ing.nl/) | ING - iDEAL Basic |
-| [ING](https://www.ing.nl/) | ING - iDEAL Advanced |
-| [ING](https://www.ing.nl/) | ING - iDEAL Advanced (new platform) |
+| [ING](https://www.ing.nl/) | ING – iDEAL Advanced - iDEAL 2.0 |
 | [Mollie](https://www.mollie.nl/) | Mollie |
 | [MultiSafepay](https://www.multisafepay.com/) | MultiSafepay - Connect |
 | [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - OrderStandard |
 | [Pay.nl](https://www.pay.nl/) | Pay.nl |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - OmniKassa 2.0 |
-| [Rabobank](https://www.rabobank.nl/) | Rabobank - iDEAL Professional |
+| [Rabobank](https://www.rabobank.nl/) | Rabo iDEAL Professional - iDEAL 2.0 |
 
 
 ## Supported WordPress e-commerce extensions
