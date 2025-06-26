@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "acb0631d1087a9da2550e37cc911d211",
+    "content-hash": "b0522c7c7d3ccc5d670cf4994916bd43",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
-            "version": "v5.0.7",
+            "version": "v5.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Automattic/jetpack-autoloader.git",
-                "reference": "8ab8cc721937030a7a3d77d3d6698649f56de4d9"
+                "reference": "6a73ae61ff47600534735946572284341b07bc11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/8ab8cc721937030a7a3d77d3d6698649f56de4d9",
-                "reference": "8ab8cc721937030a7a3d77d3d6698649f56de4d9",
+                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/6a73ae61ff47600534735946572284341b07bc11",
+                "reference": "6a73ae61ff47600534735946572284341b07bc11",
                 "shasum": ""
             },
             "require": {
@@ -67,9 +67,9 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/Automattic/jetpack-autoloader/tree/v5.0.7"
+                "source": "https://github.com/Automattic/jetpack-autoloader/tree/v5.0.8"
             },
-            "time": "2025-04-28T15:12:56+00:00"
+            "time": "2025-06-23T19:59:46+00:00"
         },
         {
             "name": "composer/installers",
@@ -2369,86 +2369,6 @@
             "time": "2024-12-17T13:36:02+00:00"
         },
         {
-            "name": "wp-pay-gateways/ideal-advanced-v3",
-            "version": "v4.3.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pronamic/wp-pronamic-pay-ideal-advanced-v3.git",
-                "reference": "4361c3837ae7d616d9fd526818c5e5f8eedb0568"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ideal-advanced-v3/zipball/4361c3837ae7d616d9fd526818c5e5f8eedb0568",
-                "reference": "4361c3837ae7d616d9fd526818c5e5f8eedb0568",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "ext-openssl": "*",
-                "php": ">=7.4",
-                "pronamic/wp-http": "^1.1",
-                "wp-pay-gateways/ideal": "^4.1",
-                "wp-pay/core": "^4.6"
-            },
-            "require-dev": {
-                "automattic/wordbless": "^0.4.2",
-                "bamarni/composer-bin-plugin": "^1.8",
-                "overtrue/phplint": "^9.0",
-                "php-coveralls/php-coveralls": "^2.6",
-                "phpmd/phpmd": "^2.14",
-                "phpstan/phpstan": "^1.11",
-                "pronamic/pronamic-cli": "^1.1",
-                "pronamic/wp-coding-standards": "^2.0",
-                "roots/wordpress": "^6.0",
-                "szepeviktor/phpstan-wordpress": "^1.3",
-                "vimeo/psalm": "^5.25",
-                "wp-phpunit/wp-phpunit": "^6.1",
-                "yoast/phpunit-polyfills": "^1.1"
-            },
-            "type": "wordpress-plugin",
-            "autoload": {
-                "psr-4": {
-                    "Pronamic\\WordPress\\Pay\\Gateways\\IDealAdvancedV3\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
-                },
-                {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "iDEAL Advanced v3 driver for the WordPress payment processing library.",
-            "homepage": "https://github.com/wp-pay-gateways/ideal-advanced-v3",
-            "keywords": [
-                "advanced",
-                "gateway",
-                "ideal",
-                "pay",
-                "pronamic",
-                "v3",
-                "wordpress",
-                "wp"
-            ],
-            "support": {
-                "email": "support@wp-pay.org",
-                "issues": "https://github.com/wp-pay-gateways/ideal-advanced-v3/issues",
-                "source": "https://github.com/wp-pay-gateways/ideal-advanced-v3"
-            },
-            "time": "2024-12-17T13:38:36+00:00"
-        },
-        {
             "name": "wp-pay-gateways/ideal-basic",
             "version": "v4.3.7",
             "source": {
@@ -4077,25 +3997,25 @@
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/composer-installer.git",
-                "reference": "4be43904336affa5c2f70744a348312336afd0da"
+                "reference": "18a95476797ed480b3f2598984bc6f7e1eecc9a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/composer-installer/zipball/4be43904336affa5c2f70744a348312336afd0da",
-                "reference": "4be43904336affa5c2f70744a348312336afd0da",
+                "url": "https://api.github.com/repos/PHPCSStandards/composer-installer/zipball/18a95476797ed480b3f2598984bc6f7e1eecc9a8",
+                "reference": "18a95476797ed480b3f2598984bc6f7e1eecc9a8",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0 || ^2.0",
+                "composer-plugin-api": "^2.2",
                 "php": ">=5.4",
                 "squizlabs/php_codesniffer": "^2.0 || ^3.1.0 || ^4.0"
             },
             "require-dev": {
-                "composer/composer": "*",
+                "composer/composer": "^2.2",
                 "ext-json": "*",
                 "ext-zip": "*",
                 "php-parallel-lint/php-parallel-lint": "^1.3.1",
@@ -4118,9 +4038,9 @@
             "authors": [
                 {
                     "name": "Franck Nijhof",
-                    "email": "franck.nijhof@dealerdirect.com",
-                    "homepage": "http://www.frenck.nl",
-                    "role": "Developer / IT Manager"
+                    "email": "opensource@frenck.dev",
+                    "homepage": "https://frenck.dev",
+                    "role": "Open source developer"
                 },
                 {
                     "name": "Contributors",
@@ -4128,7 +4048,6 @@
                 }
             ],
             "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
-            "homepage": "http://www.dealerdirect.com",
             "keywords": [
                 "PHPCodeSniffer",
                 "PHP_CodeSniffer",
@@ -4149,9 +4068,28 @@
             ],
             "support": {
                 "issues": "https://github.com/PHPCSStandards/composer-installer/issues",
+                "security": "https://github.com/PHPCSStandards/composer-installer/security/policy",
                 "source": "https://github.com/PHPCSStandards/composer-installer"
             },
-            "time": "2023-01-05T11:28:13+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/PHPCSStandards",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/jrfnl",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/php_codesniffer",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/phpcsstandards",
+                    "type": "thanks_dev"
+                }
+            ],
+            "time": "2025-05-28T16:05:48+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
