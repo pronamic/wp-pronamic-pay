@@ -215,55 +215,6 @@ add_filter(
 			]
 		);
 
-		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-			[
-				'id'           => 'ideal-simulator-ideal-advanced-v3',
-				'name'         => 'iDEAL Simulator - iDEAL Professional / Advanced',
-				'mode'         => 'test',
-				'provider'     => 'ideal-simulator',
-				'product_url'  => 'https://www.ideal-checkout.nl/support/ideal-simulator',
-				'acquirer_url' => 'https://www.ideal-checkout.nl/simulator/',
-				'certificates' => [
-					__DIR__ . '/certificates/ideal-checkout-2019-02-27-2024-02-26.cer',
-				],
-			]
-		);
-
-		// ING - iDEAL Advanced - New platform - Production.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-			[
-				'id'            => 'ing-ideal-advanced-2022-production',
-				'name'          => 'ING - iDEAL Advanced - New platform - Production',
-				'mode'          => 'live',
-				'provider'      => 'ing',
-				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
-				'dashboard_url' => 'https://ideal-portal.ing.nl/',
-				'acquirer_url'  => 'https://ideal-acquiring.ing.nl/ideal/iDEALv3',
-				'certificates'  => [
-					__DIR__ . '/certificates/ing-new-2020-03-04-2025-01-17.cer',
-				],
-			]
-		);
-
-		// ING - iDEAL Advanced - New platform - Sandbox.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Integration(
-			[
-				'id'            => 'ing-ideal-advanced-2022-sandbox',
-				'name'          => 'ING - iDEAL Advanced - New platform - Sandbox',
-				'mode'          => 'test',
-				'provider'      => 'ing',
-				'product_url'   => 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/',
-				'manual_url'    => __( 'https://www.pronamicpay.com/en/manuals/how-to-connect-ing-ideal-advanced-v3-to-wordpress-with-pronamic-pay/', 'pronamic-ideal' ),
-				'dashboard_url' => 'https://sandbox.ideal-portal.ing.nl/',
-				'acquirer_url'  => 'https://sandbox.ideal-acquiring.ing.nl/ideal/iDEALv3',
-				'certificates'  => [
-					__DIR__ . '/certificates/ing-new-sandbox-2020-03-04-2025-01-17.cer',
-				],
-			]
-		);
-
 		// ING Checkout.
 		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\PayNL\Integration(
 			[
