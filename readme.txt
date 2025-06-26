@@ -46,21 +46,17 @@ Pronamic Pay is the best plugin available to accept payments on your site with s
 
 ### Supported payment providers
 
-*	ABN AMRO - iDEAL Zelfbouw
+*	ABN AMRO – iDEAL Zelfbouw – iDEAL 2.0
 *	Adyen (requires [Add-On](https://www.pronamicpay.com/))
 *	Buckaroo - HTML
-*	Deutsche Bank - iDEAL Expert
 *	EMS - e-Commerce
-*	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw
-*	ING - iDEAL Basic
-*	ING - iDEAL Advanced
-*	ING - iDEAL Advanced (new platform)
+*	ING – iDEAL Advanced - iDEAL 2.0
 *	Mollie
 *	MultiSafepay - Connect
 *	Ingenico/Ogone - OrderStandard
 *	Pay.nl
 *	Rabobank - Rabo Smart Pay
-*	Rabobank - Rabo iDEAL Professional
+*	Rabobank - Rabo iDEAL Professional - iDEAL 2.0
 
 == Installation ==
 
