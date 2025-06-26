@@ -23,7 +23,6 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Zelfbouw - iDEAL 2.0 |
 | [Adyen](https://www.adyen.com/) | Adyen |
 | [Buckaroo](https://buckaroo.nl/) | Buckaroo - HTML |
-| [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL Expert |
 | [European Merchant Services](https://emspay.nl/) | EMS - e-Commerce |
 | [ING](https://www.ing.nl/) | ING – iDEAL Advanced - iDEAL 2.0 |
 | [Mollie](https://www.mollie.nl/) | Mollie |
