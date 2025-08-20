@@ -5,6 +5,13 @@
 			"step": "login",
 			"username": "admin",
 			"password": "password"
+		},
+		{
+			"step": "defineWpConfigConsts",
+			"consts": {
+				"USE_PLAYGROUND_CORS_PROXY": true,
+				"IS_PLAYGROUND_PREVIEW": true
+			}
 		}
 	]
 }
