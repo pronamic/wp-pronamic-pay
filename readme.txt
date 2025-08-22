@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.8
 Requires PHP: 8.2
-Stable tag: 9.16.0
+Stable tag: 9.17.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,44 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [9.17.0] - 2025-08-22
+
+#### Changed
+
+- Require PHP 8.2.
+
+#### Removed
+
+- Removed iDEAL Advanced integrations.
+- Removed iDEL Basic integrations.
+
+#### Composer
+
+- Removed `wp-pay-gateways/ideal` `^4.1`.
+- Removed `wp-pay-gateways/ideal-advanced-v3` `^4.3`.
+- Removed `wp-pay-gateways/ideal-basic` `^4.3`.
+- Changed `php` from `>=8.1` to `>=8.2`.
+- Changed `automattic/jetpack-autoloader` from `v5.0.7` to `v5.0.9`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v5.0.9
+- Changed `pronamic/wp-mollie` from `v1.9.0` to `v1.10.0`.
+	Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v1.10.0
+- Changed `woocommerce/action-scheduler` from `3.9.2` to `3.9.3`.
+	Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/3.9.3
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.6.3` to `v4.7.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.7.0
+- Changed `wp-pay-extensions/woocommerce` from `v4.12.1` to `v4.13.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.13.0
+- Changed `wp-pay-gateways/adyen` from `v4.6.1` to `v4.7.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.7.0
+- Changed `wp-pay-gateways/mollie` from `v4.15.0` to `v4.16.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.16.0
+- Changed `wp-pay/core` from `v4.26.0` to `v4.27.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.27.0
+
+Full set of changes: [`9.16.0...9.17.0`][9.17.0]
+
+[9.17.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.16.0...v9.17.0
 
 ### [9.16.0] - 2025-06-19
 
