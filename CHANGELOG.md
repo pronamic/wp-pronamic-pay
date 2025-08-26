@@ -8,6 +8,17 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [9.17.1] - 2025-08-26
+
+### Composer
+
+- Changed `wp-pay-gateways/mollie` from `v4.16.0` to `v4.16.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.16.1
+
+Full set of changes: [`9.17.0...9.17.1`][9.17.1]
+
+[9.17.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.17.0...v9.17.1
+
 ## [9.17.0] - 2025-08-22
 
 ### Changed

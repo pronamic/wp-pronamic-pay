@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.8
 Requires PHP: 8.2
-Stable tag: 9.17.0
+Stable tag: 9.17.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,17 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [9.17.1] - 2025-08-26
+
+#### Composer
+
+- Changed `wp-pay-gateways/mollie` from `v4.16.0` to `v4.16.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.16.1
+
+Full set of changes: [`9.17.0...9.17.1`][9.17.1]
+
+[9.17.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.17.0...v9.17.1
 
 ### [9.17.0] - 2025-08-22
 
