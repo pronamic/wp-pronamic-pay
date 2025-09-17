@@ -8,6 +8,29 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [9.17.2] - 2025-09-17
+
+### Changed
+
+- Improved payment lines support for Mollie.
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v5.0.9` to `v5.0.10`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v5.0.10
+- Changed `wp-pay-extensions/memberpress` from `v4.8.3` to `v4.8.4`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.8.4
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.7.0` to `v4.7.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.7.1
+- Changed `wp-pay-gateways/mollie` from `v4.16.1` to `v4.16.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.16.2
+- Changed `wp-pay/core` from `v4.27.0` to `v4.27.1`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.27.1
+
+Full set of changes: [`9.17.1...9.17.2`][9.17.2]
+
+[9.17.2]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.17.1...v9.17.2
+
 ## [9.17.1] - 2025-08-26
 
 ### Composer
