@@ -8,6 +8,55 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [9.18.0] - 2025-11-11
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v5.0.10` to `v5.0.12`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v5.0.12
+- Changed `pronamic/wp-pronamic-pay-forms` from `v1.1.3` to `v1.1.4`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-forms/releases/tag/v1.1.4
+- Changed `wp-pay-extensions/charitable` from `v4.3.4` to `v4.3.5`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-charitable/releases/tag/v4.3.5
+- Changed `wp-pay-extensions/contact-form-7` from `v4.1.1` to `v4.1.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v4.1.2
+- Changed `wp-pay-extensions/easy-digital-downloads` from `v4.3.6` to `v4.3.7`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/releases/tag/v4.3.7
+- Changed `wp-pay-extensions/event-espresso` from `v4.3.3` to `v4.3.4`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-event-espresso/releases/tag/v4.3.4
+- Changed `wp-pay-extensions/formidable-forms` from `v4.4.3` to `v4.4.4`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-formidable-forms/releases/tag/v4.4.4
+- Changed `wp-pay-extensions/give` from `v4.2.4` to `v4.2.5`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-give/releases/tag/v4.2.5
+- Changed `wp-pay-extensions/gravityforms` from `v4.10.1` to `v4.10.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.10.2
+- Changed `wp-pay-extensions/memberpress` from `v4.8.4` to `v4.8.5`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.8.5
+- Changed `wp-pay-extensions/ninjaforms` from `v3.3.3` to `v3.3.4`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ninjaforms/releases/tag/v3.3.4
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.7.1` to `v4.7.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.7.2
+- Changed `wp-pay-gateways/adyen` from `v4.7.0` to `v4.8.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.8.0
+- Changed `wp-pay-gateways/buckaroo` from `v4.4.0` to `v4.4.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-buckaroo/releases/tag/v4.4.1
+- Changed `wp-pay-gateways/ems-e-commerce` from `v4.4.2` to `v4.4.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ems-e-commerce/releases/tag/v4.4.3
+- Changed `wp-pay-gateways/mollie` from `v4.16.2` to `v4.16.3`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.16.3
+- Changed `wp-pay-gateways/multisafepay` from `v4.6.1` to `v4.6.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-multisafepay/releases/tag/v4.6.2
+- Changed `wp-pay-gateways/ogone` from `v4.8.0` to `v4.8.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-ingenico/releases/tag/v4.8.1
+- Changed `wp-pay-gateways/omnikassa-2` from `v4.9.1` to `v4.9.2`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-rabo-smart-pay/releases/tag/v4.9.2
+- Changed `wp-pay-gateways/pay-nl` from `v4.6.0` to `v4.6.1`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-pay-nl/releases/tag/v4.6.1
+
+Full set of changes: [`9.17.2...9.18.0`][9.18.0]
+
+[9.18.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.17.2...v9.18.0
+
 ## [9.17.2] - 2025-09-17
 
 ### Changed
