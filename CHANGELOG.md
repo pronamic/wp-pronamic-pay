@@ -8,6 +8,25 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [9.18.1] - 2025-11-17
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v5.0.12` to `v5.0.13`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v5.0.13
+- Changed `pronamic/wp-mollie` from `v1.10.0` to `v1.10.1`.
+	Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v1.10.1
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.7.2` to `v4.8.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.8.0
+- Changed `wp-pay-gateways/mollie` from `v4.16.3` to `v4.17.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.17.0
+- Changed `wp-pay/core` from `v4.27.1` to `v4.28.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.28.0
+
+Full set of changes: [`9.18.0...9.18.1`][9.18.1]
+
+[9.18.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.18.0...v9.18.1
+
 ## [9.18.0] - 2025-11-11
 
 ### Composer
