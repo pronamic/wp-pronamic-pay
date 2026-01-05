@@ -148,18 +148,12 @@ add_filter(
 				return ( 'test' === $mode ) ? 'buckaroo-test' : 'buckaroo';
 			case 'ems-ecommerce':
 				return ( 'test' === $mode ) ? 'ems-ecommerce-test' : 'ems-ecommerce';
-			case 'ing-ideal-advanced-2022':
-				return ( 'test' === $mode ) ? 'ing-ideal-advanced-2022-sandbox' : 'ing-ideal-advanced-2022-production';
 			case 'multisafepay-connect':
 				return ( 'test' === $mode ) ? 'multisafepay-connect-test' : 'multisafepay-connect';
 			case 'paypal':
 				return ( 'test' === $mode ) ? 'paypal-sandbox' : 'paypal';
 			case 'rabobank-omnikassa-2':
 				return ( 'test' === $mode ) ? 'rabobank-omnikassa-2-sandbox' : 'rabobank-omnikassa-2';
-			case 'sisow-ideal':
-				$sisow_test_mode = get_post_meta( $post_id, '_pronamic_gateway_sisow_test_mode', true );
-
-				return ( 'test' === $mode || '' !== $sisow_test_mode ) ? 'sisow-buckaroo-test' : 'sisow-buckaroo';
 		}
 
 		return $value;
