@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00f9f5c035fa27461a0c43f80ff9eebd",
+    "content-hash": "ee2dd75ce6e4837ffc54cc564c495c6d",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -2479,83 +2479,6 @@
                 "source": "https://github.com/wp-pay-gateways/multisafepay"
             },
             "time": "2025-11-11T13:26:09+00:00"
-        },
-        {
-            "name": "wp-pay-gateways/ogone",
-            "version": "v4.8.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pronamic/wp-pronamic-pay-ingenico.git",
-                "reference": "049b66d0d0f8ea8008b0b86e6466f19772d01ad7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-ingenico/zipball/049b66d0d0f8ea8008b0b86e6466f19772d01ad7",
-                "reference": "049b66d0d0f8ea8008b0b86e6466f19772d01ad7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-simplexml": "*",
-                "php": ">=8.1",
-                "pronamic/wp-http": "^1.2",
-                "wp-pay/core": "^4.13"
-            },
-            "require-dev": {
-                "automattic/wordbless": "^0.4.0",
-                "bamarni/composer-bin-plugin": "^1.8",
-                "overtrue/phplint": "^9.0",
-                "php-coveralls/php-coveralls": "^2.6",
-                "phpmd/phpmd": "^2.14",
-                "phpstan/phpstan": "^1.11",
-                "pronamic/pronamic-cli": "^1.1",
-                "pronamic/wp-coding-standards": "^2.0",
-                "roots/wordpress": "^6.0",
-                "szepeviktor/phpstan-wordpress": "^1.3",
-                "vimeo/psalm": "^5.25",
-                "wp-phpunit/wp-phpunit": "^6.1",
-                "yoast/phpunit-polyfills": "^1.0"
-            },
-            "type": "wordpress-plugin",
-            "autoload": {
-                "psr-4": {
-                    "Pronamic\\WordPress\\Pay\\Gateways\\Ingenico\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
-                },
-                {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Ingenico/Ogone driver for the WordPress payment processing library.",
-            "homepage": "http://www.wp-pay.org/gateways/ogone/",
-            "keywords": [
-                "gateway",
-                "ingenico",
-                "ogone",
-                "pay",
-                "pronamic",
-                "wordpress",
-                "wp"
-            ],
-            "support": {
-                "email": "support@wp-pay.org",
-                "issues": "https://github.com/wp-pay-gateways/ogone/issues",
-                "source": "https://github.com/wp-pay-gateways/ogone"
-            },
-            "time": "2025-11-11T13:27:27+00:00"
         },
         {
             "name": "wp-pay-gateways/omnikassa-2",
