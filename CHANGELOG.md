@@ -8,6 +8,46 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [9.19.0] - 2026-01-05
+
+### Composer
+
+- Removed `wp-pay-gateways/ogone` `^4.8`.
+- Changed `automattic/jetpack-autoloader` from `v5.0.13` to `v5.0.15`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v5.0.15
+- Changed `pronamic/wp-number` from `v1.3.3` to `v1.4.0`.
+	Release notes: https://github.com/pronamic/wp-number/releases/tag/v1.4.0
+- Changed `pronamic/wp-pay-logos` from `v2.2.3` to `v2.3.2`.
+	Release notes: https://github.com/pronamic/wp-pay-logos/releases/tag/v2.3.2
+- Changed `pronamic/wp-pronamic-pay-forms` from `v1.1.4` to `v1.2.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-forms/releases/tag/v1.2.0
+- Changed `wp-pay-extensions/contact-form-7` from `v4.1.2` to `v4.2.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v4.2.0
+- Changed `wp-pay-extensions/easy-digital-downloads` from `v4.3.7` to `v4.4.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/releases/tag/v4.4.0
+- Changed `wp-pay-extensions/gravityforms` from `v4.10.2` to `v4.11.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.11.0
+- Changed `wp-pay-extensions/memberpress` from `v4.8.5` to `v4.9.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.9.0
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.8.0` to `v4.9.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.9.0
+- Changed `wp-pay-extensions/woocommerce` from `v4.13.0` to `v4.14.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.14.0
+- Changed `wp-pay-gateways/adyen` from `v4.8.0` to `v4.9.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.9.0
+- Changed `wp-pay-gateways/mollie` from `v4.17.0` to `v4.18.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.18.0
+- Changed `wp-pay-gateways/omnikassa-2` from `v4.9.2` to `v4.10.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-rabo-smart-pay/releases/tag/v4.10.0
+- Changed `wp-pay-gateways/pay-nl` from `v4.6.1` to `v4.7.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-pay-nl/releases/tag/v4.7.0
+- Changed `wp-pay/core` from `v4.28.0` to `v4.29.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.29.0
+
+Full set of changes: [`9.18.1...9.19.0`][9.19.0]
+
+[9.19.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.18.1...v9.19.0
+
 ## [9.18.1] - 2025-11-17
 
 ### Composer
