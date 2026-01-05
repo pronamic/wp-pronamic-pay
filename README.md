@@ -27,7 +27,6 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [ING](https://www.ing.nl/) | ING – iDEAL Advanced - iDEAL 2.0 |
 | [Mollie](https://www.mollie.nl/) | Mollie |
 | [MultiSafepay](https://www.multisafepay.com/) | MultiSafepay - Connect |
-| [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - OrderStandard |
 | [Pay.nl](https://www.pay.nl/) | Pay.nl |
 | [Rabobank](https://www.rabobank.nl/) | Rabobank - OmniKassa 2.0 |
 | [Rabobank](https://www.rabobank.nl/) | Rabo iDEAL Professional - iDEAL 2.0 |

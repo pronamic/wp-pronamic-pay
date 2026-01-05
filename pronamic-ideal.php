@@ -152,10 +152,6 @@ add_filter(
 				return ( 'test' === $mode ) ? 'ing-ideal-advanced-2022-sandbox' : 'ing-ideal-advanced-2022-production';
 			case 'multisafepay-connect':
 				return ( 'test' === $mode ) ? 'multisafepay-connect-test' : 'multisafepay-connect';
-			case 'ogone-directlink':
-				return ( 'test' === $mode ) ? 'ingenico-directlink-test' : 'ingenico-directlink';
-			case 'ogone-orderstandard':
-				return ( 'test' === $mode ) ? 'ingenico-orderstandard-test' : 'ingenico-orderstandard';
 			case 'paypal':
 				return ( 'test' === $mode ) ? 'paypal-sandbox' : 'paypal';
 			case 'rabobank-omnikassa-2':
@@ -257,30 +253,6 @@ add_filter(
 				'name'    => 'MultiSafepay - Connect - Test',
 				'mode'    => 'test',
 				'api_url' => 'https://testapi.multisafepay.com/ewx/',
-			]
-		);
-
-		// Ingenico.
-		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
-
-		// Ingenico - OrderStandard.
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration(
-			[
-				'id'               => 'ingenico-orderstandard',
-				'name'             => 'Ingenico/Ogone - e-Commerce',
-				'mode'             => 'live',
-				'action_url'       => $is_utf8 ? 'https://secure.ogone.com/ncol/prod/orderstandard_utf8.asp' : 'https://secure.ogone.com/ncol/prod/orderstandard.asp',
-				'direct_query_url' => 'https://secure.ogone.com/ncol/prod/querydirect.asp',
-			]
-		);
-
-		$gateways[] = new \Pronamic\WordPress\Pay\Gateways\Ingenico\OrderStandard\Integration(
-			[
-				'id'               => 'ingenico-orderstandard-test',
-				'name'             => 'Ingenico/Ogone - e-Commerce - Test',
-				'mode'             => 'test',
-				'action_url'       => $is_utf8 ? 'https://secure.ogone.com/ncol/test/orderstandard_utf8.asp' : 'https://secure.ogone.com/ncol/test/orderstandard.asp',
-				'direct_query_url' => 'https://secure.ogone.com/ncol/test/querydirect.asp',
 			]
 		);
 
