@@ -8,6 +8,21 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [9.20.0] - 2026-01-27
+
+### Composer
+
+- Changed `wp-pay-extensions/memberpress` from `v4.9.0` to `v4.10.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.10.0
+- Changed `wp-pay-gateways/mollie` from `v4.18.0` to `v4.19.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.19.0
+- Changed `wp-pay/core` from `v4.29.0` to `v4.30.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.30.0
+
+Full set of changes: [`9.19.0...9.20.0`][9.20.0]
+
+[9.20.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.19.0...v9.20.0
+
 ## [9.19.0] - 2026-01-05
 
 ### Composer

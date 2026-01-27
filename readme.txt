@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.8
 Requires PHP: 8.2
-Stable tag: 9.19.0
+Stable tag: 9.20.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,21 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [9.20.0] - 2026-01-27
+
+#### Composer
+
+- Changed `wp-pay-extensions/memberpress` from `v4.9.0` to `v4.10.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.10.0
+- Changed `wp-pay-gateways/mollie` from `v4.18.0` to `v4.19.0`.
+	Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.19.0
+- Changed `wp-pay/core` from `v4.29.0` to `v4.30.0`.
+	Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.30.0
+
+Full set of changes: [`9.19.0...9.20.0`][9.20.0]
+
+[9.20.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.19.0...v9.20.0
 
 ### [9.19.0] - 2026-01-05
 
