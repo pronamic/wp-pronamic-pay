@@ -8,6 +8,34 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [10.0.0-rc.1] - 2026-03-24
+
+### Added
+
+- Added Pronamic Forms plugin bootstrapping and module loading.
+- Added script translation loading for registered Pronamic Forms blocks.
+
+### Changed
+
+- Updated release build pipeline to use the `build/pronamic-ideal` target and generate block assets/manifests during packaging.
+- Refreshed translation source and compiled language files.
+
+### Composer
+
+- Added `pronamic/wp-pronamic-forms` `^2.0`.
+- Changed `pronamic/wp-datetime` from `v2.1.0` to `v2.2.0`.
+  Release notes: https://github.com/pronamic/wp-datetime/releases/tag/v2.2.0
+- Changed `wp-pay-extensions/gravityforms` from `v4.11.0` to `v4.12.0`.
+  Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.12.0
+- Changed `wp-pay-gateways/buckaroo` from `v4.4.1` to `v4.5.0`.
+  Release notes: https://github.com/pronamic/wp-pronamic-pay-buckaroo/releases/tag/v4.5.0
+- Changed `wp-pay/core` from `v4.30.0` to `v4.32.0`.
+  Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.32.0
+
+Full set of changes: [`9.20.0...10.0.0-rc.1`][10.0.0-rc.1]
+
+[10.0.0-rc.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.20.0...v10.0.0-rc.1
+
 ## [9.20.0] - 2026-01-27
 
 ### Composer
