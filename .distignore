@@ -8,9 +8,9 @@
 .wp-env.json
 
 # Git (https://git-scm.com/)
-/.git/
-/.gitignore
-/.gitattributes
+.git/
+.gitignore
+.gitattributes
 
 # .DS_Store (https://en.wikipedia.org/wiki/.DS_Store)
 .DS_Store
@@ -23,58 +23,60 @@
 /wp-content/
 
 # WordPress.org assets
-/.wordpress-org/
+.wordpress-org/
 
 # pNpm (https://pnpm.io/)
 /pnpm-lock.yaml
 
 # IntelliJ's project specific settings files
 # @link https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
-/.idea/
+.idea/
 
 # Visual Studio Code
-/.vscode/
+.vscode/
 
 # JSHint (http://jshint.com/about/)
-/.jshintrc
+.jshintrc
 
 # GitHub
-/.github/
+.github/
 
 # Nova (https://nova.app)
-/.nova/
+.nova/
 
 # PHP error logs
-/php_errors.log
+php_errors.log
 
 # PHP_CodeSniffer (https://github.com/squizlabs/PHP_CodeSniffer)
-/phpcs.xml.dist
-/phpcs.xml
-/phpcs-text-domain-fixer.xml
+phpcs.xml.dist
+phpcs.xml
 
 # phpDocumentor (https://www.phpdoc.org/)
-/phpdoc.dist.xml
-/phpdoc.xml
+phpdoc.dist.xml
+phpdoc.xml
 
 # PHP Mess Detector (https://phpmd.org/)
-/phpmd.ruleset.xml
-/phpmd.xml.dist
-/phpmd.xml
+phpmd.ruleset.xml
+phpmd.xml.dist
+phpmd.xml
 
 # PHP Static Analysis Tool (https://github.com/phpstan/phpstan)
-/phpstan.neon.dist
-/phpstan.neon
+phpstan.neon.dist
+phpstan.neon
 
 # PHPUnit (https://phpunit.de/)
-/phpunit.xml.dist
-/phpunit.xml
+phpunit.xml.dist
+phpunit.xml
 
 # Psalm (https://github.com/vimeo/psalm)
-/psalm.xml.dist
-/psalm.xml
+psalm.xml.dist
+psalm.xml
+
+# Rector (https://getrector.com/)
+rector.php
 
 # WP-CLI (https://wp-cli.org/)
-/wp-cli.yml
+wp-cli.yml
 
 # Project
 /build/

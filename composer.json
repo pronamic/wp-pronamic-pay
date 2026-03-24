@@ -54,6 +54,34 @@
 			"bamarni/composer-bin-plugin": true,
 			"composer/installers": true,
 			"automattic/jetpack-autoloader": true
+		}
+	},
+	"extra": {
+		"installer-paths": {
+			"packages/{$vendor}/{$name}": [
+				"vendor:pronamic",
+				"vendor:wp-pay",
+				"vendor:wp-pay-extensions",
+				"vendor:wp-pay-gateways",
+				"woocommerce/action-scheduler"
+			]
+		},
+		"solvebeam-wp-text-domain-replacer": {
+			"search": [
+				"action-scheduler",
+				"pronamic_ideal",
+				"pronamic-forms",
+				"pronamic-ideal",
+				"pronamic-money",
+				"pronamic-pay-admin-reports",
+				"pronamic-payment-gateways-countries-condition-for-woocommerce",
+				"pronamic-pay-woocommerce"
+			],
+			"replace": "pronamic-ideal",
+			"exclude": [
+				"vendor",
+				"node_modules"
+			]
 		},
 		"wp-slug": "pronamic-ideal"
 	},
@@ -64,7 +92,7 @@
 		"composer/installers": "^2.3",
 		"pronamic/pronamic-pay-admin-reports": "^1.0",
 		"pronamic/pronamic-wp-updater": "^1.0",
-		"pronamic/wp-datetime": "^2.1",
+		"pronamic/wp-datetime": "^2.2",
 		"pronamic/wp-gravityforms-nl": "^3.0",
 		"pronamic/wp-html": "^2.2",
 		"pronamic/wp-http": "^1.2",
@@ -72,6 +100,7 @@
 		"pronamic/wp-money": "^2.4",
 		"pronamic/wp-number": "^1.4",
 		"pronamic/wp-pay-logos": "^2.3",
+		"pronamic/wp-pronamic-forms": "^2.0",
 		"pronamic/wp-pronamic-pay-forms": "^1.2",
 		"woocommerce/action-scheduler": "^3.9",
 		"wp-pay-extensions/charitable": "^4.3",
@@ -80,20 +109,20 @@
 		"wp-pay-extensions/event-espresso": "^4.3",
 		"wp-pay-extensions/formidable-forms": "^4.4",
 		"wp-pay-extensions/give": "^4.2",
-		"wp-pay-extensions/gravityforms": "^4.11",
+		"wp-pay-extensions/gravityforms": "^4.12",
 		"wp-pay-extensions/memberpress": "^4.10",
 		"wp-pay-extensions/ninjaforms": "^3.3",
 		"wp-pay-extensions/restrict-content-pro": "^4.9",
 		"wp-pay-extensions/woocommerce": "^4.14",
 		"wp-pay-gateways/adyen": "^4.9",
-		"wp-pay-gateways/buckaroo": "^4.4",
+		"wp-pay-gateways/buckaroo": "^4.5",
 		"wp-pay-gateways/ems-e-commerce": "^4.4",
 		"wp-pay-gateways/mollie": "^4.19",
 		"wp-pay-gateways/multisafepay": "^4.6",
 		"wp-pay-gateways/omnikassa-2": "^4.10",
 		"wp-pay-gateways/pay-nl": "^4.7",
 		"wp-pay-gateways/paypal": "^2.3",
-		"wp-pay/core": "^4.30",
+		"wp-pay/core": "^4.32",
 		"wp-pay/fundraising": "^3.2"
 	},
 	"require-dev": {
@@ -106,39 +135,31 @@
 		"pronamic/pronamic-cli": "^1.1",
 		"pronamic/wp-coding-standards": "^2.4",
 		"roots/wordpress-no-content": "^6.4",
+		"solvebeam/wp-text-domain-replacer": "dev-main",
 		"vimeo/psalm": "^5.24",
 		"wp-cli/dist-archive-command": "*",
 		"wp-cli/wp-cli-bundle": "*",
 		"yoast/phpunit-polyfills": "^1.1"
 	},
-	"extra": {
-		"installer-paths": {
-			"packages/{$vendor}/{$name}": [
-				"vendor:pronamic",
-				"vendor:wp-pay",
-				"vendor:wp-pay-extensions",
-				"vendor:wp-pay-gateways",
-				"woocommerce/action-scheduler"
-			]
-		}
-	},
 	"scripts": {
 		"build": [
 			"Pronamic\\ChangelogMdToWordPressPluginReadmeTxt\\Synchronizer::run",
-			"rm -rf ./build",
-			"mkdir ./build",
-			"mkdir ./build/stage-1",
-			"mkdir ./build/stage-2",
+			"rm -rf ./build/stage-1",
+			"rm -rf ./build/pronamic-ideal/*",
 			"rsync --recursive --verbose --exclude-from=.distignore --exclude-from=.gitignore ./ ./build/stage-1/",
 			"composer install --no-dev --prefer-dist --optimize-autoloader --working-dir=./build/stage-1/",
-			"rsync --recursive --verbose --exclude-from=.distignore ./build/stage-1/ ./build/stage-2/",
-			"vendor/bin/phpcbf -s -v --standard=phpcs-text-domain-fixer.xml ./build/stage-2/ || true",
-			"vendor/bin/wp i18n make-pot ./build/stage-2/ --slug=pronamic-ideal",
-			"vendor/bin/wp dist-archive ./build/stage-2/ --plugin-dirname=pronamic-ideal"
+			"rsync --recursive --verbose --exclude-from=.distignore ./build/stage-1/ ./build/pronamic-ideal/",
+			"vendor/bin/wptdr --dir=./build/pronamic-ideal/",
+			"npx wp-scripts build --webpack-src-dir=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks-src --output-path=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks",
+			"npx wp-scripts build-blocks-manifest  --input=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks --output=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks/blocks-manifest.php",
+			"vendor/bin/wp i18n make-pot ./build/pronamic-ideal/ --slug=pronamic-ideal",
+			"vendor/bin/wp i18n make-json ./build/pronamic-ideal/languages/",
+			"vendor/bin/wp i18n make-mo ./build/pronamic-ideal/languages/",
+			"vendor/bin/wp dist-archive ./build/pronamic-ideal/ --plugin-dirname=pronamic-ideal --force"
 		],
 		"translate": [
 			"@build",
-			"rsync --recursive --delete --verbose ./build/stage-2/languages/ ./languages/",
+			"rsync --recursive --delete --verbose ./build/pronamic-ideal/languages/ ./languages/",
 			"@update-po"
 		],
 		"version": [

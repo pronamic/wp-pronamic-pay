@@ -17,8 +17,6 @@
 	<exclude-pattern type="relative">^wordpress/*</exclude-pattern>
 
 	<rule ref="PronamicWP">
-		<exclude name="Squiz.Commenting.FileComment.Missing">src/readme-txt/changelog.php</exclude>
-
 		<exclude name="WordPress.DB.DirectDatabaseQuery.DirectQuery" />
 		<exclude name="WordPress.DB.DirectDatabaseQuery.NoCaching" />
 
@@ -37,12 +35,6 @@
 		</properties>
 	</rule>
 
-	<rule ref="phpcs-text-domain-fixer.xml" />
-
-	<rule ref="Generic.Files.EndFileNewline.NotFound">
-		<exclude-pattern>src/readme-md/installation.php</exclude-pattern>
-	</rule>
-
 	<rule ref="Generic.WhiteSpace.ScopeIndent.Incorrect">
 		<exclude-pattern>admin/tab-*.php</exclude-pattern>
 	</rule>
@@ -51,35 +43,9 @@
 		<exclude-pattern>src/*.php</exclude-pattern>
 	</rule>
 
-	<rule ref="PHPCompatibility.FunctionDeclarations.NewClosure.ClassRefFound">
-		<exclude-pattern>src/i18n-make-pot.php</exclude-pattern>
-	</rule>
-
-	<rule ref="PHPCompatibility.FunctionDeclarations.NewClosure.ThisFound">
-		<exclude-pattern>src/i18n-make-pot.php</exclude-pattern>
-	</rule>
-
-	<rule ref="PHPCompatibility.FunctionDeclarations.NewClosure.ThisFoundOutsideClass">
-		<exclude-pattern>src/i18n-make-pot.php</exclude-pattern>
-	</rule>
-
 	<rule ref="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
 		<exclude-pattern>admin/*.php</exclude-pattern>
 	</rule>
-
-    <rule ref="Squiz.Commenting.FileComment.Missing">
-        <exclude-pattern>src/readme-txt/description-long.php</exclude-pattern>
-    </rule>
-
-    <rule ref="Squiz.PHP.EmbeddedPhp.ContentBeforeOpen">
-        <exclude-pattern>src/readme-md/extensions.php</exclude-pattern>
-        <exclude-pattern>src/readme-md/gateways.php</exclude-pattern>
-    </rule>
-
-    <rule ref="Squiz.PHP.EmbeddedPhp.ContentAfterEnd">
-        <exclude-pattern>src/readme-md/extensions.php</exclude-pattern>
-        <exclude-pattern>src/readme-md/gateways.php</exclude-pattern>
-    </rule>
 
 	<rule ref="WordPress.DB.DirectDatabaseQuery.SchemaChange">
 		<exclude-pattern>uninstall.php</exclude-pattern>
@@ -87,10 +53,6 @@
 
 	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.system_calls_passthru">
 		<exclude-pattern>src/dev.php</exclude-pattern>
-	</rule>
-
-	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize">
-		<exclude-pattern>includes/updates/update-2.0.0.php</exclude-pattern>
 	</rule>
 
 	<rule ref="WordPress.Security.EscapeOutput.OutputNotEscaped">

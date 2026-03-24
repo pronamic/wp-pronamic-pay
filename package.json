@@ -29,13 +29,13 @@
 		"url": "https://github.com/pronamic/wp-pronamic-pay/issues",
 		"email": "support@pronamic.nl"
 	},
-	"browserslist": [
-		"> 1%",
-		"last 2 versions"
-	],
+	"dependencies": {
+		"@wordpress/interactivity": "^6.42.0",
+		"clsx": "^2.1.1"
+	},
 	"devDependencies": {
-		"@wordpress/env": "^10.37.0",
-		"@wordpress/scripts": "^31.2.0"
+		"@wordpress/env": "^11.2.0",
+		"@wordpress/scripts": "^31.7.0"
 	},
 	"private": true,
 	"prettier": "@wordpress/prettier-config",
