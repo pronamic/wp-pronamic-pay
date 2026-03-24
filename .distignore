@@ -1,11 +1,5 @@
-# Pronamic build ignore
-.pronamic-build-ignore
-
-.distignore
-
+# EditorConfig (https://editorconfig.org/)
 .editorconfig
-
-.wp-env.json
 
 # Git (https://git-scm.com/)
 .git/
@@ -74,6 +68,12 @@ rector.php
 
 # WP-CLI (https://wp-cli.org/)
 wp-cli.yml
+
+# wp-env (https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/)
+.wp-env.json
+
+# WP-CLI dist-archive (https://developer.wordpress.org/cli/commands/dist-archive/)
+.distignore
 
 # Project
 /build/
