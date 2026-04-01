@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 5.9
 Tested up to: 6.8
 Requires PHP: 8.2
-Stable tag: 10.0.0-rc.1
+Stable tag: 10.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,7 +100,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 <!-- Start changelog -->
 
-### [10.0.0-rc.1] - 2026-03-24
+### [10.0.0] - 2026-04-01
 
 #### Added
 
@@ -124,9 +124,9 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 - Changed `wp-pay/core` from `v4.30.0` to `v4.32.0`.
   Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.32.0
 
-Full set of changes: [`9.20.0...10.0.0-rc.1`][10.0.0-rc.1]
+Full set of changes: [`9.20.0...10.0.0`][10.0.0]
 
-[10.0.0-rc.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.20.0...v10.0.0-rc.1
+[10.0.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.20.0...v10.0.0
 
 ### [9.20.0] - 2026-01-27
 

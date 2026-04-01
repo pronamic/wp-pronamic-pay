@@ -8,7 +8,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
-## [10.0.0-rc.1] - 2026-03-24
+## [10.0.0] - 2026-04-01
 
 ### Added
 
@@ -32,9 +32,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Changed `wp-pay/core` from `v4.30.0` to `v4.32.0`.
   Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.32.0
 
-Full set of changes: [`9.20.0...10.0.0-rc.1`][10.0.0-rc.1]
+Full set of changes: [`9.20.0...10.0.0`][10.0.0]
 
-[10.0.0-rc.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.20.0...v10.0.0-rc.1
+[10.0.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v9.20.0...v10.0.0
 
 ## [9.20.0] - 2026-01-27
 
