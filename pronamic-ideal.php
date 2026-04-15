@@ -68,6 +68,8 @@ add_action(
 
 \Pronamic\PronamicForms\Plugin::instance();
 
+\Pronamic\PronamicPayDefaultPaymentMethods\Plugin::instance();
+
 /**
  * Plugin dependencies.
  *
