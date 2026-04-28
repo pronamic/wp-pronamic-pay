@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-01T13:10:45+00:00\n"
+"POT-Creation-Date: 2026-04-28T12:05:02+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pronamic-ideal\n"
@@ -259,6 +259,36 @@ msgstr ""
 
 #: packages/pronamic/pronamic-pay-admin-reports/php/classes/Plugin.php:280
 msgid "Failed payments"
+msgstr ""
+
+#: packages/pronamic/pronamic-pay-default-payment-methods/payment-methods/afterpay-nl.php:15
+msgid "AfterPay is one of the largest and most popular post-payment system in the Benelux. Millions of Dutch and Belgians use AfterPay to pay for products."
+msgstr ""
+
+#. translators: %s: payment method name
+#: packages/pronamic/pronamic-pay-default-payment-methods/payment-methods/direct-debit-bancontact.php:16
+#: packages/pronamic/pronamic-pay-default-payment-methods/payment-methods/direct-debit-ideal.php:16
+#: packages/pronamic/pronamic-pay-default-payment-methods/payment-methods/direct-debit-sofort.php:16
+#, php-format
+msgid "By using this payment method you authorize us via %s to debit payments from your bank account."
+msgstr ""
+
+#: packages/pronamic/pronamic-pay-default-payment-methods/payment-methods/ideal-qr.php:14
+msgid "iDEAL | Wero QR"
+msgstr ""
+
+#: packages/pronamic/pronamic-pay-default-payment-methods/payment-methods/ideal.php:15
+msgid "With iDEAL you can easily pay online in the secure environment of your own bank."
+msgstr ""
+
+#: packages/pronamic/pronamic-pay-default-payment-methods/payment-methods/ideal.php:18
+#: packages/wp-pay/core/src/Core/PaymentMethods.php:561
+#: packages/wp-pay/core/src/Core/PaymentMethods.php:573
+msgid "iDEAL | Wero"
+msgstr ""
+
+#: packages/pronamic/pronamic-pay-default-payment-methods/payment-methods/riverty.php:15
+msgid "Riverty (formerly AfterPay) is a payment service that allows customers to pay after receiving the product."
 msgstr ""
 
 #: packages/pronamic/wp-http/src/Response.php:146
@@ -1173,7 +1203,6 @@ msgstr ""
 #: packages/pronamic/wp-pronamic-forms/psr-4/PaymentMethodBlocksController.php:178
 #: packages/wp-pay-extensions/easy-digital-downloads/src/Extension.php:79
 #: packages/wp-pay-extensions/event-espresso/src/IDealPaymentMethod.php:43
-#: packages/wp-pay/core/src/Plugin.php:926
 #: packages/pronamic/wp-pronamic-forms/blocks-src/form/index.js:317
 #: packages/pronamic/wp-pronamic-forms/blocks/form/index.js:1
 msgid "iDEAL"
@@ -6154,12 +6183,6 @@ msgstr ""
 msgid "Direct Debit (mandate via %s)"
 msgstr ""
 
-#: packages/wp-pay/core/src/Core/PaymentMethods.php:561
-#: packages/wp-pay/core/src/Core/PaymentMethods.php:573
-#: packages/wp-pay/core/src/Plugin.php:913
-msgid "iDEAL | Wero"
-msgstr ""
-
 #: packages/wp-pay/core/src/Core/PaymentMethods.php:566
 msgid "SOFORT"
 msgstr ""
@@ -6712,44 +6735,26 @@ msgstr ""
 msgid "Payment status check at gateway by %s."
 msgstr ""
 
-#: packages/wp-pay/core/src/Plugin.php:649
-msgid "AfterPay is one of the largest and most popular post-payment system in the Benelux. Millions of Dutch and Belgians use AfterPay to pay for products."
-msgstr ""
-
-#. translators: %s: payment method
-#: packages/wp-pay/core/src/Plugin.php:842
-#, php-format
-msgid "By using this payment method you authorize us via %s to debit payments from your bank account."
-msgstr ""
-
-#: packages/wp-pay/core/src/Plugin.php:910
-msgid "With iDEAL you can easily pay online in the secure environment of your own bank."
-msgstr ""
-
-#: packages/wp-pay/core/src/Plugin.php:1095
-msgid "Riverty (formerly AfterPay) is a payment service that allows customers to pay after receiving the product."
-msgstr ""
-
-#: packages/wp-pay/core/src/Plugin.php:1203
+#: packages/wp-pay/core/src/Plugin.php:643
 msgctxt "default datetime format"
 msgid "D j M Y \\a\\t H:i"
 msgstr ""
 
-#: packages/wp-pay/core/src/Plugin.php:1214
+#: packages/wp-pay/core/src/Plugin.php:654
 msgid "Something went wrong with the payment. Please try again or pay another way."
 msgstr ""
 
-#: packages/wp-pay/core/src/Plugin.php:1257
+#: packages/wp-pay/core/src/Plugin.php:697
 msgid "— Select Configuration —"
 msgstr ""
 
 #. translators: %d: Gateway configuration ID
-#: packages/wp-pay/core/src/Plugin.php:1580
+#: packages/wp-pay/core/src/Plugin.php:1020
 #, php-format
 msgid "Payment failed because gateway configuration with ID `%d` does not exist."
 msgstr ""
 
-#: packages/wp-pay/core/src/Plugin.php:1700
+#: packages/wp-pay/core/src/Plugin.php:1140
 msgid "Unable to process refund as gateway could not be found."
 msgstr ""
 
