@@ -1,4 +1,9 @@
 <?php
+/**
+ * Development script to manage composer packages.
+ *
+ * @package Pronamic\WordPress\Pay
+ */
 
 $branch = 'main';
 
