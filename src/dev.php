@@ -12,6 +12,8 @@ if ( \array_key_exists( 1, $argv ) ) {
 }
 
 $packages = [
+	'pronamic/pronamic-pay-admin-reports',
+	'pronamic/pronamic-pay-default-payment-methods',
 	'pronamic/wp-datetime',
 	'pronamic/wp-html',
 	'pronamic/wp-http',
