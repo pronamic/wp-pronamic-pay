@@ -38,7 +38,6 @@ $packages = [
 	'wp-pay-gateways/multisafepay',
 	'wp-pay-gateways/omnikassa-2',
 	'wp-pay-gateways/pay-nl',
-	'wp-pay-gateways/paypal',
 	// Extensions.
 	'wp-pay-extensions/charitable',
 	'wp-pay-extensions/contact-form-7',
