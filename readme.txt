@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 8.2
-Stable tag: 10.0.0
+Stable tag: 10.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,44 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [10.1.0] - 2026-05-13
+
+#### Changed
+
+- Updated `Requires at least` to WordPress 6.7 and `Tested up to` to WordPress 6.9.
+
+#### Removed
+
+- Removed unused PayPal gateway Composer dependency (`wp-pay-gateways/paypal`).
+
+#### Composer
+
+- Added `pronamic/pronamic-pay-default-payment-methods` `v1.0.1`.
+	- Updated iDEAL QR payment method name to "iDEAL | Wero QR".
+	- Release notes: https://github.com/pronamic/pronamic-pay-default-payment-methods/releases/tag/v1.0.1
+- Changed `pronamic/wp-pronamic-pay-forms` from `dev-main` to `v1.3.0`.
+	- Upgraded payment-form block to apiVersion 3 with block.json schema validation.
+	- Added plugin bootstrap file with proper plugin headers and autoloader support.
+	- Release notes: https://github.com/pronamic/wp-pronamic-pay-forms/releases/tag/v1.3.0
+- Changed `wp-pay-extensions/formidable-forms` from `v4.4.4` to `v4.5.0`.
+	- Added namespace declaration and strict types to improve code quality.
+	- Registered form action via filter hook for improved extensibility.
+	- Bumped Formidable plugin requirement to `^6.24`.
+	- Release notes: https://github.com/pronamic/wp-pronamic-pay-formidable-forms/releases/tag/v4.5.0
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.9.0` to `v4.10.1`.
+	- Added support for "Pay by Bank" payment method.
+	- Fixed text domain for Mollie integration manual URL.
+	- Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.10.1
+- Changed `wp-pay/core` from `v4.32.0` to `v4.33.0`.
+	- Added `pronamic_pay_register_payment_methods` action to register payment methods in plugin space.
+	- Moved default payment method registration into the `pronamic/pronamic-pay-default-payment-methods` package.
+	- Removed temporary iDEAL rebranding override.
+	- Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.33.0
+
+Full set of changes: [`10.0.0...10.1.0`][10.1.0]
+
+[10.1.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v10.0.0...v10.1.0
 
 ### [10.0.0] - 2026-04-01
 
