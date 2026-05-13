@@ -12,6 +12,8 @@ if ( \array_key_exists( 1, $argv ) ) {
 }
 
 $packages = [
+	'pronamic/pronamic-pay-admin-reports',
+	'pronamic/pronamic-pay-default-payment-methods',
 	'pronamic/wp-datetime',
 	'pronamic/wp-html',
 	'pronamic/wp-http',
@@ -36,7 +38,6 @@ $packages = [
 	'wp-pay-gateways/multisafepay',
 	'wp-pay-gateways/omnikassa-2',
 	'wp-pay-gateways/pay-nl',
-	'wp-pay-gateways/paypal',
 	// Extensions.
 	'wp-pay-extensions/charitable',
 	'wp-pay-extensions/contact-form-7',
