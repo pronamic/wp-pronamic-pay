@@ -5,7 +5,7 @@
  * Description: The Pronamic Pay plugin adds payment methods like iDEAL | Wero, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
  *
  * Version: 10.1.0
- * Requires at least: 6.7
+ * Requires at least: 6.8
  * Requires PHP: 8.2
  *
  * Author: Pronamic
