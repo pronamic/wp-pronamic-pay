@@ -8,6 +8,61 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [10.2.0] - 2026-07-31
+
+### Changed
+
+- Updated the plugin description to refer to "iDEAL | Wero" as part of the iDEAL rebranding.
+- Updated `Requires at least` to WordPress 6.8 in the plugin header.
+
+### Composer
+
+- Changed `pronamic/pronamic-pay-admin-reports` from `v1.0.1` to `v1.1.0`.
+	- Added compatibility with Action Scheduler 4.0.
+	- Release notes: https://github.com/pronamic/pronamic-pay-admin-reports/releases/tag/v1.1.0
+- Changed `pronamic/pronamic-pay-default-payment-methods` from `v1.0.1` to `v1.1.0`.
+	- Added online banking payment methods for the Czech Republic (CZ) and Slovakia (SK).
+	- Release notes: https://github.com/pronamic/pronamic-pay-default-payment-methods/releases/tag/v1.1.0
+- Changed `woocommerce/action-scheduler` requirement from `^3.9` to `^3.9 || ^4.0`.
+	- Allows installation alongside plugins that ship Action Scheduler 4.0.
+- Changed `wp-pay-extensions/event-espresso` from `v4.3.4` to `v4.4.0`.
+	- Added compatibility with Action Scheduler 4.0.
+	- Release notes: https://github.com/pronamic/wp-pronamic-pay-event-espresso/releases/tag/v4.4.0
+- Changed `wp-pay-extensions/gravityforms` from `v4.12.1` to `v4.13.0`.
+	- Added country name validation when saving an entry post.
+	- Hardened role assignment from payment feeds.
+	- Added compatibility with Action Scheduler 4.0.
+	- Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.13.0
+- Changed `wp-pay-extensions/memberpress` from `v4.10.0` to `v4.11.0`.
+	- Removed the unused `memberpress_subscription_transition_status()` method.
+	- Added compatibility with Action Scheduler 4.0.
+	- Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.11.0
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.10.1` to `v4.11.0`.
+	- Added compatibility with Action Scheduler 4.0.
+	- Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.11.0
+- Changed `wp-pay-extensions/woocommerce` from `v4.14.2` to `v4.15.0`.
+	- Added compatibility with Action Scheduler 4.0.
+	- Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.15.0
+- Changed `wp-pay-gateways/adyen` from `v4.9.0` to `v4.10.0`.
+	- Added online banking payment methods for the Czech Republic (CZ) and Slovakia (SK).
+	- Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v4.10.0
+- Changed `wp-pay-gateways/buckaroo` from `v4.5.1` to `v4.6.0`.
+	- Added Belfius, EPS, KBC and Pay by Bank payment methods.
+	- Release notes: https://github.com/pronamic/wp-pronamic-pay-buckaroo/releases/tag/v4.6.0
+- Changed `wp-pay-gateways/mollie` from `v4.19.0` to `v4.20.0`.
+	- Deferred webhook processing with Action Scheduler.
+	- Set the timezone for due date calculation.
+	- Added compatibility with Action Scheduler 4.0.
+	- Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.20.0
+- Changed `wp-pay/core` from `v4.33.0` to `v4.34.0`.
+	- Synced the `refunded_amount` currency with `total_amount` when the refunded amount is zero.
+	- Added compatibility with Action Scheduler 4.0.
+	- Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.34.0
+
+Full set of changes: [`10.1.0...10.2.0`][10.2.0]
+
+[10.2.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v10.1.0...v10.2.0
+
 ## [10.1.0] - 2026-05-13
 
 ### Changed

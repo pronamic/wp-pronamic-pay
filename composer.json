@@ -158,7 +158,7 @@
 			"vendor/bin/wptdr --dir=./build/pronamic-ideal/",
 			"npx wp-scripts build --webpack-src-dir=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks-src --output-path=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks",
 			"npx wp-scripts build-blocks-manifest  --input=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks --output=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks/blocks-manifest.php",
-			"vendor/bin/wp i18n make-pot ./build/pronamic-ideal/ --slug=pronamic-ideal",
+			"vendor/bin/wp i18n make-pot ./build/pronamic-ideal/ --slug=pronamic-ideal --exclude=js/dist/*.js",
 			"vendor/bin/wp i18n make-json ./build/pronamic-ideal/languages/",
 			"vendor/bin/wp i18n make-mo ./build/pronamic-ideal/languages/",
 			"vendor/bin/wp dist-archive ./build/pronamic-ideal/ --plugin-dirname=pronamic-ideal --force"
