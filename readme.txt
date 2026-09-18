@@ -102,8 +102,8 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 #### Composer
 
-- Changed `pronamic/wp-mollie` requirement from `^1.10` to `^2.0`.
-	- Allows installing `wp-pay-gateways/mollie` `^4.21`.
+- Removed the unused direct `pronamic/wp-mollie` requirement.
+	- `wp-pay-gateways/mollie` continues to require `pronamic/wp-mollie` transitively.
 
 ### [10.2.0] - 2026-07-31
 
