@@ -8,6 +8,14 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+### Changed
+
+- Require PHP 8.3.
+
+### Composer
+
+- Changed `wp-pay-extensions/easy-digital-downloads` from `v4.4.x` to `v4.5.0`.
+
 ## [10.2.0] - 2026-07-31
 
 ### Changed
