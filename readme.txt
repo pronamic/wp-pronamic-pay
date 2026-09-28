@@ -100,6 +100,16 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 <!-- Start changelog -->
 
+#### Changed
+
+- Require PHP 8.3.
+
+#### Composer
+
+- Changed `wp-pay-extensions/easy-digital-downloads` from `v4.4.x` to `v4.5.0`.
+- Removed the unused direct `pronamic/wp-mollie` requirement.
+	- `wp-pay-gateways/mollie` continues to require `pronamic/wp-mollie` transitively.
+
 ### [10.2.0] - 2026-07-31
 
 #### Changed

@@ -17,7 +17,6 @@ $packages = [
 	'pronamic/wp-datetime',
 	'pronamic/wp-html',
 	'pronamic/wp-http',
-	'pronamic/wp-mollie',
 	'pronamic/wp-money',
 	'pronamic/wp-number',
 	'pronamic/wp-pay-logos',
