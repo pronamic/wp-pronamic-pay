@@ -8,8 +8,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+### Changed
+
+- Require PHP 8.3.
+
 ### Composer
 
+- Changed `wp-pay-extensions/easy-digital-downloads` from `v4.4.x` to `v4.5.0`.
 - Removed the unused direct `pronamic/wp-mollie` requirement.
 	- `wp-pay-gateways/mollie` continues to require `pronamic/wp-mollie` transitively.
 

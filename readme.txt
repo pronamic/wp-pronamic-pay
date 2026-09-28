@@ -4,7 +4,7 @@ Tags: pronamic, pay, ideal, payment, gateway
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=wp-plugin-readme-txt
 Requires at least: 6.7
 Tested up to: 7.1
-Requires PHP: 8.2
+Requires PHP: 8.3
 Stable tag: 10.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -100,8 +100,13 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 <!-- Start changelog -->
 
+#### Changed
+
+- Require PHP 8.3.
+
 #### Composer
 
+- Changed `wp-pay-extensions/easy-digital-downloads` from `v4.4.x` to `v4.5.0`.
 - Removed the unused direct `pronamic/wp-mollie` requirement.
 	- `wp-pay-gateways/mollie` continues to require `pronamic/wp-mollie` transitively.
 
