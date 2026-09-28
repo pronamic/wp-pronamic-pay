@@ -7,7 +7,7 @@
 
 $branch = 'main';
 
-if ( \array_key_exists( 1, $argv ) ) {
+if ( isset( $argv[1] ) ) {
 	$branch = $argv[1];
 }
 
@@ -63,9 +63,17 @@ $composer_lock = json_decode( $json );
 
 $requirements = [];
 
-if ( is_object( $composer_lock ) && isset( $composer_lock->packages ) ) {
+if ( is_object( $composer_lock ) && isset( $composer_lock->packages ) && is_array( $composer_lock->packages ) ) {
 	foreach ( $composer_lock->packages as $package ) {
-		if ( ! in_array( $package->name, $packages ) ) {
+		if ( ! is_object( $package ) || ! isset( $package->name, $package->version ) ) {
+			continue;
+		}
+
+		if ( ! is_string( $package->name ) || ! is_string( $package->version ) ) {
+			continue;
+		}
+
+		if ( ! in_array( $package->name, $packages, true ) ) {
 			continue;
 		}
 
