@@ -22,7 +22,6 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.13.1
 - Changed `wp-pay-extensions/memberpress` from `v4.11.0` to `v4.11.1`.
   - Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.11.1
-- Updated locked Composer development and transitive dependencies.
 
 Full Changelog: [`v11.0.0...v11.0.1`][11.0.1]
 
