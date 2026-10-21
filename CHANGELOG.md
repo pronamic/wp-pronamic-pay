@@ -11,14 +11,16 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 -
 
 ## [11.0.1] - 2026-10-21
+### Fixed
+
+- Gravity Forms: fixed compatibility with Gravity Forms 3.1.3.4.
+- MemberPress: fixed subscription cancellation for payment methods without recurring support.
 
 ### Composer
 
 - Changed `wp-pay-extensions/gravityforms` from `v4.13.0` to `v4.13.1`.
-  - Added compatibility with Gravity Forms 3.1.3.4.
   - Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.13.1
 - Changed `wp-pay-extensions/memberpress` from `v4.11.0` to `v4.11.1`.
-  - Fixed subscription cancellation for payment methods without recurring support.
   - Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.11.1
 - Updated locked Composer development and transitive dependencies.
 
