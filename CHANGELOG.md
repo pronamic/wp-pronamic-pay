@@ -8,15 +8,88 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
-### Changed
+-
 
-- Require PHP 8.3.
+## [11.0.1] - 2026-10-21
 
 ### Composer
 
-- Changed `wp-pay-extensions/easy-digital-downloads` from `v4.4.x` to `v4.5.0`.
-- Removed the unused direct `pronamic/wp-mollie` requirement.
-	- `wp-pay-gateways/mollie` continues to require `pronamic/wp-mollie` transitively.
+- Changed `wp-pay-extensions/gravityforms` from `v4.13.0` to `v4.13.1`.
+  - Added compatibility with Gravity Forms 3.1.3.4.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.13.1
+- Changed `wp-pay-extensions/memberpress` from `v4.11.0` to `v4.11.1`.
+  - Fixed subscription cancellation for payment methods without recurring support.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.11.1
+- Updated locked Composer development and transitive dependencies.
+
+Full Changelog: [`v11.0.0...v11.0.1`][11.0.1]
+
+[11.0.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.0.0...v11.0.1
+
+## [11.0.0] - 2026-09-28
+
+### Changed
+
+- Require PHP 8.3, as required by the Easy Digital Downloads integration `v4.5.0`.
+- Updated `Requires at least` to WordPress 6.8 in `readme.txt`, matching the plugin header and Action Scheduler 4.
+- Updated `Tested up to` to WordPress 7.1.
+- The GiveWP integration now requires GiveWP 3.0 or later and supports the GiveWP Visual Donation Form Builder.
+- Subscription renewal pre-notifications are now sent 14 days (instead of 1 week) in advance.
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v5.0.21` to `v5.0.23`.
+  - Class map generation keeps ignoring the root package's `exclude-from-classmap` setting (briefly applied in `v5.0.22`, reverted in `v5.0.23`).
+  - Changelog: https://github.com/Automattic/jetpack-autoloader/blob/v5.0.23/CHANGELOG.md
+- Changed `giggsey/libphonenumber-for-php-lite` from `9.0.30` to `9.0.40`.
+  - Updated phone number metadata and fixed formatting of phone numbers created with `setRawInput()`.
+  - Release notes: https://github.com/giggsey/libphonenumber-for-php-lite/releases/tag/9.0.40
+- Changed `pronamic/wp-mollie` from `v1.10.1` to `v2.0.0`.
+  - Moved the `due_date` property from `PaymentRequest` to `BankTransferPaymentRequest`, because Mollie only supports due dates for bank transfer payments.
+  - Removed as a direct requirement; `wp-pay-gateways/mollie` requires it.
+  - Release notes: https://github.com/pronamic/wp-mollie/releases/tag/v2.0.0
+- Changed `pronamic/wp-money` from `2.4.5` to `2.5.0`.
+  - Added an optional currency argument to `Parser::parse()`, so amounts in currencies other than EUR can be parsed.
+  - Release notes: https://github.com/pronamic/wp-money/releases/tag/v2.5.0
+- Changed `pronamic/wp-pronamic-forms` from `v2.0.1` to `v2.1.0`.
+  - A form field with the reference `pronamic_payment_customer_email` now sets the payment and customer email address.
+  - Payment descriptions are now translatable and read "Form submission {entry ID}".
+  - Release notes: https://github.com/pronamic/pronamic-forms/releases/tag/v2.1.0
+- Changed `woocommerce/action-scheduler` from `3.9.3` to `4.2.0`.
+  - Action Scheduler 4.0 takes action arguments into account for unique actions, automatically purges failed actions after 3 months and requires WordPress 6.8.
+  - Action Scheduler 4.1 fixes stuck locks, hardens schedule deserialization and reduces admin queries.
+  - Action Scheduler 4.2 enforces unique action inserts atomically and fixes several admin notices.
+  - Release notes: https://github.com/woocommerce/action-scheduler/releases/tag/4.0.0, https://github.com/woocommerce/action-scheduler/releases/tag/4.1.0, https://github.com/woocommerce/action-scheduler/releases/tag/4.2.0
+- Changed `wp-pay-extensions/charitable` from `v4.3.5` to `v4.3.6`.
+  - Donation amounts now include Fee Relief and similar extensions.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-charitable/releases/tag/v4.3.6
+- Changed `wp-pay-extensions/contact-form-7` from `v4.2.1` to `v4.2.2`.
+  - Uses the globally registered active payment methods instead of the default gateway payment methods.
+  - Fixed totals for amounts in currencies other than EUR.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v4.2.2
+- Changed `wp-pay-extensions/easy-digital-downloads` from `v4.4.0` to `v4.5.0`.
+  - Updated the refunds flow for Easy Digital Downloads 3.x.
+  - Made the gateway easier to extend from child classes.
+  - Requires PHP 8.3.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/releases/tag/v4.5.0
+- Changed `wp-pay-extensions/give` from `v4.2.5` to `v5.0.0`.
+  - Rewrote the integration on top of the GiveWP 3.0+ payment gateway API, with support for the Visual Donation Form Builder.
+  - Existing gateway identifiers and settings are preserved.
+  - Requires GiveWP 3.0 or later.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-give/releases/tag/v5.0.0
+- Changed `wp-pay-gateways/mollie` from `v4.20.0` to `v4.21.0`.
+  - Uses a bank transfer payment request when setting the Mollie payment due date.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.21.0
+- Changed `wp-pay/core` from `v4.34.0` to `v4.35.0`.
+  - Changed the default subscription renewal pre-notification period from 1 week to 14 days.
+  - The next payment date is no longer shown for cancelled subscriptions.
+  - Fixed a currency mismatch exception for payment lines in currencies other than EUR.
+  - Fixed errors for payments and subscriptions whose post no longer exists.
+  - Release notes: https://github.com/pronamic/wp-pay-core/releases/tag/v4.35.0
+
+Full set of changes: [`10.2.0...11.0.0`][11.0.0]
+
+[11.0.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v10.2.0...v11.0.0
 
 ## [10.2.0] - 2026-07-31
 
@@ -5147,7 +5220,7 @@ Full set of changes: [`9.1.3...9.2.0`][9.2.0]
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.3...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.0.1...HEAD
 [9.1.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.2...9.1.3
 [9.1.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.1...9.1.2
 [9.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.0...9.1.1
