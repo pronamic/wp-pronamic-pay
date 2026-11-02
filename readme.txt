@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 8.3
-Stable tag: 11.0.1
+Stable tag: 11.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,54 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 -
 
+### [11.1.0] - 2026-11-02
+
+> [!IMPORTANT]
+> Adyen notifications (webhooks) now require authentication. Configure HTTP Basic authentication or an HMAC key in your Adyen configuration (and in the Adyen Customer Area), otherwise notifications are rejected and payment statuses are no longer updated automatically.
+
+#### Security
+
+- Adyen: notifications now require HTTP Basic authentication or an HMAC key, and are validated against the merchant account, amount and PSP reference of the payment.
+- Pronamic Forms: the REST API endpoints for submissions are now only available to users who can edit submissions.
+
+#### Added
+
+- Adyen: added an HMAC key setting, plus an admin notice and Site Health test for Adyen configurations without webhook authentication.
+
+#### Changed
+
+- Adyen: the Adyen Web stylesheet is now bundled with the plugin instead of loaded from the Adyen CDN, and Adyen Web errors are now shown on the checkout page.
+- Pronamic Forms: new submissions are stored with the `private` post status.
+
+#### Fixed
+
+- Contact Form 7: payments now include a payment line and the customer email on the billing and shipping address, as required by payment methods such as Klarna.
+
+#### Composer
+
+- Changed `giggsey/libphonenumber-for-php-lite` from `9.0.41` to `9.0.42`.
+  - Updated phone number metadata for several regions.
+  - Release notes: https://github.com/giggsey/libphonenumber-for-php-lite/releases/tag/9.0.42
+- Changed `pronamic/wp-pronamic-forms` from `v2.1.0` to `v2.1.1`.
+  - Restricted the submissions REST API endpoints to users who can edit submissions, and stored new submissions as private.
+  - Release notes: https://github.com/pronamic/pronamic-forms/releases/tag/v2.1.1
+- Changed `symfony/polyfill-mbstring` from `v1.43.0` to `v1.43.3`.
+  - Fixed `mb_strwidth()`, UCS-2 and `MB_CASE_TITLE` behaviour to match ext/mbstring.
+  - Release notes: https://github.com/symfony/polyfill-mbstring/releases/tag/v1.43.3
+- Changed `wp-pay-extensions/contact-form-7` from `v4.2.2` to `v4.2.3`.
+  - Added a payment line and the customer email on the billing and shipping address, as required by Klarna.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-contact-form-7/releases/tag/v4.2.3
+- Changed `wp-pay-extensions/gravityforms` from `v4.13.1` to `v4.13.2`.
+  - Simplified the checks for the legacy Gravity Forms notification methods.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.13.2
+- Changed `wp-pay-gateways/adyen` from `v4.10.0` to `v5.0.0`.
+  - Notifications now require authentication (HTTP Basic or HMAC), added an HMAC key setting, admin notice and Site Health test, bundled the Adyen Web stylesheet and updated Adyen Web to `6.48.0`.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v5.0.0
+
+Full Changelog: [`v11.0.1...v11.1.0`][11.1.0]
+
+[11.1.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.0.1...v11.1.0
+
 ### [11.0.1] - 2026-10-21
 #### Fixed
 
@@ -111,9 +159,9 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 #### Composer
 
 - Changed `wp-pay-extensions/gravityforms` from `v4.13.0` to `v4.13.1`.
-	- Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.13.1
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.13.1
 - Changed `wp-pay-extensions/memberpress` from `v4.11.0` to `v4.11.1`.
-	- Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.11.1
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.11.1
 
 Full Changelog: [`v11.0.0...v11.0.1`][11.0.1]
 
