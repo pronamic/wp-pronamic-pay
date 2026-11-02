@@ -153,7 +153,7 @@
 			"rsync --recursive --verbose --exclude-from=.distignore --exclude-from=.gitignore ./ ./build/stage-1/",
 			"composer install --no-dev --prefer-dist --optimize-autoloader --working-dir=./build/stage-1/",
 			"rsync --recursive --delete --delete-excluded --verbose --exclude-from=.distignore ./build/stage-1/ ./build/pronamic-ideal/",
-			"vendor/bin/wptdr --dir=./build/pronamic-ideal/",
+			"php -d memory_limit=-1 vendor/bin/wptdr --dir=./build/pronamic-ideal/",
 			"npx wp-scripts build --webpack-src-dir=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks-src --output-path=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks",
 			"npx wp-scripts build-blocks-manifest --input=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks --output=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks/blocks-manifest.php",
 			"vendor/bin/wp i18n make-pot ./build/pronamic-ideal/ --slug=pronamic-ideal --exclude=js/dist/*.js",
