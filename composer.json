@@ -150,13 +150,12 @@
 		"build": [
 			"Pronamic\\ChangelogMdToWordPressPluginReadmeTxt\\Synchronizer::run",
 			"rm -rf ./build/stage-1",
-			"rm -rf ./build/pronamic-ideal/*",
 			"rsync --recursive --verbose --exclude-from=.distignore --exclude-from=.gitignore ./ ./build/stage-1/",
 			"composer install --no-dev --prefer-dist --optimize-autoloader --working-dir=./build/stage-1/",
-			"rsync --recursive --verbose --exclude-from=.distignore ./build/stage-1/ ./build/pronamic-ideal/",
+			"rsync --recursive --delete --delete-excluded --verbose --exclude-from=.distignore ./build/stage-1/ ./build/pronamic-ideal/",
 			"vendor/bin/wptdr --dir=./build/pronamic-ideal/",
 			"npx wp-scripts build --webpack-src-dir=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks-src --output-path=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks",
-			"npx wp-scripts build-blocks-manifest  --input=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks --output=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks/blocks-manifest.php",
+			"npx wp-scripts build-blocks-manifest --input=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks --output=./build/pronamic-ideal/packages/pronamic/wp-pronamic-forms/blocks/blocks-manifest.php",
 			"vendor/bin/wp i18n make-pot ./build/pronamic-ideal/ --slug=pronamic-ideal --exclude=js/dist/*.js",
 			"vendor/bin/wp i18n make-json ./build/pronamic-ideal/languages/",
 			"vendor/bin/wp i18n make-mo ./build/pronamic-ideal/languages/",
@@ -186,6 +185,6 @@
 		"post-install-cmd": "test -f wp-content/wordbless/src/dbless-wpdb.php && mkdir -p wordpress/wp-content && cp wp-content/wordbless/src/dbless-wpdb.php wordpress/wp-content/db.php || echo 0",
 		"post-update-cmd": "test -f wp-content/wordbless/src/dbless-wpdb.php && mkdir -p wordpress/wp-content && cp wp-content/wordbless/src/dbless-wpdb.php wordpress/wp-content/db.php || echo 0",
 		"psalm": "XDEBUG_MODE=off vendor/bin/psalm",
-		"update-po": "find languages/*.po -type f -exec msgmerge --update --backup=off {} languages/pronamic-ideal.pot \\;"
+		"update-po": "vendor/bin/wp i18n update-po ./languages/pronamic-ideal.pot ./languages/"
 	}
 }
