@@ -8,7 +8,69 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
--
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v5.0.23` to `v6.0.2`.
+  - Jetpack Autoloader 6 only raises its minimum PHP version to 7.4.
+  - Release notes: https://github.com/Automattic/jetpack-autoloader/blob/v6.0.2/CHANGELOG.md
+- Changed `justinrainbow/json-schema` from `5.3.4` to `6.14.0`.
+  - New major version of the JSON Schema validator, now required by the Adyen, Mollie, PayPal and Rabo Smart Pay gateways. An unresolvable `$ref` now throws instead of passing silently.
+  - Release notes: https://github.com/jsonrainbow/json-schema/releases/tag/6.0.0
+  - Release notes: https://github.com/jsonrainbow/json-schema/releases/tag/6.14.0
+- Added `marc-mabe/php-enum` `v4.7.2`.
+  - New dependency of `justinrainbow/json-schema` 6.
+  - Release notes: https://github.com/marc-mabe/php-enum/releases/tag/v4.7.2
+- Changed `pronamic/pronamic-pay-admin-reports` from `v1.1.0` to `v1.1.1`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/pronamic-pay-admin-reports/releases/tag/v1.1.1
+- Changed `pronamic/pronamic-wp-updater` from `v1.0.3` to `v1.0.4`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/pronamic-wp-updater/releases/tag/v1.0.4
+- Changed `pronamic/wp-pronamic-forms` from `v2.1.1` to `v2.1.2`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/pronamic-forms/releases/tag/v2.1.2
+- Changed `pronamic/wp-pronamic-pay-forms` from `v1.3.0` to `v1.3.1`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-forms/releases/tag/v1.3.1
+- Changed `wp-pay-extensions/easy-digital-downloads` from `v4.5.0` to `v4.5.1`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-easy-digital-downloads/releases/tag/v4.5.1
+- Changed `wp-pay-extensions/event-espresso` from `v4.4.0` to `v4.4.1`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-event-espresso/releases/tag/v4.4.1
+- Changed `wp-pay-extensions/formidable-forms` from `v4.5.0` to `v4.5.1`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-formidable-forms/releases/tag/v4.5.1
+- Changed `wp-pay-extensions/give` from `v5.0.0` to `v5.0.1`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-give/releases/tag/v5.0.1
+- Changed `wp-pay-extensions/gravityforms` from `v4.13.2` to `v4.13.3`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.13.3
+- Changed `wp-pay-extensions/memberpress` from `v4.11.1` to `v4.11.2`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-memberpress/releases/tag/v4.11.2
+- Changed `wp-pay-extensions/restrict-content-pro` from `v4.11.0` to `v4.11.1`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-restrict-content-pro/releases/tag/v4.11.1
+- Changed `wp-pay-extensions/woocommerce` from `v4.15.0` to `v4.15.1`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.15.1
+- Changed `wp-pay-gateways/adyen` from `v5.0.0` to `v5.1.0`.
+  - Now requires `justinrainbow/json-schema` `^6.8`.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-adyen/releases/tag/v5.1.0
+- Changed `wp-pay-gateways/mollie` from `v4.21.0` to `v4.22.0`.
+  - Allowed Jetpack Autoloader 6.x and now requires `justinrainbow/json-schema` `^6.8`.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-mollie/releases/tag/v4.22.0
+- Changed `wp-pay-gateways/multisafepay` from `v4.6.3` to `v4.6.4`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-multisafepay/releases/tag/v4.6.4
+- Changed `wp-pay-gateways/omnikassa-2` from `v4.10.0` to `v4.11.0`.
+  - Allowed Jetpack Autoloader 6.x and now requires `justinrainbow/json-schema` `^6.8`.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-rabo-smart-pay/releases/tag/v4.11.0
+- Changed `wp-pay/fundraising` from `v3.2.7` to `v3.2.8`.
+  - Allowed Jetpack Autoloader 6.x.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-fundraising/releases/tag/v3.2.8
 
 ## [11.1.0] - 2026-11-02
 
