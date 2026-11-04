@@ -28,7 +28,7 @@ jobs:
 
       - name: Deploy
         id: deploy
-        uses: solvebeam/action-wordpress-org-plugin-readme-deploy@v1.0.1
+        uses: solvebeam/action-wordpress-org-plugin-readme-deploy@v1
         with:
           username: ${{ vars.WORDPRESS_ORG_PRONAMIC_USERNAME }}
           password: ${{ secrets.WORDPRESS_ORG_PRONAMIC_PASSWORD }}

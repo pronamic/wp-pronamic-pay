@@ -1,24 +1,60 @@
 name: CI
 
-on: [ push, pull_request ]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
 
 jobs:
-  phplint:
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
-    uses: pronamic/actions/.github/workflows/phplint.yml@main
+  lint:
+    runs-on: ubuntu-latest
 
-  phpcs:
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
-    uses: pronamic/actions/.github/workflows/phpcs.yml@main
+    steps:
+      - uses: actions/checkout@v7
 
-  phpstan:
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
-    uses: pronamic/actions/.github/workflows/phpstan.yml@main
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: intl
+          coverage: none
+          tools: cs2pr
+
+      - run: composer install --prefer-dist --no-progress
+
+      - run: composer run-script phplint
+
+      - run: vendor/bin/phpcs -q --report=checkstyle | cs2pr
+
+      - run: composer run-script phpstan
 
   phpunit:
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
-    uses: pronamic/actions/.github/workflows/phpunit.yml@main
+    runs-on: ubuntu-latest
 
-  coverage:
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.id != github.event.pull_request.base.repo.id
-    uses: pronamic/actions/.github/workflows/coverage.yml@main
+    strategy:
+      fail-fast: false
+      matrix:
+        php: [ '8.3', '8.5' ]
+
+    name: PHPUnit (PHP ${{ matrix.php }})
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: intl
+          coverage: ${{ matrix.php == '8.3' && 'xdebug' || 'none' }}
+
+      - run: composer install --prefer-dist --no-progress
+
+      - if: matrix.php != '8.3'
+        run: composer run-script phpunit
+
+      - if: matrix.php == '8.3'
+        run: composer run-script coverage
+
+      - if: matrix.php == '8.3'
+        uses: codecov/codecov-action@v5
+        with:
+          files: build/logs/clover.xml
