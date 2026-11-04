@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 8.3
-Stable tag: 11.2.0-rc.2
+Stable tag: 11.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,17 +100,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 <!-- Start changelog -->
 
-### [11.2.0-rc.2] - 2026-11-04
-
-#### Changed
-
-- Completed the Dutch (`nl_NL`) translation, including the Adyen webhook authentication, Gravity Forms NL, Pronamic Forms, Action Scheduler, Easy Digital Downloads refund and GiveWP strings.
-
-Full Changelog: [`v11.2.0-rc.1...v11.2.0-rc.2`][11.2.0-rc.2]
-
-[11.2.0-rc.2]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.0-rc.1...v11.2.0-rc.2
-
-### [11.2.0-rc.1] - 2026-11-04
+### [11.2.0] - 2026-11-04
 
 #### Added
 
@@ -123,6 +113,7 @@ Full Changelog: [`v11.2.0-rc.1...v11.2.0-rc.2`][11.2.0-rc.2]
 - Rabo Smart Pay: switched to the new Rabo Smart Pay API domains (`api.pay.rabobank.nl` and `api.pay-sandbox.rabobank.nl`).
 - Translations are now loaded just-in-time by WordPress, the `load_plugin_textdomain()` call has been removed.
 - Updated `@wordpress/interactivity` to `^8.1.0`, `@wordpress/env` to `^12.1.0` and `@wordpress/scripts` to `^37.1.0`.
+- Completed the Dutch (`nl_NL`) translation, including the Adyen webhook authentication, Gravity Forms NL, Pronamic Forms, Action Scheduler, Easy Digital Downloads refund and GiveWP strings.
 
 #### Fixed
 
@@ -207,9 +198,9 @@ Full Changelog: [`v11.2.0-rc.1...v11.2.0-rc.2`][11.2.0-rc.2]
   - Allowed Jetpack Autoloader 6.x.
   - Release notes: https://github.com/pronamic/wp-pronamic-pay-fundraising/releases/tag/v3.2.8
 
-Full Changelog: [`v11.1.0...v11.2.0-rc.1`][11.2.0-rc.1]
+Full Changelog: [`v11.1.0...v11.2.0`][11.2.0]
 
-[11.2.0-rc.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.1.0...v11.2.0-rc.1
+[11.2.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.1.0...v11.2.0
 
 ### [11.1.0] - 2026-11-02
 

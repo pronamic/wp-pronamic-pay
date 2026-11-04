@@ -8,17 +8,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
-## [11.2.0-rc.2] - 2026-11-04
-
-### Changed
-
-- Completed the Dutch (`nl_NL`) translation, including the Adyen webhook authentication, Gravity Forms NL, Pronamic Forms, Action Scheduler, Easy Digital Downloads refund and GiveWP strings.
-
-Full Changelog: [`v11.2.0-rc.1...v11.2.0-rc.2`][11.2.0-rc.2]
-
-[11.2.0-rc.2]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.0-rc.1...v11.2.0-rc.2
-
-## [11.2.0-rc.1] - 2026-11-04
+## [11.2.0] - 2026-11-04
 
 ### Added
 
@@ -31,6 +21,7 @@ Full Changelog: [`v11.2.0-rc.1...v11.2.0-rc.2`][11.2.0-rc.2]
 - Rabo Smart Pay: switched to the new Rabo Smart Pay API domains (`api.pay.rabobank.nl` and `api.pay-sandbox.rabobank.nl`).
 - Translations are now loaded just-in-time by WordPress, the `load_plugin_textdomain()` call has been removed.
 - Updated `@wordpress/interactivity` to `^8.1.0`, `@wordpress/env` to `^12.1.0` and `@wordpress/scripts` to `^37.1.0`.
+- Completed the Dutch (`nl_NL`) translation, including the Adyen webhook authentication, Gravity Forms NL, Pronamic Forms, Action Scheduler, Easy Digital Downloads refund and GiveWP strings.
 
 ### Fixed
 
@@ -115,9 +106,9 @@ Full Changelog: [`v11.2.0-rc.1...v11.2.0-rc.2`][11.2.0-rc.2]
   - Allowed Jetpack Autoloader 6.x.
   - Release notes: https://github.com/pronamic/wp-pronamic-pay-fundraising/releases/tag/v3.2.8
 
-Full Changelog: [`v11.1.0...v11.2.0-rc.1`][11.2.0-rc.1]
+Full Changelog: [`v11.1.0...v11.2.0`][11.2.0]
 
-[11.2.0-rc.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.1.0...v11.2.0-rc.1
+[11.2.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.1.0...v11.2.0
 
 ## [11.1.0] - 2026-11-02
 
@@ -5378,7 +5369,7 @@ Full set of changes: [`9.1.3...9.2.0`][9.2.0]
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.0-rc.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.0...HEAD
 [9.1.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.2...9.1.3
 [9.1.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.1...9.1.2
 [9.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.0...9.1.1
