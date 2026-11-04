@@ -8,6 +8,25 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [11.2.0-rc.1] - 2026-11-04
+
+### Added
+
+- Added the Pronamic Pay icon collection for the WordPress 7.1 Icon API and Icon block, with single-colour icons of popular payment methods and a "Payment method icons" block pattern.
+- Rabo Smart Pay: added an optional "Bank statement reference" setting and the customer's full name to the order announcement.
+- WooCommerce: added "Change Payment Method Description" and "Change Payment Method Amount" settings to gateways with recurring support.
+
+### Changed
+
+- Rabo Smart Pay: switched to the new Rabo Smart Pay API domains (`api.pay.rabobank.nl` and `api.pay-sandbox.rabobank.nl`).
+- Translations are now loaded just-in-time by WordPress, the `load_plugin_textdomain()` call has been removed.
+- Updated `@wordpress/interactivity` to `^8.1.0`, `@wordpress/env` to `^12.1.0` and `@wordpress/scripts` to `^37.1.0`.
+
+### Fixed
+
+- Rabo Smart Pay: fixed refunds failing with a 404 when the access token was missing or expired, and the refund `Request-ID` header now uses a UUID v4.
+- WooCommerce: fixed an admin error notice and failed scheduled action when a subscription renewal payment cannot be started.
+
 ### Composer
 
 - Changed `automattic/jetpack-autoloader` from `v5.0.23` to `v6.0.3`.
@@ -23,6 +42,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Changed `pronamic/pronamic-pay-admin-reports` from `v1.1.0` to `v1.1.1`.
   - Allowed Jetpack Autoloader 6.x.
   - Release notes: https://github.com/pronamic/pronamic-pay-admin-reports/releases/tag/v1.1.1
+- Added `pronamic/pronamic-pay-wp-icons` `v1.0.0`.
+  - WordPress icon collection with payment method icons, registered on WordPress 7.1+ only.
+  - Release notes: https://github.com/pronamic/pronamic-pay-wp-icons/releases/tag/v1.0.0
 - Changed `pronamic/pronamic-wp-updater` from `v1.0.3` to `v1.0.4`.
   - Allowed Jetpack Autoloader 6.x.
   - Release notes: https://github.com/pronamic/pronamic-wp-updater/releases/tag/v1.0.4
@@ -82,6 +104,10 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Changed `wp-pay/fundraising` from `v3.2.7` to `v3.2.8`.
   - Allowed Jetpack Autoloader 6.x.
   - Release notes: https://github.com/pronamic/wp-pronamic-pay-fundraising/releases/tag/v3.2.8
+
+Full Changelog: [`v11.1.0...v11.2.0-rc.1`][11.2.0-rc.1]
+
+[11.2.0-rc.1]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.1.0...v11.2.0-rc.1
 
 ## [11.1.0] - 2026-11-02
 
@@ -5342,7 +5368,7 @@ Full set of changes: [`9.1.3...9.2.0`][9.2.0]
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.0.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.0-rc.1...HEAD
 [9.1.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.2...9.1.3
 [9.1.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.1...9.1.2
 [9.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.0...9.1.1
