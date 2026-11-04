@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 8.3
-Stable tag: 11.2.0-rc.1
+Stable tag: 11.2.0-rc.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,16 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [11.2.0-rc.2] - 2026-11-04
+
+#### Changed
+
+- Completed the Dutch (`nl_NL`) translation, including the Adyen webhook authentication, Gravity Forms NL, Pronamic Forms, Action Scheduler, Easy Digital Downloads refund and GiveWP strings.
+
+Full Changelog: [`v11.2.0-rc.1...v11.2.0-rc.2`][11.2.0-rc.2]
+
+[11.2.0-rc.2]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.0-rc.1...v11.2.0-rc.2
 
 ### [11.2.0-rc.1] - 2026-11-04
 

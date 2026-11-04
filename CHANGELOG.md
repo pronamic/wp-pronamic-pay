@@ -8,6 +8,16 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [11.2.0-rc.2] - 2026-11-04
+
+### Changed
+
+- Completed the Dutch (`nl_NL`) translation, including the Adyen webhook authentication, Gravity Forms NL, Pronamic Forms, Action Scheduler, Easy Digital Downloads refund and GiveWP strings.
+
+Full Changelog: [`v11.2.0-rc.1...v11.2.0-rc.2`][11.2.0-rc.2]
+
+[11.2.0-rc.2]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.0-rc.1...v11.2.0-rc.2
+
 ## [11.2.0-rc.1] - 2026-11-04
 
 ### Added
@@ -5368,7 +5378,7 @@ Full set of changes: [`9.1.3...9.2.0`][9.2.0]
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.0-rc.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.0-rc.2...HEAD
 [9.1.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.2...9.1.3
 [9.1.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.1...9.1.2
 [9.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.0...9.1.1
