@@ -2,6 +2,12 @@ name: Deploy readme.txt to WordPress.org
 
 on:
   workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Run without committing in the WordPress.org Subversion repository'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   deploy:
@@ -9,11 +15,11 @@ jobs:
 
     environment:
       name: WordPress.org plugin directory
-      url: https://wordpress.org/plugins/pronamic-ideal/
+      url: ${{ steps.deploy.outputs.public-url }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           sparse-checkout: |
             .github
@@ -21,8 +27,10 @@ jobs:
             readme.txt
 
       - name: Deploy
-        uses: pronamic/action-wordpress-org-plugin-readme-deploy@main
+        id: deploy
+        uses: solvebeam/action-wordpress-org-plugin-readme-deploy@v1.0.1
         with:
           username: ${{ vars.WORDPRESS_ORG_PRONAMIC_USERNAME }}
           password: ${{ secrets.WORDPRESS_ORG_PRONAMIC_PASSWORD }}
           slug: pronamic-ideal
+          dry-run: ${{ inputs.dry-run }}
