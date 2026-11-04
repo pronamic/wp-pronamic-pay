@@ -63,6 +63,8 @@ require_once __DIR__ . '/vendor/autoload_packages.php';
 
 \Pronamic\PronamicPayDefaultPaymentMethods\Plugin::instance();
 
+\Pronamic\PronamicPayIcons\Plugin::instance();
+
 /**
  * Plugin dependencies.
  *

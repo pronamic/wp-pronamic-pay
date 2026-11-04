@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cace844ef26ee5d141ab581d6ff5faa",
+    "content-hash": "3e26564ea52eace6ea68b32bb5ccf7f8",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -618,6 +618,88 @@
             },
             "time": "2026-07-31T13:02:04+00:00",
             "published-time": "2026-07-31T13:02:41+00:00"
+        },
+        {
+            "name": "pronamic/pronamic-pay-wp-icons",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/pronamic-pay-wp-icons.git",
+                "reference": "f1a6b42df73e817a9babce3a963e7dc609f2af99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/pronamic-pay-wp-icons/zipball/f1a6b42df73e817a9babce3a963e7dc609f2af99",
+                "reference": "f1a6b42df73e817a9babce3a963e7dc609f2af99",
+                "shasum": ""
+            },
+            "require": {
+                "automattic/jetpack-autoloader": "^6.0",
+                "composer/installers": "^2.3",
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.2",
+                "pronamic/wp-coding-standards": "^2.5",
+                "rector/rector": "^2.6",
+                "roots/wordpress-no-content": "^7.1",
+                "szepeviktor/phpstan-wordpress": "^2.0",
+                "wp-cli/dist-archive-command": "*",
+                "wp-cli/wp-cli-bundle": "*"
+            },
+            "type": "wordpress-plugin",
+            "extra": {
+                "wp-slug": "pronamic-pay-wp-icons",
+                "installer-paths": {
+                    "packages/{$vendor}/{$name}": [
+                        "vendor:pronamic",
+                        "vendor:solvebeam",
+                        "vendor:wp-pay",
+                        "woocommerce/action-scheduler"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\PronamicPayIcons\\": "psr-4/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "https://www.pronamic.eu/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "https://www.remcotolsma.nl/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "WordPress icon collection with payment method icons by Pronamic Pay.",
+            "support": {
+                "issues": "https://github.com/pronamic/pronamic-pay-wp-icons/issues",
+                "source": "https://github.com/pronamic/pronamic-pay-wp-icons/tree/v1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/pronamic",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/remcotolsma",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-11-04T14:55:50+00:00",
+            "published-time": "2026-11-04T14:56:46+00:00"
         },
         {
             "name": "pronamic/pronamic-wp-updater",

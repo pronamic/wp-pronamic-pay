@@ -14,6 +14,7 @@ if ( isset( $argv[1] ) ) {
 $packages = [
 	'pronamic/pronamic-pay-admin-reports',
 	'pronamic/pronamic-pay-default-payment-methods',
+	'pronamic/pronamic-pay-wp-icons',
 	'pronamic/wp-datetime',
 	'pronamic/wp-html',
 	'pronamic/wp-http',
