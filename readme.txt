@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 8.3
-Stable tag: 11.2.1
+Stable tag: 11.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,24 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [11.3.0] - 2026-11-16
+
+#### Changed
+
+- Payment forms: the amount and gateway configuration are now determined from the form settings on submit instead of the posted values. The fixed amount of the payment form block is signed when the form is rendered and checked on submit, and amounts must be greater than zero.
+- Payment forms: the form style is now enqueued when a form is rendered, which covers the shortcode, the block and the form post type.
+- Payment forms: modernized the editor script of the payment form block.
+
+#### Composer
+
+- Changed `pronamic/wp-pronamic-pay-forms` from `v1.3.1` to `v1.4.0`.
+  - The amount and gateway configuration are now determined from the form settings on submit, the form style is enqueued when a form is rendered and the text domain changed from `pronamic_ideal` to `pronamic-pay-forms`.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-forms/releases/tag/v1.4.0
+
+Full Changelog: [`v11.2.1...v11.3.0`][11.3.0]
+
+[11.3.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.1...v11.3.0
 
 ### [11.2.1] - 2026-11-11
 

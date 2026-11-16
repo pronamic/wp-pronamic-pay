@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-05-07T11:30:59+00:00\n"
-"PO-Revision-Date: 2026-11-04T15:44:32+00:00\n"
+"PO-Revision-Date: 2026-11-16T11:56:50+00:00\n"
 "Language: nl_BE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.5\n"
@@ -1540,17 +1540,17 @@ msgstr "Betalingsformulieren"
 msgid "Forms"
 msgstr "Formulieren"
 
-#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:87
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:84
 msgctxt "Block"
 msgid "Payment Form"
 msgstr "Betaalformulier"
 
-#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:88
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:85
 msgid "Add form"
 msgstr "Formulier toevoegen"
 
-#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:89
-#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:91
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:86
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:92
 #: packages/pronamic/wp-pronamic-pay-forms/views/meta-box-form-options.php:58
 #: packages/wp-pay-extensions/formidable-forms/views/payment-settings.php:47
 #: packages/wp-pay-extensions/woocommerce/views/admin-meta-box-woocommerce-order.php:40
@@ -1568,21 +1568,20 @@ msgstr "Formulier toevoegen"
 msgid "Amount"
 msgstr "Bedrag"
 
-#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:103
-#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:102
-#: packages/pronamic/wp-pronamic-pay-forms/src/Integration.php:193
-#: packages/pronamic/wp-pronamic-pay-forms/src/Integration.php:224
-msgid "Payment Form"
-msgstr "Betalingsformulier"
-
-#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:169
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:145
 msgid "It is currently not possible to pay via this form, please contact us for more information (error: no payment gateway found)."
 msgstr ""
 
-#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:187
-#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:219
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:161
+#: packages/pronamic/wp-pronamic-pay-forms/src/BlocksModule.php:192
 msgid "Payment Form Block"
 msgstr "Betalingsformulier blok"
+
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:102
+#: packages/pronamic/wp-pronamic-pay-forms/src/Integration.php:202
+#: packages/pronamic/wp-pronamic-pay-forms/src/Integration.php:233
+msgid "Payment Form"
+msgstr "Betalingsformulier"
 
 #: packages/pronamic/wp-pronamic-pay-forms/src/FormPostType.php:103
 #: packages/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:320
@@ -1727,13 +1726,13 @@ msgid "Shortcode:"
 msgstr "Shortcode:"
 
 #. translators: %s: order id
-#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:126
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:220
 #, php-format
 msgid "Payment Form %s"
 msgstr "Betalingsformulier %s"
 
 #. translators: %s: payment data title
-#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:135
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:229
 #: packages/wp-pay-extensions/contact-form-7/src/Pronamic.php:119
 #: packages/wp-pay-extensions/formidable-forms/src/Extension.php:400
 #: packages/wp-pay-extensions/gravityforms/src/Processor.php:243
@@ -1744,15 +1743,15 @@ msgstr "Betalingsformulier %s"
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
-#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:230
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:328
 msgid "Please enter a valid amount"
 msgstr "Voer een geldig bedrag in"
 
-#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:240
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:338
 msgid "Please enter your first name"
 msgstr "Voer een geldige voornaam in"
 
-#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:250
+#: packages/pronamic/wp-pronamic-pay-forms/src/FormProcessor.php:348
 msgid "Please enter a valid email address"
 msgstr "Voer een geldig e-mailadres in"
 
@@ -1761,39 +1760,39 @@ msgstr "Voer een geldig e-mailadres in"
 msgid "Pay Now"
 msgstr "Betaal nu"
 
-#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:148
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:149
 msgid "Personal Info"
 msgstr "Persoonlijke informatie"
 
-#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:152
-#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:155
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:153
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:156
 #: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1000
 msgid "First Name"
 msgstr "Voornaam"
 
-#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:160
-#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:163
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:161
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:164
 #: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:1002
 msgid "Last Name"
 msgstr "Achternaam"
 
-#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:168
-#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:172
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:169
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:173
 msgid "Email Address"
 msgstr "E-mailadres"
 
-#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:177
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:178
 msgid "Payment Info"
 msgstr "Betalingsinformatie"
 
 #. translators: %s: Exception message.
-#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:226
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:227
 #: packages/wp-pay/core/views/meta-box-gateway-test.php:104
 #, php-format
 msgid "This field could not be displayed due to the following error message: \"%s\"."
 msgstr "Dit veld kon niet getoond worden door de volgende foutmelding: \"%s\"."
 
-#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:254
+#: packages/pronamic/wp-pronamic-pay-forms/views/form.php:255
 #: packages/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:414
 #: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:245
 #: packages/wp-pay-gateways/adyen/src/SiteHealthController.php:172
@@ -5915,7 +5914,7 @@ msgstr ""
 msgid "Cannot refund: the payment transaction ID is a Rabo Smart Pay order ID instead of a transaction ID. The Rabo Smart Pay webhook may not have been processed for this payment."
 msgstr ""
 
-#: packages/wp-pay-gateways/omnikassa-2/src/Gateway.php:539
+#: packages/wp-pay-gateways/omnikassa-2/src/Gateway.php:548
 msgid "Rabo Smart Pay webhook URL requested:"
 msgstr "Rabo Smart Pay webhook URL aangevraagd:"
 

@@ -8,6 +8,24 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 <!-- Start changelog -->
 
+## [11.3.0] - 2026-11-16
+
+### Changed
+
+- Payment forms: the amount and gateway configuration are now determined from the form settings on submit instead of the posted values. The fixed amount of the payment form block is signed when the form is rendered and checked on submit, and amounts must be greater than zero.
+- Payment forms: the form style is now enqueued when a form is rendered, which covers the shortcode, the block and the form post type.
+- Payment forms: modernized the editor script of the payment form block.
+
+### Composer
+
+- Changed `pronamic/wp-pronamic-pay-forms` from `v1.3.1` to `v1.4.0`.
+  - The amount and gateway configuration are now determined from the form settings on submit, the form style is enqueued when a form is rendered and the text domain changed from `pronamic_ideal` to `pronamic-pay-forms`.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-forms/releases/tag/v1.4.0
+
+Full Changelog: [`v11.2.1...v11.3.0`][11.3.0]
+
+[11.3.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.1...v11.3.0
+
 ## [11.2.1] - 2026-11-11
 
 ### Fixed
@@ -5386,7 +5404,7 @@ Full set of changes: [`9.1.3...9.2.0`][9.2.0]
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.2.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.3.0...HEAD
 [9.1.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.2...9.1.3
 [9.1.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.1...9.1.2
 [9.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/9.1.0...9.1.1
