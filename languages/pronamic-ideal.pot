@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay 11.3.0\n"
+"Project-Id-Version: Pronamic Pay 11.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-16T11:56:48+00:00\n"
+"POT-Creation-Date: 2026-11-17T10:05:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pronamic-ideal\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: packages/wp-pay-extensions/ninjaforms/src/Extension.php:87
 #: packages/wp-pay-extensions/ninjaforms/src/Extension.php:128
 #: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:52
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1173
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1260
 #: packages/wp-pay-extensions/woocommerce/src/WooCommerceSubscriptionsController.php:256
 #: packages/wp-pay-gateways/adyen/src/Integration.php:570
 #: packages/wp-pay-gateways/adyen/src/Integration.php:683
@@ -63,7 +63,7 @@ msgstr ""
 #: packages/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:81
 #: packages/wp-pay-extensions/restrict-content-pro/src/Gateways/Gateway.php:138
 #: packages/wp-pay-extensions/restrict-content-pro/src/Gateways/Gateway.php:163
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:216
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:219
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:124
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:125
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:142
@@ -2929,7 +2929,7 @@ msgstr ""
 
 #: packages/wp-pay-extensions/charitable/src/Gateway.php:102
 #: packages/wp-pay-extensions/give/src/GatewaySettings.php:98
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:217
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:220
 msgid "This payment method does not use a predefined payment method for the payment. Some payment providers list all activated payment methods for your account to choose from. Use payment method specific gateways (such as 'iDEAL') to let customers choose their desired payment method at checkout."
 msgstr ""
 
@@ -4519,103 +4519,103 @@ msgstr ""
 msgid "No payments found."
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:291
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:294
 msgid "We process your order as soon as we have processed your payment."
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:400
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:487
 msgid "reserved payment cancelled"
 msgstr ""
 
 #. translators: 1: payment URL, 2: payment ID, 3: WooCommerce payment method title, 4: Pronamic payment status
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:455
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:542
 #, php-format
 msgid "<a href=\"%1$s\">Payment #%2$s</a> via \"%3$s\" updated to \"%4$s\"."
 msgstr ""
 
 #. translators: 1: Refund PSP ID, 2: error message
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:645
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:732
 #, php-format
 msgid "Unable to create WooCommerce refund for \"%1$s\", due to the following error: \"%2$s\"."
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:708
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1079
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:795
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1166
 #: packages/wp-pay-extensions/woocommerce/src/WooCommerceSubscriptionsController.php:121
 msgid "WooCommerce"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:716
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:803
 msgid "Date of birth checkout field"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:727
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:732
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:814
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:819
 msgid "Add date of birth field"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:733
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:820
 msgid "Add date of birth field to billing checkout fields"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:742
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:829
 msgid "Gender checkout field"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:753
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:758
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:840
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:845
 msgid "Add gender field"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:759
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:846
 msgid "Add gender field to billing checkout fields"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:777
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:864
 msgid "Extra fields are used for post-pay payment methods such as AfterPay and Klarna."
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:937
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1024
 msgid "— Select a checkout field —"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:963
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1050
 #: packages/wp-pay/core/views/meta-box-payment-info.php:570
 msgid "Date of birth"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:974
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1061
 #: packages/wp-pay/core/views/meta-box-payment-info.php:592
 msgid "Gender"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:977
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1064
 msgid "— Select gender —"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:978
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1065
 #: packages/wp-pay/core/views/meta-box-payment-info.php:599
 msgid "Female"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:979
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1066
 #: packages/wp-pay/core/views/meta-box-payment-info.php:603
 msgid "Male"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:980
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1067
 #: packages/wp-pay/core/views/meta-box-payment-info.php:607
 msgid "Other"
 msgstr ""
 
 #. translators: %s: order number
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1058
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1071
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1145
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1158
 #, php-format
 msgid "Order %s"
 msgstr ""
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1095
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1182
 msgid "WooCommerce Order"
 msgstr ""
 

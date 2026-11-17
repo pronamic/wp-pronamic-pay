@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 8.3
-Stable tag: 11.3.0
+Stable tag: 11.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,23 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [11.4.0] - 2026-11-17
+
+#### Changed
+
+- WooCommerce: renewal orders that are collected via direct debit now show "Direct Debit" as payment method title instead of the title of the subscription payment method, for example "iDEAL". ([pronamic/pronamic-pay#126](https://github.com/pronamic/pronamic-pay/issues/126))
+- WooCommerce: subscriptions with automatic renewals via iDEAL or Bancontact now show "Direct Debit" as payment method to customers. ([pronamic/pronamic-pay#126](https://github.com/pronamic/pronamic-pay/issues/126))
+
+#### Composer
+
+- Changed `wp-pay-extensions/woocommerce` from `v4.16.0` to `v4.17.0`.
+  - Renewal orders collected via direct debit and subscriptions with automatic renewals via iDEAL or Bancontact now show "Direct Debit" as payment method.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-woocommerce/releases/tag/v4.17.0
+
+Full Changelog: [`v11.3.0...v11.4.0`][11.4.0]
+
+[11.4.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.3.0...v11.4.0
 
 ### [11.3.0] - 2026-11-16
 

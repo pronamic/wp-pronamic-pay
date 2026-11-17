@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-05-07T11:30:59+00:00\n"
-"PO-Revision-Date: 2026-11-16T11:56:50+00:00\n"
+"PO-Revision-Date: 2026-11-17T10:05:29+00:00\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.9\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: packages/wp-pay-extensions/ninjaforms/src/Extension.php:87
 #: packages/wp-pay-extensions/ninjaforms/src/Extension.php:128
 #: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:52
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1173
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1260
 #: packages/wp-pay-extensions/woocommerce/src/WooCommerceSubscriptionsController.php:256
 #: packages/wp-pay-gateways/adyen/src/Integration.php:570
 #: packages/wp-pay-gateways/adyen/src/Integration.php:683
@@ -62,7 +62,7 @@ msgstr ""
 #: packages/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:81
 #: packages/wp-pay-extensions/restrict-content-pro/src/Gateways/Gateway.php:138
 #: packages/wp-pay-extensions/restrict-content-pro/src/Gateways/Gateway.php:163
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:216
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:219
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:124
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:125
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:142
@@ -3034,7 +3034,7 @@ msgstr "Tags disponibles: %s"
 
 #: packages/wp-pay-extensions/charitable/src/Gateway.php:102
 #: packages/wp-pay-extensions/give/src/GatewaySettings.php:98
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:217
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:220
 #, fuzzy
 msgid "This payment method does not use a predefined payment method for the payment. Some payment providers list all activated payment methods for your account to choose from. Use payment method specific gateways (such as 'iDEAL') to let customers choose their desired payment method at checkout."
 msgstr "Ce mode de paiement n'utilise pas de méthode de paiement prédéfinie pour le paiement. Certains fournisseurs de paiement répertcomptent tous les modes de paiement activés que votre compte peut choisir. Utilisez des passerelles spécifiques au mode de paiement (comme 'iDEAL') pour permettre aux clients de choisir le mode de paiement souhaité à la caisse."
@@ -4689,105 +4689,105 @@ msgstr "Nom"
 msgid "No payments found."
 msgstr "Aucun paiement trouvé."
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:291
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:294
 #, fuzzy
 msgid "We process your order as soon as we have processed your payment."
 msgstr "Nous traitons votre commande dès que nous avons traité votre paiement."
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:400
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:487
 msgid "reserved payment cancelled"
 msgstr "paiement réservé annulé"
 
 #. translators: 1: payment URL, 2: payment ID, 3: WooCommerce payment method title, 4: Pronamic payment status
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:455
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:542
 #, php-format
 msgid "<a href=\"%1$s\">Payment #%2$s</a> via \"%3$s\" updated to \"%4$s\"."
 msgstr "<a href=\"%1$s\">Paiement n°%2$s</a> via « %3$s » mis à jour en « %4$s »."
 
 #. translators: 1: Refund PSP ID, 2: error message
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:645
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:732
 #, fuzzy,php-format
 msgid "Unable to create WooCommerce refund for \"%1$s\", due to the following error: \"%2$s\"."
 msgstr "paiement réservé à la passerelle"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:708
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1079
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:795
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1166
 #: packages/wp-pay-extensions/woocommerce/src/WooCommerceSubscriptionsController.php:121
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:716
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:803
 msgid "Date of birth checkout field"
 msgstr "Champ de la date de naissance"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:727
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:732
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:814
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:819
 msgid "Add date of birth field"
 msgstr "Ajouter le champ date de naissance"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:733
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:820
 msgid "Add date of birth field to billing checkout fields"
 msgstr "Ajouter un champ de date de naissance aux champs de facturation"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:742
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:829
 msgid "Gender checkout field"
 msgstr "Champ de genre au la caisse"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:753
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:758
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:840
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:845
 msgid "Add gender field"
 msgstr "Ajouter le champ de genre"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:759
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:846
 msgid "Add gender field to billing checkout fields"
 msgstr "Ajouter le champ de genre aux champs de caisse de facturation"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:777
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:864
 #, fuzzy
 msgid "Extra fields are used for post-pay payment methods such as AfterPay and Klarna."
 msgstr "Des champs supplémentaires sont utilisés pour les méthodes de paiement post-paiement telles que AfterPay et Klarna."
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:937
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1024
 msgid "— Select a checkout field —"
 msgstr "— Sélectionnez un champ de caisse —"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:963
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1050
 #: packages/wp-pay/core/views/meta-box-payment-info.php:570
 msgid "Date of birth"
 msgstr "Date de naissance"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:974
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1061
 #: packages/wp-pay/core/views/meta-box-payment-info.php:592
 msgid "Gender"
 msgstr "Sexe"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:977
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1064
 msgid "— Select gender —"
 msgstr "— Sélectionnez le sexe —"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:978
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1065
 #: packages/wp-pay/core/views/meta-box-payment-info.php:599
 msgid "Female"
 msgstr "Femme"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:979
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1066
 #: packages/wp-pay/core/views/meta-box-payment-info.php:603
 msgid "Male"
 msgstr "Homme"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:980
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1067
 #: packages/wp-pay/core/views/meta-box-payment-info.php:607
 msgid "Other"
 msgstr "Autre"
 
 #. translators: %s: order number
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1058
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1071
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1145
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1158
 #, php-format
 msgid "Order %s"
 msgstr "Commande %s"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1095
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1182
 msgid "WooCommerce Order"
 msgstr "Commande WooCommerce"
 

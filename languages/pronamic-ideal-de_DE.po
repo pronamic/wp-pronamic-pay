@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-05-07T11:30:59+00:00\n"
-"PO-Revision-Date: 2026-11-16T11:56:50+00:00\n"
+"PO-Revision-Date: 2026-11-17T10:05:29+00:00\n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 3.5\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: packages/wp-pay-extensions/ninjaforms/src/Extension.php:87
 #: packages/wp-pay-extensions/ninjaforms/src/Extension.php:128
 #: packages/wp-pay-extensions/ninjaforms/src/PaymentGateway.php:52
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1173
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1260
 #: packages/wp-pay-extensions/woocommerce/src/WooCommerceSubscriptionsController.php:256
 #: packages/wp-pay-gateways/adyen/src/Integration.php:570
 #: packages/wp-pay-gateways/adyen/src/Integration.php:683
@@ -62,7 +62,7 @@ msgstr ""
 #: packages/wp-pay-extensions/memberpress/src/Gateways/Gateway.php:81
 #: packages/wp-pay-extensions/restrict-content-pro/src/Gateways/Gateway.php:138
 #: packages/wp-pay-extensions/restrict-content-pro/src/Gateways/Gateway.php:163
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:216
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:219
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:124
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:125
 #: packages/wp-pay-extensions/woocommerce/src/Gateway.php:142
@@ -3004,7 +3004,7 @@ msgstr "Verfügbare Tags: %s"
 
 #: packages/wp-pay-extensions/charitable/src/Gateway.php:102
 #: packages/wp-pay-extensions/give/src/GatewaySettings.php:98
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:217
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:220
 msgid "This payment method does not use a predefined payment method for the payment. Some payment providers list all activated payment methods for your account to choose from. Use payment method specific gateways (such as 'iDEAL') to let customers choose their desired payment method at checkout."
 msgstr "Diese Zahlungsmethode verwendet keine vordefinierte Zahlungsmethode für die Zahlung. Einige Zahlungsanbieter listen alle aktivierten Zahlungsmethoden für Ihr Konto auf. Verwenden Sie gateway-spezifische Gateways (z. B. 'iDEAL'), damit die Kunden beim Bezahlen ihre gewünschte Zahlungsmethode auswählen können."
 
@@ -4605,103 +4605,103 @@ msgstr "Nachname"
 msgid "No payments found."
 msgstr "Keine Zahlungen gefunden."
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:291
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:294
 msgid "We process your order as soon as we have processed your payment."
 msgstr "Wir bearbeiten Ihre Bestellung, sobald wir Ihre Zahlung bearbeitet haben."
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:400
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:487
 msgid "reserved payment cancelled"
 msgstr "Vorbehaltene Zahlung storniert"
 
 #. translators: 1: payment URL, 2: payment ID, 3: WooCommerce payment method title, 4: Pronamic payment status
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:455
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:542
 #, php-format
 msgid "<a href=\"%1$s\">Payment #%2$s</a> via \"%3$s\" updated to \"%4$s\"."
 msgstr "<a href=\"%1$s\">Zahlung #%2$s</a> über \"%3$s\" aktualisiert zu \"%4$s\"."
 
 #. translators: 1: Refund PSP ID, 2: error message
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:645
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:732
 #, php-format
 msgid "Unable to create WooCommerce refund for \"%1$s\", due to the following error: \"%2$s\"."
 msgstr "WooCommerce-Rückerstattung für \"%1$s\" kann aufgrund des folgenden Fehlers nicht erstellt werden: \"%2$s\"."
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:708
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1079
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:795
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1166
 #: packages/wp-pay-extensions/woocommerce/src/WooCommerceSubscriptionsController.php:121
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:716
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:803
 msgid "Date of birth checkout field"
 msgstr "Geburtsdatum Kasse Feld"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:727
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:732
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:814
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:819
 msgid "Add date of birth field"
 msgstr "Geburtsdatum Feld hinzufügen"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:733
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:820
 msgid "Add date of birth field to billing checkout fields"
 msgstr "Geburtsdatum Feld an Kasse hinzufügen"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:742
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:829
 msgid "Gender checkout field"
 msgstr "Geschlecht Kasse Feld"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:753
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:758
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:840
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:845
 msgid "Add gender field"
 msgstr "Geschlecht Feld hinzufügen"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:759
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:846
 msgid "Add gender field to billing checkout fields"
 msgstr "Geschlecht Feld and Kasse hinzufügen"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:777
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:864
 msgid "Extra fields are used for post-pay payment methods such as AfterPay and Klarna."
 msgstr "Zusätzliche Felder werden für Nachzahlungsmethoden wie AfterPay und Klarna verwendet."
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:937
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1024
 msgid "— Select a checkout field —"
 msgstr "— Kasse Feld auswählen —"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:963
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1050
 #: packages/wp-pay/core/views/meta-box-payment-info.php:570
 msgid "Date of birth"
 msgstr "Geburtsdatum"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:974
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1061
 #: packages/wp-pay/core/views/meta-box-payment-info.php:592
 msgid "Gender"
 msgstr "Geschlecht"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:977
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1064
 msgid "— Select gender —"
 msgstr "— Geschlecht auswählen —"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:978
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1065
 #: packages/wp-pay/core/views/meta-box-payment-info.php:599
 msgid "Female"
 msgstr "Weiblich"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:979
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1066
 #: packages/wp-pay/core/views/meta-box-payment-info.php:603
 msgid "Male"
 msgstr "Männlich"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:980
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1067
 #: packages/wp-pay/core/views/meta-box-payment-info.php:607
 msgid "Other"
 msgstr "Andere"
 
 #. translators: %s: order number
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1058
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1071
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1145
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1158
 #, php-format
 msgid "Order %s"
 msgstr "Bestellung %s"
 
-#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1095
+#: packages/wp-pay-extensions/woocommerce/src/Extension.php:1182
 msgid "WooCommerce Order"
 msgstr "WooCommerce Bestellung"
 
