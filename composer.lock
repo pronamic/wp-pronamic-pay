@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0eb782ba6d6a0fb598eec88ad00da4ff",
+    "content-hash": "602da0bfb1e251830d3db8e5c83f6b03",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -1946,64 +1946,66 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "v4.13.3",
+            "version": "v4.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-pronamic-pay-gravityforms.git",
-                "reference": "86986e2af64173985e4cd6be21f8e50ea510d77e"
+                "reference": "25f1836281e5c362ed54b02ae4410e576cbd77d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-gravityforms/zipball/86986e2af64173985e4cd6be21f8e50ea510d77e",
-                "reference": "86986e2af64173985e4cd6be21f8e50ea510d77e",
+                "url": "https://api.github.com/repos/pronamic/wp-pronamic-pay-gravityforms/zipball/25f1836281e5c362ed54b02ae4410e576cbd77d4",
+                "reference": "25f1836281e5c362ed54b02ae4410e576cbd77d4",
                 "shasum": ""
             },
             "require": {
                 "automattic/jetpack-autoloader": "^3.0 || ^4.0 || ^5.0 || ^6.0",
-                "composer/installers": "^2.2",
-                "php": ">=8.2",
+                "composer/installers": "^2.3",
+                "php": ">=8.3",
                 "pronamic/ideal-issuers": "^1.1",
                 "pronamic/wp-datetime": "^2.2",
                 "pronamic/wp-gravityforms-nl": "^3.0",
-                "pronamic/wp-money": "^2.4",
+                "pronamic/wp-money": "^2.5",
                 "pronamic/wp-number": "^1.4",
                 "pronamic/wp-pay-logos": "^2.3",
                 "woocommerce/action-scheduler": "^3.9 || ^4.0",
-                "wp-pay/core": "^4.32"
+                "wp-pay/core": "^4.35"
             },
             "require-dev": {
-                "php-coveralls/php-coveralls": "^2.7",
+                "php-coveralls/php-coveralls": "^2.9",
                 "phpmd/phpmd": "^2.15",
-                "phpstan/extension-installer": "^1.3",
-                "phpstan/phpstan": "^1.11",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.3",
+                "phpunit/phpunit": "^10.5",
                 "pronamic/gravityforms": "^3.2",
-                "pronamic/pronamic-cli": "^1.1",
-                "pronamic/wp-coding-standards": "^2.2",
-                "rector/rector": "^1.2",
-                "roots/wordpress": "^6.8",
+                "pronamic/wp-coding-standards": "^2.5",
+                "rector/rector": "^2.8",
+                "roots/wordpress": "^6.9",
                 "solvebeam/wp-hooks-documentor": "^1.5",
-                "szepeviktor/phpstan-wordpress": "^1.3",
-                "vimeo/psalm": "^5.24",
-                "wp-cli/dist-archive-command": "*",
-                "wp-cli/wp-cli-bundle": "*",
-                "wp-pay-gateways/mollie": "^4.12",
-                "wp-phpunit/wp-phpunit": "^6.4",
+                "szepeviktor/phpstan-wordpress": "^2.0",
+                "vimeo/psalm": "^6.0",
+                "wp-cli/dist-archive-command": "^3.1",
+                "wp-cli/wp-cli-bundle": "^2.12",
+                "wp-phpunit/wp-phpunit": "^7.1",
+                "wp-plugin/sqlite-database-integration": "^3.1",
                 "yoast/phpunit-polyfills": "^2.0"
             },
             "type": "wordpress-plugin",
             "extra": {
+                "wp-slug": "pronamic-pay-gravity-forms",
                 "installer-paths": {
+                    "vendor/{$vendor}/{$name}/": [
+                        "wp-plugin/sqlite-database-integration"
+                    ],
                     "packages/{$vendor}/{$name}": [
                         "pronamic/wp-datetime",
                         "pronamic/wp-gravityforms-nl",
                         "pronamic/wp-html",
                         "pronamic/wp-http",
-                        "pronamic/wp-mollie",
                         "pronamic/wp-money",
                         "pronamic/wp-number",
                         "vendor:wp-pay",
                         "vendor:wp-pay-extensions",
-                        "vendor:wp-pay-gateways",
                         "woocommerce/action-scheduler"
                     ]
                 }
@@ -2046,8 +2048,8 @@
                 "issues": "https://github.com/wp-pay-extensions/gravityforms/issues",
                 "source": "https://github.com/wp-pay-extensions/gravityforms"
             },
-            "time": "2026-11-02T14:32:35+00:00",
-            "published-time": "2026-11-02T14:32:40+00:00"
+            "time": "2026-11-18T09:45:26+00:00",
+            "published-time": "2026-11-18T09:47:50+00:00"
         },
         {
             "name": "wp-pay-extensions/memberpress",

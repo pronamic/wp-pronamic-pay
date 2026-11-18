@@ -119,7 +119,7 @@
 		"wp-pay-extensions/event-espresso": "^4.4",
 		"wp-pay-extensions/formidable-forms": "^4.5",
 		"wp-pay-extensions/give": "^5.0",
-		"wp-pay-extensions/gravityforms": "^4.13.2",
+		"wp-pay-extensions/gravityforms": "^4.14",
 		"wp-pay-extensions/memberpress": "^4.11.1",
 		"wp-pay-extensions/ninjaforms": "^3.3",
 		"wp-pay-extensions/restrict-content-pro": "^4.11",
@@ -165,7 +165,7 @@
 			"vendor/bin/wp i18n make-mo ./build/pronamic-ideal/languages/",
 			"vendor/bin/wp dist-archive ./build/pronamic-ideal/ --plugin-dirname=pronamic-ideal --force"
 		],
-		"translate": [
+		"make-pot": [
 			"@build",
 			"rsync --recursive --delete --verbose ./build/pronamic-ideal/languages/ ./languages/",
 			"@update-po"

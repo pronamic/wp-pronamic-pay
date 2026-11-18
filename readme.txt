@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-pay&source=w
 Requires at least: 6.8
 Tested up to: 7.1
 Requires PHP: 8.3
-Stable tag: 11.4.0
+Stable tag: 11.5.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,27 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [11.5.0] - 2026-11-18
+
+#### Changed
+
+- Gravity Forms: the "Send Notifications Delay" setting is now limited to payment feeds that already delay notifications, in preparation for its removal in favour of notification events. ([pronamic/wp-pronamic-pay-gravityforms#58](https://github.com/pronamic/wp-pronamic-pay-gravityforms/pull/58))
+- Gravity Forms: most hook callbacks are now first-class callables. Code that removes these callbacks with an array callable, such as `[ $object, 'method' ]`, no longer works.
+
+#### Fixed
+
+- Gravity Forms: fixed the position of the merge tag selector in the payment feed settings and renamed "Available tags" to "Frequently used tags". ([pronamic/wp-pronamic-pay-gravityforms#75](https://github.com/pronamic/wp-pronamic-pay-gravityforms/pull/75))
+
+#### Composer
+
+- Changed `wp-pay-extensions/gravityforms` from `v4.13.3` to `v4.14.0`.
+  - Limited the "Send Notifications Delay" setting, fixed the merge tag selector position, changed the text domain from `pronamic_ideal` to `pronamic-pay-gravity-forms` and moved the admin assets to `assets/dist`.
+  - Release notes: https://github.com/pronamic/wp-pronamic-pay-gravityforms/releases/tag/v4.14.0
+
+Full Changelog: [`v11.4.0...v11.5.0`][11.5.0]
+
+[11.5.0]: https://github.com/pronamic/wp-pronamic-pay/compare/v11.4.0...v11.5.0
 
 ### [11.4.0] - 2026-11-17
 
